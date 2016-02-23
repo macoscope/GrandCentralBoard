@@ -1,21 +1,34 @@
 //
-//  AppDelegate.swift
-//  GrandCentralBoard
-//
 //  Created by Oktawian Chojnacki on 31.12.2015.
 //  Copyright © 2015 Oktawian Chojnacki. All rights reserved.
 //
 
 import UIKit
+import TVMLKit
+
+ // protocol to JSExport
+
+@objc protocol Logging : JSExport {
+    func log(message: String)
+}
+
+class Bridge : NSObject, Logging {
+    func log(message: String) {
+        NSLog(message)
+    }
+}
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, TVApplicationControllerDelegate {
 
     var window: UIWindow?
-
+    let context = TVApplicationControllerContext()
+    var controller: TVApplicationController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        UIApplication.sharedApplication().idleTimerDisabled = true
+
         return true
     }
 

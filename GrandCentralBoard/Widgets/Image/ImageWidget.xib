@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageWidget" customModule="GrandCentralBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jyM-la-gmf">
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
+                </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kKg-XI-PTx">
+                    <rect key="frame" x="288" y="238" width="64" height="64"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jyM-la-gmf" secondAttribute="bottom" id="4QN-Do-CYW"/>
+                <constraint firstItem="kKg-XI-PTx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5Dy-4z-6Bo"/>
+                <constraint firstItem="jyM-la-gmf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BBk-WV-4xQ"/>
+                <constraint firstItem="jyM-la-gmf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HtH-PB-h9b"/>
+                <constraint firstItem="kKg-XI-PTx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Mei-sm-yQ3"/>
+                <constraint firstAttribute="trailing" secondItem="jyM-la-gmf" secondAttribute="trailing" id="pp8-2N-3Xp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activity" destination="kKg-XI-PTx" id="Uc4-oq-glu"/>
+                <outlet property="image" destination="jyM-la-gmf" id="oUj-lK-iHI"/>
+            </connections>
+            <point key="canvasLocation" x="-7" y="125"/>
+        </view>
+    </objects>
+</document>
