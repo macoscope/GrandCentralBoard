@@ -27,6 +27,7 @@
 		1AD5EAA21C7CFE4E00210BB9 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */; };
 		1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */; };
 		1AD5EAA81C7D291300210BB9 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA71C7D291300210BB9 /* Widget.swift */; };
+		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
 		BBF03AD58EA228582E79D049 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchWidget.swift; path = GrandCentralBoard/Widgets/WatchWidget.swift; sourceTree = SOURCE_ROOT; };
 		1AD5EAA71C7D291300210BB9 /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBE0DF3DE1155B6EF1F75FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */,
+				1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */,
 				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
 				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
 			);
@@ -427,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* ViewController.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,

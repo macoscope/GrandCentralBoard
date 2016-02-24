@@ -29,7 +29,7 @@ final class WatchWidget : Widget  {
 
         switch result {
             case .Success(let time):
-                let timeViewModel = TimeViewModel(date: time.time, timeZone: time.timeZone)
+                let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone)
                 widgetView.render(timeViewModel)
             case .Failure:
                 widgetView.failure()

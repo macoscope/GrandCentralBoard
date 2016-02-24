@@ -5,29 +5,6 @@
 
 import UIKit
 
-struct TimeViewModel {
-    let time: String
-    let timeZone: String
-    let day: String
-    let month: String
-
-    init(date: NSDate, timeZone: NSTimeZone) {
-
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        
-        let calendar = NSCalendar.currentCalendar()
-        let comp = calendar.components([.Hour, .Minute], fromDate: date)
-        let hour = comp.hour
-        let minute = comp.minute
-
-        self.time = "\(hour):\(minute)"
-        self.timeZone = timeZone.name ?? ""
-        self.day = "11"
-        self.month = "January"
-    }
-}
-
 final class WatchWidgetView : UIView, ViewModelRendering {
 
     @IBOutlet private var time: UILabel!
@@ -37,7 +14,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
 
     // MARK - ViewModelRendering
 
-    typealias ViewModel = TimeViewModel
+    typealias ViewModel = WatchWidgetViewModel
 
     private(set) var state: RenderingState<ViewModel> = .Waiting {
         didSet { handleTransitionFromState(oldValue, toState: state) }
@@ -66,7 +43,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
                 transitionToWaitingState(false)
                 setUpLabelsWithViewModel(viewModel)
             case (_, .Failed):
-                // TODO: Failed appearance
+                // No failed appearance
                 break
             case (_, .Waiting):
                 transitionToWaitingState(true)

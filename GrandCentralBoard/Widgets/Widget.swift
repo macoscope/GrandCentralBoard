@@ -3,13 +3,13 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol Updateable {
     var frequency: NSTimeInterval { get }
     func update()
 }
 
-class Widget : Updateable {
+protocol Widget : Updateable {
     var view: UIView { get }
 }
