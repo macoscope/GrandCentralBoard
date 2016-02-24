@@ -14,7 +14,7 @@ final class WatchWidgetBuilder : WidgetBuilding {
 
     private let timeZoneKey = "timeZone"
 
-    let key = "watch"
+    let name = "watch"
 
     func build(settings: [String : String]) throws -> Widget {
         if let timeZone = settings[timeZoneKey] {

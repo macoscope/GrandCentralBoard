@@ -15,6 +15,6 @@ protocol Widget : Updateable {
 }
 
 protocol WidgetBuilding : class {
-    var key: String { get }
+    var name: String { get }
     func build(settings: [String : String]) throws -> Widget
 }

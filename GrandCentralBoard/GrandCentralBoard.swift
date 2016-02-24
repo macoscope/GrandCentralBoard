@@ -21,7 +21,7 @@ final class GrandCentralBoard {
 
         widgets = configuration.settings.flatMap({ widgetConfiguration in
             
-            if let builder = configuration.builders.filter({ $0.key == widgetConfiguration.key }).first {
+            if let builder = configuration.builders.filter({ $0.name == widgetConfiguration.name }).first {
                 return try? builder.build(widgetConfiguration.settings)
             }
 

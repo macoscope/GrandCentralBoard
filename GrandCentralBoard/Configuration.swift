@@ -4,23 +4,24 @@
 //
 
 import Foundation
+import Decodable
 
 let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder()]
 
 struct WidgetSettings {
-    let key: String
+    let name: String
     let settings: [String : String]
 
-    static func settingsFromArray(array: [[String : [String : String]]]) -> [WidgetSettings] {
-
+    static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
         return array.flatMap({ settings in
-
-            if let key = settings.keys.first, settingsForKey = settings[key] {
-                return WidgetSettings(key: key, settings: settingsForKey)
-            }
-
-            return nil
+            return try? WidgetSettings.decode(settings)
         })
+    }
+}
+
+extension WidgetSettings : Decodable {
+    static func decode(j: AnyObject) throws -> WidgetSettings {
+        return try WidgetSettings(name: j => "name", settings: j => "settings")
     }
 }
 
@@ -36,6 +37,7 @@ struct Configuration {
 
     static func defaultConfiguration() throws -> Configuration {
 
+        // TODO: Fetch from server.
         if let path = NSBundle.mainBundle().pathForResource("configuration", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 return try configurationFromData(jsonData)
@@ -48,9 +50,8 @@ struct Configuration {
     private static func configurationFromData(data: NSData) throws -> Configuration {
 
         if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-            if let widgets = jsonResult["widgets"] as? [[String : [String : String]]] {
-                let array = widgets.map({ $0 as [String : [String : String]] })
-                return Configuration(builders: availableBuilders, settings: WidgetSettings.settingsFromArray(array))
+            if let widgets = jsonResult["widgets"] as? [AnyObject] {
+                return Configuration(builders: availableBuilders, settings: WidgetSettings.settingsFromArray(widgets))
             }
         }
 

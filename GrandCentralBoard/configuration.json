@@ -1,10 +1,10 @@
 {
     "widgets": [
-                {"watch": {"timeZone":"Europe/Warsaw"} },
-                {"watch": {"timeZone":"Europe/Berlin"} },
-                {"watch": {"timeZone":"Europe/London"} },
-                {"watch": {"timeZone":"Europe/Warsaw"} },
-                {"watch": {"timeZone":"Europe/Warsaw"} },
-                {"watch": {"timeZone":"Europe/Warsaw"} }
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Berlin"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/London"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} }
                ]
 }
