@@ -28,6 +28,7 @@
 		1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */; };
 		1AD5EAA81C7D291300210BB9 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA71C7D291300210BB9 /* Widget.swift */; };
 		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
+		1AD5EAAC1C7DA9BB00210BB9 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */; };
 		BBF03AD58EA228582E79D049 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchWidget.swift; path = GrandCentralBoard/Widgets/WatchWidget.swift; sourceTree = SOURCE_ROOT; };
 		1AD5EAA71C7D291300210BB9 /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
+		1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBE0DF3DE1155B6EF1F75FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +143,7 @@
 		1A242D1F1C357C2700D5BEE5 /* GrandCentralBoard */ = {
 			isa = PBXGroup;
 			children = (
+				1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */,
 				1A5180121C385FF50035092D /* Extensions */,
 				1A242D5E1C37F63500D5BEE5 /* Views */,
 				1A242D4B1C357C6600D5BEE5 /* Models */,
@@ -439,6 +442,7 @@
 				1A242D4E1C357C7700D5BEE5 /* Timed.swift in Sources */,
 				1A242D501C357CA500D5BEE5 /* Source.swift in Sources */,
 				1AD5EAA21C7CFE4E00210BB9 /* UILabel.swift in Sources */,
+				1AD5EAAC1C7DA9BB00210BB9 /* Scheduler.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,

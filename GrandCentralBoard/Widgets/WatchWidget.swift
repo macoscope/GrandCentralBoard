@@ -23,7 +23,7 @@ final class WatchWidget : Widget  {
         return widgetView
     }
 
-    func update() {
+    @objc func update() {
 
         let result = source.read()
 

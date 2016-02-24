@@ -5,7 +5,7 @@
 
 import UIKit
 
-protocol Updateable {
+protocol Updateable : class {
     var interval: NSTimeInterval { get }
     func update()
 }

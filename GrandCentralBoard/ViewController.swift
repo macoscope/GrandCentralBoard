@@ -10,7 +10,7 @@ class ViewController: UIViewController {
 
     let imageSource = RemoteImageSource(url: NSURL(string: "https://sf.co.ua/14/02/wallpaper-507810.jpg")!)
     let timeSource = TimeSource(zone: NSTimeZone(name: "Europe/Warsaw")!)
-
+    let scheduler = Scheduler()
 
     var stack: AutoStack!
 
@@ -41,8 +41,8 @@ class ViewController: UIViewController {
         bottomMiddle.update()
         bottomRight.update()
 
-
-
+        let job = Job(target: topLeft)
+        scheduler.schedule(job)
     }
 }
 
