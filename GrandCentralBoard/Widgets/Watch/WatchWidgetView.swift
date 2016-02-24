@@ -32,12 +32,12 @@ final class WatchWidgetView : UIView, ViewModelRendering {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        handleTransitionFromState(.Waiting, toState: .Waiting)
+        handleTransitionFromState(nil, toState: .Waiting)
     }
 
     // MARK - Transitions
 
-    func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
+    func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
             case (_, .Rendering(let viewModel)):
                 transitionToWaitingState(false)
