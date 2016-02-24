@@ -75,7 +75,7 @@
 		1AD5EA9C1C7B8FED00210BB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AD5EA9E1C7C6DE300210BB9 /* TimeSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSource.swift; sourceTree = "<group>"; };
 		1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchWidget.swift; path = GrandCentralBoard/Widgets/WatchWidget.swift; sourceTree = SOURCE_ROOT; };
+		1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidget.swift; sourceTree = "<group>"; };
 		1AD5EAA71C7D291300210BB9 /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
@@ -121,12 +121,12 @@
 		1A242D141C357C2700D5BEE5 = {
 			isa = PBXGroup;
 			children = (
+				37BDC21EB298FAB30BE1D730 /* Frameworks */,
 				1A242D1F1C357C2700D5BEE5 /* GrandCentralBoard */,
 				1A242D311C357C2700D5BEE5 /* GrandCentralBoardTests */,
 				1A242D3C1C357C2700D5BEE5 /* GrandCentralBoardUITests */,
-				1A242D1E1C357C2700D5BEE5 /* Products */,
 				11484130C0B0FB42F82F007F /* Pods */,
-				37BDC21EB298FAB30BE1D730 /* Frameworks */,
+				1A242D1E1C357C2700D5BEE5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,16 +143,16 @@
 		1A242D1F1C357C2700D5BEE5 /* GrandCentralBoard */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */,
 				1A5180121C385FF50035092D /* Extensions */,
-				1A242D5E1C37F63500D5BEE5 /* Views */,
 				1A242D4B1C357C6600D5BEE5 /* Models */,
+				1A242D5E1C37F63500D5BEE5 /* Views */,
 				1A242D561C357DFD00D5BEE5 /* Widgets */,
 				1A242D201C357C2700D5BEE5 /* AppDelegate.swift */,
-				1A242D221C357C2700D5BEE5 /* ViewController.swift */,
 				1AD5EA9C1C7B8FED00210BB9 /* Assets.xcassets */,
-				1A242D241C357C2700D5BEE5 /* Main.storyboard */,
 				1A242D291C357C2700D5BEE5 /* Info.plist */,
+				1A242D241C357C2700D5BEE5 /* Main.storyboard */,
+				1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */,
+				1A242D221C357C2700D5BEE5 /* ViewController.swift */,
 			);
 			path = GrandCentralBoard;
 			sourceTree = "<group>";
@@ -179,8 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				1A242D531C357D6F00D5BEE5 /* Sources */,
-				1A242D4D1C357C7700D5BEE5 /* Timed.swift */,
 				1A242D4F1C357CA500D5BEE5 /* Source.swift */,
+				1A242D4D1C357C7700D5BEE5 /* Timed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,10 +197,10 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5EAA71C7D291300210BB9 /* Widget.swift */,
-				1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */,
-				1AD5EA971C7B826A00210BB9 /* Watch */,
 				1AD5EA921C7B819D00210BB9 /* Image */,
+				1AD5EA971C7B826A00210BB9 /* Watch */,
+				1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */,
+				1AD5EAA71C7D291300210BB9 /* Widget.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -216,8 +216,8 @@
 		1A5180121C385FF50035092D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1A5180131C3860010035092D /* UIView.swift */,
 				1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */,
+				1A5180131C3860010035092D /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,9 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */,
-				1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */,
 				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
 				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
+				1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */,
 			);
 			path = Watch;
 			sourceTree = "<group>";
@@ -490,6 +490,7 @@
 				1A242D251C357C2700D5BEE5 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
