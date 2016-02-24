@@ -8,9 +8,8 @@ import Alamofire
 
 struct Image : Timed {
     let value: UIImage
-    let time: NSDate?
+    let time: NSDate
 }
-
 
 final class RemoteImageSource : Asynchronous {
 

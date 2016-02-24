@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum SourceType: Int {
+enum SourceType {
     case Cumulative
     case Momentary
 }

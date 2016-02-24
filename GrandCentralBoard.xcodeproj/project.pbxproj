@@ -7,29 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A21FD331C4550CF00146024 /* FocusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21FD321C4550CF00146024 /* FocusableView.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* ViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
 		1A242D331C357C2700D5BEE5 /* GrandCentralBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D321C357C2700D5BEE5 /* GrandCentralBoardTests.swift */; };
 		1A242D3E1C357C2700D5BEE5 /* GrandCentralBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D3D1C357C2700D5BEE5 /* GrandCentralBoardUITests.swift */; };
-		1A242D4E1C357C7700D5BEE5 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D4D1C357C7700D5BEE5 /* Value.swift */; };
+		1A242D4E1C357C7700D5BEE5 /* Timed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D4D1C357C7700D5BEE5 /* Timed.swift */; };
 		1A242D501C357CA500D5BEE5 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D4F1C357CA500D5BEE5 /* Source.swift */; };
-		1A242D551C357D6F00D5BEE5 /* RemoteJSONSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D541C357D6F00D5BEE5 /* RemoteJSONSource.swift */; };
 		1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */; };
 		1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */; };
 		1A5180141C3860010035092D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5180131C3860010035092D /* UIView.swift */; };
-		1A578E681C383B5C003794CD /* Slot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A578E671C383B5C003794CD /* Slot.xib */; };
-		1A578E6A1C383DBA003794CD /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A578E691C383DBA003794CD /* Slot.swift */; };
 		1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87495D1C385264006E58C6 /* RemoteImageSource.swift */; };
-		1AD5EA951C7B819D00210BB9 /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA931C7B819D00210BB9 /* ImageWidget.swift */; };
-		1AD5EA961C7B819D00210BB9 /* ImageWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5EA941C7B819D00210BB9 /* ImageWidget.xib */; };
-		1AD5EA991C7B827300210BB9 /* WatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA981C7B827300210BB9 /* WatchWidget.swift */; };
-		1AD5EA9B1C7B828200210BB9 /* WatchWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5EA9A1C7B828200210BB9 /* WatchWidget.xib */; };
+		1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */; };
+		1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */; };
+		1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */; };
+		1AD5EA9B1C7B828200210BB9 /* WatchWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */; };
 		1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5EA9C1C7B8FED00210BB9 /* Assets.xcassets */; };
 		1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA9E1C7C6DE300210BB9 /* TimeSource.swift */; };
 		1AD5EAA21C7CFE4E00210BB9 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */; };
-		1AD5EAA41C7D125A00210BB9 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA31C7D125A00210BB9 /* Widget.swift */; };
+		1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */; };
+		1AD5EAA81C7D291300210BB9 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA71C7D291300210BB9 /* Widget.swift */; };
 		BBF03AD58EA228582E79D049 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		13473B743D0BD7A5BBEF96CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		1A21FD321C4550CF00146024 /* FocusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusableView.swift; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A242D221C357C2700D5BEE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,23 +60,21 @@
 		1A242D391C357C2700D5BEE5 /* GrandCentralBoardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrandCentralBoardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D3D1C357C2700D5BEE5 /* GrandCentralBoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandCentralBoardUITests.swift; sourceTree = "<group>"; };
 		1A242D3F1C357C2700D5BEE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A242D4D1C357C7700D5BEE5 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		1A242D4D1C357C7700D5BEE5 /* Timed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timed.swift; sourceTree = "<group>"; };
 		1A242D4F1C357CA500D5BEE5 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
-		1A242D541C357D6F00D5BEE5 /* RemoteJSONSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteJSONSource.swift; sourceTree = "<group>"; };
 		1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendering.swift; sourceTree = "<group>"; };
 		1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStack.swift; sourceTree = "<group>"; };
 		1A5180131C3860010035092D /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		1A578E671C383B5C003794CD /* Slot.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Slot.xib; sourceTree = "<group>"; };
-		1A578E691C383DBA003794CD /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		1A87495D1C385264006E58C6 /* RemoteImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageSource.swift; sourceTree = "<group>"; };
-		1AD5EA931C7B819D00210BB9 /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
-		1AD5EA941C7B819D00210BB9 /* ImageWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageWidget.xib; sourceTree = "<group>"; };
-		1AD5EA981C7B827300210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidget.swift; sourceTree = "<group>"; };
-		1AD5EA9A1C7B828200210BB9 /* WatchWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchWidget.xib; sourceTree = "<group>"; };
+		1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetView.swift; sourceTree = "<group>"; };
+		1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageWidgetView.xib; sourceTree = "<group>"; };
+		1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetView.swift; sourceTree = "<group>"; };
+		1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchWidgetView.xib; sourceTree = "<group>"; };
 		1AD5EA9C1C7B8FED00210BB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AD5EA9E1C7C6DE300210BB9 /* TimeSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSource.swift; sourceTree = "<group>"; };
 		1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		1AD5EAA31C7D125A00210BB9 /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchWidget.swift; path = GrandCentralBoard/Widgets/WatchWidget.swift; sourceTree = SOURCE_ROOT; };
+		1AD5EAA71C7D291300210BB9 /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBE0DF3DE1155B6EF1F75FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				1A242D531C357D6F00D5BEE5 /* Sources */,
-				1A242D4D1C357C7700D5BEE5 /* Value.swift */,
+				1A242D4D1C357C7700D5BEE5 /* Timed.swift */,
 				1A242D4F1C357CA500D5BEE5 /* Source.swift */,
 			);
 			path = Models;
@@ -189,7 +183,6 @@
 		1A242D531C357D6F00D5BEE5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1A242D541C357D6F00D5BEE5 /* RemoteJSONSource.swift */,
 				1A87495D1C385264006E58C6 /* RemoteImageSource.swift */,
 				1AD5EA9E1C7C6DE300210BB9 /* TimeSource.swift */,
 			);
@@ -199,7 +192,7 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5EAA31C7D125A00210BB9 /* Widget.swift */,
+				1AD5EAA71C7D291300210BB9 /* Widget.swift */,
 				1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */,
 				1AD5EA971C7B826A00210BB9 /* Watch */,
 				1AD5EA921C7B819D00210BB9 /* Image */,
@@ -210,7 +203,6 @@
 		1A242D5E1C37F63500D5BEE5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5EAA01C7CFDFF00210BB9 /* __unused_for_now */,
 				1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */,
 			);
 			path = Views;
@@ -228,8 +220,8 @@
 		1AD5EA921C7B819D00210BB9 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5EA931C7B819D00210BB9 /* ImageWidget.swift */,
-				1AD5EA941C7B819D00210BB9 /* ImageWidget.xib */,
+				1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */,
+				1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -237,20 +229,11 @@
 		1AD5EA971C7B826A00210BB9 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5EA981C7B827300210BB9 /* WatchWidget.swift */,
-				1AD5EA9A1C7B828200210BB9 /* WatchWidget.xib */,
+				1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */,
+				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
+				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
 			);
 			path = Watch;
-			sourceTree = "<group>";
-		};
-		1AD5EAA01C7CFDFF00210BB9 /* __unused_for_now */ = {
-			isa = PBXGroup;
-			children = (
-				1A578E671C383B5C003794CD /* Slot.xib */,
-				1A578E691C383DBA003794CD /* Slot.swift */,
-				1A21FD321C4550CF00146024 /* FocusableView.swift */,
-			);
-			name = __unused_for_now;
 			sourceTree = "<group>";
 		};
 		37BDC21EB298FAB30BE1D730 /* Frameworks */ = {
@@ -369,10 +352,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
-				1A578E681C383B5C003794CD /* Slot.xib in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
-				1AD5EA961C7B819D00210BB9 /* ImageWidget.xib in Resources */,
-				1AD5EA9B1C7B828200210BB9 /* WatchWidget.xib in Resources */,
+				1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */,
+				1AD5EA9B1C7B828200210BB9 /* WatchWidgetView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,21 +428,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A242D231C357C2700D5BEE5 /* ViewController.swift in Sources */,
-				1AD5EA991C7B827300210BB9 /* WatchWidget.swift in Sources */,
+				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
-				1A578E6A1C383DBA003794CD /* Slot.swift in Sources */,
 				1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */,
-				1A21FD331C4550CF00146024 /* FocusableView.swift in Sources */,
-				1A242D551C357D6F00D5BEE5 /* RemoteJSONSource.swift in Sources */,
 				1A5180141C3860010035092D /* UIView.swift in Sources */,
-				1A242D4E1C357C7700D5BEE5 /* Value.swift in Sources */,
+				1A242D4E1C357C7700D5BEE5 /* Timed.swift in Sources */,
 				1A242D501C357CA500D5BEE5 /* Source.swift in Sources */,
 				1AD5EAA21C7CFE4E00210BB9 /* UILabel.swift in Sources */,
-				1AD5EAA41C7D125A00210BB9 /* Widget.swift in Sources */,
+				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
 				1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */,
-				1AD5EA951C7B819D00210BB9 /* ImageWidget.swift in Sources */,
+				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
+				1AD5EAA81C7D291300210BB9 /* Widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,10 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/GrandCentralBoard/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GrandCentralBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;
@@ -611,10 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/GrandCentralBoard/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GrandCentralBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;

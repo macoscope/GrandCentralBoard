@@ -6,7 +6,7 @@
 import Foundation
 
 struct Time : Timed {
-    let time: NSDate?
+    let time: NSDate
     let timeZone: NSTimeZone
 }
 

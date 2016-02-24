@@ -22,14 +22,14 @@ Three main components are important for adding a Widget:
 
 - **Model** - implements one of the updating strategies (further described below)
 - **View** - a view that display the information
-- **Widget subclass** - controller class setting up the scheduler and connecting previous two.
+- **Widget subclass** - controller class exposed to the scheduler and connecting previous two with each other.
 
 ### View State
 
 Widget View should show these states:
 
 - **Waiting** - starting state, presenting some activity indicator
-- **Rendering** - presenting information
+- **Rendering** - presenting information (after render method is called)
 - **Failed** - data failed to load, should be avoided if possible
 
 
@@ -37,19 +37,19 @@ Widget View should show these states:
 
 The source should implement one  of the two protocols:
 
-- Synchronous - the source will return value synchronously in a non-blocking way.
+- **Synchronous** - the source will return value synchronously in a non-blocking way.
 
 ```
 protocol Synchronous : Source {
-    var value: ValueType? { get }
+    func read() -> ResultType
 }
 ```
 
-- Asynchronous - the source will call the provided block after the value is retrieved. 
+- **Asynchronous** - the source will call the provided block after the value is retrieved. 
 
 ```
 protocol Asynchronous : Source {
-    func read(block: (ValueType?) -> Void)
+    func read(closure: (ResultType) -> Void)
 }
 ```
 
@@ -59,7 +59,7 @@ All strategies implement the **Source** protocol:
 
 
 ```
-enum SourceType: Int {
+enum SourceType {
     case Cumulative
     case Momentary
 }

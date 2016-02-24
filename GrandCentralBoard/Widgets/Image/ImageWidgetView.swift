@@ -9,7 +9,7 @@ struct ImageViewModel {
     let image: UIImage
 }
 
-final class ImageWidget : UIView, ViewModelRendering {
+final class ImageWidgetView : UIView, ViewModelRendering {
 
     typealias ViewModel = ImageViewModel
 
@@ -63,7 +63,7 @@ final class ImageWidget : UIView, ViewModelRendering {
         }
     }
 
-    class func fromNib() -> ImageWidget {
-        return NSBundle.mainBundle().loadNibNamed("ImageWidget", owner: nil, options: nil)[0] as! ImageWidget
+    class func fromNib() -> ImageWidgetView {
+        return NSBundle.mainBundle().loadNibNamed("ImageWidgetView", owner: nil, options: nil)[0] as! ImageWidgetView
     }
 }

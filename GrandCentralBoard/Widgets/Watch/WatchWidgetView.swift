@@ -10,6 +10,22 @@ struct TimeViewModel {
     let timeZone: String
     let day: String
     let month: String
+
+    init(date: NSDate, timeZone: NSTimeZone) {
+
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        let calendar = NSCalendar.currentCalendar()
+        let comp = calendar.components([.Hour, .Minute], fromDate: date)
+        let hour = comp.hour
+        let minute = comp.minute
+
+        self.time = "\(hour):\(minute)"
+        self.timeZone = timeZone.name ?? ""
+        self.day = "11"
+        self.month = "January"
+    }
 }
 
 final class WatchWidgetView : UIView, ViewModelRendering {
@@ -75,7 +91,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
 
     // MARK - fromNib
 
-    class func fromNib() -> WatchWidget {
-        return NSBundle.mainBundle().loadNibNamed("WatchWidget", owner: nil, options: nil)[0] as! WatchWidget
+    class func fromNib() -> WatchWidgetView {
+        return NSBundle.mainBundle().loadNibNamed("WatchWidgetView", owner: nil, options: nil)[0] as! WatchWidgetView
     }
 }

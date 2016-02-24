@@ -7,15 +7,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let topLeft = ImageWidget.fromNib()//WatchWidget.fromNib()
-    let topMiddle = ImageWidget.fromNib()
-    let topRight = ImageWidget.fromNib()
-    let bottomLeft = ImageWidget.fromNib()
-    let bottomMiddle = ImageWidget.fromNib()
-    let bottomRight = ImageWidget.fromNib()
 
     let imageSource = RemoteImageSource(url: NSURL(string: "https://sf.co.ua/14/02/wallpaper-507810.jpg")!)
-    let timeSource = TimeSource(zone: NSTimeZone.localTimeZone())
+    let timeSource = TimeSource(zone: NSTimeZone(name: "Europe/Warsaw")!)
+
 
     var stack: AutoStack!
 
@@ -25,34 +20,29 @@ class ViewController: UIViewController {
         stack = AutoStack()
         self.view = stack
 
-        stack.stackView(topLeft)
-        stack.stackView(topMiddle)
-        stack.stackView(topRight)
-        stack.stackView(bottomLeft)
-        stack.stackView(bottomMiddle)
-        stack.stackView(bottomRight)
+        let topLeft = WatchWidget(source: timeSource)
+        let topMiddle = WatchWidget(source: timeSource)
+        let topRight = WatchWidget(source: timeSource)
+        let bottomLeft = WatchWidget(source: timeSource)
+        let bottomMiddle = WatchWidget(source: timeSource)
+        let bottomRight = WatchWidget(source: timeSource)
 
-        // let time = TimeViewModel(time:"00:00", timeZone: "Warsaw", day: "11", month: "January")
-        // let timeReading = timeSource.read()
+        stack.stackView(topLeft.view)
+        stack.stackView(topMiddle.view)
+        stack.stackView(topRight.view)
+        stack.stackView(bottomLeft.view)
+        stack.stackView(bottomMiddle.view)
+        stack.stackView(bottomRight.view)
 
-        imageSource.read { result in
-            switch result {
-                case .Success(let image):
+        topLeft.update()
+        topMiddle.update()
+        topRight.update()
+        bottomLeft.update()
+        bottomMiddle.update()
+        bottomRight.update()
 
-                    let viewModel = ImageViewModel(image: image.value)
 
-                    self.topLeft.render(viewModel)
-                    self.topMiddle.render(viewModel)
-                    self.topRight.render(viewModel)
 
-                    self.bottomLeft.render(viewModel)
-                    self.bottomMiddle.render(viewModel)
-                    self.bottomRight.render(viewModel)
-
-                case .Failure:
-                    break
-            }
-        }
     }
 }
 
