@@ -16,5 +16,5 @@ protocol Widget : Updateable {
 
 protocol WidgetBuilding : class {
     var name: String { get }
-    func build(settings: [String : String]) throws -> Widget
+    func build(settings: AnyObject) throws -> Widget
 }

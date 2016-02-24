@@ -10,7 +10,7 @@ let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder()]
 
 struct WidgetSettings {
     let name: String
-    let settings: [String : String]
+    let settings: AnyObject
 
     static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
         return array.flatMap({ settings in
@@ -38,6 +38,8 @@ struct Configuration {
     static func defaultConfiguration() throws -> Configuration {
 
         // TODO: Fetch from server.
+
+
         if let path = NSBundle.mainBundle().pathForResource("configuration", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 return try configurationFromData(jsonData)

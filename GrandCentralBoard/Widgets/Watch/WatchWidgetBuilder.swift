@@ -16,8 +16,8 @@ final class WatchWidgetBuilder : WidgetBuilding {
 
     let name = "watch"
 
-    func build(settings: [String : String]) throws -> Widget {
-        if let timeZone = settings[timeZoneKey] {
+    func build(settings: AnyObject) throws -> Widget {
+        if let settingsDictionary = settings as? [String : String], timeZone = settingsDictionary[timeZoneKey] {
             if let zone = NSTimeZone(name: timeZone) {
                 let timeSource = TimeSource(zone: zone)
                 return WatchWidget(source: timeSource)
