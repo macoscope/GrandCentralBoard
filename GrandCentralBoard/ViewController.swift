@@ -5,20 +5,9 @@
 
 import UIKit
 
-let dummySettings = [
-    WidgetSettings(key:"watch", settings: ["timeZone":"Europe/Warsaw"]),
-    WidgetSettings(key:"watch", settings: ["timeZone":"Europe/Warsaw"]),
-    WidgetSettings(key:"watch", settings: ["timeZone":"Europe/Warsaw"]),
-    WidgetSettings(key:"watch", settings: ["timeZone":"Europe/Warsaw"]),
-    WidgetSettings(key:"watch", settings: ["timeZone":"Europe/Warsaw"]),
-    WidgetSettings(key:"watch", settings: ["timeZone":"Europe/Warsaw"]),
-]
-
-let dummyConfiguration = Configuration(builders: [WatchWidgetBuilder()], settings: dummySettings)
-
 class ViewController: UIViewController {
 
-    let board = GrandCentralBoard(configuration: dummyConfiguration)
+    let board = GrandCentralBoard(configuration: try! Configuration.defaultConfiguration())
 
     override func viewDidLoad() {
         super.viewDidLoad()

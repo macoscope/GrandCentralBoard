@@ -1,8 +1,10 @@
-[
-     {"watch": ["timeZone":"Europe/Warsaw"] },
-     {"watch": ["timeZone":"Europe/Warsaw"] },
-     {"watch": ["timeZone":"Europe/Warsaw"] },
-     {"watch": ["timeZone":"Europe/Warsaw"] },
-     {"watch": ["timeZone":"Europe/Warsaw"] },
-     {"watch": ["timeZone":"Europe/Warsaw"] }
- ]
+{
+    "widgets": [
+                {"watch": {"timeZone":"Europe/Warsaw"} },
+                {"watch": {"timeZone":"Europe/Berlin"} },
+                {"watch": {"timeZone":"Europe/London"} },
+                {"watch": {"timeZone":"Europe/Warsaw"} },
+                {"watch": {"timeZone":"Europe/Warsaw"} },
+                {"watch": {"timeZone":"Europe/Warsaw"} }
+               ]
+}
