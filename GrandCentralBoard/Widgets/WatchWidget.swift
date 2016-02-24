@@ -15,8 +15,8 @@ final class WatchWidget : Widget  {
         self.source = source
     }
 
-    var frequency: NSTimeInterval {
-        return source.optimalFrequency
+    var interval: NSTimeInterval {
+        return source.optimalInterval
     }
 
     var view: UIView {

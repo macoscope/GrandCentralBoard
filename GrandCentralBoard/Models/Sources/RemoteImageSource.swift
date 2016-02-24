@@ -15,13 +15,13 @@ final class RemoteImageSource : Asynchronous {
 
     typealias ResultType = Result<Image>
 
-    let optimalFrequency: NSTimeInterval
+    let optimalInterval: NSTimeInterval
     let sourceType: SourceType = .Momentary
 
     private let url: NSURL
 
-    init(url: NSURL, optimalFrequency: NSTimeInterval = 30) {
-        self.optimalFrequency = optimalFrequency
+    init(url: NSURL, optimalInterval: NSTimeInterval = 30) {
+        self.optimalInterval = optimalInterval
         self.url = url
     }
 

@@ -20,7 +20,7 @@ protocol Source {
     typealias ResultType
 
     var sourceType: SourceType { get }
-    var optimalFrequency: NSTimeInterval { get }
+    var optimalInterval: NSTimeInterval { get }
 }
 
 protocol Synchronous : Source {

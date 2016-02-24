@@ -6,7 +6,7 @@
 import UIKit
 
 protocol Updateable {
-    var frequency: NSTimeInterval { get }
+    var interval: NSTimeInterval { get }
     func update()
 }
 

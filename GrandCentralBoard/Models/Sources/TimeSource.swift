@@ -14,7 +14,7 @@ final class TimeSource : Synchronous {
 
     typealias ResultType = Result<Time>
 
-    let optimalFrequency: NSTimeInterval = 1
+    let optimalInterval: NSTimeInterval = 1
     let sourceType: SourceType = .Momentary
 
     private let timeZone: NSTimeZone
