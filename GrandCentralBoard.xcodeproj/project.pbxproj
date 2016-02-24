@@ -29,6 +29,10 @@
 		1AD5EAA81C7D291300210BB9 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA71C7D291300210BB9 /* Widget.swift */; };
 		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
 		1AD5EAAC1C7DA9BB00210BB9 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */; };
+		1AD6E8011C7DC92B0003121C /* GrandCentralBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8001C7DC92B0003121C /* GrandCentralBoard.swift */; };
+		1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */; };
+		1AD6E8051C7DDD540003121C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8041C7DDD540003121C /* Configuration.swift */; };
+		1AD6E8071C7DE0AD0003121C /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AD6E8061C7DE0AD0003121C /* configuration.json */; };
 		BBF03AD58EA228582E79D049 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,10 @@
 		1AD5EAA71C7D291300210BB9 /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		1AD6E8001C7DC92B0003121C /* GrandCentralBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandCentralBoard.swift; sourceTree = "<group>"; };
+		1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetBuilder.swift; sourceTree = "<group>"; };
+		1AD6E8041C7DDD540003121C /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		1AD6E8061C7DE0AD0003121C /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCBE0DF3DE1155B6EF1F75FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +161,9 @@
 				1A242D241C357C2700D5BEE5 /* Main.storyboard */,
 				1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */,
 				1A242D221C357C2700D5BEE5 /* ViewController.swift */,
+				1AD6E8001C7DC92B0003121C /* GrandCentralBoard.swift */,
+				1AD6E8041C7DDD540003121C /* Configuration.swift */,
+				1AD6E8061C7DE0AD0003121C /* configuration.json */,
 			);
 			path = GrandCentralBoard;
 			sourceTree = "<group>";
@@ -234,6 +245,7 @@
 		1AD5EA971C7B826A00210BB9 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
+				1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */,
 				1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */,
 				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
 				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
@@ -357,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AD6E8071C7DE0AD0003121C /* configuration.json in Resources */,
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
 				1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */,
@@ -438,6 +451,8 @@
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
 				1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */,
+				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
+				1AD6E8051C7DDD540003121C /* Configuration.swift in Sources */,
 				1A5180141C3860010035092D /* UIView.swift in Sources */,
 				1A242D4E1C357C7700D5BEE5 /* Timed.swift in Sources */,
 				1A242D501C357CA500D5BEE5 /* Source.swift in Sources */,
@@ -448,6 +463,7 @@
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
 				1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
+				1AD6E8011C7DC92B0003121C /* GrandCentralBoard.swift in Sources */,
 				1AD5EAA81C7D291300210BB9 /* Widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

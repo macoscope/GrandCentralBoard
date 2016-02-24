@@ -13,3 +13,8 @@ protocol Updateable : class {
 protocol Widget : Updateable {
     var view: UIView { get }
 }
+
+protocol WidgetBuilding : class {
+    var key: String { get }
+    func build(settings: [String : String]) throws -> Widget
+}
