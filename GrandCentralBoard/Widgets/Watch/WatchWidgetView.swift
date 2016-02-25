@@ -7,10 +7,10 @@ import UIKit
 
 final class WatchWidgetView : UIView, ViewModelRendering {
 
-    @IBOutlet private var time: UILabel!
-    @IBOutlet private var timezone: UILabel!
-    @IBOutlet private var day: UILabel!
-    @IBOutlet private var month: UILabel!
+    @IBOutlet private weak var hourLeft: UILabel!
+    @IBOutlet private weak var hourRight: UILabel!
+    @IBOutlet private weak var blinkingImage: UIImageView!
+    @IBOutlet private weak var watchFaceImage: UIImageView!
 
     // MARK - ViewModelRendering
 
@@ -33,6 +33,17 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     override func awakeFromNib() {
         super.awakeFromNib()
         handleTransitionFromState(nil, toState: .Waiting)
+
+        UIView.animateWithDuration(0.5 , delay: 0.0, options:
+            [
+                UIViewAnimationOptions.CurveEaseInOut,
+                UIViewAnimationOptions.Autoreverse,
+                UIViewAnimationOptions.Repeat,
+                UIViewAnimationOptions.AllowUserInteraction
+            ],
+            animations: {
+                self.blinkingImage.alpha = 0.7
+            }, completion: { ended in })
     }
 
     // MARK - Transitions
@@ -42,6 +53,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
             case (_, .Rendering(let viewModel)):
                 transitionToWaitingState(false)
                 setUpLabelsWithViewModel(viewModel)
+                setUpImagesWithViewModel(viewModel)
             case (_, .Failed):
                 // No failed appearance
                 break
@@ -50,19 +62,20 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         }
     }
 
+    func setUpImagesWithViewModel(viewModel: ViewModel) {
+        blinkingImage.setImageIfNotTheSame(viewModel.blinkingImage)
+        watchFaceImage.setImageIfNotTheSame(viewModel.watchFaceImage)
+    }
+
     func setUpLabelsWithViewModel(viewModel: ViewModel) {
-        time.setTextIfNotTheSame(viewModel.time)
-        timezone.setTextIfNotTheSame(viewModel.timeZone)
-        day.setTextIfNotTheSame(viewModel.day)
-        month.setTextIfNotTheSame(viewModel.month)
+        hourLeft.setTextIfNotTheSame(viewModel.hourLeft)
+        hourRight.setTextIfNotTheSame(viewModel.hourRight)
     }
 
     private func transitionToWaitingState(waiting: Bool) {
         UIView.animateWithDuration(0.3) {
-            self.time.alpha = waiting ? 0 : 1
-            self.timezone.alpha = waiting ? 0 : 1
-            self.day.alpha = waiting ? 0 : 1
-            self.month.alpha = waiting ? 0 : 1
+            self.hourLeft.alpha = waiting ? 0 : 1
+            self.hourRight.alpha = waiting ? 0 : 1
         }
     }
 
