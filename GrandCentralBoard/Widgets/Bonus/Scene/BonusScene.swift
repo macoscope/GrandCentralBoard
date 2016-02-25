@@ -1,6 +1,6 @@
 //
 //  Created by krris on 23/02/16.
-//  Copyright (c) 2016 Macoscope. All rights reserved.
+//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
 import SpriteKit

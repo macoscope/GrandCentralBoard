@@ -1,7 +1,4 @@
 //
-//  BonusWidgetBuilder.swift
-//  GrandCentralBoard
-//
 //  Created by krris on 25/02/16.
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
