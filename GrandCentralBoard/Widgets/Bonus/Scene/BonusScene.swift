@@ -33,7 +33,13 @@ class BonusScene: SKScene {
         self.sceneModel = sceneModel
         for person in sceneModel.people {
             let ball = Ball(person: person)
-            ball.position = CGPoint(x: 0, y: 0)
+            let widthRange = Int(-size.width / 2) ... Int(size.width / 2)
+            let heightRange = Int(-size.height / 2) ... Int(size.height / 2)
+            if let x = widthRange.randomElement(), let y = heightRange.randomElement() {
+                ball.position = CGPoint(x: x, y: y)
+            } else {
+                ball.position = CGPoint(x: 0, y: 0)
+            }
             self.addChild(ball)
         }
     }
@@ -65,12 +71,10 @@ class BonusScene: SKScene {
     }
     
     func pokeAllBalls() {
-        let deltas = [Int](-10...10)
+        let deltas = (-10...10)
+        guard let dx = deltas.randomElement(), let dy = deltas.randomElement() else { return }
         
-        let randomDxIndex = Int(arc4random_uniform(UInt32(deltas.count)))
-        let randomDyIndex = Int(arc4random_uniform(UInt32(deltas.count)))
-        let vector = CGVector(dx: deltas[randomDxIndex],
-                              dy: deltas[randomDyIndex])
+        let vector = CGVector(dx: dx, dy: dy)
         let pokeAction = SKAction.moveBy(vector, duration: 2)
         
         children.forEach { node in

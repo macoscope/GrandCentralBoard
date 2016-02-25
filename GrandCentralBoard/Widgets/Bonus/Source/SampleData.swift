@@ -41,9 +41,8 @@ func randomlyUpdateData(data: [Person]) -> [Person] {
     let randomIndex = Int(arc4random_uniform(UInt32(data.count)))
     let randomPerson = data[randomIndex]
     
-    let bonusRange = Array(1...50)
-    let randomBounsIndex = Int(arc4random_uniform(UInt32(bonusRange.count)))
-    let bonus = bonusRange[randomBounsIndex]
+    let bonusRange = (1...50)
+    guard let bonus = bonusRange.randomElement() else { fatalError() }
     
     updatedData[randomIndex] = Person(name: randomPerson.name,
                               image: randomPerson.image,
