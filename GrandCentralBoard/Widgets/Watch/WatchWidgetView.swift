@@ -40,19 +40,19 @@ final class WatchWidgetView : UIView, ViewModelRendering {
 
         UIView.animateWithDuration(pulsatingInterval, delay: 0.0, options:
             [
-                UIViewAnimationOptions.CurveEaseInOut,
-                UIViewAnimationOptions.Autoreverse,
-                UIViewAnimationOptions.Repeat,
-                UIViewAnimationOptions.AllowUserInteraction
+                .CurveEaseInOut,
+                .Autoreverse,
+                .Repeat,
+                .AllowUserInteraction
             ],
             animations: {
                 self.blinkingImage.alpha = semiTransparentAlpha
-            }, completion: { ended in })
+            }, completion: nil)
     }
 
     // MARK - Transitions
 
-    func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
+    private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
             case (_, .Rendering(let viewModel)):
                 transitionToWaitingState(false)
@@ -66,12 +66,12 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         }
     }
 
-    func setUpImagesWithViewModel(viewModel: ViewModel) {
+    private func setUpImagesWithViewModel(viewModel: ViewModel) {
         blinkingImage.setImageIfNotTheSame(viewModel.blinkingImage)
         watchFaceImage.setImageIfNotTheSame(viewModel.watchFaceImage)
     }
 
-    func setUpLabelsWithViewModel(viewModel: ViewModel) {
+    private func setUpLabelsWithViewModel(viewModel: ViewModel) {
         hourLeft.setTextIfNotTheSame(viewModel.hourLeft)
         hourRight.setTextIfNotTheSame(viewModel.hourRight)
     }

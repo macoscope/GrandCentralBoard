@@ -39,7 +39,7 @@ final class ImageWidgetView : UIView, ViewModelRendering {
 
     // MARK - Transitions
 
-    func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
+    private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
         case (_, .Rendering(let viewModel)):
             transitionToWaitingState(false)
@@ -52,7 +52,7 @@ final class ImageWidgetView : UIView, ViewModelRendering {
         }
     }
 
-    func setUpImageWithViewModel(viewModel: ViewModel) {
+    private func setUpImageWithViewModel(viewModel: ViewModel) {
         image.image = viewModel.image
     }
 

@@ -20,9 +20,9 @@ struct WatchWidgetViewModel {
 
         let calendar = NSCalendar.currentCalendar()
         calendar.timeZone = timeZone
-        let comp = calendar.components([.Hour, .Minute], fromDate: date)
-        let hour = comp.hour
-        let minute = comp.minute
+        let components = calendar.components([.Hour, .Minute], fromDate: date)
+        let hour = components.hour
+        let minute = components.minute
 
         let blinking = (minute / 5) + 1
 
