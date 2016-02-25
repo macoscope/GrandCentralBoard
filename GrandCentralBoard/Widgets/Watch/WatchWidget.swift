@@ -23,16 +23,27 @@ final class WatchWidget : Widget  {
         return widgetView
     }
 
+    var events: [Event]?
+    var meetingDate: NSDate?
+
     @objc func update() {
 
         let result = source.read()
 
         switch result {
             case .Success(let time):
-                let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone)
+                let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, events: events)
                 widgetView.render(timeViewModel)
             case .Failure:
                 widgetView.failure()
+        }
+
+        source.eventSource.read { result in
+            switch result {
+                case .Success(let events):
+                    self.events = events.events.filter({ $0.time.timeIntervalSinceDate(NSDate()) > 0}).filter({ $0.time.timeIntervalSinceDate(NSDate()) < 60*60 })
+                default: break
+            }
         }
     }
 }

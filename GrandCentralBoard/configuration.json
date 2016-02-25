@@ -1,10 +1,10 @@
 {
     "widgets": [
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Berlin"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/London"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} }
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Berlin", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/London", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} }
                ]
 }

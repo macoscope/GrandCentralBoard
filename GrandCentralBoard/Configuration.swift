@@ -37,8 +37,7 @@ struct Configuration {
 
     static func defaultConfiguration() throws -> Configuration {
 
-        // TODO: Fetch from server.
-
+        // TODO: Fetch from server
 
         if let path = NSBundle.mainBundle().pathForResource("configuration", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {

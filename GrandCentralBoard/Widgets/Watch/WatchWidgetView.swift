@@ -6,8 +6,9 @@
 import UIKit
 
 private let pulsatingInterval: NSTimeInterval = 0.5
+private let flashingInterval: NSTimeInterval = 0.4
 private let transitionInterval: NSTimeInterval = 0.3
-private let semiTransparentAlpha: CGFloat = 0.5
+private let semiTransparentAlpha: CGFloat = 0.3
 
 final class WatchWidgetView : UIView, ViewModelRendering {
 
@@ -15,6 +16,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     @IBOutlet private weak var hourRight: UILabel!
     @IBOutlet private weak var meetingName: UILabel!
     @IBOutlet private weak var meetingETA: UILabel!
+    @IBOutlet private weak var startsIn: UILabel!
     @IBOutlet private weak var blinkingImage: UIImageView!
     @IBOutlet private weak var watchFaceImage: UIImageView!
     @IBOutlet private weak var selectionImage: UIImageView!
@@ -41,16 +43,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         super.awakeFromNib()
         handleTransitionFromState(nil, toState: .Waiting)
 
-        UIView.animateWithDuration(pulsatingInterval, delay: 0.0, options:
-            [
-                .CurveEaseInOut,
-                .Autoreverse,
-                .Repeat,
-                .AllowUserInteraction
-            ],
-            animations: {
-                self.blinkingImage.alpha = semiTransparentAlpha
-            }, completion: nil)
+        blinkingImage.startFlashingWithInterval(pulsatingInterval, alphaDepth: semiTransparentAlpha)
     }
 
     // MARK - Transitions
@@ -72,11 +65,15 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     private func setUpImagesWithViewModel(viewModel: ViewModel) {
         blinkingImage.image = viewModel.blinkingImage
         watchFaceImage.image = viewModel.watchFaceImage
+        selectionImage.image = viewModel.selectedImage
     }
 
     private func setUpLabelsWithViewModel(viewModel: ViewModel) {
         hourLeft.animateTextTransition(viewModel.hourLeft)
         hourRight.animateTextTransition(viewModel.hourRight)
+        meetingName.animateTextTransition(viewModel.meetingName)
+        meetingETA.animateTextTransition(viewModel.meetingETA)
+        startsIn.animateTextTransition(viewModel.startsIn)
     }
 
     private func transitionToWaitingState(waiting: Bool) {
