@@ -16,16 +16,17 @@ struct WatchWidgetViewModel {
     let watchFaceImage: UIImage?
     let selectedImage: UIImage?
 
-    init(date: NSDate, timeZone: NSTimeZone, events: [Event]?) {
+    init(date: NSDate, timeZone: NSTimeZone, event: Event?) {
 
-        if let event = events?.first {
+        if let event = event {
             let eventComponents = WatchWidgetViewModel.componentsFromDate(event.time, timeZone: timeZone)
-            let selected = (eventComponents.minute / 5) + 1
+            let selected = (eventComponents.minute / 5)
             selectedImage = UIImage(named: "s\(selected)")
             let minutes = Int(event.time.timeIntervalSinceDate(NSDate()) / 60)
-            meetingETA = minutes > 1 ? "\(minutes) minutes" : "now"
+            let isNow = minutes <= 1
             meetingName = event.name
-            startsIn = "starts in"
+            startsIn = isNow ? "is" : "starts in"
+            meetingETA = isNow ? "now" : "\(minutes) minutes"
         } else {
             selectedImage = nil
             meetingName = nil
@@ -42,7 +43,7 @@ struct WatchWidgetViewModel {
 
         if currentTimeComponents.minute < 30 {
             hourLeft = nil
-            hourRight = "\(currentTimeComponents.hour)"
+            hourRight = "\(currentTimeComponents.hour % 24)"
         } else {
             hourLeft = "\(currentTimeComponents.hour + 1 % 24)"
             hourRight = nil

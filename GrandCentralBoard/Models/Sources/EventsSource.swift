@@ -43,7 +43,7 @@ final class EventsSource : Asynchronous {
 
     typealias ResultType = Result<Events>
 
-    let optimalInterval: NSTimeInterval = 1
+    let optimalInterval: NSTimeInterval = 60
     let sourceType: SourceType = .Momentary
 
     private let path: String
