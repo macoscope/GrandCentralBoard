@@ -17,7 +17,6 @@
 		1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */; };
 		1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */; };
 		1A5180141C3860010035092D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5180131C3860010035092D /* UIView.swift */; };
-		1A60365E1C7E708E0034EFE9 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60365D1C7E708E0034EFE9 /* UIImageView.swift */; };
 		1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */; };
 		1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */; };
 		1A6036771C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036621C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf */; };
@@ -93,7 +92,6 @@
 		1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendering.swift; sourceTree = "<group>"; };
 		1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStack.swift; sourceTree = "<group>"; };
 		1A5180131C3860010035092D /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		1A60365D1C7E708E0034EFE9 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
 		1A6036621C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 			children = (
 				1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */,
 				1A5180131C3860010035092D /* UIView.swift */,
-				1A60365D1C7E708E0034EFE9 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -542,7 +539,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
-				1A60365E1C7E708E0034EFE9 /* UIImageView.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* ViewController.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,

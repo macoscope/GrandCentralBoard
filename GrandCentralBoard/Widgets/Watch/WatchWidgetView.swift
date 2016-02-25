@@ -67,13 +67,13 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     }
 
     private func setUpImagesWithViewModel(viewModel: ViewModel) {
-        blinkingImage.setImageIfNotTheSame(viewModel.blinkingImage)
-        watchFaceImage.setImageIfNotTheSame(viewModel.watchFaceImage)
+        blinkingImage.image = viewModel.blinkingImage
+        watchFaceImage.image = viewModel.watchFaceImage
     }
 
     private func setUpLabelsWithViewModel(viewModel: ViewModel) {
-        hourLeft.setTextIfNotTheSame(viewModel.hourLeft)
-        hourRight.setTextIfNotTheSame(viewModel.hourRight)
+        hourLeft.animateTextTransition(viewModel.hourLeft)
+        hourRight.animateTextTransition(viewModel.hourRight)
     }
 
     private func transitionToWaitingState(waiting: Bool) {

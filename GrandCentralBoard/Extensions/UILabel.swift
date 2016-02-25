@@ -6,7 +6,7 @@
 import UIKit
 
 extension UILabel {
-    func setTextIfNotTheSame(text: String?) {
+    func animateTextTransition(text: String?) {
         guard self.text != text else { return }
 
         UIView.animateWithDuration(0.3, animations: { self.alpha = 0 }, completion: { completed in
