@@ -32,7 +32,7 @@ class BonusScene: SKScene {
     private func setUpWithSceneForTheFirstTimeWithSceneModel(sceneModel: BonusSceneModel) {
         self.sceneModel = sceneModel
         for person in sceneModel.people {
-            let ball = Ball(name: person.name, bonus: person.bonus.total)
+            let ball = Ball(person: person)
             ball.position = CGPoint(x: 0, y: 0)
             self.addChild(ball)
         }

@@ -11,20 +11,22 @@ import SpriteKit
 class Ball: SKSpriteNode {
     
     private var bonus: Int = 0
+    private let initialSize = CGSize(width: 50, height: 50)
     
-    init(name: String, bonus: Int) {
-        let image = UIImage(named: name) ?? UIImage(named: "defaultBall")
-        self.bonus = bonus
+    init(person: Person) {
+        let image = UIImage(named: person.image.imageName) ?? UIImage(named: "placeholder")
+        self.bonus = person.bonus.total
         
         let texture = SKTexture(image: image!)
-        super.init(texture: texture, color: UIColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
-        self.name = name
+        self.name = person.name
         
-        physicsBody = SKPhysicsBody(texture: texture, size: texture.size())
+        physicsBody = SKPhysicsBody(texture: texture, size: initialSize)
         physicsBody?.restitution = 0.0
         physicsBody?.friction = 0.3
         physicsBody?.linearDamping = 0.5
+        physicsBody?.allowsRotation = false
     }
     
     required init(coder aDecoder: NSCoder) {
