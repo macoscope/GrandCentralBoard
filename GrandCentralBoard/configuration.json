@@ -1,0 +1,10 @@
+{
+    "widgets": [
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Berlin"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/London"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw"} }
+               ]
+}

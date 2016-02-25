@@ -19,6 +19,7 @@ struct WatchWidgetViewModel {
         dateFormatter.timeZone = timeZone
 
         let calendar = NSCalendar.currentCalendar()
+        calendar.timeZone = timeZone
         let comp = calendar.components([.Hour, .Minute, .Day, .Month], fromDate: date)
         let hour = comp.hour
         let minute = comp.minute

@@ -7,7 +7,7 @@ import UIKit
 
 final class WatchWidget : Widget  {
 
-    private let widgetView: WatchWidgetView
+    private unowned let widgetView: WatchWidgetView
     let source: TimeSource
 
     init(source: TimeSource) {
