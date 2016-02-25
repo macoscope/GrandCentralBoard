@@ -65,7 +65,7 @@ class BonusScene: SKScene {
     }
     
     func pokeAllBalls() {
-        let deltas = [Int](-20...20)
+        let deltas = [Int](-10...10)
         
         let randomDxIndex = Int(arc4random_uniform(UInt32(deltas.count)))
         let randomDyIndex = Int(arc4random_uniform(UInt32(deltas.count)))

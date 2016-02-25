@@ -13,7 +13,7 @@ final class BonusSource : Synchronous {
     typealias ResultType = Result<[Person]>
 
     let sourceType: SourceType = .Momentary
-    let interval: NSTimeInterval = 1
+    let interval: NSTimeInterval = 5
 
     func read() -> ResultType {
         return .Success(randomlyUpdateData(sampleData))

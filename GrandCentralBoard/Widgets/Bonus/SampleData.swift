@@ -5,7 +5,7 @@
 
 import Foundation
 
-let sampleData = [
+var sampleData = [
     Person(name: "Agata", image: BubbleImage(imageName: "Agata"), bonus: Bonus(total: 30, last: 0)),
     Person(name: "Arek", image: BubbleImage(imageName: "Arek"), bonus: Bonus(total: 20, last: 5)),
     Person(name: "MaciejS", image: BubbleImage(imageName: "MaciejS"), bonus: Bonus(total: 0, last: 0)),
@@ -46,5 +46,6 @@ func randomlyUpdateData(data: [Person]) -> [Person] {
     updatedData[randomIndex] = Person(name: randomPerson.name,
                               image: randomPerson.image,
                               bonus: Bonus(total: randomPerson.bonus.total + bonus, last: bonus))
+    sampleData = updatedData
     return updatedData
 }
