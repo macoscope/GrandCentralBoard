@@ -27,6 +27,9 @@ class Ball: SKSpriteNode {
         physicsBody?.friction = 0.3
         physicsBody?.linearDamping = 0.5
         physicsBody?.allowsRotation = false
+        
+        let scaleBy: CGFloat = 1 + CGFloat(person.bonus.total) / 100
+        self.setScale(scaleBy)
     }
     
     required init(coder aDecoder: NSCoder) {
