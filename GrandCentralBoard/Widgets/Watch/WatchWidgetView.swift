@@ -42,7 +42,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
                 UIViewAnimationOptions.AllowUserInteraction
             ],
             animations: {
-                self.blinkingImage.alpha = 0.7
+                self.blinkingImage.alpha = 0.5
             }, completion: { ended in })
     }
 
