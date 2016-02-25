@@ -5,6 +5,10 @@
 
 import UIKit
 
+private let pulsatingInterval: NSTimeInterval = 0.5
+private let transitionInterval: NSTimeInterval = 0.3
+private let semiTransparentAlpha: CGFloat = 0.5
+
 final class WatchWidgetView : UIView, ViewModelRendering {
 
     @IBOutlet private weak var hourLeft: UILabel!
@@ -34,7 +38,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         super.awakeFromNib()
         handleTransitionFromState(nil, toState: .Waiting)
 
-        UIView.animateWithDuration(0.5 , delay: 0.0, options:
+        UIView.animateWithDuration(pulsatingInterval, delay: 0.0, options:
             [
                 UIViewAnimationOptions.CurveEaseInOut,
                 UIViewAnimationOptions.Autoreverse,
@@ -42,7 +46,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
                 UIViewAnimationOptions.AllowUserInteraction
             ],
             animations: {
-                self.blinkingImage.alpha = 0.5
+                self.blinkingImage.alpha = semiTransparentAlpha
             }, completion: { ended in })
     }
 
@@ -73,7 +77,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     }
 
     private func transitionToWaitingState(waiting: Bool) {
-        UIView.animateWithDuration(0.3) {
+        UIView.animateWithDuration(transitionInterval) {
             self.hourLeft.alpha = waiting ? 0 : 1
             self.hourRight.alpha = waiting ? 0 : 1
         }
