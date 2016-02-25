@@ -13,8 +13,11 @@ final class WatchWidgetView : UIView, ViewModelRendering {
 
     @IBOutlet private weak var hourLeft: UILabel!
     @IBOutlet private weak var hourRight: UILabel!
+    @IBOutlet private weak var meetingName: UILabel!
+    @IBOutlet private weak var meetingETA: UILabel!
     @IBOutlet private weak var blinkingImage: UIImageView!
     @IBOutlet private weak var watchFaceImage: UIImageView!
+    @IBOutlet private weak var selectionImage: UIImageView!
 
     // MARK - ViewModelRendering
 
