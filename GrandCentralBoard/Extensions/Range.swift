@@ -11,8 +11,8 @@ import Foundation
 extension Range {
     
     func randomElement() -> Generator.Element? {
-        let indexes = count as! Int
-        let randomIndex = Int(arc4random_uniform(UInt32(indexes)))
+        let elementsCount = count as! Int
+        let randomIndex = Int(arc4random_uniform(UInt32(elementsCount)))
         let jumpDistance = randomIndex as! Generator.Element.Distance
         return first?.advancedBy(jumpDistance)
     }

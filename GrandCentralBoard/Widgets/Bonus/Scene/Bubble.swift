@@ -1,20 +1,20 @@
 //
-//  Created by krris on 23/02/16.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Created by Krzysztof Werys on 23/02/16.
+//  Copyright © 2016 Krzysztof Werys. All rights reserved.
 //
 
 import SpriteKit
 
-class Ball: SKSpriteNode {
+class Bubble: SKSpriteNode {
     
     private var bonus: Int = 0
     private let initialSize = CGSize(width: 50, height: 50)
     
     init(person: Person) {
-        let image = UIImage(named: person.image.imageName) ?? UIImage(named: "placeholder")
+        guard let image = UIImage(named: person.image.imageName) ?? UIImage(named: "placeholder") else { fatalError()}
         self.bonus = person.bonus.total
         
-        let texture = SKTexture(image: image!)
+        let texture = SKTexture(image: image)
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
         setUpPhysicsBody(texture, size: initialSize)

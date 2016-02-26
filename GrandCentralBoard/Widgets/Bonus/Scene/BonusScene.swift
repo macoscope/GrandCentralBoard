@@ -1,6 +1,6 @@
 //
-//  Created by krris on 23/02/16.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Created by Krzysztof Werys on 23/02/16.
+//  Copyright © 2016 Krzysztof Werys. All rights reserved.
 //
 
 import SpriteKit
@@ -16,7 +16,7 @@ class BonusScene: SKScene {
         setUpWithSceneModel(sceneModel)
         
         // Waiting for #selector https://github.com/apple/swift-evolution/blob/master/proposals/0022-objc-selectors.md
-        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: Selector("pokeAllBalls"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: Selector("pokeAllBubbles"), userInfo: nil, repeats: true)
     }
     
     func setUpWithSceneModel(sceneModel: BonusSceneModel) {
@@ -29,46 +29,48 @@ class BonusScene: SKScene {
     
     private func setUpWithSceneForTheFirstTimeWithSceneModel(sceneModel: BonusSceneModel) {
         self.sceneModel = sceneModel
+        let topRightPoint = CGPoint(x: size.width / 2, y: size.height / 2)
         for person in sceneModel.people {
-            let ball = Ball(person: person)
-            let widthRange = Int(-size.width / 2) ... Int(size.width / 2)
-            let heightRange = Int(-size.height / 2) ... Int(size.height / 2)
+            let bubble = Bubble(person: person)
+            let widthRange = Int(-topRightPoint.x) ... Int(topRightPoint.x)
+            let heightRange = Int(-topRightPoint.y) ... Int(topRightPoint.y)
             if let x = widthRange.randomElement(), let y = heightRange.randomElement() {
-                ball.position = CGPoint(x: x, y: y)
+                bubble.position = CGPoint(x: x, y: y)
             } else {
-                ball.position = CGPoint(x: 0, y: 0)
+                bubble.position = CGPoint(x: 0, y: 0)
             }
-            addChild(ball)
+            addChild(bubble)
         }
     }
     
     private func updateWithSceneModel(sceneModel: BonusSceneModel) {
         self.sceneModel = sceneModel
         for person in sceneModel.people {
-            if let ball = childNodeWithName(person.name) as? Ball {
-                ball.updateWithBonus(person.bonus)
+            if let bubble = childNodeWithName(person.name) as? Bubble {
+                bubble.updateWithBonus(person.bonus)
             }
         }
         
-        scaleDownIfNeeded()
+        scaleBubblesDownIfNeeded()
     }
     
-    private func scaleDownIfNeeded() {
+    private func scaleBubblesDownIfNeeded() {
         children.forEach { node in
-            if let node = node as? Ball {
+            if let node = node as? Bubble {
                 if !intersectsNode(node) {
-                    scaleDown()
+                    scaleBubblesDown()
                 }
             }
         }
     }
     
-    private func scaleDown() {
+    private func scaleBubblesDown() {
+        // Scale bubbles down by increasing size of the scene
         let scaleFactor: CGFloat = 1.5
         size = CGSize(width: size.width * scaleFactor, height: size.width * scaleFactor)
     }
     
-    func pokeAllBalls() {
+    func pokeAllBubbles() {
         let movement = (-10...10)
         guard let dx = movement.randomElement(), let dy = movement.randomElement() else { return }
         
@@ -76,7 +78,7 @@ class BonusScene: SKScene {
         let pokeAction = SKAction.moveBy(vector, duration: 2)
         
         children.forEach { node in
-            if node.isKindOfClass(Ball) {
+            if node.isKindOfClass(Bubble) {
                 node.runAction(pokeAction)
             }
         }

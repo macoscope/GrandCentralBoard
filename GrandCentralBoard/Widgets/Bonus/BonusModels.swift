@@ -1,6 +1,6 @@
 //
-//  Created by krris on 24/02/16.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Created by Krzysztof Werys on 24/02/16.
+//  Copyright © 2016 Krzysztof Werys. All rights reserved.
 //
 
 import Foundation

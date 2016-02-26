@@ -1,6 +1,6 @@
 //
-//  Created by krris on 24/02/16.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Created by Krzysztof Werys on 24/02/16.
+//  Copyright © 2016 Krzysztof Werys. All rights reserved.
 //
 
 import UIKit
@@ -35,10 +35,13 @@ final class BonusWidgetView: UIView {
     }
     
     func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
+        guard let state = state else { return }
         switch (state, toState) {
-            case (_, .Rendering(let viewModel)):
+            case (.Waiting, .Rendering(let viewModel)):
                 scene.setUpWithSceneModel(viewModel.sceneModel)
                 bonusView.presentScene(scene)
+            case (_, .Rendering(let viewModel)):
+                scene.setUpWithSceneModel(viewModel.sceneModel)
             case (_, .Failed):
                 break
             case (_, .Waiting):
