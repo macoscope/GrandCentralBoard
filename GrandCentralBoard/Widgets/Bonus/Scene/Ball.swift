@@ -17,16 +17,19 @@ class Ball: SKSpriteNode {
         let texture = SKTexture(image: image!)
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
+        setUpPhysicsBody(texture, size: initialSize)
         self.name = person.name
         
+        let scaleBy: CGFloat = 1 + CGFloat(person.bonus.total) / 100
+        setScale(scaleBy)
+    }
+    
+    private func setUpPhysicsBody(texture: SKTexture, size: CGSize) {
         physicsBody = SKPhysicsBody(texture: texture, size: initialSize)
         physicsBody?.restitution = 0.0
         physicsBody?.friction = 0.3
         physicsBody?.linearDamping = 0.5
         physicsBody?.allowsRotation = false
-        
-        let scaleBy: CGFloat = 1 + CGFloat(person.bonus.total) / 100
-        self.setScale(scaleBy)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -37,7 +40,7 @@ class Ball: SKSpriteNode {
         guard bonus.total > self.bonus else { return }
         
         self.bonus += bonus.last
-        self.physicsBody?.mass = CGFloat(bonus.last)
+        physicsBody?.mass = CGFloat(bonus.last)
         
         var scaleBy: CGFloat = 2.3
         let scaleUpAction = SKAction.scaleBy(scaleBy, duration: 0.5)
@@ -46,6 +49,6 @@ class Ball: SKSpriteNode {
         scaleBy = 1 + CGFloat(bonus.last) / 100
         let finalScaleAction = SKAction.scaleBy(scaleBy, duration: 0.1)
         
-        self.runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]))
+        runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]))
     }
 }

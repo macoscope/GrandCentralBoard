@@ -12,7 +12,6 @@ class BonusScene: SKScene {
     private var sceneModel: BonusSceneModel!
     
     override func didMoveToView(view: SKView) {
-        
         assert(sceneModel != nil)
         setUpWithSceneModel(sceneModel)
         
@@ -21,7 +20,6 @@ class BonusScene: SKScene {
     }
     
     func setUpWithSceneModel(sceneModel: BonusSceneModel) {
-        
         guard self.sceneModel != nil else {
             setUpWithSceneForTheFirstTimeWithSceneModel(sceneModel)
             return
@@ -40,7 +38,7 @@ class BonusScene: SKScene {
             } else {
                 ball.position = CGPoint(x: 0, y: 0)
             }
-            self.addChild(ball)
+            addChild(ball)
         }
     }
     
@@ -71,8 +69,8 @@ class BonusScene: SKScene {
     }
     
     func pokeAllBalls() {
-        let deltas = (-10...10)
-        guard let dx = deltas.randomElement(), let dy = deltas.randomElement() else { return }
+        let movement = (-10...10)
+        guard let dx = movement.randomElement(), let dy = movement.randomElement() else { return }
         
         let vector = CGVector(dx: dx, dy: dy)
         let pokeAction = SKAction.moveBy(vector, duration: 2)

@@ -5,6 +5,9 @@
 
 import Foundation
 
+// This is sample data which is displayed by BonusWidget. It could be replaced by real data 
+// from Bonusly API https://bonusly.gelato.io/
+
 var sampleData = [
     Person(name: "Agata", image: BubbleImage(imageName: "agata_r"), bonus: Bonus(total: 30, last: 0)),
     Person(name: "Arek", image: BubbleImage(imageName: "arek_h"), bonus: Bonus(total: 20, last: 5)),

@@ -39,7 +39,6 @@ final class BonusWidgetView: UIView {
             case (_, .Rendering(let viewModel)):
                 scene.setUpWithSceneModel(viewModel.sceneModel)
                 bonusView.presentScene(scene)
-                break
             case (_, .Failed):
                 break
             case (_, .Waiting):
