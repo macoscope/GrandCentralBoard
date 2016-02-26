@@ -5,6 +5,8 @@
 
 import UIKit
 
+private let slideshowInterval = 10.0
+
 final class WatchWidget : Widget  {
 
     private unowned let widgetView: WatchWidgetView
@@ -65,9 +67,13 @@ final class WatchWidget : Widget  {
             $0.time.timeIntervalSinceDate(NSDate()) > 0 && $0.time.timeIntervalSinceDate(NSDate()) < 60*60
         }
 
-        let eventsCount = relevantEvents?.count ?? 1
-        let index = Int(NSDate().timeIntervalSince1970/10.0) % eventsCount
-        let event = relevantEvents?[index]
+        var event: Event? = nil
+
+        if let relevantEvents = relevantEvents where relevantEvents.count > 0 {
+            let eventsCount = relevantEvents.count
+            let index = Int(NSDate().timeIntervalSince1970 / slideshowInterval) % eventsCount
+            event = relevantEvents[index]
+        }
 
         let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event)
         widgetView.render(timeViewModel)
