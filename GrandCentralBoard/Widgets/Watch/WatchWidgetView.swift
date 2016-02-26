@@ -5,12 +5,16 @@
 
 import UIKit
 
+private let pulsatingInterval: NSTimeInterval = 0.5
+private let transitionInterval: NSTimeInterval = 0.3
+private let semiTransparentAlpha: CGFloat = 0.5
+
 final class WatchWidgetView : UIView, ViewModelRendering {
 
-    @IBOutlet private var time: UILabel!
-    @IBOutlet private var timezone: UILabel!
-    @IBOutlet private var day: UILabel!
-    @IBOutlet private var month: UILabel!
+    @IBOutlet private weak var hourLeft: UILabel!
+    @IBOutlet private weak var hourRight: UILabel!
+    @IBOutlet private weak var blinkingImage: UIImageView!
+    @IBOutlet private weak var watchFaceImage: UIImageView!
 
     // MARK - ViewModelRendering
 
@@ -33,15 +37,27 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     override func awakeFromNib() {
         super.awakeFromNib()
         handleTransitionFromState(nil, toState: .Waiting)
+
+        UIView.animateWithDuration(pulsatingInterval, delay: 0.0, options:
+            [
+                .CurveEaseInOut,
+                .Autoreverse,
+                .Repeat,
+                .AllowUserInteraction
+            ],
+            animations: {
+                self.blinkingImage.alpha = semiTransparentAlpha
+            }, completion: nil)
     }
 
     // MARK - Transitions
 
-    func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
+    private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
             case (_, .Rendering(let viewModel)):
                 transitionToWaitingState(false)
                 setUpLabelsWithViewModel(viewModel)
+                setUpImagesWithViewModel(viewModel)
             case (_, .Failed):
                 // No failed appearance
                 break
@@ -50,19 +66,20 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         }
     }
 
-    func setUpLabelsWithViewModel(viewModel: ViewModel) {
-        time.setTextIfNotTheSame(viewModel.time)
-        timezone.setTextIfNotTheSame(viewModel.timeZone)
-        day.setTextIfNotTheSame(viewModel.day)
-        month.setTextIfNotTheSame(viewModel.month)
+    private func setUpImagesWithViewModel(viewModel: ViewModel) {
+        blinkingImage.image = viewModel.blinkingImage
+        watchFaceImage.image = viewModel.watchFaceImage
+    }
+
+    private func setUpLabelsWithViewModel(viewModel: ViewModel) {
+        hourLeft.animateTextTransition(viewModel.hourLeft)
+        hourRight.animateTextTransition(viewModel.hourRight)
     }
 
     private func transitionToWaitingState(waiting: Bool) {
-        UIView.animateWithDuration(0.3) {
-            self.time.alpha = waiting ? 0 : 1
-            self.timezone.alpha = waiting ? 0 : 1
-            self.day.alpha = waiting ? 0 : 1
-            self.month.alpha = waiting ? 0 : 1
+        UIView.animateWithDuration(transitionInterval) {
+            self.hourLeft.alpha = waiting ? 0 : 1
+            self.hourRight.alpha = waiting ? 0 : 1
         }
     }
 
