@@ -31,7 +31,7 @@ extension Events : Decodable {
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        return dateFormatter.dateFromString(string)! //NSDate(timeIntervalSinceNow: 15*60)//
+        return dateFormatter.dateFromString(string)!
     }
 }
 

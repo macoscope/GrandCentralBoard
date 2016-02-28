@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
-		1A242D231C357C2700D5BEE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* ViewController.swift */; };
+		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
 		1A242D331C357C2700D5BEE5 /* GrandCentralBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D321C357C2700D5BEE5 /* GrandCentralBoardTests.swift */; };
 		1A242D3E1C357C2700D5BEE5 /* GrandCentralBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D3D1C357C2700D5BEE5 /* GrandCentralBoardUITests.swift */; };
@@ -40,6 +40,8 @@
 		1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */; };
 		1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87495D1C385264006E58C6 /* RemoteImageSource.swift */; };
 		1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */; };
+		1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC247BB1C834E4900A179CB /* LoadingViewController.swift */; };
+		1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC247BD1C83517600A179CB /* Storyboards.swift */; };
 		1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */; };
 		1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */; };
 		1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */; };
@@ -79,7 +81,7 @@
 		13473B743D0BD7A5BBEF96CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A242D221C357C2700D5BEE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1A242D221C357C2700D5BEE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1A242D251C357C2700D5BEE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A242D291C357C2700D5BEE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A242D2E1C357C2700D5BEE5 /* GrandCentralBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrandCentralBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +118,8 @@
 		1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		1A87495D1C385264006E58C6 /* RemoteImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageSource.swift; sourceTree = "<group>"; };
 		1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
+		1AC247BB1C834E4900A179CB /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		1AC247BD1C83517600A179CB /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetView.swift; sourceTree = "<group>"; };
 		1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageWidgetView.xib; sourceTree = "<group>"; };
 		1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetView.swift; sourceTree = "<group>"; };
@@ -207,8 +211,10 @@
 				1A242D291C357C2700D5BEE5 /* Info.plist */,
 				1A242D241C357C2700D5BEE5 /* Main.storyboard */,
 				1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */,
-				1A242D221C357C2700D5BEE5 /* ViewController.swift */,
+				1A242D221C357C2700D5BEE5 /* MainViewController.swift */,
+				1AC247BB1C834E4900A179CB /* LoadingViewController.swift */,
 				1AD6E8061C7DE0AD0003121C /* configuration.json */,
+				1AC247BD1C83517600A179CB /* Storyboards.swift */,
 			);
 			path = GrandCentralBoard;
 			sourceTree = "<group>";
@@ -566,9 +572,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
-				1A242D231C357C2700D5BEE5 /* ViewController.swift in Sources */,
+				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
 				1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
+				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
 				1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
@@ -579,6 +586,7 @@
 				1AD5EAA21C7CFE4E00210BB9 /* UILabel.swift in Sources */,
 				1AD5EAAC1C7DA9BB00210BB9 /* Scheduler.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
+				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
 				1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */,

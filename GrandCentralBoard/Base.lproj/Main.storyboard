@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GrandCentralBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="MainViewController" customModule="GrandCentralBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,6 +21,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2775" y="-41"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mnf-Ub-SEJ">
+            <objects>
+                <navigationController id="Lg8-8l-e1F" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t6N-F4-VxR">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nPN-9N-csU" kind="relationship" relationship="rootViewController" id="YDy-tB-C81"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s0j-eF-T3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2555" y="-17"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="16t-jI-6C9">
+            <objects>
+                <viewController storyboardIdentifier="Loading" id="nPN-9N-csU" customClass="LoadingViewController" customModule="GrandCentralBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dOv-jR-whJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ejm-c8-dqV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="48F-s7-Mjl">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KbF-2x-wID">
+                                <rect key="frame" x="928" y="508" width="64" height="64"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KbF-2x-wID" firstAttribute="centerY" secondItem="48F-s7-Mjl" secondAttribute="centerY" id="P05-MU-SBb"/>
+                            <constraint firstItem="KbF-2x-wID" firstAttribute="centerX" secondItem="48F-s7-Mjl" secondAttribute="centerX" id="ZMV-oF-tSJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="s4Y-27-Wtf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yva-xM-5CG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="-17"/>
         </scene>
     </scenes>
 </document>
