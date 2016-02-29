@@ -39,6 +39,7 @@
 		1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */; };
 		1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */; };
 		1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87495D1C385264006E58C6 /* RemoteImageSource.swift */; };
+		1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */; };
 		1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */; };
 		1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */; };
 		1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */; };
@@ -114,6 +115,7 @@
 		1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		1A87495D1C385264006E58C6 /* RemoteImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageSource.swift; sourceTree = "<group>"; };
+		1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
 		1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetView.swift; sourceTree = "<group>"; };
 		1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageWidgetView.xib; sourceTree = "<group>"; };
 		1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetView.swift; sourceTree = "<group>"; };
@@ -193,8 +195,8 @@
 		1A242D1F1C357C2700D5BEE5 /* GrandCentralBoard */ = {
 			isa = PBXGroup;
 			children = (
-				1A60365F1C7F161D0034EFE9 /* Fonts */,
 				1A5180121C385FF50035092D /* Extensions */,
+				1A60365F1C7F161D0034EFE9 /* Fonts */,
 				1A242D4B1C357C6600D5BEE5 /* Models */,
 				1A242D5E1C37F63500D5BEE5 /* Views */,
 				1A242D561C357DFD00D5BEE5 /* Widgets */,
@@ -232,20 +234,10 @@
 		1A242D4B1C357C6600D5BEE5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1A242D531C357D6F00D5BEE5 /* Sources */,
 				1A242D4F1C357CA500D5BEE5 /* Source.swift */,
 				1A242D4D1C357C7700D5BEE5 /* Timed.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		1A242D531C357D6F00D5BEE5 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				1A87495D1C385264006E58C6 /* RemoteImageSource.swift */,
-				1AD5EA9E1C7C6DE300210BB9 /* TimeSource.swift */,
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
@@ -304,11 +296,46 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		1AD5EA921C7B819D00210BB9 /* Image */ = {
+		1AAC29FB1C80F54F0045BF1A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */,
+				1AD5EA9E1C7C6DE300210BB9 /* TimeSource.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1AAC29FC1C80F55D0045BF1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
+				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1AAC29FD1C80F6220045BF1A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */,
 				1AD5EA941C7B819D00210BB9 /* ImageWidgetView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1AAC29FE1C80F6350045BF1A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1A87495D1C385264006E58C6 /* RemoteImageSource.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1AD5EA921C7B819D00210BB9 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				1AAC29FE1C80F6350045BF1A /* Source */,
+				1AAC29FD1C80F6220045BF1A /* View */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -316,10 +343,10 @@
 		1AD5EA971C7B826A00210BB9 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
+				1AAC29FB1C80F54F0045BF1A /* Source */,
+				1AAC29FC1C80F55D0045BF1A /* View */,
 				1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */,
 				1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */,
-				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
-				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
 				1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */,
 			);
 			path = Watch;
@@ -540,6 +567,7 @@
 			files = (
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* ViewController.swift in Sources */,
+				1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
 				1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */,

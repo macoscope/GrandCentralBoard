@@ -5,6 +5,8 @@
 
 import UIKit
 
+private let slideshowInterval = 10.0
+
 final class WatchWidget : Widget  {
 
     private unowned let widgetView: WatchWidgetView
@@ -23,16 +25,57 @@ final class WatchWidget : Widget  {
         return widgetView
     }
 
+    var events: [Event]?
+    var lastFetch: NSDate?
+
     @objc func update() {
 
         let result = source.read()
+        var time: Time
 
         switch result {
-            case .Success(let time):
-                let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone)
-                widgetView.render(timeViewModel)
+            case .Success(let timeFromSource):
+                time = timeFromSource
             case .Failure:
                 widgetView.failure()
+                return
         }
+
+        renderTime(time)
+
+        let intervalPassed = NSDate().timeIntervalSinceDate(lastFetch ?? NSDate()) > source.eventSource.optimalInterval
+        let noEvents = events == nil
+        let shouldFetchEvents = intervalPassed || noEvents
+
+        guard shouldFetchEvents else { return }
+
+        lastFetch = NSDate()
+        source.eventSource.read { [weak self] result in
+            guard let instance = self else { return }
+
+            switch result {
+                case .Success(let events):
+                    instance.events = events.events
+                case .Failure:
+                break
+            }
+        }
+    }
+
+    private func renderTime(time: Time) {
+        let relevantEvents = events?.filter {
+            $0.time.timeIntervalSinceDate(NSDate()) > 0 && $0.time.timeIntervalSinceDate(NSDate()) < 60*60
+        }
+
+        var event: Event? = nil
+
+        if let relevantEvents = relevantEvents where relevantEvents.count > 0 {
+            let eventsCount = relevantEvents.count
+            let index = Int(NSDate().timeIntervalSince1970 / slideshowInterval) % eventsCount
+            event = relevantEvents[index]
+        }
+
+        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event)
+        widgetView.render(timeViewModel)
     }
 }

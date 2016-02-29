@@ -7,32 +7,18 @@ import Foundation
 import Decodable
 
 enum WatchWidgetBuilderException : ErrorType {
-    case WrongTimeZoneIdentifier
     case WrongSettings
 }
-
-struct WatchSettings : Decodable {
-    let timeZone: String
-
-    static func decode(json: AnyObject) throws -> WatchSettings {
-        return try WatchSettings(timeZone: json => "timeZone")
-    }
-}
-
-
 
 final class WatchWidgetBuilder : WidgetBuilding {
 
     let name = "watch"
 
     func build(settings: AnyObject) throws -> Widget {
-        if let settings = try? WatchSettings.decode(settings) {
-            if let zone = NSTimeZone(name: settings.timeZone) {
-                let timeSource = TimeSource(zone: zone)
-                return WatchWidget(source: timeSource)
-            }
-            
-            throw WatchWidgetBuilderException.WrongTimeZoneIdentifier
+
+        if let settings = try? TimeSourceSettings.decode(settings) {
+            let timeSource = TimeSource(settings: settings)
+            return WatchWidget(source: timeSource)
         }
 
         throw WatchWidgetBuilderException.WrongSettings
