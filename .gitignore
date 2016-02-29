@@ -5,7 +5,6 @@
 ## Build generated
 build/
 DerivedData
-NYXPaletteBuilder/ipa
 
 ## Various settings
 *.pbxuser
