@@ -39,6 +39,17 @@ struct EventsSourceSettings {
     let calendarPath: String
 }
 
+enum EventsSourceError : ErrorType, CustomStringConvertible {
+    case DownloadFailed
+
+    var description: String {
+        switch self {
+            case .DownloadFailed:
+                return "Cannot download data!"
+        }
+    }
+}
+
 final class EventsSource : Asynchronous {
 
     typealias ResultType = Result<Events>
@@ -60,7 +71,7 @@ final class EventsSource : Asynchronous {
                     return
                 }
 
-                closure(.Failure)
+                closure(.Failure(EventsSourceError.DownloadFailed))
             }
         }
        //

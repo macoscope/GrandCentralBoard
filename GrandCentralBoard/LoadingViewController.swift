@@ -7,8 +7,8 @@ import UIKit
 
 class LoadingViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
 
         Configuration.fetchConfiguration { [weak self] result in
             switch result {

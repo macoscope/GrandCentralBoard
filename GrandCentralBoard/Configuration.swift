@@ -27,9 +27,18 @@ extension WidgetSettings : Decodable {
     }
 }
 
-enum ConfigurationException : ErrorType {
-    case NoConfigurationFile
-    case WrongConfigurationFormat
+enum ConfigurationError : ErrorType, CustomStringConvertible {
+    case DownloadFailed
+    case WrongFormat
+
+    var description: String {
+        switch self {
+            case .DownloadFailed:
+                return "Cannot download configuration file!"
+            case .WrongFormat:
+                return "Wrong format of configuration file!"
+        }
+    }
 }
 
 struct Configuration {
@@ -44,14 +53,14 @@ struct Configuration {
 
                 do {
                     closure(.Success(try configurationFromData(data)))
-                } catch {
-                    closure(.Failure)
+                } catch (let error) {
+                    closure(.Failure(error))
                 }
 
                 return
             }
 
-            closure(.Failure)
+            closure(.Failure(ConfigurationError.DownloadFailed))
         }
     }
 
@@ -63,6 +72,6 @@ struct Configuration {
             }
         }
 
-        throw ConfigurationException.WrongConfigurationFormat
+        throw ConfigurationError.WrongFormat
     }
 }

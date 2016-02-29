@@ -10,11 +10,6 @@ enum SourceType {
     case Momentary
 }
 
-enum Result<T> {
-    case Failure
-    case Success(T)
-}
-
 protocol Source {
 
     typealias ResultType

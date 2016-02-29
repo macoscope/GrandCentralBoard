@@ -13,7 +13,29 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        board = GrandCentralBoard(configuration: configuration)
-        view = board.view
+        do {
+            board = try GrandCentralBoard(configuration: configuration)
+            view = board.view
+        } catch let error as CustomStringConvertible {
+            showError(error.description)
+        } catch {
+            showError("Unknown error")
+        }
+    }
+
+    private func showError(message: String) {
+
+        let title = "Error"
+        let buttonTitle = "Retry"
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+
+        let doneAction = UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.Default) { [weak self] _ in
+            self?.navigationController?.popViewControllerAnimated(true)
+        }
+
+        alert.addAction(doneAction)
+
+        presentViewController(alert, animated: true, completion: nil)
     }
 }

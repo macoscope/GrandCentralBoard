@@ -11,6 +11,17 @@ struct Image : Timed {
     let time: NSDate
 }
 
+enum RemoteImageSourceError : ErrorType, CustomStringConvertible {
+    case DownloadFailed
+
+    var description: String {
+        switch self {
+            case .DownloadFailed:
+            return "Cannot download image!"
+        }
+    }
+}
+
 final class RemoteImageSource : Asynchronous {
 
     typealias ResultType = Result<Image>
@@ -34,7 +45,7 @@ final class RemoteImageSource : Asynchronous {
                 return
             }
 
-            closure(.Failure)
+            closure(.Failure(RemoteImageSourceError.DownloadFailed))
         }
     }
 }
