@@ -45,7 +45,9 @@ final class GrandCentralBoard {
 
         widgets.forEach { widget in
             stack.stackView(widget.view)
-            scheduler.schedule(Job(target: widget))
+            widget.sources.forEach { source in
+                scheduler.schedule(Job(target: widget, source: source))
+            }
         }
     }
 }

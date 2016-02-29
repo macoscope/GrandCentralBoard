@@ -10,15 +10,11 @@ private let slideshowInterval = 10.0
 final class WatchWidget : Widget  {
 
     private unowned let widgetView: WatchWidgetView
-    let source: TimeSource
+    let sources: [UpdatingSource]
 
-    init(source: TimeSource) {
+    init(sources: [UpdatingSource]) {
         self.widgetView = WatchWidgetView.fromNib()
-        self.source = source
-    }
-
-    var interval: NSTimeInterval {
-        return source.optimalInterval
+        self.sources = sources
     }
 
     var view: UIView {
@@ -28,36 +24,33 @@ final class WatchWidget : Widget  {
     var events: [Event]?
     var lastFetch: NSDate?
 
-    @objc func update() {
+    @objc func update(timer: NSTimer) {
 
-        let result = source.read()
-        var time: Time
-
-        switch result {
-            case .Success(let timeFromSource):
-                time = timeFromSource
-            case .Failure:
-                widgetView.failure()
-                return
-        }
-
-        renderTime(time)
-
-        let intervalPassed = NSDate().timeIntervalSinceDate(lastFetch ?? NSDate()) > source.eventSource.optimalInterval
-        let noEvents = events == nil
-        let shouldFetchEvents = intervalPassed || noEvents
-
-        guard shouldFetchEvents else { return }
-
-        lastFetch = NSDate()
-        source.eventSource.read { [weak self] result in
-            guard let instance = self else { return }
+        if let source = timer.userInfo as? TimeSource {
+            let result = source.read()
+            var time: Time
 
             switch result {
-                case .Success(let events):
-                    instance.events = events.events
+                case .Success(let timeFromSource):
+                    time = timeFromSource
                 case .Failure:
-                break
+                    widgetView.failure()
+                    return
+            }
+
+            renderTime(time)
+        }
+
+        if let source = timer.userInfo as? EventsSource {
+            source.read { [weak self] result in
+                guard let instance = self else { return }
+    
+                switch result {
+                    case .Success(let events):
+                        instance.events = events.events
+                    case .Failure:
+                    break
+                }
             }
         }
     }

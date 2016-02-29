@@ -25,7 +25,8 @@ final class WatchWidgetBuilder : WidgetBuilding {
 
         if let settings = try? TimeSourceSettings.decode(settings) {
             let timeSource = TimeSource(settings: settings)
-            return WatchWidget(source: timeSource)
+            let eventSource = EventsSource(settings: EventsSourceSettings(calendarPath: settings.calendarPath))
+            return WatchWidget(sources: [timeSource, eventSource])
         }
 
         throw WatchWidgetBuilderException.WrongSettings

@@ -6,8 +6,8 @@
 import UIKit
 
 protocol Updateable : class {
-    var interval: NSTimeInterval { get }
-    func update()
+    var sources: [UpdatingSource] { get }
+    func update(timer: NSTimer)
 }
 
 protocol Widget : Updateable {

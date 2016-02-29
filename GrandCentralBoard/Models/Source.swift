@@ -10,12 +10,15 @@ enum SourceType {
     case Momentary
 }
 
-protocol Source {
+protocol UpdatingSource : class {
+    var interval: NSTimeInterval { get }
+}
+
+protocol Source : UpdatingSource {
 
     typealias ResultType
 
     var sourceType: SourceType { get }
-    var optimalInterval: NSTimeInterval { get }
 }
 
 protocol Synchronous : Source {
