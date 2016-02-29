@@ -14,7 +14,7 @@ class LoadingViewController: UIViewController {
             switch result {
                 case .Success(let configuration):
                     let main = Storyboards.Main.instantiate(configuration)
-                    self?.navigationController?.showViewController(main, sender: self)
+                    self?.navigationController?.pushViewController(main, animated: true)
                 case .Failure:
                     // TODO: Recover!
                     break

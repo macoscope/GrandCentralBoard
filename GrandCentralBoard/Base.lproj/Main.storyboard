@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="Lg8-8l-e1F">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Display-Ultralight.otf">
+            <string>SFUIDisplay-Ultralight</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -55,10 +60,18 @@
                                 <rect key="frame" x="928" y="508" width="64" height="64"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading configuration..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-mj-jUf">
+                                <rect key="frame" x="844" y="598" width="233" height="30"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Ultralight" family="SF UI Display" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="kfT-mj-jUf" firstAttribute="top" secondItem="KbF-2x-wID" secondAttribute="bottom" constant="26" id="2uz-ow-AtH"/>
                             <constraint firstItem="KbF-2x-wID" firstAttribute="centerY" secondItem="48F-s7-Mjl" secondAttribute="centerY" id="P05-MU-SBb"/>
                             <constraint firstItem="KbF-2x-wID" firstAttribute="centerX" secondItem="48F-s7-Mjl" secondAttribute="centerX" id="ZMV-oF-tSJ"/>
+                            <constraint firstItem="kfT-mj-jUf" firstAttribute="centerX" secondItem="48F-s7-Mjl" secondAttribute="centerX" id="jbq-7q-P4G"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s4Y-27-Wtf"/>

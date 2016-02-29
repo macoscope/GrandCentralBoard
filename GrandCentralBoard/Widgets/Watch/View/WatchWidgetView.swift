@@ -80,9 +80,6 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         UIView.animateWithDuration(transitionInterval) {
             self.hourLeft.alpha = waiting ? 0 : 1
             self.hourRight.alpha = waiting ? 0 : 1
-            self.blinkingImage.alpha = waiting ? 0 : 1
-            self.watchFaceImage.alpha = waiting ? 0 : 1
-            self.selectionImage.alpha = waiting ? 0 : 1
         }
     }
 

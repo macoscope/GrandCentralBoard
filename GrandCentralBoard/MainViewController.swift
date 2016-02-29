@@ -13,19 +13,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Configuration.fetchConfiguration { [weak self] result in
-            switch result {
-            case .Success(let configuration):
-                //let main = Storyboards.Main.instantiate(configuration)
-                self?.board = GrandCentralBoard(configuration: configuration)
-                self?.view = self?.board.view
-            case .Failure:
-                // TODO: Recover!
-                break
-            }
-        }
-
-
-
+        board = GrandCentralBoard(configuration: configuration)
+        view = board.view
     }
 }
