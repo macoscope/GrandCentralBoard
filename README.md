@@ -56,7 +56,7 @@ protocol Asynchronous : Source {
 
 Any fail should be handled silently and printed to console in debug build but not presented to the user in any way.
 
-All strategies inherits the **Source** protocol:
+All strategies inherit the **Source** protocol:
 
 
 ```swift
