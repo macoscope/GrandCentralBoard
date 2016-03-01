@@ -40,7 +40,7 @@ The source should implement one  of the two protocols:
 
 - **Synchronous** - the source will return value synchronously in a non-blocking way.
 
-```
+```swift
 protocol Synchronous : Source {
     func read() -> ResultType
 }
@@ -48,7 +48,7 @@ protocol Synchronous : Source {
 
 - **Asynchronous** - the source will call the provided block after the value is retrieved. 
 
-```
+```swift
 protocol Asynchronous : Source {
     func read(closure: (ResultType) -> Void)
 }
@@ -59,7 +59,7 @@ Any fail should be handled silently and printed to console in debug build but no
 All strategies inherits the **Source** protocol:
 
 
-```
+```swift
 enum SourceType {
     case Cumulative
     case Momentary
