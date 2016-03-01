@@ -20,8 +20,8 @@ This size is constant and won't change on tvOS. Future releases are planned for 
 
 Four main components are important for adding a Widget:
 
-- **Model** - implements one of the updating strategies (further described below)
-- **View** - a view implementing `ViewModelRendering` protocol that display the information
+- **Model** - implements one of the updating strategies (further described below).
+- **View** - a view implementing `ViewModelRendering` protocol that display the information.
 - **Widget** - controller class implementing `Widget` protocol, exposed to the scheduler and connecting previous two with each other.
 - **WidgetBuilder** - implements `WidgetBuilding` protocol, instantiate Widget with given settings.
 
@@ -29,9 +29,9 @@ Four main components are important for adding a Widget:
 
 Widget view should show these states:
 
-- **Waiting** - starting state, presenting some activity indicator
-- **Rendering** - presenting information (after render method is called)
-- **Failed** - data failed to load, should be avoided if possible
+- **Waiting** - starting state, presenting some activity indicator.
+- **Rendering** - presenting information (after render method is called).
+- **Failed** - data failed to load, should be avoided if possible.
 
 
 ### Updating strategies of the Source
