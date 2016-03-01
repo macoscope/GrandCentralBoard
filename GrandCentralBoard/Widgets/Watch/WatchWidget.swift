@@ -6,6 +6,7 @@
 import UIKit
 
 private let slideshowInterval = 10.0
+private let secondsInDay: NSTimeInterval = 3600
 
 final class WatchWidget : Widget  {
 
@@ -43,26 +44,26 @@ final class WatchWidget : Widget  {
 
         if let source = timer.userInfo as? EventsSource {
             source.read { [weak self] result in
-                guard let instance = self else { return }
-    
                 switch result {
                     case .Success(let events):
-                        instance.events = events.events
+                        self?.events = events.events
                     case .Failure:
-                    break
+                        break
                 }
             }
         }
     }
 
     private func renderTime(time: Time) {
+
         let relevantEvents = events?.filter {
-            $0.time.timeIntervalSinceDate(NSDate()) > 0 && $0.time.timeIntervalSinceDate(NSDate()) < 60*60
+            let secondsLeftToEvent = $0.time.timeIntervalSinceDate(NSDate())
+            return secondsLeftToEvent > 0 && secondsLeftToEvent < secondsInDay
         }
 
         var event: Event? = nil
 
-        if let relevantEvents = relevantEvents where relevantEvents.count > 0 {
+        if let relevantEvents = relevantEvents where !relevantEvents.isEmpty {
             let eventsCount = relevantEvents.count
             let index = Int(NSDate().timeIntervalSince1970 / slideshowInterval) % eventsCount
             event = relevantEvents[index]
