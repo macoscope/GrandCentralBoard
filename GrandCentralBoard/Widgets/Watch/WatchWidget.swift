@@ -26,30 +26,39 @@ final class WatchWidget : Widget {
     var lastFetch: NSDate?
 
     func update(source: UpdatingSource) {
+        switch source {
+            case let source as TimeSource:
+                updateTimeFromSource(source)
+            case let source as EventsSource:
+                fetchEventsFromSource(source)
+            default:
+                // TODO: Expected TimeSource or EventsSource
+                break
+        }
+    }
 
-        if let source = source as? TimeSource {
-            let result = source.read()
-            var time: Time
+    private func updateTimeFromSource(source: TimeSource) {
+        let result = source.read()
+        var time: Time
 
-            switch result {
-                case .Success(let timeFromSource):
-                    time = timeFromSource
-                case .Failure:
-                    widgetView.failure()
-                    return
-            }
-
-            renderTime(time)
+        switch result {
+            case .Success(let timeFromSource):
+                time = timeFromSource
+            case .Failure:
+                widgetView.failure()
+                return
         }
 
-        if let source = source as? EventsSource {
-            source.read { [weak self] result in
-                switch result {
-                    case .Success(let events):
-                        self?.events = events.events
-                    case .Failure:
-                        break
-                }
+        renderTime(time)
+    }
+
+    private func fetchEventsFromSource(source: EventsSource) {
+        source.read { [weak self] result in
+            switch result {
+                case .Success(let events):
+                    self?.events = events.events
+                case .Failure:
+                    break
             }
         }
     }
