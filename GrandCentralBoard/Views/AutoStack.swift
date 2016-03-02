@@ -25,7 +25,7 @@ final class AutoStack : UIView, ViewStacking {
         mainStackView.alignment = .Fill
         mainStackView.axis = .Vertical
         mainStackView.spacing = 0
-        mainStackView.autoresizingMask = [ .FlexibleHeight, .FlexibleWidth]
+        mainStackView.autoresizingMask = [ .FlexibleHeight, .FlexibleWidth ]
         mainStackView.translatesAutoresizingMaskIntoConstraints = true
         addSubview(mainStackView)
 
