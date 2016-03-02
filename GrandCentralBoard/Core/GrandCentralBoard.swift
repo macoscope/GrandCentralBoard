@@ -11,7 +11,7 @@ enum GrandCentralBoardError : ErrorType, HavingMessage {
     var message: String {
         switch self {
             case .WrongWidgetsCount:
-                return "Expected six configured widgets!"
+                return NSLocalizedString("Expected six configured widgets!", comment: "")
         }
     }
 }

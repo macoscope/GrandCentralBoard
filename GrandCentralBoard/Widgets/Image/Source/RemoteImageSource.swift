@@ -17,7 +17,7 @@ enum RemoteImageSourceError : ErrorType, HavingMessage {
     var message: String {
         switch self {
             case .DownloadFailed:
-            return "Cannot download image!"
+                return NSLocalizedString("Cannot download image!", comment: "")
         }
     }
 }

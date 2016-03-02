@@ -24,7 +24,7 @@ enum EventsError : ErrorType, HavingMessage {
     var message: String {
         switch self {
             case .CannotConvertDate:
-                return "Unable to convert string to date."
+                return NSLocalizedString("Unable to convert string to date.", comment: "")
         }
     }
 }
@@ -64,7 +64,7 @@ enum EventsSourceError : ErrorType, HavingMessage {
     var message: String {
         switch self {
             case .DownloadFailed:
-                return "Cannot download data!"
+                return NSLocalizedString("Cannot download data!", comment: "")
         }
     }
 }
