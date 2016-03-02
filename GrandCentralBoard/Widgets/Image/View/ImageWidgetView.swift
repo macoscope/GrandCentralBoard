@@ -30,25 +30,17 @@ final class ImageWidgetView : UIView, ViewModelRendering {
         state = .Failed
     }
 
-    // MARK - Initial state
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        handleTransitionFromState(nil, toState: .Waiting)
-    }
-
     // MARK - Transitions
 
-    private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
+    private func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
-        case (_, .Rendering(let viewModel)):
-            transitionToWaitingState(false)
-            setUpImageWithViewModel(viewModel)
-        case (_, .Failed):
-            // TODO: Failed appearance
-            break
-        case (_, .Waiting):
-            transitionToWaitingState(true)
+            case (.Waiting, .Rendering(let viewModel)):
+                transitionFromWaitingState()
+                setUpImageWithViewModel(viewModel)
+            case (.Rendering, .Rendering(let viewModel)):
+                setUpImageWithViewModel(viewModel)
+            default:
+                break
         }
     }
 
@@ -56,10 +48,9 @@ final class ImageWidgetView : UIView, ViewModelRendering {
         image.image = viewModel.image
     }
 
-    private func transitionToWaitingState(waiting: Bool) {
+    private func transitionFromWaitingState() {
         UIView.animateWithDuration(0.3) {
-            self.activity.alpha = waiting ? 1 : 0
-            self.image.alpha = waiting ? 0 : 1
+            self.activity.alpha = 0
         }
     }
 

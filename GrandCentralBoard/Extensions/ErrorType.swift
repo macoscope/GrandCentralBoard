@@ -10,7 +10,7 @@ protocol HavingMessage {
 }
 
 extension ErrorType  {
-    var alertMessage : String {
+    var userMessage : String {
 
         if let error = self as? HavingMessage {
             return error.message

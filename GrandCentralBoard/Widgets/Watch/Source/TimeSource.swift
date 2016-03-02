@@ -25,16 +25,13 @@ final class TimeSource : Synchronous {
 
     typealias ResultType = Result<Time>
 
-    let optimalInterval: NSTimeInterval = 1
+    let interval: NSTimeInterval = 1
     let sourceType: SourceType = .Momentary
 
     private let timeZone: NSTimeZone
 
-    let eventSource: EventsSource
-
     init(settings: TimeSourceSettings) {
         self.timeZone = settings.timeZone
-        eventSource = EventsSource(settings: EventsSourceSettings(calendarPath: settings.calendarPath))
     }
 
     func read() -> ResultType {

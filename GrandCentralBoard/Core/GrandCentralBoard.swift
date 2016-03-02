@@ -11,24 +11,23 @@ enum GrandCentralBoardError : ErrorType, HavingMessage {
     var message: String {
         switch self {
             case .WrongWidgetsCount:
-                return "Expected six configured widgets!"
+                return NSLocalizedString("Expected six configured widgets!", comment: "")
         }
     }
 }
 
 final class GrandCentralBoard {
 
-    private let stack = AutoStack()
-    private let scheduler = Scheduler()
+    private let stack: ViewStacking
+    private let scheduler: SchedulingJobs
     private let expectedWidgetsCount = 6
 
     private var widgets : [Widget]
 
-    var view: UIView {
-        return stack
-    }
+    init(configuration: Configuration, scheduler: SchedulingJobs, stack: ViewStacking) throws {
 
-    init(configuration: Configuration) throws {
+        self.scheduler = scheduler
+        self.stack = stack
 
         widgets = configuration.settings.flatMap({ widgetConfiguration in
             
@@ -45,7 +44,9 @@ final class GrandCentralBoard {
 
         widgets.forEach { widget in
             stack.stackView(widget.view)
-            scheduler.schedule(Job(target: widget))
+            widget.sources.forEach { source in
+                scheduler.schedule(Job(target: widget, source: source))
+            }
         }
     }
 }

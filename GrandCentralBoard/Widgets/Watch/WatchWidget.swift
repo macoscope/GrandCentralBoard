@@ -6,19 +6,16 @@
 import UIKit
 
 private let slideshowInterval = 10.0
+private let secondsInDay: NSTimeInterval = 3600
 
-final class WatchWidget : Widget  {
+final class WatchWidget : Widget {
 
     private unowned let widgetView: WatchWidgetView
-    let source: TimeSource
+    let sources: [UpdatingSource]
 
-    init(source: TimeSource) {
+    init(sources: [UpdatingSource]) {
         self.widgetView = WatchWidgetView.fromNib()
-        self.source = source
-    }
-
-    var interval: NSTimeInterval {
-        return source.optimalInterval
+        self.sources = sources
     }
 
     var view: UIView {
@@ -28,8 +25,18 @@ final class WatchWidget : Widget  {
     var events: [Event]?
     var lastFetch: NSDate?
 
-    @objc func update() {
+    func update(source: UpdatingSource) {
+        switch source {
+            case let source as TimeSource:
+                updateTimeFromSource(source)
+            case let source as EventsSource:
+                fetchEventsFromSource(source)
+            default:
+                assertionFailure("Expected `source` as instance of `TimeSource` or `EventsSource`.")
+        }
+    }
 
+    private func updateTimeFromSource(source: TimeSource) {
         let result = source.read()
         var time: Time
 
@@ -42,34 +49,29 @@ final class WatchWidget : Widget  {
         }
 
         renderTime(time)
+    }
 
-        let intervalPassed = NSDate().timeIntervalSinceDate(lastFetch ?? NSDate()) > source.eventSource.optimalInterval
-        let noEvents = events == nil
-        let shouldFetchEvents = intervalPassed || noEvents
-
-        guard shouldFetchEvents else { return }
-
-        lastFetch = NSDate()
-        source.eventSource.read { [weak self] result in
-            guard let instance = self else { return }
-
+    private func fetchEventsFromSource(source: EventsSource) {
+        source.read { [weak self] result in
             switch result {
                 case .Success(let events):
-                    instance.events = events.events
+                    self?.events = events.events
                 case .Failure:
-                break
+                    break
             }
         }
     }
 
     private func renderTime(time: Time) {
+
         let relevantEvents = events?.filter {
-            $0.time.timeIntervalSinceDate(NSDate()) > 0 && $0.time.timeIntervalSinceDate(NSDate()) < 60*60
+            let secondsLeftToEvent = $0.time.timeIntervalSinceDate(NSDate())
+            return secondsLeftToEvent > 0 && secondsLeftToEvent < secondsInDay
         }
 
         var event: Event? = nil
 
-        if let relevantEvents = relevantEvents where relevantEvents.count > 0 {
+        if let relevantEvents = relevantEvents where !relevantEvents.isEmpty {
             let eventsCount = relevantEvents.count
             let index = Int(NSDate().timeIntervalSince1970 / slideshowInterval) % eventsCount
             event = relevantEvents[index]

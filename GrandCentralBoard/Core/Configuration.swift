@@ -34,9 +34,9 @@ enum ConfigurationError : ErrorType, HavingMessage {
     var message: String {
         switch self {
             case .DownloadFailed:
-                return "Cannot download configuration file!"
+                return NSLocalizedString("Cannot download configuration file!", comment: "")
             case .WrongFormat:
-                return "Wrong format of configuration file!"
+                return NSLocalizedString("Wrong format of configuration file!", comment: "")
         }
     }
 }

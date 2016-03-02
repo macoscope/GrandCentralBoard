@@ -19,23 +19,15 @@ class LoadingViewController: UIViewController {
                     let main = Storyboards.Main.instantiate(configuration)
                     self?.navigationController?.pushViewController(main, animated: true)
                 case .Failure(let error):
-                    self?.showError(error.alertMessage)
+                    self?.showRetryDialogWithMessage(error.userMessage)
             }
         }
     }
 
-    private func showError(message: String) {
-
-        let title = NSLocalizedString("Error", comment: "")
-        let buttonTitle = NSLocalizedString("Retry", comment: "")
-
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-
-        let doneAction = UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.Default) { [weak self] _ in
+    private func showRetryDialogWithMessage(message: String) {
+        let alert = UIAlertController.retryAlertWithMessage(message) { [weak self] in
             self?.fetchConfiguration()
         }
-
-        alert.addAction(doneAction)
 
         presentViewController(alert, animated: true, completion: nil)
     }

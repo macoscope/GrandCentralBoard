@@ -8,19 +8,27 @@ import Foundation
 protocol Schedulable : class {
     var interval: NSTimeInterval { get }
     var selector: Selector { get }
+    var source: UpdatingSource { get }
+    var target: Updateable { get }
 }
 
 final class Job : Schedulable {
 
     let target: Updateable
     let selector: Selector = "update"
+    let source: UpdatingSource
 
-    init(target: Updateable) {
+    init(target: Updateable, source: UpdatingSource) {
         self.target = target
+        self.source = source
     }
 
     var interval: NSTimeInterval {
-        return target.interval
+        return source.interval
+    }
+
+    @objc func update() {
+        target.update(source)
     }
 }
 
@@ -33,7 +41,7 @@ final class Scheduler : SchedulingJobs {
     private var timers =  [NSTimer]()
 
     func schedule(job: Job) {
-        let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job.target, selector: job.selector, userInfo: nil, repeats: true)
+        let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job, selector: job.selector, userInfo: nil, repeats: true)
         timers.append(timer)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
