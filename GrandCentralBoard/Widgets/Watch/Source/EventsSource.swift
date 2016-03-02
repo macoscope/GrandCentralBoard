@@ -39,10 +39,10 @@ struct EventsSourceSettings {
     let calendarPath: String
 }
 
-enum EventsSourceError : ErrorType, CustomStringConvertible {
+enum EventsSourceError : ErrorType, HavingMessage {
     case DownloadFailed
 
-    var description: String {
+    var message: String {
         switch self {
             case .DownloadFailed:
                 return "Cannot download data!"

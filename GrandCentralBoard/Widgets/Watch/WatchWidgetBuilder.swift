@@ -6,8 +6,15 @@
 import Foundation
 import Decodable
 
-enum WatchWidgetBuilderException : ErrorType {
+enum WatchWidgetBuilderException : ErrorType, HavingMessage {
     case WrongSettings
+
+    var message: String {
+        switch self {
+            case .WrongSettings:
+                return "Wrong settings format in WatchWidgetBuilder!"
+        }
+    }
 }
 
 final class WatchWidgetBuilder : WidgetBuilding {

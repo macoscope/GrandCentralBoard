@@ -5,10 +5,10 @@
 
 import UIKit
 
-enum GrandCentralBoardError : ErrorType, CustomStringConvertible {
+enum GrandCentralBoardError : ErrorType, HavingMessage {
     case WrongWidgetsCount
 
-    var description: String {
+    var message: String {
         switch self {
             case .WrongWidgetsCount:
                 return "Expected six configured widgets!"

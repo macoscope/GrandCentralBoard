@@ -11,10 +11,10 @@ struct Image : Timed {
     let time: NSDate
 }
 
-enum RemoteImageSourceError : ErrorType, CustomStringConvertible {
+enum RemoteImageSourceError : ErrorType, HavingMessage {
     case DownloadFailed
 
-    var description: String {
+    var message: String {
         switch self {
             case .DownloadFailed:
             return "Cannot download image!"

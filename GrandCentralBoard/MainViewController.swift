@@ -16,17 +16,15 @@ class MainViewController: UIViewController {
         do {
             board = try GrandCentralBoard(configuration: configuration)
             view = board.view
-        } catch let error as CustomStringConvertible {
-            showError(error.description)
-        } catch {
-            showError("Unknown error")
+        } catch let error  {
+            showError(error.alertMessage)
         }
     }
 
     private func showError(message: String) {
 
-        let title = "Error"
-        let buttonTitle = "Retry"
+        let title = NSLocalizedString("Error", comment: "")
+        let buttonTitle = NSLocalizedString("Retry", comment: "")
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
 

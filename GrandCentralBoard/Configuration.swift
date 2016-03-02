@@ -27,11 +27,11 @@ extension WidgetSettings : Decodable {
     }
 }
 
-enum ConfigurationError : ErrorType, CustomStringConvertible {
+enum ConfigurationError : ErrorType, HavingMessage {
     case DownloadFailed
     case WrongFormat
 
-    var description: String {
+    var message: String {
         switch self {
             case .DownloadFailed:
                 return "Cannot download configuration file!"
