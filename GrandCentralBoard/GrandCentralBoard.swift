@@ -19,7 +19,7 @@ enum GrandCentralBoardError : ErrorType, HavingMessage {
 final class GrandCentralBoard {
 
     private let stack = AutoStack()
-    private let scheduler = Scheduler()
+    private let scheduler: SchedulingJobs = Scheduler()
     private let expectedWidgetsCount = 6
 
     private var widgets : [Widget]

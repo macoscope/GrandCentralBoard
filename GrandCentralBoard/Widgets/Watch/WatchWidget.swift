@@ -8,7 +8,7 @@ import UIKit
 private let slideshowInterval = 10.0
 private let secondsInDay: NSTimeInterval = 3600
 
-final class WatchWidget : Widget  {
+final class WatchWidget : Widget {
 
     private unowned let widgetView: WatchWidgetView
     let sources: [UpdatingSource]
@@ -25,9 +25,9 @@ final class WatchWidget : Widget  {
     var events: [Event]?
     var lastFetch: NSDate?
 
-    @objc func update(timer: NSTimer) {
+    func update(source: UpdatingSource) {
 
-        if let source = timer.userInfo as? TimeSource {
+        if let source = source as? TimeSource {
             let result = source.read()
             var time: Time
 
@@ -42,7 +42,7 @@ final class WatchWidget : Widget  {
             renderTime(time)
         }
 
-        if let source = timer.userInfo as? EventsSource {
+        if let source = source as? EventsSource {
             source.read { [weak self] result in
                 switch result {
                     case .Success(let events):

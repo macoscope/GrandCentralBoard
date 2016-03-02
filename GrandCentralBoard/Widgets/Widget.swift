@@ -7,7 +7,7 @@ import UIKit
 
 protocol Updateable : class {
     var sources: [UpdatingSource] { get }
-    func update(timer: NSTimer)
+    func update(source: UpdatingSource)
 }
 
 protocol Widget : Updateable {

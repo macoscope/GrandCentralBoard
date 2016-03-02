@@ -15,7 +15,7 @@ protocol Schedulable : class {
 final class Job : Schedulable {
 
     let target: Updateable
-    let selector: Selector = "update:"
+    let selector: Selector = "update"
     let source: UpdatingSource
 
     init(target: Updateable, source: UpdatingSource) {
@@ -25,6 +25,10 @@ final class Job : Schedulable {
 
     var interval: NSTimeInterval {
         return source.interval
+    }
+
+    @objc func update() {
+        target.update(source)
     }
 }
 
@@ -37,7 +41,7 @@ final class Scheduler : SchedulingJobs {
     private var timers =  [NSTimer]()
 
     func schedule(job: Job) {
-        let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job.target, selector: job.selector, userInfo: job.source, repeats: true)
+        let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job, selector: job.selector, userInfo: nil, repeats: true)
         timers.append(timer)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
