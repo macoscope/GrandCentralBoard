@@ -5,6 +5,17 @@
 
 import UIKit
 
+enum GrandCentralBoardError : ErrorType, HavingMessage {
+    case WrongWidgetsCount
+
+    var message: String {
+        switch self {
+            case .WrongWidgetsCount:
+                return "Expected six configured widgets!"
+        }
+    }
+}
+
 final class GrandCentralBoard {
 
     private let stack = AutoStack()
@@ -17,7 +28,7 @@ final class GrandCentralBoard {
         return stack
     }
 
-    init(configuration: Configuration) {
+    init(configuration: Configuration) throws {
 
         widgets = configuration.settings.flatMap({ widgetConfiguration in
             
@@ -28,7 +39,9 @@ final class GrandCentralBoard {
             return nil
         })
 
-        assert(widgets.count == expectedWidgetsCount)
+        guard widgets.count == expectedWidgetsCount else {
+            throw GrandCentralBoardError.WrongWidgetsCount
+        }
 
         widgets.forEach { widget in
             stack.stackView(widget.view)

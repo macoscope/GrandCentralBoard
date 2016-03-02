@@ -40,8 +40,7 @@ extension UIView {
             [
                 .CurveEaseInOut,
                 .Autoreverse,
-                .Repeat,
-                .AllowUserInteraction
+                .Repeat
             ],
             animations: {
                 self.alpha = alphaDepth

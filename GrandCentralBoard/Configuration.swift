@@ -5,7 +5,9 @@
 
 import Foundation
 import Decodable
+import Alamofire
 
+let configurationPath = "http://oktawian.chojnacki.me/tv/configuration.json"
 let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder()]
 
 struct WidgetSettings {
@@ -25,9 +27,18 @@ extension WidgetSettings : Decodable {
     }
 }
 
-enum ConfigurationException : ErrorType {
-    case NoConfigurationFile
-    case WrongConfigurationFormat
+enum ConfigurationError : ErrorType, HavingMessage {
+    case DownloadFailed
+    case WrongFormat
+
+    var message: String {
+        switch self {
+            case .DownloadFailed:
+                return "Cannot download configuration file!"
+            case .WrongFormat:
+                return "Wrong format of configuration file!"
+        }
+    }
 }
 
 struct Configuration {
@@ -35,17 +46,22 @@ struct Configuration {
     let builders: [WidgetBuilding]
     let settings: [WidgetSettings]
 
-    static func defaultConfiguration() throws -> Configuration {
+    static func fetchConfiguration(closure: (Result<Configuration>) -> ()) {
 
-        // TODO: Fetch from server
+        Alamofire.request(.GET, configurationPath).response { (request, response, data, error) in
+            if let data = data {
 
-        if let path = NSBundle.mainBundle().pathForResource("configuration", ofType: "json") {
-            if let jsonData = NSData(contentsOfFile: path) {
-                return try configurationFromData(jsonData)
+                do {
+                    closure(.Success(try configurationFromData(data)))
+                } catch (let error) {
+                    closure(.Failure(error))
+                }
+
+                return
             }
-        }
 
-        throw ConfigurationException.NoConfigurationFile
+            closure(.Failure(ConfigurationError.DownloadFailed))
+        }
     }
 
     private static func configurationFromData(data: NSData) throws -> Configuration {
@@ -56,6 +72,6 @@ struct Configuration {
             }
         }
 
-        throw ConfigurationException.WrongConfigurationFormat
+        throw ConfigurationError.WrongFormat
     }
 }

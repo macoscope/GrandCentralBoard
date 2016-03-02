@@ -1,0 +1,10 @@
+{
+    "widgets": [
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "https://raw.githubusercontent.com/macoscope/GrandCentralBoard/develop/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Berlin", "calendar": "https://raw.githubusercontent.com/macoscope/GrandCentralBoard/develop/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/London", "calendar": "https://raw.githubusercontent.com/macoscope/GrandCentralBoard/develop/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "https://raw.githubusercontent.com/macoscope/GrandCentralBoard/develop/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "https://raw.githubusercontent.com/macoscope/GrandCentralBoard/develop/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "https://raw.githubusercontent.com/macoscope/GrandCentralBoard/develop/calendar.json"} }
+               ]
+}
