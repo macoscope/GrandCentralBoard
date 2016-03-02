@@ -18,20 +18,39 @@ struct Events : Timed {
     let events: [Event]
 }
 
+enum EventsError : ErrorType, HavingMessage {
+    case CannotConvertDate
+
+    var message: String {
+        switch self {
+            case .CannotConvertDate:
+                return "Unable to convert string to date."
+        }
+    }
+}
+
 extension Events : Decodable {
+
     static func decode(json: AnyObject) throws -> Events {
         return try Events(time: NSDate(), events:
-            (json => "events" as! [AnyObject]).flatMap({ try? Event(time: stringToDate($0 => "time"), name: $0 => "name") })
+            (json => "events" as! [AnyObject]).flatMap({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
         )
     }
 
-    static let dateFormatter = NSDateFormatter()
-
-    static func stringToDate(string: String) -> NSDate {
+    static let dateFormatter: NSDateFormatter = {
+        let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        return dateFormatter.dateFromString(string)!
+        return dateFormatter
+    }()
+
+    static func stringToDate(string: String) throws -> NSDate {
+        let dateFromFormatter = dateFormatter.dateFromString(string)
+
+        guard let date = dateFromFormatter else { throw EventsError.CannotConvertDate }
+
+        return date
     }
 }
 
@@ -65,13 +84,20 @@ final class EventsSource : Asynchronous {
 
     func read(closure: (ResultType) -> Void) {
         Alamofire.request(.GET, path).response { (request, response, data, error) in
-            if let data = data, jsonResult = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-                if let jsonResult = jsonResult, events = try? Events.decode(jsonResult) {
+            do {
+                if let data = data, jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+
+                    let events = try Events.decode(jsonResult)
                     closure(.Success(events))
+
                     return
                 }
 
                 closure(.Failure(EventsSourceError.DownloadFailed))
+
+            } catch let error {
+                closure(.Failure(error))
+                return
             }
         }
     }
