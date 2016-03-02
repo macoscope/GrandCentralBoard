@@ -3,7 +3,9 @@ Grand Central Board for Apple TV
 
 You can hang a TV in open space or team room to show everyone what's up. 
 
-The board is a really lighweight piece of code. TV screen is expected to be in landscape orientation and is split to six nearly square widgets loaded from remote configuration file. You can use the space in any way you want, this is just a view. Updating the widget is standarized though and you should not ignore this convention.
+The board is a lighweight piece of code. TV screen is expected to be in landscape orientation and is split to six nearly square widgets loaded from remote configuration file. You can use the space in any way you want, this is just a view. Updating the widget is standarized though and you should not ignore this convention.
+
+👷 Project maintained by: [@nsmeme](http://twitter.com/nsmeme) (Oktawian Chojnacki)
 
 ✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2](https://swift.org).
 
@@ -111,3 +113,7 @@ protocol Source {
     var optimalFrequency: NSTimeInterval { get }
 }
 ```
+
+# Summary
+
+This project just started and there is a lot to do. If you want to contribute please add an issue and discuss your plans with us. We will try to help and this will ensure that two people won't work on the same thing.
