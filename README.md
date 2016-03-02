@@ -3,15 +3,15 @@ Grand Central Board for Apple TV
 
 You can hang a TV in open space or team room to show everyone what's up. 
 
-The board is a lighweight piece of code. TV screen is expected to be in landscape orientation and is split to six nearly square widgets loaded from remote configuration file. You can use the space in any way you want, this is just a view. Updating the widget is standarized though and you should not ignore this convention.
+The board is a lightweight piece of code. TV screen is expected to be in landscape orientation and is split to six nearly square widgets loaded from remote configuration file. This is just a UIView so you can use the space in any way you want. Updating the widget is standardized though and you should not ignore this convention.
 
 👷 Project maintained by: [@nsmeme](http://twitter.com/nsmeme) (Oktawian Chojnacki)
 
 ✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2](https://swift.org).
 
-## Depedencies
+## Dependencies
 
-We use [CocoaPods](https://cocoapods.org) and current depedencies are:
+We use [CocoaPods](https://cocoapods.org) and current dependencies are:
 
 - [Alamofire](https://github.com/Alamofire/Alamofire)
 - [Decodable](https://github.com/Anviking/Decodable)
@@ -20,7 +20,7 @@ We use [CocoaPods](https://cocoapods.org) and current depedencies are:
 
 ### Adding a new Widget
 
-There is separate article [NEW-WIDGET-TUTORIAL.md](http://TUTORIAL URL) about adding a new widget.
+There is a separate article [NEW-WIDGET-TUTORIAL.md](http://TUTORIAL URL) about adding a new widget.
 
 ### Components
 
