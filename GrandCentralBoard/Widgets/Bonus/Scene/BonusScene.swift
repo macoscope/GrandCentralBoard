@@ -10,6 +10,7 @@ private let pokeTimeInterval: NSTimeInterval = 5
 class BonusScene: SKScene {
     
     private var sceneModel: BonusSceneModel!
+    private let world = SKNode()
     
     override func didMoveToView(view: SKView) {
         assert(sceneModel != nil)
@@ -21,14 +22,16 @@ class BonusScene: SKScene {
     
     func setUpWithSceneModel(sceneModel: BonusSceneModel) {
         guard self.sceneModel != nil else {
-            setUpWithSceneForTheFirstTimeWithSceneModel(sceneModel)
+            setUpSceneForTheFirstTimeWithSceneModel(sceneModel)
             return
         }
         updateWithSceneModel(sceneModel)
     }
     
-    private func setUpWithSceneForTheFirstTimeWithSceneModel(sceneModel: BonusSceneModel) {
+    private func setUpSceneForTheFirstTimeWithSceneModel(sceneModel: BonusSceneModel) {
         self.sceneModel = sceneModel
+        addChild(world)
+        
         let topRightPoint = CGPoint(x: size.width / 2, y: size.height / 2)
         for person in sceneModel.people {
             let bubble = Bubble(person: person)
@@ -39,35 +42,17 @@ class BonusScene: SKScene {
             } else {
                 bubble.position = CGPoint(x: 0, y: 0)
             }
-            addChild(bubble)
+            world.addChild(bubble)
         }
     }
     
     private func updateWithSceneModel(sceneModel: BonusSceneModel) {
         self.sceneModel = sceneModel
         for person in sceneModel.people {
-            if let bubble = childNodeWithName(person.name) as? Bubble {
+            if let bubble = world.childNodeWithName(person.name) as? Bubble {
                 bubble.updateWithBonus(person.bonus)
             }
         }
-        
-        scaleBubblesDownIfNeeded()
-    }
-    
-    private func scaleBubblesDownIfNeeded() {
-        children.forEach { node in
-            if let node = node as? Bubble {
-                if !intersectsNode(node) {
-                    scaleBubblesDown()
-                }
-            }
-        }
-    }
-    
-    private func scaleBubblesDown() {
-        // Scale bubbles down by increasing size of the scene
-        let scaleFactor: CGFloat = 1.5
-        size = CGSize(width: size.width * scaleFactor, height: size.width * scaleFactor)
     }
     
     func pokeAllBubbles() {
@@ -83,4 +68,20 @@ class BonusScene: SKScene {
             }
         }
     }
+    
+    override func update(currentTime: NSTimeInterval) {
+        guard !world.children.isEmpty else { return }
+        
+        let nodesFitScreen = CGRectContainsRect(frame, world.calculateAccumulatedFrame())
+        if !nodesFitScreen {
+            scaleBubblesDown()
+        }
+    }
+    
+    private func scaleBubblesDown() {
+        // Scale bubbles down by increasing size of the scene
+        let scaleFactor: CGFloat = 1.02
+        size = CGSize(width: size.width * scaleFactor, height: size.width * scaleFactor)
+    }
+    
 }
