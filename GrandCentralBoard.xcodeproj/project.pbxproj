@@ -41,6 +41,7 @@
 		1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87495D1C385264006E58C6 /* RemoteImageSource.swift */; };
 		1A9A3D791C84785D0070DB17 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A3D781C84785D0070DB17 /* Result.swift */; };
 		1A9A3D7B1C86F7800070DB17 /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A3D7A1C86F7800070DB17 /* ErrorType.swift */; };
+		1A9A3D7D1C8710EC0070DB17 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A3D7C1C8710EC0070DB17 /* UIAlertController.swift */; };
 		1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */; };
 		1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC247BB1C834E4900A179CB /* LoadingViewController.swift */; };
 		1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC247BD1C83517600A179CB /* Storyboards.swift */; };
@@ -121,6 +122,7 @@
 		1A87495D1C385264006E58C6 /* RemoteImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageSource.swift; sourceTree = "<group>"; };
 		1A9A3D781C84785D0070DB17 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		1A9A3D7A1C86F7800070DB17 /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		1A9A3D7C1C8710EC0070DB17 /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
 		1AC247BB1C834E4900A179CB /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		1AC247BD1C83517600A179CB /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */,
 				1A5180131C3860010035092D /* UIView.swift */,
 				1A9A3D7A1C86F7800070DB17 /* ErrorType.swift */,
+				1A9A3D7C1C8710EC0070DB17 /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				1A242D501C357CA500D5BEE5 /* Source.swift in Sources */,
 				1AD5EAA21C7CFE4E00210BB9 /* UILabel.swift in Sources */,
 				1A9A3D791C84785D0070DB17 /* Result.swift in Sources */,
+				1A9A3D7D1C8710EC0070DB17 /* UIAlertController.swift in Sources */,
 				1AD5EAAC1C7DA9BB00210BB9 /* Scheduler.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,

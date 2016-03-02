@@ -7,11 +7,21 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    var board: GrandCentralBoard!
-    var configuration: Configuration!
+    private var board: GrandCentralBoard?
+    var configuration: Configuration! {
+        didSet {
+            setUpBoardWithConfiguration(configuration)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpBoardWithConfiguration(configuration)
+    }
+
+    private func setUpBoardWithConfiguration(configuration: Configuration) {
+
+        guard board == nil else { return }
 
         do {
             let autoStack = AutoStack()
@@ -19,22 +29,14 @@ class MainViewController: UIViewController {
             board = try GrandCentralBoard(configuration: configuration, scheduler: scheduler, stack: autoStack)
             view = autoStack
         } catch let error  {
-            showError(error.alertMessage)
+            showRetryDialogWithMessage(error.userMessage)
         }
     }
 
-    private func showError(message: String) {
-
-        let title = NSLocalizedString("Error", comment: "")
-        let buttonTitle = NSLocalizedString("Retry", comment: "")
-
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-
-        let doneAction = UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.Default) { [weak self] _ in
+    private func showRetryDialogWithMessage(message: String) {
+        let alert = UIAlertController.retryAlertWithMessage(message) { [weak self] in
             self?.navigationController?.popViewControllerAnimated(true)
         }
-
-        alert.addAction(doneAction)
 
         presentViewController(alert, animated: true, completion: nil)
     }
