@@ -5,9 +5,31 @@ You can hang a TV in open space or team room to show everyone what's up.
 
 The board is a really lighweight piece of code. TV screen is expected to be in landscape orientation and is split to six nearly square widgets loaded from remote configuration file. You can use the space in any way you want, this is just a view. Updating the widget is standarized though and you should not ignore this convention.
 
+✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2](https://swift.org).
+
+## Depedencies
+
+We use [CocoaPods](https://cocoapods.org) and current depedencies are:
+
+- [Alamofire](https://github.com/Alamofire/Alamofire)
+- [Decodable](https://github.com/Anviking/Decodable)
+
 ## Widgets
 
-### Order on screen
+### Adding a new Widget
+
+There is separate article [NEW-WIDGET-TUTORIAL.md](http://TUTORIAL URL) about adding a new widget.
+
+### Components
+
+Four main components are making a Widget:
+
+- **View** - a view implementing `ViewModelRendering` protocol that display the information.
+- **Source** - implements one of the updating strategies (further described below).
+- **Widget** - controller class implementing `Widget` protocol, exposed to the scheduler and connecting previous two with each other.
+- **WidgetBuilder** - implements `WidgetBuilding` protocol, instantiate Widget with settings from configuration file.
+
+### Widgets order on screen
 
 ![image](./README/widgets.png)
 
@@ -17,19 +39,27 @@ Widget canvas for 1080p:
 
 - 640px x 540px
 
-This size is constant and won't change on tvOS. Future releases are planned for iOS devices and they can have slightly different (and more dense) canvases. 
+This size is constant and won't change on tvOS. Future releases are planned for iOS devices and they can have slightly different (and more dense) canvases.
 
+### Configuration
 
-### Adding a new Widget
+A remote `JSON` file with this format is used to configure Grand Central Board:
 
-Four main components are important for adding a Widget:
+```json
+{ "widgets":[ 
+    {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} },
+    {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} },
+    {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} },
+    {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} },
+    {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} },
+    {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} }
+]}
 
-- **Model** - implements one of the updating strategies (further described below).
-- **View** - a view implementing `ViewModelRendering` protocol that display the information.
-- **Widget** - controller class implementing `Widget` protocol, exposed to the scheduler and connecting previous two with each other.
-- **WidgetBuilder** - implements `WidgetBuilding` protocol, instantiate Widget with given settings.
+```
 
-### View State
+NOTE: Each widget will have it's own settings properties.
+
+## View States
 
 Widget view should show these states:
 
@@ -37,10 +67,9 @@ Widget view should show these states:
 - **Rendering** - presenting information (after render method is called).
 - **Failed** - data failed to load, should be avoided if possible.
 
+## Source
 
-### Updating strategies of the Source
-
-The source should implement one  of the two protocols:
+The source should implement one of the two protocols:
 
 - **Synchronous** - the source will return value synchronously in a non-blocking way.
 
@@ -58,19 +87,19 @@ protocol Asynchronous : Source {
 }
 ```
 
-Any fail should be handled silently and printed to console in debug build but not presented to the user in any way.
+Fail can be handled silently, but they may be some Widgets where fail state should be presented - it's up to you.
 
 All strategies inherit the **Source** protocol:
 
-
 ```swift
+
 enum SourceType {
     case Cumulative
     case Momentary
 }
 
 enum Result<T> {
-    case Failure
+    case Failure(ErrorType)
     case Success(T)
 }
 
