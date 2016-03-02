@@ -32,8 +32,7 @@ final class WatchWidget : Widget {
             case let source as EventsSource:
                 fetchEventsFromSource(source)
             default:
-                // TODO: Expected TimeSource or EventsSource
-                break
+                assertionFailure("Expected `source` as instance of `TimeSource` or `EventsSource`.")
         }
     }
 

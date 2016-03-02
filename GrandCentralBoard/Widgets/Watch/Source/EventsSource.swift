@@ -20,11 +20,14 @@ struct Events : Timed {
 
 enum EventsError : ErrorType, HavingMessage {
     case CannotConvertDate
+    case WrongFormat
 
     var message: String {
         switch self {
             case .CannotConvertDate:
                 return NSLocalizedString("Unable to convert string to date.", comment: "")
+            case .WrongFormat:
+            return NSLocalizedString("Wrong format.", comment: "")
         }
     }
 }
@@ -51,6 +54,18 @@ extension Events : Decodable {
         guard let date = dateFromFormatter else { throw EventsError.CannotConvertDate }
 
         return date
+    }
+}
+
+extension Events {
+
+    static func eventsFromData(data: NSData) throws -> Events {
+        
+        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+            return try Events.decode(jsonResult)
+        }
+
+        throw EventsError.WrongFormat
     }
 }
 
@@ -84,20 +99,12 @@ final class EventsSource : Asynchronous {
 
     func read(closure: (ResultType) -> Void) {
         Alamofire.request(.GET, path).response { (request, response, data, error) in
+
             do {
-                if let data = data, jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-
-                    let events = try Events.decode(jsonResult)
-                    closure(.Success(events))
-
-                    return
-                }
-
-                closure(.Failure(EventsSourceError.DownloadFailed))
-
+                guard let data = data else { throw error ?? EventsSourceError.DownloadFailed }
+                try closure(.Success(Events.eventsFromData(data)))
             } catch let error {
                 closure(.Failure(error))
-                return
             }
         }
     }
