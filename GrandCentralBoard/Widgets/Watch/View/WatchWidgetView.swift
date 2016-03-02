@@ -42,7 +42,12 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     override func awakeFromNib() {
         super.awakeFromNib()
         handleTransitionFromState(nil, toState: .Waiting)
-
+        hourLeft.alpha = 0
+        hourRight.alpha = 0
+        meetingName.alpha = 0
+        meetingETA.alpha = 0
+        startsIn.alpha = 0
+        
         blinkingImage.startFlashingWithInterval(pulsatingInterval, alphaDepth: semiTransparentAlpha)
     }
 
