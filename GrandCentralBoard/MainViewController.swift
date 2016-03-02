@@ -14,8 +14,10 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         do {
-            board = try GrandCentralBoard(configuration: configuration)
-            view = board.view
+            let autoStack = AutoStack()
+            let scheduler = Scheduler()
+            board = try GrandCentralBoard(configuration: configuration, scheduler: scheduler, stack: autoStack)
+            view = autoStack
         } catch let error  {
             showError(error.alertMessage)
         }

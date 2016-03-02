@@ -18,17 +18,16 @@ enum GrandCentralBoardError : ErrorType, HavingMessage {
 
 final class GrandCentralBoard {
 
-    private let stack = AutoStack()
-    private let scheduler: SchedulingJobs = Scheduler()
+    private let stack: ViewStacking
+    private let scheduler: SchedulingJobs
     private let expectedWidgetsCount = 6
 
     private var widgets : [Widget]
 
-    var view: UIView {
-        return stack
-    }
+    init(configuration: Configuration, scheduler: SchedulingJobs, stack: ViewStacking) throws {
 
-    init(configuration: Configuration) throws {
+        self.scheduler = scheduler
+        self.stack = stack
 
         widgets = configuration.settings.flatMap({ widgetConfiguration in
             
