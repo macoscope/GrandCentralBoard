@@ -1,0 +1,10 @@
+{[
+    {
+        "name" : "Agata",
+        "image" : {
+            "imageName" : "agata_r"
+        },
+        "bonusesBalance" : 30
+        "newBonus" : 10
+    }
+]}

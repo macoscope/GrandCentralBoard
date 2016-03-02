@@ -17,37 +17,37 @@ class Bubble: SKSpriteNode {
         let texture = SKTexture(image: image)
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
-        setUpPhysicsBody(texture, size: initialSize, bonus: person.bonus)
+        setUpPhysicsBody(texture, size: initialSize, person: person)
         self.name = person.name
         
         let scaleBy: CGFloat = 1 + CGFloat(person.bonus.total) / 100
         setScale(scaleBy)
     }
     
-    private func setUpPhysicsBody(texture: SKTexture, size: CGSize, bonus: Bonus) {
-        physicsBody = SKPhysicsBody(texture: texture, size: initialSize)
+    private func setUpPhysicsBody(texture: SKTexture, size: CGSize, person: Person) {
+        physicsBody = SKPhysicsBody(circleOfRadius: initialSize.width / 2)
         physicsBody?.restitution = 0.0
         physicsBody?.friction = 0.3
         physicsBody?.linearDamping = 0.5
         physicsBody?.allowsRotation = false
-        physicsBody?.mass += CGFloat(bonus.total)
+        physicsBody?.mass += CGFloat(person.bonus.total)
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateWithBonus(bonus: Bonus) {
-        guard bonus.total > self.bonus else { return }
+    func updateWithNewBonus(newBonus: Int) {
+        guard newBonus > 0 else { return }
         
-        self.bonus += bonus.last
-        physicsBody?.mass = CGFloat(bonus.last)
+        self.bonus += newBonus
+        physicsBody?.mass = CGFloat(newBonus)
         
         var scaleBy: CGFloat = 2.3
         let scaleUpAction = SKAction.scaleBy(scaleBy, duration: 0.5)
         let scaleDownAction = SKAction.scaleBy(1/scaleBy, duration: 0.1)
         
-        scaleBy = 1 + CGFloat(bonus.last) / 100
+        scaleBy = 1 + CGFloat(newBonus) / 100
         let finalScaleAction = SKAction.scaleBy(scaleBy, duration: 0.1)
         
         runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]))

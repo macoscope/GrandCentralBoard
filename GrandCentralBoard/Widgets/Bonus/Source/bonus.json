@@ -1,0 +1,16 @@
+{[
+    {
+        "name" : "Agata",
+        "image" : {
+            "imageName" : "agata_r"
+        },
+        "bonusesBalance" : 20
+    },
+    {
+        "name" : "Arek",
+        "image" : {
+            "imageName" : "arek_h"
+        },
+        "bonusesBalance" : 20
+    }
+]}

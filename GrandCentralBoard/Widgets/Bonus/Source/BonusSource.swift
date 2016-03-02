@@ -11,8 +11,24 @@ final class BonusSource : Synchronous {
 
     let sourceType: SourceType = .Momentary
     let interval: NSTimeInterval = 5
-
+    
+    private var people: [Person] = sampleData
+    
     func read() -> ResultType {
-        return .Success(randomlyUpdateData(sampleData))
+        return .Success(updatedData())
+    }
+    
+    private func updatedData() -> [Person] {
+        let updateWithNewBonuses = randomBonusUpdate(sampleData)
+        var peopleWithNewBonuses = people
+        
+        updateWithNewBonuses.forEach { person in
+            if let index = people.indexOf( {$0.name == person.name} ) {
+                people[index] = people[index].copyPersonWithTotalBonus(person.bonus.total)
+                peopleWithNewBonuses[index] = person
+            }
+        }
+        
+        return peopleWithNewBonuses
     }
 }
