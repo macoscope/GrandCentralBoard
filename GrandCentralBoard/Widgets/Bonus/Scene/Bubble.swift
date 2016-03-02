@@ -17,19 +17,20 @@ class Bubble: SKSpriteNode {
         let texture = SKTexture(image: image)
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
-        setUpPhysicsBody(texture, size: initialSize)
+        setUpPhysicsBody(texture, size: initialSize, bonus: person.bonus)
         self.name = person.name
         
         let scaleBy: CGFloat = 1 + CGFloat(person.bonus.total) / 100
         setScale(scaleBy)
     }
     
-    private func setUpPhysicsBody(texture: SKTexture, size: CGSize) {
+    private func setUpPhysicsBody(texture: SKTexture, size: CGSize, bonus: Bonus) {
         physicsBody = SKPhysicsBody(texture: texture, size: initialSize)
         physicsBody?.restitution = 0.0
         physicsBody?.friction = 0.3
         physicsBody?.linearDamping = 0.5
         physicsBody?.allowsRotation = false
+        physicsBody?.mass += CGFloat(bonus.total)
     }
     
     required init(coder aDecoder: NSCoder) {
