@@ -74,6 +74,5 @@ final class EventsSource : Asynchronous {
                 closure(.Failure(EventsSourceError.DownloadFailed))
             }
         }
-       //
     }
 }
