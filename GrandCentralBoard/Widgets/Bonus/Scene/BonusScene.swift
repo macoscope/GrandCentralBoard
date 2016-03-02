@@ -62,11 +62,9 @@ class BonusScene: SKScene {
         let vector = CGVector(dx: dx, dy: dy)
         let pokeAction = SKAction.moveBy(vector, duration: 2)
         
-        children.forEach { node in
-            if node.isKindOfClass(Bubble) {
-                node.runAction(pokeAction)
-            }
-        }
+        let gravityNode = childNodeWithName("radialGravityField")
+        gravityNode?.position = CGPointZero
+        gravityNode?.runAction(pokeAction)
     }
     
     override func update(currentTime: NSTimeInterval) {
