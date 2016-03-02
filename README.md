@@ -1,6 +1,8 @@
 Grand Central Board for Apple TV
 ================================
 
+![image](./README/screenshot.png)
+
 You can hang a TV in open space or team room to show everyone what's up. 
 
 The board is a lightweight piece of code. TV screen is expected to be in landscape orientation and is split to six nearly square widgets loaded from remote configuration file. This is just a UIView so you can use the space in any way you want. Updating the widget is standardized though and you should not ignore this convention.
