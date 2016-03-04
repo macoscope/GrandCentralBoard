@@ -25,12 +25,12 @@ class Bubble: SKSpriteNode {
     }
     
     private func setUpPhysicsBody(texture: SKTexture, size: CGSize, person: Person) {
-        physicsBody = SKPhysicsBody(circleOfRadius: initialSize.width / 2)
+        let spacing: CGFloat = 1
+        physicsBody = SKPhysicsBody(circleOfRadius: initialSize.width / 2 + spacing)
         physicsBody?.restitution = 0.0
         physicsBody?.friction = 0.3
         physicsBody?.linearDamping = 0.5
         physicsBody?.allowsRotation = false
-        physicsBody?.mass += CGFloat(person.bonus.total)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -41,7 +41,6 @@ class Bubble: SKSpriteNode {
         guard newBonus > 0 else { return }
         
         self.bonus += newBonus
-        physicsBody?.mass = CGFloat(newBonus)
         
         var scaleBy: CGFloat = 2.3
         let scaleUpAction = SKAction.scaleBy(scaleBy, duration: 0.5)
