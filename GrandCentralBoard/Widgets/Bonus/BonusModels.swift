@@ -7,12 +7,26 @@ import Foundation
 import Decodable
 
 struct BubbleImage {
-    let imageName: String
+    let localImageName: String?
+    let url: String?
+    
+    var remoteImage: UIImage?
+    var localImage: UIImage? {
+        guard let name = localImageName else { return nil }
+        return UIImage(named: name)
+    }
+    
+    init(imageName: String? = nil, url: String? = nil, image: UIImage? = nil) {
+        self.localImageName = imageName
+        self.url = url
+        self.remoteImage = image
+    }
 }
 
 extension BubbleImage : Decodable {
     static func decode(j: AnyObject) throws -> BubbleImage{
-        return try BubbleImage(imageName: j => "imageName")
+        return try BubbleImage(imageName: j => "imageName",
+                                     url: j => "url")
     }
 }
 
@@ -34,18 +48,22 @@ extension Bonus : Decodable {
 
 struct Person {
     let name: String
-    let image: BubbleImage
+    let bubbleImage: BubbleImage
     let bonus: Bonus
     
     func copyPersonWithTotalBonus(totalBonus: Int) -> Person {
-        return Person(name: name, image: image, bonus: Bonus(total: totalBonus))
+        return Person(name: name, bubbleImage: bubbleImage, bonus: Bonus(total: totalBonus))
+    }
+    
+    func copyPersonWithImage(image: BubbleImage) -> Person {
+        return Person(name: name, bubbleImage: image, bonus: bonus)
     }
 }
 
 extension Person : Decodable {
     static func decode(j: AnyObject) throws -> Person {
         return try Person(name: j => "name",
-                         image: j => "image",
+                   bubbleImage: j => "bubbleImage",
                          bonus: j => "bonus")
     }
 }

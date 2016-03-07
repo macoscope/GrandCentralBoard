@@ -29,14 +29,15 @@ final class BonusWidget : Widget {
     }
 
     private func updateBonusFromSource(source: BonusSource) {
-        let result = source.read()
-
-        switch result {
-            case .Success(let people):
-                let bonusViewModel = BonusWidgetViewModel(sceneModel: BonusSceneModel(people: people))
-                widgetView.render(bonusViewModel)
-            case .Failure:
-                widgetView.failure()
+        source.read { result in
+            switch result {
+                case .Success(let people):
+                    let bonusViewModel = BonusWidgetViewModel(sceneModel: BonusSceneModel(people: people))
+                    self.widgetView.render(bonusViewModel)
+                case .Failure:
+                    self.widgetView.failure()
+            }
         }
+
     }
 }

@@ -9,34 +9,35 @@ import Foundation
 // from Bonusly API https://bonusly.gelato.io/
 
 var sampleData = [
-    Person(name: "Agata", image: BubbleImage(imageName: "agata_r"), bonus: Bonus(total: 30)),
-    Person(name: "Arek", image: BubbleImage(imageName: "arek_h"), bonus: Bonus(total: 20)),
-    Person(name: "Jarek", image: BubbleImage(imageName: "jarek_p"), bonus: Bonus(total: 20)),
-    Person(name: "MaciejS", image: BubbleImage(imageName: "maciej_s"), bonus: Bonus(total: 0)),
-    Person(name: "Dawid", image: BubbleImage(imageName: "dawid_w"), bonus: Bonus(total: 10)),
-    Person(name: "Dominik", image: BubbleImage(imageName: "dominik_s"), bonus: Bonus(total: 20)),
-    Person(name: "Mateusz", image: BubbleImage(imageName: "mateusz"), bonus: Bonus(total: 60)),
-    Person(name: "Daniel", image: BubbleImage(imageName: "daniel_o"), bonus: Bonus(total: 30)),
-    Person(name: "Wojtek", image: BubbleImage(imageName: "wojtek_r"), bonus: Bonus(total: 60)),
-    Person(name: "Karol", image: BubbleImage(imageName: "karol_k"), bonus: Bonus(total: 30)),
-    Person(name: "Rafał", image: BubbleImage(imageName: "rafal_a"), bonus: Bonus(total: 100)),
-    Person(name: "Karolina", image: BubbleImage(imageName: "karolina"), bonus: Bonus(total: 30)),
-    Person(name: "Justyna", image: BubbleImage(imageName: "justyna_d"), bonus: Bonus(total: 30)),
-    Person(name: "Kasia", image: BubbleImage(imageName: "kasia"), bonus: Bonus(total: 20)),
-    Person(name: "Bartek", image: BubbleImage(imageName: "bartek_c"), bonus: Bonus(total: 75)),
-    Person(name: "ŁukaszK", image: BubbleImage(imageName: "lukasz_k"), bonus: Bonus(total: 10)),
-    Person(name: "Diana", image: BubbleImage(imageName: "diana"), bonus: Bonus(total: 5)),
-    Person(name: "ŁukaszF", image: BubbleImage(imageName: "lukasz_f"), bonus: Bonus(total: 0)),
-    Person(name: "MichałL", image: BubbleImage(imageName: "michal_l"), bonus: Bonus(total: 0)),
-    Person(name: "Krzysztof", image: BubbleImage(imageName: "krzysztof_w"), bonus: Bonus(total: 10)),
-    Person(name: "MaciejG", image: BubbleImage(imageName: "maciej_g"), bonus: Bonus(total: 10)),
-    Person(name: "ŁukaszC", image: BubbleImage(imageName: "lukasz_c"), bonus: Bonus(total: 20)),
-    Person(name: "Przemek", image: BubbleImage(imageName: "przemek_s"), bonus: Bonus(total: 30)),
-    Person(name: "Adam", image: BubbleImage(imageName: "adam_s"), bonus: Bonus(total: 35)),
-    Person(name: "Virginia", image: BubbleImage(imageName: "virginia"), bonus: Bonus(total: 30)),
-    Person(name: "Zuza", image: BubbleImage(imageName: "zuza"), bonus: Bonus(total: 40)),
-    Person(name: "Tomek", image: BubbleImage(imageName: "tomek_k"), bonus: Bonus(total: 40)),
-    Person(name: "Darek", image: BubbleImage(imageName: "darek"), bonus: Bonus(total: 0))]
+    Person(name: "Agata", bubbleImage: BubbleImage(url: "http://macoscope.com/img/Team/Agata.jpg"), bonus: Bonus(total: 30)),
+    Person(name: "Arek", bubbleImage: BubbleImage(url: "http://macoscope.com/img/Team/Arek.jpg"), bonus: Bonus(total: 20)),
+    Person(name: "Jarek", bubbleImage: BubbleImage(imageName: "jarek_p"), bonus: Bonus(total: 20)),
+    Person(name: "MaciejS", bubbleImage: BubbleImage(imageName: "maciej_s"), bonus: Bonus(total: 0)),
+    Person(name: "Dawid", bubbleImage: BubbleImage(imageName: "dawid_w"), bonus: Bonus(total: 10)),
+    Person(name: "Dominik", bubbleImage: BubbleImage(imageName: "dominik_s"), bonus: Bonus(total: 20)),
+    Person(name: "Mateusz", bubbleImage: BubbleImage(imageName: "mateusz"), bonus: Bonus(total: 60)),
+    Person(name: "Daniel", bubbleImage: BubbleImage(imageName: "daniel_o"), bonus: Bonus(total: 30)),
+    Person(name: "Wojtek", bubbleImage: BubbleImage(imageName: "wojtek_r"), bonus: Bonus(total: 60)),
+    Person(name: "Karol", bubbleImage: BubbleImage(imageName: "karol_k"), bonus: Bonus(total: 30)),
+    Person(name: "Rafał", bubbleImage: BubbleImage(imageName: "rafal_a"), bonus: Bonus(total: 100)),
+    Person(name: "Karolina", bubbleImage: BubbleImage(imageName: "karolina"), bonus: Bonus(total: 30)),
+    Person(name: "Justyna", bubbleImage: BubbleImage(imageName: "justyna_d"), bonus: Bonus(total: 30)),
+    Person(name: "Kasia", bubbleImage: BubbleImage(imageName: "kasia"), bonus: Bonus(total: 20)),
+    Person(name: "Bartek", bubbleImage: BubbleImage(imageName: "bartek_c"), bonus: Bonus(total: 75)),
+    Person(name: "ŁukaszK", bubbleImage: BubbleImage(imageName: "lukasz_k"), bonus: Bonus(total: 10)),
+    Person(name: "Diana", bubbleImage: BubbleImage(imageName: "diana"), bonus: Bonus(total: 5)),
+    Person(name: "ŁukaszF", bubbleImage: BubbleImage(imageName: "lukasz_f"), bonus: Bonus(total: 0)),
+    Person(name: "MichałL", bubbleImage: BubbleImage(imageName: "michal_l"), bonus: Bonus(total: 0)),
+    Person(name: "Krzysztof", bubbleImage: BubbleImage(imageName: "krzysztof_w"), bonus: Bonus(total: 10)),
+    Person(name: "MaciejG", bubbleImage: BubbleImage(imageName: "maciej_g"), bonus: Bonus(total: 10)),
+    Person(name: "ŁukaszC", bubbleImage: BubbleImage(imageName: "lukasz_c"), bonus: Bonus(total: 20)),
+    Person(name: "Przemek", bubbleImage: BubbleImage(imageName: "przemek_s"), bonus: Bonus(total: 30)),
+    Person(name: "Adam", bubbleImage: BubbleImage(imageName: "adam_s"), bonus: Bonus(total: 35)),
+    Person(name: "Virginia", bubbleImage: BubbleImage(imageName: "virginia"), bonus: Bonus(total: 30)),
+    Person(name: "Zuza", bubbleImage: BubbleImage(imageName: "zuza"), bonus: Bonus(total: 40)),
+    Person(name: "Tomek", bubbleImage: BubbleImage(imageName: "tomek_k"), bonus: Bonus(total: 40)),
+    Person(name: "Darek", bubbleImage: BubbleImage(imageName: "darek"), bonus: Bonus(total: 0))
+]
 
 
 func randomBonusUpdate(data: [Person]) -> [Person] {
@@ -47,6 +48,10 @@ func randomBonusUpdate(data: [Person]) -> [Person] {
     guard let bonus = bonusRange.randomElement() else { fatalError() }
     
     return [Person(name: randomPerson.name,
-                  image: randomPerson.image,
+                  bubbleImage: randomPerson.bubbleImage,
                   bonus: Bonus(total: randomPerson.bonus.total + bonus, last: bonus))]
+}
+
+func fetchBonusUpdate(completion: ([Person]) -> Void) {
+    completion(randomBonusUpdate(sampleData))
 }
