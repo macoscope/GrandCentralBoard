@@ -37,7 +37,7 @@ final class ImageWidgetView : UIView, ViewModelRendering {
             case (.Waiting, .Rendering(let viewModel)):
                 transitionFromWaitingState()
                 setUpImageWithViewModel(viewModel)
-            case (.Rendering, .Rendering(let viewModel)):
+            case (_, .Rendering(let viewModel)):
                 setUpImageWithViewModel(viewModel)
             default:
                 break

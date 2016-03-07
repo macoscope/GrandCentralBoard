@@ -45,7 +45,7 @@ final class RemoteImageSource : Asynchronous {
                 return
             }
 
-            closure(.Failure(RemoteImageSourceError.DownloadFailed))
+            closure(.Failure(error ?? RemoteImageSourceError.DownloadFailed))
         }
     }
 }
