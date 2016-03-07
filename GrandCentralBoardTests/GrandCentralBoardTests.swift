@@ -1,36 +1,101 @@
 //
-//  GrandCentralBoardTests.swift
-//  GrandCentralBoardTests
-//
 //  Created by Oktawian Chojnacki on 31.12.2015.
 //  Copyright © 2015 Oktawian Chojnacki. All rights reserved.
 //
 
 import XCTest
+import Decodable
 @testable import GrandCentralBoard
 
 class GrandCentralBoardTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    let scheduler = Scheduler()
+    let stack = AutoStack()
+    let settings = WidgetSettings(name: "watch", settings: ["timeZone": "Europe/Warsaw", "calendar": ""])
+
+    func testThrowsWhenWidgetsCountCountExpectationIsNotMet() {
+
+        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings])
+
+        do {
+            let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
+        } catch let error as GrandCentralBoardError {
+            XCTAssertTrue(error == GrandCentralBoardError.WrongWidgetsCount)
+            return
+        } catch {
+            XCTFail()
+        }
+
+        XCTFail()
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    func testThrowsWhenWidgetsConfigurationIsMissingKeyCalendar() {
+
+        let wrongSettings = WidgetSettings(name: "watch", settings: ["timeZone": "Europe/Warsaw"])
+
+        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings])
+
+        do {
+            let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
+        } catch let error as MissingKeyError {
+            XCTAssertTrue(error.key == "calendar")
+
+            return
+        } catch {
+            XCTFail()
+        }
+
+        XCTFail()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+
+    func testNotThrowsWhenWidgetsConfigurationIsCorrect() {
+
+        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings, settings, settings, settings, settings, settings])
+
+        do {
+            let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
+        } catch {
+            XCTFail()
         }
     }
-    
+
+    func testStackedSixViewsWhenWidgetsConfigurationIsCorrect() {
+
+        final class StackingMock : ViewStacking {
+
+            var stackedViews = [UIView]()
+
+            func stackView(view: UIView) -> Bool {
+                stackedViews.append(view)
+                return true
+            }
+        }
+
+        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings, settings, settings, settings, settings, settings])
+
+        let stackingMock = StackingMock()
+
+        let _ = try! GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stackingMock)
+
+        XCTAssertEqual(stackingMock.stackedViews.count, 6)
+    }
+
+    func testScheduledTwelveJobsWhenWidgetsConfigurationIsCorrect() {
+
+        final class SchedulingMock : SchedulingJobs {
+
+            var jobs = [Job]()
+
+            private func schedule(job: Job) {
+                jobs.append(job)
+            }
+        }
+        let schedulingMock = SchedulingMock()
+        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings, settings, settings, settings, settings, settings])
+
+        let _ = try! GrandCentralBoard(configuration: config, scheduler: schedulingMock, stack: stack)
+
+        XCTAssertEqual(schedulingMock.jobs.count, 12)
+    }
+
 }
