@@ -29,10 +29,12 @@ final class GrandCentralBoard {
         self.scheduler = scheduler
         self.stack = stack
 
-        widgets = configuration.settings.flatMap({ widgetConfiguration in
+        widgets = []
+        
+        widgets = try configuration.settings.flatMap({ widgetConfiguration in
             
             if let builder = configuration.builders.filter({ $0.name == widgetConfiguration.name }).first {
-                return try? builder.build(widgetConfiguration.settings)
+                return try builder.build(widgetConfiguration.settings)
             }
 
             return nil
