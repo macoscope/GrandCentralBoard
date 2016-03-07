@@ -7,7 +7,7 @@ import UIKit
 
 final class ImageWidget : Widget {
 
-    private unowned let widgetView: ImageWidgetView
+    let widgetView: ImageWidgetView
     let sources: [UpdatingSource]
 
     init(view: ImageWidgetView, sources: [UpdatingSource]) {
@@ -18,9 +18,6 @@ final class ImageWidget : Widget {
     var view: UIView {
         return widgetView
     }
-
-    var events: [Event]?
-    var lastFetch: NSDate?
 
     func update(source: UpdatingSource) {
         switch source {
