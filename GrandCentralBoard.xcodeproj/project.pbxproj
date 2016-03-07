@@ -16,6 +16,7 @@
 		1A242D501C357CA500D5BEE5 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D4F1C357CA500D5BEE5 /* Source.swift */; };
 		1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */; };
 		1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */; };
+		1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46169F1C8DC02900361B2E /* ImageWidget.swift */; };
 		1A5180141C3860010035092D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5180131C3860010035092D /* UIView.swift */; };
 		1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */; };
 		1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */; };
@@ -96,6 +97,7 @@
 		1A242D4F1C357CA500D5BEE5 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendering.swift; sourceTree = "<group>"; };
 		1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStack.swift; sourceTree = "<group>"; };
+		1A46169F1C8DC02900361B2E /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
 		1A5180131C3860010035092D /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			children = (
 				1AAC29FE1C80F6350045BF1A /* Source */,
 				1AAC29FD1C80F6220045BF1A /* View */,
+				1A46169F1C8DC02900361B2E /* ImageWidget.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				1AD6E8011C7DC92B0003121C /* GrandCentralBoard.swift in Sources */,
 				1A9A3D7B1C86F7800070DB17 /* ErrorType.swift in Sources */,
 				1AD5EAA81C7D291300210BB9 /* Widget.swift in Sources */,
+				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
