@@ -11,6 +11,7 @@ final class BonusWidgetView: UIView {
     typealias ViewModel = BonusWidgetViewModel
     
     @IBOutlet private weak var bonusView: SKView!
+    @IBOutlet private weak var activityView: UIView!
     private var scene: BonusScene!
     
     private(set) var state: RenderingState<ViewModel> = .Waiting {
@@ -38,6 +39,7 @@ final class BonusWidgetView: UIView {
         guard let state = state else { return }
         switch (state, toState) {
             case (.Waiting, .Rendering(let viewModel)):
+                transitionFromWaitingState()
                 scene.setUpWithSceneModel(viewModel.sceneModel)
                 bonusView.presentScene(scene)
             case (_, .Rendering(let viewModel)):
@@ -46,6 +48,12 @@ final class BonusWidgetView: UIView {
                 break
             case (_, .Waiting):
                 break
+        }
+    }
+    
+    private func transitionFromWaitingState() {
+        UIView.animateWithDuration(0.3) {
+            self.activityView.alpha = 0
         }
     }
     
