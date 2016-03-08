@@ -13,14 +13,14 @@ class Bubble: SKSpriteNode {
     init(person: Person) {
         guard let image = person.bubbleImage.remoteImage ?? person.bubbleImage.localImage ?? UIImage(named: "placeholder") else { fatalError()}
         
-        self.bonus = person.bonus.total
-        let texture = SKTexture(image: image)
+        self.bonus = person.bonus
+        let texture = SKTexture(image: image.cropToCircle())
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
         setUpPhysicsBody(texture, size: initialSize, person: person)
         self.name = person.name
         
-        let scaleBy: CGFloat = 1 + CGFloat(person.bonus.total) / 100
+        let scaleBy: CGFloat = 1 + CGFloat(person.bonus) / 100
         setScale(scaleBy)
     }
     
@@ -42,15 +42,16 @@ class Bubble: SKSpriteNode {
     }
     
     func updateWithNewBonus(newBonus: Int) {
-        guard newBonus > 0 else { return }
+        let difference = newBonus - self.bonus
+        guard difference > 0 else { return }
         
-        self.bonus += newBonus
+        self.bonus += difference
         
         var scaleBy: CGFloat = 2.3
         let scaleUpAction = SKAction.scaleBy(scaleBy, duration: 0.5)
         let scaleDownAction = SKAction.scaleBy(1/scaleBy, duration: 0.1)
         
-        scaleBy = 1 + CGFloat(newBonus) / 100
+        scaleBy = 1 + CGFloat(difference) / 100
         let finalScaleAction = SKAction.scaleBy(scaleBy, duration: 0.1)
         
         runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]))

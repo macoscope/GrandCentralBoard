@@ -10,56 +10,83 @@ final class BonusSource : Asynchronous {
     
     typealias ResultType = Result<[Person]>
 
-    let sourceType: SourceType = .Momentary
+    let sourceType: SourceType = .Cumulative
     let interval: NSTimeInterval = 5
     
-    private var people: [Person] = sampleData
+    private var people: [String:Person] = [:]
     
     func read(closure: (ResultType) -> Void) {
         
-        fetchBonusUpdate { updateWithNewBonuses in
-            let peopleWithUpdatedBonuses = self.addBonuses(updateWithNewBonuses)
-            self.fetchImages(peopleWithUpdatedBonuses, closure: closure)
+        fetchBonusUpdate { updates in
+            self.updatePeople(updates)
+            self.fetchImages(closure)
         }
     }
     
-    private func addBonuses(update: [Person]) -> [Person] {
-        var peopleWithUpdatedBonuses = self.people
-        update.forEach { person in
-            if let index = self.people.indexOf( {$0.name == person.name} ) {
-                self.people[index] = self.people[index].copyPersonWithTotalBonus(person.bonus.total)
-                peopleWithUpdatedBonuses[index] = person
+    private func updatePeople(updates: [Update]) {
+        updates.forEach { update in
+            guard let person = people[update.name] else {
+                people[update.name] = Person.personFromUpdate(update)
+                return
+            }
+            
+            guard person.lastUpdate.isLessThanDate(update.date) else { return }
+            people[update.name] = person.copyByUpdating(update)
+        }
+    }
+    
+    // MARK: Fetching data from bonus.ly
+    
+    private func fetchBonusUpdate(completion: ([Update]) -> Void) {
+        let path = "https://bonus.ly/api/v1/bonuses"
+        let parameters = ["access_token" : "YOUR_TOKEN"]
+        Alamofire.request(.GET, path, parameters: parameters).responseJSON { response in
+            print(response.request)
+            if let json = response.result.value {
+                do {
+                    let updates = try Updates.decode(json)
+                    completion(updates.all.sort({ return $0.date.isLessThanDate($1.date) }))
+                } catch {
+                    print(error)
+                }
             }
         }
-        return peopleWithUpdatedBonuses
     }
     
-    private func fetchImages(var people: [Person], closure: (ResultType) -> Void) {
-        let imagesToDownloadCount = people.filter({ person -> Bool in
+    // MARK: Fetching images
+    private func fetchImages(closure: (ResultType) -> Void) {
+        let imagesToDownloadCount = people.filter({ (name, person) -> Bool in
             if let _ = person.bubbleImage.url where person.bubbleImage.remoteImage == nil {
                 return true
             }
             return false
         }).count
-        let downloadsCounter = AtomicCounter()
         
-        for (index, person) in people.enumerate() {
-            guard let _ =  person.bubbleImage.url else { continue }
+        guard imagesToDownloadCount > 0 else { return closure(.Success(Array(people.values))) }
+        let downloadsCounter = AtomicCounter()
+        let failureCounter = AtomicCounter()
+
+        people.forEach({ (name, person) in
+            guard let _ =  person.bubbleImage.url else { return }
             
             if person.bubbleImage.remoteImage == nil {
                 self.fetchImage(person, completion: { (success, image, error) -> (Void) in
                     if success {
-                        people[index] = person.copyPersonWithImage(BubbleImage(image: image))
+                        self.people[name] = person.copyPersonWithImage(BubbleImage(image: image))
                         downloadsCounter.increment()
                         if downloadsCounter.value == imagesToDownloadCount {
-                            closure(.Success(people))
+                            closure(.Success(Array(self.people.values)))
                         }
                     } else {
-                        closure(.Failure(error ?? RemoteImageSourceError.DownloadFailed))
+                        failureCounter.increment()
+                        if downloadsCounter.value + failureCounter.value == imagesToDownloadCount {
+                            closure(.Success(Array(self.people.values)))
+                        }
                     }
                 })
             }
-        }
+        })
+        
     }
     
     private func fetchImage(person: Person, completion: (success: Bool, image: UIImage?, error: NSError?) -> (Void)) {

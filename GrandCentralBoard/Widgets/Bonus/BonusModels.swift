@@ -23,13 +23,6 @@ struct BubbleImage {
     }
 }
 
-extension BubbleImage : Decodable {
-    static func decode(j: AnyObject) throws -> BubbleImage{
-        return try BubbleImage(imageName: j => "imageName",
-                                     url: j => "url")
-    }
-}
-
 struct Bonus {
     let total: Int
     let last: Int
@@ -40,30 +33,49 @@ struct Bonus {
     }
 }
 
-extension Bonus : Decodable {
-    static func decode(j: AnyObject) throws -> Bonus {
-        return try Bonus(total: j => "total", last: j => "last")
-    }
-}
-
 struct Person {
     let name: String
     let bubbleImage: BubbleImage
-    let bonus: Bonus
+    let bonus: Int
+    let lastUpdate: NSDate
     
-    func copyPersonWithTotalBonus(totalBonus: Int) -> Person {
-        return Person(name: name, bubbleImage: bubbleImage, bonus: Bonus(total: totalBonus))
+    static func personFromUpdate(update: Update) -> Person {
+        return Person(name: update.name, bubbleImage: BubbleImage(), bonus: update.bonus, lastUpdate: update.date)
     }
     
+    func copyByUpdating(update: Update) -> Person {
+        return Person(name: name, bubbleImage: bubbleImage, bonus: bonus + update.bonus, lastUpdate: update.date)
+    }
+
     func copyPersonWithImage(image: BubbleImage) -> Person {
-        return Person(name: name, bubbleImage: image, bonus: bonus)
+        return Person(name: name, bubbleImage: image, bonus: bonus, lastUpdate: lastUpdate)
     }
 }
 
-extension Person : Decodable {
-    static func decode(j: AnyObject) throws -> Person {
-        return try Person(name: j => "name",
-                   bubbleImage: j => "bubbleImage",
-                         bonus: j => "bonus")
+struct Updates {
+    let all: [Update]
+}
+
+extension Updates: Decodable {
+    static func decode(j: AnyObject) throws -> Updates {
+        return try Updates(all: j => "result" as [Update])
     }
 }
+
+struct Update {
+    let name: String
+    let bonus: Int
+    let date: NSDate
+}
+
+extension Update: Decodable {
+    static func decode(j: AnyObject) throws -> Update {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        return try Update(name: j => "receiver" => "email",
+            bonus: j => "amount",
+            date: formatter.dateFromString(j => "created_at") ?? NSDate())
+    }
+}
+

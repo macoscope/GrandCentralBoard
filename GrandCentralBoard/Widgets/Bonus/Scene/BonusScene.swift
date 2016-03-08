@@ -50,7 +50,7 @@ class BonusScene: SKScene {
         self.sceneModel = sceneModel
         for person in sceneModel.people {
             if let bubble = world.childNodeWithName(person.name) as? Bubble {
-                bubble.updateWithNewBonus(person.bonus.last)
+                bubble.updateWithNewBonus(person.bonus)
             }
         }
     }
