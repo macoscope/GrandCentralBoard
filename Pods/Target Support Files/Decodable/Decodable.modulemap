@@ -1,0 +1,6 @@
+framework module Decodable {
+  umbrella header "Decodable-umbrella.h"
+
+  export *
+  module * { export * }
+}

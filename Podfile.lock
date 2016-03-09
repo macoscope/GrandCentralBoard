@@ -1,0 +1,13 @@
+PODS:
+  - Alamofire (3.2.0)
+  - Decodable (0.4.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - Decodable (~> 0.4)
+
+SPEC CHECKSUMS:
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Decodable: 4df86629544f717045a931ed6e9f0be35fa3c3b0
+
+COCOAPODS: 0.39.0
