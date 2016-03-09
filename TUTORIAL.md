@@ -7,7 +7,7 @@ Let's start with something rather easy. Our widget will be quite useful - let's 
 
 Four main components are important for adding a Widget:
 
-- **View** - a view implementing `ViewModelRendering` protocol that display the information.
+- **View** - a view implementing `ViewModelRendering` protocol that displays the information.
 - **Source** - implements one of the updating strategies (further described below).
 - **Widget** - controller class implementing `Widget` protocol, exposed to the scheduler and connecting previous two with each other.
 - **WidgetBuilder** - implements `WidgetBuilding` protocol, instantiate Widget with settings from configuration file.
@@ -135,7 +135,7 @@ Connect the views to their **IBOutlets**.
 
 ### 2. Source
 
-Now it's time for source. Fetching images from the interet is asynchronous operation so we will implement the `Asynchronous` protocol. 
+Now it's time for source. Fetching images from the Internet is asynchronous operation so we will implement the `Asynchronous` protocol. 
 
 **Widgets/Image/Source/RemoteImageSource**
 
@@ -159,20 +159,20 @@ final class RemoteImageSource : Asynchronous {
 	// 3. Set associated type of 
     typealias ResultType = Result<Image>
 
-	// 5. This two properties are mandatory for any source.
+	// 4. This two properties are mandatory for any source.
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
 
-	// 6. Property to store image url.
+	// 5. Property to store image url.
     private let url: NSURL
 
-	// 7. Initialize stored properties, the interval between image fetches.
+	// 6. Initialize stored properties, the interval between image fetches.
     init(url: NSURL, interval: NSTimeInterval = 30) {
         self.interval = interval
         self.url = url
     }
 
-	// 8. This method is called on each update cycle. We use Alamofire to download the image.
+	// 7. This method is called on each update cycle. We use Alamofire to download the image.
     func read(closure: (ResultType) -> Void) {
         Alamofire.request(.GET, url).response { (request, response, data, error) in
 
@@ -191,7 +191,7 @@ final class RemoteImageSource : Asynchronous {
 
 ### 3. Widget subclass
 
-The Widget sublass is a controller class that is configured with sources and the view that is later presented as dashboard widget.
+The Widget subclass is a controller class that is configured with sources and the view that is later presented as dashboard widget.
 
 **/Widgets/Image/ImageWidget.swift**
 
@@ -238,14 +238,14 @@ final class ImageWidget : Widget {
 
 ### 4. Configuration file
 
-*(in progress)*
+*(coming soon)*
 
 ### 5. Widget Builder
 
-*(in progress)*
+*(coming soon)*
 
 ### Effect
 
-*(in progress)*
+*(coming soon)*
 
 
