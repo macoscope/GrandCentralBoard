@@ -1,11 +1,11 @@
-Grand Central Board for Apple TV
-================================
+Grand Central Board for the Apple TV
+====================================
 
 ![image](./README/screenshot.png)
 
-You can hang a TV in open space or team room to show everyone what's up. 
+Hang a TV in your open space or team room to show everyone what's up and get them up to speed.  
 
-The board is a lightweight piece of code. TV screen is expected to be in landscape orientation and is split to six nearly square widgets loaded from remote configuration file. This is just a UIView so you can use the space in any way you want. Updating the widget is standardized though and you should not ignore this convention.
+The board is a lightweight piece of code. The TV screen is to be used in landscape orientation and will be split into six rectangular widgets loaded from a remote configuration file. This is just a UIView, so you can use the space in any way you want. Updating the widgets is standardized, though, therefore you should not ignore this convention.
 
 👷 Project maintained by: [@nsmeme](http://twitter.com/nsmeme) (Oktawian Chojnacki)
 
@@ -13,7 +13,7 @@ The board is a lightweight piece of code. TV screen is expected to be in landsca
 
 ## Dependencies
 
-We use [CocoaPods](https://cocoapods.org) and current dependencies are:
+We use [CocoaPods](https://cocoapods.org) and the current dependencies include:
 
 - [Alamofire](https://github.com/Alamofire/Alamofire)
 - [Decodable](https://github.com/Anviking/Decodable)
@@ -22,16 +22,16 @@ We use [CocoaPods](https://cocoapods.org) and current dependencies are:
 
 ### Adding a new Widget
 
-There is a separate article [NEW-WIDGET-TUTORIAL.md](http://TUTORIAL URL) about adding a new widget.
+There is a separate article ([TUTORIAL.md](./TUTORIAL.md)) covering adding new widgets.
 
 ### Components
 
-Four main components are making a Widget:
+A Widget consists of four main components:
 
-- **View** - a view implementing `ViewModelRendering` protocol that display the information.
-- **Source** - implements one of the updating strategies (further described below).
-- **Widget** - controller class implementing `Widget` protocol, exposed to the scheduler and connecting previous two with each other.
-- **WidgetBuilder** - implements `WidgetBuilding` protocol, instantiate Widget with settings from configuration file.
+- **View**: a view implementing `ViewModelRendering` protocol that displays the information.
+- **Source**: implements one of the updating strategies (further described below).
+- **Widget**: a controller class implementing `Widget` protocol that is exposed to the scheduler and connecting previous two components with each other.
+- **WidgetBuilder**: implements `WidgetBuilding` protocol, instantiate Widget with settings from configuration file.
 
 ### Widgets order on screen
 
@@ -43,11 +43,11 @@ Widget canvas for 1080p:
 
 - 640px x 540px
 
-This size is constant and won't change on tvOS. Future releases are planned for iOS devices and they can have slightly different (and more dense) canvases.
+This size is constant and won't change on tvOS. Future releases are planned for iOS devices and they will be able to utilize slightly different (and more dense) canvases.
 
 ### Configuration
 
-A remote `JSON` file with this format is used to configure Grand Central Board:
+A remote `JSON` file formatted like this is used to configure the Grand Central Board:
 
 ```json
 { "widgets":[ 
@@ -61,7 +61,7 @@ A remote `JSON` file with this format is used to configure Grand Central Board:
 
 ```
 
-NOTE: Each widget will have it's own settings properties.
+**NOTE:** Each widget will have its own settings properties.
 
 ## View States
 
@@ -73,7 +73,7 @@ Widget view should show these states:
 
 ## Source
 
-The source should implement one of the two protocols:
+The source should implement one of two protocols:
 
 - **Synchronous** - the source will return value synchronously in a non-blocking way.
 
@@ -91,7 +91,7 @@ protocol Asynchronous : Source {
 }
 ```
 
-Fail can be handled silently, but they may be some Widgets where fail state should be presented - it's up to you.
+Fail can be handled silently, but there may be Widgets for which the fail state should be presented, the choice is up to you.
 
 All strategies inherit the **Source** protocol:
 
@@ -118,4 +118,8 @@ protocol Source {
 
 # Summary
 
-This project just started and there is a lot to do. If you want to contribute please add an issue and discuss your plans with us. We will try to help and this will ensure that two people won't work on the same thing.
+This project is still in its early stages and there is a lot to do. If you want to contribute, please add an issue and discuss your plans with us. This will allow us to give you assistance should you need it and to make sure that people aren’t working on the same things.
+
+# Credits
+
+- Watch widget design: [Dawid Woldu](http://macoscope.com/#dawid)

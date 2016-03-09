@@ -16,7 +16,8 @@ final class WatchWidgetBuilder : WidgetBuilding {
 
         let timeSource = TimeSource(settings: settings)
         let eventSource = EventsSource(settings: EventsSourceSettings(calendarPath: settings.calendarPath))
+        let view = WatchWidgetView.fromNib()
 
-        return WatchWidget(sources: [timeSource, eventSource])
+        return WatchWidget(view: view, sources: [timeSource, eventSource])
     }
 }

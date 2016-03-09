@@ -10,11 +10,11 @@ private let secondsInDay: NSTimeInterval = 3600
 
 final class WatchWidget : Widget {
 
-    private unowned let widgetView: WatchWidgetView
+    private let widgetView: WatchWidgetView
     let sources: [UpdatingSource]
 
-    init(sources: [UpdatingSource]) {
-        self.widgetView = WatchWidgetView.fromNib()
+    init(view: WatchWidgetView, sources: [UpdatingSource]) {
+        self.widgetView = view
         self.sources = sources
     }
 
