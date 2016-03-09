@@ -223,12 +223,8 @@
 		1A242D1F1C357C2700D5BEE5 /* GrandCentralBoard */ = {
 			isa = PBXGroup;
 			children = (
-				1A9A3D7F1C8719A30070DB17 /* Assets */,
-				1A9A3D7E1C87197A0070DB17 /* Basics */,
+				1A9A3D7E1C87197A0070DB17 /* App */,
 				1A9A3D811C8719DE0070DB17 /* Core */,
-				1A5180121C385FF50035092D /* Extensions */,
-				1A60365F1C7F161D0034EFE9 /* Fonts */,
-				1A9A3D821C871A560070DB17 /* ViewControllers */,
 				1A242D561C357DFD00D5BEE5 /* Widgets */,
 			);
 			path = GrandCentralBoard;
@@ -342,19 +338,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		1A9A3D7E1C87197A0070DB17 /* Basics */ = {
+		1A9A3D7E1C87197A0070DB17 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				1A9A3D7F1C8719A30070DB17 /* Assets */,
+				1A9A3D821C871A560070DB17 /* ViewControllers */,
 				1A242D201C357C2700D5BEE5 /* AppDelegate.swift */,
 				1A242D291C357C2700D5BEE5 /* Info.plist */,
+				1A242D241C357C2700D5BEE5 /* Main.storyboard */,
 				1AC247BD1C83517600A179CB /* Storyboards.swift */,
 			);
-			path = Basics;
+			path = App;
 			sourceTree = "<group>";
 		};
 		1A9A3D7F1C8719A30070DB17 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				1A60365F1C7F161D0034EFE9 /* Fonts */,
 				1AD5EA9C1C7B8FED00210BB9 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -363,6 +363,7 @@
 		1A9A3D811C8719DE0070DB17 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1A5180121C385FF50035092D /* Extensions */,
 				1A242D4B1C357C6600D5BEE5 /* Models */,
 				1A4616A41C90483000361B2E /* Views */,
 				1AD6E8041C7DDD540003121C /* Configuration.swift */,
@@ -378,7 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				1AC247BB1C834E4900A179CB /* LoadingViewController.swift */,
-				1A242D241C357C2700D5BEE5 /* Main.storyboard */,
 				1A242D221C357C2700D5BEE5 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
@@ -824,7 +824,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = GrandCentralBoard/Basics/Info.plist;
+				INFOPLIST_FILE = GrandCentralBoard/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -838,7 +838,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = GrandCentralBoard/Basics/Info.plist;
+				INFOPLIST_FILE = GrandCentralBoard/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
