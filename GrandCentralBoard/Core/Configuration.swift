@@ -7,7 +7,6 @@ import Foundation
 import Decodable
 import Alamofire
 
-let configurationPath = "http://oktawian.chojnacki.me/tv/configuration.json"
 let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder()]
 
 struct WidgetSettings {
@@ -41,18 +40,15 @@ enum ConfigurationError : ErrorType, HavingMessage {
     }
 }
 
-struct Configuration {
+struct ConfigurationDownloader {
 
-    let builders: [WidgetBuilding]
-    let settings: [WidgetSettings]
+    static func fetchConfiguration(fromPath path: String, closure: (Result<Configuration>) -> ()) {
 
-    static func fetchConfiguration(closure: (Result<Configuration>) -> ()) {
-
-        Alamofire.request(.GET, configurationPath).response { (request, response, data, error) in
+        Alamofire.request(.GET, path).response { (request, response, data, error) in
             if let data = data {
 
                 do {
-                    closure(.Success(try configurationFromData(data)))
+                    closure(.Success(try Configuration.configurationFromData(data)))
                 } catch (let error) {
                     closure(.Failure(error))
                 }
@@ -64,7 +60,14 @@ struct Configuration {
         }
     }
 
-    private static func configurationFromData(data: NSData) throws -> Configuration {
+}
+
+struct Configuration {
+
+    let builders: [WidgetBuilding]
+    let settings: [WidgetSettings]
+
+    static func configurationFromData(data: NSData) throws -> Configuration {
 
         if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
             if let widgets = jsonResult["widgets"] as? [AnyObject] {

@@ -13,7 +13,8 @@ class LoadingViewController: UIViewController {
     }
 
     private func fetchConfiguration() {
-        Configuration.fetchConfiguration { [weak self] result in
+        let configurationPath = "http://oktawian.chojnacki.me/tv/configuration.json"
+        ConfigurationDownloader.fetchConfiguration(fromPath: configurationPath) { [weak self] result in
             switch result {
                 case .Success(let configuration):
                     let main = Storyboards.Main.instantiate(configuration)
