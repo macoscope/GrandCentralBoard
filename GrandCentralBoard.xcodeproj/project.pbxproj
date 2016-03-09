@@ -18,6 +18,7 @@
 		1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */; };
 		1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46169F1C8DC02900361B2E /* ImageWidget.swift */; };
 		1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */; };
+		1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616A51C9048F700361B2E /* Assets.xcassets */; };
 		1A5180141C3860010035092D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5180131C3860010035092D /* UIView.swift */; };
 		1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */; };
 		1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */; };
@@ -100,6 +101,7 @@
 		1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStack.swift; sourceTree = "<group>"; };
 		1A46169F1C8DC02900361B2E /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
 		1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerTests.swift; sourceTree = "<group>"; };
+		1A4616A51C9048F700361B2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A5180131C3860010035092D /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -221,10 +223,8 @@
 		1A242D311C357C2700D5BEE5 /* GrandCentralBoardTests */ = {
 			isa = PBXGroup;
 			children = (
-				1A4616A31C90480500361B2E /* New Group */,
-				1A242D321C357C2700D5BEE5 /* GrandCentralBoardTests.swift */,
+				1A4616A31C90480500361B2E /* Core */,
 				1A242D341C357C2700D5BEE5 /* Info.plist */,
-				1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */,
 			);
 			path = GrandCentralBoardTests;
 			sourceTree = "<group>";
@@ -258,11 +258,13 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
-		1A4616A31C90480500361B2E /* New Group */ = {
+		1A4616A31C90480500361B2E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1A242D321C357C2700D5BEE5 /* GrandCentralBoardTests.swift */,
+				1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */,
 			);
-			path = "New Group";
+			path = Core;
 			sourceTree = "<group>";
 		};
 		1A4616A41C90483000361B2E /* Views */ = {
@@ -403,6 +405,7 @@
 			children = (
 				1AAC29FB1C80F54F0045BF1A /* Source */,
 				1AAC29FC1C80F55D0045BF1A /* View */,
+				1A4616A51C9048F700361B2E /* Assets.xcassets */,
 				1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */,
 				1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */,
 				1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */,
@@ -531,6 +534,7 @@
 				1A6036801C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf in Resources */,
 				1A6036811C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				1A6036871C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf in Resources */,
+				1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */,
 				1A6036791C7F161D0034EFE9 /* SF-UI-Display-Medium.otf in Resources */,
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
