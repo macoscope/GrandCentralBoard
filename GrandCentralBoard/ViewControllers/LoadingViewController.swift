@@ -7,7 +7,7 @@ import UIKit
 
 class LoadingViewController: UIViewController {
 
-    let configurationPath = "http://oktawian.chojnacki.me/tv/configuration.json"
+    let configurationPath = "http://gcb.macoscope.com/configuration.json"
     let configurationDownloader = ConfigurationDownloader(dataDownloader: DataDownloader())
 
     override func viewWillAppear(animated: Bool) {
