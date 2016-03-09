@@ -17,6 +17,7 @@
 		1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */; };
 		1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */; };
 		1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46169F1C8DC02900361B2E /* ImageWidget.swift */; };
+		1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */; };
 		1A5180141C3860010035092D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5180131C3860010035092D /* UIView.swift */; };
 		1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */; };
 		1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */; };
@@ -98,6 +99,7 @@
 		1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendering.swift; sourceTree = "<group>"; };
 		1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStack.swift; sourceTree = "<group>"; };
 		1A46169F1C8DC02900361B2E /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
+		1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerTests.swift; sourceTree = "<group>"; };
 		1A5180131C3860010035092D /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -210,9 +212,7 @@
 				1A9A3D811C8719DE0070DB17 /* Core */,
 				1A5180121C385FF50035092D /* Extensions */,
 				1A60365F1C7F161D0034EFE9 /* Fonts */,
-				1A242D4B1C357C6600D5BEE5 /* Models */,
 				1A9A3D821C871A560070DB17 /* ViewControllers */,
-				1A242D5E1C37F63500D5BEE5 /* Views */,
 				1A242D561C357DFD00D5BEE5 /* Widgets */,
 			);
 			path = GrandCentralBoard;
@@ -221,8 +221,10 @@
 		1A242D311C357C2700D5BEE5 /* GrandCentralBoardTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A4616A31C90480500361B2E /* New Group */,
 				1A242D321C357C2700D5BEE5 /* GrandCentralBoardTests.swift */,
 				1A242D341C357C2700D5BEE5 /* Info.plist */,
+				1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */,
 			);
 			path = GrandCentralBoardTests;
 			sourceTree = "<group>";
@@ -256,7 +258,14 @@
 			path = Widgets;
 			sourceTree = "<group>";
 		};
-		1A242D5E1C37F63500D5BEE5 /* Views */ = {
+		1A4616A31C90480500361B2E /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		1A4616A41C90483000361B2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */,
@@ -325,6 +334,8 @@
 		1A9A3D811C8719DE0070DB17 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1A242D4B1C357C6600D5BEE5 /* Models */,
+				1A4616A41C90483000361B2E /* Views */,
 				1AD6E8041C7DDD540003121C /* Configuration.swift */,
 				1AD6E8001C7DC92B0003121C /* GrandCentralBoard.swift */,
 				1AD5EAAB1C7DA9BB00210BB9 /* Scheduler.swift */,
@@ -645,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A242D331C357C2700D5BEE5 /* GrandCentralBoardTests.swift in Sources */,
+				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

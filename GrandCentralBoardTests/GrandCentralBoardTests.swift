@@ -29,6 +29,22 @@ class GrandCentralBoardTests: XCTestCase {
         XCTFail()
     }
 
+    func testThrowsWhenWidgetsCountCountExpectationIsNotMetWithZero() {
+
+        let config = Configuration(builders: [], settings: [settings])
+
+        do {
+            let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
+        } catch let error as GrandCentralBoardError {
+            XCTAssertTrue(error == GrandCentralBoardError.WrongWidgetsCount)
+            return
+        } catch {
+            XCTFail()
+        }
+
+        XCTFail()
+    }
+
     func testThrowsWhenWidgetsConfigurationIsMissingKeyCalendar() {
 
         let wrongSettings = WidgetSettings(name: "watch", settings: ["timeZone": "Europe/Warsaw"])
@@ -84,9 +100,9 @@ class GrandCentralBoardTests: XCTestCase {
 
         final class SchedulingMock : SchedulingJobs {
 
-            var jobs = [Job]()
+            var jobs = [Schedulable]()
 
-            private func schedule(job: Job) {
+            private func schedule(job: Schedulable) {
                 jobs.append(job)
             }
         }
