@@ -5,7 +5,6 @@
 
 
 import Foundation
-import Alamofire
 import Decodable
 
 struct Event : Timed {
@@ -90,21 +89,27 @@ final class EventsSource : Asynchronous {
 
     let interval: NSTimeInterval = 60
     let sourceType: SourceType = .Momentary
+    private let dataDownloader: DataDownloading
 
     private let path: String
 
-    init(settings: EventsSourceSettings) {
+    init(settings: EventsSourceSettings, dataDownloader: DataDownloading) {
         self.path = settings.calendarPath
+        self.dataDownloader = dataDownloader
     }
 
     func read(closure: (ResultType) -> Void) {
-        Alamofire.request(.GET, path).response { (request, response, data, error) in
 
-            do {
-                guard let data = data else { throw error ?? EventsSourceError.DownloadFailed }
-                try closure(.Success(Events.eventsFromData(data)))
-            } catch let error {
-                closure(.Failure(error))
+        dataDownloader.downloadDataAtPath(path) { result in
+            switch result {
+                case .Success(let data):
+                    do {
+                        try closure(.Success(Events.eventsFromData(data)))
+                    } catch (let error) {
+                        closure(.Failure(error))
+                    }
+                case .Failure(let error):
+                    closure(.Failure(error))
             }
         }
     }

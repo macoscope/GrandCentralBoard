@@ -5,9 +5,9 @@
 
 import Foundation
 import Decodable
-import Alamofire
 
-let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder()]
+private let dataDownloader = DataDownloader()
+private let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader)]
 
 struct WidgetSettings {
     let name: String
@@ -26,40 +26,40 @@ extension WidgetSettings : Decodable {
     }
 }
 
+final class ConfigurationDownloader {
+
+    private let dataDownloader: DataDownloading
+
+    init(dataDownloader: DataDownloading) {
+        self.dataDownloader = dataDownloader
+    }
+
+    func fetchConfiguration(fromPath path: String, closure: (Result<Configuration>) -> ()) {
+        dataDownloader.downloadDataAtPath(path) { result in
+            switch result {
+                case .Success(let data):
+                    do {
+                        closure(.Success(try Configuration.configurationFromData(data)))
+                    } catch (let error) {
+                        closure(.Failure(error))
+                    }
+                case .Failure(let error):
+                    closure(.Failure(error))
+            }
+        }
+    }
+
+}
+
 enum ConfigurationError : ErrorType, HavingMessage {
-    case DownloadFailed
     case WrongFormat
 
     var message: String {
         switch self {
-            case .DownloadFailed:
-                return NSLocalizedString("Cannot download configuration file!", comment: "")
             case .WrongFormat:
                 return NSLocalizedString("Wrong format of configuration file!", comment: "")
         }
     }
-}
-
-struct ConfigurationDownloader {
-
-    static func fetchConfiguration(fromPath path: String, closure: (Result<Configuration>) -> ()) {
-
-        Alamofire.request(.GET, path).response { (request, response, data, error) in
-            if let data = data {
-
-                do {
-                    closure(.Success(try Configuration.configurationFromData(data)))
-                } catch (let error) {
-                    closure(.Failure(error))
-                }
-
-                return
-            }
-
-            closure(.Failure(ConfigurationError.DownloadFailed))
-        }
-    }
-
 }
 
 struct Configuration {
