@@ -35,7 +35,7 @@ Views are limited to three states, first two of which they have to show:
 
 We should start by creating a **ViewModel**, there is only one image so this very simple struct will do:
 
-```
+```swift
 struct ImageViewModel {
     let image: UIImage
 }
@@ -46,7 +46,7 @@ We will call the view `ImageWidgetView`, so we should add a new file:
 
 **Widgets/Image/View/ImageWidgetView.swift**
 
-```
+```swift
 import UIKit
 
 // 1. Create View Model for view to render.
@@ -139,7 +139,7 @@ Now it's time for source. Fetching images from the Internet is asynchronous oper
 
 **Widgets/Image/Source/RemoteImageSource**
 
-```
+```swift
 import UIKit
 import Alamofire
 
@@ -195,7 +195,7 @@ The Widget subclass is a controller class that is configured with sources and th
 
 **/Widgets/Image/ImageWidget.swift**
 
-```
+```swift
 import UIKit
 
 final class ImageWidget : Widget {
