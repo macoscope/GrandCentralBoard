@@ -1,19 +1,19 @@
 Tutorial: A Widget for the Grand Central Board
 ==============================================
 
-As you probably already know, we've [introduced](http://macoscope.com/blog/grand-central-board-for-the-apple-tv) pretty cool project called [Grand Central Board](https://github.com/macoscope/GrandCentralBoard) for Apple TV. In this short tutorial I will guide you on how to build a new widget with an asynchronous source fetching data from remote server.
+As you may already know, we've recently [introduced](http://macoscope.com/blog/grand-central-board-for-the-apple-tv) a pretty cool project called the [Grand Central Board](https://github.com/macoscope/GrandCentralBoard) for the Apple TV. In this short tutorial, I will guide you through building a new widget with an asynchronous source fetching data from remote server.
 
-Let's start with something rather easy. Our widget will be quite useful - let's download image every minute and present it on our TV. We can use this to present image from a web cam, show the weather or just some slideshow from our last party.
+Let's start with something easy. Our widget will be quite useful: its purpose will be to download an image every minute and display it on our TV. We can use the widget to present image from a webcam, show the weather outside, or just some slideshow from our last party.
 
 Four main components are important for adding a Widget:
 
-- **View** - a view implementing `ViewModelRendering` protocol that displays the information.
+- **View** - a view implementing the `ViewModelRendering` protocol that displays the information.
 - **Source** - implements one of the updating strategies (further described below).
-- **Widget** - controller class implementing `Widget` protocol, exposed to the scheduler and connecting previous two with each other.
-- **WidgetBuilder** - implements `WidgetBuilding` protocol, instantiate Widget with settings from configuration file.
+- **Widget** - a controller class implementing the `Widget` protocol, presented to the scheduler and connecting the previous two with each other.
+- **WidgetBuilder** - implements the `WidgetBuilding` protocol, instantiates the Widget with settings from configuration file.
 
 
-This is how it works together - please note that this diagram is simplified:
+This is how it all works together. Please note that this diagram is simplified:
 
 
 ![image](README/diagram.png)
@@ -22,18 +22,18 @@ This is how it works together - please note that this diagram is simplified:
 ### Groups
 
 
-Add a new Group called **Image** in **Widgets** group, then add two groups inside of it: **Image/Source** and **Image/View**.
+Add a new Group called **Image** in the **Widgets** group, then add two groups inside it: **Image/Source** and **Image/View**.
 
 ### 1. View
 
 
-Views are limited to three states, first two of which they have to show:
+Views are limited to three states, the first two of which they have to display:
 
 - Waiting (only once, before the first `render(viewModel:)` call)
 - Rendering View Model
 - Failure (can be ignored)
 
-We should start by creating a **ViewModel**, there is only one image so this very simple struct will do:
+We should start by creating a **ViewModel**. There is only one image so this very simple struct will do:
 
 ```swift
 struct ImageViewModel {
@@ -42,7 +42,7 @@ struct ImageViewModel {
 
 ```
 
-We will call the view `ImageWidgetView`, so we should add a new file: 
+We will call this view `ImageWidgetView`, so we should add a new file: 
 
 **Widgets/Image/View/ImageWidgetView.swift**
 
@@ -68,7 +68,7 @@ final class ImageWidgetView : UIView, ViewModelRendering {
 
     // MARK - ViewModelRendering
 
-	// 5. Add state property, handling transition will be added later.
+	// 5. Add state property, transition handling will be added later.
     private(set) var state: RenderingState<ViewModel> = .Waiting {
         didSet { handleTransitionFromState(oldValue, toState: state) }
     }
@@ -77,17 +77,17 @@ final class ImageWidgetView : UIView, ViewModelRendering {
         state = .Rendering(viewModel)
     }
 
-	// 7. This method is called when source is unable to load the data.
+	// 7. This method is called when the source is unable to load the data.
     func failure() {
         state = .Failed
     }
     
-    // 8. Add method setting up the image from ViewModel.
+    // 8. Add the method setting up the image from ViewModel.
     private func setUpImageWithViewModel(viewModel: ViewModel) {
         image.image = viewModel.image
     }
     
-    // 9. Add method hiding the activity indicator.
+    // 9. Add the method hiding the activity indicator.
     private func transitionFromWaitingState() {
         UIView.animateWithDuration(0.3) {
             self.activity.alpha = 0
@@ -123,7 +123,7 @@ The view will be designed in Interface Builder so we should create file:
 
 Change the class of the newly created view to `ImageWidgetView` in Interface Builder.
 
-Now, we need to show an image so we add `UIImageView` as a subview to the newly created view and fill the parent view with it using Constraints.
+Now we need to display an image, so we add `UIImageView` as a subview to the newly created view and fill the parent view with it using Constraints.
 
 We should also place a `UIActivityIndicatorView` at the center. 
 
@@ -135,7 +135,7 @@ Connect the views to their **IBOutlets**.
 
 ### 2. Source
 
-Now it's time for source. Fetching images from the Internet is asynchronous operation so we will implement the `Asynchronous` protocol. 
+Now it's time for the source. Fetching images from the Internet is an asynchronous operation, so we will implement the `Asynchronous` protocol. 
 
 **Widgets/Image/Source/RemoteImageSource**
 
@@ -159,7 +159,7 @@ final class RemoteImageSource : Asynchronous {
 	// 3. Set associated type of 
     typealias ResultType = Result<Image>
 
-	// 4. This two properties are mandatory for any source.
+	// 4. These two properties are mandatory for any source.
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
 
@@ -189,9 +189,9 @@ final class RemoteImageSource : Asynchronous {
 ```
 
 
-### 3. Widget subclass
+### 3. Widget Subclass
 
-The Widget subclass is a controller class that is configured with sources and the view that is later presented as dashboard widget.
+The Widget subclass is a controller class that is configured with sources and the view, and is later displayed as a dashboard widget.
 
 **/Widgets/Image/ImageWidget.swift**
 
