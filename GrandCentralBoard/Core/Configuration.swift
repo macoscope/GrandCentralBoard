@@ -6,6 +6,8 @@
 import Foundation
 import Decodable
 
+private let dataDownloader = DataDownloader()
+private let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader), BonusWidgetBuilder()]
 
 public struct WidgetSettings {
     public let name: String
