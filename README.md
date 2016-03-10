@@ -126,3 +126,4 @@ This project is still in its early stages and there is a lot to do. If you want 
 # Credits
 
 - Watch widget design: [Dawid Woldu](http://macoscope.com/#dawid)
+- Icon design based on illustration by [Michał Bednarski](https://www.behance.net/emas)

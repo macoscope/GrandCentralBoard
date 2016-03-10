@@ -12,10 +12,11 @@ class GrandCentralBoardTests: XCTestCase {
     let scheduler = Scheduler()
     let stack = AutoStack()
     let settings = WidgetSettings(name: "watch", settings: ["timeZone": "Europe/Warsaw", "calendar": ""])
+    let watchWidgetBuilder = WatchWidgetBuilder(dataDownloader: DataDownloader())
 
     func testThrowsWhenWidgetsCountExpectationIsNotMet() {
 
-        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings])
+        let config = Configuration(builders: [watchWidgetBuilder], settings: [settings])
 
         do {
             let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
@@ -49,7 +50,7 @@ class GrandCentralBoardTests: XCTestCase {
 
         let wrongSettings = WidgetSettings(name: "watch", settings: ["timeZone": "Europe/Warsaw"])
 
-        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings])
+        let config = Configuration(builders: [watchWidgetBuilder], settings: [wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings])
 
         do {
             let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
@@ -66,7 +67,7 @@ class GrandCentralBoardTests: XCTestCase {
 
     func testNotThrowsWhenWidgetsConfigurationIsCorrect() {
 
-        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings, settings, settings, settings, settings, settings])
+        let config = Configuration(builders: [watchWidgetBuilder], settings: [settings, settings, settings, settings, settings, settings])
 
         do {
             let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
@@ -87,7 +88,7 @@ class GrandCentralBoardTests: XCTestCase {
             }
         }
 
-        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings, settings, settings, settings, settings, settings])
+        let config = Configuration(builders: [watchWidgetBuilder], settings: [settings, settings, settings, settings, settings, settings])
 
         let stackingMock = StackingMock()
 
@@ -107,7 +108,7 @@ class GrandCentralBoardTests: XCTestCase {
             }
         }
         let schedulingMock = SchedulingMock()
-        let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings, settings, settings, settings, settings, settings])
+        let config = Configuration(builders: [watchWidgetBuilder], settings: [settings, settings, settings, settings, settings, settings])
 
         let _ = try! GrandCentralBoard(configuration: config, scheduler: schedulingMock, stack: stack)
 

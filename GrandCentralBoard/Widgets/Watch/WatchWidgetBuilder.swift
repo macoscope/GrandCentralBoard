@@ -10,12 +10,18 @@ final class WatchWidgetBuilder : WidgetBuilding {
 
     let name = "watch"
 
+    private let dataDownloader: DataDownloading
+
+    init(dataDownloader: DataDownloading) {
+        self.dataDownloader = dataDownloader
+    }
+
     func build(settings: AnyObject) throws -> Widget {
         
         let settings = try TimeSourceSettings.decode(settings)
 
         let timeSource = TimeSource(settings: settings)
-        let eventSource = EventsSource(settings: EventsSourceSettings(calendarPath: settings.calendarPath))
+        let eventSource = EventsSource(settings: EventsSourceSettings(calendarPath: settings.calendarPath), dataDownloader: dataDownloader)
         let view = WatchWidgetView.fromNib()
 
         return WatchWidget(view: view, sources: [timeSource, eventSource])

@@ -41,7 +41,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        handleTransitionFromState(nil, toState: .Waiting)
+
         hourLeft.alpha = 0
         hourRight.alpha = 0
         meetingName.alpha = 0
@@ -56,14 +56,10 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
             case (_, .Rendering(let viewModel)):
-                transitionToWaitingState(false)
                 setUpLabelsWithViewModel(viewModel)
                 setUpImagesWithViewModel(viewModel)
-            case (_, .Failed):
-                // No failed appearance
+            default:
                 break
-            case (_, .Waiting):
-                transitionToWaitingState(true)
         }
     }
 
@@ -81,12 +77,6 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         startsIn.animateTextTransition(viewModel.startsIn)
     }
 
-    private func transitionToWaitingState(waiting: Bool) {
-        UIView.animateWithDuration(transitionInterval) {
-            self.hourLeft.alpha = waiting ? 0 : 1
-            self.hourRight.alpha = waiting ? 0 : 1
-        }
-    }
 
     // MARK - fromNib
 
