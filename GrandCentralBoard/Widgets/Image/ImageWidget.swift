@@ -4,6 +4,8 @@
 //
 
 import UIKit
+import GrandCentralBoardCore
+
 
 final class ImageWidget : Widget {
 

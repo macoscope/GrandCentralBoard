@@ -4,7 +4,9 @@
 //
 
 import XCTest
+import GrandCentralBoardCore
 @testable import GrandCentralBoard
+
 
 final class SourceMock : UpdatingSource {
     var interval: NSTimeInterval = 0

@@ -5,7 +5,9 @@
 
 import XCTest
 import Decodable
+import GrandCentralBoardCore
 @testable import GrandCentralBoard
+
 
 class GrandCentralBoardTests: XCTestCase {
 
@@ -82,9 +84,8 @@ class GrandCentralBoardTests: XCTestCase {
 
             var stackedViews = [UIView]()
 
-            func stackView(view: UIView) -> Bool {
+            func stackView(view: UIView) {
                 stackedViews.append(view)
-                return true
             }
         }
 

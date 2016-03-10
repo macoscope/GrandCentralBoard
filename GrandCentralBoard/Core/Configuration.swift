@@ -6,14 +6,17 @@
 import Foundation
 import Decodable
 
-private let dataDownloader = DataDownloader()
-private let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader)]
 
-struct WidgetSettings {
-    let name: String
-    let settings: AnyObject
+public struct WidgetSettings {
+    public let name: String
+    public let settings: AnyObject
 
-    static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
+    public init(name: String, settings: AnyObject) {
+        self.name = name
+        self.settings = settings
+    }
+
+    @warn_unused_result public static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
         return array.flatMap({ settings in
             return try? WidgetSettings.decode(settings)
         })
@@ -21,25 +24,25 @@ struct WidgetSettings {
 }
 
 extension WidgetSettings : Decodable {
-    static func decode(jsonObject: AnyObject) throws -> WidgetSettings {
+    public static func decode(jsonObject: AnyObject) throws -> WidgetSettings {
         return try WidgetSettings(name: jsonObject => "name", settings: jsonObject => "settings")
     }
 }
 
-final class ConfigurationDownloader {
+public final class ConfigurationDownloader {
 
     private let dataDownloader: DataDownloading
 
-    init(dataDownloader: DataDownloading) {
+    public init(dataDownloader: DataDownloading) {
         self.dataDownloader = dataDownloader
     }
 
-    func fetchConfiguration(fromPath path: String, closure: (Result<Configuration>) -> ()) {
+    public func fetchConfiguration(fromPath path: String, availableBuilders: [WidgetBuilding], closure: (Result<Configuration>) -> ()) {
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
                 case .Success(let data):
                     do {
-                        closure(.Success(try Configuration.configurationFromData(data)))
+                        closure(.Success(try Configuration.configurationFromData(data, availableBuilders: availableBuilders)))
                     } catch (let error) {
                         closure(.Failure(error))
                     }
@@ -51,10 +54,10 @@ final class ConfigurationDownloader {
 
 }
 
-enum ConfigurationError : ErrorType, HavingMessage {
+public enum ConfigurationError : ErrorType, HavingMessage {
     case WrongFormat
 
-    var message: String {
+    public var message: String {
         switch self {
             case .WrongFormat:
                 return NSLocalizedString("Wrong format of configuration file!", comment: "")
@@ -62,12 +65,17 @@ enum ConfigurationError : ErrorType, HavingMessage {
     }
 }
 
-struct Configuration {
+public struct Configuration {
 
-    let builders: [WidgetBuilding]
-    let settings: [WidgetSettings]
+    public let builders: [WidgetBuilding]
+    public let settings: [WidgetSettings]
 
-    static func configurationFromData(data: NSData) throws -> Configuration {
+    public init(builders: [WidgetBuilding], settings: [WidgetSettings]) {
+        self.builders = builders
+        self.settings = settings
+    }
+
+    @warn_unused_result public static func configurationFromData(data: NSData, availableBuilders: [WidgetBuilding]) throws -> Configuration {
 
         if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
             if let widgets = jsonResult["widgets"] as? [AnyObject] {

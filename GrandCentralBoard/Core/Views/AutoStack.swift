@@ -5,18 +5,18 @@
 
 import UIKit
 
-protocol ViewStacking {
+public protocol ViewStacking {
     func stackView(view: UIView)
 }
 
-final class AutoStack : UIView, ViewStacking {
+public final class AutoStack : UIView, ViewStacking {
 
     private let maximumColumns: Int = 2
     private let maximumRows: Int = 3
 
-    var stackedViews = [UIView]()
-    var mainStackView = UIStackView()
-    var columnStackViews = [UIStackView]()
+    public var stackedViews = [UIView]()
+    public var mainStackView = UIStackView()
+    public var columnStackViews = [UIStackView]()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,7 +46,7 @@ final class AutoStack : UIView, ViewStacking {
     
     // MARK: - ViewStacking
 
-    func stackView(view: UIView) {
+    public func stackView(view: UIView) {
 
         stackedViews.append(view)
 
@@ -62,7 +62,7 @@ final class AutoStack : UIView, ViewStacking {
 
     // MARK: - NSCoding
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }

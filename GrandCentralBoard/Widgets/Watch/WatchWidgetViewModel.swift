@@ -5,6 +5,7 @@
 
 import UIKit
 
+
 struct WatchWidgetViewModel {
 
     let hourLeft: String?

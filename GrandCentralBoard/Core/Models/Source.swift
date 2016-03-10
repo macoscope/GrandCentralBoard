@@ -5,26 +5,27 @@
 
 import Foundation
 
-enum SourceType {
+
+public enum SourceType {
     case Cumulative
     case Momentary
 }
 
-protocol UpdatingSource : class {
+public protocol UpdatingSource : class {
     var interval: NSTimeInterval { get }
 }
 
-protocol Source : UpdatingSource {
+public protocol Source : UpdatingSource {
 
     typealias ResultType
 
     var sourceType: SourceType { get }
 }
 
-protocol Synchronous : Source {
+public protocol Synchronous : Source {
     func read() -> ResultType
 }
 
-protocol Asynchronous : Source {
+public protocol Asynchronous : Source {
     func read(closure: (ResultType) -> Void)
 }

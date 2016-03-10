@@ -5,8 +5,10 @@
 
 import UIKit
 
-extension UILabel {
+
+public extension UILabel {
     func animateTextTransition(text: String?) {
+
         guard self.text != text else { return }
 
         UIView.animateWithDuration(0.3, animations: { self.alpha = 0 }, completion: { completed in

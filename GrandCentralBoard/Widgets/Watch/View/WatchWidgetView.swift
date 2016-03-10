@@ -4,6 +4,8 @@
 //
 
 import UIKit
+import GrandCentralBoardCore
+
 
 private let pulsatingInterval: NSTimeInterval = 0.5
 private let flashingInterval: NSTimeInterval = 0.4
@@ -42,12 +44,12 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        hourLeft.alpha = 0
-        hourRight.alpha = 0
-        meetingName.alpha = 0
-        meetingETA.alpha = 0
-        startsIn.alpha = 0
-        
+        meetingName.text = ""
+        meetingETA.text = ""
+        startsIn.text = ""
+        hourLeft.text = ""
+        hourRight.text = ""
+
         blinkingImage.startFlashingWithInterval(pulsatingInterval, alphaDepth: semiTransparentAlpha)
     }
 

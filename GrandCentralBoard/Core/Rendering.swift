@@ -5,13 +5,14 @@
 
 import UIKit
 
-enum RenderingState<DataToRender> {
+
+public enum RenderingState<DataToRender> {
     case Waiting
     case Rendering(DataToRender)
     case Failed
 }
 
-protocol ViewModelRendering {
+public protocol ViewModelRendering {
 
     typealias ViewModel
 

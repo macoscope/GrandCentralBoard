@@ -5,7 +5,8 @@
 
 import UIKit
 
-extension UIView {
+
+public extension UIView {
 
     func fillViewWithView(view: UIView, animated: Bool) {
 
@@ -28,7 +29,7 @@ extension UIView {
     }
 }
 
-extension UIView {
+public extension UIView {
     
     func startFlashingWithInterval(interval: NSTimeInterval, alphaDepth: CGFloat) {
         UIView.animateWithDuration(interval, delay: 0.0, options:

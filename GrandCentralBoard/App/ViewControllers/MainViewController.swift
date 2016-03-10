@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import GrandCentralBoardCore
 
 class MainViewController: UIViewController {
 
