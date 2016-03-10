@@ -42,7 +42,7 @@ extension Events : Decodable {
         throw EventsError.WrongFormat
     }
 
-    static let dateFormatter: NSDateFormatter = {
+    private static let dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
@@ -50,7 +50,7 @@ extension Events : Decodable {
         return dateFormatter
     }()
 
-    static func stringToDate(string: String) throws -> NSDate {
+    private static func stringToDate(string: String) throws -> NSDate {
         let dateFromFormatter = dateFormatter.dateFromString(string)
 
         guard let date = dateFromFormatter else { throw EventsError.CannotConvertDate }
