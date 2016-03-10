@@ -16,7 +16,7 @@ public struct WidgetSettings {
         self.settings = settings
     }
 
-    public static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
+    @warn_unused_result public static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
         return array.flatMap({ settings in
             return try? WidgetSettings.decode(settings)
         })
@@ -75,7 +75,7 @@ public struct Configuration {
         self.settings = settings
     }
 
-    public static func configurationFromData(data: NSData, availableBuilders: [WidgetBuilding]) throws -> Configuration {
+    @warn_unused_result public static func configurationFromData(data: NSData, availableBuilders: [WidgetBuilding]) throws -> Configuration {
 
         if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
             if let widgets = jsonResult["widgets"] as? [AnyObject] {
