@@ -8,7 +8,7 @@ import SpriteKit
 class Bubble: SKSpriteNode {
     
     private var bonus: Int = 0
-    private let initialSize = CGSize(width: 50, height: 50)
+    private let initialSize = CGSize(width: 100, height: 100)
     
     init(person: Person) {
         guard let image = person.bubbleImage.remoteImage ?? person.bubbleImage.localImage ?? UIImage(named: "placeholder") else { fatalError()}
@@ -39,6 +39,11 @@ class Bubble: SKSpriteNode {
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateImage(image: UIImage) {
+        let newImage = image.cropToCircle()
+        self.texture = SKTexture(image: newImage)
     }
     
     func updateWithNewBonus(newBonus: Int) {

@@ -1,9 +1,6 @@
 //
-//  File.swift
-//  GrandCentralBoard
-//
-//  Created by krris on 08/03/16.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Created by Krzysztof Werys on 08/03/16.
+//  Copyright © 2016 Krzysztof Werys. All rights reserved.
 //
 
 import Foundation

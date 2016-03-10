@@ -1,7 +1,7 @@
 {
     "widgets": [
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
-                {"name":"bonus", "settings":  {} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },

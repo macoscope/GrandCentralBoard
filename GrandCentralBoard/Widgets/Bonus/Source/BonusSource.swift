@@ -9,42 +9,66 @@ import Alamofire
 final class BonusSource : Asynchronous {
     
     typealias ResultType = Result<[Person]>
+    typealias UpdateResultType = Result<Updates>
+    typealias ImageResultType = Result<UIImage>
 
     let sourceType: SourceType = .Cumulative
     let interval: NSTimeInterval = 5
     
+    var mapping: Mapping?
     private var people: [String:Person] = [:]
+    private let dataDownloader: DataDownloading
+    private let settings: BonusWidgetSettings
+    
+    init(settings: BonusWidgetSettings, dataDownloader: DataDownloading) {
+        self.dataDownloader = dataDownloader
+        self.settings = settings
+    }
     
     func read(closure: (ResultType) -> Void) {
         
-        fetchBonusUpdate { updates in
-            self.updatePeople(updates)
-            self.fetchImages(closure)
+        fetchBonusUpdate { result in
+            switch result {
+                case .Success(let update):
+                    let updates = update.all.sort({ return $0.date.isLessThanDate($1.date) })
+                    self.updatePeople(updates)
+                    self.fetchImages(closure)
+                case .Failure(let error):
+                    closure(.Failure(error))
+            }
         }
     }
     
     private func updatePeople(updates: [Update]) {
         updates.forEach { update in
             guard let person = people[update.name] else {
-                people[update.name] = Person.personFromUpdate(update)
+                people[update.name] = Person.personFromUpdate(update, imageUrl: mapping?.data[update.name])
                 return
             }
             
+            if let url = mapping?.data[update.name] {
+                people[update.name] = person.copyPersonWithImage(BubbleImage(url: url))
+            }
+            
             guard person.lastUpdate.isLessThanDate(update.date) else { return }
-            people[update.name] = person.copyByUpdating(update)
+            people[update.name] = person.copyByUpdating(update, imageUrl: mapping?.data[update.name])
         }
     }
     
     // MARK: Fetching data from bonus.ly
     
-    private func fetchBonusUpdate(completion: ([Update]) -> Void) {
-        let path = "https://bonus.ly/api/v1/bonuses"
-        let parameters = ["access_token" : "YOUR_TOKEN"]
-        Alamofire.request(.GET, path, parameters: parameters).responseJSON { response in
-            if let json = response.result.value {
-                if let updates = try? Updates.decode(json) {
-                    completion(updates.all.sort({ return $0.date.isLessThanDate($1.date) }))
-                }
+    private func fetchBonusUpdate(completion: (UpdateResultType) -> Void) {
+        dataDownloader.downloadDataAtPath(settings.bonuslyPath) { result in
+            switch result {
+                case .Success(let data):
+                    do {
+                        let updates = try Updates.updatesFromData(data)
+                        completion(.Success(updates))
+                    } catch (let error) {
+                        completion(.Failure(error))
+                    }
+                case .Failure(let error):
+                    completion(.Failure(error))
             }
         }
     }
@@ -67,34 +91,38 @@ final class BonusSource : Asynchronous {
             guard let _ =  person.bubbleImage.url else { return }
             
             if person.bubbleImage.remoteImage == nil {
-                self.fetchImage(person, completion: { (success, image, error) -> (Void) in
-                    if success {
-                        self.people[name] = person.copyPersonWithImage(BubbleImage(image: image))
-                        downloadsCounter.increment()
-                        if downloadsCounter.value == imagesToDownloadCount {
-                            closure(.Success(Array(self.people.values)))
-                        }
-                    } else {
-                        failureCounter.increment()
-                        if downloadsCounter.value + failureCounter.value == imagesToDownloadCount {
-                            closure(.Success(Array(self.people.values)))
-                        }
+                self.fetchImage(person) { result in
+                    switch result {
+                        case .Success(let image):
+                            self.people[name] = person.copyPersonWithImage(BubbleImage(image: image))
+                            downloadsCounter.increment()
+                            if downloadsCounter.value == imagesToDownloadCount {
+                                closure(.Success(Array(self.people.values)))
+                            }
+                        case .Failure(_):
+                            failureCounter.increment()
+                            if downloadsCounter.value + failureCounter.value == imagesToDownloadCount {
+                                closure(.Success(Array(self.people.values)))
+                            }
                     }
-                })
+                    
+                }
             }
         })
-        
     }
     
-    private func fetchImage(person: Person, completion: (success: Bool, image: UIImage?, error: NSError?) -> (Void)) {
+    private func fetchImage(person: Person, closure: (ImageResultType) -> Void) {
         
         if let path = person.bubbleImage.url {
-            Alamofire.request(.GET, path).response { (request, response, data, error) in
-                if let data = data, image = UIImage(data: data) {
-                    completion(success: true, image: image, error: nil)
-                    return
+            dataDownloader.downloadDataAtPath(path) { result in
+                switch result {
+                    case .Success(let data):
+                        if let image = UIImage(data: data) {
+                            closure(.Success(image))
+                        }
+                    case .Failure(let error):
+                        closure(.Failure(error))
                 }
-                completion(success: false, image: nil, error: error)
             }
         }
     }

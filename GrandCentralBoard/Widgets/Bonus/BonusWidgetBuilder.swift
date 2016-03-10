@@ -4,12 +4,34 @@
 //
 
 import Foundation
+import Decodable
 
 final class BonusWidgetBuilder : WidgetBuilding {
     
     var name = "bonus"
     
+    private let dataDownloader: DataDownloading
+    
+    init(dataDownloader: DataDownloader) {
+        self.dataDownloader = dataDownloader
+    }
+    
     func build(settings: AnyObject) throws -> Widget {
-        return BonusWidget(sources: [BonusSource()])
+        
+        let settings = try BonusWidgetSettings.decode(settings)
+        
+        let imageMappingSource = ImageMappingSource(settings: settings, dataDownloader: dataDownloader)
+        let bonusSource = BonusSource(settings: settings, dataDownloader: dataDownloader)
+        return BonusWidget(sources: [bonusSource, imageMappingSource])
+    }
+}
+
+struct BonusWidgetSettings: Decodable {
+    
+    let mappingPath: String
+    let bonuslyPath: String
+    
+    static func decode(jsonObject: AnyObject) throws -> BonusWidgetSettings {
+        return try BonusWidgetSettings(mappingPath: jsonObject => "mappingPath", bonuslyPath: jsonObject => "bonusly")
     }
 }

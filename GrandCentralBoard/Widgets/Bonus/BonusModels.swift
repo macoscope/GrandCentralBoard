@@ -39,12 +39,12 @@ struct Person {
     let bonus: Int
     let lastUpdate: NSDate
     
-    static func personFromUpdate(update: Update) -> Person {
-        return Person(name: update.name, bubbleImage: BubbleImage(), bonus: update.bonus, lastUpdate: update.date)
+    static func personFromUpdate(update: Update, imageUrl: String? = nil) -> Person {
+        return Person(name: update.name, bubbleImage: BubbleImage(url: imageUrl), bonus: update.bonus, lastUpdate: update.date)
     }
     
-    func copyByUpdating(update: Update) -> Person {
-        return Person(name: name, bubbleImage: bubbleImage, bonus: bonus + update.bonus, lastUpdate: update.date)
+    func copyByUpdating(update: Update, imageUrl: String? = nil) -> Person {
+        return Person(name: name, bubbleImage: BubbleImage(url: imageUrl), bonus: bonus + update.bonus, lastUpdate: update.date)
     }
 
     func copyPersonWithImage(image: BubbleImage) -> Person {
@@ -60,6 +60,15 @@ extension Updates: Decodable {
     static func decode(j: AnyObject) throws -> Updates {
         return try Updates(all: j => "result" as [Update])
     }
+    
+    static func updatesFromData(data: NSData) throws -> Updates {
+        
+        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+            return try Updates.decode(jsonResult)
+        }
+
+        throw DecodeError.WrongFormat
+    }
 }
 
 struct Update {
@@ -73,9 +82,26 @@ extension Update: Decodable {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
-        return try Update(name: j => "receiver" => "email",
+        return try Update(name: removeDomainFromEmail(j => "receiver" => "email"),
             bonus: j => "amount",
             date: formatter.dateFromString(j => "created_at") ?? NSDate())
     }
+    
+    static func removeDomainFromEmail(email: String) -> String {
+        guard let index = email.rangeOfString("@", options: .BackwardsSearch)?.startIndex else {
+            return email
+        }
+        return email.substringToIndex(index)
+    }
 }
 
+enum DecodeError : ErrorType, HavingMessage {
+    case WrongFormat
+
+    var message: String {
+        switch self {
+            case .WrongFormat:
+                return NSLocalizedString("Wrong format.", comment: "")
+        }
+    }
+}

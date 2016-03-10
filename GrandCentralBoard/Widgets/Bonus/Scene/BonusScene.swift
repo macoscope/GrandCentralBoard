@@ -50,6 +50,9 @@ class BonusScene: SKScene {
             }
             
             bubble.updateWithNewBonus(person.bonus)
+            if let image = person.bubbleImage.remoteImage {
+                bubble.updateImage(image)
+            }
         }
     }
     
