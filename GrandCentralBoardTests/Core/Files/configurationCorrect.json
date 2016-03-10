@@ -1,0 +1,10 @@
+{
+    "widgets": [
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://oktawian.chojnacki.me/tv/calendar2.json"} }
+               ]
+}

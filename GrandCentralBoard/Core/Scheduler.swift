@@ -33,14 +33,14 @@ final class Job : Schedulable {
 }
 
 protocol SchedulingJobs {
-    func schedule(job: Job)
+    func schedule(job: Schedulable)
 }
 
 final class Scheduler : SchedulingJobs {
 
     private var timers =  [NSTimer]()
 
-    func schedule(job: Job) {
+    func schedule(job: Schedulable) {
         let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job, selector: job.selector, userInfo: nil, repeats: true)
         timers.append(timer)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
