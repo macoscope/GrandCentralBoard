@@ -33,9 +33,9 @@ enum EventsError : ErrorType, HavingMessage {
 
 extension Events : Decodable {
 
-    static func decode(json: AnyObject) throws -> Events {
+    static func decode(jsonObject: AnyObject) throws -> Events {
         return try Events(time: NSDate(), events:
-            (json => "events" as! [AnyObject]).flatMap({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
+            (jsonObject => "events" as! [AnyObject]).flatMap({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
         )
     }
 

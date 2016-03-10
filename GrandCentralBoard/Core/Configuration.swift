@@ -21,8 +21,8 @@ struct WidgetSettings {
 }
 
 extension WidgetSettings : Decodable {
-    static func decode(j: AnyObject) throws -> WidgetSettings {
-        return try WidgetSettings(name: j => "name", settings: j => "settings")
+    static func decode(jsonObject: AnyObject) throws -> WidgetSettings {
+        return try WidgetSettings(name: jsonObject => "name", settings: jsonObject => "settings")
     }
 }
 
