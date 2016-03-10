@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name = 'GrandCentralBoardCore'
   s.version = '0.0.1'
-  s.license = 'MIT'
+  s.license = 'GPLv3'
   s.summary = 'Hang a TV in your open space or team room to show everyone what`s up and get them up to speed.'
   s.homepage = 'https://github.com/macoscope/GrandCentralBoard'
   s.authors = { 'Oktawian Chojnacki' => 'oktawian@me.com' }
