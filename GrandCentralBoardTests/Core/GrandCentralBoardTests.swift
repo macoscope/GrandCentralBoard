@@ -13,7 +13,7 @@ class GrandCentralBoardTests: XCTestCase {
     let stack = AutoStack()
     let settings = WidgetSettings(name: "watch", settings: ["timeZone": "Europe/Warsaw", "calendar": ""])
 
-    func testThrowsWhenWidgetsCountCountExpectationIsNotMet() {
+    func testThrowsWhenWidgetsCountExpectationIsNotMet() {
 
         let config = Configuration(builders: [WatchWidgetBuilder()], settings: [settings])
 
@@ -29,7 +29,7 @@ class GrandCentralBoardTests: XCTestCase {
         XCTFail()
     }
 
-    func testThrowsWhenWidgetsCountCountExpectationIsNotMetWithZero() {
+    func testThrowsWhenWidgetsCountExpectationIsNotMetWithZero() {
 
         let config = Configuration(builders: [], settings: [settings])
 
