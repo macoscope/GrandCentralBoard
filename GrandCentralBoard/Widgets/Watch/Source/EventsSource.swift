@@ -34,9 +34,12 @@ enum EventsError : ErrorType, HavingMessage {
 extension Events : Decodable {
 
     static func decode(jsonObject: AnyObject) throws -> Events {
-        return try Events(time: NSDate(), events:
-            (jsonObject => "events" as! [AnyObject]).flatMap({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
-        )
+        if let rawEvents = try (jsonObject => "events") as? [AnyObject] {
+            let events = try rawEvents.map({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
+            return Events(time: NSDate(), events: events)
+        }
+
+        throw EventsError.WrongFormat
     }
 
     static let dateFormatter: NSDateFormatter = {
