@@ -33,7 +33,7 @@ class ConfigurationTests: XCTestCase {
         if let path = NSBundle(forClass: ConfigurationTests.self).pathForResource("configurationBroken", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 do {
-                    try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
+                    let _ = try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
                     XCTFail()
                 } catch _ as ConfigurationError {
                     // OK :)
@@ -48,7 +48,7 @@ class ConfigurationTests: XCTestCase {
         if let path = NSBundle(forClass: ConfigurationTests.self).pathForResource("configurationBrokenJSON", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 do {
-                    try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
+                    let _ = try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
                     XCTFail()
                 } catch let error as NSError {
                     XCTAssertEqual(error.domain, NSCocoaErrorDomain)
