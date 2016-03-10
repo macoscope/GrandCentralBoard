@@ -6,7 +6,7 @@
 import UIKit
 
 protocol ViewStacking {
-    func stackView(view: UIView) -> Bool
+    func stackView(view: UIView)
 }
 
 final class AutoStack : UIView, ViewStacking {
