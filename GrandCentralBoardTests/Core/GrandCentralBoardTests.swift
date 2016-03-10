@@ -5,7 +5,7 @@
 
 import XCTest
 import Decodable
-import GrandCentralBoardCore
+@testable import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
 class GrandCentralBoardTests: XCTestCase {
