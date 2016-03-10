@@ -63,6 +63,9 @@ A remote `JSON` file formatted like this is used to configure the Grand Central 
 
 **NOTE:** Each widget will have its own settings properties.
 
+If you don't have your own server you can create a configuration file and run server locally. You don't have to install any frameworks, just run in your console:
+```$ python -m SimpleHTTPServer``` and then provide new link in `Configuration.swift`.
+
 ## View States
 
 Widget view should show these states:
