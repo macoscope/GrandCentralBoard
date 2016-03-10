@@ -46,7 +46,7 @@ final class AutoStack : UIView, ViewStacking {
     
     // MARK: - ViewStacking
 
-    func stackView(view: UIView) -> Bool {
+    func stackView(view: UIView) {
 
         stackedViews.append(view)
 
@@ -58,8 +58,6 @@ final class AutoStack : UIView, ViewStacking {
 
             columnStackView.addArrangedSubview(view)
         }
-
-        return true
     }
 
     // MARK: - NSCoding
