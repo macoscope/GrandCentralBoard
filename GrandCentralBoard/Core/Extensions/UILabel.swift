@@ -13,8 +13,6 @@ public extension UILabel {
 
         UIView.animateWithDuration(0.3, animations: { self.alpha = 0 }, completion: { completed in
             self.text = text
-            guard text != nil else { return }
-
             UIView.animateWithDuration(0.3, animations: { self.alpha = 1 })
         })
     }
