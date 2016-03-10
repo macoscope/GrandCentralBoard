@@ -10,6 +10,11 @@ public struct WidgetSettings {
     public let name: String
     public let settings: AnyObject
 
+    public init(name: String, settings: AnyObject) {
+        self.name = name
+        self.settings = settings
+    }
+
     public static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
         return array.flatMap({ settings in
             return try? WidgetSettings.decode(settings)
@@ -63,6 +68,11 @@ public struct Configuration {
 
     public let builders: [WidgetBuilding]
     public let settings: [WidgetSettings]
+
+    public init(builders: [WidgetBuilding], settings: [WidgetSettings]) {
+        self.builders = builders
+        self.settings = settings
+    }
 
     public static func configurationFromData(data: NSData, availableBuilders: [WidgetBuilding]) throws -> Configuration {
 
