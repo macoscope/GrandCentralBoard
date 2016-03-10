@@ -41,19 +41,16 @@ final class BonusSource : Asynchronous {
         let path = "https://bonus.ly/api/v1/bonuses"
         let parameters = ["access_token" : "YOUR_TOKEN"]
         Alamofire.request(.GET, path, parameters: parameters).responseJSON { response in
-            print(response.request)
             if let json = response.result.value {
-                do {
-                    let updates = try Updates.decode(json)
+                if let updates = try? Updates.decode(json) {
                     completion(updates.all.sort({ return $0.date.isLessThanDate($1.date) }))
-                } catch {
-                    print(error)
                 }
             }
         }
     }
     
     // MARK: Fetching images
+    
     private func fetchImages(closure: (ResultType) -> Void) {
         let imagesToDownloadCount = people.filter({ (name, person) -> Bool in
             if let _ = person.bubbleImage.url where person.bubbleImage.remoteImage == nil {
