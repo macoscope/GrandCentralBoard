@@ -32,16 +32,9 @@ class BonusScene: SKScene {
         self.sceneModel = sceneModel
         addChild(world)
         
-        let topRightPoint = CGPoint(x: size.width / 2, y: size.height / 2)
         for person in sceneModel.people {
             let bubble = Bubble(person: person)
-            let widthRange = Int(-topRightPoint.x) ... Int(topRightPoint.x)
-            let heightRange = Int(-topRightPoint.y) ... Int(topRightPoint.y)
-            if let x = widthRange.randomElement(), let y = heightRange.randomElement() {
-                bubble.position = CGPoint(x: x, y: y)
-            } else {
-                bubble.position = CGPoint(x: 0, y: 0)
-            }
+            bubble.position = randomPosition()
             world.addChild(bubble)
         }
     }
@@ -49,9 +42,25 @@ class BonusScene: SKScene {
     private func updateWithSceneModel(sceneModel: BonusSceneModel) {
         self.sceneModel = sceneModel
         for person in sceneModel.people {
-            if let bubble = world.childNodeWithName(person.name) as? Bubble {
-                bubble.updateWithNewBonus(person.bonus)
+            guard let bubble = world.childNodeWithName(person.name) as? Bubble else {
+                let newBubble = Bubble(person: person)
+                newBubble.position = randomPosition()
+                self.world.addChild(newBubble)
+                continue
             }
+            
+            bubble.updateWithNewBonus(person.bonus)
+        }
+    }
+    
+    private func randomPosition() -> CGPoint {
+        let topRightPoint = CGPoint(x: size.width / 2, y: size.height / 2)
+        let widthRange = Int(-topRightPoint.x) ... Int(topRightPoint.x)
+        let heightRange = Int(-topRightPoint.y) ... Int(topRightPoint.y)
+        if let x = widthRange.randomElement(), let y = heightRange.randomElement() {
+            return CGPoint(x: x, y: y)
+        } else {
+            return CGPoint(x: 0, y: 0)
         }
     }
     
