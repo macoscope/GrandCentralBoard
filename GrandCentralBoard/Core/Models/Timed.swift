@@ -5,6 +5,6 @@
 
 import UIKit
 
-protocol Timed {
+public protocol Timed {
     var time: NSDate { get }
 }

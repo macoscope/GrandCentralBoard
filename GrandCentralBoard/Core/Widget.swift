@@ -5,16 +5,16 @@
 
 import UIKit
 
-protocol Updateable : class {
+public protocol Updateable : class {
     var sources: [UpdatingSource] { get }
     func update(source: UpdatingSource)
 }
 
-protocol Widget : Updateable {
+public protocol Widget : Updateable {
     var view: UIView { get }
 }
 
-protocol WidgetBuilding : class {
+public protocol WidgetBuilding : class {
     var name: String { get }
     func build(settings: AnyObject) throws -> Widget
 }

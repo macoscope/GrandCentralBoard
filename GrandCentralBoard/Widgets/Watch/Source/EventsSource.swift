@@ -6,6 +6,7 @@
 
 import Foundation
 import Decodable
+import GrandCentralBoardCore
 
 struct Event : Timed {
     let time: NSDate

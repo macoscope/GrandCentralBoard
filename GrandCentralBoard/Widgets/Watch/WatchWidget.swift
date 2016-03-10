@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import GrandCentralBoardCore
 
 private let slideshowInterval = 10.0
 private let secondsInDay: NSTimeInterval = 3600

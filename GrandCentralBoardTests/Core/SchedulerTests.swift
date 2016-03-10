@@ -4,6 +4,7 @@
 //
 
 import XCTest
+import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
 final class SourceMock : UpdatingSource {

@@ -4,17 +4,21 @@
 //
 
 import XCTest
-
+import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
+let dataDownloader = DataDownloader()
+let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader)]
+
 class ConfigurationTests: XCTestCase {
+
 
     func testCorrectConfigurationLoads() {
 
         if let path = NSBundle(forClass: ConfigurationTests.self).pathForResource("configurationCorrect", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 do {
-                    let configuration = try Configuration.configurationFromData(jsonData)
+                    let configuration = try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
                     XCTAssertEqual(configuration.settings.count, 6)
                 } catch {
                     XCTFail()
@@ -28,7 +32,7 @@ class ConfigurationTests: XCTestCase {
         if let path = NSBundle(forClass: ConfigurationTests.self).pathForResource("configurationBroken", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 do {
-                    let _ = try Configuration.configurationFromData(jsonData)
+                    let _ = try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
                     XCTFail()
                 } catch _ as ConfigurationError {
                     // OK :)
@@ -43,7 +47,7 @@ class ConfigurationTests: XCTestCase {
         if let path = NSBundle(forClass: ConfigurationTests.self).pathForResource("configurationBrokenJSON", ofType: "json") {
             if let jsonData = NSData(contentsOfFile: path) {
                 do {
-                    let _ = try Configuration.configurationFromData(jsonData)
+                    let _ = try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
                     XCTFail()
                 } catch let error as NSError {
                     XCTAssertEqual(error.domain, NSCocoaErrorDomain)

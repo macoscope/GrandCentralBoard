@@ -5,6 +5,7 @@
 
 import UIKit
 import Alamofire
+import GrandCentralBoardCore
 
 struct Image : Timed {
     let value: UIImage
@@ -24,7 +25,7 @@ enum RemoteImageSourceError : ErrorType, HavingMessage {
 
 final class RemoteImageSource : Asynchronous {
 
-    typealias ResultType = Result<Image>
+    typealias ResultType = GrandCentralBoardCore.Result<Image>
 
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary

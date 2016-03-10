@@ -4,7 +4,7 @@
 //
 
 import XCTest
-
+import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
 class AutoStackTests: XCTestCase {

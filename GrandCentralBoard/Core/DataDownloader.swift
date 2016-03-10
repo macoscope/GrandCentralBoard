@@ -6,14 +6,14 @@
 import Foundation
 import Alamofire
 
-protocol DataDownloading {
+public protocol DataDownloading {
     func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void)
 }
 
-enum DataDownloaderError : ErrorType, HavingMessage {
+public enum DataDownloaderError : ErrorType, HavingMessage {
     case EmptyResponse
 
-    var message: String {
+    public var message: String {
         switch self {
             case .EmptyResponse:
                 return NSLocalizedString("Received empty data!", comment: "")
@@ -21,9 +21,13 @@ enum DataDownloaderError : ErrorType, HavingMessage {
     }
 }
 
-final class DataDownloader : DataDownloading {
+public final class DataDownloader : DataDownloading {
 
-    func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void) {
+    public init() {
+
+    }
+
+    public func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void) {
 
         Alamofire.request(.GET, path).response { (request, response, data, error) in
 

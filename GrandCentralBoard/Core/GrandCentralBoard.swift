@@ -5,10 +5,10 @@
 
 import UIKit
 
-enum GrandCentralBoardError : ErrorType, HavingMessage {
+public enum GrandCentralBoardError : ErrorType, HavingMessage {
     case WrongWidgetsCount
 
-    var message: String {
+    public var message: String {
         switch self {
             case .WrongWidgetsCount:
                 return NSLocalizedString("Expected six configured widgets!", comment: "")
@@ -16,7 +16,7 @@ enum GrandCentralBoardError : ErrorType, HavingMessage {
     }
 }
 
-final class GrandCentralBoard {
+public final class GrandCentralBoard {
 
     private let stack: ViewStacking
     private let scheduler: SchedulingJobs
@@ -24,7 +24,7 @@ final class GrandCentralBoard {
 
     private var widgets: [Widget]
 
-    init(configuration: Configuration, scheduler: SchedulingJobs, stack: ViewStacking) throws {
+    public init(configuration: Configuration, scheduler: SchedulingJobs, stack: ViewStacking) throws {
 
         self.scheduler = scheduler
         self.stack = stack

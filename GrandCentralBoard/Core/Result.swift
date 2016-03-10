@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum Result<T> {
+public enum Result<T> {
     case Failure(ErrorType)
     case Success(T)
 }

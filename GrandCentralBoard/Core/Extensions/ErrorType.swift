@@ -5,11 +5,11 @@
 
 import Foundation
 
-protocol HavingMessage {
+public protocol HavingMessage {
     var message : String { get }
 }
 
-extension ErrorType  {
+public extension ErrorType  {
     var userMessage : String {
 
         if let error = self as? HavingMessage {

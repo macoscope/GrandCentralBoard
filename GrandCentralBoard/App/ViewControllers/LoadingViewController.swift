@@ -4,6 +4,10 @@
 //
 
 import UIKit
+import GrandCentralBoardCore
+
+let dataDownloader = DataDownloader()
+let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader)]
 
 class LoadingViewController: UIViewController {
 
@@ -16,7 +20,7 @@ class LoadingViewController: UIViewController {
     }
 
     private func fetchConfiguration() {
-        configurationDownloader.fetchConfiguration(fromPath: configurationPath) { [weak self] result in
+        configurationDownloader.fetchConfiguration(fromPath: configurationPath, availableBuilders: availableBuilders) { [weak self] result in
             switch result {
                 case .Success(let configuration):
                     let main = Storyboards.Main.instantiate(configuration)

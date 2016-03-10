@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension UIAlertController {
+public extension UIAlertController {
     static func retryAlertWithMessage(message: String, retryClosure: () -> Void) -> UIAlertController {
 
         let title = NSLocalizedString("Error", comment: "")
