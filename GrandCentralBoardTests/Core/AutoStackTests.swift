@@ -7,6 +7,7 @@ import XCTest
 import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
+
 class AutoStackTests: XCTestCase {
 
     let autoStack: AutoStack = AutoStack()

@@ -3,10 +3,10 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-
 import Foundation
 import Decodable
 import GrandCentralBoardCore
+
 
 struct Event : Timed {
     let time: NSDate

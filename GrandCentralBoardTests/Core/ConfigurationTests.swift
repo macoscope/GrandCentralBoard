@@ -7,6 +7,7 @@ import XCTest
 import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
+
 let dataDownloader = DataDownloader()
 let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader)]
 

@@ -5,6 +5,7 @@
 
 import UIKit
 
+
 public extension UILabel {
     func animateTextTransition(text: String?) {
         guard self.text != text else { return }

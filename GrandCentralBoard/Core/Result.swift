@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 public enum Result<T> {
     case Failure(ErrorType)
     case Success(T)

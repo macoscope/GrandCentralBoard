@@ -6,6 +6,7 @@
 import UIKit
 import GrandCentralBoardCore
 
+
 final class ImageWidget : Widget {
 
     let widgetView: ImageWidgetView

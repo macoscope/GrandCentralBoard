@@ -5,6 +5,7 @@
 
 import UIKit
 
+
 public enum RenderingState<DataToRender> {
     case Waiting
     case Rendering(DataToRender)

@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 public protocol HavingMessage {
     var message : String { get }
 }

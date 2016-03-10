@@ -6,6 +6,7 @@
 import Foundation
 import Decodable
 
+
 public struct WidgetSettings {
     public let name: String
     public let settings: AnyObject

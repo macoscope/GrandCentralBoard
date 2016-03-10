@@ -7,6 +7,7 @@ import Foundation
 import Decodable
 import GrandCentralBoardCore
 
+
 final class WatchWidgetBuilder : WidgetBuilding {
 
     let name = "watch"

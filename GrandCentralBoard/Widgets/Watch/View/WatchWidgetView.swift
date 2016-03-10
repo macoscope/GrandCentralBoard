@@ -6,6 +6,7 @@
 import UIKit
 import GrandCentralBoardCore
 
+
 private let pulsatingInterval: NSTimeInterval = 0.5
 private let flashingInterval: NSTimeInterval = 0.4
 private let transitionInterval: NSTimeInterval = 0.3

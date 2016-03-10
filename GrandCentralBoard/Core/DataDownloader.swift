@@ -6,6 +6,7 @@
 import Foundation
 import Alamofire
 
+
 public protocol DataDownloading {
     func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void)
 }

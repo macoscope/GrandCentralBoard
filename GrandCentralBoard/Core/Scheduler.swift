@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 public protocol Schedulable : class {
     var interval: NSTimeInterval { get }
     var selector: Selector { get }

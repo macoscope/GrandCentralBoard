@@ -3,7 +3,8 @@
 //  Copyright © 2015 Oktawian Chojnacki. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
 
 public protocol Timed {
     var time: NSDate { get }

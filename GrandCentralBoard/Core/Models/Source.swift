@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 public enum SourceType {
     case Cumulative
     case Momentary

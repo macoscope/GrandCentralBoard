@@ -8,6 +8,7 @@ import Decodable
 import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
+
 class GrandCentralBoardTests: XCTestCase {
 
     let scheduler = Scheduler()

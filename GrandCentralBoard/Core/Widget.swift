@@ -5,6 +5,7 @@
 
 import UIKit
 
+
 public protocol Updateable : class {
     var sources: [UpdatingSource] { get }
     func update(source: UpdatingSource)
