@@ -22,7 +22,7 @@ final class GrandCentralBoard {
     private let scheduler: SchedulingJobs
     private let expectedWidgetsCount = 6
 
-    private var widgets : [Widget]
+    private var widgets: [Widget]
 
     init(configuration: Configuration, scheduler: SchedulingJobs, stack: ViewStacking) throws {
 

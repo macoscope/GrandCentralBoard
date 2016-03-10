@@ -26,7 +26,7 @@ enum EventsError : ErrorType, HavingMessage {
             case .CannotConvertDate:
                 return NSLocalizedString("Unable to convert string to date.", comment: "")
             case .WrongFormat:
-            return NSLocalizedString("Wrong format.", comment: "")
+                return NSLocalizedString("Wrong format.", comment: "")
         }
     }
 }
