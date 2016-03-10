@@ -26,20 +26,23 @@ enum EventsError : ErrorType, HavingMessage {
             case .CannotConvertDate:
                 return NSLocalizedString("Unable to convert string to date.", comment: "")
             case .WrongFormat:
-            return NSLocalizedString("Wrong format.", comment: "")
+                return NSLocalizedString("Wrong format.", comment: "")
         }
     }
 }
 
 extension Events : Decodable {
 
-    static func decode(json: AnyObject) throws -> Events {
-        return try Events(time: NSDate(), events:
-            (json => "events" as! [AnyObject]).flatMap({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
-        )
+    static func decode(jsonObject: AnyObject) throws -> Events {
+        if let rawEvents = try (jsonObject => "events") as? [AnyObject] {
+            let events = try rawEvents.map({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
+            return Events(time: NSDate(), events: events)
+        }
+
+        throw EventsError.WrongFormat
     }
 
-    static let dateFormatter: NSDateFormatter = {
+    private static let dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
@@ -47,7 +50,7 @@ extension Events : Decodable {
         return dateFormatter
     }()
 
-    static func stringToDate(string: String) throws -> NSDate {
+    private static func stringToDate(string: String) throws -> NSDate {
         let dateFromFormatter = dateFormatter.dateFromString(string)
 
         guard let date = dateFromFormatter else { throw EventsError.CannotConvertDate }

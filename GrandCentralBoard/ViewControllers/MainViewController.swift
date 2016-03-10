@@ -32,12 +32,4 @@ class MainViewController: UIViewController {
             showRetryDialogWithMessage(error.userMessage)
         }
     }
-
-    private func showRetryDialogWithMessage(message: String) {
-        let alert = UIAlertController.retryAlertWithMessage(message) { [weak self] in
-            self?.navigationController?.popViewControllerAnimated(true)
-        }
-
-        presentViewController(alert, animated: true, completion: nil)
-    }
 }

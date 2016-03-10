@@ -22,8 +22,8 @@ final class WatchWidget : Widget {
         return widgetView
     }
 
-    var events: [Event]?
-    var lastFetch: NSDate?
+    private var events: [Event]?
+    private var lastFetch: NSDate?
 
     func update(source: UpdatingSource) {
         switch source {
@@ -38,17 +38,14 @@ final class WatchWidget : Widget {
 
     private func updateTimeFromSource(source: TimeSource) {
         let result = source.read()
-        var time: Time
 
         switch result {
-            case .Success(let timeFromSource):
-                time = timeFromSource
+            case .Success(let time):
+                renderTime(time)
             case .Failure:
                 widgetView.failure()
                 return
         }
-
-        renderTime(time)
     }
 
     private func fetchEventsFromSource(source: EventsSource) {

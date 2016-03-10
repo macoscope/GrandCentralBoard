@@ -26,13 +26,5 @@ class LoadingViewController: UIViewController {
             }
         }
     }
-
-    private func showRetryDialogWithMessage(message: String) {
-        let alert = UIAlertController.retryAlertWithMessage(message) { [weak self] in
-            self?.fetchConfiguration()
-        }
-
-        presentViewController(alert, animated: true, completion: nil)
-    }
 }
 

@@ -16,6 +16,7 @@
 		1A242D501C357CA500D5BEE5 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D4F1C357CA500D5BEE5 /* Source.swift */; };
 		1A242D5B1C357E9E00D5BEE5 /* Rendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */; };
 		1A242D601C37F66000D5BEE5 /* AutoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */; };
+		1A42AFE41C91703000FF36FB /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A42AFE31C91703000FF36FB /* UIViewController.swift */; };
 		1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46169F1C8DC02900361B2E /* ImageWidget.swift */; };
 		1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */; };
 		1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616A51C9048F700361B2E /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		1A242D4F1C357CA500D5BEE5 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		1A242D5A1C357E9E00D5BEE5 /* Rendering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rendering.swift; sourceTree = "<group>"; };
 		1A242D5F1C37F66000D5BEE5 /* AutoStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoStack.swift; sourceTree = "<group>"; };
+		1A42AFE31C91703000FF36FB /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		1A46169F1C8DC02900361B2E /* ImageWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidget.swift; sourceTree = "<group>"; };
 		1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerTests.swift; sourceTree = "<group>"; };
 		1A4616A51C9048F700361B2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				1A9A3D7C1C8710EC0070DB17 /* UIAlertController.swift */,
 				1AD5EAA11C7CFE4E00210BB9 /* UILabel.swift */,
 				1A5180131C3860010035092D /* UIView.swift */,
+				1A42AFE31C91703000FF36FB /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				1A242D4E1C357C7700D5BEE5 /* Timed.swift in Sources */,
 				1A242D501C357CA500D5BEE5 /* Source.swift in Sources */,
 				1AD5EAA21C7CFE4E00210BB9 /* UILabel.swift in Sources */,
+				1A42AFE41C91703000FF36FB /* UIViewController.swift in Sources */,
 				1A9A3D791C84785D0070DB17 /* Result.swift in Sources */,
 				1A9A3D7D1C8710EC0070DB17 /* UIAlertController.swift in Sources */,
 				1AD5EAAC1C7DA9BB00210BB9 /* Scheduler.swift in Sources */,

@@ -27,6 +27,7 @@ final class Job : Schedulable {
         return source.interval
     }
 
+    // This selector is called by NSTimer initiated in Scheduler `schedule` method.
     @objc func update() {
         target.update(source)
     }
@@ -38,7 +39,7 @@ protocol SchedulingJobs {
 
 final class Scheduler : SchedulingJobs {
 
-    private var timers =  [NSTimer]()
+    private var timers = [NSTimer]()
 
     func schedule(job: Schedulable) {
         let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job, selector: job.selector, userInfo: nil, repeats: true)

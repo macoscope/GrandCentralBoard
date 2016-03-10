@@ -15,21 +15,16 @@ extension UIView {
 
         let viewsDict = ["view" : view]
 
-        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict)
-        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDict)
+        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: [], metrics: nil, views: viewsDict)
+        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: [], metrics: nil, views: viewsDict)
         self.addConstraints(horizontalConstraints)
         self.addConstraints(verticalConstraints)
 
-        let block = {
-            self.layoutIfNeeded()
-        }
-
         if animated {
-            UIView.animateWithDuration(0.2, animations: block)
-            return
+            UIView.animateWithDuration(0.2) {
+                self.layoutIfNeeded()
+            }
         }
-
-        block()
     }
 }
 
