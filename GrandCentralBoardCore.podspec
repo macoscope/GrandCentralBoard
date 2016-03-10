@@ -16,8 +16,4 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 3.0'
   s.dependency 'Decodable', '~> 0.4'
 
-  s.subspec 'Watch' do |watch|
-    watch.source_files = './GrandCentralBoard/Widgets/Watch/**/*.swift'
-  end
-
 end
