@@ -40,6 +40,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="activityIndicator" destination="0Sy-BI-3up" id="icE-so-jV8"/>
                 <outlet property="activityView" destination="Exx-JO-WP4" id="wK3-cF-JRj"/>
                 <outlet property="bonusView" destination="pW5-AF-sFa" id="tPS-1q-xJ2"/>
             </connections>

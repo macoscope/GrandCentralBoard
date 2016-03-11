@@ -12,6 +12,7 @@ final class BonusWidgetView: UIView {
     
     @IBOutlet private weak var bonusView: SKView!
     @IBOutlet private weak var activityView: UIView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private var scene: BonusScene!
     
     private(set) var state: RenderingState<ViewModel> = .Waiting {
@@ -45,7 +46,7 @@ final class BonusWidgetView: UIView {
             case (_, .Rendering(let viewModel)):
                 scene.setUpWithSceneModel(viewModel.sceneModel)
             case (_, .Failed):
-                break
+                transitionToFailedState()
             case (_, .Waiting):
                 break
         }
@@ -54,6 +55,12 @@ final class BonusWidgetView: UIView {
     private func transitionFromWaitingState() {
         UIView.animateWithDuration(0.3) {
             self.activityView.alpha = 0
+        }
+    }
+    
+    private func transitionToFailedState() {
+        UIView.animateWithDuration(0.3) {
+            self.activityIndicator.alpha = 0
         }
     }
     
