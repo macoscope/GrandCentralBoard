@@ -7,7 +7,7 @@ import UIKit
 import GrandCentralBoardCore
 
 let dataDownloader = DataDownloader()
-let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader)]
+let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader), BonusWidgetBuilder(dataDownloader: dataDownloader)]
 
 class LoadingViewController: UIViewController {
 

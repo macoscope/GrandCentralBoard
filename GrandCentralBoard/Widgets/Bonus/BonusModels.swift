@@ -5,6 +5,7 @@
 
 import Foundation
 import Decodable
+import GrandCentralBoardCore
 
 struct BubbleImage {
     let localImageName: String?

@@ -5,7 +5,7 @@
 
 import Foundation
 import Decodable
-
+import GrandCentralBoardCore
 
 struct Mapping : Decodable {
     let data: [String: String]

@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import Alamofire
+import GrandCentralBoardCore
 
 final class BonusSource : Asynchronous {
     
