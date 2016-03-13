@@ -30,6 +30,9 @@ final class BonusWidgetBuilder : WidgetBuilding {
 struct BonusWidgetSettings: Decodable {
     
     let mappingPath: String
+    
+    // Remeber to add include_children=true to the Bonus.ly API query. It should look more or less like this:
+    // https://bonus.ly/api/v1/bonuses?access_token=YOUR_ACCESS_TOKEN&include_children=true
     let bonuslyPath: String
     
     static func decode(jsonObject: AnyObject) throws -> BonusWidgetSettings {

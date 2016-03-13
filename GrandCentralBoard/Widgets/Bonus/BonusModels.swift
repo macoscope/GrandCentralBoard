@@ -41,11 +41,11 @@ struct Person {
     let lastUpdate: NSDate
     
     static func personFromUpdate(update: Update, imageUrl: String? = nil) -> Person {
-        return Person(name: update.name, bubbleImage: BubbleImage(url: imageUrl), bonus: update.bonus, lastUpdate: update.date)
+        return Person(name: update.name, bubbleImage: BubbleImage(url: imageUrl), bonus: update.totalBonus, lastUpdate: update.date)
     }
     
     func copyByUpdating(update: Update, imageUrl: String? = nil) -> Person {
-        return Person(name: name, bubbleImage: BubbleImage(url: imageUrl), bonus: bonus + update.bonus, lastUpdate: update.date)
+        return Person(name: name, bubbleImage: BubbleImage(url: imageUrl), bonus: bonus + update.totalBonus, lastUpdate: update.date)
     }
 
     func copyPersonWithImage(image: BubbleImage) -> Person {
@@ -76,6 +76,11 @@ struct Update {
     let name: String
     let bonus: Int
     let date: NSDate
+    let childBonuses: [Update]
+    
+    var totalBonus: Int {
+        return bonus + childBonuses.reduce(0, combine: {return $0 + $1.bonus})
+    }
 }
 
 extension Update: Decodable {
@@ -85,7 +90,8 @@ extension Update: Decodable {
         
         return try Update(name: removeDomainFromEmail(j => "receiver" => "email"),
             bonus: j => "amount",
-            date: formatter.dateFromString(j => "created_at") ?? NSDate())
+            date: formatter.dateFromString(j => "created_at") ?? NSDate(),
+            childBonuses: j => "child_bonuses" ?? [])
     }
     
     static func removeDomainFromEmail(email: String) -> String {
