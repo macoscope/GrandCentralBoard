@@ -76,39 +76,29 @@ final class BonusSource : Asynchronous {
     // MARK: Fetching images
     
     private func fetchImages(closure: (ResultType) -> Void) {
-        let imagesToDownloadCount = people.filter({ (name, person) -> Bool in
-            if let _ = person.bubbleImage.url where person.bubbleImage.remoteImage == nil {
-                return true
-            }
-            return false
-        }).count
-        
-        guard imagesToDownloadCount > 0 else { return closure(.Success(Array(people.values))) }
-        let downloadsCounter = AtomicCounter()
-        let failureCounter = AtomicCounter()
-
+        let dispatchGroup = dispatch_group_create()
         people.forEach({ (name, person) in
             guard let _ =  person.bubbleImage.url else { return }
             
             if person.bubbleImage.remoteImage == nil {
-                self.fetchImage(person) { result in
-                    switch result {
+                dispatch_group_enter(dispatchGroup)
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    self.fetchImage(person) { result in
+                        switch result {
                         case .Success(let image):
                             self.people[name] = person.copyPersonWithImage(BubbleImage(image: image))
-                            downloadsCounter.increment()
-                            if downloadsCounter.value == imagesToDownloadCount {
-                                closure(.Success(Array(self.people.values)))
-                            }
                         case .Failure(_):
-                            failureCounter.increment()
-                            if downloadsCounter.value + failureCounter.value == imagesToDownloadCount {
-                                closure(.Success(Array(self.people.values)))
-                            }
+                            break
+                        }
+                        dispatch_group_leave(dispatchGroup)
                     }
-                    
                 }
             }
         })
+
+        dispatch_group_notify(dispatchGroup, dispatch_get_main_queue()) {
+            closure(.Success(Array(self.people.values)))
+        }
     }
     
     private func fetchImage(person: Person, closure: (ImageResultType) -> Void) {

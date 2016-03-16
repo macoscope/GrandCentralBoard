@@ -69,7 +69,6 @@
 		494B68D61C92E89A00D460B0 /* bonusly.json in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C21C92E89A00D460B0 /* bonusly.json */; };
 		494B68D71C92E89A00D460B0 /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C31C92E89A00D460B0 /* configuration.json */; };
 		494B68D81C92E89A00D460B0 /* mapping.json in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C41C92E89A00D460B0 /* mapping.json */; };
-		494B68D91C92E89A00D460B0 /* AtomicCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C61C92E89A00D460B0 /* AtomicCounter.swift */; };
 		494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C71C92E89A00D460B0 /* BonusSource.swift */; };
 		494B68DB1C92E89A00D460B0 /* ImageMappingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */; };
 		494B68E11C92E97900D460B0 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DE1C92E97900D460B0 /* NSDate.swift */; };
@@ -166,7 +165,6 @@
 		494B68C21C92E89A00D460B0 /* bonusly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bonusly.json; sourceTree = "<group>"; };
 		494B68C31C92E89A00D460B0 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
 		494B68C41C92E89A00D460B0 /* mapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapping.json; sourceTree = "<group>"; };
-		494B68C61C92E89A00D460B0 /* AtomicCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomicCounter.swift; sourceTree = "<group>"; };
 		494B68C71C92E89A00D460B0 /* BonusSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusSource.swift; sourceTree = "<group>"; };
 		494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMappingSource.swift; sourceTree = "<group>"; };
 		494B68DE1C92E97900D460B0 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
@@ -459,7 +457,6 @@
 		494B68C51C92E89A00D460B0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				494B68C61C92E89A00D460B0 /* AtomicCounter.swift */,
 				494B68C71C92E89A00D460B0 /* BonusSource.swift */,
 				494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */,
 			);
@@ -723,7 +720,6 @@
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
-				494B68D91C92E89A00D460B0 /* AtomicCounter.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
