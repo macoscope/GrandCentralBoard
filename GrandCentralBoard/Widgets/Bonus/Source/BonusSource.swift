@@ -29,8 +29,8 @@ final class BonusSource : Asynchronous {
         
         fetchBonusUpdate { result in
             switch result {
-                case .Success(let update):
-                    let updates = update.sort({ return $0.date.isLessThanDate($1.date) })
+                case .Success(let allUpdates):
+                    let updates = allUpdates.sort({ return $0.date < $1.date })
                     self.updatePeople(updates)
                     self.fetchImages(closure)
                 case .Failure(let error):
@@ -50,7 +50,7 @@ final class BonusSource : Asynchronous {
                 people[update.name] = person.copyPersonWithImage(BubbleImage(url: url))
             }
             
-            guard person.lastUpdate.isLessThanDate(update.date) else { return }
+            guard person.lastUpdate < update.date else { return }
             people[update.name] = person.copyByUpdating(update, imageUrl: mapping?.data[update.name])
         }
     }
