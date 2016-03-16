@@ -32,7 +32,7 @@ final class ImageMappingSource : Asynchronous {
     
     typealias ResultType = Result<Mapping>
 
-    let interval: NSTimeInterval = 60
+    let interval: NSTimeInterval = 86400
     let sourceType: SourceType = .Momentary
 
     private let path: String
