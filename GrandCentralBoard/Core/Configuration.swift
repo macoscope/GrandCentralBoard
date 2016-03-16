@@ -76,7 +76,7 @@ public struct Configuration {
     }
     
     @warn_unused_result public static func configurationFromData(data: NSData, availableBuilders: [WidgetBuilding]) throws -> Configuration {
-        
+
         if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
             if let widgets = jsonResult["widgets"] as? [AnyObject] {
                 return Configuration(builders: availableBuilders, settings: WidgetSettings.settingsFromArray(widgets))
