@@ -37,8 +37,7 @@ final class BonusWidgetView: UIView {
         state = .Failed
     }
     
-    func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
-        guard let state = state else { return }
+    func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
             case (.Waiting, .Rendering(let viewModel)):
                 transitionFromWaitingState()
