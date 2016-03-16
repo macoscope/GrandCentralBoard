@@ -11,7 +11,7 @@ class Bubble: SKSpriteNode {
     private let initialSize = CGSize(width: 100, height: 100)
     
     init(person: Person) {
-        guard let image = person.bubbleImage.remoteImage ?? person.bubbleImage.localImage ?? UIImage(named: "placeholder") else { fatalError()}
+        guard let image = person.bubbleImage.remoteImage ?? person.bubbleImage.fallbackImage else { fatalError()}
         
         self.bonus = person.bonus
         let texture = SKTexture(image: image.cropToCircle())

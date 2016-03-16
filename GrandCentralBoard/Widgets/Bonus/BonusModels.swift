@@ -8,17 +8,16 @@ import Decodable
 import GrandCentralBoardCore
 
 struct BubbleImage {
-    let localImageName: String?
+    let fallbackImageName: String
     let url: String?
     
     var remoteImage: UIImage?
-    var localImage: UIImage? {
-        guard let name = localImageName else { return nil }
-        return UIImage(named: name)
+    var fallbackImage: UIImage? {
+        return UIImage(named: fallbackImageName)
     }
     
-    init(imageName: String? = nil, url: String? = nil, image: UIImage? = nil) {
-        self.localImageName = imageName
+    init(fallbackImageName: String = "placeholder", url: String? = nil, image: UIImage? = nil) {
+        self.fallbackImageName = fallbackImageName
         self.url = url
         self.remoteImage = image
     }
