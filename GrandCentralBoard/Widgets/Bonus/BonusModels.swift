@@ -82,22 +82,27 @@ struct Update {
     }
 }
 
+
 extension Update: Decodable {
+    static let formatter = NSDateFormatter()
+
     static func decode(j: AnyObject) throws -> Update {
-        let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        return try Update(name: removeDomainFromEmail(j => "receiver" => "email"),
+
+        let email: String = try j => "receiver" => "email"
+        return try Update(name: email.removeDomainFromEmail(),
             bonus: j => "amount",
             date: formatter.dateFromString(j => "created_at") ?? NSDate(),
             childBonuses: j => "child_bonuses" ?? [])
     }
-    
-    static func removeDomainFromEmail(email: String) -> String {
-        guard let index = email.rangeOfString("@", options: .BackwardsSearch)?.startIndex else {
-            return email
+}
+
+extension String {
+    func removeDomainFromEmail() -> String {
+        guard let index = rangeOfString("@", options: .BackwardsSearch)?.startIndex else {
+            return self
         }
-        return email.substringToIndex(index)
+        return self.substringToIndex(index)
     }
 }
 
