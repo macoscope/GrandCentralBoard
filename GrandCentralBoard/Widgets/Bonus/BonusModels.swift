@@ -52,25 +52,6 @@ struct Person {
     }
 }
 
-struct Updates {
-    let all: [Update]
-}
-
-extension Updates: Decodable {
-    static func decode(j: AnyObject) throws -> Updates {
-        return try Updates(all: j => "result" as [Update])
-    }
-    
-    static func updatesFromData(data: NSData) throws -> Updates {
-        
-        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-            return try Updates.decode(jsonResult)
-        }
-
-        throw DecodeError.WrongFormat
-    }
-}
-
 struct Update {
     let name: String
     let bonus: Int
@@ -94,6 +75,18 @@ extension Update: Decodable {
             bonus: j => "amount",
             date: formatter.dateFromString(j => "created_at") ?? NSDate(),
             childBonuses: j => "child_bonuses" ?? [])
+    }
+
+    static func decodeUpdates(j: AnyObject) throws -> [Update] {
+        return try j => "result" as [Update]
+    }
+
+    static func updatesFromData(data: NSData) throws -> [Update] {
+        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+            return try Update.decodeUpdates(jsonResult)
+        }
+
+        throw DecodeError.WrongFormat
     }
 }
 

@@ -9,7 +9,7 @@ import GrandCentralBoardCore
 final class BonusSource : Asynchronous {
     
     typealias ResultType = Result<[Person]>
-    typealias UpdateResultType = Result<Updates>
+    typealias UpdateResultType = Result<[Update]>
     typealias ImageResultType = Result<UIImage>
 
     let sourceType: SourceType = .Cumulative
@@ -30,7 +30,7 @@ final class BonusSource : Asynchronous {
         fetchBonusUpdate { result in
             switch result {
                 case .Success(let update):
-                    let updates = update.all.sort({ return $0.date.isLessThanDate($1.date) })
+                    let updates = update.sort({ return $0.date.isLessThanDate($1.date) })
                     self.updatePeople(updates)
                     self.fetchImages(closure)
                 case .Failure(let error):
@@ -62,7 +62,7 @@ final class BonusSource : Asynchronous {
             switch result {
                 case .Success(let data):
                     do {
-                        let updates = try Updates.updatesFromData(data)
+                        let updates = try Update.updatesFromData(data)
                         completion(.Success(updates))
                     } catch (let error) {
                         completion(.Failure(error))
