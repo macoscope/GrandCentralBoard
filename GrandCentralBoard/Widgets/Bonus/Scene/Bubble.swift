@@ -60,7 +60,21 @@ class Bubble: SKSpriteNode {
         
         scaleBy = 1 + CGFloat(difference) / 100
         let finalScaleAction = SKAction.scaleBy(scaleBy, duration: 0.1)
-        
-        runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]))
+
+        parent?.children.forEach({ node in
+            node.removeActionForKey("shakeAction")
+        })
+        runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]), completion: {
+            self.runAction(SKAction.shakeForever(), withKey: "shakeAction")
+        })
+    }
+}
+
+extension SKAction {
+    class func shakeForever(amplitudeX: CGFloat = 5, amplitudeY: CGFloat = 5) -> SKAction {
+
+        let forward = SKAction.moveByX(amplitudeX, y:amplitudeY, duration: 0.015)
+        let reverse = forward.reversedAction()
+        return SKAction.repeatActionForever(SKAction.sequence([forward, reverse]))
     }
 }
