@@ -16,7 +16,7 @@ struct Mapping : Decodable {
     }   
 }
 
-extension Mapping{
+extension Mapping {
 
     static func mappingFromData(data: NSData) throws -> Mapping {
         
