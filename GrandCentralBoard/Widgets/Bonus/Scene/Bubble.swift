@@ -48,6 +48,8 @@ class Bubble: SKSpriteNode {
     
     func updateWithNewBonus(newBonus: Int) {
         let difference = newBonus - self.bonus
+
+        // We increase bonus and run animation only if the value of bonus changes for a bigger one.
         guard difference > 0 else { return }
         
         self.bonus += difference
