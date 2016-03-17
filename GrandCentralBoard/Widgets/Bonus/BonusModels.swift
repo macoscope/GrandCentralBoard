@@ -15,6 +15,9 @@ struct BubbleImage {
     var fallbackImage: UIImage? {
         return UIImage(named: fallbackImageName)
     }
+    var image: UIImage? {
+        return remoteImage ?? fallbackImage
+    }
     
     init(fallbackImageName: String = "placeholder", url: String? = nil, image: UIImage? = nil) {
         self.fallbackImageName = fallbackImageName

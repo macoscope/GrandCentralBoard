@@ -10,25 +10,25 @@ class Bubble: SKSpriteNode {
     private var bonus: Int = 0
     private let initialSize = CGSize(width: 100, height: 100)
     
-    init(person: Person) {
-        guard let image = person.bubbleImage.remoteImage ?? person.bubbleImage.fallbackImage else { fatalError()}
+    init(bubbleViewModel: BubbleViewModel) {
+        let image = bubbleViewModel.image
         
-        self.bonus = person.bonus
+        self.bonus = bubbleViewModel.bonus
         let texture = SKTexture(image: image.cropToCircle())
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
-        setUpPhysicsBody(texture, size: initialSize, person: person)
-        self.name = person.name
+        setUpPhysicsBody(texture, size: initialSize, bubbleViewModel: bubbleViewModel)
+        self.name = bubbleViewModel.name
         
-        let scaleBy: CGFloat = 1 + CGFloat(person.bonus) / 100
+        let scaleBy: CGFloat = 1 + CGFloat(bubbleViewModel.bonus) / 100
         setScale(scaleBy)
     }
     
-    private func findImage(person: Person) -> UIImage? {
+    private func findImage(bubbleViewModel: BubbleViewModel) -> UIImage? {
         return UIImage(named: "placeholder")
     }
     
-    private func setUpPhysicsBody(texture: SKTexture, size: CGSize, person: Person) {
+    private func setUpPhysicsBody(texture: SKTexture, size: CGSize, bubbleViewModel: BubbleViewModel) {
         let spacing: CGFloat = 1
         physicsBody = SKPhysicsBody(circleOfRadius: initialSize.width / 2 + spacing)
         physicsBody?.restitution = 0.0

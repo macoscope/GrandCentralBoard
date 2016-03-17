@@ -32,8 +32,8 @@ class BonusScene: SKScene {
         self.viewModel = viewModel
         addChild(world)
         
-        for person in viewModel.people {
-            let bubble = Bubble(person: person)
+        for bubbleViewModel in viewModel.bubbles {
+            let bubble = Bubble(bubbleViewModel: bubbleViewModel)
             bubble.position = randomPosition()
             world.addChild(bubble)
         }
@@ -41,18 +41,16 @@ class BonusScene: SKScene {
     
     private func updateWithViewModel(viewModel: BonusWidgetViewModel) {
         self.viewModel = viewModel
-        for person in viewModel.people {
-            guard let bubble = world.childNodeWithName(person.name) as? Bubble else {
-                let newBubble = Bubble(person: person)
+        for bubbleViewModel in viewModel.bubbles {
+            guard let bubble = world.childNodeWithName(bubbleViewModel.name) as? Bubble else {
+                let newBubble = Bubble(bubbleViewModel: bubbleViewModel)
                 newBubble.position = randomPosition()
                 self.world.addChild(newBubble)
                 continue
             }
 
-            bubble.updateWithNewBonus(person.bonus)
-            if let image = person.bubbleImage.remoteImage {
-                bubble.updateImage(image)
-            }
+            bubble.updateWithNewBonus(bubbleViewModel.bonus)
+            bubble.updateImage(bubbleViewModel.image)
         }
     }
     
