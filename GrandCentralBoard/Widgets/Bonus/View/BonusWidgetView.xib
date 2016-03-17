@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BonusWidgetView" customModule="GrandCentralBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pW5-AF-sFa" customClass="SKView">
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exx-JO-WP4">
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="0Sy-BI-3up">
+                            <rect key="frame" x="300" y="250" width="40" height="40"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="0Sy-BI-3up" firstAttribute="centerY" secondItem="Exx-JO-WP4" secondAttribute="centerY" id="J6s-Qq-EV2"/>
+                        <constraint firstItem="0Sy-BI-3up" firstAttribute="centerX" secondItem="Exx-JO-WP4" secondAttribute="centerX" id="Jk1-Xa-yr7"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pW5-AF-sFa" secondAttribute="trailing" id="0yX-Q2-Y8T"/>
+                <constraint firstAttribute="bottom" secondItem="Exx-JO-WP4" secondAttribute="bottom" id="4Kg-DU-75P"/>
+                <constraint firstItem="pW5-AF-sFa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JCD-z3-NM0"/>
+                <constraint firstAttribute="bottom" secondItem="pW5-AF-sFa" secondAttribute="bottom" id="Qvd-lO-CwT"/>
+                <constraint firstItem="pW5-AF-sFa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zup-mf-U3V"/>
+                <constraint firstAttribute="trailing" secondItem="Exx-JO-WP4" secondAttribute="trailing" id="kcI-Ed-r8D"/>
+                <constraint firstItem="Exx-JO-WP4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xd0-sT-Y3I"/>
+                <constraint firstItem="Exx-JO-WP4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y4S-md-DIV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activityIndicator" destination="0Sy-BI-3up" id="icE-so-jV8"/>
+                <outlet property="activityView" destination="Exx-JO-WP4" id="wK3-cF-JRj"/>
+                <outlet property="bonusView" destination="pW5-AF-sFa" id="tPS-1q-xJ2"/>
+            </connections>
+        </view>
+    </objects>
+</document>

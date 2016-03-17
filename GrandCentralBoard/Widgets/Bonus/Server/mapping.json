@@ -1,0 +1,6 @@
+{
+    "mapping": {
+        "aaa" : "http://localhost:8000/aaa.png",
+        "bbb" : "http://localhost:8000/bbb.png"
+     }
+}
