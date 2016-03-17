@@ -11,7 +11,7 @@ let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: da
 
 class LoadingViewController: UIViewController {
 
-    let configurationPath = "http://localhost:8000/configuration.json"
+    let configurationPath = "http://gcb.macoscope.com/configuration.json"
     let configurationDownloader = ConfigurationDownloader(dataDownloader: DataDownloader())
 
     override func viewWillAppear(animated: Bool) {
