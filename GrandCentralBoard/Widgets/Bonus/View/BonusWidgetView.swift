@@ -41,10 +41,10 @@ final class BonusWidgetView: UIView {
         switch (state, toState) {
             case (.Waiting, .Rendering(let viewModel)):
                 transitionFromWaitingState()
-                scene.setUpWithSceneModel(viewModel.sceneModel)
+                scene.setUpWithViewModel(viewModel)
                 bonusView.presentScene(scene)
             case (_, .Rendering(let viewModel)):
-                scene.setUpWithSceneModel(viewModel.sceneModel)
+                scene.setUpWithViewModel(viewModel)
             case (_, .Failed):
                 transitionToFailedState()
             case (_, .Waiting):

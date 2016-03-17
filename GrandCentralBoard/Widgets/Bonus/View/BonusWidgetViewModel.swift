@@ -6,5 +6,5 @@
 import Foundation
 
 struct BonusWidgetViewModel {
-    let sceneModel: BonusSceneModel
+    let people: [Person]
 }

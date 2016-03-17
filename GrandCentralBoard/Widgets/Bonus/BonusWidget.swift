@@ -38,7 +38,7 @@ final class BonusWidget : Widget {
         source.read { result in
             switch result {
                 case .Success(let people):
-                    let bonusViewModel = BonusWidgetViewModel(sceneModel: BonusSceneModel(people: people))
+                    let bonusViewModel = BonusWidgetViewModel(people: people)
                     self.widgetView.render(bonusViewModel)
                 case .Failure:
                     self.widgetView.failure()

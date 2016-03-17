@@ -9,39 +9,39 @@ private let pokeTimeInterval: NSTimeInterval = 5
 
 class BonusScene: SKScene {
     
-    private var sceneModel: BonusSceneModel!
+    private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
     
     override func didMoveToView(view: SKView) {
-        assert(sceneModel != nil)
-        setUpWithSceneModel(sceneModel)
+        assert(viewModel != nil)
+        setUpWithViewModel(viewModel)
         
         // Waiting for #selector https://github.com/apple/swift-evolution/blob/master/proposals/0022-objc-selectors.md
         NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: Selector("pokeAllBubbles"), userInfo: nil, repeats: true)
     }
     
-    func setUpWithSceneModel(sceneModel: BonusSceneModel) {
-        guard self.sceneModel != nil else {
-            setUpSceneForTheFirstTimeWithSceneModel(sceneModel)
+    func setUpWithViewModel(viewModel: BonusWidgetViewModel) {
+        guard self.viewModel != nil else {
+            setUpSceneForTheFirstTimeWithViewModel(viewModel)
             return
         }
-        updateWithSceneModel(sceneModel)
+        updateWithViewModel(viewModel)
     }
     
-    private func setUpSceneForTheFirstTimeWithSceneModel(sceneModel: BonusSceneModel) {
-        self.sceneModel = sceneModel
+    private func setUpSceneForTheFirstTimeWithViewModel(viewModel: BonusWidgetViewModel) {
+        self.viewModel = viewModel
         addChild(world)
         
-        for person in sceneModel.people {
+        for person in viewModel.people {
             let bubble = Bubble(person: person)
             bubble.position = randomPosition()
             world.addChild(bubble)
         }
     }
     
-    private func updateWithSceneModel(sceneModel: BonusSceneModel) {
-        self.sceneModel = sceneModel
-        for person in sceneModel.people {
+    private func updateWithViewModel(viewModel: BonusWidgetViewModel) {
+        self.viewModel = viewModel
+        for person in viewModel.people {
             guard let bubble = world.childNodeWithName(person.name) as? Bubble else {
                 let newBubble = Bubble(person: person)
                 newBubble.position = randomPosition()
