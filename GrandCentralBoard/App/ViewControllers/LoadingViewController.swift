@@ -33,7 +33,9 @@ class LoadingViewController: UIViewController {
                     let main = Storyboards.Main.instantiate(configuration)
                     self?.navigationController?.pushViewController(main, animated: false)
                 case .Failure(let error):
-                    self?.showRetryDialogWithMessage(error.userMessage)
+                    self?.showRetryDialogWithMessage(error.userMessage) { [weak self] in
+                        self?.fetchConfiguration()
+                    }
             }
         }
     }

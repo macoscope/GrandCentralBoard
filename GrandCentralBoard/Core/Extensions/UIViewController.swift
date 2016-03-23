@@ -6,9 +6,9 @@
 import UIKit
 
 public extension UIViewController {
-    public func showRetryDialogWithMessage(message: String) {
-        let alert = UIAlertController.retryAlertWithMessage(message) { [weak self] in
-            self?.navigationController?.popViewControllerAnimated(true)
+    public func showRetryDialogWithMessage(message: String, retryClosure: (() -> Void)) {
+        let alert = UIAlertController.retryAlertWithMessage(message) {
+            retryClosure()
         }
 
         presentViewController(alert, animated: true, completion: nil)
