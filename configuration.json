@@ -1,10 +1,11 @@
 {
     "widgets": [
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://gcb.macoscope.com/calendar.json"} }
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} }
                ]
 }
