@@ -1,6 +1,12 @@
 # Decodable
 Simple yet powerful object mapping made possible by Swift 2's new error handling. Greatly inspired by [Argo](http://github.com/thoughtbot/Argo), but without a bizillion functional operators.
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Cocoapods version](https://cocoapod-badges.herokuapp.com/v/Decodable/badge.png)](https://cocoapods.org/pods/Decodable)
+[![Platforms](https://cocoapod-badges.herokuapp.com/p/Decodable/badge.png
+)](https://cocoadocs.org/docsets/NSStringMask)
+[![Travis](https://img.shields.io/travis/Anviking/Decodable/master.svg)](https://travis-ci.org/Anviking/Decodable/branches)
+
 ## Example:
 
 ```swift
@@ -21,15 +27,22 @@ struct Repository {
 extension Repository: Decodable {
     static func decode(j: AnyObject) throws -> Repository {
         return try Repository(
-                    name:                   j => "name", 
-                    description:            j => "description", 
-                    stargazersCount:        j => "stargazers_count", 
-                    language:               j => "language", 
-                    sometimesMissingKey:    j =>? "sometimesMissingKey",
-                    owner:                  j => "owner", 
-                    defaultBranch:          Branch(name: j => "default_branch")
+                    name: j => "name", 
+                    description: j => "description", 
+                    stargazersCount: j => "stargazers_count", 
+                    language: j => "language", 
+                    sometimesMissingKey: j =>? "sometimesMissingKey",
+                    owner: j => "owner", 
+                    defaultBranch: Branch(name: j => "default_branch")
                 )
     }
+}
+
+do {
+    let json = try NSJSONSerialization.JSONObjectWithData(data, options: [])
+    let repo = try Repository.decode(json)
+} catch {
+    print(error)
 }
 ```
 
