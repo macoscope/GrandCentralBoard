@@ -9,6 +9,7 @@ import GrandCentralBoardCore
 class MainViewController: UIViewController {
 
     private var board: GrandCentralBoard?
+
     var configuration: Configuration! {
         didSet {
             setUpBoardWithConfiguration(configuration)
