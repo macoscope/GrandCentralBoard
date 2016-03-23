@@ -6,13 +6,16 @@
 import UIKit
 import GrandCentralBoardCore
 
-let dataDownloader = DataDownloader()
-let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader), BonusWidgetBuilder(dataDownloader: dataDownloader)]
+private let dataDownloader = DataDownloader()
+private let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader), BonusWidgetBuilder(dataDownloader: dataDownloader)]
+private let configurationPath = "http://gcb.macoscope.com/configuration.json"
+private let localConfig = "configuration"
 
 class LoadingViewController: UIViewController {
 
-    let configurationPath = "http://gcb.macoscope.com/configuration.json"
-    let configurationDownloader = ConfigurationDownloader(dataDownloader: DataDownloader())
+    let configurationDownloader = ConfigurationDownloader(dataDownloader: dataDownloader,
+                                                                    path: configurationPath,
+                                                                builders: availableBuilders)
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,7 +23,7 @@ class LoadingViewController: UIViewController {
     }
 
     private func fetchConfiguration() {
-        configurationDownloader.fetchConfiguration(fromPath: configurationPath, availableBuilders: availableBuilders) { [weak self] result in
+        configurationDownloader.fetchConfiguration { [weak self] result in
             switch result {
                 case .Success(let configuration):
                     let main = Storyboards.Main.instantiate(configuration)

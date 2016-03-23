@@ -29,25 +29,61 @@ extension WidgetSettings : Decodable {
     }
 }
 
-public final class ConfigurationDownloader {
+public protocol ConfigurationFetching {
+    func fetchConfiguration(closure: (Result<Configuration>) -> ())
+}
+
+public final class LocalConfiguration : ConfigurationFetching {
+
+    private let configFileName: String
+    private let availableBuilders: [WidgetBuilding]
+
+    public init(configFileName: String, availableBuilders: [WidgetBuilding]) {
+        self.configFileName = configFileName
+        self.availableBuilders = availableBuilders
+    }
+
+    public func fetchConfiguration(closure: (Result<Configuration>) -> ()) {
+         guard let path = NSBundle.mainBundle().pathForResource(configFileName, ofType: "json"),
+                   data = NSData(contentsOfFile: path) else {
+
+            closure(.Failure(ConfigurationError.NoFile))
+
+            return
+        }
+
+        do {
+            closure(.Success(try Configuration.configurationFromData(data, availableBuilders: availableBuilders)))
+        } catch (let error) {
+            closure(.Failure(error))
+        }
+    }
+}
+
+public final class ConfigurationDownloader : ConfigurationFetching {
     
     private let dataDownloader: DataDownloading
+    private let path: String
+    private let builders: [WidgetBuilding]
     
-    public init(dataDownloader: DataDownloading) {
+    public init(dataDownloader: DataDownloading, path: String, builders: [WidgetBuilding]) {
+        self.path = path
+        self.builders = builders
         self.dataDownloader = dataDownloader
     }
     
-    public func fetchConfiguration(fromPath path: String, availableBuilders: [WidgetBuilding], closure: (Result<Configuration>) -> ()) {
-        dataDownloader.downloadDataAtPath(path) { result in
+    public func fetchConfiguration(closure: (Result<Configuration>) -> ()) {
+        dataDownloader.downloadDataAtPath(path) { [weak self] result in
             switch result {
-            case .Success(let data):
-                do {
-                    closure(.Success(try Configuration.configurationFromData(data, availableBuilders: availableBuilders)))
-                } catch (let error) {
+                case .Success(let data):
+                    do {
+                        guard let instance = self else { return }
+                        closure(.Success(try Configuration.configurationFromData(data, availableBuilders: instance.builders)))
+                    } catch (let error) {
+                        closure(.Failure(error))
+                    }
+                case .Failure(let error):
                     closure(.Failure(error))
-                }
-            case .Failure(let error):
-                closure(.Failure(error))
             }
         }
     }
@@ -56,11 +92,14 @@ public final class ConfigurationDownloader {
 
 public enum ConfigurationError : ErrorType, HavingMessage {
     case WrongFormat
+    case NoFile
     
     public var message: String {
         switch self {
-        case .WrongFormat:
-            return NSLocalizedString("Wrong format of configuration file!", comment: "")
+            case .WrongFormat:
+                return NSLocalizedString("Wrong format of configuration file!", comment: "")
+            case .NoFile:
+                return NSLocalizedString("Local configuration file not found!", comment: "")
         }
     }
 }
