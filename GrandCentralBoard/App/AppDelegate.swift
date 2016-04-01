@@ -5,6 +5,10 @@
 
 import UIKit
 
+let debugBuild: Bool = _isDebugAssertConfiguration()
+let configurationPath = "http://localhost:8000/configuration.json"
+let localConfigurationFileName = "configuration"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
