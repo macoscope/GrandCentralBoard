@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06B893971CB50F5F00D8C756 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B893961CB50F5F00D8C756 /* RequestTemplate.swift */; };
+		06B893991CB511F600D8C756 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B893981CB511F600D8C756 /* RequestBuilder.swift */; };
+		06B8939B1CB5153200D8C756 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B8939A1CB5153200D8C756 /* ResponseHandler.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
@@ -94,6 +97,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06B893961CB50F5F00D8C756 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
+		06B893981CB511F600D8C756 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		06B8939A1CB5153200D8C756 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		13473B743D0BD7A5BBEF96CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +206,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06B893951CB50F3D00D8C756 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				06B893961CB50F5F00D8C756 /* RequestTemplate.swift */,
+				06B893981CB511F600D8C756 /* RequestBuilder.swift */,
+				06B8939A1CB5153200D8C756 /* ResponseHandler.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		11484130C0B0FB42F82F007F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,6 +444,7 @@
 		494B68B21C92E89A00D460B0 /* Bonus */ = {
 			isa = PBXGroup;
 			children = (
+				06B893951CB50F3D00D8C756 /* Networking */,
 				494B68DD1C92E95B00D460B0 /* Extensions */,
 				494B68B91C92E89A00D460B0 /* Scene */,
 				494B68BF1C92E89A00D460B0 /* Server */,
@@ -713,8 +730,10 @@
 				494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */,
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
 				1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */,
+				06B893991CB511F600D8C756 /* RequestBuilder.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
+				06B8939B1CB5153200D8C756 /* ResponseHandler.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
@@ -728,6 +747,7 @@
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
+				06B893971CB50F5F00D8C756 /* RequestTemplate.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
