@@ -15,8 +15,7 @@ class BonusScene: SKScene {
     override func didMoveToView(view: SKView) {
         assert(viewModel != nil)
         setUpWithViewModel(viewModel)
-        
-        // Waiting for #selector https://github.com/apple/swift-evolution/blob/master/proposals/0022-objc-selectors.md
+
         NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles), userInfo: nil, repeats: true)
     }
     
