@@ -61,7 +61,7 @@ class Bubble: SKSpriteNode {
         if isAlreadyScaling { return }
         
         let scaleUpAction = SKAction.scaleTo(2.3, duration: 0.5)
-        let waitAction = SKAction.waitForDuration(5.0)
+        let waitAction = SKAction.waitForDuration(15.0)
         let scaleDownAction = SKAction.scaleTo(1, duration: 0.5)
         let completion = SKAction.runBlock { [weak self] in
             self?.runAction(SKAction.shakeForever(), withKey: shakeActionKey)
