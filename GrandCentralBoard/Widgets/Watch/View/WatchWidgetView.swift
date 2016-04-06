@@ -23,6 +23,8 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     @IBOutlet private weak var watchFaceImage: UIImageView!
     @IBOutlet private weak var selectionImage: UIImageView!
 
+    private var blinkingImageFlashingAnimationController: FlashingAnimationController?
+
     // MARK - ViewModelRendering
 
     typealias ViewModel = WatchWidgetViewModel
@@ -50,7 +52,8 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         hourLeft.text = ""
         hourRight.text = ""
 
-        blinkingImage.startFlashingWithInterval(pulsatingInterval, alphaDepth: semiTransparentAlpha)
+        blinkingImageFlashingAnimationController = FlashingAnimationController(view: blinkingImage, interval: pulsatingInterval, alphaDepth: semiTransparentAlpha)
+        blinkingImageFlashingAnimationController?.startFlashing()
     }
 
     // MARK - Transitions
