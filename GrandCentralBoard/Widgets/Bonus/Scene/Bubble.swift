@@ -68,8 +68,7 @@ class Bubble: SKSpriteNode {
         }
         
         self.removeActionForKey(shakeActionKey)
-        let sequence = SKAction.sequence([scaleUpAction, waitAction, scaleDownAction, completion])
-        self.runAction(sequence, withKey: scaleActionKey)
+        self.runAction(.sequence([scaleUpAction, waitAction, scaleDownAction, completion]), withKey: scaleActionKey)
     }
 }
 
