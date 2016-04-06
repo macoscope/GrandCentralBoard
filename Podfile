@@ -4,6 +4,7 @@ use_frameworks!
 target "GrandCentralBoard" do
  pod 'Alamofire', '~> 3.0'
  pod 'Decodable', '~> 0.4'
+ pod 'Result', '~> 2.0'
  pod 'GrandCentralBoardCore', :path => './'
 end
 
