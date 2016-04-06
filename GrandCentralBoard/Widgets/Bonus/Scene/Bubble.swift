@@ -47,26 +47,29 @@ class Bubble: SKSpriteNode {
     }
     
     func updateWithNewBonus(newBonus: Int) {
+        
         let difference = newBonus - self.bonus
-
+        self.bonus += difference
+        
         // We increase bonus and run animation only if the value of bonus changes for a bigger one.
         guard difference > 0 else { return }
         
-        self.bonus += difference
+        let scaleActionKey = "scaleAction"
+        let shakeActionKey = "shakeAction"
         
-        var scaleBy: CGFloat = 2.3
-        let scaleUpAction = SKAction.scaleBy(scaleBy, duration: 0.5)
-        let scaleDownAction = SKAction.scaleBy(1/scaleBy, duration: 0.1)
+        let isAlreadyScaling = (self.actionForKey(scaleActionKey) != nil)
+        if isAlreadyScaling { return }
         
-        scaleBy = 1 + CGFloat(difference) / 100
-        let finalScaleAction = SKAction.scaleBy(scaleBy, duration: 0.1)
-
-        parent?.children.forEach({ node in
-            node.removeActionForKey("shakeAction")
-        })
-        runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]), completion: {
-            self.runAction(SKAction.shakeForever(), withKey: "shakeAction")
-        })
+        let scaleUpAction = SKAction.scaleTo(2.3, duration: 0.5)
+        let waitAction = SKAction.waitForDuration(5.0)
+        let scaleDownAction = SKAction.scaleTo(1, duration: 0.5)
+        let completion = SKAction.runBlock { [weak self] in
+            self?.runAction(SKAction.shakeForever(), withKey: shakeActionKey)
+        }
+        
+        self.removeActionForKey(shakeActionKey)
+        let sequence = SKAction.sequence([scaleUpAction, waitAction, scaleDownAction, completion])
+        self.runAction(sequence, withKey: scaleActionKey)
     }
 }
 
