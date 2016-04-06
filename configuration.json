@@ -1,6 +1,6 @@
 {
     "widgets": [
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json", "refresh_token": "1/lz1etqr6_BrpCY6uk0_LbmoCAPM0-yfwX3BuZY6I8mQMEudVrK5jSpoR30zcRFq6"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
 
