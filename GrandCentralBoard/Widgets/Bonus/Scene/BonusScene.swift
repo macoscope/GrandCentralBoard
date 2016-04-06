@@ -17,7 +17,7 @@ class BonusScene: SKScene {
         setUpWithViewModel(viewModel)
         
         // Waiting for #selector https://github.com/apple/swift-evolution/blob/master/proposals/0022-objc-selectors.md
-        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: Selector("pokeAllBubbles"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles), userInfo: nil, repeats: true)
     }
     
     func setUpWithViewModel(viewModel: BonusWidgetViewModel) {
