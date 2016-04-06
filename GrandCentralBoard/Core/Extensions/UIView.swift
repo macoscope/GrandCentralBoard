@@ -29,9 +29,49 @@ public extension UIView {
     }
 }
 
+private var isFlashingKey: UInt8 = 0
+
+private final class BlockWrapper {
+    let block: () -> Void
+    
+    init(block: () -> Void) {
+        self.block = block
+    }
+}
+
 public extension UIView {
     
+    private var onApplicationDidBecomeActive: BlockWrapper? {
+        get {
+            return objc_getAssociatedObject(self, &isFlashingKey) as? BlockWrapper
+        }
+        set {
+            let notificationCenter = NSNotificationCenter.defaultCenter()
+            let notificationName = UIApplicationDidBecomeActiveNotification
+            
+            if newValue == nil {
+                notificationCenter.removeObserver(self, name: notificationName, object: nil)
+            }
+            else {
+                let selector = #selector(applicationDidBecomeActiveNotification)
+                notificationCenter.addObserver(self, selector: selector, name: notificationName, object: nil)
+            }
+            
+            return objc_setAssociatedObject(self, &isFlashingKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    @objc private func applicationDidBecomeActiveNotification() {
+        self.onApplicationDidBecomeActive?.block()
+    }
+    
     func startFlashingWithInterval(interval: NSTimeInterval, alphaDepth: CGFloat) {
+        
+        self.onApplicationDidBecomeActive = BlockWrapper { [weak self] in
+            self?.stopFlashing()
+            self?.startFlashingWithInterval(interval, alphaDepth: alphaDepth)
+        }
+        
         UIView.animateWithDuration(interval, delay: 0.0, options:
             [
                 .CurveEaseInOut,
@@ -40,10 +80,12 @@ public extension UIView {
             ],
             animations: {
                 self.alpha = alphaDepth
-            }, completion: nil)
+            },
+            completion: nil)
     }
 
     func stopFlashing() {
+        self.onApplicationDidBecomeActive = nil
         layer.removeAllAnimations()
         alpha = 1
     }
