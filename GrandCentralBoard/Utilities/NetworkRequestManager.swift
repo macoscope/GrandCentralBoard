@@ -8,6 +8,10 @@
 
 import Foundation
 
+public enum Method: String {
+    case OPTIONS, GET, HEAD, POST, PUT, PATCH, DELETE, TRACE, CONNECT
+}
+
 protocol NetworkRequestManager {
-    func requestJSON(request: NSURLRequest, completion: (ResultType<AnyObject, NSError>.result) -> Void)
+    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?, completion: (ResultType<AnyObject, NSError>.result) -> Void)
 }

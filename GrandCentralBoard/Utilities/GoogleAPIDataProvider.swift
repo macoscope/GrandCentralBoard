@@ -48,7 +48,7 @@ final class GoogleAPIDataProvider {
         return refreshTokenOperation
     }
 
-    func request(url: NSURL, parameters: [String: AnyObject]?, completion: Result<AnyObject, APIDataError> -> Void) {
+    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, completion: Result<AnyObject, APIDataError> -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
             guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {
@@ -57,9 +57,9 @@ final class GoogleAPIDataProvider {
                 return
             }
 
-            let request = NSMutableURLRequest(URL: url)
-            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-            strongSelf.networkRequestManager.requestJSON(request) { result in
+            let headers = ["Authorization" : "Bearer \(accessToken)"]
+
+            strongSelf.networkRequestManager.requestJSON(method, url: url, parameters: parameters, headers: headers) { result in
                     switch result {
                     case .Failure(let error): completion(.Failure(.UnderlyingError(error)))
                     case .Success(let value): completion(.Success(value))

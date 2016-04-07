@@ -14,7 +14,7 @@ enum RefreshTokenError : ErrorType {
 }
 
 protocol OAuthTokenProvider {
-    func accessTokenFromRefreshToken(completion: (Result<AccessToken, RefreshTokenError>) -> Void)
+    func accessTokenFromRefreshToken(completion: (ResultType<AccessToken, RefreshTokenError>.result) -> Void)
 }
 
 private let googleRefreshTokenURL = "https://accounts.google.com/o/oauth2/token"
@@ -32,7 +32,7 @@ final class GoogleTokenProvider : OAuthTokenProvider {
         self.refreshURL = refreshURL
     }
 
-    func accessTokenFromRefreshToken(completion: (Result<AccessToken, RefreshTokenError>) -> Void) {
+    func accessTokenFromRefreshToken(completion: (ResultType<AccessToken, RefreshTokenError>.result) -> Void) {
         Alamofire.request(.POST, googleRefreshTokenURL, parameters: [
             "client_id": clientID,
             "client_secret": clientSecret,

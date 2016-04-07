@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Alamofire
 @testable import GrandCentralBoard
 
 class TestTokenProvider : OAuthTokenProvider {
@@ -22,7 +21,7 @@ class TestTokenProvider : OAuthTokenProvider {
         self.expireInterval = expireInterval
     }
 
-    func accessTokenFromRefreshToken(completion: (Result<AccessToken, RefreshTokenError>) -> Void) {
+    func accessTokenFromRefreshToken(completion: (ResultType<AccessToken, RefreshTokenError>.result) -> Void) {
         timesCalled += 1
         completion(.Success(AccessToken(token: "token", expiresIn: expireInterval)))
     }
@@ -36,8 +35,8 @@ class TestRequestManager : NetworkRequestManager {
         self.token = token
     }
 
-    func requestJSON(request: NSURLRequest, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
-        XCTAssertEqual("Bearer \(token)", request.valueForHTTPHeaderField("Authorization"))
+    func requestJSON(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]? = nil, headers: [String : String]? = nil, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
+        XCTAssertEqual("Bearer \(token)", headers!["Authorization"])
         completion(.Success(["result" : 0] as NSDictionary))
     }
 }
@@ -67,7 +66,7 @@ class APIDataProviderTests: XCTestCase {
         let url = NSURL(string: "https://www.macoscope.com")!
 
         let requestWithExpectation = { [unowned self] (expectation: XCTestExpectation) in
-            self.dataProvider.request(url, parameters: nil) { result in
+            self.dataProvider.request(.GET, url: url, parameters: nil) { result in
                 if case .Failure = result {
                     XCTFail("result failure")
                 }
