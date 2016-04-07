@@ -77,7 +77,7 @@ extension Update: Decodable {
         return try Update(name: email.removeDomainFromEmail(),
             bonus: j => "amount",
             date: formatter.dateFromString(j => "created_at") ?? NSDate(),
-            childBonuses: j => "child_bonuses" ?? [])
+            childBonuses: j =>? "child_bonuses" ?? [])
     }
 
     static func decodeUpdates(j: AnyObject) throws -> [Update] {
