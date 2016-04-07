@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06B893971CB50F5F00D8C756 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B893961CB50F5F00D8C756 /* RequestTemplate.swift */; };
-		06B893991CB511F600D8C756 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B893981CB511F600D8C756 /* RequestBuilder.swift */; };
-		06B8939B1CB5153200D8C756 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B8939A1CB5153200D8C756 /* ResponseHandler.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
@@ -45,6 +42,7 @@
 		1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */; };
 		1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */; };
 		1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87495D1C385264006E58C6 /* RemoteImageSource.swift */; };
+		1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */; };
 		1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AA97DE41CA2DE720058DBCE /* configuration.json */; };
 		1AA97DE91CA2E0C80058DBCE /* calendar.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AA97DE81CA2E0C80058DBCE /* calendar.json */; };
 		1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */; };
@@ -97,9 +95,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06B893961CB50F5F00D8C756 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
-		06B893981CB511F600D8C756 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
-		06B8939A1CB5153200D8C756 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		13473B743D0BD7A5BBEF96CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +137,7 @@
 		1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		1A87495D1C385264006E58C6 /* RemoteImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageSource.swift; sourceTree = "<group>"; };
+		1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashingAnimationController.swift; sourceTree = "<group>"; };
 		1AA97DE41CA2DE720058DBCE /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = SOURCE_ROOT; };
 		1AA97DE81CA2E0C80058DBCE /* calendar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calendar.json; sourceTree = "<group>"; };
 		1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -209,9 +205,6 @@
 		06B893951CB50F3D00D8C756 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				06B893961CB50F5F00D8C756 /* RequestTemplate.swift */,
-				06B893981CB511F600D8C756 /* RequestBuilder.swift */,
-				06B8939A1CB5153200D8C756 /* ResponseHandler.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -388,6 +381,7 @@
 			children = (
 				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
 				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
+				1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -580,6 +574,7 @@
 				TargetAttributes = {
 					1A242D1C1C357C2700D5BEE5 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2FUQCB4MRE;
 					};
 					1A242D2D1C357C2700D5BEE5 = {
 						CreatedOnToolsVersion = 7.2;
@@ -730,10 +725,8 @@
 				494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */,
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
 				1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */,
-				06B893991CB511F600D8C756 /* RequestBuilder.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
-				06B8939B1CB5153200D8C756 /* ResponseHandler.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
@@ -741,13 +734,13 @@
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
+				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
-				06B893971CB50F5F00D8C756 /* RequestTemplate.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
@@ -889,11 +882,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GrandCentralBoard/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -903,11 +899,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GrandCentralBoard/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
