@@ -17,7 +17,7 @@ public protocol UpdatingSource : class {
 
 public protocol Source : UpdatingSource {
 
-    typealias ResultType
+    associatedtype ResultType
 
     var sourceType: SourceType { get }
 }
@@ -28,4 +28,8 @@ public protocol Synchronous : Source {
 
 public protocol Asynchronous : Source {
     func read(closure: (ResultType) -> Void)
+}
+
+public protocol Subscribable : Source {
+    var subscriptionBlock: ((ResultType) -> Void)? { get set }
 }
