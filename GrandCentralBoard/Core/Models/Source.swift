@@ -22,14 +22,23 @@ public protocol Source : UpdatingSource {
     var sourceType: SourceType { get }
 }
 
+/**
+ The source will return value synchronously in a non-blocking way.
+ */
 public protocol Synchronous : Source {
     func read() -> ResultType
 }
 
+/**
+ The source will call the provided block after the value is retrieved (only once).
+ */
 public protocol Asynchronous : Source {
     func read(closure: (ResultType) -> Void)
 }
 
+/**
+ The source will call the provided block each time a new value arrives (multiple times). Note that `optimalFrequency` can and often will be ignored.
+ */
 public protocol Subscribable : Source {
     var subscriptionBlock: ((ResultType) -> Void)? { get set }
 }
