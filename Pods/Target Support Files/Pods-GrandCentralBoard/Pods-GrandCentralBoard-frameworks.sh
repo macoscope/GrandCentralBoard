@@ -87,11 +87,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-GrandCentralBoard/Alamofire.framework"
   install_framework "Pods-GrandCentralBoard/Decodable.framework"
   install_framework "Pods-GrandCentralBoard/GrandCentralBoardCore.framework"
+  install_framework "Pods-GrandCentralBoard/Operations.framework"
   install_framework "Pods-GrandCentralBoard/Result.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-GrandCentralBoard/Alamofire.framework"
   install_framework "Pods-GrandCentralBoard/Decodable.framework"
   install_framework "Pods-GrandCentralBoard/GrandCentralBoardCore.framework"
+  install_framework "Pods-GrandCentralBoard/Operations.framework"
   install_framework "Pods-GrandCentralBoard/Result.framework"
 fi
