@@ -27,13 +27,38 @@ struct BubbleImage {
 }
 
 struct Bonus {
-    let total: Int
-    let last: Int
-    
-    init(total: Int, last: Int = 0) {
-        self.total = total
-        self.last = last
+    let name: String
+    let amount: Int
+    let date: NSDate
+    let childBonuses: [Bonus]
+}
+
+extension Bonus: Decodable {
+
+    static let formatter = NSDateFormatter()
+
+    static func decode(j: AnyObject) throws -> Bonus {
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+        let email: String = try j => "receiver" => "email"
+        return try Bonus(name: email.removeDomainFromEmail(),
+                         amount: j => "amount",
+                         date: formatter.dateFromString(j => "created_at") ?? NSDate(),
+                         childBonuses: j =>? "child_bonuses" ?? [])
     }
+
+    static func decodeBonuses(j: AnyObject) throws -> [Bonus] {
+        return try j => "result" as [Bonus]
+    }
+
+    static func updatesFromData(data: NSData) throws -> [Bonus] {
+        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+            return try Bonus.decodeBonuses(jsonResult)
+        }
+        
+        throw DecodeError.WrongFormat
+    }
+
 }
 
 struct Person {
