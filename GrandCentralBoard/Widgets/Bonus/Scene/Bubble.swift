@@ -5,28 +5,25 @@
 
 import SpriteKit
 
-class Bubble: SKSpriteNode {
+class Bubble: SKSpriteNode, BubbleScalingControllerDelegate {
     
     static let shakeActionKey = "shakeAction"
     
-    private enum State {
-        case Idle
-        case ScalingUp
-        case ScaledUp
-        case ScalingDown
-    }
-
-    private var state: State = .Idle
-    private var scaleDownDeferTimer: NSTimer?
-    
     private var bonus: Int = 0
     private let initialSize = CGSize(width: 100, height: 100)
+
+    private lazy var scalingController: BubbleScalingController = {
+        let controller = BubbleScalingController(spriteNode: self)
+        controller.delegate = self
+        return controller
+    }()
     
     init(bubbleViewModel: BubbleViewModel) {
         let image = bubbleViewModel.image
         
         self.bonus = bubbleViewModel.bonus
         let texture = SKTexture(image: image.cropToCircle())
+        
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
         setUpPhysicsBody(texture, size: initialSize, bubbleViewModel: bubbleViewModel)
@@ -62,44 +59,8 @@ class Bubble: SKSpriteNode {
         
         // We increase bonus and run animation only if the value of bonus changes for a bigger one.
         guard difference > 0 else { return }
-        
-        switch self.state {
-        case .Idle: self.scaleUp()
-        case .ScalingUp: break
-        case .ScaledUp: self.rescheduleScaleDownDeferTimer()
-        case .ScalingDown: self.scaleUp()
-        }
-    }
-    
-    // MARK - Scaling
-    
-    private func scaleUp() {
         self.stopShaking()
-        
-        let scaleUpAction = SKAction.scaleTo(2.3, duration: 0.5)
-        self.state = .ScalingUp
-        self.runAction(scaleUpAction, completion: {
-            self.state = .ScaledUp
-            self.rescheduleScaleDownDeferTimer()
-        })
-    }
-    
-    private func rescheduleScaleDownDeferTimer() {
-        self.scaleDownDeferTimer?.invalidate()
-        self.scaleDownDeferTimer = NSTimer.scheduledTimerWithTimeInterval(15,
-                                                                          target: self,
-                                                                          selector: #selector(scaleDown),
-                                                                          userInfo: nil,
-                                                                          repeats: false)
-    }
-    
-    @objc private func scaleDown() {
-        let scaleDownAction = SKAction.scaleTo(1, duration: 0.5)
-        self.state = .ScalingDown
-        self.runAction(scaleDownAction, completion: {
-            self.state = .Idle
-            self.startShaking()
-        })
+        self.scalingController.scaleUp()
     }
     
     // MARK - Shaking
@@ -111,6 +72,13 @@ class Bubble: SKSpriteNode {
     private func stopShaking() {
         self.removeActionForKey(self.dynamicType.shakeActionKey)
     }
+    
+    // MARK - BubbleScalingControllerDelegate
+    
+    func bubbleScalingController(bubbleScalingController: BubbleScalingController, didScaleSpriteNodeDown spriteNode: SKSpriteNode) {
+        self.startShaking()
+    }
+    
 }
 
 extension SKAction {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2863091CB515CE00C62700 /* UpdateTests.swift */; };
 		0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D28630B1CB516B400C62700 /* UpdatesTests.json */; };
+		0D7970C51CB6B01F00401A65 /* BubbleScalingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingController.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 /* Begin PBXFileReference section */
 		0D2863091CB515CE00C62700 /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTests.swift; sourceTree = "<group>"; };
 		0D28630B1CB516B400C62700 /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdatesTests.json; sourceTree = "<group>"; };
+		0D7970C41CB6B01F00401A65 /* BubbleScalingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingController.swift; sourceTree = "<group>"; };
 		13473B743D0BD7A5BBEF96CE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				494B68BA1C92E89A00D460B0 /* BonusScene.sks */,
 				494B68BB1C92E89A00D460B0 /* BonusScene.swift */,
 				494B68BD1C92E89A00D460B0 /* Bubble.swift */,
+				0D7970C41CB6B01F00401A65 /* BubbleScalingController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
+				0D7970C51CB6B01F00401A65 /* BubbleScalingController.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
