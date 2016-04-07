@@ -19,10 +19,13 @@ final class GoogleAPIDataProvider {
     private let tokenProvider: OAuthTokenProvider
     private var accessToken: AccessToken?
 
+    private let networkRequestManager: NetworkRequestManager
+
     private let operationQueue = OperationQueue()
 
-    init(tokenProvider: OAuthTokenProvider) {
+    init(tokenProvider: OAuthTokenProvider, networkRequestManager: NetworkRequestManager = Manager()) {
         self.tokenProvider = tokenProvider
+        self.networkRequestManager = networkRequestManager
     }
 
     private func refreshTokenOperation() -> Operation {
@@ -45,7 +48,7 @@ final class GoogleAPIDataProvider {
         return refreshTokenOperation
     }
 
-    func request(method: Alamofire.Method, url: URLStringConvertible, parameters: [String: AnyObject]?, completion: Result<AnyObject, APIDataError> -> Void) {
+    func request(url: NSURL, parameters: [String: AnyObject]?, completion: Result<AnyObject, APIDataError> -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
             guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {
@@ -54,9 +57,10 @@ final class GoogleAPIDataProvider {
                 return
             }
 
-            Alamofire.request(method, url, parameters: parameters, headers: ["Authorization": "Bearer \(accessToken)"])
-                .responseJSON { response in
-                    switch response.result {
+            let request = NSMutableURLRequest(URL: url)
+            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+            strongSelf.networkRequestManager.requestJSON(request) { result in
+                    switch result {
                     case .Failure(let error): completion(.Failure(.UnderlyingError(error)))
                     case .Success(let value): completion(.Success(value))
                     }

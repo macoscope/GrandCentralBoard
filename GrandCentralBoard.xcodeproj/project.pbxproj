@@ -78,6 +78,9 @@
 		494B68E51C92E98800D460B0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68E41C92E98800D460B0 /* CGRect.swift */; };
 		A51416475F94A413FB85F63B /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */; };
 		521EFBDB1CB5195A0032A10A /* GoogleTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EFBDA1CB5195A0032A10A /* GoogleTokenProvider.swift */; };
+		5274A4801CB67751005FD847 /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A47F1CB67751005FD847 /* NetworkRequestManager.swift */; };
+		5274A4831CB67848005FD847 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4821CB67848005FD847 /* ResultType.swift */; };
+		5274A4851CB67931005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4841CB67931005FD847 /* Alamofire+NetworkRequestManager.swift */; };
 		529E5A061CB554A700D9E0C5 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529E5A051CB554A700D9E0C5 /* AccessToken.swift */; };
 		52F32FFA1CB530740016DE95 /* GoogleAPIDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32FF91CB530740016DE95 /* GoogleAPIDataProvider.swift */; };
 		BBF03AD58EA228582E79D049 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */; };
@@ -183,6 +186,9 @@
 		494B68E01C92E97900D460B0 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		494B68E41C92E98800D460B0 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		521EFBDA1CB5195A0032A10A /* GoogleTokenProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleTokenProvider.swift; sourceTree = "<group>"; };
+		5274A47F1CB67751005FD847 /* NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
+		5274A4821CB67848005FD847 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		5274A4841CB67931005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
 		529E5A051CB554A700D9E0C5 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		52F32FF91CB530740016DE95 /* GoogleAPIDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIDataProvider.swift; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +281,7 @@
 		1A242D1F1C357C2700D5BEE5 /* GrandCentralBoard */ = {
 			isa = PBXGroup;
 			children = (
+				5274A4811CB6775A005FD847 /* Extensions */,
 				521EFBD91CB5193A0032A10A /* Utilities */,
 				1A9A3D7E1C87197A0070DB17 /* App */,
 				1A242D561C357DFD00D5BEE5 /* Widgets */,
@@ -544,8 +551,18 @@
 				521EFBDA1CB5195A0032A10A /* GoogleTokenProvider.swift */,
 				52F32FF91CB530740016DE95 /* GoogleAPIDataProvider.swift */,
 				529E5A051CB554A700D9E0C5 /* AccessToken.swift */,
+				5274A47F1CB67751005FD847 /* NetworkRequestManager.swift */,
+				5274A4821CB67848005FD847 /* ResultType.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		5274A4811CB6775A005FD847 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5274A4841CB67931005FD847 /* Alamofire+NetworkRequestManager.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -821,6 +838,7 @@
 				1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
+				5274A4851CB67931005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
 				529E5A061CB554A700D9E0C5 /* AccessToken.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
@@ -828,6 +846,7 @@
 				521EFBDB1CB5195A0032A10A /* GoogleTokenProvider.swift in Sources */,
 				494B68CC1C92E89A00D460B0 /* BonusWidgetView.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
+				5274A4801CB67751005FD847 /* NetworkRequestManager.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
@@ -839,6 +858,7 @@
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
+				5274A4831CB67848005FD847 /* ResultType.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
