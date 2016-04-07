@@ -94,7 +94,7 @@ protocol Asynchronous : Source {
 }
 ```
 
-- **Subscribable** - the source will call the provided block each time a new value arrives (multiple times). Note that `optimalFrequency` can and often will be ignored.
+- **Subscribable** - the source will call the provided block each time a new value arrives (multiple times). Note that `interval` can and often will be ignored.
 
 ```swift
 public protocol Subscribable : Source {
