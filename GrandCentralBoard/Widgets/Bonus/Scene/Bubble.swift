@@ -31,9 +31,6 @@ class Bubble: SKSpriteNode {
         
         setUpPhysicsBody(texture, size: initialSize, bubbleViewModel: bubbleViewModel)
         self.name = bubbleViewModel.name
-        
-        let scaleBy: CGFloat = 1 + CGFloat(bubbleViewModel.bonus) / 100
-        setScale(scaleBy)
     }
     
     private func findImage(bubbleViewModel: BubbleViewModel) -> UIImage? {
