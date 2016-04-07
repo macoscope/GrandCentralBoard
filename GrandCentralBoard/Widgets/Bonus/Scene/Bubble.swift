@@ -7,6 +7,18 @@ import SpriteKit
 
 class Bubble: SKSpriteNode {
     
+    static let shakeActionKey = "shakeAction"
+    
+    private enum State {
+        case Idle
+        case ScalingUp
+        case ScaledUp
+        case ScalingDown
+    }
+
+    private var state: State = .Idle
+    private var scaleDownDeferTimer: NSTimer?
+    
     private var bonus: Int = 0
     private let initialSize = CGSize(width: 100, height: 100)
     
@@ -54,21 +66,53 @@ class Bubble: SKSpriteNode {
         // We increase bonus and run animation only if the value of bonus changes for a bigger one.
         guard difference > 0 else { return }
         
-        let scaleActionKey = "scaleAction"
-        let shakeActionKey = "shakeAction"
-        
-        let isAlreadyScaling = (self.actionForKey(scaleActionKey) != nil)
-        if isAlreadyScaling { return }
+        switch self.state {
+        case .Idle: self.scaleUp()
+        case .ScalingUp: break
+        case .ScaledUp: self.rescheduleScaleDownDeferTimer()
+        case .ScalingDown: self.scaleUp()
+        }
+    }
+    
+    // MARK - Scaling
+    
+    private func scaleUp() {
+        self.stopShaking()
         
         let scaleUpAction = SKAction.scaleTo(2.3, duration: 0.5)
-        let waitAction = SKAction.waitForDuration(15.0)
+        self.state = .ScalingUp
+        self.runAction(scaleUpAction, completion: {
+            self.state = .ScaledUp
+            self.rescheduleScaleDownDeferTimer()
+        })
+    }
+    
+    private func rescheduleScaleDownDeferTimer() {
+        self.scaleDownDeferTimer?.invalidate()
+        self.scaleDownDeferTimer = NSTimer.scheduledTimerWithTimeInterval(15,
+                                                                          target: self,
+                                                                          selector: #selector(scaleDown),
+                                                                          userInfo: nil,
+                                                                          repeats: false)
+    }
+    
+    @objc private func scaleDown() {
         let scaleDownAction = SKAction.scaleTo(1, duration: 0.5)
-        let completion = SKAction.runBlock { [weak self] in
-            self?.runAction(SKAction.shakeForever(), withKey: shakeActionKey)
-        }
-        
-        self.removeActionForKey(shakeActionKey)
-        self.runAction(.sequence([scaleUpAction, waitAction, scaleDownAction, completion]), withKey: scaleActionKey)
+        self.state = .ScalingDown
+        self.runAction(scaleDownAction, completion: {
+            self.state = .Idle
+            self.startShaking()
+        })
+    }
+    
+    // MARK - Shaking
+    
+    private func startShaking() {
+        self.runAction(.shakeForever(), withKey: self.dynamicType.shakeActionKey)
+    }
+    
+    private func stopShaking() {
+        self.removeActionForKey(self.dynamicType.shakeActionKey)
     }
 }
 
