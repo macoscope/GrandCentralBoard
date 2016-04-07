@@ -28,23 +28,3 @@ public extension UIView {
         }
     }
 }
-
-public extension UIView {
-    
-    func startFlashingWithInterval(interval: NSTimeInterval, alphaDepth: CGFloat) {
-        UIView.animateWithDuration(interval, delay: 0.0, options:
-            [
-                .CurveEaseInOut,
-                .Autoreverse,
-                .Repeat
-            ],
-            animations: {
-                self.alpha = alphaDepth
-            }, completion: nil)
-    }
-
-    func stopFlashing() {
-        layer.removeAllAnimations()
-        alpha = 1
-    }
-}

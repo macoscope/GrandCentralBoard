@@ -44,6 +44,7 @@
 		1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */; };
 		1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */; };
 		1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87495D1C385264006E58C6 /* RemoteImageSource.swift */; };
+		1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */; };
 		1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AA97DE41CA2DE720058DBCE /* configuration.json */; };
 		1AA97DE91CA2E0C80058DBCE /* calendar.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AA97DE81CA2E0C80058DBCE /* calendar.json */; };
 		1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */; };
@@ -142,6 +143,7 @@
 		1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		1A87495D1C385264006E58C6 /* RemoteImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageSource.swift; sourceTree = "<group>"; };
+		1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashingAnimationController.swift; sourceTree = "<group>"; };
 		1AA97DE41CA2DE720058DBCE /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = SOURCE_ROOT; };
 		1AA97DE81CA2E0C80058DBCE /* calendar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calendar.json; sourceTree = "<group>"; };
 		1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 			children = (
 				1AD5EA981C7B827300210BB9 /* WatchWidgetView.swift */,
 				1AD5EA9A1C7B828200210BB9 /* WatchWidgetView.xib */,
+				1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				TargetAttributes = {
 					1A242D1C1C357C2700D5BEE5 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2FUQCB4MRE;
 					};
 					1A242D2D1C357C2700D5BEE5 = {
 						CreatedOnToolsVersion = 7.2;
@@ -809,6 +813,7 @@
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
+				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
@@ -957,11 +962,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GrandCentralBoard/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -971,11 +979,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GrandCentralBoard/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Macoscope.GrandCentralBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
