@@ -28,6 +28,7 @@ class RequestBuilder<T: RequestTemplateProtocol> {
         let URLRequest = NSMutableURLRequest.init(URL: URL)
         URLRequest.HTTPBody = try createHTTPBody()
         URLRequest.HTTPMethod = self.requestTemplate.method.HTTPMethod
+        URLRequest .setValue("application/json;charset=UTF-8", forHTTPHeaderField: "Content-Type")
         return URLRequest
     }
 

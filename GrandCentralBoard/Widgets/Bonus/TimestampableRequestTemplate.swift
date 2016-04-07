@@ -1,5 +1,5 @@
 //
-//  PaginatableRequestTemplate.swift
+//  TimestampableRequestTemplate.swift
 //  GrandCentralBoard
 //
 //  Created by Rafal Augustyniak on 07/04/16.
@@ -9,15 +9,15 @@ import Foundation
 import Result
 
 
-class PaginatableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplateProtocol {
-
+class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplateProtocol {
+    
     let requestTemplate: T
-    let skip: Int
+    let date: NSDate
     let take: Int
 
-    init(requestTemplate: T, skip: Int, take: Int) {
+    init(requestTemplate: T, date: NSDate, take: Int) {
         self.requestTemplate = requestTemplate
-        self.skip = skip
+        self.date = date
         self.take = take
     }
 
@@ -35,8 +35,13 @@ class PaginatableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplatePr
 
     var method: MethodType {
         get {
+            let dateFormatter = NSDateFormatter.init()
+            dateFormatter.locale = NSLocale.init(localeIdentifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+            dateFormatter.timeZone = NSTimeZone.init(name: "UTC")
+
             var method = requestTemplate.method
-            method.addQueryParameter("skip", value: String(skip))
+            method.addQueryParameter("startTime", value: dateFormatter.stringFromDate(date))
             method.addQueryParameter("take", value: String(take))
             return method
         }
@@ -45,5 +50,5 @@ class PaginatableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplatePr
     func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> T.ResultType {
         return try self.requestTemplate.finalizeWithResponse(response, result: result)
     }
-
+    
 }

@@ -10,8 +10,8 @@ import Foundation
 import Result
 
 
-public enum MethodType {
-    case Get(getParameters: Dictionary<String, String>)
+enum MethodType {
+    case Get(queryParameters: Dictionary<String, String>)
     case Post(bodyParameters: Dictionary<String, String>, queryParameters: Dictionary<String, String>)
 
     var queryParameters: Dictionary<String, String> {
@@ -40,12 +40,17 @@ public enum MethodType {
         switch self {
         case .Get(var queryParameters):
             queryParameters[key] = value
-            self = MethodType.Get(getParameters: queryParameters)
+            self = MethodType.Get(queryParameters: queryParameters)
         case .Post(var queryParameters, let bodyParameters):
             queryParameters[key] = value
             self = MethodType.Post(bodyParameters: bodyParameters, queryParameters: queryParameters)
         }
     }
+}
+
+
+enum RequestTemplateErrors : ErrorType {
+    case FinalizeError
 }
 
 
@@ -56,9 +61,8 @@ protocol RequestTemplateProtocol {
     var path: String { get }
     var baseURL: NSURL { get }
 
-    func finalizeWithResponse(responseHandler: ResponseHandler) -> Result<ResultType, NSError>
+    func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> ResultType
 }
-
 
 class RequestTemplate<ResultType>: RequestTemplateProtocol {
 
@@ -72,7 +76,7 @@ class RequestTemplate<ResultType>: RequestTemplateProtocol {
         self.method = method
     }
 
-    func finalizeWithResponse(responseHandler: ResponseHandler) -> Result<ResultType, NSError> {
-        return Result.Failure(NSError.init(domain: "test", code: 123, userInfo: [:]))
+    func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> ResultType {
+        return result as! ResultType
     }
 }

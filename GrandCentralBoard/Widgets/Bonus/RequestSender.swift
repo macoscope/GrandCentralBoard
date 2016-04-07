@@ -12,29 +12,35 @@ import Alamofire
 
 enum RequestSenderError : ErrorType {
     case URLRequestBuildingError(description: String)
-    case RequestTemplateFinalizationError(error: NSError)
-    case NetworkError
+    case RequestTemplateFinalizationError
+    case SerializationError(error: ErrorType)
+    case NetworkError(error: ErrorType?)
 }
 
 
-class RequestSender<T: RequestTemplateProtocol> {
+class RequestSender {
 
-    func sendRequestForRequestTemplate(requestTemplate: T, completionBlock: ((ResultType<T.ResultType, RequestSenderError>.result) -> Void)?) -> Void {
+    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((ResultType<T.ResultType, RequestSenderError>.result) -> Void)?) -> Void {
         let requestBuilder = RequestBuilder<T>(requestTemplate: requestTemplate)
 
         do {
             let URLRequest = try requestBuilder.buildURLRequest()
-            Alamofire.request(URLRequest).response(completionHandler: { (_, response, data, error) in
-                if response?.statusCode == 200 {
-                    let result = requestTemplate.finalizeWithResponse(.Success(response: response!, result: data ?? NSData.init()))
-                    switch result {
-                    case .Success(let data):
-                        completionBlock?(.Success(data))
-                    case .Failure(let error):
-                        completionBlock?(.Failure(.RequestTemplateFinalizationError(error: error)))
+            Alamofire.request(URLRequest).response(completionHandler: { (request, response, data, error) in
+                if let response = response where response.statusCode == 200 {
+                    let data = data ?? NSData.init()
+
+                    do {
+                        let JSONObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+                        let result = try requestTemplate.finalizeWithResponse(response, result: JSONObject)
+                        completionBlock?(.Success(result))
+                    } catch RequestTemplateErrors.FinalizeError {
+                        completionBlock?(.Failure(.RequestTemplateFinalizationError))
+                    } catch let error {
+                        completionBlock?(.Failure(.SerializationError(error: error)))
                     }
+
                 } else {
-                    completionBlock?(.Failure(.NetworkError))
+                    completionBlock?(.Failure(.NetworkError(error: error)))
                 }
             })
 
