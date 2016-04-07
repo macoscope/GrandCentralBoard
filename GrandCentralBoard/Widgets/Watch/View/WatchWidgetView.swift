@@ -22,6 +22,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     @IBOutlet private weak var blinkingImage: UIImageView!
     @IBOutlet private weak var watchFaceImage: UIImageView!
     @IBOutlet private weak var selectionImage: UIImageView!
+    @IBOutlet private weak var calendarName: UILabel!
 
     private var blinkingImageFlashingAnimationController: FlashingAnimationController?
 
@@ -51,6 +52,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         startsIn.text = ""
         hourLeft.text = ""
         hourRight.text = ""
+        calendarName.text = ""
 
         blinkingImageFlashingAnimationController = FlashingAnimationController(view: blinkingImage, interval: pulsatingInterval, alphaDepth: semiTransparentAlpha)
         blinkingImageFlashingAnimationController?.startFlashing()
@@ -80,6 +82,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         meetingName.animateTextTransition(viewModel.meetingName)
         meetingETA.animateTextTransition(viewModel.meetingETA)
         startsIn.animateTextTransition(viewModel.startsIn)
+        calendarName.animateTextTransition(viewModel.calendarName)
     }
 
 

@@ -16,8 +16,9 @@ struct WatchWidgetViewModel {
     let blinkingImage: UIImage?
     let watchFaceImage: UIImage?
     let selectedImage: UIImage?
+    let calendarName: String?
 
-    init(date: NSDate, timeZone: NSTimeZone, event: Event?) {
+    init(date: NSDate, timeZone: NSTimeZone, event: Event?, calendarName: String?) {
 
         if let event = event {
             let eventComponents = WatchWidgetViewModel.componentsFromDate(event.time, timeZone: timeZone)
@@ -49,6 +50,8 @@ struct WatchWidgetViewModel {
             hourLeft = "\(currentTimeComponents.hour + 1 % 24)"
             hourRight = nil
         }
+        
+        self.calendarName = calendarName?.uppercaseString
     }
 
     private static func componentsFromDate(date: NSDate, timeZone: NSTimeZone) -> (hour: Int, minute: Int) {
