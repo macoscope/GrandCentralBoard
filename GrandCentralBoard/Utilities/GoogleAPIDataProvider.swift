@@ -11,6 +11,7 @@ import Operations
 
 enum APIDataError : ErrorType {
     case AuthorizationError
+    case ModelDecodeError(ErrorType)
     case UnderlyingError(NSError)
 }
 
