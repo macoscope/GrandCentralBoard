@@ -81,6 +81,7 @@
 		5274A4801CB67751005FD847 /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A47F1CB67751005FD847 /* NetworkRequestManager.swift */; };
 		5274A4831CB67848005FD847 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4821CB67848005FD847 /* ResultType.swift */; };
 		5274A4851CB67931005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4841CB67931005FD847 /* Alamofire+NetworkRequestManager.swift */; };
+		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		529E5A061CB554A700D9E0C5 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529E5A051CB554A700D9E0C5 /* AccessToken.swift */; };
 		52F32FFA1CB530740016DE95 /* GoogleAPIDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F32FF91CB530740016DE95 /* GoogleAPIDataProvider.swift */; };
 		BBF03AD58EA228582E79D049 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */; };
@@ -189,6 +190,7 @@
 		5274A47F1CB67751005FD847 /* NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
 		5274A4821CB67848005FD847 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
 		5274A4841CB67931005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
+		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		529E5A051CB554A700D9E0C5 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		52F32FF91CB530740016DE95 /* GoogleAPIDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAPIDataProvider.swift; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				0D2863071CB515B000C62700 /* Widgets */,
+				52873E6A1CB662CD00C24E13 /* DataProvider */,
 				1A4616A31C90480500361B2E /* Core */,
 				1A242D341C357C2700D5BEE5 /* Info.plist */,
 			);
@@ -563,6 +566,14 @@
 				5274A4841CB67931005FD847 /* Alamofire+NetworkRequestManager.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		52873E6A1CB662CD00C24E13 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */,
+			);
+			name = DataProvider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -874,6 +885,7 @@
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
 				0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */,
+				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
