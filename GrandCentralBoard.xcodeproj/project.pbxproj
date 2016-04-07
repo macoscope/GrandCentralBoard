@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		069AAB681CB64B3E0045FB8C /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069AAB671CB64B3E0045FB8C /* RequestSender.swift */; };
+		069AAB6A1CB650CD0045FB8C /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069AAB691CB650CD0045FB8C /* ResultType.swift */; };
+		069AAB6F1CB66F6A0045FB8C /* PaginatableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069AAB6E1CB66F6A0045FB8C /* PaginatableRequestTemplate.swift */; };
+		06B893971CB50F5F00D8C756 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B893961CB50F5F00D8C756 /* RequestTemplate.swift */; };
 		0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2863091CB515CE00C62700 /* UpdateTests.swift */; };
 		0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D28630B1CB516B400C62700 /* UpdatesTests.json */; };
 		0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */; };
@@ -106,6 +110,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		069AAB671CB64B3E0045FB8C /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
+		069AAB691CB650CD0045FB8C /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
+		069AAB6E1CB66F6A0045FB8C /* PaginatableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatableRequestTemplate.swift; sourceTree = "<group>"; };
+		06B893961CB50F5F00D8C756 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
 		0D2863091CB515CE00C62700 /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTests.swift; sourceTree = "<group>"; };
 		0D28630B1CB516B400C62700 /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdatesTests.json; sourceTree = "<group>"; };
 		0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingAnimator.swift; sourceTree = "<group>"; };
@@ -228,7 +236,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D2863071CB515B000C62700 /* Widgets */ = {
+		06B893951CB50F3D00D8C756 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				06B893961CB50F5F00D8C756 /* RequestTemplate.swift */,
+				06B893981CB511F600D8C756 /* RequestBuilder.swift */,
+				06B8939A1CB5153200D8C756 /* ResponseHandler.swift */,
+				069AAB671CB64B3E0045FB8C /* RequestSender.swift */,
+				069AAB691CB650CD0045FB8C /* ResultType.swift */,
+				0D2863081CB515BC00C62700 /* Bonus */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+        0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
 				0D2863081CB515BC00C62700 /* Bonus */,
@@ -842,6 +863,7 @@
 				5274A4921CB69AE9005FD847 /* NetworkRequestManager.swift in Sources */,
 				494B68CE1C92E89A00D460B0 /* BonusWidgetViewModel.swift in Sources */,
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
+				069AAB681CB64B3E0045FB8C /* RequestSender.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
 				494B68DB1C92E89A00D460B0 /* ImageMappingSource.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
@@ -865,11 +887,13 @@
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
+				069AAB6F1CB66F6A0045FB8C /* PaginatableRequestTemplate.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
+				069AAB6A1CB650CD0045FB8C /* ResultType.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
