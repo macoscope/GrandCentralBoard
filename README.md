@@ -86,11 +86,19 @@ protocol Synchronous : Source {
 }
 ```
 
-- **Asynchronous** - the source will call the provided block after the value is retrieved. 
+- **Asynchronous** - the source will call the provided block after the value is retrieved (only once). 
 
 ```swift
 protocol Asynchronous : Source {
     func read(closure: (ResultType) -> Void)
+}
+```
+
+- **Subscribable** - the source will call the provided block each time a new value arrives (multiple times). Note that `interval` can and often will be ignored.
+
+```swift
+public protocol Subscribable : Source {
+    var subscriptionBlock: ((ResultType) -> Void)? { get set }
 }
 ```
 
@@ -99,23 +107,20 @@ Fail can be handled silently, but there may be Widgets for which the fail state 
 All strategies inherit the **Source** protocol:
 
 ```swift
-
-enum SourceType {
+public enum SourceType {
     case Cumulative
     case Momentary
 }
 
-enum Result<T> {
-    case Failure(ErrorType)
-    case Success(T)
+public protocol UpdatingSource : class {
+    var interval: NSTimeInterval { get }
 }
 
-protocol Source {
+public protocol Source : UpdatingSource {
 
-    typealias ResultType
+    associatedtype ResultType
 
     var sourceType: SourceType { get }
-    var optimalFrequency: NSTimeInterval { get }
 }
 ```
 
