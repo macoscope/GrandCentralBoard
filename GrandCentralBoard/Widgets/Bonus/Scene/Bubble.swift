@@ -5,15 +5,15 @@
 
 import SpriteKit
 
-class Bubble: SKSpriteNode, BubbleScalingControllerDelegate {
+class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     
     static let shakeActionKey = "shakeAction"
     
     private var bonus: Int = 0
     private let initialSize = CGSize(width: 100, height: 100)
 
-    private lazy var scalingController: BubbleScalingController = {
-        let controller = BubbleScalingController(spriteNode: self)
+    private lazy var scalingAnimator: BubbleScalingAnimator = {
+        let controller = BubbleScalingAnimator(spriteNode: self)
         controller.delegate = self
         return controller
     }()
@@ -60,7 +60,7 @@ class Bubble: SKSpriteNode, BubbleScalingControllerDelegate {
         // We increase bonus and run animation only if the value of bonus changes for a bigger one.
         guard difference > 0 else { return }
         self.stopShaking()
-        self.scalingController.scaleUp()
+        self.scalingAnimator.scaleUp()
     }
     
     // MARK - Shaking
@@ -75,7 +75,7 @@ class Bubble: SKSpriteNode, BubbleScalingControllerDelegate {
     
     // MARK - BubbleScalingControllerDelegate
     
-    func bubbleScalingController(bubbleScalingController: BubbleScalingController, didScaleSpriteNodeDown spriteNode: SKSpriteNode) {
+    func bubbleScalingAnimator(bubbleScalingAnimator: BubbleScalingAnimator, didScaleSpriteNodeDown spriteNode: SKSpriteNode) {
         self.startShaking()
     }
     

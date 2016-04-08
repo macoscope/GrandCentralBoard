@@ -1,5 +1,5 @@
 //
-//  BubbleScalingController.swift
+//  bubbleScalingAnimator.swift
 //  GrandCentralBoard
 //
 //  Created by Bartłomiej Chlebek on 07/04/16.
@@ -8,17 +8,11 @@
 
 import SpriteKit
 
-protocol BubbleScalingControllerDelegate: class {
-    func bubbleScalingController(bubbleScalingController: BubbleScalingController, didScaleSpriteNodeUp spriteNode: SKSpriteNode)
-    func bubbleScalingController(bubbleScalingController: BubbleScalingController, didScaleSpriteNodeDown spriteNode: SKSpriteNode)
+protocol BubbleScalingAnimatorDelegate: class {
+    func bubbleScalingAnimator(bubbleScalingAnimator: BubbleScalingAnimator, didScaleSpriteNodeDown spriteNode: SKSpriteNode)
 }
 
-extension BubbleScalingControllerDelegate {
-    func bubbleScalingController(bubbleScalingController: BubbleScalingController, didScaleSpriteNodeUp spriteNode: SKSpriteNode) { }
-    func bubbleScalingController(bubbleScalingController: BubbleScalingController, didScaleSpriteNodeDown spriteNode: SKSpriteNode) { }
-}
-
-final class BubbleScalingController {
+final class BubbleScalingAnimator {
     enum State {
         case Idle
         case ScalingUp
@@ -29,7 +23,7 @@ final class BubbleScalingController {
     private var state: State = .Idle
     private weak var spriteNode: SKSpriteNode?
     private var scaleDownTimer: NSTimer?
-    weak var delegate: BubbleScalingControllerDelegate?
+    weak var delegate: BubbleScalingAnimatorDelegate?
     
     init(spriteNode: SKSpriteNode) {
         self.spriteNode = spriteNode
@@ -54,7 +48,6 @@ final class BubbleScalingController {
         spriteNode.runAction(scaleUpAction, completion: {
             self.state = .ScaledUp
             self.rescheduleScaleDownDeferTimer()
-            self.delegate?.bubbleScalingController(self, didScaleSpriteNodeUp: spriteNode)
         })
     }
     
@@ -65,7 +58,7 @@ final class BubbleScalingController {
         self.state = .ScalingDown
         spriteNode.runAction(scaleDownAction, completion: {
             self.state = .Idle
-            self.delegate?.bubbleScalingController(self, didScaleSpriteNodeDown: spriteNode)
+            self.delegate?.bubbleScalingAnimator(self, didScaleSpriteNodeDown: spriteNode)
         })
     }
     
