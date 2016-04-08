@@ -37,9 +37,23 @@ class BonusScene: SKScene {
             world.addChild(bubble)
         }
     }
+
+    override func update(currentTime: NSTimeInterval) {
+        guard !world.children.isEmpty else { return }
+
+        let nodesFitScreen = CGRectContainsRect(frame, world.calculateAccumulatedFrame())
+        if !nodesFitScreen {
+            scaleBubblesDown()
+        }
+    }
     
     private func updateWithViewModel(viewModel: BonusWidgetViewModel) {
         self.viewModel = viewModel
+        addOrUpdateBubbles()
+        removeOldBubbleIfNecessary()
+    }
+
+    private func addOrUpdateBubbles() {
         for bubbleViewModel in viewModel.bubbles {
             guard let bubble = world.childNodeWithName(bubbleViewModel.name) as? Bubble else {
                 let newBubble = Bubble(bubbleViewModel: bubbleViewModel)
@@ -53,7 +67,20 @@ class BonusScene: SKScene {
             bubble.updateImage(bubbleViewModel.image)
         }
     }
-    
+
+    private func removeOldBubbleIfNecessary() {
+        for node in world.children {
+            guard let bubble = node as? Bubble else {
+                continue
+            }
+
+            let bubbleExistsInNewestViewModel = viewModel.bubbles.contains({ return $0.name == bubble.name })
+            if !bubbleExistsInNewestViewModel {
+                bubble.removeFromParent()
+            }
+        }
+    }
+
     private func randomPosition() -> CGPoint {
         let topRightPoint = CGPoint(x: size.width / 2, y: size.height / 2)
         let widthRange = Int(-topRightPoint.x) ... Int(topRightPoint.x)
@@ -76,16 +103,7 @@ class BonusScene: SKScene {
         gravityNode?.position = CGPointZero
         gravityNode?.runAction(pokeAction)
     }
-    
-    override func update(currentTime: NSTimeInterval) {
-        guard !world.children.isEmpty else { return }
-        
-        let nodesFitScreen = CGRectContainsRect(frame, world.calculateAccumulatedFrame())
-        if !nodesFitScreen {
-            scaleBubblesDown()
-        }
-    }
-    
+
     private func scaleBubblesDown() {
         // Scale bubbles down by increasing size of the scene
         let scaleFactor: CGFloat = 1.02
