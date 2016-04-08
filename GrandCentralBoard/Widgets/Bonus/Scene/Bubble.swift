@@ -9,7 +9,7 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     
     static let shakeActionKey = "shakeAction"
     
-    private var bonus: Int = 0
+
     private let initialSize = CGSize(width: 100, height: 100)
 
     private lazy var scalingAnimator: BubbleScalingAnimator = {
@@ -20,8 +20,7 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     
     init(bubbleViewModel: BubbleViewModel) {
         let image = bubbleViewModel.image
-        
-        self.bonus = bubbleViewModel.bonus
+
         let texture = SKTexture(image: image.cropToCircle())
         
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
@@ -54,9 +53,8 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     
     func updateWithNewBonus(newBonus: Int) {
         
-        let difference = newBonus - self.bonus
-        self.bonus += difference
-        
+        let difference = 0
+
         // We increase bonus and run animation only if the value of bonus changes for a bigger one.
         guard difference > 0 else { return }
         self.stopShaking()

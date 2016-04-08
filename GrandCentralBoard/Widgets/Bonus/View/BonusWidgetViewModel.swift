@@ -13,8 +13,7 @@ extension BonusWidgetViewModel {
     init(people: [Person]) {
         var bubbles: [BubbleViewModel] = []
         people.forEach({ person in
-            guard let image = person.bubbleImage.image else { return }
-            bubbles.append(BubbleViewModel(name: person.name, image: image, bonus: person.bonus))
+            bubbles.append(BubbleViewModel(name: person.name, image: UIImage.generatePlaceholerImage()))
         })
         self.bubbles = bubbles
     }
@@ -23,5 +22,20 @@ extension BonusWidgetViewModel {
 struct BubbleViewModel {
     let name: String
     let image: UIImage
-    let bonus: Int
+}
+
+
+extension UIImage {
+
+    static func generatePlaceholerImage() -> UIImage {
+        let size = CGSizeMake(40, 40)
+        let rect = CGRectMake(0, 0, size.width, size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        UIColor.redColor().setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+
 }

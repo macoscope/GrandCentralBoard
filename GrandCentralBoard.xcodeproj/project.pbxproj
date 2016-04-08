@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */; };
 		06684F2B1CB788FB00B93D90 /* BonuslyRequestTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */; };
 		06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */; };
 		06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F271CB788FB00B93D90 /* RequestBuilder.swift */; };
@@ -112,6 +113,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleWithBonususFetchController.swift; sourceTree = "<group>"; };
 		06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonuslyRequestTemplates.swift; sourceTree = "<group>"; };
 		06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatableRequestTemplate.swift; sourceTree = "<group>"; };
 		06684F271CB788FB00B93D90 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 			children = (
 				494B68C71C92E89A00D460B0 /* BonusSource.swift */,
 				494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */,
+				06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
+				06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,

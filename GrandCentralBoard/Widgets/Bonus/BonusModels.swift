@@ -29,6 +29,7 @@ struct BubbleImage {
 struct Bonus {
     let name: String
     let amount: Int
+    let receiver: Person
     let date: NSDate
     let childBonuses: [Bonus]
 }
@@ -43,6 +44,7 @@ extension Bonus: Decodable {
         let email: String = try j => "receiver" => "email"
         return try Bonus(name: email.removeDomainFromEmail(),
                          amount: j => "amount",
+                         receiver: j => "receiver",
                          date: formatter.dateFromString(j => "created_at") ?? NSDate(),
                          childBonuses: j =>? "child_bonuses" ?? [])
     }
@@ -61,23 +63,32 @@ extension Bonus: Decodable {
 
 }
 
-struct Person {
+struct Person : Hashable, Equatable {
+    let id: String
     let name: String
-    let bubbleImage: BubbleImage
-    let bonus: Int
-    let lastUpdate: NSDate
-    
-    static func personFromUpdate(update: Update, imageUrl: String? = nil) -> Person {
-        return Person(name: update.name, bubbleImage: BubbleImage(url: imageUrl), bonus: update.totalBonus, lastUpdate: update.date)
-    }
-    
-    func copyByUpdating(update: Update, imageUrl: String? = nil) -> Person {
-        return Person(name: name, bubbleImage: BubbleImage(url: imageUrl), bonus: bonus + update.totalBonus, lastUpdate: update.date)
+    let email: String
+
+    var hashValue: Int {
+        get {
+            return id.hashValue
+        }
     }
 
-    func copyPersonWithImage(image: BubbleImage) -> Person {
-        return Person(name: name, bubbleImage: image, bonus: bonus, lastUpdate: lastUpdate)
+
+}
+
+func==(lhs: Person, rhs: Person) -> Bool {
+    return lhs.id == rhs.id
+}
+
+extension Person: Decodable {
+
+    static func decode(j: AnyObject) throws -> Person {
+        return try Person(id: j => "id",
+                          name: j => "display_name",
+                          email: j => "email")
     }
+
 }
 
 struct Update {
