@@ -1,5 +1,5 @@
 //
-//  bubbleScalingAnimator.swift
+//  BubbleScalingAnimator.swift
 //  GrandCentralBoard
 //
 //  Created by Bartłomiej Chlebek on 07/04/16.
