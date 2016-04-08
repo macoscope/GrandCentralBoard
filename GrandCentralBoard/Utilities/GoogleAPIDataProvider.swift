@@ -30,12 +30,8 @@ final class GoogleAPIDataProvider {
 
     private func refreshTokenOperation() -> Operation {
         let refreshTokenOperation = BlockOperation(block: { [weak self] (continueWithError) in
-            guard let strongSelf = self else {
-                continueWithError(error: nil)
-                return
-            }
 
-            strongSelf.tokenProvider.accessTokenFromRefreshToken({ result in
+            self?.tokenProvider.accessTokenFromRefreshToken({ result in
                 switch result {
                 case .Failure(let error):
                     continueWithError(error: error)

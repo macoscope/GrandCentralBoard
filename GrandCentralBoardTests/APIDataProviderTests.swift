@@ -35,7 +35,10 @@ class TestRequestManager : NetworkRequestManager {
         self.token = token
     }
 
-    func requestJSON(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]? = nil, headers: [String : String]? = nil, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
+    func requestJSON(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]? = nil,
+                     headers: [String : String]? = nil,
+                     completion: (ResultType<AnyObject, NSError>.result) -> Void) {
+
         XCTAssertEqual("Bearer \(token)", headers!["Authorization"])
         completion(.Success(["result" : 0] as NSDictionary))
     }
@@ -51,11 +54,6 @@ class APIDataProviderTests: XCTestCase {
         let token = "token"
         tokenProvider = TestTokenProvider(token: token, expireInterval: 1)
         dataProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider, networkRequestManager: TestRequestManager(token: token))
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
     }
 
     func testTokenRefresh() {
