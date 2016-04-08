@@ -6,6 +6,7 @@ target "GrandCentralBoard" do
  pod 'Decodable', '~> 0.4'
  pod 'Result', '~> 2.0'
  pod 'GrandCentralBoardCore', :path => './'
+ pod 'Operations', '~> 2.9'
 end
 
 target "GrandCentralBoardTests" do
