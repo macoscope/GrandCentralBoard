@@ -5,16 +5,25 @@
 
 import SpriteKit
 
-class Bubble: SKSpriteNode {
+class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
+    
+    static let shakeActionKey = "shakeAction"
     
     private var bonus: Int = 0
     private let initialSize = CGSize(width: 100, height: 100)
+
+    private lazy var scalingAnimator: BubbleScalingAnimator = {
+        let animator = BubbleScalingAnimator(spriteNode: self)
+        animator.delegate = self
+        return animator
+    }()
     
     init(bubbleViewModel: BubbleViewModel) {
         let image = bubbleViewModel.image
         
         self.bonus = bubbleViewModel.bonus
         let texture = SKTexture(image: image.cropToCircle())
+        
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
         setUpPhysicsBody(texture, size: initialSize, bubbleViewModel: bubbleViewModel)
@@ -44,27 +53,32 @@ class Bubble: SKSpriteNode {
     }
     
     func updateWithNewBonus(newBonus: Int) {
-        let difference = newBonus - self.bonus
-
-        // We increase bonus and run animation only if the value of bonus changes for a bigger one.
-        guard difference > 0 else { return }
         
+        let difference = newBonus - self.bonus
         self.bonus += difference
         
-        var scaleBy: CGFloat = 2.3
-        let scaleUpAction = SKAction.scaleBy(scaleBy, duration: 0.5)
-        let scaleDownAction = SKAction.scaleBy(1/scaleBy, duration: 0.1)
-        
-        scaleBy = 1 + CGFloat(difference) / 100
-        let finalScaleAction = SKAction.scaleBy(scaleBy, duration: 0.1)
-
-        parent?.children.forEach({ node in
-            node.removeActionForKey("shakeAction")
-        })
-        runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]), completion: {
-            self.runAction(SKAction.shakeForever(), withKey: "shakeAction")
-        })
+        // We increase bonus and run animation only if the value of bonus changes for a bigger one.
+        guard difference > 0 else { return }
+        self.stopShaking()
+        self.scalingAnimator.scaleUp()
     }
+    
+    // MARK - Shaking
+    
+    private func startShaking() {
+        self.runAction(.shakeForever(), withKey: self.dynamicType.shakeActionKey)
+    }
+    
+    private func stopShaking() {
+        self.removeActionForKey(self.dynamicType.shakeActionKey)
+    }
+    
+    // MARK - BubbleScalingControllerDelegate
+    
+    func bubbleScalingAnimator(bubbleScalingAnimator: BubbleScalingAnimator, didScaleSpriteNodeDown spriteNode: SKSpriteNode) {
+        self.startShaking()
+    }
+    
 }
 
 extension SKAction {
