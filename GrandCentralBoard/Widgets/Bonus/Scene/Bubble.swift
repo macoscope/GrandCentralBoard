@@ -13,9 +13,9 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     private let initialSize = CGSize(width: 100, height: 100)
 
     private lazy var scalingAnimator: BubbleScalingAnimator = {
-        let controller = BubbleScalingAnimator(spriteNode: self)
-        controller.delegate = self
-        return controller
+        let animator = BubbleScalingAnimator(spriteNode: self)
+        animator.delegate = self
+        return animator
     }()
     
     init(bubbleViewModel: BubbleViewModel) {
