@@ -11,7 +11,7 @@ import Alamofire
 extension Manager : NetworkRequestManager {
 
     func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
-        let method = Alamofire.Method(rawValue: method.rawValue)!
+        let method = Alamofire.Method(fromMethod: method)
         self.request(method, url, parameters: parameters, headers: headers).responseJSON { response in
             switch response.result {
             case .Failure(let error):
@@ -19,6 +19,22 @@ extension Manager : NetworkRequestManager {
             case .Success(let value):
                 completion(.Success(value))
             }
+        }
+    }
+}
+
+extension Alamofire.Method {
+    init(fromMethod method: Method) {
+        switch method {
+        case .CONNECT: self = .CONNECT
+        case .DELETE: self = .DELETE
+        case .GET: self = .GET
+        case .HEAD: self = .HEAD
+        case .OPTIONS: self = .OPTIONS
+        case .PATCH: self = .PATCH
+        case .POST: self = .POST
+        case .PUT: self = .PUT
+        case .TRACE: self = .TRACE
         }
     }
 }
