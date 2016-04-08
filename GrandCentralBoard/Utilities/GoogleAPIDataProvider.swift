@@ -29,9 +29,10 @@ final class GoogleAPIDataProvider {
     }
 
     private func refreshTokenOperation() -> Operation {
+        let tokenProvider = self.tokenProvider
         let refreshTokenOperation = BlockOperation(block: { [weak self] (continueWithError) in
 
-            self?.tokenProvider.accessTokenFromRefreshToken({ result in
+            tokenProvider.accessTokenFromRefreshToken({ result in
                 switch result {
                 case .Failure(let error):
                     continueWithError(error: error)

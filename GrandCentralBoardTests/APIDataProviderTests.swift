@@ -35,7 +35,9 @@ class TestRequestManager : NetworkRequestManager {
         self.token = token
     }
 
-    func requestJSON(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]? = nil,
+    func requestJSON(method: GrandCentralBoard.Method,
+                     url: NSURL,
+                     parameters: [String : AnyObject]? = nil,
                      headers: [String : String]? = nil,
                      completion: (ResultType<AnyObject, NSError>.result) -> Void) {
 
