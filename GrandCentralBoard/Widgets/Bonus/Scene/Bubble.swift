@@ -10,8 +10,8 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     static let shakeActionKey = "shakeAction"
     
 
-    private let initialSize = CGSize(width: 100, height: 100)
-
+    private let initialSize = CGSize(width: 140, height: 140)
+    private var lastBonusDate: NSDate? = nil
     private lazy var scalingAnimator: BubbleScalingAnimator = {
         let animator = BubbleScalingAnimator(spriteNode: self)
         animator.delegate = self
@@ -20,9 +20,8 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     
     init(bubbleViewModel: BubbleViewModel) {
         let image = bubbleViewModel.image
-
         let texture = SKTexture(image: image.cropToCircle())
-        
+
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
         setUpPhysicsBody(texture, size: initialSize, bubbleViewModel: bubbleViewModel)
@@ -51,12 +50,13 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
         self.texture = SKTexture(image: newImage)
     }
     
-    func updateWithNewBonus(newBonus: Int) {
-        
-        let difference = 0
+    func updateWithLastBonusDate(lastBonusDate: NSDate) {
+        guard self.lastBonusDate == nil || lastBonusDate.timeIntervalSinceDate(self.lastBonusDate!) > 0 else {
+            return
+        }
 
-        // We increase bonus and run animation only if the value of bonus changes for a bigger one.
-        guard difference > 0 else { return }
+        self.lastBonusDate = lastBonusDate
+
         self.stopShaking()
         self.scalingAnimator.scaleUp()
     }

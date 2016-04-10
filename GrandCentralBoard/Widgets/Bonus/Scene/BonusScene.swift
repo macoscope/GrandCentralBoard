@@ -62,8 +62,7 @@ class BonusScene: SKScene {
                 continue
             }
 
-            //TODO: uncomment
-            //bubble.updateWithNewBonus(bubbleViewModel.bonus)
+            bubble.updateWithLastBonusDate(bubbleViewModel.lastBonusDate)
             bubble.updateImage(bubbleViewModel.image)
         }
     }

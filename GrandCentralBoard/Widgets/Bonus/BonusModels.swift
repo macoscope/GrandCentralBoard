@@ -67,6 +67,7 @@ struct Person : Hashable, Equatable {
     let id: String
     let name: String
     let email: String
+    let lastBonusDate: NSDate?
     let image: UIImage?
 
     var hashValue: Int {
@@ -76,7 +77,11 @@ struct Person : Hashable, Equatable {
     }
 
     func copyWithImage(image: UIImage?) -> Person {
-        return Person(id: id, name: name, email: email, image: image)
+        return Person(id: id, name: name, email: email, lastBonusDate: lastBonusDate, image: image)
+    }
+
+    func copyWithLastBonusDate(lastBonusDate: NSDate) -> Person {
+        return Person(id: id, name: name, email: email, lastBonusDate: lastBonusDate, image: image)
     }
 
 }
@@ -91,6 +96,7 @@ extension Person: Decodable {
         return try Person(id: j => "id",
                           name: j => "display_name",
                           email: j => "email",
+                          lastBonusDate: nil,
                           image: nil)
     }
 

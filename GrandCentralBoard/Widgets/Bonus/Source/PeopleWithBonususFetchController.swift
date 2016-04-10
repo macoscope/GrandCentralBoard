@@ -66,7 +66,9 @@ class PeopleWithBonususFetchController {
                         return people
                     } else {
                         var mutablePeople = people
-                        mutablePeople.insert(bonus.receiver)
+                        var receiver = bonus.receiver
+                        receiver = receiver.copyWithLastBonusDate(bonus.date)
+                        mutablePeople.insert(receiver)
                         return mutablePeople
                     }
                 })
