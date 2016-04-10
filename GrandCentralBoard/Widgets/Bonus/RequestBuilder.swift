@@ -16,7 +16,7 @@ enum RequestBuilderError : ErrorType {
 
 class RequestBuilder<T: RequestTemplateProtocol> {
 
-    let requestTemplate: T
+    private let requestTemplate: T
     
     init(requestTemplate: T) {
         self.requestTemplate = requestTemplate

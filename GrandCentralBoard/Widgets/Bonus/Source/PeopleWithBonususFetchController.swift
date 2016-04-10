@@ -19,7 +19,7 @@ enum PeopleWithBonususFetchControllerErrors : ErrorType {
 
 class PeopleWithBonususFetchController {
 
-    let requestSender: RequestSender = RequestSender()
+    private let requestSender: RequestSender = RequestSender()
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person], PeopleWithBonususFetchControllerErrors>) -> Void) {
         fetchPeopleWithBonuses(startingFromDate: NSDate.init(), fetchedBonuses: [], completionBlock: { [weak self] result in
