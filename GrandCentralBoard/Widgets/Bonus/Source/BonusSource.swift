@@ -11,7 +11,7 @@ final class BonusSource : Asynchronous {
     
     typealias ResultType = Result<[Person]>
 
-    let sourceType: SourceType = .Cumulative
+    let sourceType: SourceType = .Momentary
     let interval: NSTimeInterval = 5
 
     private let settings: BonusWidgetSettings
