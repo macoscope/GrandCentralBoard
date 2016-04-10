@@ -9,6 +9,7 @@
 import Foundation
 import Result
 
+let kPreferredPeopleCount = 10
 
 enum PeopleWithBonususFetchControllerErrors : ErrorType {
     case NetworkError
@@ -57,7 +58,7 @@ class PeopleWithBonususFetchController {
                 allBonuses.appendContentsOf(bonuses)
 
                 let people = allBonuses.reduce(Set<Person>(), combine: { people, bonus in
-                    if people.count >= 10 {
+                    if people.count >= kPreferredPeopleCount {
                         return people
                     } else {
                         var mutablePeople = people
@@ -66,7 +67,7 @@ class PeopleWithBonususFetchController {
                     }
                 })
 
-                if people.count >= 10 || bonuses.count < take {
+                if people.count >= kPreferredPeopleCount || bonuses.count < take {
                     completionBlock(.Success(Array(people)))
                 } else if let lastBonus = bonuses.last {
                     strongSelf.fetchPeopleWithBonuses(startingFromDate: lastBonus.date, fetchedBonuses: allBonuses, completionBlock: completionBlock)
