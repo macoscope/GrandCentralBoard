@@ -56,34 +56,11 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
         }
 
         self.lastBonusDate = lastBonusDate
-
-        self.stopShaking()
         self.scalingAnimator.scaleUp()
     }
-    
-    // MARK - Shaking
-    
-    private func startShaking() {
-        self.runAction(.shakeForever(), withKey: self.dynamicType.shakeActionKey)
-    }
-    
-    private func stopShaking() {
-        self.removeActionForKey(self.dynamicType.shakeActionKey)
-    }
-    
+
     // MARK - BubbleScalingControllerDelegate
     
-    func bubbleScalingAnimator(bubbleScalingAnimator: BubbleScalingAnimator, didScaleSpriteNodeDown spriteNode: SKSpriteNode) {
-        self.startShaking()
-    }
+    func bubbleScalingAnimator(bubbleScalingAnimator: BubbleScalingAnimator, didScaleSpriteNodeDown spriteNode: SKSpriteNode) { }
     
-}
-
-extension SKAction {
-    class func shakeForever(amplitudeX: CGFloat = 5, amplitudeY: CGFloat = 5) -> SKAction {
-
-        let forward = SKAction.moveByX(amplitudeX, y:amplitudeY, duration: 0.015)
-        let reverse = forward.reversedAction()
-        return SKAction.repeatActionForever(SKAction.sequence([forward, reverse]))
-    }
 }
