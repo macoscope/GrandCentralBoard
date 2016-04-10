@@ -13,7 +13,7 @@ import Alamofire
 enum RequestSenderError : ErrorType {
     case URLRequestBuildingError(description: String)
     case RequestTemplateFinalizationError
-    case SerializationError(error: ErrorType)
+    case SerializationError(error: ErrorType?)
     case NetworkError(error: ErrorType?)
 }
 
@@ -25,28 +25,34 @@ class RequestSender {
 
         do {
             let URLRequest = try requestBuilder.buildURLRequest()
-            Alamofire.request(URLRequest).response(completionHandler: { (request, response, data, error) in
-                if let response = response where response.statusCode == 200 {
-                    let data = data ?? NSData.init()
 
+            Alamofire.request(URLRequest).responseData(completionHandler: { response in
+                switch response.result {
+                case .Success(let data):
+                    var result: AnyObject?
                     do {
-                        let JSONObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-                        let result = try requestTemplate.finalizeWithResponse(response, result: JSONObject)
-                        completionBlock?(.Success(result))
-                    } catch RequestTemplateErrors.FinalizeError {
-                        completionBlock?(.Failure(.RequestTemplateFinalizationError))
-                    } catch let error {
-                        completionBlock?(.Failure(.SerializationError(error: error)))
+                        result = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.init(rawValue: 0))
+                    } catch {
+                        result = response.result.value
+                    }
+                    
+                    if let unwrapperResult = result {
+                        do {
+                            let processedResult = try requestTemplate.finalizeWithResponse(response.response!, result: unwrapperResult)
+                            completionBlock?(.Success(processedResult))
+                        } catch {
+                            completionBlock?(.Failure(RequestSenderError.RequestTemplateFinalizationError))
+                        }
+                    } else {
+                        completionBlock?(.Failure(RequestSenderError.SerializationError(error: response.result.error)))
                     }
 
-                } else {
-                    completionBlock?(.Failure(.NetworkError(error: error)))
+                case .Failure(let error):
+                    completionBlock?(.Failure(RequestSenderError.NetworkError(error: error)))
                 }
             })
 
-        }
-            
-        catch let error {
+        } catch let error {
             if let description = (error as? CustomStringConvertible)?.description {
                 completionBlock?(.Failure(.URLRequestBuildingError(description: description)))
             } else {
