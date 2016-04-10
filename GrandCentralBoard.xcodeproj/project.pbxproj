@@ -80,8 +80,6 @@
 		494B68CF1C92E89A00D460B0 /* BonusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 494B68BA1C92E89A00D460B0 /* BonusScene.sks */; };
 		494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68BB1C92E89A00D460B0 /* BonusScene.swift */; };
 		494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68BD1C92E89A00D460B0 /* Bubble.swift */; };
-		494B68D41C92E89A00D460B0 /* aaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C01C92E89A00D460B0 /* aaa.png */; };
-		494B68D51C92E89A00D460B0 /* bbb.png in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C11C92E89A00D460B0 /* bbb.png */; };
 		494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C71C92E89A00D460B0 /* BonusSource.swift */; };
 		494B68E11C92E97900D460B0 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DE1C92E97900D460B0 /* NSDate.swift */; };
 		494B68E21C92E97900D460B0 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DF1C92E97900D460B0 /* Range.swift */; };
@@ -196,11 +194,8 @@
 		494B68BA1C92E89A00D460B0 /* BonusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BonusScene.sks; sourceTree = "<group>"; };
 		494B68BB1C92E89A00D460B0 /* BonusScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusScene.swift; sourceTree = "<group>"; };
 		494B68BD1C92E89A00D460B0 /* Bubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
-		494B68C01C92E89A00D460B0 /* aaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaa.png; sourceTree = "<group>"; };
-		494B68C11C92E89A00D460B0 /* bbb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bbb.png; sourceTree = "<group>"; };
 		494B68C21C92E89A00D460B0 /* bonusly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bonusly.json; sourceTree = "<group>"; };
 		494B68C31C92E89A00D460B0 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
-		494B68C41C92E89A00D460B0 /* mapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapping.json; sourceTree = "<group>"; };
 		494B68C71C92E89A00D460B0 /* BonusSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusSource.swift; sourceTree = "<group>"; };
 		494B68DE1C92E97900D460B0 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		494B68DF1C92E97900D460B0 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
@@ -553,11 +548,8 @@
 		494B68BF1C92E89A00D460B0 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				494B68C01C92E89A00D460B0 /* aaa.png */,
-				494B68C11C92E89A00D460B0 /* bbb.png */,
 				494B68C21C92E89A00D460B0 /* bonusly.json */,
 				494B68C31C92E89A00D460B0 /* configuration.json */,
-				494B68C41C92E89A00D460B0 /* mapping.json */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -732,7 +724,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494B68D51C92E89A00D460B0 /* bbb.png in Resources */,
 				1A60367E1C7F161D0034EFE9 /* SF-UI-Text-Bold.otf in Resources */,
 				1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */,
 				1A6036831C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf in Resources */,
@@ -761,7 +752,6 @@
 				1AD5EA9B1C7B828200210BB9 /* WatchWidgetView.xib in Resources */,
 				1A6036771C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf in Resources */,
 				1A6036821C7F161D0034EFE9 /* SF-UI-Text-Light.otf in Resources */,
-				494B68D41C92E89A00D460B0 /* aaa.png in Resources */,
 				494B68CF1C92E89A00D460B0 /* BonusScene.sks in Resources */,
 				1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */,
 			);
