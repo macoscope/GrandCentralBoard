@@ -7,9 +7,6 @@ import SpriteKit
 
 class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     
-    static let shakeActionKey = "shakeAction"
-    
-
     private let initialSize = CGSize(width: 140, height: 140)
     private var lastBonusDate: NSDate? = nil
     private lazy var scalingAnimator: BubbleScalingAnimator = {
