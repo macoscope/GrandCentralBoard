@@ -26,19 +26,3 @@ struct BubbleViewModel {
     let lastBonusDate: NSDate
     let image: UIImage
 }
-
-
-extension UIImage {
-
-    static func generatePlaceholerImage() -> UIImage {
-        let size = CGSizeMake(40, 40)
-        let rect = CGRectMake(0, 0, size.width, size.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        UIColor.redColor().setFill()
-        UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-
-}
