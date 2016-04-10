@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062B00911CBA9A800034C13C /* RequestSenderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062B00901CBA9A800034C13C /* RequestSenderConfiguration.swift */; };
+		062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */; };
 		06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */; };
 		06684F2B1CB788FB00B93D90 /* BonuslyRequestTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */; };
 		06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */; };
@@ -114,6 +116,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		062B00901CBA9A800034C13C /* RequestSenderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSenderConfiguration.swift; sourceTree = "<group>"; };
+		062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrappingRequestTemplate.swift; sourceTree = "<group>"; };
 		06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleWithBonususFetchController.swift; sourceTree = "<group>"; };
 		06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonuslyRequestTemplates.swift; sourceTree = "<group>"; };
 		06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatableRequestTemplate.swift; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 				06684F281CB788FB00B93D90 /* RequestSender.swift */,
 				06684F291CB788FB00B93D90 /* RequestTemplate.swift */,
 				06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */,
+				062B00901CBA9A800034C13C /* RequestSenderConfiguration.swift */,
+				062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -889,7 +895,9 @@
 				494B68DB1C92E89A00D460B0 /* ImageMappingSource.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
+				062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */,
 				494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */,
+				062B00911CBA9A800034C13C /* RequestSenderConfiguration.swift in Sources */,
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
 				1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */,
 				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,

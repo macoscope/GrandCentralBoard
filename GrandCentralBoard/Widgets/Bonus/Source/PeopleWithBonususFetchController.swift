@@ -19,7 +19,11 @@ enum PeopleWithBonususFetchControllerErrors : ErrorType {
 
 class PeopleWithBonususFetchController {
 
-    private let requestSender: RequestSender = RequestSender()
+    private let requestSender: RequestSender
+
+    init(requestSender: RequestSender) {
+        self.requestSender = requestSender
+    }
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person], PeopleWithBonususFetchControllerErrors>) -> Void) {
         fetchPeopleWithBonuses(startingFromDate: NSDate.init(), fetchedBonuses: [], completionBlock: { [weak self] result in
@@ -45,7 +49,7 @@ class PeopleWithBonususFetchController {
     private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus], completionBlock: (Result<[Person], PeopleWithBonususFetchControllerErrors>) -> Void) {
         let take = 100
         let requestTemplate = TimestampableRequestTemplate<BonusesRequestTemplate>.init(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
-        let requestSender = RequestSender();
+        
         requestSender.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
                 completionBlock(.Failure(.Cancelled))

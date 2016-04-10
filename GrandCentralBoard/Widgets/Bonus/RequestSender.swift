@@ -20,8 +20,15 @@ enum RequestSenderError : ErrorType {
 
 class RequestSender {
 
+    let configuration: RequestSenderConfiguration
+
+    init(configuration: RequestSenderConfiguration) {
+        self.configuration = configuration
+    }
+
     func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((ResultType<T.ResultType, RequestSenderError>.result) -> Void)?) -> Void {
-        let requestBuilder = RequestBuilder<T>(requestTemplate: requestTemplate)
+        let wrappingRequestTemplate = WrappingRequestTemplate(requestTemplate: requestTemplate, queryParameters: self.configuration.queryParameters)
+        let requestBuilder = RequestBuilder<WrappingRequestTemplate<T>>(requestTemplate: wrappingRequestTemplate)
 
         do {
             let URLRequest = try requestBuilder.buildURLRequest()
