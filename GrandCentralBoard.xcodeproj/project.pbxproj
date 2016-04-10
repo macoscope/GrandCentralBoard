@@ -14,6 +14,8 @@
 		06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F281CB788FB00B93D90 /* RequestSender.swift */; };
 		06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F291CB788FB00B93D90 /* RequestTemplate.swift */; };
 		06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */; };
+		06DB179E1CB795A500188FCB /* GravatarImageRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */; };
+		06DB17A01CB79E2A00188FCB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DB179F1CB79E2A00188FCB /* String.swift */; };
 		0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2863091CB515CE00C62700 /* UpdateTests.swift */; };
 		0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D28630B1CB516B400C62700 /* UpdatesTests.json */; };
 		0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */; };
@@ -79,7 +81,6 @@
 		494B68D41C92E89A00D460B0 /* aaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C01C92E89A00D460B0 /* aaa.png */; };
 		494B68D51C92E89A00D460B0 /* bbb.png in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C11C92E89A00D460B0 /* bbb.png */; };
 		494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C71C92E89A00D460B0 /* BonusSource.swift */; };
-		494B68DB1C92E89A00D460B0 /* ImageMappingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */; };
 		494B68E11C92E97900D460B0 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DE1C92E97900D460B0 /* NSDate.swift */; };
 		494B68E21C92E97900D460B0 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DF1C92E97900D460B0 /* Range.swift */; };
 		494B68E31C92E97900D460B0 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68E01C92E97900D460B0 /* UIImage.swift */; };
@@ -120,6 +121,8 @@
 		06684F281CB788FB00B93D90 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		06684F291CB788FB00B93D90 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
 		06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampableRequestTemplate.swift; sourceTree = "<group>"; };
+		06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravatarImageRequestTemplate.swift; sourceTree = "<group>"; };
+		06DB179F1CB79E2A00188FCB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0D2863091CB515CE00C62700 /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTests.swift; sourceTree = "<group>"; };
 		0D28630B1CB516B400C62700 /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdatesTests.json; sourceTree = "<group>"; };
 		0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingAnimator.swift; sourceTree = "<group>"; };
@@ -195,7 +198,6 @@
 		494B68C31C92E89A00D460B0 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
 		494B68C41C92E89A00D460B0 /* mapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapping.json; sourceTree = "<group>"; };
 		494B68C71C92E89A00D460B0 /* BonusSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusSource.swift; sourceTree = "<group>"; };
-		494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMappingSource.swift; sourceTree = "<group>"; };
 		494B68DE1C92E97900D460B0 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		494B68DF1C92E97900D460B0 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		494B68E01C92E97900D460B0 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */,
+				06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */,
 			);
 			name = RequestTemplate;
 			sourceTree = "<group>";
@@ -557,7 +560,6 @@
 			isa = PBXGroup;
 			children = (
 				494B68C71C92E89A00D460B0 /* BonusSource.swift */,
-				494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */,
 				06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */,
 			);
 			path = Source;
@@ -580,6 +582,7 @@
 				494B68DE1C92E97900D460B0 /* NSDate.swift */,
 				494B68DF1C92E97900D460B0 /* Range.swift */,
 				494B68E01C92E97900D460B0 /* UIImage.swift */,
+				06DB179F1CB79E2A00188FCB /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
+				06DB179E1CB795A500188FCB /* GravatarImageRequestTemplate.swift in Sources */,
 				494B68CC1C92E89A00D460B0 /* BonusWidgetView.swift in Sources */,
 				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
@@ -908,6 +912,7 @@
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
+				06DB17A01CB79E2A00188FCB /* String.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,

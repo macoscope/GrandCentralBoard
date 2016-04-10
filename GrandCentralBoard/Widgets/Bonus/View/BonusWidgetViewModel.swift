@@ -13,7 +13,7 @@ extension BonusWidgetViewModel {
     init(people: [Person]) {
         var bubbles: [BubbleViewModel] = []
         people.forEach({ person in
-            bubbles.append(BubbleViewModel(name: person.name, image: UIImage.generatePlaceholerImage()))
+            bubbles.append(BubbleViewModel(name: person.name, image: person.image ?? UIImage.generatePlaceholerImage()))
         })
         self.bubbles = bubbles
     }

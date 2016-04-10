@@ -12,6 +12,7 @@ import Result
 
 enum PeopleWithBonususFetchControllerErrors : ErrorType {
     case NetworkError
+    case IncorrectEmailAddress
     case Cancelled
 }
 
@@ -20,7 +21,24 @@ class PeopleWithBonususFetchController {
     let requestSender: RequestSender = RequestSender()
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person], PeopleWithBonususFetchControllerErrors>) -> Void) {
-        fetchPeopleWithBonuses(startingFromDate: NSDate.init(), fetchedBonuses: [], completionBlock: completionBlock)
+        fetchPeopleWithBonuses(startingFromDate: NSDate.init(), fetchedBonuses: [], completionBlock: { [weak self] result in
+            guard let strongSelf = self else { return }
+
+            switch result {
+            case .Success(let people):
+                strongSelf.fetchAvatarsForPeople(people, completionBlock: { result in
+                    switch result {
+                    case .Success(let people):
+                        completionBlock(.Success(people))
+                    case .Failure(let error):
+                        completionBlock(.Failure(error))
+                    }
+                })
+            case .Failure(let error):
+                completionBlock(.Failure(error))
+            }
+
+        })
     }
 
     private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus], completionBlock: (Result<[Person], PeopleWithBonususFetchControllerErrors>) -> Void) {
@@ -35,7 +53,7 @@ class PeopleWithBonususFetchController {
 
             switch result {
             case .Success(let bonuses):
-                var allBonuses = fetchedBonuses
+                var allBonuses: [Bonus] = fetchedBonuses.reverse()
                 allBonuses.appendContentsOf(bonuses)
 
                 let people = allBonuses.reduce(Set<Person>(), combine: { people, bonus in
@@ -60,4 +78,48 @@ class PeopleWithBonususFetchController {
         }
     }
 
+    private func fetchAvatarsForPeople(people: [Person], completionBlock: Result<[Person], PeopleWithBonususFetchControllerErrors> -> Void) {
+        var peopleWithImages: [Person]? = [Person]()
+        var groupError: PeopleWithBonususFetchControllerErrors?
+
+        let group = dispatch_group_create()
+        for person in people {
+            dispatch_group_enter(group)
+            updatePersonWithImageFromNetwork(person, completionBlock: { result in
+                switch result {
+                case .Success(let personWithImage):
+                    peopleWithImages?.append(personWithImage)
+                case .Failure(let error):
+                    peopleWithImages = nil
+                    groupError = error
+                }
+                dispatch_group_leave(group)
+            })
+        }
+
+        dispatch_group_notify(group, dispatch_get_main_queue()) {
+            if let peopleWithImages = peopleWithImages {
+                completionBlock(.Success(peopleWithImages))
+            } else {
+                completionBlock(.Failure(groupError!))
+            }
+        }
+    }
+
+    private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Result<Person, PeopleWithBonususFetchControllerErrors>) -> Void) {
+        guard let requestTemplate = GravatarImageRequesTemplate(email: person.email) else {
+            completionBlock(.Failure(PeopleWithBonususFetchControllerErrors.IncorrectEmailAddress))
+            return
+        }
+
+        requestSender.sendRequestForRequestTemplate(requestTemplate) { result in
+            switch result {
+            case .Success(let image):
+                completionBlock(.Success(person.copyWithImage(image)))
+            case .Failure:
+                completionBlock(.Failure(PeopleWithBonususFetchControllerErrors.NetworkError))
+            }
+        }
+    }
+    
 }
