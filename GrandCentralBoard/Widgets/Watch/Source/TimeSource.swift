@@ -15,11 +15,9 @@ struct Time : Timed {
 
 struct TimeSourceSettings : Decodable {
     let timeZone: NSTimeZone
-    let calendarPath: String
 
     static func decode(jsonObject: AnyObject) throws -> TimeSourceSettings {
-        return try TimeSourceSettings(timeZone: NSTimeZone(name: jsonObject => "timeZone") ?? NSTimeZone.defaultTimeZone(),
-                                  calendarPath: jsonObject => "calendar")
+        return try TimeSourceSettings(timeZone: NSTimeZone(name: jsonObject => "timeZone") ?? NSTimeZone.defaultTimeZone())
     }
 }
 

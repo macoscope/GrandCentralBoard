@@ -54,7 +54,7 @@ final class WatchWidget : Widget {
         source.read { [weak self] result in
             switch result {
                 case .Success(let events):
-                    self?.events = events.events
+                    self?.events = events
                 case .Failure:
                     break
             }

@@ -3,118 +3,78 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import Foundation
-import Decodable
+import Operations
 import GrandCentralBoardCore
+import Alamofire
+import Decodable
+
+struct EventsSourceSettings : Decodable {
+    let calendarID: String
+    let clientID: String
+    let clientSecret: String
+    let refreshToken: String
 
 
-struct Event : Timed {
-    let time: NSDate
-    let name: String
-}
-
-struct Events : Timed {
-    let time: NSDate
-    let events: [Event]
-}
-
-enum EventsError : ErrorType, HavingMessage {
-    case CannotConvertDate
-    case WrongFormat
-
-    var message: String {
-        switch self {
-            case .CannotConvertDate:
-                return NSLocalizedString("Unable to convert string to date.", comment: "")
-            case .WrongFormat:
-                return NSLocalizedString("Wrong format.", comment: "")
-        }
-    }
-}
-
-extension Events : Decodable {
-
-    static func decode(jsonObject: AnyObject) throws -> Events {
-        if let rawEvents = try (jsonObject => "events") as? [AnyObject] {
-            let events = try rawEvents.map({ try Event(time: stringToDate($0 => "time"), name: $0 => "name") })
-            return Events(time: NSDate(), events: events)
-        }
-
-        throw EventsError.WrongFormat
-    }
-
-    private static let dateFormatter: NSDateFormatter = {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        return dateFormatter
-    }()
-
-    private static func stringToDate(string: String) throws -> NSDate {
-        let dateFromFormatter = dateFormatter.dateFromString(string)
-
-        guard let date = dateFromFormatter else { throw EventsError.CannotConvertDate }
-
-        return date
-    }
-}
-
-extension Events {
-
-    static func eventsFromData(data: NSData) throws -> Events {
-        
-        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-            return try Events.decode(jsonResult)
-        }
-
-        throw EventsError.WrongFormat
-    }
-}
-
-struct EventsSourceSettings {
-    let calendarPath: String
-}
-
-enum EventsSourceError : ErrorType, HavingMessage {
-    case DownloadFailed
-
-    var message: String {
-        switch self {
-            case .DownloadFailed:
-                return NSLocalizedString("Cannot download data!", comment: "")
-        }
+    static func decode(jsonObject: AnyObject) throws -> EventsSourceSettings {
+        return try EventsSourceSettings(calendarID: jsonObject => "calendarID",
+                                        clientID: jsonObject => "clientID",
+                                        clientSecret: jsonObject => "clientSecret",
+                                        refreshToken: jsonObject => "refreshToken")
     }
 }
 
 final class EventsSource : Asynchronous {
 
-    typealias ResultType = Result<Events>
+    typealias ResultType = GrandCentralBoardCore.Result<[Event]>
 
     let interval: NSTimeInterval = 60
     let sourceType: SourceType = .Momentary
-    private let dataDownloader: DataDownloading
 
-    private let path: String
+    private let dataProvider: CalendarDataProviding
+    private let calendarID: String
+
+    private var calendarName: String?
+
+    private let operationQueue = OperationQueue()
 
     init(settings: EventsSourceSettings, dataDownloader: DataDownloading) {
-        self.path = settings.calendarPath
-        self.dataDownloader = dataDownloader
+        let networkRequestManager = Manager()
+        let tokenProvider = GoogleTokenProvider(clientID: settings.clientID, clientSecret: settings.clientSecret, refreshToken: settings.refreshToken)
+        let apiDataProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider, networkRequestManager: networkRequestManager)
+        self.dataProvider = GoogleCalendarDataProvider(dataProvider: apiDataProvider)
+        self.calendarID = settings.calendarID
     }
 
-    func read(closure: (ResultType) -> Void) {
+    private func fetchCalendarNameOperation() -> NSOperation {
+        let dataProvider = self.dataProvider
+        let calendarID = self.calendarID
+        return  BlockOperation(block: { [weak self] continueWithError in
+            dataProvider.fetchCalendar(calendarID, completion: { (result) in
+                switch result {
+                case .Success(let calendarModel): self?.calendarName = calendarModel.name
+                case .Failure: break
+                }
+                continueWithError(error: nil)
+            })
+        })
+    }
 
-        dataDownloader.downloadDataAtPath(path) { result in
-            switch result {
-                case .Success(let data):
-                    do {
-                        try closure(.Success(Events.eventsFromData(data)))
-                    } catch (let error) {
-                        closure(.Failure(error))
-                    }
-                case .Failure(let error):
-                    closure(.Failure(error))
-            }
-        }
+    private func fetchEventsDataOperation(closure: (ResultType) -> Void) -> NSOperation {
+        let dataProvider = self.dataProvider
+        let calendarID = self.calendarID
+        return  BlockOperation(block: { continueWithError in
+            dataProvider.fetchEventsForCalendar(calendarID, completion: { (result) in
+                switch result {
+                case .Success(let events): closure(.Success(events))
+                case .Failure(let error): closure(.Failure(error))
+                }
+                continueWithError(error: nil)
+            })
+        })
+    }
+
+
+    func read(closure: (ResultType) -> Void) {
+        operationQueue.addOperation(fetchEventsDataOperation(closure))
     }
 }
