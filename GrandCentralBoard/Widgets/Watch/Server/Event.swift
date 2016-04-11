@@ -12,7 +12,7 @@ struct DateFormattingError : ErrorType {
     let dateString: String
 }
 
-struct EventModel : Decodable {
+struct Event : Decodable {
 
     private static let dateFormatter: NSDateFormatter =  {
         let formatter = NSDateFormatter()
@@ -21,18 +21,18 @@ struct EventModel : Decodable {
     }()
 
     let name: String
-    let startTime: NSDate
+    let time: NSDate
 
-    static func decode(json: AnyObject) throws -> EventModel {
+    static func decode(json: AnyObject) throws -> Event {
         let startString: String = try json => "start" => "dateTime"
-        guard let startTime = EventModel.dateFormatter.dateFromString(startString) else {
+        guard let startTime = Event.dateFormatter.dateFromString(startString) else {
             throw DateFormattingError(dateString: startString)
         }
-        return try EventModel(name: json => "summary", startTime: startTime)
+        return try Event(name: json => "summary", time: startTime)
     }
 
-    static func decodeArray(json: AnyObject) throws -> [EventModel] {
-        return try [EventModel].decode(json => "items")
+    static func decodeArray(json: AnyObject) throws -> [Event] {
+        return try [Event].decode(json => "items")
     }
 }
 

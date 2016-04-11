@@ -84,8 +84,8 @@
 		5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48E1CB69AE9005FD847 /* ResultType.swift */; };
 		5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */; };
 		5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */; };
-		5274A4991CB69DAC005FD847 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4981CB69DAC005FD847 /* CalendarModel.swift */; };
-		5274A49B1CB6A6E9005FD847 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A49A1CB6A6E9005FD847 /* EventModel.swift */; };
+		5274A4991CB69DAC005FD847 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4981CB69DAC005FD847 /* Calendar.swift */; };
+		5274A49B1CB6A6E9005FD847 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A49A1CB6A6E9005FD847 /* Event.swift */; };
 		5274A49D1CB7A972005FD847 /* Swift+URLEscape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A49C1CB7A972005FD847 /* Swift+URLEscape.swift */; };
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
@@ -198,8 +198,8 @@
 		5274A48E1CB69AE9005FD847 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultType.swift; path = Utilities/ResultType.swift; sourceTree = "<group>"; };
 		5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+NetworkRequestManager.swift"; path = "Extensions/Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
 		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
-		5274A4981CB69DAC005FD847 /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
-		5274A49A1CB6A6E9005FD847 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		5274A4981CB69DAC005FD847 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Server/Calendar.swift; sourceTree = "<group>"; };
+		5274A49A1CB6A6E9005FD847 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Server/Event.swift; sourceTree = "<group>"; };
 		5274A49C1CB7A972005FD847 /* Swift+URLEscape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Swift+URLEscape.swift"; path = "Extensions/Swift+URLEscape.swift"; sourceTree = "<group>"; };
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
@@ -417,8 +417,6 @@
 			children = (
 				1AA97DE81CA2E0C80058DBCE /* calendar.json */,
 				5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */,
-				5274A4981CB69DAC005FD847 /* CalendarModel.swift */,
-				5274A49A1CB6A6E9005FD847 /* EventModel.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -472,6 +470,7 @@
 		1AD5EA971C7B826A00210BB9 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
+				52FB504C1CBBFAC70053DE8B /* Models */,
 				1AA97DE71CA2E0C80058DBCE /* Server */,
 				1AAC29FB1C80F54F0045BF1A /* Source */,
 				1AAC29FC1C80F55D0045BF1A /* View */,
@@ -596,6 +595,15 @@
 				52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */,
 			);
 			name = Watch;
+			sourceTree = "<group>";
+		};
+		52FB504C1CBBFAC70053DE8B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5274A49A1CB6A6E9005FD847 /* Event.swift */,
+				5274A4981CB69DAC005FD847 /* Calendar.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -872,7 +880,7 @@
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
 				1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */,
 				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,
-				5274A49B1CB6A6E9005FD847 /* EventModel.swift in Sources */,
+				5274A49B1CB6A6E9005FD847 /* Event.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
@@ -884,7 +892,7 @@
 				5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
-				5274A4991CB69DAC005FD847 /* CalendarModel.swift in Sources */,
+				5274A4991CB69DAC005FD847 /* Calendar.swift in Sources */,
 				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
 				5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */,
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,

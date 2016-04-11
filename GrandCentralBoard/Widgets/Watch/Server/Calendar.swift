@@ -8,10 +8,10 @@
 
 import Decodable
 
-struct CalendarModel : Decodable {
+struct Calendar : Decodable {
     let name: String
 
-    static func decode(json: AnyObject) throws -> CalendarModel {
-        return try CalendarModel(name: json => "summary")
+    static func decode(json: AnyObject) throws -> Calendar {
+        return try Calendar(name: json => "summary")
     }
 }

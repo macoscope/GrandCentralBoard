@@ -10,8 +10,8 @@ import Foundation
 import Result
 
 protocol CalendarDataProviding {
-    func fetchEventsForCalendar(calendarID: String, completion: (Result<[EventModel], APIDataError>) -> Void)
-    func fetchCalendar(calendarID: String, completion: (Result<CalendarModel, APIDataError>) -> Void)
+    func fetchEventsForCalendar(calendarID: String, completion: (Result<[Event], APIDataError>) -> Void)
+    func fetchCalendar(calendarID: String, completion: (Result<Calendar, APIDataError>) -> Void)
 }
 
 private enum CalendarAPIAction : String {
@@ -43,8 +43,9 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
         return formatter
     }()
 
-    func fetchEventsForCalendar(calendarID: String, completion: (Result<[EventModel], APIDataError>) -> Void) {
-        let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
+
+    func fetchEventsForCalendar(calendarID: String, completion: (Result<[Event], APIDataError>) -> Void) {
+                let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
         guard let url = CalendarAPIAction.GetEvents.URLForCalendar(calendarID) else {
             completion(.Failure(.IncorrectRequestParameters))
             return
@@ -62,7 +63,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
                 completion(.Failure(error))
             case .Success(let json):
                 do {
-                    let events = try EventModel.decodeArray(json)
+                    let events = try Event.decodeArray(json)
                     completion(.Success(events))
                 } catch {
                     completion(.Failure(.ModelDecodeError(error)))
@@ -71,7 +72,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
         }
     }
 
-    func fetchCalendar(calendarID: String, completion: (Result<CalendarModel, APIDataError>) -> Void) {
+    func fetchCalendar(calendarID: String, completion: (Result<Calendar, APIDataError>) -> Void) {
         guard let url = CalendarAPIAction.GetDetails.URLForCalendar(calendarID) else {
             completion(.Failure(.IncorrectRequestParameters))
             return
@@ -83,7 +84,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
                 completion(.Failure(error))
             case .Success(let json):
                 do {
-                    let model = try CalendarModel.decode(json)
+                    let model = try Calendar.decode(json)
                     completion(.Success(model))
                 } catch {
                     completion(.Failure(.ModelDecodeError(error)))
