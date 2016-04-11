@@ -14,6 +14,21 @@ protocol CalendarDataProviding {
     func fetchCalendar(calendarID: String, completion: (Result<CalendarModel, APIDataError>) -> Void)
 }
 
+private enum CalendarAPIAction : String {
+    case GetDetails = ""
+    case GetEvents  = "events"
+
+    static private let baseURL = NSURL(string: "https://www.googleapis.com/calendar/v3/calendars/")!
+
+    func URLForCalendar(calendarID: String) -> NSURL? {
+        guard let escapedCalendarID = calendarID.URLEscape() else {
+            assertionFailure("Failure escaping calendar id: \(calendarID)")
+            return nil
+        }
+        return self.dynamicType.baseURL.URLByAppendingPathComponent("\(escapedCalendarID)/\(self.rawValue)")
+    }
+}
+
 final class GoogleCalendarDataProvider : CalendarDataProviding {
 
     let dataProvider: APIDataProviding
@@ -29,12 +44,14 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
     }()
 
     func fetchEventsForCalendar(calendarID: String, completion: (Result<[EventModel], APIDataError>) -> Void) {
-        guard let escapedCalendarID = calendarID.URLEscape() else {
-            assertionFailure("Failure escaping calendar id: \(calendarID)")
+                let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
+        guard let url = CalendarAPIAction.GetEvents.URLForCalendar(calendarID) else {
+            completion(.Failure(.IncorrectRequestParameters))
             return
         }
-        let url = NSURL(string: "https://www.googleapis.com/calendar/v3/calendars/\(escapedCalendarID)/events")!
-        let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
+
+        // maxAttendees = 1, because it is a minimal allowed value and we are not interested in
+        // attendees
         let parameters: [String : AnyObject] = ["maxResults" : 10, "orderyBy" : "startTime",
                                                 "singleEvents" : "true", "maxAttendees" : 1,
                                                 "timeMin" : timeMin]
@@ -55,11 +72,10 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
     }
 
     func fetchCalendar(calendarID: String, completion: (Result<CalendarModel, APIDataError>) -> Void) {
-        guard let escapedCalendarID = calendarID.URLEscape() else {
-            assertionFailure("Failure escaping calendar id: \(calendarID)")
+        guard let url = CalendarAPIAction.GetDetails.URLForCalendar(calendarID) else {
+            completion(.Failure(.IncorrectRequestParameters))
             return
         }
-        let url = NSURL(string: "https://www.googleapis.com/calendar/v3/calendars/\(escapedCalendarID)")!
 
         dataProvider.request(.GET, url: url, parameters: nil) { result in
             switch result {

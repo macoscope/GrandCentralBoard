@@ -10,6 +10,7 @@ import Alamofire
 import Operations
 
 enum APIDataError : ErrorType {
+    case IncorrectRequestParameters
     case AuthorizationError
     case ModelDecodeError(ErrorType)
     case UnderlyingError(NSError)
