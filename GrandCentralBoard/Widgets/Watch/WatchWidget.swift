@@ -76,7 +76,7 @@ final class WatchWidget : Widget {
             event = relevantEvents[index]
         }
 
-        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event)
+        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event, calendarName: nil)
         widgetView.render(timeViewModel)
     }
 }

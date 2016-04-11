@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="SF-UI-Display-Light.otf">
             <string>SFUIDisplay-Light</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
         </mutableArray>
@@ -67,30 +69,38 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkg-Ar-8P2">
-                    <rect key="frame" x="244" y="280" width="152" height="39"/>
+                    <rect key="frame" x="244" y="300" width="152" height="39"/>
                     <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="32"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="starts in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB2-iB-CL5">
-                    <rect key="frame" x="286" y="258" width="69" height="24"/>
-                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="20"/>
-                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DDOS Meeting" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="dAL-mF-wNE">
-                    <rect key="frame" x="150" y="217" width="340" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DDOS Meeting and second line of the fdklsjhf saldkjfh asdk" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAL-mF-wNE">
+                    <rect key="frame" x="150" y="194" width="340" height="86"/>
                     <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="36"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KOPERNIK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNM-5F-Voa">
+                    <rect key="frame" x="279" y="384" width="83" height="22"/>
+                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="starts in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB2-iB-CL5">
+                    <rect key="frame" x="286" y="278" width="69" height="24"/>
+                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="20"/>
+                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="no4-W5-CMT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="3Ao-Ay-orI"/>
+                <constraint firstItem="qNM-5F-Voa" firstAttribute="centerX" secondItem="nVI-OH-3Fa" secondAttribute="centerX" id="72D-QJ-vtq"/>
                 <constraint firstItem="dAL-mF-wNE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="150" id="9wJ-H0-J7b"/>
                 <constraint firstItem="bT9-d0-3tx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AFR-WR-VTV"/>
                 <constraint firstItem="bT9-d0-3tx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B5T-wO-gY6"/>
+                <constraint firstItem="qNM-5F-Voa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nVI-OH-3Fa" secondAttribute="leading" id="EL5-DG-cqV"/>
                 <constraint firstItem="TB2-iB-CL5" firstAttribute="top" secondItem="dAL-mF-wNE" secondAttribute="bottom" constant="-2" id="Eei-Uq-6UP"/>
                 <constraint firstItem="li6-Oo-Qqv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FMd-He-FQs"/>
                 <constraint firstAttribute="trailing" secondItem="no4-W5-CMT" secondAttribute="trailing" constant="27" id="N1J-jP-J0q"/>
@@ -104,13 +114,15 @@
                 <constraint firstItem="TB2-iB-CL5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="a2F-51-fJn"/>
                 <constraint firstItem="Jkg-Ar-8P2" firstAttribute="top" secondItem="TB2-iB-CL5" secondAttribute="bottom" constant="-2" id="duV-2j-ly4"/>
                 <constraint firstItem="xJW-4f-WBQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="efZ-EC-9Nx"/>
-                <constraint firstItem="TB2-iB-CL5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="x0D-WD-wHz"/>
+                <constraint firstItem="qNM-5F-Voa" firstAttribute="bottom" secondItem="nVI-OH-3Fa" secondAttribute="bottom" constant="-100" id="mFv-pc-3tf"/>
+                <constraint firstItem="TB2-iB-CL5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="8" id="x0D-WD-wHz"/>
                 <constraint firstItem="nVI-OH-3Fa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="y76-yC-J4R"/>
                 <constraint firstItem="zUo-Ik-92M" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ygc-0X-G8c"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="blinkingImage" destination="li6-Oo-Qqv" id="exY-Ch-Ei2"/>
+                <outlet property="calendarName" destination="qNM-5F-Voa" id="Gwn-iF-lTy"/>
                 <outlet property="hourLeft" destination="xJW-4f-WBQ" id="afx-EH-H5U"/>
                 <outlet property="hourRight" destination="no4-W5-CMT" id="jGW-tO-hOQ"/>
                 <outlet property="meetingETA" destination="Jkg-Ar-8P2" id="skx-ug-wQT"/>
