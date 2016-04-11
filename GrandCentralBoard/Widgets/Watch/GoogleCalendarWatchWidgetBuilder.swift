@@ -1,16 +1,17 @@
 //
-//  Created by Oktawian Chojnacki on 24.02.2016.
+//  GoogleCalendarWatchWidgetBuilder.swift
+//  GrandCentralBoard
+//
+//  Created by Michał Laskowski on 12.04.2016.
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import Foundation
-import Decodable
 import GrandCentralBoardCore
+import Alamofire
 
+final class GoogleCalendarWatchWidgetBuilder : WidgetBuilding {
 
-final class WatchWidgetBuilder : WidgetBuilding {
-
-    let name = "watch"
+    let name = "googleCalendarWatch"
 
     private let dataDownloader: DataDownloading
 
@@ -19,12 +20,13 @@ final class WatchWidgetBuilder : WidgetBuilding {
     }
 
     func build(settings: AnyObject) throws -> Widget {
-        
+        let networkRequestManager = Manager()
+
         let timeSettings = try TimeSourceSettings.decode(settings)
-        let eventsSettings = try EventsSourceSettings.decode(settings)
+        let eventsSettings = try GoogleCalendarEventsSourceSettings.decode(settings)
 
         let timeSource = TimeSource(settings: timeSettings)
-        let eventSource = RemoteEventsSource(settings: eventsSettings, dataDownloader: dataDownloader)
+        let eventSource = GoogleCalendarEventsSource(settings: eventsSettings, networkRequestManager: networkRequestManager)
         let view = WatchWidgetView.fromNib()
 
         return WatchWidget(view: view, sources: [timeSource, eventSource])

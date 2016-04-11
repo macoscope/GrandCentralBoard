@@ -6,8 +6,6 @@
 import UIKit
 import GrandCentralBoardCore
 
-
-private let slideshowInterval = 10.0
 private let secondsInDay: NSTimeInterval = 3600
 
 final class WatchWidget : Widget {
@@ -68,15 +66,8 @@ final class WatchWidget : Widget {
             return secondsLeftToEvent > 0 && secondsLeftToEvent < secondsInDay
         }
 
-        var event: Event? = nil
-
-        if let relevantEvents = relevantEvents where !relevantEvents.isEmpty {
-            let eventsCount = relevantEvents.count
-            let index = Int(NSDate().timeIntervalSince1970 / slideshowInterval) % eventsCount
-            event = relevantEvents[index]
-        }
-
-        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event, calendarName: nil)
+        let event: Event? = relevantEvents?.first
+        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event, calendarName: "Calendar_name")
         widgetView.render(timeViewModel)
     }
 }

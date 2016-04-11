@@ -64,7 +64,7 @@ class CalendarDataProviderTests : XCTestCase {
                     let eventDateString: String = try! eventItems[i] => "start" => "dateTime"
                     let eventDate = self.dynamicType.dateFormatter.dateFromString(eventDateString)!
                     XCTAssertEqual(eventName, events[i].name)
-                    XCTAssertEqual(eventDate, events[i].startTime)
+                    XCTAssertEqual(eventDate, events[i].time)
                 }
             case .Failure(let error):
                 XCTFail("\(error)")

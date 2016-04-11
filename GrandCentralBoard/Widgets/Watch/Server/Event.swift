@@ -34,5 +34,13 @@ struct Event : Decodable {
     static func decodeArray(json: AnyObject) throws -> [Event] {
         return try [Event].decode(json => "items")
     }
+
+    static func decodeArrayFromData(data: NSData) throws -> [Event] {
+        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+            return try Event.decodeArray(jsonResult)
+        }
+
+        throw EventsError.WrongFormat
+    }
 }
 
