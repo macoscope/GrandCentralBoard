@@ -15,7 +15,11 @@ enum APIDataError : ErrorType {
     case UnderlyingError(NSError)
 }
 
-final class GoogleAPIDataProvider {
+protocol APIDataProvider {
+    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, completion: ResultType<AnyObject, APIDataError>.result -> Void)
+}
+
+final class GoogleAPIDataProvider : APIDataProvider {
 
     private let tokenProvider: OAuthTokenProvider
     private var accessToken: AccessToken?
@@ -46,7 +50,7 @@ final class GoogleAPIDataProvider {
         return refreshTokenOperation
     }
 
-    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, completion: Result<AnyObject, APIDataError> -> Void) {
+    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, completion: ResultType<AnyObject, APIDataError>.result -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
             guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {
