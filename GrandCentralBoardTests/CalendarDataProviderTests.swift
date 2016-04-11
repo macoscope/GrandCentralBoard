@@ -19,7 +19,7 @@ private let eventsDictionary = ["kind": "calendar#events", "items" :
     ]
 ]
 
-class TestAPIDataProvider : APIDataProvider {
+class TestAPIDataProvider : APIDataProviding {
 
     func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]?, completion: Result<AnyObject, APIDataError> -> Void) {
         let urlString = url.URLString

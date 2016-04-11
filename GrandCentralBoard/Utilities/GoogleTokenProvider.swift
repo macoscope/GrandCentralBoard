@@ -13,13 +13,13 @@ enum RefreshTokenError : ErrorType {
     case UnderlyingError(NSError)
 }
 
-protocol OAuthTokenProvider {
+protocol OAuthTokenProviding {
     func accessTokenFromRefreshToken(completion: (ResultType<AccessToken, RefreshTokenError>.result) -> Void)
 }
 
 private let googleRefreshTokenURL = "https://accounts.google.com/o/oauth2/token"
 
-final class GoogleTokenProvider : OAuthTokenProvider {
+final class GoogleTokenProvider : OAuthTokenProviding {
 
     private let clientID, clientSecret: String
     private let refreshToken: String

@@ -15,20 +15,20 @@ enum APIDataError : ErrorType {
     case UnderlyingError(NSError)
 }
 
-protocol APIDataProvider {
+protocol APIDataProviding {
     func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, completion: ResultType<AnyObject, APIDataError>.result -> Void)
 }
 
-final class GoogleAPIDataProvider : APIDataProvider {
+final class GoogleAPIDataProvider : APIDataProviding {
 
-    private let tokenProvider: OAuthTokenProvider
+    private let tokenProvider: OAuthTokenProviding
     private var accessToken: AccessToken?
 
     private let networkRequestManager: NetworkRequestManager
 
     private let operationQueue = OperationQueue()
 
-    init(tokenProvider: OAuthTokenProvider, networkRequestManager: NetworkRequestManager = Manager()) {
+    init(tokenProvider: OAuthTokenProviding, networkRequestManager: NetworkRequestManager = Manager()) {
         self.tokenProvider = tokenProvider
         self.networkRequestManager = networkRequestManager
     }

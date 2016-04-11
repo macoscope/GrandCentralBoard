@@ -9,16 +9,16 @@
 import Foundation
 import Result
 
-protocol CalendarDataProvider {
+protocol CalendarDataProviding {
     func fetchEventsForCalendar(calendarID: String, completion: (Result<[EventModel], APIDataError>) -> Void)
     func fetchCalendar(calendarID: String, completion: (Result<CalendarModel, APIDataError>) -> Void)
 }
 
-final class GoogleCalendarDataProvider : CalendarDataProvider {
+final class GoogleCalendarDataProvider : CalendarDataProviding {
 
-    let dataProvider: APIDataProvider
+    let dataProvider: APIDataProviding
 
-    init(dataProvider: APIDataProvider) {
+    init(dataProvider: APIDataProviding) {
         self.dataProvider = dataProvider
     }
 
