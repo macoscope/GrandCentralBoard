@@ -21,11 +21,7 @@ private enum CalendarAPIAction : String {
     static private let baseURL = NSURL(string: "https://www.googleapis.com/calendar/v3/calendars/")!
 
     func URLForCalendar(calendarID: String) -> NSURL? {
-        guard let escapedCalendarID = calendarID.URLEscape() else {
-            assertionFailure("Failure escaping calendar id: \(calendarID)")
-            return nil
-        }
-        return self.dynamicType.baseURL.URLByAppendingPathComponent("\(escapedCalendarID)/\(self.rawValue)")
+        return self.dynamicType.baseURL.URLByAppendingPathComponent("\(calendarID)/\(self.rawValue)")
     }
 }
 
