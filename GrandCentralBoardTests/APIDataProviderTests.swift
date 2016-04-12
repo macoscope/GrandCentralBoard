@@ -9,7 +9,7 @@
 import XCTest
 @testable import GrandCentralBoard
 
-class TestTokenProvider : OAuthTokenProvider {
+class TestTokenProvider : OAuth2TokenProviding {
 
     let expireInterval: Int
     let token: String
