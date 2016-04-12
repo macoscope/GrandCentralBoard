@@ -21,9 +21,16 @@ enum RequestSenderError : ErrorType {
 final class RequestSender {
 
     private let configuration: RequestSenderConfiguration
+    private var requestsInProgress: [Request] = []
 
     init(configuration: RequestSenderConfiguration) {
         self.configuration = configuration
+    }
+
+    deinit {
+        for request in requestsInProgress {
+            request.cancel()
+        }
     }
 
     func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void {
@@ -33,7 +40,7 @@ final class RequestSender {
         do {
             let URLRequest = try requestBuilder.buildURLRequest()
 
-            Alamofire.request(URLRequest).responseData(completionHandler: { response in
+            let request = Alamofire.request(URLRequest).responseData(completionHandler: { response in
                 switch response.result {
                 case .Success(let data):
                     guard let URLResponse = response.response else {
@@ -62,6 +69,7 @@ final class RequestSender {
                     completionBlock?(.Failure(error))
                 }
             })
+            requestsInProgress.append(request)
 
         } catch let error {
             let description = (error as? CustomStringConvertible)?.description ?? ""
