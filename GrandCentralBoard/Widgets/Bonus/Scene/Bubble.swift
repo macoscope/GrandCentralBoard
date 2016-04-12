@@ -48,7 +48,12 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     }
     
     func updateWithLastBonusDate(lastBonusDate: NSDate) {
-        guard self.lastBonusDate == nil || lastBonusDate.timeIntervalSinceDate(self.lastBonusDate!) > 0 else {
+        guard self.lastBonusDate != nil else {
+            self.lastBonusDate = lastBonusDate
+            return
+        }
+
+        guard lastBonusDate.timeIntervalSinceDate(self.lastBonusDate!) > 0 else {
             return
         }
 

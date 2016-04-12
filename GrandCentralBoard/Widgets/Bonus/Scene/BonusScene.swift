@@ -41,9 +41,13 @@ class BonusScene: SKScene {
     override func update(currentTime: NSTimeInterval) {
         guard !world.children.isEmpty else { return }
 
-        let nodesFitScreen = CGRectContainsRect(frame, world.calculateAccumulatedFrame())
+        let calculatedAccumulatedFrame = world.calculateAccumulatedFrame()
+        let nodesFitScreen = CGRectContainsRect(frame, calculatedAccumulatedFrame)
+        let nodesToSmall = frame.width > calculatedAccumulatedFrame.width * 1.25 && frame.height > calculatedAccumulatedFrame.height * 1.25
         if !nodesFitScreen {
             scaleBubblesDown()
+        } else if (nodesToSmall) {
+            scaleBubblesUp()
         }
     }
     
@@ -104,8 +108,16 @@ class BonusScene: SKScene {
     }
 
     private func scaleBubblesDown() {
+        scaleBubbles(1.02)
+    }
+
+    private func scaleBubblesUp() {
+        scaleBubbles(0.98)
+    }
+
+    private func scaleBubbles(scaleFactor: CGFloat) {
         // Scale bubbles down by increasing size of the scene
-        let scaleFactor: CGFloat = 1.02
+        let scaleFactor: CGFloat = scaleFactor
         size = CGSize(width: size.width * scaleFactor, height: size.width * scaleFactor)
     }
     
