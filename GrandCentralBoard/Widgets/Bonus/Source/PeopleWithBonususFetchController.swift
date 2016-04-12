@@ -116,7 +116,7 @@ final class PeopleWithBonususFetchController {
     }
 
     private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Result<Person>) -> Void) {
-        guard let requestTemplate = GravatarImageRequesTemplate(email: person.email) else {
+        guard let requestTemplate = GravatarImageRequestTemplate(email: person.email) else {
             completionBlock(.Failure(PeopleWithBonususFetchControllerError.IncorrectEmailAddress))
             return
         }
