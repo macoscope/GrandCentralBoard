@@ -25,12 +25,8 @@ final class BonusesRequestTemplate : BonuslyRequestTemplate<[Bonus]> {
     }
 
     override func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> [Bonus] {
-        do {
-            let bonuses = try Bonus.decodeBonuses(result)
-            return bonuses
-        } catch {
-            throw RequestTemplateError.FinalizeError
-        }
+        let bonuses = try Bonus.decodeBonuses(result)
+        return bonuses
     }
 
 }
