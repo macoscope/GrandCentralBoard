@@ -18,7 +18,7 @@ enum RequestSenderError : ErrorType {
 }
 
 
-class RequestSender {
+final class RequestSender {
 
     let configuration: RequestSenderConfiguration
 

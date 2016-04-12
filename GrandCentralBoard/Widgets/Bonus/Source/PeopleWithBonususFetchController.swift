@@ -17,7 +17,8 @@ enum PeopleWithBonususFetchControllerErrors : ErrorType {
     case Cancelled
 }
 
-class PeopleWithBonususFetchController {
+
+final class PeopleWithBonususFetchController {
 
     private let requestSender: RequestSender
 

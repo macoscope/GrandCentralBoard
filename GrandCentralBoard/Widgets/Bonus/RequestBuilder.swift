@@ -14,7 +14,7 @@ enum RequestBuilderError : ErrorType {
 }
 
 
-class RequestBuilder<T: RequestTemplateProtocol> {
+final class RequestBuilder<T: RequestTemplateProtocol> {
 
     private let requestTemplate: T
     
