@@ -9,12 +9,12 @@
 import GrandCentralBoardCore
 
 
-class HarvestSource: Asynchronous {
-    typealias ResultType = Result<HarvestTeamData>
-
-    let oauthCredentials: OAuthCredentials
+final class HarvestSource : Asynchronous {
+    typealias ResultType = Result<HarvestTeamStats>
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
+
+    private let oauthCredentials: OAuthCredentials
 
     init(settings: HarvestWidgetSettings) {
         self.oauthCredentials = settings.oauthCredentials
@@ -25,11 +25,15 @@ class HarvestSource: Asynchronous {
         dispatch_async(dispatch_get_main_queue()) {
             let date = NSDate()
             let groups = [
-                HarvestTeamDataGroup(name: "<6.5",  size: 10, averageWorkTime: 16200),
-                HarvestTeamDataGroup(name: "~6.5",  size: 4,  averageWorkTime: 24000),
-                HarvestTeamDataGroup(name: ">6.5",  size: 15, averageWorkTime: 36000),
+                HarvestTeamStatsGroupType.Less:   HarvestTeamStatsGroup(type: .Less,   count: 10, averageWorkTime: 16200),
+                HarvestTeamStatsGroupType.Normal: HarvestTeamStatsGroup(type: .Normal, count: 4,  averageWorkTime: 24000),
+                HarvestTeamStatsGroupType.More:   HarvestTeamStatsGroup(type: .More,   count: 15, averageWorkTime: 36000)
             ]
-            let teamData = HarvestTeamData(date: date, groups: groups)
+            let dailyStats = [
+                HarvestDailyTeamStats(day: date, groups: groups)
+            ]
+
+            let teamData = HarvestTeamStats(updateDate: date, dailyStats: dailyStats)
 
             callback(.Success(teamData))
         }

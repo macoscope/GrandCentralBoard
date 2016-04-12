@@ -9,7 +9,7 @@
 import GrandCentralBoardCore
 
 
-final class HarvestWidget: Widget {
+final class HarvestWidget : Widget {
     let view: UIView
     let sources: [UpdatingSource]
 
@@ -21,11 +21,11 @@ final class HarvestWidget: Widget {
     func update(source: UpdatingSource) {
         guard let source = source as? HarvestSource else { return }
 
-        source.read({ (result: Result<HarvestTeamData>) in
+        source.read({ (result: Result<HarvestTeamStats>) in
             self.updateView(result)
         })
     }
 
-    func updateView(result: Result<HarvestTeamData>) {
+    func updateView(result: Result<HarvestTeamStats>) {
     }
 }

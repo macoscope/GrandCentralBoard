@@ -9,7 +9,7 @@
 import UIKit
 
 
-class HarvestWidgetView: UIView {
+class HarvestWidgetView : UIView {
     class func fromNib() -> HarvestWidgetView {
         return NSBundle.mainBundle().loadNibNamed("HarvestWidgetView", owner: nil, options: nil)[0] as! HarvestWidgetView
     }

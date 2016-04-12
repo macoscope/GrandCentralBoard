@@ -111,7 +111,7 @@
 		F91F00751CBBD83900DAAA77 /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00741CBBD83900DAAA77 /* HarvestWidgetView.swift */; };
 		F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */; };
 		F91F007D1CBBDF2200DAAA77 /* OAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */; };
-		F91F007F1CBBE09200DAAA77 /* HarvestTeamData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007E1CBBE09200DAAA77 /* HarvestTeamData.swift */; };
+		F91F007F1CBBE09200DAAA77 /* HarvestStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007E1CBBE09200DAAA77 /* HarvestStats.swift */; };
 		F94F100A1CBC042400AAA9F5 /* HarvestWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F94F10091CBC042400AAA9F5 /* HarvestWidgetView.xib */; };
 /* End PBXBuildFile section */
 
@@ -250,7 +250,7 @@
 		F91F00741CBBD83900DAAA77 /* HarvestWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetView.swift; sourceTree = "<group>"; };
 		F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetSettings.swift; sourceTree = "<group>"; };
 		F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthCredentials.swift; sourceTree = "<group>"; };
-		F91F007E1CBBE09200DAAA77 /* HarvestTeamData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestTeamData.swift; sourceTree = "<group>"; };
+		F91F007E1CBBE09200DAAA77 /* HarvestStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestStats.swift; sourceTree = "<group>"; };
 		F94F10091CBC042400AAA9F5 /* HarvestWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HarvestWidgetView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -711,7 +711,7 @@
 		F91F00721CBBD6BD00DAAA77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F91F007E1CBBE09200DAAA77 /* HarvestTeamData.swift */,
+				F91F007E1CBBE09200DAAA77 /* HarvestStats.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1013,7 +1013,7 @@
 				06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */,
 				06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */,
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
-				F91F007F1CBBE09200DAAA77 /* HarvestTeamData.swift in Sources */,
+				F91F007F1CBBE09200DAAA77 /* HarvestStats.swift in Sources */,
 				F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
 				F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */,
