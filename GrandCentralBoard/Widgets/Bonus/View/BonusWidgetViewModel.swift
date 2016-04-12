@@ -14,7 +14,7 @@ extension BonusWidgetViewModel {
         var bubbles: [BubbleViewModel] = []
         people.forEach({ person in
             if let lastBonusDate = person.lastBonusDate {
-                bubbles.append(BubbleViewModel(name: person.name, lastBonusDate: lastBonusDate, image: person.image ?? UIImage.generatePlaceholerImage()))
+                bubbles.append(BubbleViewModel(name: person.name, lastBonusDate: lastBonusDate, image: person.image ?? UIImage.generatePlaceholderImage()))
             }
         })
         self.bubbles = bubbles

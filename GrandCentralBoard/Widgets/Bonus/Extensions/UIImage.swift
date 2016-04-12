@@ -19,7 +19,7 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 
-    static func generatePlaceholerImage() -> UIImage {
+    static func generatePlaceholderImage() -> UIImage {
         let size = CGSizeMake(40, 40)
         let rect = CGRectMake(0, 0, size.width, size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
