@@ -6,7 +6,7 @@
 import UIKit
 import GrandCentralBoardCore
 
-private let secondsInDay: NSTimeInterval = 3600
+private let secondsInAnHour: NSTimeInterval = 3600
 
 final class WatchWidget : Widget {
 
@@ -63,7 +63,7 @@ final class WatchWidget : Widget {
 
         let relevantEvents = events?.filter {
             let secondsLeftToEvent = $0.time.timeIntervalSinceDate(NSDate())
-            return secondsLeftToEvent > 0 && secondsLeftToEvent < secondsInDay
+            return secondsLeftToEvent > 0 && secondsLeftToEvent < secondsInAnHour
         }
 
         let event: Event? = relevantEvents?.first
