@@ -20,8 +20,8 @@ extension UIImage {
     }
 
     static func generatePlaceholderImage() -> UIImage {
-        let size = CGSizeMake(40, 40)
-        let rect = CGRectMake(0, 0, size.width, size.height)
+        let size = CGSize(width: 40, height: 40)
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         UIColor.whiteColor().setFill()
         UIRectFill(rect)
