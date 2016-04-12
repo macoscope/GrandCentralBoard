@@ -6,7 +6,6 @@
 import Operations
 import GrandCentralBoardCore
 import Decodable
-import Alamofire
 
 struct GoogleCalendarEventsSourceSettings : Decodable {
     let calendarID: String
