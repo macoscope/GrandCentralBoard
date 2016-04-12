@@ -9,7 +9,8 @@
 import Foundation
 import Result
 
-let kPreferredPeopleCount = 10
+
+private let kPreferredPeopleCount = 10
 
 enum PeopleWithBonususFetchControllerErrors : ErrorType {
     case NetworkError

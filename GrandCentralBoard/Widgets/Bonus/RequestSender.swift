@@ -20,7 +20,7 @@ enum RequestSenderError : ErrorType {
 
 final class RequestSender {
 
-    let configuration: RequestSenderConfiguration
+    private let configuration: RequestSenderConfiguration
 
     init(configuration: RequestSenderConfiguration) {
         self.configuration = configuration
