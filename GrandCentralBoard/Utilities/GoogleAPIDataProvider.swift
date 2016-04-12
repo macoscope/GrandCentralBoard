@@ -22,14 +22,14 @@ protocol APIDataProviding {
 
 final class GoogleAPIDataProvider : APIDataProviding {
 
-    private let tokenProvider: OAuthTokenProviding
+    private let tokenProvider: OAuth2TokenProviding
     private var accessToken: AccessToken?
 
     private let networkRequestManager: NetworkRequestManager
 
     private let operationQueue = OperationQueue()
 
-    init(tokenProvider: OAuthTokenProviding, networkRequestManager: NetworkRequestManager = Manager()) {
+    init(tokenProvider: OAuth2TokenProviding, networkRequestManager: NetworkRequestManager = Manager()) {
         self.tokenProvider = tokenProvider
         self.networkRequestManager = networkRequestManager
     }

@@ -44,7 +44,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
     }()
 
     func fetchEventsForCalendar(calendarID: String, completion: (Result<[EventModel], APIDataError>) -> Void) {
-                let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
+        let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
         guard let url = CalendarAPIAction.GetEvents.URLForCalendar(calendarID) else {
             completion(.Failure(.IncorrectRequestParameters))
             return
