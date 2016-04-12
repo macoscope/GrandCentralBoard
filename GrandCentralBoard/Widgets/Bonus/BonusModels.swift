@@ -102,43 +102,6 @@ extension Person: Decodable {
 
 }
 
-struct Update {
-    let name: String
-    let bonus: Int
-    let date: NSDate
-    let childBonuses: [Update]
-    
-    var totalBonus: Int {
-        return bonus + childBonuses.reduce(0, combine: {return $0 + $1.bonus})
-    }
-}
-
-
-extension Update: Decodable {
-    static let formatter = NSDateFormatter()
-
-    static func decode(j: AnyObject) throws -> Update {
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-
-        let email: String = try j => "receiver" => "email"
-        return try Update(name: email.removeDomainFromEmail(),
-            bonus: j => "amount",
-            date: formatter.dateFromString(j => "created_at") ?? NSDate(),
-            childBonuses: j =>? "child_bonuses" ?? [])
-    }
-
-    static func decodeUpdates(j: AnyObject) throws -> [Update] {
-        return try j => "result" as [Update]
-    }
-
-    static func updatesFromData(data: NSData) throws -> [Update] {
-        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-            return try Update.decodeUpdates(jsonResult)
-        }
-
-        throw DecodeError.WrongFormat
-    }
-}
 
 extension String {
     func removeDomainFromEmail() -> String {
