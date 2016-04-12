@@ -53,7 +53,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
 
         // maxAttendees = 1, because it is a minimal allowed value and we are not interested in
         // attendees
-        let parameters: [String : AnyObject] = ["maxResults" : 10, "orderyBy" : "startTime",
+        let parameters: [String : AnyObject] = ["maxResults" : 10, "orderBy" : "startTime",
                                                 "singleEvents" : "true", "maxAttendees" : 1,
                                                 "timeMin" : timeMin]
 

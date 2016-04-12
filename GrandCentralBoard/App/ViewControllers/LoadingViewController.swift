@@ -7,7 +7,7 @@ import UIKit
 import GrandCentralBoardCore
 
 private let dataDownloader = DataDownloader()
-private let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader), BonusWidgetBuilder(dataDownloader: dataDownloader)]
+private let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader), BonusWidgetBuilder(dataDownloader: dataDownloader), GoogleCalendarWatchWidgetBuilder()]
 private let useLocal = debugBuild
 
 class LoadingViewController: UIViewController {

@@ -25,7 +25,7 @@ struct EventsSourceSettings : Decodable {
     let calendarPath: String
 
     static func decode(json: AnyObject) throws -> EventsSourceSettings {
-        return try EventsSourceSettings(calendarPath: json => "calendarPath")
+        return try EventsSourceSettings(calendarPath: json => "calendar")
     }
 }
 

@@ -13,12 +13,6 @@ final class GoogleCalendarWatchWidgetBuilder : WidgetBuilding {
 
     let name = "googleCalendarWatch"
 
-    private let dataDownloader: DataDownloading
-
-    init(dataDownloader: DataDownloading) {
-        self.dataDownloader = dataDownloader
-    }
-
     func build(settings: AnyObject) throws -> Widget {
         let networkRequestManager = Manager()
 
