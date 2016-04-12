@@ -14,15 +14,23 @@ final class GoogleCalendarWatchWidgetBuilder : WidgetBuilding {
     let name = "googleCalendarWatch"
 
     func build(settings: AnyObject) throws -> Widget {
-        let networkRequestManager = Manager()
-
         let timeSettings = try TimeSourceSettings.decode(settings)
-        let eventsSettings = try GoogleCalendarEventsSourceSettings.decode(settings)
+        let calendarSettings = try GoogleCalendarSourceSettings.decode(settings)
 
+        let networkRequestManager = Manager()
+        let tokenProvider = GoogleTokenProvider(clientID: calendarSettings.clientID,
+                                                clientSecret: calendarSettings.clientSecret,
+                                                refreshToken: calendarSettings.refreshToken)
+        let apiDataProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider, networkRequestManager: networkRequestManager)
+        let calendarDataProvider = GoogleCalendarDataProvider(dataProvider: apiDataProvider)
+
+        let calendarID = calendarSettings.calendarID
+
+        let calendarNameSource = GoogleCalendarNameSource(calendarID: calendarID, dataProvider: calendarDataProvider)
         let timeSource = TimeSource(settings: timeSettings)
-        let eventSource = GoogleCalendarEventsSource(settings: eventsSettings, networkRequestManager: networkRequestManager)
+        let eventSource = GoogleCalendarEventsSource(calendarID: calendarID, dataProvider: calendarDataProvider)
         let view = WatchWidgetView.fromNib()
 
-        return WatchWidget(view: view, sources: [timeSource, eventSource])
+        return WatchWidget(view: view, sources: [timeSource, eventSource, calendarNameSource])
     }
 }

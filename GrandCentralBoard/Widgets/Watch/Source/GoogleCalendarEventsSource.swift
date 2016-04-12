@@ -7,15 +7,15 @@ import Operations
 import GrandCentralBoardCore
 import Decodable
 
-struct GoogleCalendarEventsSourceSettings : Decodable {
+struct GoogleCalendarSourceSettings : Decodable {
     let calendarID: String
     let clientID: String
     let clientSecret: String
     let refreshToken: String
 
 
-    static func decode(jsonObject: AnyObject) throws -> GoogleCalendarEventsSourceSettings {
-        return try GoogleCalendarEventsSourceSettings(calendarID: jsonObject => "calendarID",
+    static func decode(jsonObject: AnyObject) throws -> GoogleCalendarSourceSettings {
+        return try GoogleCalendarSourceSettings(calendarID: jsonObject => "calendarID",
                                         clientID: jsonObject => "clientID",
                                         clientSecret: jsonObject => "clientSecret",
                                         refreshToken: jsonObject => "refreshToken")
@@ -29,11 +29,9 @@ final class GoogleCalendarEventsSource : EventsSource {
 
     private var calendarName: String?
 
-    init(settings: GoogleCalendarEventsSourceSettings, networkRequestManager: NetworkRequestManager) {
-        let tokenProvider = GoogleTokenProvider(clientID: settings.clientID, clientSecret: settings.clientSecret, refreshToken: settings.refreshToken)
-        let apiDataProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider, networkRequestManager: networkRequestManager)
-        self.dataProvider = GoogleCalendarDataProvider(dataProvider: apiDataProvider)
-        self.calendarID = settings.calendarID
+    init(calendarID: String, dataProvider: CalendarDataProviding) {
+        self.dataProvider = dataProvider
+        self.calendarID = calendarID
     }
 
     override func read(closure: (ResultType) -> Void) {

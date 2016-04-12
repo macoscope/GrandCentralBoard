@@ -22,6 +22,7 @@ final class WatchWidget : Widget {
         return widgetView
     }
 
+    private var calendarName: String?
     private var events: [Event]?
     private var lastFetch: NSDate?
 
@@ -31,8 +32,21 @@ final class WatchWidget : Widget {
                 updateTimeFromSource(source)
             case let source as EventsSource:
                 fetchEventsFromSource(source)
+            case let source as CalendarNameSource:
+                fetchCalendarNameFromSource(source)
             default:
                 assertionFailure("Expected `source` as instance of `TimeSource` or `EventsSource`.")
+        }
+    }
+
+    private func fetchCalendarNameFromSource(source: CalendarNameSource) {
+        source.read { [weak self] result in
+            switch result {
+            case .Success(let calendar):
+                self?.calendarName = calendar.name
+            case .Failure:
+                break
+            }
         }
     }
 
@@ -67,7 +81,7 @@ final class WatchWidget : Widget {
         }
 
         let event: Event? = relevantEvents?.first
-        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event, calendarName: "Calendar_name")
+        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event, calendarName: calendarName)
         widgetView.render(timeViewModel)
     }
 }
