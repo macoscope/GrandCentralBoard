@@ -7,7 +7,7 @@
 
 
 import Foundation
-import Result
+import GrandCentralBoardCore
 
 
 enum MethodType {

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import Result
 import Alamofire
+import GrandCentralBoardCore
 
 
 enum RequestSenderError : ErrorType {
@@ -26,7 +26,7 @@ final class RequestSender {
         self.configuration = configuration
     }
 
-    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((ResultType<T.ResultType, RequestSenderError>.result) -> Void)?) -> Void {
+    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void {
         let wrappingRequestTemplate = WrappingRequestTemplate(requestTemplate: requestTemplate, queryParameters: self.configuration.queryParameters)
         let requestBuilder = RequestBuilder<WrappingRequestTemplate<T>>(requestTemplate: wrappingRequestTemplate)
 
@@ -61,9 +61,9 @@ final class RequestSender {
 
         } catch let error {
             if let description = (error as? CustomStringConvertible)?.description {
-                completionBlock?(.Failure(.URLRequestBuildingError(description: description)))
+                completionBlock?(.Failure(RequestSenderError.URLRequestBuildingError(description: description)))
             } else {
-                completionBlock?(.Failure(.URLRequestBuildingError(description: "")))
+                completionBlock?(.Failure(RequestSenderError.URLRequestBuildingError(description: "")))
             }
         }
 

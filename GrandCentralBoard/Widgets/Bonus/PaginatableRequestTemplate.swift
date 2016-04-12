@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Result
 
 
 class PaginatableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplateProtocol {
