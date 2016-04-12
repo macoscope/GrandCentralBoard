@@ -13,7 +13,7 @@ import GrandCentralBoardCore
 enum RequestSenderError : ErrorType {
     case URLRequestBuildingError(description: String)
     case RequestTemplateFinalizationError
-    case SerializationError(error: ErrorType?)
+    case SerializationError
     case NetworkError(error: ErrorType?)
 }
 
@@ -36,26 +36,30 @@ final class RequestSender {
             Alamofire.request(URLRequest).responseData(completionHandler: { response in
                 switch response.result {
                 case .Success(let data):
+                    guard let URLResponse = response.response else {
+                        completionBlock?(.Failure(RequestSenderError.NetworkError(error: nil)))
+                        return
+                    }
                     var result: AnyObject?
                     do {
                         result = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.init(rawValue: 0))
                     } catch {
-                        result = response.result.value
+                        result = data
                     }
                     
                     if let unwrapperResult = result {
                         do {
-                            let processedResult = try requestTemplate.finalizeWithResponse(response.response!, result: unwrapperResult)
+                            let processedResult = try requestTemplate.finalizeWithResponse(URLResponse, result: unwrapperResult)
                             completionBlock?(.Success(processedResult))
-                        } catch {
-                            completionBlock?(.Failure(RequestSenderError.RequestTemplateFinalizationError))
+                        } catch let error {
+                            completionBlock?(.Failure(error))
                         }
                     } else {
-                        completionBlock?(.Failure(RequestSenderError.SerializationError(error: response.result.error)))
+                        completionBlock?(.Failure(RequestSenderError.SerializationError))
                     }
 
                 case .Failure(let error):
-                    completionBlock?(.Failure(RequestSenderError.NetworkError(error: error)))
+                    completionBlock?(.Failure(error))
                 }
             })
 
