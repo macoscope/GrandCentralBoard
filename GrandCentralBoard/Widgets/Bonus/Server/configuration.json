@@ -2,7 +2,7 @@
     "widgets": [
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
                 {"name":"bonus", "settings":  {
-                    "access_token": "enter_real_token_here"
+                    "accessToken": "enter_real_token_here"
                     }
                 },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },

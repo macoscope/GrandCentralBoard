@@ -33,6 +33,6 @@ struct BonusWidgetSettings: Decodable {
     let accessToken: String
     
     static func decode(jsonObject: AnyObject) throws -> BonusWidgetSettings {
-        return try BonusWidgetSettings(accessToken: jsonObject => "access_token")
+        return try BonusWidgetSettings(accessToken: jsonObject => "accessToken")
     }
 }
