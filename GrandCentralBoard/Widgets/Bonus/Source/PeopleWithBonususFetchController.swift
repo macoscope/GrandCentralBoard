@@ -12,7 +12,7 @@ import Result
 
 private let kPreferredPeopleCount = 10
 
-enum PeopleWithBonususFetchControllerErrors : ErrorType {
+enum PeopleWithBonususFetchControllerError : ErrorType {
     case NetworkError
     case IncorrectEmailAddress
     case Cancelled
@@ -27,7 +27,7 @@ final class PeopleWithBonususFetchController {
         self.requestSender = requestSender
     }
 
-    func fetchPeopleWithBonuses(completionBlock: (Result<[Person], PeopleWithBonususFetchControllerErrors>) -> Void) {
+    func fetchPeopleWithBonuses(completionBlock: (Result<[Person], PeopleWithBonususFetchControllerError>) -> Void) {
         fetchPeopleWithBonuses(startingFromDate: NSDate.init(), fetchedBonuses: [], completionBlock: { [weak self] result in
             guard let strongSelf = self else { return }
 
@@ -48,7 +48,7 @@ final class PeopleWithBonususFetchController {
         })
     }
 
-    private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus], completionBlock: (Result<[Person], PeopleWithBonususFetchControllerErrors>) -> Void) {
+    private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus], completionBlock: (Result<[Person], PeopleWithBonususFetchControllerError>) -> Void) {
         let take = 100
         let requestTemplate = TimestampableRequestTemplate<BonusesRequestTemplate>.init(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
         
@@ -82,14 +82,14 @@ final class PeopleWithBonususFetchController {
                 }
 
             case .Failure(_):
-                completionBlock(.Failure(PeopleWithBonususFetchControllerErrors.NetworkError))
+                completionBlock(.Failure(PeopleWithBonususFetchControllerError.NetworkError))
             }
         }
     }
 
-    private func fetchAvatarsForPeople(people: [Person], completionBlock: Result<[Person], PeopleWithBonususFetchControllerErrors> -> Void) {
+    private func fetchAvatarsForPeople(people: [Person], completionBlock: Result<[Person], PeopleWithBonususFetchControllerError> -> Void) {
         var peopleWithImages: [Person]? = [Person]()
-        var groupError: PeopleWithBonususFetchControllerErrors?
+        var groupError: PeopleWithBonususFetchControllerError?
 
         let group = dispatch_group_create()
         for person in people {
@@ -115,9 +115,9 @@ final class PeopleWithBonususFetchController {
         }
     }
 
-    private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Result<Person, PeopleWithBonususFetchControllerErrors>) -> Void) {
+    private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Result<Person, PeopleWithBonususFetchControllerError>) -> Void) {
         guard let requestTemplate = GravatarImageRequesTemplate(email: person.email) else {
-            completionBlock(.Failure(PeopleWithBonususFetchControllerErrors.IncorrectEmailAddress))
+            completionBlock(.Failure(PeopleWithBonususFetchControllerError.IncorrectEmailAddress))
             return
         }
 
@@ -125,8 +125,8 @@ final class PeopleWithBonususFetchController {
             switch result {
             case .Success(let image):
                 completionBlock(.Success(person.copyWithImage(image)))
-            case .Failure:
-                completionBlock(.Failure(PeopleWithBonususFetchControllerErrors.NetworkError))
+            case .Failure(let error):
+                completionBlock(.Failure(PeopleWithBonususFetchControllerError.NetworkError))
             }
         }
     }

@@ -29,7 +29,7 @@ final class BonusesRequestTemplate : BonuslyRequestTemplate<[Bonus]> {
             let bonuses = try Bonus.decodeBonuses(result)
             return bonuses
         } catch {
-            throw RequestTemplateErrors.FinalizeError
+            throw RequestTemplateError.FinalizeError
         }
     }
 

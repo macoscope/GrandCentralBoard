@@ -49,7 +49,7 @@ enum MethodType {
 }
 
 
-enum RequestTemplateErrors : ErrorType {
+enum RequestTemplateError : ErrorType {
     case FinalizeError
 }
 

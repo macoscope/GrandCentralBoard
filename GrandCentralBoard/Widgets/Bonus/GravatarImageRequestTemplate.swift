@@ -23,7 +23,7 @@ final class GravatarImageRequesTemplate : RequestTemplate<UIImage?> {
 
     override func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> UIImage? {
         guard let data = result as? NSData else {
-            throw RequestTemplateErrors.FinalizeError
+            throw RequestTemplateError.FinalizeError
         }
         return UIImage.init(data: data)
     }
