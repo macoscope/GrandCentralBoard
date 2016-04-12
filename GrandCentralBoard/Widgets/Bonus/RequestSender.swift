@@ -46,7 +46,7 @@ final class RequestSender {
                     } catch {
                         result = data
                     }
-                    
+
                     if let unwrappedResult = result {
                         do {
                             let processedResult = try requestTemplate.finalizeWithResponse(URLResponse, result: unwrappedResult)
@@ -64,13 +64,10 @@ final class RequestSender {
             })
 
         } catch let error {
-            if let description = (error as? CustomStringConvertible)?.description {
-                completionBlock?(.Failure(RequestSenderError.URLRequestBuildingError(description: description)))
-            } else {
-                completionBlock?(.Failure(RequestSenderError.URLRequestBuildingError(description: "")))
-            }
+            let description = (error as? CustomStringConvertible)?.description ?? ""
+            completionBlock?(.Failure(RequestSenderError.URLRequestBuildingError(description: description)))
         }
-
+        
     }
-
+    
 }
