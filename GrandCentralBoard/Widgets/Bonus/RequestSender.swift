@@ -47,9 +47,9 @@ final class RequestSender {
                         result = data
                     }
                     
-                    if let unwrapperResult = result {
+                    if let unwrappedResult = result {
                         do {
-                            let processedResult = try requestTemplate.finalizeWithResponse(URLResponse, result: unwrapperResult)
+                            let processedResult = try requestTemplate.finalizeWithResponse(URLResponse, result: unwrappedResult)
                             completionBlock?(.Success(processedResult))
                         } catch let error {
                             completionBlock?(.Failure(error))
