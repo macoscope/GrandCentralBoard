@@ -36,7 +36,7 @@ class PaginatableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplatePr
         get {
             var method = requestTemplate.method
             method.addQueryParameter("skip", value: String(skip))
-            method.addQueryParameter("take", value: String(take))
+            method.addQueryParameter("limit", value: String(take))
             return method
         }
     }
