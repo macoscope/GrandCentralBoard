@@ -16,6 +16,7 @@
 		06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F281CB788FB00B93D90 /* RequestSender.swift */; };
 		06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F291CB788FB00B93D90 /* RequestTemplate.swift */; };
 		06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */; };
+		0692DB911CBD39DC006F46C9 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0692DB901CBD39DC006F46C9 /* Array.swift */; };
 		06DB179E1CB795A500188FCB /* GravatarImageRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */; };
 		06DB17A01CB79E2A00188FCB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DB179F1CB79E2A00188FCB /* String.swift */; };
 		0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2863091CB515CE00C62700 /* UpdateTests.swift */; };
@@ -123,6 +124,7 @@
 		06684F281CB788FB00B93D90 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		06684F291CB788FB00B93D90 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
 		06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampableRequestTemplate.swift; sourceTree = "<group>"; };
+		0692DB901CBD39DC006F46C9 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravatarImageRequestTemplate.swift; sourceTree = "<group>"; };
 		06DB179F1CB79E2A00188FCB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0D2863091CB515CE00C62700 /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTests.swift; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 				494B68DF1C92E97900D460B0 /* Range.swift */,
 				494B68E01C92E97900D460B0 /* UIImage.swift */,
 				06DB179F1CB79E2A00188FCB /* String.swift */,
+				0692DB901CBD39DC006F46C9 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -882,7 +885,6 @@
 				06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */,
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
-				494B68DB1C92E89A00D460B0 /* ImageMappingSource.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
 				062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */,
@@ -912,6 +914,7 @@
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				06DB17A01CB79E2A00188FCB /* String.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */,
+				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,

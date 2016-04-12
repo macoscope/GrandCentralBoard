@@ -43,6 +43,12 @@ class WrappingRequestTemplate<T: RequestTemplateProtocol> : RequestTemplateProto
         }
     }
 
+    var responseResultType: ResponseResultType {
+        get {
+            return requestTemplate.responseResultType
+        }
+    }
+
     func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> T.ResultType {
         return try requestTemplate.finalizeWithResponse(response, result: response)
     }

@@ -47,6 +47,12 @@ class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplate
         }
     }
 
+    var responseResultType: ResponseResultType {
+        get {
+            return requestTemplate.responseResultType
+        }
+    }
+
     func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> T.ResultType {
         return try self.requestTemplate.finalizeWithResponse(response, result: result)
     }

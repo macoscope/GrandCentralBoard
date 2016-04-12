@@ -15,6 +15,7 @@ enum RequestSenderError : ErrorType {
     case RequestTemplateFinalizationError
     case SerializationError
     case NetworkError(error: ErrorType?)
+    case Unknown
 }
 
 
@@ -39,37 +40,43 @@ final class RequestSender {
 
         do {
             let URLRequest = try requestBuilder.buildURLRequest()
+            let request = Alamofire.request(URLRequest)
+            requestsInProgress.append(request)
 
-            let request = Alamofire.request(URLRequest).responseData(completionHandler: { response in
-                switch response.result {
-                case .Success(let data):
-                    guard let URLResponse = response.response else {
-                        completionBlock?(.Failure(RequestSenderError.NetworkError(error: nil)))
-                        return
-                    }
-                    var result: AnyObject?
-                    do {
-                        result = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.init(rawValue: 0))
-                    } catch {
-                        result = data
-                    }
-
-                    if let unwrappedResult = result {
+            switch requestTemplate.responseResultType {
+            case .JSON:
+                    request.responseJSON(completionHandler: { response in
+                    switch response.result {
+                    case .Success(let JSON):
                         do {
-                            let processedResult = try requestTemplate.finalizeWithResponse(URLResponse, result: unwrappedResult)
+                            let processedResult = try requestTemplate.finalizeWithResponse(response.response!, result: JSON)
                             completionBlock?(.Success(processedResult))
                         } catch let error {
                             completionBlock?(.Failure(error))
                         }
-                    } else {
-                        completionBlock?(.Failure(RequestSenderError.SerializationError))
-                    }
 
-                case .Failure(let error):
-                    completionBlock?(.Failure(error))
-                }
-            })
-            requestsInProgress.append(request)
+                    case .Failure(let error):
+                        completionBlock?(.Failure(error))
+                    }
+                })
+
+            case .Data:
+                request.responseData(completionHandler: { response in
+                    self.requestsInProgress.removeObject(request)
+                    switch response.result {
+                    case .Success(let data):
+                        do {
+                            let processedResult = try requestTemplate.finalizeWithResponse(response.response!, result: data)
+                            completionBlock?(.Success(processedResult))
+                        } catch let error {
+                            completionBlock?(.Failure(error))
+                        }
+
+                    case .Failure(let error):
+                        completionBlock?(.Failure(error))
+                    }
+                })
+            }
 
         } catch let error {
             let description = (error as? CustomStringConvertible)?.description ?? ""
@@ -78,4 +85,13 @@ final class RequestSender {
         
     }
     
+}
+
+
+extension Request: Equatable {
+
+}
+
+public func ==(lhs: Request, rhs: Request) -> Bool {
+    return lhs.request == rhs.request
 }

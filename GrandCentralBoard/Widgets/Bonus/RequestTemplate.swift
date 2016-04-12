@@ -48,6 +48,11 @@ enum MethodType {
     }
 }
 
+enum ResponseResultType {
+    case JSON
+    case Data
+}
+
 
 enum RequestTemplateError : ErrorType {
     case FinalizeError
@@ -60,6 +65,7 @@ protocol RequestTemplateProtocol {
     var method: MethodType { get }
     var path: String { get }
     var baseURL: NSURL { get }
+    var responseResultType: ResponseResultType { get }
 
     func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> ResultType
 }
@@ -69,11 +75,13 @@ class RequestTemplate<ResultType>: RequestTemplateProtocol {
     let path: String
     let method: MethodType
     let baseURL: NSURL
+    let responseResultType: ResponseResultType
 
-    init(baseURL: NSURL, path: String, method: MethodType) {
+    init(baseURL: NSURL, path: String, method: MethodType, responseResultType: ResponseResultType) {
         self.baseURL = baseURL
         self.path = path
         self.method = method
+        self.responseResultType = responseResultType
     }
 
     func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> ResultType {
