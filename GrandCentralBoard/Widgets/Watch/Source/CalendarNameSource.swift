@@ -12,18 +12,16 @@ final class CalendarNameSource : Asynchronous {
     typealias ResultType = Result<Calendar>
     let sourceType: SourceType = .Momentary
 
-    let calendarID: String
     let interval: NSTimeInterval
     let dataProvider: CalendarDataProviding
 
-    init(calendarID: String, dataProvider: CalendarDataProviding, refreshInterval: NSTimeInterval = 3600*24) {
-        self.calendarID = calendarID
+    init(dataProvider: CalendarDataProviding, refreshInterval: NSTimeInterval = 3600*24) {
         self.interval = refreshInterval
         self.dataProvider = dataProvider
     }
 
     func read(closure: (ResultType) -> Void) {
-        dataProvider.fetchCalendar(calendarID) { result in
+        dataProvider.fetchCalendar { result in
             switch result {
             case .Success(let calendar): closure(.Success(calendar))
             case .Failure(let error): closure(.Failure(error))

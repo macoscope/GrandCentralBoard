@@ -10,8 +10,8 @@ import Foundation
 import Result
 
 protocol CalendarDataProviding {
-    func fetchEventsForCalendar(calendarID: String, completion: (Result<[Event], APIDataError>) -> Void)
-    func fetchCalendar(calendarID: String, completion: (Result<Calendar, APIDataError>) -> Void)
+    func fetchEventsForCalendar(completion: (Result<[Event], APIDataError>) -> Void)
+    func fetchCalendar(completion: (Result<Calendar, APIDataError>) -> Void)
 }
 
 private enum CalendarAPIAction : String {
@@ -27,9 +27,11 @@ private enum CalendarAPIAction : String {
 
 final class GoogleCalendarDataProvider : CalendarDataProviding {
 
-    let dataProvider: APIDataProviding
+    private let dataProvider: APIDataProviding
+    let calendarID: String
 
-    init(dataProvider: APIDataProviding) {
+    init(calendarID: String, dataProvider: APIDataProviding) {
+        self.calendarID = calendarID
         self.dataProvider = dataProvider
     }
 
@@ -40,7 +42,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
     }()
 
 
-    func fetchEventsForCalendar(calendarID: String, completion: (Result<[Event], APIDataError>) -> Void) {
+    func fetchEventsForCalendar(completion: (Result<[Event], APIDataError>) -> Void) {
                 let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
         guard let url = CalendarAPIAction.GetEvents.URLForCalendar(calendarID) else {
             completion(.Failure(.IncorrectRequestParameters))
@@ -68,7 +70,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
         }
     }
 
-    func fetchCalendar(calendarID: String, completion: (Result<Calendar, APIDataError>) -> Void) {
+    func fetchCalendar(completion: (Result<Calendar, APIDataError>) -> Void) {
         guard let url = CalendarAPIAction.GetDetails.URLForCalendar(calendarID) else {
             completion(.Failure(.IncorrectRequestParameters))
             return

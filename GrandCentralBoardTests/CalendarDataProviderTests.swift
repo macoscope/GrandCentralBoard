@@ -33,7 +33,7 @@ class TestAPIDataProvider : APIDataProviding {
 
 class CalendarDataProviderTests : XCTestCase {
 
-    let calendarDataProvider = GoogleCalendarDataProvider(dataProvider: TestAPIDataProvider())
+    let calendarDataProvider = GoogleCalendarDataProvider(calendarID: "id", dataProvider: TestAPIDataProvider())
     private static let dateFormatter: NSDateFormatter =  {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -42,7 +42,7 @@ class CalendarDataProviderTests : XCTestCase {
 
     func testCalendarDataDeserialization() {
 
-        calendarDataProvider.fetchCalendar("id") { (result) in
+        calendarDataProvider.fetchCalendar { (result) in
             switch result {
             case .Success(let calendar):
                 XCTAssertEqual(calendarDictionary["summary"], calendar.name)
@@ -54,7 +54,7 @@ class CalendarDataProviderTests : XCTestCase {
 
     func testCalendarEventsDeserialization() {
 
-        calendarDataProvider.fetchEventsForCalendar("id") { (result) in
+        calendarDataProvider.fetchEventsForCalendar { (result) in
             switch result {
             case .Success(let events):
                 let eventItems = eventsDictionary["items"] as! [NSDictionary]

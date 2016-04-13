@@ -30,7 +30,7 @@ final class JSONCalendarDataProvider : CalendarDataProviding {
         self.dataDownloader = dataDownloader
     }
 
-    func fetchEventsForCalendar(calendarID: String, completion: (ResultType<[Event], APIDataError>.result) -> Void) {
+    func fetchEventsForCalendar(completion: (ResultType<[Event], APIDataError>.result) -> Void) {
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
             case .Success(let data):
@@ -45,7 +45,7 @@ final class JSONCalendarDataProvider : CalendarDataProviding {
         }
     }
 
-    func fetchCalendar(calendarID: String, completion: (ResultType<Calendar, APIDataError>.result) -> Void) {
+    func fetchCalendar(completion: (ResultType<Calendar, APIDataError>.result) -> Void) {
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
             case .Success(let data):

@@ -23,8 +23,8 @@ final class WatchWidgetBuilder : WidgetBuilding {
         let timeSource = TimeSource(settings: timeSettings)
 
         let dataProvider = JSONCalendarDataProvider(path: eventsSettings.calendarPath, dataDownloader: dataDownloader)
-        let eventsSource = EventsSource(calendarID: "", dataProvider: dataProvider)
-        let calendarNameSource = CalendarNameSource(calendarID: "", dataProvider: dataProvider)
+        let eventsSource = EventsSource(dataProvider: dataProvider)
+        let calendarNameSource = CalendarNameSource(dataProvider: dataProvider)
 
         let view = WatchWidgetView.fromNib()
 
