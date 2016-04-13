@@ -63,18 +63,7 @@ final class PeopleWithBonususFetchController {
                 var allBonuses: [Bonus] = fetchedBonuses.reverse()
                 allBonuses.appendContentsOf(bonuses)
 
-                let people = allBonuses.reduce(Set<Person>(), combine: { people, bonus in
-                    if people.count >= kPreferredPeopleCount {
-                        return people
-                    } else {
-                        var mutablePeople = people
-                        var receiver = bonus.receiver
-                        receiver = receiver.copyWithLastBonusDate(bonus.date)
-                        mutablePeople.insert(receiver)
-                        return mutablePeople
-                    }
-                })
-
+                let people = allBonuses.uniqueReceivers(kPreferredPeopleCount)
                 if people.count >= kPreferredPeopleCount || bonuses.count < take {
                     completionBlock(.Success(Array(people)))
                 } else if let lastBonus = bonuses.last {
@@ -131,4 +120,27 @@ final class PeopleWithBonususFetchController {
         }
     }
     
+}
+
+
+extension SequenceType where Generator.Element == Bonus {
+
+    func uniqueReceivers(maximumNumberOfReceivers: Int) -> [Person] {
+        return reduce([Person](), combine: { people, bonus in
+            if people.count >= kPreferredPeopleCount {
+                return people
+            } else {
+                var receiver = bonus.receiver
+                if people.contains(receiver) {
+                    return people
+                } else {
+                    var mutablePeople = people
+                    receiver = receiver.copyWithLastBonusDate(bonus.date)
+                    mutablePeople.append(receiver)
+                    return mutablePeople
+                }
+            }
+        })
+    }
+
 }
