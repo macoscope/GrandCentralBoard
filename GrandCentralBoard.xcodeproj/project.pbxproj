@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062B00911CBA9A800034C13C /* RequestSenderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062B00901CBA9A800034C13C /* RequestSenderConfiguration.swift */; };
+		062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */; };
+		06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */; };
+		06684F2B1CB788FB00B93D90 /* BonuslyRequestTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */; };
+		06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */; };
+		06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F271CB788FB00B93D90 /* RequestBuilder.swift */; };
+		06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F281CB788FB00B93D90 /* RequestSender.swift */; };
+		06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F291CB788FB00B93D90 /* RequestTemplate.swift */; };
+		06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */; };
+		067DA5451CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5441CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift */; };
+		067DA5471CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */; };
+		0692DB911CBD39DC006F46C9 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0692DB901CBD39DC006F46C9 /* Array.swift */; };
+		06DB179E1CB795A500188FCB /* GravatarImageRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */; };
+		06DB17A01CB79E2A00188FCB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DB179F1CB79E2A00188FCB /* String.swift */; };
 		0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2863091CB515CE00C62700 /* UpdateTests.swift */; };
 		0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D28630B1CB516B400C62700 /* UpdatesTests.json */; };
 		0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */; };
@@ -48,8 +62,6 @@
 		1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */; };
 		1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AA97DE41CA2DE720058DBCE /* configuration.json */; };
 		1AA97DE91CA2E0C80058DBCE /* calendar.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AA97DE81CA2E0C80058DBCE /* calendar.json */; };
-		1AAC29FA1C7F49FD0045BF1A /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */; };
-		1AAC29FA1C7F49FD0045BF1A /* GoogleCalendarEventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC29F91C7F49FD0045BF1A /* GoogleCalendarEventsSource.swift */; };
 		1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC247BB1C834E4900A179CB /* LoadingViewController.swift */; };
 		1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC247BD1C83517600A179CB /* Storyboards.swift */; };
 		1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */; };
@@ -70,10 +82,7 @@
 		494B68CF1C92E89A00D460B0 /* BonusScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 494B68BA1C92E89A00D460B0 /* BonusScene.sks */; };
 		494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68BB1C92E89A00D460B0 /* BonusScene.swift */; };
 		494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68BD1C92E89A00D460B0 /* Bubble.swift */; };
-		494B68D41C92E89A00D460B0 /* aaa.png in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C01C92E89A00D460B0 /* aaa.png */; };
-		494B68D51C92E89A00D460B0 /* bbb.png in Resources */ = {isa = PBXBuildFile; fileRef = 494B68C11C92E89A00D460B0 /* bbb.png */; };
 		494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C71C92E89A00D460B0 /* BonusSource.swift */; };
-		494B68DB1C92E89A00D460B0 /* ImageMappingSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */; };
 		494B68E11C92E97900D460B0 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DE1C92E97900D460B0 /* NSDate.swift */; };
 		494B68E21C92E97900D460B0 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DF1C92E97900D460B0 /* Range.swift */; };
 		494B68E31C92E97900D460B0 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68E01C92E97900D460B0 /* UIImage.swift */; };
@@ -89,9 +98,11 @@
 		5274A49B1CB6A6E9005FD847 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A49A1CB6A6E9005FD847 /* Event.swift */; };
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
-		52FB50501CBC051B0053DE8B /* RemoteEventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* RemoteEventsSource.swift */; };
-		52FB50561CBD2E4B0053DE8B /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50551CBD2E4B0053DE8B /* EventsSource.swift */; };
+		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
+		52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB505F1CBE5B570053DE8B /* SourceSettings.swift */; };
+		52FB50621CBE862D0053DE8B /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50551CBD2E4B0053DE8B /* EventsSource.swift */; };
+		52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB505D1CBD5AB10053DE8B /* CalendarNameSource.swift */; };
 		A51416475F94A413FB85F63B /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */; };
 		E522BDB69BF4C217BDC7B691 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4597498FBEF6B18712C28B /* Pods_GrandCentralBoardTests.framework */; };
 /* End PBXBuildFile section */
@@ -114,6 +125,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		062B00901CBA9A800034C13C /* RequestSenderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSenderConfiguration.swift; sourceTree = "<group>"; };
+		062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrappingRequestTemplate.swift; sourceTree = "<group>"; };
+		06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleWithBonususFetchController.swift; sourceTree = "<group>"; };
+		06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonuslyRequestTemplates.swift; sourceTree = "<group>"; };
+		06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatableRequestTemplate.swift; sourceTree = "<group>"; };
+		06684F271CB788FB00B93D90 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		06684F281CB788FB00B93D90 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
+		06684F291CB788FB00B93D90 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
+		06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampableRequestTemplate.swift; sourceTree = "<group>"; };
+		067DA5441CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidgetBuilder.swift; sourceTree = "<group>"; };
+		067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidget.swift; sourceTree = "<group>"; };
+		0692DB901CBD39DC006F46C9 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravatarImageRequestTemplate.swift; sourceTree = "<group>"; };
+		06DB179F1CB79E2A00188FCB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		0D2863091CB515CE00C62700 /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTests.swift; sourceTree = "<group>"; };
 		0D28630B1CB516B400C62700 /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdatesTests.json; sourceTree = "<group>"; };
 		0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingAnimator.swift; sourceTree = "<group>"; };
@@ -161,8 +186,6 @@
 		1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashingAnimationController.swift; sourceTree = "<group>"; };
 		1AA97DE41CA2DE720058DBCE /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = SOURCE_ROOT; };
 		1AA97DE81CA2E0C80058DBCE /* calendar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calendar.json; sourceTree = "<group>"; };
-		1AAC29F91C7F49FD0045BF1A /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
-		1AAC29F91C7F49FD0045BF1A /* GoogleCalendarEventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarEventsSource.swift; sourceTree = "<group>"; };
 		1AC247BB1C834E4900A179CB /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		1AC247BD1C83517600A179CB /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		1AD5EA931C7B819D00210BB9 /* ImageWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetView.swift; sourceTree = "<group>"; };
@@ -184,13 +207,9 @@
 		494B68BA1C92E89A00D460B0 /* BonusScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BonusScene.sks; sourceTree = "<group>"; };
 		494B68BB1C92E89A00D460B0 /* BonusScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusScene.swift; sourceTree = "<group>"; };
 		494B68BD1C92E89A00D460B0 /* Bubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
-		494B68C01C92E89A00D460B0 /* aaa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aaa.png; sourceTree = "<group>"; };
-		494B68C11C92E89A00D460B0 /* bbb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bbb.png; sourceTree = "<group>"; };
 		494B68C21C92E89A00D460B0 /* bonusly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bonusly.json; sourceTree = "<group>"; };
 		494B68C31C92E89A00D460B0 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
-		494B68C41C92E89A00D460B0 /* mapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapping.json; sourceTree = "<group>"; };
 		494B68C71C92E89A00D460B0 /* BonusSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusSource.swift; sourceTree = "<group>"; };
-		494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMappingSource.swift; sourceTree = "<group>"; };
 		494B68DE1C92E97900D460B0 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		494B68DF1C92E97900D460B0 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		494B68E01C92E97900D460B0 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -201,14 +220,16 @@
 		5274A48D1CB69AE9005FD847 /* NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkRequestManager.swift; path = Utilities/NetworkRequestManager.swift; sourceTree = "<group>"; };
 		5274A48E1CB69AE9005FD847 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultType.swift; path = Utilities/ResultType.swift; sourceTree = "<group>"; };
 		5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+NetworkRequestManager.swift"; path = "Extensions/Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
-		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
+		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleCalendarDataProvider.swift; path = ../Server/GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
 		5274A4981CB69DAC005FD847 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Server/Calendar.swift; sourceTree = "<group>"; };
 		5274A49A1CB6A6E9005FD847 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Server/Event.swift; sourceTree = "<group>"; };
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
-		52FB504F1CBC051B0053DE8B /* RemoteEventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteEventsSource.swift; sourceTree = "<group>"; };
+		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
 		52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarWatchWidgetBuilder.swift; sourceTree = "<group>"; };
+		52FB505D1CBD5AB10053DE8B /* CalendarNameSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarNameSource.swift; sourceTree = "<group>"; };
+		52FB505F1CBE5B570053DE8B /* SourceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSettings.swift; sourceTree = "<group>"; };
 		6D4597498FBEF6B18712C28B /* Pods_GrandCentralBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +265,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06684F241CB788DC00B93D90 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				06DB179C1CB78D9D00188FCB /* RequestTemplate */,
+				06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */,
+				06684F271CB788FB00B93D90 /* RequestBuilder.swift */,
+				06684F281CB788FB00B93D90 /* RequestSender.swift */,
+				06684F291CB788FB00B93D90 /* RequestTemplate.swift */,
+				06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */,
+				062B00901CBA9A800034C13C /* RequestSenderConfiguration.swift */,
+				062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		067DA5411CBE5CE400048E6A /* WebsiteAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				067DA5431CBE5D1800048E6A /* View */,
+				067DA5441CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift */,
+				067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */,
+			);
+			path = WebsiteAnalytics;
+			sourceTree = "<group>";
+		};
+		067DA5431CBE5D1800048E6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		06DB179C1CB78D9D00188FCB /* RequestTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */,
+				06DB179D1CB795A500188FCB /* GravatarImageRequestTemplate.swift */,
+			);
+			name = RequestTemplate;
+			sourceTree = "<group>";
+		};
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +391,7 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				067DA5411CBE5CE400048E6A /* WebsiteAnalytics */,
 				494B68B21C92E89A00D460B0 /* Bonus */,
 				1AD5EA921C7B819D00210BB9 /* Image */,
 				1AD5EA971C7B826A00210BB9 /* Watch */,
@@ -422,7 +485,6 @@
 			isa = PBXGroup;
 			children = (
 				1AA97DE81CA2E0C80058DBCE /* calendar.json */,
-				5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -430,10 +492,12 @@
 		1AAC29FB1C80F54F0045BF1A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */,
+				52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */,
 				52FB50551CBD2E4B0053DE8B /* EventsSource.swift */,
-				52FB504F1CBC051B0053DE8B /* RemoteEventsSource.swift */,
-				1AAC29F91C7F49FD0045BF1A /* GoogleCalendarEventsSource.swift */,
+				52FB505D1CBD5AB10053DE8B /* CalendarNameSource.swift */,
 				1AD5EA9E1C7C6DE300210BB9 /* TimeSource.swift */,
+				52FB505F1CBE5B570053DE8B /* SourceSettings.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -504,6 +568,7 @@
 		494B68B21C92E89A00D460B0 /* Bonus */ = {
 			isa = PBXGroup;
 			children = (
+				06684F241CB788DC00B93D90 /* Networking */,
 				494B68DD1C92E95B00D460B0 /* Extensions */,
 				494B68B91C92E89A00D460B0 /* Scene */,
 				494B68BF1C92E89A00D460B0 /* Server */,
@@ -530,11 +595,8 @@
 		494B68BF1C92E89A00D460B0 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				494B68C01C92E89A00D460B0 /* aaa.png */,
-				494B68C11C92E89A00D460B0 /* bbb.png */,
 				494B68C21C92E89A00D460B0 /* bonusly.json */,
 				494B68C31C92E89A00D460B0 /* configuration.json */,
-				494B68C41C92E89A00D460B0 /* mapping.json */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -543,7 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				494B68C71C92E89A00D460B0 /* BonusSource.swift */,
-				494B68C81C92E89A00D460B0 /* ImageMappingSource.swift */,
+				06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -565,6 +627,8 @@
 				494B68DE1C92E97900D460B0 /* NSDate.swift */,
 				494B68DF1C92E97900D460B0 /* Range.swift */,
 				494B68E01C92E97900D460B0 /* UIImage.swift */,
+				06DB179F1CB79E2A00188FCB /* String.swift */,
+				0692DB901CBD39DC006F46C9 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -725,7 +789,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494B68D51C92E89A00D460B0 /* bbb.png in Resources */,
 				1A60367E1C7F161D0034EFE9 /* SF-UI-Text-Bold.otf in Resources */,
 				1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */,
 				1A6036831C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf in Resources */,
@@ -754,7 +817,6 @@
 				1AD5EA9B1C7B828200210BB9 /* WatchWidgetView.xib in Resources */,
 				1A6036771C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf in Resources */,
 				1A6036821C7F161D0034EFE9 /* SF-UI-Text-Light.otf in Resources */,
-				494B68D41C92E89A00D460B0 /* aaa.png in Resources */,
 				494B68CF1C92E89A00D460B0 /* BonusScene.sks in Resources */,
 				1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */,
 			);
@@ -878,46 +940,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				067DA5471CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift in Sources */,
+				06684F2B1CB788FB00B93D90 /* BonuslyRequestTemplates.swift in Sources */,
 				5274A4921CB69AE9005FD847 /* NetworkRequestManager.swift in Sources */,
 				494B68CE1C92E89A00D460B0 /* BonusWidgetViewModel.swift in Sources */,
+				06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */,
+				06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */,
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
-				494B68DB1C92E89A00D460B0 /* ImageMappingSource.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
-				52FB50561CBD2E4B0053DE8B /* EventsSource.swift in Sources */,
+				067DA5451CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift in Sources */,
+				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
+				062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */,
 				494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */,
+				062B00911CBA9A800034C13C /* RequestSenderConfiguration.swift in Sources */,
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
-				1AAC29FA1C7F49FD0045BF1A /* GoogleCalendarEventsSource.swift in Sources */,
 				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
 				5274A49B1CB6A6E9005FD847 /* Event.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
+				52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */,
+				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
+				06DB179E1CB795A500188FCB /* GravatarImageRequestTemplate.swift in Sources */,
 				494B68CC1C92E89A00D460B0 /* BonusWidgetView.swift in Sources */,
+				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				5274A4991CB69DAC005FD847 /* Calendar.swift in Sources */,
+				52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */,
 				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
 				5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */,
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
+				06DB17A01CB79E2A00188FCB /* String.swift in Sources */,
+				06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */,
+				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
+				52FB50621CBE862D0053DE8B /* EventsSource.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
-				52FB50501CBC051B0053DE8B /* RemoteEventsSource.swift in Sources */,
+				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
-				52FB505A1CBD385B0053DE8B /* GoogleCalendarEventsSource.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

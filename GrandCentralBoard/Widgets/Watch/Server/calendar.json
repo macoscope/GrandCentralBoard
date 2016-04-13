@@ -1,4 +1,5 @@
 {
+    "summary": "Calendar name",
 	"items": [ 
         {"start" : { "dateTime": "2016-03-23T12:16:00+01:00"}, "summary" : "BLAX Daily"},
 		{"start" : { "dateTime": "2016-03-23T12:26:00+01:00"}, "summary" : "BLAX Retro"},
