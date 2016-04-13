@@ -37,6 +37,7 @@ class CalendarDataProviderTests : XCTestCase {
     private static let dateFormatter: NSDateFormatter =  {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()
 
