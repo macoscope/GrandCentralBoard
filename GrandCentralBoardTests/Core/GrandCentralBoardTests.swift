@@ -98,7 +98,7 @@ class GrandCentralBoardTests: XCTestCase {
         XCTAssertEqual(stackingMock.stackedViews.count, 6)
     }
 
-    func testScheduledTwelveJobsWhenWidgetsConfigurationIsCorrect() {
+    func testScheduledEighteenJobsWhenWidgetsConfigurationIsCorrect() {
 
         final class SchedulingMock : SchedulingJobs {
 
@@ -113,7 +113,7 @@ class GrandCentralBoardTests: XCTestCase {
 
         let _ = try! GrandCentralBoard(configuration: config, scheduler: schedulingMock, stack: stack)
 
-        XCTAssertEqual(schedulingMock.jobs.count, 12)
+        XCTAssertEqual(schedulingMock.jobs.count, 18)
     }
 
 }
