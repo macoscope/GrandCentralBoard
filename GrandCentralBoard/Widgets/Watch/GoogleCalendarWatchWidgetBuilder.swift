@@ -26,11 +26,11 @@ final class GoogleCalendarWatchWidgetBuilder : WidgetBuilding {
 
         let calendarID = calendarSettings.calendarID
 
-        let calendarNameSource = GoogleCalendarNameSource(calendarID: calendarID, dataProvider: calendarDataProvider)
+        let calendarNameSource = CalendarNameSource(calendarID: calendarID, dataProvider: calendarDataProvider)
         let timeSource = TimeSource(settings: timeSettings)
-        let eventSource = GoogleCalendarEventsSource(calendarID: calendarID, dataProvider: calendarDataProvider)
+        let eventsSource = EventsSource(calendarID: calendarID, dataProvider: calendarDataProvider)
         let view = WatchWidgetView.fromNib()
 
-        return WatchWidget(view: view, sources: [timeSource, eventSource, calendarNameSource])
+        return WatchWidget(view: view, sources: [timeSource, eventsSource, calendarNameSource])
     }
 }

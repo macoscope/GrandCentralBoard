@@ -36,7 +36,7 @@ struct Event : Decodable {
     }
 
     static func decodeArrayFromData(data: NSData) throws -> [Event] {
-        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary {
             return try Event.decodeArray(jsonResult)
         }
 

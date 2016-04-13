@@ -8,13 +8,26 @@
 
 import GrandCentralBoardCore
 
-class CalendarNameSource : Asynchronous {
+final class CalendarNameSource : Asynchronous {
     typealias ResultType = Result<Calendar>
-
-    let interval: NSTimeInterval = 3600*24
     let sourceType: SourceType = .Momentary
 
+    let calendarID: String
+    let interval: NSTimeInterval
+    let dataProvider: CalendarDataProviding
+
+    init(calendarID: String, dataProvider: CalendarDataProviding, refreshInterval: NSTimeInterval = 3600*24) {
+        self.calendarID = calendarID
+        self.interval = refreshInterval
+        self.dataProvider = dataProvider
+    }
+
     func read(closure: (ResultType) -> Void) {
-        fatalError("Not implemented")
+        dataProvider.fetchCalendar(calendarID) { result in
+            switch result {
+            case .Success(let calendar): closure(.Success(calendar))
+            case .Failure(let error): closure(.Failure(error))
+            }
+        }
     }
 }
