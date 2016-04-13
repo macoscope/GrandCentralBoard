@@ -10,7 +10,7 @@ import GrandCentralBoardCore
 
 
 final class HarvestSource : Asynchronous {
-    typealias ResultType = Result<HarvestTeamStats>
+    typealias ResultType = Result<[DailyBillingStats]>
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
 
@@ -23,19 +23,14 @@ final class HarvestSource : Asynchronous {
 
     func read(callback: (ResultType) -> Void) {
         dispatch_async(dispatch_get_main_queue()) {
-            let date = NSDate()
             let groups = [
-                HarvestTeamStatsGroupType.Less:   HarvestTeamStatsGroup(type: .Less,   count: 10, averageWorkTime: 16200),
-                HarvestTeamStatsGroupType.Normal: HarvestTeamStatsGroup(type: .Normal, count: 4,  averageWorkTime: 24000),
-                HarvestTeamStatsGroupType.More:   HarvestTeamStatsGroup(type: .More,   count: 15, averageWorkTime: 36000)
+                BillingStatsGroup(type: .Less,   count: 10, averageHours: 4.5),
+                BillingStatsGroup(type: .Normal, count: 4,  averageHours: 6.4),
+                BillingStatsGroup(type: .More,   count: 15, averageHours: 8.1)
             ]
-            let dailyStats = [
-                HarvestDailyTeamStats(day: date, groups: groups)
-            ]
+            let dailyStats = DailyBillingStats(day: NSDate(), groups: groups)
 
-            let teamData = HarvestTeamStats(updateDate: date, dailyStats: dailyStats)
-
-            callback(.Success(teamData))
+            callback(.Success([dailyStats]))
         }
     }
 }

@@ -21,11 +21,11 @@ final class HarvestWidget : Widget {
     func update(source: UpdatingSource) {
         guard let source = source as? HarvestSource else { return }
 
-        source.read({ (result: Result<HarvestTeamStats>) in
+        source.read({ result in
             self.updateView(result)
         })
     }
 
-    func updateView(result: Result<HarvestTeamStats>) {
+    func updateView(result: HarvestSource.ResultType) {
     }
 }

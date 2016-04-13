@@ -111,8 +111,9 @@
 		F91F00751CBBD83900DAAA77 /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00741CBBD83900DAAA77 /* HarvestWidgetView.swift */; };
 		F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */; };
 		F91F007D1CBBDF2200DAAA77 /* OAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */; };
-		F91F007F1CBBE09200DAAA77 /* HarvestStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007E1CBBE09200DAAA77 /* HarvestStats.swift */; };
 		F94F100A1CBC042400AAA9F5 /* HarvestWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F94F10091CBC042400AAA9F5 /* HarvestWidgetView.xib */; };
+		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
+		F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,8 +251,9 @@
 		F91F00741CBBD83900DAAA77 /* HarvestWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetView.swift; sourceTree = "<group>"; };
 		F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetSettings.swift; sourceTree = "<group>"; };
 		F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthCredentials.swift; sourceTree = "<group>"; };
-		F91F007E1CBBE09200DAAA77 /* HarvestStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestStats.swift; sourceTree = "<group>"; };
 		F94F10091CBC042400AAA9F5 /* HarvestWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HarvestWidgetView.xib; sourceTree = "<group>"; };
+		F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingStatsGroup.swift; sourceTree = "<group>"; };
+		F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -711,7 +713,8 @@
 		F91F00721CBBD6BD00DAAA77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F91F007E1CBBE09200DAAA77 /* HarvestStats.swift */,
+				F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */,
+				F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1013,7 +1016,6 @@
 				06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */,
 				06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */,
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
-				F91F007F1CBBE09200DAAA77 /* HarvestStats.swift in Sources */,
 				F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
 				F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */,
@@ -1034,6 +1036,7 @@
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
+				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
 				06DB179E1CB795A500188FCB /* GravatarImageRequestTemplate.swift in Sources */,
@@ -1065,6 +1068,7 @@
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
+				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
