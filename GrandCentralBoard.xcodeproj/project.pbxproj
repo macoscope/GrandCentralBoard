@@ -942,6 +942,7 @@
 			buildConfigurationList = 1A242D421C357C2700D5BEE5 /* Build configuration list for PBXNativeTarget "GrandCentralBoard" */;
 			buildPhases = (
 				59E306AAC48E78193F9B1DC5 /* Check Pods Manifest.lock */,
+				C1237CFD1CBF009800B7AEEE /* SwiftLint */,
 				1A242D191C357C2700D5BEE5 /* Sources */,
 				1A242D1A1C357C2700D5BEE5 /* Frameworks */,
 				1A242D1B1C357C2700D5BEE5 /* Resources */,
@@ -1196,6 +1197,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C1237CFD1CBF009800B7AEEE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
