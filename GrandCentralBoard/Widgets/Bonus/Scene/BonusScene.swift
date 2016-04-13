@@ -37,9 +37,27 @@ class BonusScene: SKScene {
             world.addChild(bubble)
         }
     }
+
+    override func update(currentTime: NSTimeInterval) {
+        guard !world.children.isEmpty else { return }
+
+        let calculatedAccumulatedFrame = world.calculateAccumulatedFrame()
+        let nodesFitScreen = CGRectContainsRect(frame, calculatedAccumulatedFrame)
+        let nodesToSmall = frame.width > calculatedAccumulatedFrame.width * 1.25 && frame.height > calculatedAccumulatedFrame.height * 1.25
+        if !nodesFitScreen {
+            scaleBubblesDown()
+        } else if (nodesToSmall) {
+            scaleBubblesUp()
+        }
+    }
     
     private func updateWithViewModel(viewModel: BonusWidgetViewModel) {
         self.viewModel = viewModel
+        addOrUpdateBubbles()
+        removeOldBubbleIfNecessary()
+    }
+
+    private func addOrUpdateBubbles() {
         for bubbleViewModel in viewModel.bubbles {
             guard let bubble = world.childNodeWithName(bubbleViewModel.name) as? Bubble else {
                 let newBubble = Bubble(bubbleViewModel: bubbleViewModel)
@@ -48,11 +66,24 @@ class BonusScene: SKScene {
                 continue
             }
 
-            bubble.updateWithNewBonus(bubbleViewModel.bonus)
+            bubble.updateWithLastBonusDate(bubbleViewModel.lastBonusDate)
             bubble.updateImage(bubbleViewModel.image)
         }
     }
-    
+
+    private func removeOldBubbleIfNecessary() {
+        for node in world.children {
+            guard let bubble = node as? Bubble else {
+                continue
+            }
+
+            let bubbleExistsInNewestViewModel = viewModel.bubbles.contains({ return $0.name == bubble.name })
+            if !bubbleExistsInNewestViewModel {
+                bubble.removeFromParent()
+            }
+        }
+    }
+
     private func randomPosition() -> CGPoint {
         let topRightPoint = CGPoint(x: size.width / 2, y: size.height / 2)
         let widthRange = Int(-topRightPoint.x) ... Int(topRightPoint.x)
@@ -75,19 +106,18 @@ class BonusScene: SKScene {
         gravityNode?.position = CGPointZero
         gravityNode?.runAction(pokeAction)
     }
-    
-    override func update(currentTime: NSTimeInterval) {
-        guard !world.children.isEmpty else { return }
-        
-        let nodesFitScreen = CGRectContainsRect(frame, world.calculateAccumulatedFrame())
-        if !nodesFitScreen {
-            scaleBubblesDown()
-        }
-    }
-    
+
     private func scaleBubblesDown() {
+        scaleBubbles(1.02)
+    }
+
+    private func scaleBubblesUp() {
+        scaleBubbles(0.98)
+    }
+
+    private func scaleBubbles(scaleFactor: CGFloat) {
         // Scale bubbles down by increasing size of the scene
-        let scaleFactor: CGFloat = 1.02
+        let scaleFactor: CGFloat = scaleFactor
         size = CGSize(width: size.width * scaleFactor, height: size.width * scaleFactor)
     }
     
