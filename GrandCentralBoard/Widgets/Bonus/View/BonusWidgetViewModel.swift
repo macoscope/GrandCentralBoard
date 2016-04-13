@@ -13,8 +13,9 @@ extension BonusWidgetViewModel {
     init(people: [Person]) {
         var bubbles: [BubbleViewModel] = []
         people.forEach({ person in
-            guard let image = person.bubbleImage.image else { return }
-            bubbles.append(BubbleViewModel(name: person.name, image: image, bonus: person.bonus))
+            if let lastBonusDate = person.lastBonusDate {
+                bubbles.append(BubbleViewModel(name: person.name, lastBonusDate: lastBonusDate, image: person.image ?? UIImage.generatePlaceholderImage()))
+            }
         })
         self.bubbles = bubbles
     }
@@ -22,6 +23,6 @@ extension BonusWidgetViewModel {
 
 struct BubbleViewModel {
     let name: String
+    let lastBonusDate: NSDate
     let image: UIImage
-    let bonus: Int
 }

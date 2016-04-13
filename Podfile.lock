@@ -4,6 +4,7 @@ PODS:
   - GrandCentralBoardCore (0.0.1):
     - Alamofire (~> 3.0)
     - Decodable (~> 0.4)
+  - MD5 (0.1.1)
   - Nimble (4.0.0)
   - Operations (2.9.0):
     - Operations/Standard (= 2.9.0)
@@ -14,18 +15,20 @@ DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Decodable (~> 0.4)
   - GrandCentralBoardCore (from `./`)
+  - MD5 (~> 0.1)
   - Nimble (~> 4.0)
   - Operations (~> 2.9)
   - Result (~> 2.0)
 
 EXTERNAL SOURCES:
   GrandCentralBoardCore:
-    :path: ./
+    :path: "./"
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
   GrandCentralBoardCore: ed3bb94976714fbf2d73f6a971f471d0a19b924c
+  MD5: 62e4416c91af0514c6aeeb6e6d80171f3bd48c3f
   Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
   Operations: 62f6d7942ed37d06476426fb275233b21a48617c
   Result: 9e75e1111c774c6ac594e14907b15057053a7959

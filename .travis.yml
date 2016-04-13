@@ -1,0 +1,9 @@
+language: objective-c
+osx_image: xcode7.3
+script:
+- "./scripts/travis-script.sh"
+before_install:
+- gem install xcpretty-travis-formatter
+notifications:
+  email:
+    on_success: never
