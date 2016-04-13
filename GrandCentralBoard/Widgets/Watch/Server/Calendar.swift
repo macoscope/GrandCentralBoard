@@ -21,4 +21,5 @@ struct Calendar : Decodable {
         }
 
         throw EventsError.WrongFormat
-    }}
+    }
+}
