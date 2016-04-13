@@ -8,7 +8,7 @@
 
 import GrandCentralBoardCore
 
-class EventsSource : Asynchronous {
+final class EventsSource : Asynchronous {
     typealias ResultType = Result<[Event]>
     let sourceType: SourceType = .Momentary
 
