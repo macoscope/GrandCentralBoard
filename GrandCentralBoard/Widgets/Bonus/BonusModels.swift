@@ -27,71 +27,81 @@ struct BubbleImage {
 }
 
 struct Bonus {
-    let total: Int
-    let last: Int
-    
-    init(total: Int, last: Int = 0) {
-        self.total = total
-        self.last = last
-    }
-}
-
-struct Person {
     let name: String
-    let bubbleImage: BubbleImage
-    let bonus: Int
-    let lastUpdate: NSDate
-    
-    static func personFromUpdate(update: Update, imageUrl: String? = nil) -> Person {
-        return Person(name: update.name, bubbleImage: BubbleImage(url: imageUrl), bonus: update.totalBonus, lastUpdate: update.date)
-    }
-    
-    func copyByUpdating(update: Update, imageUrl: String? = nil) -> Person {
-        return Person(name: name, bubbleImage: BubbleImage(url: imageUrl), bonus: bonus + update.totalBonus, lastUpdate: update.date)
-    }
-
-    func copyPersonWithImage(image: BubbleImage) -> Person {
-        return Person(name: name, bubbleImage: image, bonus: bonus, lastUpdate: lastUpdate)
-    }
-}
-
-struct Update {
-    let name: String
-    let bonus: Int
+    let amount: Int
+    let receiver: Person
     let date: NSDate
-    let childBonuses: [Update]
-    
-    var totalBonus: Int {
-        return bonus + childBonuses.reduce(0, combine: {return $0 + $1.bonus})
-    }
+    let childBonuses: [Bonus]
 }
 
+extension Bonus: Decodable {
 
-extension Update: Decodable {
     static let formatter = NSDateFormatter()
 
-    static func decode(j: AnyObject) throws -> Update {
+    static func decode(j: AnyObject) throws -> Bonus {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
         let email: String = try j => "receiver" => "email"
-        return try Update(name: email.removeDomainFromEmail(),
-            bonus: j => "amount",
-            date: formatter.dateFromString(j => "created_at") ?? NSDate(),
-            childBonuses: j =>? "child_bonuses" ?? [])
+        return try Bonus(name: email.removeDomainFromEmail(),
+                         amount: j => "amount",
+                         receiver: j => "receiver",
+                         date: formatter.dateFromString(j => "created_at") ?? NSDate(),
+                         childBonuses: j =>? "child_bonuses" ?? [])
     }
 
-    static func decodeUpdates(j: AnyObject) throws -> [Update] {
-        return try j => "result" as [Update]
+    static func decodeBonuses(j: AnyObject) throws -> [Bonus] {
+        return try j => "result" as [Bonus]
     }
 
-    static func updatesFromData(data: NSData) throws -> [Update] {
+    static func updatesFromData(data: NSData) throws -> [Bonus] {
         if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-            return try Update.decodeUpdates(jsonResult)
+            return try Bonus.decodeBonuses(jsonResult)
         }
-
+        
         throw DecodeError.WrongFormat
     }
+
 }
+
+struct Person : Hashable, Equatable {
+    let id: String
+    let name: String
+    let email: String
+    let lastBonusDate: NSDate?
+    let image: UIImage?
+
+    var hashValue: Int {
+        get {
+            return id.hashValue
+        }
+    }
+
+    func copyWithImage(image: UIImage?) -> Person {
+        return Person(id: id, name: name, email: email, lastBonusDate: lastBonusDate, image: image)
+    }
+
+    func copyWithLastBonusDate(lastBonusDate: NSDate) -> Person {
+        return Person(id: id, name: name, email: email, lastBonusDate: lastBonusDate, image: image)
+    }
+
+}
+
+func==(lhs: Person, rhs: Person) -> Bool {
+    return lhs.id == rhs.id
+}
+
+extension Person: Decodable {
+
+    static func decode(j: AnyObject) throws -> Person {
+        return try Person(id: j => "id",
+                          name: j => "display_name",
+                          email: j => "email",
+                          lastBonusDate: nil,
+                          image: nil)
+    }
+
+}
+
 
 extension String {
     func removeDomainFromEmail() -> String {

@@ -5,21 +5,27 @@
                "created_at": "2016-03-11T15:40:41Z",
                "amount": 10,
                "receiver": {
-               "email": "aaa@abc.net"
+               "email": "aaa@abc.net",
+               "id" : "id1",
+               "display_name" : "name1"
                },
                },
                {
                "created_at": "2016-03-11T15:30:41Z",
                "amount": 50,
                "receiver": {
-               "email": "bbb@abc.net"
+               "email": "bbb@abc.net",
+               "id" : "id2",
+               "display_name" : "name2"
                },
                "child_bonuses": [
                                  {
                                  "created_at": "2016-03-11T15:50:41Z",
                                  "amount": 20,
                                  "receiver": {
-                                 "email": "bbb@abc.net"
+                                 "email": "bbb@abc.net",
+                                 "id" : "id2",
+                                 "display_name" : "name2"
                                  },
                                  }
                                  ]
