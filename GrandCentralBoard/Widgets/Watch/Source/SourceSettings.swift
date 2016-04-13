@@ -14,7 +14,6 @@ struct GoogleCalendarSourceSettings : Decodable {
     let clientSecret: String
     let refreshToken: String
 
-
     static func decode(jsonObject: AnyObject) throws -> GoogleCalendarSourceSettings {
         return try GoogleCalendarSourceSettings(calendarID: jsonObject => "calendarID",
                                                 clientID: jsonObject => "clientID",

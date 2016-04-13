@@ -12,10 +12,10 @@ enum EventsError : ErrorType, HavingMessage {
 
     var message: String {
         switch self {
-            case .CannotConvertDate:
-                return NSLocalizedString("Unable to convert string to date.", comment: "")
-            case .WrongFormat:
-                return NSLocalizedString("Wrong format.", comment: "")
+        case .CannotConvertDate:
+            return NSLocalizedString("Unable to convert string to date.", comment: "")
+        case .WrongFormat:
+            return NSLocalizedString("Wrong format.", comment: "")
         }
     }
 }
@@ -33,14 +33,14 @@ final class JSONCalendarDataProvider : CalendarDataProviding {
     func fetchEventsForCalendar(calendarID: String, completion: (ResultType<[Event], APIDataError>.result) -> Void) {
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
-                case .Success(let data):
-                    do {
-                        try completion(.Success(Event.decodeArrayFromData(data)))
-                    } catch (let error) {
-                        completion(.Failure(.ModelDecodeError(error)))
-                    }
-                case .Failure(let error):
-                    completion(.Failure(.UnderlyingError(error as NSError)))
+            case .Success(let data):
+                do {
+                    try completion(.Success(Event.decodeArrayFromData(data)))
+                } catch (let error) {
+                    completion(.Failure(.ModelDecodeError(error)))
+                }
+            case .Failure(let error):
+                completion(.Failure(.UnderlyingError(error as NSError)))
             }
         }
     }
