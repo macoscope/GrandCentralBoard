@@ -12,7 +12,7 @@ import Decodable
 struct HarvestWidgetSettings : Decodable {
     let accessToken: String
     let refreshToken: String
-    let expirationDate: NSDate
+    let expirationTime: NSTimeInterval
     let refreshInterval: NSTimeInterval
 
     static func decode(json: AnyObject) throws -> HarvestWidgetSettings {
@@ -20,12 +20,11 @@ struct HarvestWidgetSettings : Decodable {
         let refreshToken: String = try json => "refreshToken"
         let expirationTime: Double = try json => "expirationTime"
         let refreshInterval: Double = try json => "refreshInterval"
-        let expirationDate = NSDate.init(timeIntervalSince1970: expirationTime)
 
-        return HarvestWidgetSettings(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate, refreshInterval: refreshInterval)
+        return HarvestWidgetSettings(accessToken: accessToken, refreshToken: refreshToken, expirationTime: expirationTime, refreshInterval: refreshInterval)
     }
 
     var oauthCredentials: OAuthCredentials {
-        return OAuthCredentials(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate)
+        return OAuthCredentials(accessToken: accessToken, refreshToken: refreshToken, expirationTime: expirationTime)
     }
 }

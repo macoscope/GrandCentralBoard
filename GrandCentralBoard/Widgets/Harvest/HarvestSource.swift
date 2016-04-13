@@ -13,11 +13,10 @@ final class HarvestSource : Asynchronous {
     typealias ResultType = Result<[DailyBillingStats]>
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
-
-    private let oauthCredentials: OAuthCredentials
+    let harvestAPI: HarvestAPI
 
     init(settings: HarvestWidgetSettings) {
-        self.oauthCredentials = settings.oauthCredentials
+        self.harvestAPI = HarvestAPI(oauthCredentials: settings.oauthCredentials)
         self.interval = settings.refreshInterval
     }
 

@@ -12,5 +12,9 @@ import Foundation
 struct OAuthCredentials {
     let accessToken: String
     let refreshToken: String
-    let expirationDate: NSDate
+    let expirationTime: NSTimeInterval
+
+    var isTokenExpired: Bool {
+        return NSDate().timeIntervalSince1970 > expirationTime
+    }
 }

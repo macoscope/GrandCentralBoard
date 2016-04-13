@@ -1,0 +1,154 @@
+{
+    "day_entries": [ {
+
+                    "project_id": "10516006",
+                    "project": "Test Project",
+                    "user_id": 1261690,
+                    "spent_at": "2016-04-13",
+                    "task_id": "5852933",
+                    "task": "Programming",
+                    "client": "Test Client",
+                    "id": 451077119,
+                    "notes": "Test",
+                    "created_at": "2016-04-13T13:19:01Z",
+                    "updated_at": "2016-04-13T13:19:01Z",
+
+                    "hours_without_timer": 1.38,
+                    "hours": 1.38}
+                    ,
+                    {
+
+                    "project_id": "10516006",
+                    "project": "Test Project",
+                    "user_id": 1261690,
+                    "spent_at": "2016-04-13",
+                    "task_id": "5852933",
+                    "task": "Programming",
+                    "client": "Test Client",
+                    "id": 451077237,
+                    "notes": "Test 2",
+                    "created_at": "2016-04-13T13:19:14Z",
+                    "updated_at": "2016-04-13T13:19:14Z",
+
+                    "hours_without_timer": 2.57,
+                    "hours": 2.57}
+                    ,
+                    {
+
+                    "project_id": "10516006",
+                    "project": "Test Project",
+                    "user_id": 1261690,
+                    "spent_at": "2016-04-13",
+                    "task_id": "5852933",
+                    "task": "Programming",
+                    "client": "Test Client",
+                    "id": 451077305,
+                    "notes": "Test 3",
+                    "created_at": "2016-04-13T13:19:22Z",
+                    "updated_at": "2016-04-13T13:19:22Z",
+
+                    "hours_without_timer": 3.75,
+                    "hours": 3.75}
+                    ,
+                    {
+
+                    "project_id": "10516010",
+                    "project": "Best Projects",
+                    "user_id": 1261690,
+                    "spent_at": "2016-04-13",
+                    "task_id": "5852933",
+                    "task": "Programming",
+                    "client": "Best Client",
+                    "id": 451077530,
+                    "notes": "Test",
+                    "created_at": "2016-04-13T13:19:43Z",
+                    "updated_at": "2016-04-13T13:19:43Z",
+
+                    "hours_without_timer": 0.2,
+                    "hours": 0.20}
+                    ,
+                    {
+
+                    "project_id": "10516010",
+                    "project": "Best Projects",
+                    "user_id": 11111,
+                    "spent_at": "2016-04-13",
+                    "task_id": "5852933",
+                    "task": "Programming",
+                    "client": "Best Client",
+                    "id": 451077530,
+                    "notes": "Test",
+                    "created_at": "2016-04-13T13:19:43Z",
+                    "updated_at": "2016-04-13T13:19:43Z",
+
+                    "hours_without_timer": 0.2,
+                    "hours": 6.5}
+                    ,
+                    {
+
+                    "project_id": "10516010",
+                    "project": "Best Projects",
+                    "user_id": 22222,
+                    "spent_at": "2016-04-13",
+                    "task_id": "5852933",
+                    "task": "Programming",
+                    "client": "Best Client",
+                    "id": 451077530,
+                    "notes": "Test",
+                    "created_at": "2016-04-13T13:19:43Z",
+                    "updated_at": "2016-04-13T13:19:43Z",
+
+                    "hours_without_timer": 0.2,
+                    "hours": 6}
+                    ,
+                    {
+
+                    "project_id": "10516010",
+                    "project": "Best Projects",
+                    "user_id": 22222,
+                    "spent_at": "2016-04-13",
+                    "task_id": "5852933",
+                    "task": "Programming",
+                    "client": "Best Client",
+                    "id": 451077530,
+                    "notes": "Test",
+                    "created_at": "2016-04-13T13:19:43Z",
+                    "updated_at": "2016-04-13T13:19:43Z",
+
+                    "hours_without_timer": 0.2,
+                    "hours": 0.4}
+                    ],
+    "projects": [{
+                 "name": "Best Projects",
+                 "code": "BEST",
+                 "id": 10516010,
+                 "billable": true,
+                 "tasks": [{"name": "Business Development", "billable": false, "id": 5852936}, {"name": "Graphic Design", "billable": true, "id": 5852932}, {"name": "Marketing", "billable": true, "id": 5852934}, {"name": "Programming", "billable": true, "id": 5852933}, {"name": "Project Management", "billable": true, "id": 5852935}],
+                 "client": "Best Client",
+                 "client_id": 4398096,
+                 "client_currency": "Polish Złoty - PLN",
+                 "client_currency_symbol": "zł"}
+                 ,
+                 {
+                 "name": "Rest Project",
+                 "code": "REST",
+                 "id": 10516017,
+                 "billable": true,
+                 "tasks": [{"name": "Business Development", "billable": false, "id": 5852936}, {"name": "Graphic Design", "billable": true, "id": 5852932}, {"name": "Marketing", "billable": true, "id": 5852934}, {"name": "Programming", "billable": true, "id": 5852933}, {"name": "Project Management", "billable": true, "id": 5852935}],
+                 "client": "Rest Client",
+                 "client_id": 4398099,
+                 "client_currency": "Polish Złoty - PLN",
+                 "client_currency_symbol": "zł"}
+                 ,
+                 {
+                 "name": "Test Project",
+                 "code": "TEST",
+                 "id": 10516006,
+                 "billable": true,
+                 "tasks": [{"name": "Business Development", "billable": false, "id": 5852936}, {"name": "Graphic Design", "billable": true, "id": 5852932}, {"name": "Marketing", "billable": true, "id": 5852934}, {"name": "Programming", "billable": true, "id": 5852933}, {"name": "Project Management", "billable": true, "id": 5852935}],
+                 "client": "Test Client",
+                 "client_id": 4398095,
+                 "client_currency": "Polish Złoty - PLN",
+                 "client_currency_symbol": "zł"}
+                 ],
+    "for_day": "2016-04-13"}

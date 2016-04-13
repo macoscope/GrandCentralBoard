@@ -7,13 +7,33 @@
 //
 
 struct BillingStatsGroup {
-    enum Type {
-        case Less
-        case Normal
-        case More
-    }
-
-    let type: Type
+    let type: BillingStatsGroupType
     let count: Int
     let averageHours: Double
+}
+
+
+enum BillingStatsGroupType: Int {
+    case Less
+    case Normal
+    case More
+}
+
+
+extension BillingStatsGroup {
+    static func typeForHours(hours: Double) -> BillingStatsGroupType {
+        if (hours < 6.3) {
+            return .Less
+
+        } else if (hours < 6.7) {
+            return .Normal
+
+        } else {
+            return .More
+        }
+    }
+
+    static func allTypes() -> [BillingStatsGroupType] {
+        return [.Less, .Normal, .More]
+    }
 }
