@@ -1,0 +1,10 @@
+disabled_rules:
+  - force_cast
+included:
+  - GrandCentralBoard
+
+line_length: 150
+variable_name:
+  min_length: 3
+  excluded:
+    - id
