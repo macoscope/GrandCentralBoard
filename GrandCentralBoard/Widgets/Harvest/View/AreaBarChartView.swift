@@ -95,13 +95,17 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     private func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
         case (_, .Rendering(let viewModel)):
-            activityIndicatorView.stopAnimating()
-            configureBarsWithViewModel(viewModel)
-            configureLabelsWithViewModel(viewModel)
-            configureAxisWithViewModel(viewModel)
+            configureWithViewModel(viewModel)
         default:
             break
         }
+    }
+
+    private func configureWithViewModel(viewModel: AreaBarChartViewModel) {
+        activityIndicatorView.stopAnimating()
+        configureBarsWithViewModel(viewModel)
+        configureLabelsWithViewModel(viewModel)
+        configureAxisWithViewModel(viewModel)
     }
 
     // MARK: -
