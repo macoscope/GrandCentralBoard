@@ -33,16 +33,17 @@ class TestAPIDataProvider : APIDataProviding {
 
 class CalendarDataProviderTests : XCTestCase {
 
-    let calendarDataProvider = GoogleCalendarDataProvider(dataProvider: TestAPIDataProvider())
+    let calendarDataProvider = GoogleCalendarDataProvider(calendarID: "id", dataProvider: TestAPIDataProvider())
     private static let dateFormatter: NSDateFormatter =  {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()
 
     func testCalendarDataDeserialization() {
 
-        calendarDataProvider.fetchCalendar("id") { (result) in
+        calendarDataProvider.fetchCalendar { (result) in
             switch result {
             case .Success(let calendar):
                 XCTAssertEqual(calendarDictionary["summary"], calendar.name)
@@ -54,7 +55,7 @@ class CalendarDataProviderTests : XCTestCase {
 
     func testCalendarEventsDeserialization() {
 
-        calendarDataProvider.fetchEventsForCalendar("id") { (result) in
+        calendarDataProvider.fetchEventsForCalendar { (result) in
             switch result {
             case .Success(let events):
                 let eventItems = eventsDictionary["items"] as! [NSDictionary]
@@ -64,7 +65,7 @@ class CalendarDataProviderTests : XCTestCase {
                     let eventDateString: String = try! eventItems[i] => "start" => "dateTime"
                     let eventDate = self.dynamicType.dateFormatter.dateFromString(eventDateString)!
                     XCTAssertEqual(eventName, events[i].name)
-                    XCTAssertEqual(eventDate, events[i].startTime)
+                    XCTAssertEqual(eventDate, events[i].time)
                 }
             case .Failure(let error):
                 XCTFail("\(error)")

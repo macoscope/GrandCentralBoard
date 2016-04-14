@@ -1,5 +1,5 @@
 //
-//  EventsSource.swift
+//  CalendarNameSource.swift
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 12.04.2016.
@@ -8,22 +8,22 @@
 
 import GrandCentralBoardCore
 
-final class EventsSource : Asynchronous {
-    typealias ResultType = Result<[Event]>
+final class CalendarNameSource : Asynchronous {
+    typealias ResultType = Result<Calendar>
     let sourceType: SourceType = .Momentary
 
     let interval: NSTimeInterval
     let dataProvider: CalendarDataProviding
 
-    init(dataProvider: CalendarDataProviding, refreshInterval: NSTimeInterval = 60) {
+    init(dataProvider: CalendarDataProviding, refreshInterval: NSTimeInterval = 3600*24) {
         self.interval = refreshInterval
         self.dataProvider = dataProvider
     }
 
     func read(closure: (ResultType) -> Void) {
-        dataProvider.fetchEventsForCalendar { result in
+        dataProvider.fetchCalendar { result in
             switch result {
-            case .Success(let events): closure(.Success(events))
+            case .Success(let calendar): closure(.Success(calendar))
             case .Failure(let error): closure(.Failure(error))
             }
         }

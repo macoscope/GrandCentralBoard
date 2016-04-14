@@ -36,16 +36,20 @@ struct Bonus {
 
 extension Bonus: Decodable {
 
-    static let formatter = NSDateFormatter()
+    static let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter
+    }()
 
     static func decode(j: AnyObject) throws -> Bonus {
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
         let email: String = try j => "receiver" => "email"
         return try Bonus(name: email.removeDomainFromEmail(),
                          amount: j => "amount",
                          receiver: j => "receiver",
-                         date: formatter.dateFromString(j => "created_at") ?? NSDate(),
+                         date: dateFormatter.dateFromString(j => "created_at") ?? NSDate(),
                          childBonuses: j =>? "child_bonuses" ?? [])
     }
 
