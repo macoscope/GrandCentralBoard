@@ -4,7 +4,6 @@
 //
 
 import UIKit
-import Alamofire
 import GrandCentralBoardCore
 
 
@@ -30,24 +29,30 @@ final class RemoteImageSource : Asynchronous {
 
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
+    let dataDownloader: DataDownloader
 
-    private let url: NSURL
+    private let path: String
 
-    init(url: NSURL, interval: NSTimeInterval = 30) {
+    init(path: String, interval: NSTimeInterval = 30, dataDownloader: DataDownloader) {
         self.interval = interval
-        self.url = url
+        self.path = path
+        self.dataDownloader = dataDownloader
     }
 
     func read(closure: (ResultType) -> Void) {
-        Alamofire.request(.GET, url).response { (request, response, data, error) in
+        dataDownloader.downloadDataAtPath(path) { result in
+            switch result {
+            case .Success(let data):
+                if let value = UIImage(data: data) {
+                    let image = Image(value: value, time: NSDate())
+                    closure(.Success(image))
+                } else {
+                    closure(.Failure(RemoteImageSourceError.DownloadFailed))
+                }
+            case .Failure(let error):
+                closure(.Failure(error))
 
-            if let data = data, image = UIImage(data: data) {
-                let image = Image(value: image, time: NSDate())
-                closure(.Success(image))
-                return
             }
-
-            closure(.Failure(error ?? RemoteImageSourceError.DownloadFailed))
         }
     }
 }
