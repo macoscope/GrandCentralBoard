@@ -102,7 +102,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
 
     private func configureBarsWithViewModel(viewModel: AreaBarChartViewModel) {
         viewModel.barItems.forEach { itemViewModel in
-            let barView = barStackView.addBarWithViewModelitemViewModel(itemViewModel)
+            let barView = barStackView.addBarWithItemViewModel(itemViewModel)
             addLineWithLabelToBarView(barView, withViewModel: itemViewModel)
         }
 

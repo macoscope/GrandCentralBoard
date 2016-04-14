@@ -16,7 +16,7 @@ final class AreaBarStackView : UIStackView {
         alignment = .Bottom
     }
 
-    func addBarWithViewModelitemViewModel(viewModel: AreaBarItemViewModel) -> UIView {
+    func addBarWithItemViewModel(viewModel: AreaBarItemViewModel) -> UIView {
         let view = UIView()
         view.backgroundColor = viewModel.color
         addArrangedSubview(view)
