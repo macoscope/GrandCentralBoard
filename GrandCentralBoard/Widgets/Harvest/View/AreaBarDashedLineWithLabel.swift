@@ -19,14 +19,19 @@ final class AreaBarDashedLineWithLabel : UIView {
 
         switch viewModel.valueLabelMode {
         case .Hidden:
+            hidden = true
+        case .VisibleWithHiddenLabel:
+            hidden = false
             valueLabelLeft.hidden = true
             valueLabelRight.hidden = true
-        case .Left(let text):
+        case .VisibleLabelLeft(let text):
+            hidden = false
             valueLabelLeft.textColor = color
             valueLabelLeft.hidden = false
             valueLabelLeft.text = text
             valueLabelRight.hidden = true
-        case .Right(let text):
+        case .VisibleLabelRight(let text):
+            hidden = false
             valueLabelRight.textColor = color
             valueLabelRight.hidden = false
             valueLabelRight.text = text
