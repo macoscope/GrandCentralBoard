@@ -25,7 +25,8 @@ private let report = [ "data": [ "rows" :  reportRows] ]
 private let responseData = [ "reports" : [ report ] ]
 
 private class TestDataProvider : APIDataProviding {
-    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String: AnyObject]?, completion: ResultType<AnyObject, APIDataError>.result -> Void) {
+    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String: AnyObject]?,
+                 completion: ResultType<AnyObject, APIDataError>.result -> Void) {
 
         completion(.Success(responseData))
     }
@@ -45,13 +46,15 @@ class GoogleAnalyticsDataProviderTests : XCTestCase {
         dataProvider.fetchPageViewsReportFromDate(NSDate(), toDate: NSDate()) { result in
             switch result {
             case .Success(let report):
-                XCTAssertEqual(2, report.rows.count)
-                XCTAssertEqual(reportRows[0]["dimensions"]![0], report.rows[0].dimensions[0])
-                XCTAssertEqual(reportRows[1]["dimensions"]![0], report.rows[1].dimensions[0])
+                let pageViewsReports = PageViewsRowReport.arrayFromAnalyticsReport(report)
 
-                //too much effort to get the values from `reportRows` - analytics response is quite complicated
-                XCTAssertEqual("12", report.rows[0].values[0])
-                XCTAssertEqual("24", report.rows[1].values[0])
+                XCTAssertEqual(2, pageViewsReports.count)
+                XCTAssertEqual(reportRows[0]["dimensions"]![0], pageViewsReports[0].pagePath)
+                XCTAssertEqual(reportRows[1]["dimensions"]![0], pageViewsReports[1].pagePath)
+
+                //too much effort to get the values from `reportRows` dictionary - analytics response is quite complicated
+                XCTAssertEqual(12, pageViewsReports[0].visits)
+                XCTAssertEqual(24, pageViewsReports[1].visits)
 
             case .Failure(let error):
                 XCTFail("Error: \(error)")
@@ -63,25 +66,4 @@ class GoogleAnalyticsDataProviderTests : XCTestCase {
             XCTAssertNil(error)
         }
     }
-
-    /** Uncomment and fill with proper credentials if you want to test integration with Google Analytics
-    func testIntegration() {
-        let expectation = expectationWithDescription("integration")
-
-        let tokenProvider = GoogleTokenProvider(clientID: ,
-                                                clientSecret: ,
-                                                refreshToken: )
-        let apiProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider)
-        dataProvider = GoogleAnalyticsDataProvider(viewID: , dataProvider: apiProvider)
-
-        dataProvider.fetchPageViewsReportFromDate(NSDate().dateByAddingTimeInterval(-3600*24*5), toDate: NSDate()) { (result) in
-            print("\(result)")
-            expectation.fulfill()
-        }
-
-        waitForExpectationsWithTimeout(10.0) { (error) in
-            XCTAssertNil(error)
-        }
-    }
-    */
 }

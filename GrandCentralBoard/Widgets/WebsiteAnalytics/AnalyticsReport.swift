@@ -8,32 +8,32 @@
 
 import Decodable
 
-struct ReportRow {
+struct AnalyticsReportRow {
     let dimensions: [String]
     let values: [String]
 }
 
-struct Report  {
-    let rows: [ReportRow]
+struct AnalyticsReport  {
+    let rows: [AnalyticsReportRow]
 }
 
-extension ReportRow : Decodable {
-    static func decode(json: AnyObject) throws -> ReportRow {
+extension AnalyticsReportRow : Decodable {
+    static func decode(json: AnyObject) throws -> AnalyticsReportRow {
         var values: [String] = []
         if let metrics = (try (json => "metrics") as? [AnyObject])?.first {
             values = try metrics => "values"
         }
-        return try ReportRow(dimensions: json => "dimensions", values: values)
+        return try AnalyticsReportRow(dimensions: json => "dimensions", values: values)
     }
 }
 
-extension Report : Decodable {
-    static func decode(json: AnyObject) throws -> Report {
+extension AnalyticsReport : Decodable {
+    static func decode(json: AnyObject) throws -> AnalyticsReport {
         let reportsArray = try (json => "reports") as? [AnyObject]
         if let report = reportsArray?.first {
-            return try Report(rows: report => "data" => "rows")
+            return try AnalyticsReport(rows: report => "data" => "rows")
         } else {
-            return Report(rows: [])
+            return AnalyticsReport(rows: [])
         }
     }
 }

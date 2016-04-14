@@ -20,7 +20,7 @@ class GoogleAnalyticsDataProvider {
     }
 
     func fetchPageViewsReportFromDate(startDate: NSDate, toDate endDate: NSDate,
-                                      completion: (Result<Report>) -> Void) {
+                                      completion: (Result<AnalyticsReport>) -> Void) {
         let parameters = [
             "viewId": viewID,
             "metrics": [ ["expression": "ga:pageviews"] ],
@@ -32,7 +32,7 @@ class GoogleAnalyticsDataProvider {
             switch result {
             case .Success(let json):
                 do {
-                    try completion(.Success(Report.decode(json)))
+                    try completion(.Success(AnalyticsReport.decode(json)))
                 } catch {
                     completion(.Failure(APIDataError.ModelDecodeError(error)))
                 }
