@@ -22,7 +22,7 @@ struct WatchWidgetViewModel {
 
         if let event = event {
             let eventComponents = WatchWidgetViewModel.componentsFromDate(event.time, timeZone: timeZone)
-            let selected = (eventComponents.minute / 5)
+            let selected = (eventComponents.minute / 5) + 1
             selectedImage = UIImage(named: "s\(selected)")
             let minutes = Int(event.time.timeIntervalSinceDate(NSDate()) / 60)
             let isNow = minutes <= 1
