@@ -13,7 +13,13 @@ class LoadingViewController: UIViewController {
 
     private let dataDownloader = DataDownloader()
 
-    private lazy var availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: self.dataDownloader), BonusWidgetBuilder(dataDownloader: self.dataDownloader), GoogleCalendarWatchWidgetBuilder(), HarvestWidgetBuilder()]
+    private lazy var availableBuilders: [WidgetBuilding] = [
+        WatchWidgetBuilder(dataDownloader: self.dataDownloader),
+        BonusWidgetBuilder(dataDownloader: self.dataDownloader),
+        GoogleCalendarWatchWidgetBuilder(),
+        HarvestWidgetBuilder(),
+        ImageWidgetBuilder(dataDownloader: self.dataDownloader)
+    ]
 
     private lazy var configurationFetching: ConfigurationFetching = {
 

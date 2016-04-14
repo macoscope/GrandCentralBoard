@@ -34,7 +34,7 @@ final class ImageWidget : Widget {
         source.read { [weak self] result in
             switch result {
                 case .Success(let image):
-                    let imageViewModel = ImageViewModel(image: image.value)
+                    let imageViewModel = ImageViewModel(image: image)
                     self?.widgetView.render(imageViewModel)
                 case .Failure:
                     break
