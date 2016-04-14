@@ -24,6 +24,11 @@
 		0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2863091CB515CE00C62700 /* UpdateTests.swift */; };
 		0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D28630B1CB516B400C62700 /* UpdatesTests.json */; };
 		0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */; };
+		1A1DBC5E1CBEA50E003DA40C /* AreaBarChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC5D1CBEA50E003DA40C /* AreaBarChartViewModel.swift */; };
+		1A1DBC601CBEA757003DA40C /* AreaBarStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC5F1CBEA757003DA40C /* AreaBarStackView.swift */; };
+		1A1DBC661CBEE356003DA40C /* AreaBarDashedLineWithLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC651CBEE356003DA40C /* AreaBarDashedLineWithLabel.xib */; };
+		1A20FDC51CBE67F000F6386C /* AreaBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A20FDC41CBE67F000F6386C /* AreaBarChartView.swift */; };
+		1A20FDC71CBE6D4900F6386C /* AreaBarChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A20FDC61CBE6D4900F6386C /* AreaBarChartView.xib */; };
 		1A1DBC681CBF9A19003DA40C /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC671CBF9A19003DA40C /* NSUserDefaults.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
@@ -75,6 +80,7 @@
 		1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */; };
 		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
 		1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */; };
+		1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1981D1CBE8323003B6AB3 /* UIColor.swift */; };
 		494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B31C92E89A00D460B0 /* BonusModels.swift */; };
 		494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B41C92E89A00D460B0 /* BonusWidget.swift */; };
 		494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B51C92E89A00D460B0 /* BonusWidgetBuilder.swift */; };
@@ -153,7 +159,12 @@
 		0D2863091CB515CE00C62700 /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTests.swift; sourceTree = "<group>"; };
 		0D28630B1CB516B400C62700 /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdatesTests.json; sourceTree = "<group>"; };
 		0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingAnimator.swift; sourceTree = "<group>"; };
+		1A1DBC5D1CBEA50E003DA40C /* AreaBarChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartViewModel.swift; sourceTree = "<group>"; };
+		1A1DBC5F1CBEA757003DA40C /* AreaBarStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarStackView.swift; sourceTree = "<group>"; };
+		1A1DBC651CBEE356003DA40C /* AreaBarDashedLineWithLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarDashedLineWithLabel.xib; sourceTree = "<group>"; };
+		1A20FDC41CBE67F000F6386C /* AreaBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartView.swift; sourceTree = "<group>"; };
 		1A1DBC671CBF9A19003DA40C /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
+		1A20FDC61CBE6D4900F6386C /* AreaBarChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarChartView.xib; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A242D221C357C2700D5BEE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +221,7 @@
 		1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidget.swift; sourceTree = "<group>"; };
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetBuilder.swift; sourceTree = "<group>"; };
+		1AE1981D1CBE8323003B6AB3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		234E74F21CF67378BBE359B7 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
 		494B68B31C92E89A00D460B0 /* BonusModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusModels.swift; sourceTree = "<group>"; };
 		494B68B41C92E89A00D460B0 /* BonusWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusWidget.swift; sourceTree = "<group>"; };
@@ -234,6 +246,7 @@
 		5274A48E1CB69AE9005FD847 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultType.swift; path = Utilities/ResultType.swift; sourceTree = "<group>"; };
 		5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+NetworkRequestManager.swift"; path = "Extensions/Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
 		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleCalendarDataProvider.swift; path = ../Server/GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
+		5274A4981CB69DAC005FD847 /* CalendarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		5274A4981CB69DAC005FD847 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Server/Calendar.swift; sourceTree = "<group>"; };
 		5274A49A1CB6A6E9005FD847 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Server/Event.swift; sourceTree = "<group>"; };
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
@@ -419,6 +432,11 @@
 				494B68B21C92E89A00D460B0 /* Bonus */,
 				1AD5EA921C7B819D00210BB9 /* Image */,
 				1AD5EA971C7B826A00210BB9 /* Watch */,
+				1A20FDC41CBE67F000F6386C /* AreaBarChartView.swift */,
+				1A20FDC61CBE6D4900F6386C /* AreaBarChartView.xib */,
+				1A1DBC5D1CBEA50E003DA40C /* AreaBarChartViewModel.swift */,
+				1A1DBC5F1CBEA757003DA40C /* AreaBarStackView.swift */,
+				1A1DBC651CBEE356003DA40C /* AreaBarDashedLineWithLabel.xib */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -661,6 +679,8 @@
 			isa = PBXGroup;
 			children = (
 				5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */,
+				5274A49C1CB7A972005FD847 /* Swift+URLEscape.swift */,
+				1AE1981D1CBE8323003B6AB3 /* UIColor.swift */,
 				1A76DFAD1CBBEF8200A2DF49 /* NSBundle.swift */,
 				1A1DBC671CBF9A19003DA40C /* NSUserDefaults.swift */,
 			);
@@ -740,6 +760,14 @@
 				F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		52FB50491CBB93030053DE8B /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */,
+			);
+			name = Watch;
 			sourceTree = "<group>";
 		};
 		F91F00731CBBD7F100DAAA77 /* View */ = {
@@ -877,6 +905,7 @@
 				1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */,
 				1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */,
 				1A6036851C7F161D0034EFE9 /* SF-UI-Text-MediumItalic.otf in Resources */,
+				1A1DBC661CBEE356003DA40C /* AreaBarDashedLineWithLabel.xib in Resources */,
 				1AA97DE91CA2E0C80058DBCE /* calendar.json in Resources */,
 				1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				1A6036861C7F161D0034EFE9 /* SF-UI-Text-Regular.otf in Resources */,
@@ -885,6 +914,7 @@
 				1A6036841C7F161D0034EFE9 /* SF-UI-Text-Medium.otf in Resources */,
 				1A60367C1C7F161D0034EFE9 /* SF-UI-Display-Thin.otf in Resources */,
 				1A60367F1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf in Resources */,
+				1A20FDC71CBE6D4900F6386C /* AreaBarChartView.xib in Resources */,
 				1A60367B1C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf in Resources */,
 				1A60367A1C7F161D0034EFE9 /* SF-UI-Display-Regular.otf in Resources */,
 				1A60367D1C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf in Resources */,
@@ -1035,6 +1065,9 @@
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
 				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,
+				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
+				1A20FDC51CBE67F000F6386C /* AreaBarChartView.swift in Sources */,
+				5274A49B1CB6A6E9005FD847 /* EventModel.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
 				5274A49B1CB6A6E9005FD847 /* Event.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
@@ -1051,6 +1084,7 @@
 				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */,
+				1A1DBC5E1CBEA50E003DA40C /* AreaBarChartViewModel.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				1A1DBC681CBF9A19003DA40C /* NSUserDefaults.swift in Sources */,
@@ -1076,6 +1110,8 @@
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
+				5274A49D1CB7A972005FD847 /* Swift+URLEscape.swift in Sources */,
+				1A1DBC601CBEA757003DA40C /* AreaBarStackView.swift in Sources */,
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
 			);
