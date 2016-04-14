@@ -25,6 +25,13 @@
 		0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D28630B1CB516B400C62700 /* UpdatesTests.json */; };
 		0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */; };
 		1A1DBC681CBF9A19003DA40C /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC671CBF9A19003DA40C /* NSUserDefaults.swift */; };
+		1A1DBC6C1CBFA0FA003DA40C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6B1CBFA0FA003DA40C /* Event.swift */; };
+		1A1DBC731CBFBC07003DA40C /* AreaBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */; };
+		1A1DBC741CBFBC07003DA40C /* AreaBarChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */; };
+		1A1DBC751CBFBC07003DA40C /* AreaBarChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC701CBFBC07003DA40C /* AreaBarChartViewModel.swift */; };
+		1A1DBC761CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */; };
+		1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */; };
+		1A1DBC791CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
@@ -75,6 +82,7 @@
 		1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */; };
 		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
 		1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */; };
+		1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1981D1CBE8323003B6AB3 /* UIColor.swift */; };
 		494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B31C92E89A00D460B0 /* BonusModels.swift */; };
 		494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B41C92E89A00D460B0 /* BonusWidget.swift */; };
 		494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B51C92E89A00D460B0 /* BonusWidgetBuilder.swift */; };
@@ -97,7 +105,6 @@
 		5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */; };
 		5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */; };
 		5274A4991CB69DAC005FD847 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4981CB69DAC005FD847 /* Calendar.swift */; };
-		5274A49B1CB6A6E9005FD847 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A49A1CB6A6E9005FD847 /* Event.swift */; };
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
@@ -110,10 +117,8 @@
 		F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */; };
 		F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */; };
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
-		F91F00751CBBD83900DAAA77 /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00741CBBD83900DAAA77 /* HarvestWidgetView.swift */; };
 		F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */; };
 		F91F007D1CBBDF2200DAAA77 /* OAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */; };
-		F94F100A1CBC042400AAA9F5 /* HarvestWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F94F10091CBC042400AAA9F5 /* HarvestWidgetView.xib */; };
 		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
 		F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */; };
 /* End PBXBuildFile section */
@@ -154,6 +159,13 @@
 		0D28630B1CB516B400C62700 /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdatesTests.json; sourceTree = "<group>"; };
 		0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingAnimator.swift; sourceTree = "<group>"; };
 		1A1DBC671CBF9A19003DA40C /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
+		1A1DBC6B1CBFA0FA003DA40C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartView.swift; sourceTree = "<group>"; };
+		1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarChartView.xib; sourceTree = "<group>"; };
+		1A1DBC701CBFBC07003DA40C /* AreaBarChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartViewModel.swift; sourceTree = "<group>"; };
+		1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarDashedLineWithLabel.xib; sourceTree = "<group>"; };
+		1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarStackView.swift; sourceTree = "<group>"; };
+		1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarDashedLineWithLabel.swift; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A242D221C357C2700D5BEE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +222,7 @@
 		1AD5EAA31C7D125A00210BB9 /* WatchWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidget.swift; sourceTree = "<group>"; };
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetBuilder.swift; sourceTree = "<group>"; };
+		1AE1981D1CBE8323003B6AB3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		234E74F21CF67378BBE359B7 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
 		494B68B31C92E89A00D460B0 /* BonusModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusModels.swift; sourceTree = "<group>"; };
 		494B68B41C92E89A00D460B0 /* BonusWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusWidget.swift; sourceTree = "<group>"; };
@@ -235,7 +248,6 @@
 		5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+NetworkRequestManager.swift"; path = "Extensions/Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
 		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleCalendarDataProvider.swift; path = ../Server/GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
 		5274A4981CB69DAC005FD847 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Server/Calendar.swift; sourceTree = "<group>"; };
-		5274A49A1CB6A6E9005FD847 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Server/Event.swift; sourceTree = "<group>"; };
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
@@ -252,10 +264,8 @@
 		F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidget.swift; sourceTree = "<group>"; };
 		F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetBuilder.swift; sourceTree = "<group>"; };
 		F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestSource.swift; sourceTree = "<group>"; };
-		F91F00741CBBD83900DAAA77 /* HarvestWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetView.swift; sourceTree = "<group>"; };
 		F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetSettings.swift; sourceTree = "<group>"; };
 		F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthCredentials.swift; sourceTree = "<group>"; };
-		F94F10091CBC042400AAA9F5 /* HarvestWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HarvestWidgetView.xib; sourceTree = "<group>"; };
 		F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingStatsGroup.swift; sourceTree = "<group>"; };
 		F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -356,6 +366,19 @@
 				F6328205930630C7132BC7D9 /* Pods-GrandCentralBoard.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		1A1DBC6D1CBFBC07003DA40C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */,
+				1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */,
+				1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */,
+				1A1DBC701CBFBC07003DA40C /* AreaBarChartViewModel.swift */,
+				1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */,
+				1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1A242D141C357C2700D5BEE5 = {
@@ -516,6 +539,7 @@
 		1AAC29FB1C80F54F0045BF1A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1A1DBC6B1CBFA0FA003DA40C /* Event.swift */,
 				5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */,
 				52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */,
 				52FB50551CBD2E4B0053DE8B /* EventsSource.swift */,
@@ -661,6 +685,7 @@
 			isa = PBXGroup;
 			children = (
 				5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */,
+				1AE1981D1CBE8323003B6AB3 /* UIColor.swift */,
 				1A76DFAD1CBBEF8200A2DF49 /* NSBundle.swift */,
 				1A1DBC671CBF9A19003DA40C /* NSUserDefaults.swift */,
 			);
@@ -698,7 +723,6 @@
 		52FB504C1CBBFAC70053DE8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5274A49A1CB6A6E9005FD847 /* Event.swift */,
 				5274A4981CB69DAC005FD847 /* Calendar.swift */,
 			);
 			name = Models;
@@ -709,7 +733,7 @@
 			children = (
 				F91F006F1CBBD11B00DAAA77 /* Source */,
 				F91F00721CBBD6BD00DAAA77 /* Model */,
-				F91F00731CBBD7F100DAAA77 /* View */,
+				1A1DBC6D1CBFBC07003DA40C /* View */,
 				F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */,
 				F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */,
 			);
@@ -740,15 +764,6 @@
 				F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		F91F00731CBBD7F100DAAA77 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F91F00741CBBD83900DAAA77 /* HarvestWidgetView.swift */,
-				F94F10091CBC042400AAA9F5 /* HarvestWidgetView.xib */,
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -862,7 +877,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F94F100A1CBC042400AAA9F5 /* HarvestWidgetView.xib in Resources */,
 				1A60367E1C7F161D0034EFE9 /* SF-UI-Text-Bold.otf in Resources */,
 				1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */,
 				1A6036831C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf in Resources */,
@@ -873,6 +887,7 @@
 				1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */,
 				1A6036791C7F161D0034EFE9 /* SF-UI-Display-Medium.otf in Resources */,
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
+				1A1DBC761CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
 				1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */,
 				1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */,
@@ -885,6 +900,7 @@
 				1A6036841C7F161D0034EFE9 /* SF-UI-Text-Medium.otf in Resources */,
 				1A60367C1C7F161D0034EFE9 /* SF-UI-Display-Thin.otf in Resources */,
 				1A60367F1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf in Resources */,
+				1A1DBC741CBFBC07003DA40C /* AreaBarChartView.xib in Resources */,
 				1A60367B1C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf in Resources */,
 				1A60367A1C7F161D0034EFE9 /* SF-UI-Display-Regular.otf in Resources */,
 				1A60367D1C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf in Resources */,
@@ -1035,18 +1051,22 @@
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
 				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,
+				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
-				5274A49B1CB6A6E9005FD847 /* Event.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
+				1A1DBC751CBFBC07003DA40C /* AreaBarChartViewModel.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
+				1A1DBC731CBFBC07003DA40C /* AreaBarChartView.swift in Sources */,
 				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
+				1A1DBC791CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
 				06DB179E1CB795A500188FCB /* GravatarImageRequestTemplate.swift in Sources */,
+				1A1DBC6C1CBFA0FA003DA40C /* Event.swift in Sources */,
 				494B68CC1C92E89A00D460B0 /* BonusWidgetView.swift in Sources */,
 				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
@@ -1059,11 +1079,11 @@
 				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
 				5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */,
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
-				F91F00751CBBD83900DAAA77 /* HarvestWidgetView.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				06DB17A01CB79E2A00188FCB /* String.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */,
+				1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
