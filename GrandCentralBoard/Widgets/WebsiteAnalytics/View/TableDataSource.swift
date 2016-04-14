@@ -17,21 +17,22 @@ protocol TableViewModel {
 
 final class TableDataSource<T: CellConfiguring, U: TableViewModel where U.ItemViewModel == T.ViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    private var items: [T.ViewModel]?
+    private var viewModel: U
     private let cellDequeuing: CellDequeuing
     private let cellConfiguring: T
 
-    init(cellDequeuing: CellDequeuing, cellConfiguring: T) {
+    init(cellDequeuing: CellDequeuing, cellConfiguring: T, viewModel: U) {
         self.cellConfiguring = cellConfiguring
         self.cellDequeuing = cellDequeuing
+        self.viewModel = viewModel
     }
 
     func configureWithViewModel(viewModel: U) {
-        items = viewModel.items
+        self.viewModel = viewModel
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items?.count ?? 0
+        return viewModel.items.count ?? 0
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -40,10 +41,7 @@ final class TableDataSource<T: CellConfiguring, U: TableViewModel where U.ItemVi
             fatalError("Cannot dequeue cell!")
         }
 
-        guard let viewModel = items?[indexPath.row] else {
-            fatalError("No view model!")
-        }
-
+        let viewModel = self.viewModel.items[indexPath.row]
         cellConfiguring.configureCell(cell, withViewModel: viewModel)
         
         return cell
