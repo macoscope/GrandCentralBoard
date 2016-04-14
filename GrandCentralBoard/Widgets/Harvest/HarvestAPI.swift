@@ -11,13 +11,12 @@ import Alamofire
 
 
 final class HarvestAPI {
-    let oauthCredentials: OAuthCredentials
+    let account: String
+    var oauthCredentials: OAuthCredentials
     let downloader: NetworkRequestManager = Alamofire.Manager.sharedInstance
-    var headers: [String: String] {
-        return ["Authorization": "Bearer " + oauthCredentials.accessToken, "Accept": "application/json"]
-    }
 
-    init(oauthCredentials: OAuthCredentials) {
+    init(account: String, oauthCredentials: OAuthCredentials) {
+        self.account = account
         self.oauthCredentials = oauthCredentials
     }
 
@@ -49,7 +48,7 @@ final class HarvestAPI {
     }
 
     func fetchDailyBillingStats(date: NSDate, completion: (GrandCentralBoardCore.Result<DailyBillingStats>) -> Void) {
-        downloader.requestJSON(.GET, url: dailyStatsURL(date), parameters: [:], headers: headers, completion: { (result: ResultType<AnyObject, NSError>.result) -> Void in
+        downloader.requestJSON(.GET, url: dailyStatsURL(date), parameters: [:], headers: headers(), completion: { (result: ResultType<AnyObject, NSError>.result) -> Void in
             switch result {
             case .Success(let json):
                 do {
@@ -67,7 +66,7 @@ final class HarvestAPI {
     }
 
     func refreshTokenIfNeeded(completion: (GrandCentralBoardCore.Result<OAuthCredentials>) -> Void) {
-        if (self.oauthCredentials.isTokenExpired) {
+        if (self.oauthCredentials.accessToken.isExpired()) {
             refreshToken(completion)
 
         } else {
@@ -76,10 +75,35 @@ final class HarvestAPI {
     }
 
     func refreshToken(completion: (GrandCentralBoardCore.Result<OAuthCredentials>) -> Void) {
-        assertionFailure("Not implemented yet")
+        let parameters = ["refresh_token": oauthCredentials.refreshToken,
+                          "client_id": oauthCredentials.clientID,
+                          "client_secret": oauthCredentials.clientSecret,
+                          "grant_type": "refresh_token"]
+        let headers = ["ContentType": "application/x-www-form-urlencoded"]
+
+        downloader.requestJSON(.POST, url: refreshTokenURL(), parameters: parameters, headers: headers) { (result: ResultType<AnyObject, NSError>.result) -> Void in
+            switch (result) {
+            case .Success(let json):
+                do {
+                    let accessToken = try AccessToken.decode(json)
+                    self.oauthCredentials.accessToken = accessToken
+                    completion(.Success(self.oauthCredentials))
+
+                } catch let error {
+                    completion(.Failure(error))
+                }
+            case .Failure(let error):
+                completion(.Failure(error))
+            }
+        }
     }
 
+
 // MARK: - Helper methods
+
+    func headers() -> [String: String] {
+        return ["Authorization": "Bearer " + oauthCredentials.accessToken.token, "Accept": "application/json"]
+    }
 
     func datesToFetch() -> [NSDate] {
         let numberOfDays = 6
@@ -90,9 +114,13 @@ final class HarvestAPI {
     }
 
     func dailyStatsURL(date: NSDate) -> NSURL {
-        let dailyStatsBaseURL = NSURL(string: "https://gcbtest.harvestapp.com/daily")!
+        let dailyStatsBaseURL = NSURL(string: String(format: "https://%@.harvestapp.com/daily", account))!
 
         return dailyStatsBaseURL.URLByAppendingPathComponent(String(date.dayOfYear)).URLByAppendingPathComponent(String(date.year))
+    }
+
+    func refreshTokenURL() -> NSURL {
+        return NSURL(string: String(format: "https://%@.harvestapp.com/oauth2/token", account))!
     }
 }
 

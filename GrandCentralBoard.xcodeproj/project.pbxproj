@@ -139,6 +139,7 @@
 		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
 		F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */; };
 		F9C88F311CBF9A3100E81A14 /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = F9C88F291CBE876900E81A14 /* DailyBillingStats.json */; };
+		F9C88F361CBFA72E00E81A14 /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F351CBFA72E00E81A14 /* HarvestWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

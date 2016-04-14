@@ -21,4 +21,8 @@ struct AccessToken : Decodable {
     static func decode(json: AnyObject) throws -> AccessToken {
         return try AccessToken(token: json => "access_token", expiresIn: json => "expires_in")
     }
+
+    func isExpired() -> Bool {
+        return NSDate().timeIntervalSinceDate(expireDate) >= 0
+    }
 }

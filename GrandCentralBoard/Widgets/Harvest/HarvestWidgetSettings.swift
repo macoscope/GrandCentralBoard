@@ -10,21 +10,21 @@ import Decodable
 
 
 struct HarvestWidgetSettings : Decodable {
-    let accessToken: String
+    let account: String
     let refreshToken: String
-    let expirationTime: NSTimeInterval
+    let clientID: String
+    let clientSecret: String
     let refreshInterval: NSTimeInterval
 
     static func decode(json: AnyObject) throws -> HarvestWidgetSettings {
-        let accessToken: String = try json => "accessToken"
-        let refreshToken: String = try json => "refreshToken"
-        let expirationTime: Double = try json => "expirationTime"
-        let refreshInterval: Double = try json => "refreshInterval"
-
-        return HarvestWidgetSettings(accessToken: accessToken, refreshToken: refreshToken, expirationTime: expirationTime, refreshInterval: refreshInterval)
+        return try HarvestWidgetSettings(account:         json => "account",
+                                         refreshToken:    json => "refreshToken",
+                                         clientID:        json => "clientID",
+                                         clientSecret:    json => "clientSecret",
+                                         refreshInterval: json => "refreshInterval")
     }
 
     var oauthCredentials: OAuthCredentials {
-        return OAuthCredentials(accessToken: accessToken, refreshToken: refreshToken, expirationTime: expirationTime)
+        return OAuthCredentials(accessToken: AccessToken(token: "", expiresIn: 0), refreshToken: refreshToken, clientID: clientID, clientSecret: clientSecret)
     }
 }

@@ -16,11 +16,13 @@ final class HarvestSource : Asynchronous {
     let harvestAPI: HarvestAPI
 
     init(settings: HarvestWidgetSettings) {
-        self.harvestAPI = HarvestAPI(oauthCredentials: settings.oauthCredentials)
+        self.harvestAPI = HarvestAPI(account: settings.account, oauthCredentials: settings.oauthCredentials)
         self.interval = settings.refreshInterval
     }
 
     func read(callback: (ResultType) -> Void) {
-        harvestAPI.fetchBillingStats(callback)
+        harvestAPI.refreshTokenIfNeeded { _ in
+            self.harvestAPI.fetchBillingStats(callback)
+        }
     }
 }
