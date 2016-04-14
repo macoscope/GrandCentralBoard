@@ -23,6 +23,17 @@ enum RemoteImageSourceError : ErrorType, HavingMessage {
     }
 }
 
+struct Counter {
+    private(set) var value = 0
+    let modulo: Int
+
+    mutating func nextValue() -> Int {
+        let returnValue = value
+        value = (value + 1) % modulo
+        return returnValue
+    }
+}
+
 final class RemoteImageSource : Asynchronous {
 
     typealias ResultType = GrandCentralBoardCore.Result<Image>
@@ -31,15 +42,18 @@ final class RemoteImageSource : Asynchronous {
     let sourceType: SourceType = .Momentary
     let dataDownloader: DataDownloader
 
-    private let path: String
+    private let paths: [String]
+    private var counter: Counter
 
-    init(path: String, interval: NSTimeInterval = 30, dataDownloader: DataDownloader) {
+    init(paths: [String], dataDownloader: DataDownloader, interval: NSTimeInterval = 30) {
         self.interval = interval
-        self.path = path
+        self.paths = paths
         self.dataDownloader = dataDownloader
+        self.counter = Counter(value: 0, modulo: paths.count)
     }
 
     func read(closure: (ResultType) -> Void) {
+        let path = paths[counter.nextValue()]
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
             case .Success(let data):
@@ -51,7 +65,6 @@ final class RemoteImageSource : Asynchronous {
                 }
             case .Failure(let error):
                 closure(.Failure(error))
-
             }
         }
     }
