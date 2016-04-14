@@ -7,11 +7,6 @@ import UIKit
 import GrandCentralBoardCore
 
 
-struct Image : Timed {
-    let value: UIImage
-    let time: NSDate
-}
-
 enum RemoteImageSourceError : ErrorType, HavingMessage {
     case DownloadFailed
 
@@ -36,7 +31,7 @@ struct Counter {
 
 final class RemoteImageSource : Asynchronous {
 
-    typealias ResultType = GrandCentralBoardCore.Result<Image>
+    typealias ResultType = GrandCentralBoardCore.Result<UIImage>
 
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
@@ -57,8 +52,7 @@ final class RemoteImageSource : Asynchronous {
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
             case .Success(let data):
-                if let value = UIImage(data: data) {
-                    let image = Image(value: value, time: NSDate())
+                if let image = UIImage(data: data) {
                     closure(.Success(image))
                 } else {
                     closure(.Failure(RemoteImageSourceError.DownloadFailed))
