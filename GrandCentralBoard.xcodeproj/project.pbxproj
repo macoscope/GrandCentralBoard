@@ -138,6 +138,7 @@
 		F9C88F281CBE873600E81A14 /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */; };
 		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
 		F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */; };
+		F9C88F311CBF9A3100E81A14 /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = F9C88F291CBE876900E81A14 /* DailyBillingStats.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1013,6 +1014,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A4616AF1C904F9000361B2E /* configurationBroken.json in Resources */,
+				F9C88F311CBF9A3100E81A14 /* DailyBillingStats.json in Resources */,
 				1A4616B11C904FC800361B2E /* configurationCorrect.json in Resources */,
 				0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */,
 				1A4616B31C90534500361B2E /* configurationBrokenJSON.json in Resources */,

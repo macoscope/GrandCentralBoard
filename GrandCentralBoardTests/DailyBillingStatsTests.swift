@@ -12,11 +12,13 @@ import XCTest
 
 class DailyBillingStatsTests: XCTestCase {
     var validJSON: AnyObject = [:]
+    var dateFormatter = NSDateFormatter()
 
     override func setUp() {
         super.setUp()
 
         validJSON = readJSONFromBundle("DailyBillingStats")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
     }
 
     override func tearDown() {
@@ -26,6 +28,7 @@ class DailyBillingStatsTests: XCTestCase {
     func testDecodingFromValidJSON() throws {
         let stats = try DailyBillingStats.decode(validJSON)
 
+        XCTAssertEqual(dateFormatter.stringFromDate(stats.day), "2016-04-13")
         XCTAssertEqual(stats.groups.count, 3)
 
         XCTAssertEqual(stats.groups[0].type, BillingStatsGroupType.Less)

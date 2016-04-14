@@ -21,15 +21,6 @@ final class HarvestSource : Asynchronous {
     }
 
     func read(callback: (ResultType) -> Void) {
-        dispatch_async(dispatch_get_main_queue()) {
-            let groups = [
-                BillingStatsGroup(type: .Less,   count: 10, averageHours: 4.5),
-                BillingStatsGroup(type: .Normal, count: 4,  averageHours: 6.4),
-                BillingStatsGroup(type: .More,   count: 15, averageHours: 8.1)
-            ]
-            let dailyStats = DailyBillingStats(day: NSDate(), groups: groups)
-
-            callback(.Success([dailyStats]))
-        }
+        harvestAPI.fetchBillingStats(callback)
     }
 }
