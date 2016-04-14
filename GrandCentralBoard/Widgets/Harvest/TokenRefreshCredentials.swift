@@ -1,5 +1,5 @@
 //
-//  OAuthCredentials.swift
+//  TokenRefreshCredentials.swift
 //  GrandCentralBoard
 //
 //  Created by Karol Kozub on 2016-04-11.
@@ -9,8 +9,7 @@
 import Foundation
 
 
-struct OAuthCredentials {
-    var accessToken: AccessToken
+struct TokenRefreshCredentials {
     let refreshToken: String
     let clientID: String
     let clientSecret: String

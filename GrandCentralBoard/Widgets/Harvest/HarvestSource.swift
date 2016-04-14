@@ -16,7 +16,7 @@ final class HarvestSource : Asynchronous {
     let harvestAPI: HarvestAPI
 
     init(settings: HarvestWidgetSettings) {
-        self.harvestAPI = HarvestAPI(account: settings.account, oauthCredentials: settings.oauthCredentials)
+        self.harvestAPI = HarvestAPI(account: settings.account, refreshCredentials: settings.refreshCredentials, downloader: settings.downloader)
         self.interval = settings.refreshInterval
     }
 

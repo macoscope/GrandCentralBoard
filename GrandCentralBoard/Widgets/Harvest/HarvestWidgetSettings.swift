@@ -7,6 +7,7 @@
 //
 
 import Decodable
+import Alamofire
 
 
 struct HarvestWidgetSettings : Decodable {
@@ -15,6 +16,7 @@ struct HarvestWidgetSettings : Decodable {
     let clientID: String
     let clientSecret: String
     let refreshInterval: NSTimeInterval
+    let downloader: NetworkRequestManager = Alamofire.Manager.sharedInstance
 
     static func decode(json: AnyObject) throws -> HarvestWidgetSettings {
         return try HarvestWidgetSettings(account:         json => "account",
@@ -24,7 +26,7 @@ struct HarvestWidgetSettings : Decodable {
                                          refreshInterval: json => "refreshInterval")
     }
 
-    var oauthCredentials: OAuthCredentials {
-        return OAuthCredentials(accessToken: AccessToken(token: "", expiresIn: 0), refreshToken: refreshToken, clientID: clientID, clientSecret: clientSecret)
+    var refreshCredentials: TokenRefreshCredentials {
+        return TokenRefreshCredentials(refreshToken: refreshToken, clientID: clientID, clientSecret: clientSecret)
     }
 }
