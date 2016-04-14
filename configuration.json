@@ -6,6 +6,6 @@
                 
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
-                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} }
+                {"name": "harvest", "settings": {"accessToken": "", "refreshToken": "", "expirationTime": 0, "refreshInterval": 3600}}
                ]
 }
