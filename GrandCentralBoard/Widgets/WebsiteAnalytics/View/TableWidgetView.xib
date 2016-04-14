@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TableWidgetView" customModule="GrandCentralBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Popular Posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bo-hE-6bp">
+                    <rect key="frame" x="0.0" y="13" width="1920" height="22"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="40" sectionFooterHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="8Wz-AT-l7K">
+                    <rect key="frame" x="0.0" y="55" width="1920" height="1025"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8Wz-AT-l7K" firstAttribute="top" secondItem="0bo-hE-6bp" secondAttribute="bottom" constant="20" id="4NC-oz-tOS"/>
+                <constraint firstAttribute="bottom" secondItem="8Wz-AT-l7K" secondAttribute="bottom" id="BgI-mw-21d"/>
+                <constraint firstItem="0bo-hE-6bp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LZU-mN-lmN"/>
+                <constraint firstAttribute="trailing" secondItem="0bo-hE-6bp" secondAttribute="trailing" id="MLS-hK-ZMk"/>
+                <constraint firstItem="8Wz-AT-l7K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SrI-76-FxW"/>
+                <constraint firstAttribute="trailing" secondItem="8Wz-AT-l7K" secondAttribute="trailing" id="grX-T8-UF4"/>
+                <constraint firstItem="0bo-hE-6bp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="t86-g7-3YO"/>
+            </constraints>
+            <connections>
+                <outlet property="tableView" destination="8Wz-AT-l7K" id="O4T-h5-Ozb"/>
+            </connections>
+        </view>
+    </objects>
+</document>
