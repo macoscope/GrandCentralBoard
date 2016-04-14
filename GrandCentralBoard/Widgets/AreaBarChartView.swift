@@ -11,34 +11,15 @@ private let FirstScaleLineHeight: CGFloat = 12
 private let NormalScaleLineHeight: CGFloat = 4
 private let LastScaleLineHeight: CGFloat = 32
 
-
-final class AreaBarDashedLineWithLabel : UIView {
-
-    @IBOutlet private var valueLabel: UILabel!
-
-    func configureWithViewModel(viewModel: AreaBarItemViewModel) {
-        switch viewModel.valueLabelMode {
-        case .Hidden:
-            valueLabel.hidden = true
-        case .Left(let text):
-            valueLabel.hidden = false
-            valueLabel.text = text
-            valueLabel.textAlignment = .Left
-        case .Right(let text):
-            valueLabel.hidden = false
-            valueLabel.text = text
-            valueLabel.textAlignment = .Right
-        }
-    }
-
-    // MARK - fromNib
-
-    class func fromNib() -> AreaBarDashedLineWithLabel {
-        return NSBundle.mainBundle().loadNibNamed("AreaBarDashedLineWithLabel", owner: nil, options: nil)[0] as! AreaBarDashedLineWithLabel
-    }
-}
-
 final class AreaBarHorizontalAxisStackView : UIStackView {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        axis = .Horizontal
+        distribution = .EqualSpacing
+        alignment = .Top
+    }
 
     func drawAxisWithViewModel(viewModel: AreaBarChartViewModel) {
 
@@ -71,7 +52,7 @@ final class AreaBarHorizontalAxisStackView : UIStackView {
 }
 
 final class AreaBarChartView : UIView, ViewModelRendering {
-    typealias ViewModel = WatchWidgetViewModel //AreaBarChartViewModel
+    typealias ViewModel = AreaBarChartViewModel
 
     @IBOutlet private var barStackView: AreaBarStackView!
     @IBOutlet private var axisStackView: AreaBarHorizontalAxisStackView!
@@ -82,9 +63,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        axisStackView.axis = .Horizontal
-        axisStackView.distribution = .EqualSpacing
-        axisStackView.alignment = .Top
+        translatesAutoresizingMaskIntoConstraints = false
     }
 
     // MARK: ViewModelRendering
@@ -105,15 +84,10 @@ final class AreaBarChartView : UIView, ViewModelRendering {
 
     private func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
-        case (.Waiting, .Rendering):
-
-            let items = [AreaBarItemViewModel(proportionalWidth: 0.5, proportionalHeight: 0.2, color: UIColor.lipstick(), valueLabelMode: .Left(text: "123")), AreaBarItemViewModel(proportionalWidth: 0.25, proportionalHeight: 0.5, color: UIColor.aquaMarine(), valueLabelMode: .Hidden), AreaBarItemViewModel(proportionalWidth: 0.25, proportionalHeight: 1, color: UIColor.almostWhite(), valueLabelMode: .Right(text: "222"))]
-            let model = AreaBarChartViewModel(barItems: items, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", hotizontalAxisCountLabelText: "666")
-
-            configureBarsWithViewModel(model)
-            configureLabelsWithViewModel(model)
-            configureAxisWithViewModel(model)
-            configureValueLabelsWithViewModel(model)
+        case (_, .Rendering(let viewModel)):
+            configureBarsWithViewModel(viewModel)
+            configureLabelsWithViewModel(viewModel)
+            configureAxisWithViewModel(viewModel)
         default:
             break
         }
@@ -127,21 +101,27 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     }
 
     private func configureBarsWithViewModel(viewModel: AreaBarChartViewModel) {
-        viewModel.barItems.forEach { bar in
-            barStackView.addBar(bar)
+        viewModel.barItems.forEach { itemViewModel in
+            let barView = barStackView.addBarWithViewModelitemViewModel(itemViewModel)
+            addLineWithLabelToBarView(barView, withViewModel: itemViewModel)
         }
+
+        bringSubviewToFront(barStackView)
     }
 
-    private func configureValueLabelsWithViewModel(viewModel: AreaBarChartViewModel) {
-        viewModel.barItems.forEach { bar in
-            let dashedLine = AreaBarDashedLineWithLabel.fromNib()
-            addSubview(dashedLine)
-            dashedLine.heightAnchor.constraintEqualToConstant(20).active = true
-            dashedLine.trailingAnchor.constraintEqualToAnchor(trailingAnchor).active = true
-            dashedLine.leadingAnchor.constraintEqualToAnchor(leadingAnchor).active = true
-            dashedLine.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-            dashedLine.configureWithViewModel(bar)
-        }
+    private func addLineWithLabelToBarView(barView: UIView, withViewModel viewModel: AreaBarItemViewModel) {
+        let dashedLine = AreaBarDashedLineWithLabel.fromNib()
+        dashedLine.configureWithViewModel(viewModel)
+        addSubview(dashedLine)
+        setUpConstraintsOfDashedLine(dashedLine, toBar: barView)
+    }
+
+    private func setUpConstraintsOfDashedLine(dashedLine: UIView, toBar bar: UIView) {
+        dashedLine.heightAnchor.constraintEqualToConstant(20).active = true
+        dashedLine.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: dashedLine, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading, multiplier: 1.0, constant: 32).active = true
+        NSLayoutConstraint(item: dashedLine, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing, multiplier: 1.0, constant: -32).active = true
+        NSLayoutConstraint(item: dashedLine, attribute: .Bottom, relatedBy: .Equal, toItem: bar, attribute: .Top, multiplier: 1.0, constant: 2).active = true
     }
 
     private func configureAxisWithViewModel(viewModel: AreaBarChartViewModel) {

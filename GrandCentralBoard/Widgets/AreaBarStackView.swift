@@ -16,11 +16,12 @@ final class AreaBarStackView : UIStackView {
         alignment = .Bottom
     }
 
-    func addBar(bar: AreaBarItemViewModel) {
+    func addBarWithViewModelitemViewModel(viewModel: AreaBarItemViewModel) -> UIView {
         let view = UIView()
-        view.backgroundColor = bar.color
+        view.backgroundColor = viewModel.color
         addArrangedSubview(view)
-        view.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: bar.proportionalHeight).active = true
-        view.widthAnchor.constraintEqualToAnchor(widthAnchor, multiplier: bar.proportionalWidth).active = true
+        view.heightAnchor.constraintEqualToAnchor(heightAnchor, multiplier: viewModel.proportionalHeight).active = true
+        view.widthAnchor.constraintEqualToAnchor(widthAnchor, multiplier: viewModel.proportionalWidth).active = true
+        return view
     }
 }

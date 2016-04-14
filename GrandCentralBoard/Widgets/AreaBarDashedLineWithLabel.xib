@@ -6,6 +6,7 @@
     <customFonts key="customFonts">
         <mutableArray key="SF-UI-Text-Bold.otf">
             <string>SFUIText-Bold</string>
+            <string>SFUIText-Bold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -15,9 +16,22 @@
             <rect key="frame" x="0.0" y="0.0" width="640" height="20"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more than 8!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKo-L9-Il1">
-                    <rect key="frame" x="0.0" y="0.0" width="640" height="18"/>
+                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more than 8!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EKo-L9-Il1">
+                    <rect key="frame" x="536" y="0.0" width="98" height="18"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="98" id="Vpl-S4-ayA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more than 8!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Z0-SH-KIh">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="18"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="wBN-VA-KIp"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -25,14 +39,17 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="EKo-L9-Il1" secondAttribute="trailing" id="92x-SC-hzk"/>
+                <constraint firstAttribute="bottom" secondItem="6Z0-SH-KIh" secondAttribute="bottom" constant="2" id="6gH-fa-vft"/>
+                <constraint firstAttribute="trailing" secondItem="EKo-L9-Il1" secondAttribute="trailing" constant="6" id="92x-SC-hzk"/>
+                <constraint firstItem="6Z0-SH-KIh" firstAttribute="leading" secondItem="X1D-Fw-YR5" secondAttribute="leading" id="GE0-86-xP1"/>
+                <constraint firstItem="6Z0-SH-KIh" firstAttribute="top" secondItem="X1D-Fw-YR5" secondAttribute="top" id="JBe-1U-h4r"/>
                 <constraint firstAttribute="bottom" secondItem="EKo-L9-Il1" secondAttribute="bottom" constant="2" id="JM2-eK-Dcx"/>
                 <constraint firstItem="EKo-L9-Il1" firstAttribute="top" secondItem="X1D-Fw-YR5" secondAttribute="top" id="VCM-aT-WiC"/>
-                <constraint firstItem="EKo-L9-Il1" firstAttribute="leading" secondItem="X1D-Fw-YR5" secondAttribute="leading" id="cL2-Zf-lPo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="valueLabel" destination="EKo-L9-Il1" id="PMu-Ez-fkh"/>
+                <outlet property="valueLabelLeft" destination="6Z0-SH-KIh" id="CsG-hf-Fu4"/>
+                <outlet property="valueLabelRight" destination="EKo-L9-Il1" id="bS4-Ml-GqH"/>
             </connections>
         </view>
     </objects>
