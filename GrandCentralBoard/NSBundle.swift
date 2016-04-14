@@ -10,17 +10,17 @@ private let GCBRemoteConfigurationPathKey = "GCBRemoteConfigurationPath"
 private let GCBLocalConfigurationFileNameKey = "GCBLocalConfigurationFileName"
 
 extension NSBundle {
-    static func stringForInfoDictionaryKey(key: String) -> String {
-        return NSBundle.mainBundle().objectForInfoDictionaryKey(key) as! String
+    static func stringForInfoDictionaryKey(key: String) -> String? {
+        return NSBundle.mainBundle().objectForInfoDictionaryKey(key) as? String
     }
 }
 
 extension NSBundle {
     static var remoteConfigurationPath : String {
-        return stringForInfoDictionaryKey("GCBRemoteConfigurationPath")
+        return stringForInfoDictionaryKey(GCBRemoteConfigurationPathKey)!
     }
 
     static var localConfigurationFileName : String {
-        return stringForInfoDictionaryKey("GCBLocalConfigurationFileName")
+        return stringForInfoDictionaryKey(GCBLocalConfigurationFileNameKey)!
     }
 }
