@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TableViewCell: UITableViewCell, ConfigurableWithViewModel {
+class TableViewCell: UITableViewCell, CellConfigurableWithViewModel {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueDescriptionLabel: UILabel!

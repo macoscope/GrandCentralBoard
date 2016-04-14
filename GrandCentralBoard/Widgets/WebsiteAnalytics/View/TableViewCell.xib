@@ -14,8 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" text="Text1 Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text2" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFp-G3-X4k" userLabel="Title">
-                        <rect key="frame" x="31" y="23" width="458" height="57"/>
-                        <color key="backgroundColor" red="1" green="0.2607995514" blue="0.21427975590000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="31" y="23" width="461" height="57"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="CDp-XW-nch"/>
                         </constraints>
@@ -24,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-fc-TSl" userLabel="Score">
-                        <rect key="frame" x="519" y="23" width="140" height="39"/>
+                        <rect key="frame" x="522" y="23" width="140" height="39"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="JDr-BB-hCm"/>
                         </constraints>
@@ -35,7 +34,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="LXu-fc-TSl" firstAttribute="top" secondItem="mFp-G3-X4k" secondAttribute="top" id="Cqa-9T-FQO"/>
-                    <constraint firstAttribute="trailing" secondItem="LXu-fc-TSl" secondAttribute="trailing" constant="34" id="N0i-Q6-o2s"/>
+                    <constraint firstAttribute="trailing" secondItem="LXu-fc-TSl" secondAttribute="trailing" constant="31" id="N0i-Q6-o2s"/>
                     <constraint firstItem="mFp-G3-X4k" firstAttribute="leading" secondItem="Ccn-ex-mTK" secondAttribute="leading" constant="31" id="Nvc-u6-8VX"/>
                     <constraint firstItem="LXu-fc-TSl" firstAttribute="leading" secondItem="mFp-G3-X4k" secondAttribute="trailing" constant="30" id="aPf-xu-dYu"/>
                     <constraint firstAttribute="bottom" secondItem="mFp-G3-X4k" secondAttribute="bottom" constant="23" id="ani-Jf-J60"/>

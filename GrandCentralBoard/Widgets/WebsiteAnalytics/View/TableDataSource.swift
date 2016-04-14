@@ -10,20 +10,22 @@ import UIKit
 
 
 protocol TableViewModel {
-    associatedtype ItemViewModel: CellViewModel
-    var items: [ItemViewModel] { get }
+    associatedtype CellViewModel: GrandCentralBoard.CellViewModel
+    associatedtype HeaderViewModel: GrandCentralBoard.HeaderViewModel
+    var items: [CellViewModel] { get }
+    var headerViewModel: HeaderViewModel { get }
 }
 
 
-final class TableDataSource<T: CellConfiguring, U: TableViewModel where U.ItemViewModel == T.ViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
+final class TableDataSource<T: ViewConfiguring, U: TableViewModel where U.CellViewModel == T.CellViewModel, U.HeaderViewModel == T.HeaderViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
 
     private var viewModel: U
-    private let cellDequeuing: CellDequeuing
-    private let cellConfiguring: T
+    private let viewConfiguring: T
+    private let viewDequeuing: ViewDequeuing
 
-    init(cellDequeuing: CellDequeuing, cellConfiguring: T, viewModel: U) {
-        self.cellConfiguring = cellConfiguring
-        self.cellDequeuing = cellDequeuing
+    init(viewDequeuing: ViewDequeuing, viewConfiguring: T, viewModel: U) {
+        self.viewConfiguring = viewConfiguring
+        self.viewDequeuing = viewDequeuing
         self.viewModel = viewModel
     }
 
@@ -37,13 +39,28 @@ final class TableDataSource<T: CellConfiguring, U: TableViewModel where U.ItemVi
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        guard let cell = cellDequeuing.dequeueCell() as? T.Cell else {
+        guard let cell = viewDequeuing.dequeueCell() as? T.Cell else {
             fatalError("Cannot dequeue cell!")
         }
 
         let viewModel = self.viewModel.items[indexPath.row]
-        cellConfiguring.configureCell(cell, withViewModel: viewModel)
+        viewConfiguring.configureCell(cell, withViewModel: viewModel)
         
         return cell
     }
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.viewModel.headerViewModel.height
+    }
+
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = viewDequeuing.dequeueHeader() as? T.Header else {
+            fatalError("Cannot dequeue header!")
+        }
+
+        viewConfiguring.configureHeader(headerView, withViewModel: self.viewModel.headerViewModel)
+        
+        return headerView
+    }
+
 }
