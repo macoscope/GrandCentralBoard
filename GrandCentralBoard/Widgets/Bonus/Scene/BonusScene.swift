@@ -6,19 +6,19 @@
 import SpriteKit
 
 private let pokeTimeInterval: NSTimeInterval = 8
-private let resizeSceneInterval: NSTimeInterval = 1.3
+private let resizeWorldInterval: NSTimeInterval = 0.2
 
 class BonusScene: SKScene {
     
     private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
-    
+
     override func didMoveToView(view: SKView) {
         assert(viewModel != nil)
         setUpWithViewModel(viewModel)
 
         NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles), userInfo: nil, repeats: true)
-        NSTimer.scheduledTimerWithTimeInterval(resizeSceneInterval, target: self, selector: #selector(BonusScene.updateSceneSize), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(resizeWorldInterval, target: self, selector: #selector(BonusScene.updateWorldSize), userInfo: nil, repeats: true)
     }
     
     func setUpWithViewModel(viewModel: BonusWidgetViewModel) {
@@ -40,16 +40,16 @@ class BonusScene: SKScene {
         }
     }
 
-    func updateSceneSize() {
+    func updateWorldSize() {
         guard !world.children.isEmpty else { return }
 
         let calculatedAccumulatedFrame = world.calculateAccumulatedFrame()
         let nodesFitScreen = CGRectContainsRect(frame, calculatedAccumulatedFrame)
         let nodesToSmall = frame.width > calculatedAccumulatedFrame.width * 1.25 && frame.height > calculatedAccumulatedFrame.height * 1.25
         if !nodesFitScreen {
-            scaleBubblesDown()
+            scaleBy(0.98)
         } else if (nodesToSmall) {
-            scaleBubblesUp()
+            scaleBy(1.02)
         }
     }
 
@@ -109,18 +109,9 @@ class BonusScene: SKScene {
         gravityNode?.runAction(pokeAction)
     }
 
-    private func scaleBubblesDown() {
-        scaleBubbles(1.02)
+    private func scaleBy(scale: CGFloat, duration: NSTimeInterval = resizeWorldInterval) {
+        let action = SKAction.scaleBy(scale, duration: resizeWorldInterval)
+        action.timingMode = .Linear
+        world.runAction(action)
     }
-
-    private func scaleBubblesUp() {
-        scaleBubbles(0.98)
-    }
-
-    private func scaleBubbles(scaleFactor: CGFloat) {
-        // Scale bubbles down by increasing size of the scene
-        let changeSizeAction = SKAction.resizeToWidth(size.width * scaleFactor, height: size.width * scaleFactor, duration: resizeSceneInterval)
-        runAction(changeSizeAction)
-    }
-    
 }
