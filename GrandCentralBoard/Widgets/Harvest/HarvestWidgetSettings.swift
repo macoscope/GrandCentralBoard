@@ -7,25 +7,28 @@
 //
 
 import Decodable
+import Alamofire
 
 
 struct HarvestWidgetSettings : Decodable {
-    let accessToken: String
+    let account: String
     let refreshToken: String
-    let expirationDate: NSDate
+    let clientID: String
+    let clientSecret: String
+    let numberOfDays: Int
     let refreshInterval: NSTimeInterval
+    let downloader: NetworkRequestManager = Alamofire.Manager.sharedInstance
 
     static func decode(json: AnyObject) throws -> HarvestWidgetSettings {
-        let accessToken: String = try json => "accessToken"
-        let refreshToken: String = try json => "refreshToken"
-        let expirationTime: Double = try json => "expirationTime"
-        let refreshInterval: Double = try json => "refreshInterval"
-        let expirationDate = NSDate.init(timeIntervalSince1970: expirationTime)
-
-        return HarvestWidgetSettings(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate, refreshInterval: refreshInterval)
+        return try HarvestWidgetSettings(account:         json => "account",
+                                         refreshToken:    json => "refreshToken",
+                                         clientID:        json => "clientID",
+                                         clientSecret:    json => "clientSecret",
+                                         numberOfDays:    json => "numberOfDays",
+                                         refreshInterval: json => "refreshInterval")
     }
 
-    var oauthCredentials: OAuthCredentials {
-        return OAuthCredentials(accessToken: accessToken, refreshToken: refreshToken, expirationDate: expirationDate)
+    var refreshCredentials: TokenRefreshCredentials {
+        return TokenRefreshCredentials(refreshToken: refreshToken, clientID: clientID, clientSecret: clientSecret)
     }
 }

@@ -13,24 +13,16 @@ final class HarvestSource : Asynchronous {
     typealias ResultType = Result<[DailyBillingStats]>
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
-
-    private let oauthCredentials: OAuthCredentials
+    let harvestAPI: HarvestAPI
 
     init(settings: HarvestWidgetSettings) {
-        self.oauthCredentials = settings.oauthCredentials
+        self.harvestAPI = HarvestAPI(account: settings.account, refreshCredentials: settings.refreshCredentials, downloader: settings.downloader, numberOfDaysToFetch: settings.numberOfDays)
         self.interval = settings.refreshInterval
     }
 
     func read(callback: (ResultType) -> Void) {
-        dispatch_async(dispatch_get_main_queue()) {
-            let groups = [
-                BillingStatsGroup(type: .Less,   count: 10, averageHours: 4.5),
-                BillingStatsGroup(type: .Normal, count: 4,  averageHours: 6.4),
-                BillingStatsGroup(type: .More,   count: 15, averageHours: 8.1)
-            ]
-            let dailyStats = DailyBillingStats(day: NSDate(), groups: groups)
-
-            callback(.Success([dailyStats]))
+        harvestAPI.refreshTokenIfNeeded { _ in
+            self.harvestAPI.fetchBillingStats(callback)
         }
     }
 }

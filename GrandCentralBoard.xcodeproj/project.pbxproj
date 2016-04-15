@@ -120,22 +120,29 @@
 		52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB505F1CBE5B570053DE8B /* SourceSettings.swift */; };
 		52FB50621CBE862D0053DE8B /* EventsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50551CBD2E4B0053DE8B /* EventsSource.swift */; };
 		52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB505D1CBD5AB10053DE8B /* CalendarNameSource.swift */; };
-		52FB50811CBFB1660053DE8B /* ImageWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */; };
-		52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */; };
 		52FB50751CBF9B210053DE8B /* AnalyticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50741CBF9B210053DE8B /* AnalyticsReport.swift */; };
 		52FB50781CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50771CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift */; };
 		52FB507A1CBF9B370053DE8B /* NSDate+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50791CBF9B370053DE8B /* NSDate+DateFormatter.swift */; };
 		52FB507D1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB507C1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift */; };
 		52FB507F1CBF9C320053DE8B /* PageViewsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB507E1CBF9C320053DE8B /* PageViewsReport.swift */; };
+		52FB50811CBFB1660053DE8B /* ImageWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */; };
+		52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */; };
 		A51416475F94A413FB85F63B /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */; };
 		E522BDB69BF4C217BDC7B691 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4597498FBEF6B18712C28B /* Pods_GrandCentralBoardTests.framework */; };
 		F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */; };
 		F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */; };
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
 		F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */; };
-		F91F007D1CBBDF2200DAAA77 /* OAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */; };
+		F91F007D1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */; };
+		F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */; };
+		F9C88F281CBE873600E81A14 /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */; };
 		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
 		F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */; };
+		F9C88F311CBF9A3100E81A14 /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = F9C88F291CBE876900E81A14 /* DailyBillingStats.json */; };
+		F9C88F361CBFA72E00E81A14 /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F351CBFA72E00E81A14 /* HarvestWidgetView.swift */; };
+		F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F391CBFC36900E81A14 /* BillingStatsFetcher.swift */; };
+		F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F3B1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift */; };
+		F9C88F3E1CBFC72100E81A14 /* AccessTokenFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,13 +285,13 @@
 		52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarWatchWidgetBuilder.swift; sourceTree = "<group>"; };
 		52FB505D1CBD5AB10053DE8B /* CalendarNameSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarNameSource.swift; sourceTree = "<group>"; };
 		52FB505F1CBE5B570053DE8B /* SourceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceSettings.swift; sourceTree = "<group>"; };
-		52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetConfiguration.swift; sourceTree = "<group>"; };
-		52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetBuilder.swift; sourceTree = "<group>"; };
 		52FB50741CBF9B210053DE8B /* AnalyticsReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsReport.swift; sourceTree = "<group>"; };
 		52FB50771CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsDataProvider.swift; sourceTree = "<group>"; };
 		52FB50791CBF9B370053DE8B /* NSDate+DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+DateFormatter.swift"; path = "Extensions/NSDate+DateFormatter.swift"; sourceTree = "<group>"; };
 		52FB507C1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB507E1CBF9C320053DE8B /* PageViewsReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsReport.swift; sourceTree = "<group>"; };
+		52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetConfiguration.swift; sourceTree = "<group>"; };
+		52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetBuilder.swift; sourceTree = "<group>"; };
 		6D4597498FBEF6B18712C28B /* Pods_GrandCentralBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,9 +302,15 @@
 		F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetBuilder.swift; sourceTree = "<group>"; };
 		F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestSource.swift; sourceTree = "<group>"; };
 		F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetSettings.swift; sourceTree = "<group>"; };
-		F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthCredentials.swift; sourceTree = "<group>"; };
+		F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenRefreshCredentials.swift; sourceTree = "<group>"; };
+		F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestAPI.swift; sourceTree = "<group>"; };
+		F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStatsTests.swift; sourceTree = "<group>"; };
+		F9C88F291CBE876900E81A14 /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DailyBillingStats.json; sourceTree = "<group>"; };
 		F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingStatsGroup.swift; sourceTree = "<group>"; };
 		F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStats.swift; sourceTree = "<group>"; };
+		F9C88F391CBFC36900E81A14 /* BillingStatsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingStatsFetcher.swift; sourceTree = "<group>"; };
+		F9C88F3B1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStatsFetcher.swift; sourceTree = "<group>"; };
+		F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -808,6 +821,7 @@
 		F91F00691CBBCFD900DAAA77 /* Harvest */ = {
 			isa = PBXGroup;
 			children = (
+				F9C88F1C1CBD38EF00E81A14 /* Networking */,
 				F91F006F1CBBD11B00DAAA77 /* Source */,
 				F91F00721CBBD6BD00DAAA77 /* Model */,
 				1A1DBC6D1CBFBC07003DA40C /* View */,
@@ -820,6 +834,8 @@
 		F91F006A1CBBCFFD00DAAA77 /* Harvest */ = {
 			isa = PBXGroup;
 			children = (
+				F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */,
+				F9C88F291CBE876900E81A14 /* DailyBillingStats.json */,
 			);
 			name = Harvest;
 			sourceTree = "<group>";
@@ -829,7 +845,7 @@
 			children = (
 				F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */,
 				F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */,
-				F91F007C1CBBDF2200DAAA77 /* OAuthCredentials.swift */,
+				F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -841,6 +857,17 @@
 				F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F9C88F1C1CBD38EF00E81A14 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */,
+				F9C88F391CBFC36900E81A14 /* BillingStatsFetcher.swift */,
+				F9C88F3B1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift */,
+				F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -997,6 +1024,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A4616AF1C904F9000361B2E /* configurationBroken.json in Resources */,
+				F9C88F311CBF9A3100E81A14 /* DailyBillingStats.json in Resources */,
 				1A4616B11C904FC800361B2E /* configurationCorrect.json in Resources */,
 				0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */,
 				1A4616B31C90534500361B2E /* configurationBrokenJSON.json in Resources */,
@@ -1113,7 +1141,7 @@
 				0662F2661CC046BF00729093 /* Calendar.swift in Sources */,
 				067DA5471CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift in Sources */,
 				06684F2B1CB788FB00B93D90 /* BonuslyRequestTemplates.swift in Sources */,
-				F91F007D1CBBDF2200DAAA77 /* OAuthCredentials.swift in Sources */,
+				F91F007D1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift in Sources */,
 				5274A4921CB69AE9005FD847 /* NetworkRequestManager.swift in Sources */,
 				494B68CE1C92E89A00D460B0 /* BonusWidgetViewModel.swift in Sources */,
 				52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */,
@@ -1145,6 +1173,7 @@
 				1A1DBC751CBFBC07003DA40C /* AreaBarChartViewModel.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */,
+				F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
 				1A1DBC731CBFBC07003DA40C /* AreaBarChartView.swift in Sources */,
 				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
@@ -1163,12 +1192,12 @@
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				1A1DBC681CBF9A19003DA40C /* NSUserDefaults.swift in Sources */,
 				52FB507F1CBF9C320053DE8B /* PageViewsReport.swift in Sources */,
-				5274A4991CB69DAC005FD847 /* Calendar.swift in Sources */,
 				52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */,
 				067DA5631CBFCA7D00048E6A /* TableViewHeaderView.swift in Sources */,
 				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
 				067DA5541CBE80C900048E6A /* TableDataSource.swift in Sources */,
 				5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */,
+				F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */,
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				067DA55D1CBFA8F900048E6A /* TableViewCell.swift in Sources */,
@@ -1181,11 +1210,13 @@
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
+				F9C88F3E1CBFC72100E81A14 /* AccessTokenFetcher.swift in Sources */,
 				52FB50621CBE862D0053DE8B /* EventsSource.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
 				F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
+				F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
@@ -1202,6 +1233,7 @@
 				1A242D331C357C2700D5BEE5 /* GrandCentralBoardTests.swift in Sources */,
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
+				F9C88F281CBE873600E81A14 /* DailyBillingStatsTests.swift in Sources */,
 				0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */,
 				52FB507D1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
