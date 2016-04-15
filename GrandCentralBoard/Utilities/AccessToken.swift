@@ -23,6 +23,6 @@ struct AccessToken : Decodable {
     }
 
     func isExpired() -> Bool {
-        return NSDate().timeIntervalSinceDate(expireDate) >= 0
+        return NSDate() >= expireDate
     }
 }

@@ -64,6 +64,7 @@ extension DailyBillingStats : Decodable {
 
         static func decode(json: AnyObject) throws -> Day {
             let formatter = NSDateFormatter()
+            formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
             formatter.dateFormat = "yyyy-MM-dd"
 
             guard let date = formatter.dateFromString(try String.decode(json)) else {
