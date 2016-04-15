@@ -20,7 +20,7 @@ final class ImageWidgetBuilder: WidgetBuilding {
     func build(settings: AnyObject) throws -> Widget {
         let settings = try ImageWidgetConfiguration.decode(settings)
 
-        let imagesSource = RemoteImageSource(paths: settings.imagePaths, dataDownloader: dataDownloader)
+        let imagesSource = try RemoteImageSource(paths: settings.imagePaths, dataDownloader: dataDownloader)
         let view = ImageWidgetView.fromNib()
         return ImageWidget(view: view, sources: [imagesSource])
     }

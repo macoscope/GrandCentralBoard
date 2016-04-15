@@ -9,11 +9,13 @@ import GrandCentralBoardCore
 
 enum RemoteImageSourceError : ErrorType, HavingMessage {
     case DownloadFailed
-
+    case EmptyURLList
     var message: String {
         switch self {
-            case .DownloadFailed:
-                return NSLocalizedString("Cannot download image!", comment: "")
+        case .DownloadFailed:
+            return NSLocalizedString("Cannot download image!", comment: "")
+        case .EmptyURLList:
+            return NSLocalizedString("Provided list of URLs with images is empty!", comment: "")
         }
     }
 }
@@ -40,7 +42,11 @@ final class RemoteImageSource : Asynchronous {
     private let paths: [String]
     private var counter: Counter
 
-    init(paths: [String], dataDownloader: DataDownloader, interval: NSTimeInterval = 30) {
+    init(paths: [String], dataDownloader: DataDownloader, interval: NSTimeInterval = 30) throws {
+        guard paths.count > 0 else {
+            throw RemoteImageSourceError.EmptyURLList
+        }
+
         self.interval = interval
         self.paths = paths
         self.dataDownloader = dataDownloader
