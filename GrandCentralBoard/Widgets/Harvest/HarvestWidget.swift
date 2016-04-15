@@ -38,14 +38,18 @@ final class HarvestWidget : Widget {
     func updateViewWithResult(result: HarvestSource.ResultType) {
 
         // TODO: Remove fake ViewModels.
-        let items = [AreaBarItemViewModel(proportionalWidth: 0.5, proportionalHeight: 0.2, color: UIColor.lipstick(), valueLabelMode: .VisibleLabelLeft(text: "123")), AreaBarItemViewModel(proportionalWidth: 0.25, proportionalHeight: 0.5, color: UIColor.aquaMarine(), valueLabelMode: .VisibleWithHiddenLabel), AreaBarItemViewModel(proportionalWidth: 0.25, proportionalHeight: 1, color: UIColor.almostWhite(), valueLabelMode: .VisibleLabelRight(text: "222"))]
+        let items = [AreaBarItemViewModel(proportionalWidth: 0.5, proportionalHeight: 0.2, color: UIColor.lipstick(), valueLabelMode: .VisibleLabelLeft(text: "less than 2h!")), AreaBarItemViewModel(proportionalWidth: 0.25, proportionalHeight: 0.5, color: UIColor.aquaMarine(), valueLabelMode: .VisibleWithHiddenLabel), AreaBarItemViewModel(proportionalWidth: 0.25, proportionalHeight: 1, color: UIColor.almostWhite(), valueLabelMode: .VisibleLabelRight(text: "more than 8h!"))]
 
-        let model = AreaBarChartViewModel(barItems: items, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", hotizontalAxisCountLabelText: "666", centerText: nil, headerText: "HARVEST BURN REPORT", subheaderText: "Monday 28.03.2016")
+        let mainChart = AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: "20", headerText: "HARVEST BURN REPORT", subheaderText: "Monday 28.03.2016")
+
+        let history = AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: "12", headerText: "Mon", subheaderText: "27.03.2016")
+
+        let model = AreaBarChartViewModel(mainChart: mainChart, componentCharts: [history, history, history, history, history], horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", centerText: nil)
 
         widgetView.render(model)
 
         // Why another render? To check if view renders the view model after the previous one.
         // TODO: Remove!
-        widgetView.render(AreaBarChartViewModel.emptyViewModel(header: "HARVEST BURN REPORT", subheader: "Monday 28.03.2016"))
+        // widgetView.render(AreaBarChartViewModel.emptyViewModel(header: "HARVEST BURN REPORT", subheader: "Monday 28.03.2016"))
     }
 }

@@ -41,6 +41,8 @@
 		1A1DBC761CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */; };
 		1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */; };
 		1A1DBC791CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */; };
+		1A1DBC7B1CC0F79D003DA40C /* ComponentChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC7A1CC0F79D003DA40C /* ComponentChartView.xib */; };
+		1A1DBC7D1CC0F7E9003DA40C /* ComponentChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
@@ -196,6 +198,8 @@
 		1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarDashedLineWithLabel.xib; sourceTree = "<group>"; };
 		1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarStackView.swift; sourceTree = "<group>"; };
 		1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarDashedLineWithLabel.swift; sourceTree = "<group>"; };
+		1A1DBC7A1CC0F79D003DA40C /* ComponentChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComponentChartView.xib; sourceTree = "<group>"; };
+		1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentChartView.swift; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A242D221C357C2700D5BEE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -439,6 +443,8 @@
 				1A1DBC701CBFBC07003DA40C /* AreaBarChartViewModel.swift */,
 				1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */,
 				1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */,
+				1A1DBC7A1CC0F79D003DA40C /* ComponentChartView.xib */,
+				1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -984,6 +990,7 @@
 				1A60367E1C7F161D0034EFE9 /* SF-UI-Text-Bold.otf in Resources */,
 				1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */,
 				1A6036831C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf in Resources */,
+				1A1DBC7B1CC0F79D003DA40C /* ComponentChartView.xib in Resources */,
 				1A6036801C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf in Resources */,
 				494B68CD1C92E89A00D460B0 /* BonusWidgetView.xib in Resources */,
 				067DA55F1CBFA98F00048E6A /* TableViewCell.xib in Resources */,
@@ -1163,6 +1170,7 @@
 				52FB50781CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift in Sources */,
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
+				1A1DBC7D1CC0F7E9003DA40C /* ComponentChartView.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
 				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
