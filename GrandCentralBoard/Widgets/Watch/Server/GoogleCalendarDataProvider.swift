@@ -56,7 +56,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
                                                 "singleEvents" : "true", "maxAttendees" : 1,
                                                 "timeMin" : timeMin]
 
-        dataProvider.request(.GET, url: url, parameters: parameters) { result in
+        dataProvider.request(.GET, url: url, parameters: parameters, encoding: .URL) { result in
             switch result {
             case .Failure(let error):
                 completion(.Failure(error))
@@ -77,7 +77,7 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
             return
         }
 
-        dataProvider.request(.GET, url: url, parameters: nil) { result in
+        dataProvider.request(.GET, url: url, parameters: nil, encoding: .URL) { result in
             switch result {
             case .Failure(let error):
                 completion(.Failure(error))
