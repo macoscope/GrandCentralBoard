@@ -24,7 +24,7 @@ final class DailyBillingStatsFetcher {
     }
 
     func fetchDailyBillingStats(completion: (Result<DailyBillingStats>) -> Void) {
-        downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, completion: { (result: ResultType<AnyObject, NSError>.result) -> Void in
+        downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, encoding: .URL, completion: { (result: ResultType<AnyObject, NSError>.result) -> Void in
             switch result {
             case .Success(let json):
                 do {

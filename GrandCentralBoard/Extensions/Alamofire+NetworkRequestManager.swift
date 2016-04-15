@@ -10,9 +10,10 @@ import Alamofire
 
 extension Manager : NetworkRequestManager {
 
-    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
+    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?, encoding: ParameterEncoding, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
         let method = Alamofire.Method(fromMethod: method)
-        self.request(method, url, parameters: parameters, encoding: .JSON, headers: headers).responseJSON { response in
+        let encoding = Alamofire.ParameterEncoding(fromEncoding: encoding)
+        self.request(method, url, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             switch response.result {
             case .Failure(let error):
                 completion(.Failure(error))
@@ -20,8 +21,7 @@ extension Manager : NetworkRequestManager {
                 completion(.Success(value))
             }
         }
-    }
-}
+    }}
 
 extension Alamofire.Method {
     init(fromMethod method: Method) {
@@ -35,6 +35,21 @@ extension Alamofire.Method {
         case .POST: self = .POST
         case .PUT: self = .PUT
         case .TRACE: self = .TRACE
+        }
+    }
+}
+
+extension Alamofire.ParameterEncoding {
+    init(fromEncoding encoding: ParameterEncoding) {
+        switch encoding {
+        case .URL:
+            self = .URL
+        case .URLEncodedInURL:
+            self = .URLEncodedInURL
+        case .JSON:
+            self = .JSON
+        case .PropertyList(let format, let writeOptions):
+            self = .PropertyList(format, writeOptions)
         }
     }
 }

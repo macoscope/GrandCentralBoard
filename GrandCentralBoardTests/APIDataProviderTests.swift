@@ -39,6 +39,7 @@ class TestRequestManager : NetworkRequestManager {
                      url: NSURL,
                      parameters: [String : AnyObject]? = nil,
                      headers: [String : String]? = nil,
+                     encoding: GrandCentralBoard.ParameterEncoding,
                      completion: (ResultType<AnyObject, NSError>.result) -> Void) {
 
         XCTAssertEqual("Bearer \(token)", headers!["Authorization"])

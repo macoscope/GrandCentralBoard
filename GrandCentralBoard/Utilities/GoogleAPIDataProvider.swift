@@ -62,7 +62,7 @@ final class GoogleAPIDataProvider : APIDataProviding {
 
             let headers = ["Authorization" : "Bearer \(accessToken)"]
 
-            strongSelf.networkRequestManager.requestJSON(method, url: url, parameters: parameters, headers: headers) { result in
+            strongSelf.networkRequestManager.requestJSON(method, url: url, parameters: parameters, headers: headers, encoding: .JSON) { result in
                     switch result {
                     case .Failure(let error): completion(.Failure(.UnderlyingError(error)))
                     case .Success(let value): completion(.Success(value))
