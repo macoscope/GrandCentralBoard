@@ -16,7 +16,7 @@ private let yearMonthDayFormatter: NSDateFormatter = {
 }()
 
 extension NSDate {
-    func yearMonthDayString() -> String {
+    func yearMonthDayStringForNetwork() -> String {
         return yearMonthDayFormatter.stringFromDate(self)
     }
 }

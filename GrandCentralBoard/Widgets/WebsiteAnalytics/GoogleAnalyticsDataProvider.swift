@@ -25,7 +25,7 @@ class GoogleAnalyticsDataProvider {
             "viewId": viewID,
             "metrics": [ ["expression": "ga:pageviews"] ],
             "dimensions": [ ["name": "ga:pagePath"] ],
-            "dateRanges": [ ["startDate": startDate.yearMonthDayString(), "endDate": endDate.yearMonthDayString()] ],
+            "dateRanges": [ ["startDate": startDate.yearMonthDayStringForNetwork(), "endDate": endDate.yearMonthDayStringForNetwork()] ],
             "orderBys": [ ["fieldName": "ga:pageviews", "sortOrder": "DESCENDING"] ]
         ]
         dataProvider.request(.POST, url: self.dynamicType.googleAnalyticsAPIURL, parameters: ["reportRequests": [ parameters ]]) { (result) in
