@@ -17,7 +17,7 @@ enum APIDataError : ErrorType {
 }
 
 protocol APIDataProviding {
-    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, completion: ResultType<AnyObject, APIDataError>.result -> Void)
+    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding, completion: ResultType<AnyObject, APIDataError>.result -> Void)
 }
 
 final class GoogleAPIDataProvider : APIDataProviding {
@@ -51,7 +51,7 @@ final class GoogleAPIDataProvider : APIDataProviding {
         return refreshTokenOperation
     }
 
-    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, completion: ResultType<AnyObject, APIDataError>.result -> Void) {
+    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL, completion: ResultType<AnyObject, APIDataError>.result -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
             guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {
@@ -62,7 +62,7 @@ final class GoogleAPIDataProvider : APIDataProviding {
 
             let headers = ["Authorization" : "Bearer \(accessToken)"]
 
-            strongSelf.networkRequestManager.requestJSON(method, url: url, parameters: parameters, headers: headers, encoding: .JSON) { result in
+            strongSelf.networkRequestManager.requestJSON(method, url: url, parameters: parameters, headers: headers, encoding: encoding) { result in
                     switch result {
                     case .Failure(let error): completion(.Failure(.UnderlyingError(error)))
                     case .Success(let value): completion(.Success(value))
