@@ -23,6 +23,11 @@ final class AreaBarHorizontalAxisStackView : UIStackView {
 
     func drawAxisWithViewModel(viewModel: AreaBarChartViewModel) {
 
+        arrangedSubviews.forEach { view in
+            removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+
         let stops = viewModel.horizontalAxisStops
 
         for stop in 0...stops {
@@ -56,9 +61,14 @@ final class AreaBarChartView : UIView, ViewModelRendering {
 
     @IBOutlet private var barStackView: AreaBarStackView!
     @IBOutlet private var axisStackView: AreaBarHorizontalAxisStackView!
-
+    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var centerLabel: UILabel!
+    @IBOutlet private var headerLabel: UILabel!
+    @IBOutlet private var subheaderLabel: UILabel!
     @IBOutlet private var horizontalAxisLabel: UILabel!
     @IBOutlet private var hotizontalAxisCountLabel: UILabel!
+
+    private var dashedLinesWithLabels: [UIView] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -85,12 +95,17 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     private func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
         case (_, .Rendering(let viewModel)):
-            configureBarsWithViewModel(viewModel)
-            configureLabelsWithViewModel(viewModel)
-            configureAxisWithViewModel(viewModel)
+            configureWithViewModel(viewModel)
         default:
             break
         }
+    }
+
+    private func configureWithViewModel(viewModel: AreaBarChartViewModel) {
+        activityIndicatorView.stopAnimating()
+        configureBarsWithViewModel(viewModel)
+        configureLabelsWithViewModel(viewModel)
+        configureAxisWithViewModel(viewModel)
     }
 
     // MARK: -
@@ -98,9 +113,22 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     private func configureLabelsWithViewModel(viewModel: AreaBarChartViewModel) {
         horizontalAxisLabel.text = viewModel.horizontalAxisLabelText
         hotizontalAxisCountLabel.text = viewModel.hotizontalAxisCountLabelText
+        centerLabel.text = viewModel.centerText
+        headerLabel.text = viewModel.headerText
+        subheaderLabel.text = viewModel.subheaderText
     }
 
     private func configureBarsWithViewModel(viewModel: AreaBarChartViewModel) {
+
+        barStackView.arrangedSubviews.forEach { view in
+            barStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+
+        dashedLinesWithLabels.forEach { view in
+            view.removeFromSuperview()
+        }
+
         viewModel.barItems.forEach { itemViewModel in
             let barView = barStackView.addBarWithItemViewModel(itemViewModel)
             addLineWithLabelToBarView(barView, withViewModel: itemViewModel)
@@ -113,6 +141,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
         let dashedLine = AreaBarDashedLineWithLabel.fromNib()
         dashedLine.configureWithViewModel(viewModel)
         addSubview(dashedLine)
+        dashedLinesWithLabels.append(dashedLine)
         setUpConstraintsOfDashedLine(dashedLine, toBar: barView)
     }
 

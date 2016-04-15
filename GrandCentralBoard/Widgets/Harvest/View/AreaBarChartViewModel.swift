@@ -8,8 +8,9 @@ import UIKit
 
 enum AreaBarItemValueLabelDisplayMode {
     case Hidden
-    case Left(text: String)
-    case Right(text: String)
+    case VisibleWithHiddenLabel
+    case VisibleLabelLeft(text: String)
+    case VisibleLabelRight(text: String)
 }
 
 struct AreaBarItemViewModel {
@@ -24,4 +25,16 @@ struct AreaBarChartViewModel {
     let horizontalAxisStops: Int
     let horizontalAxisLabelText: String
     let hotizontalAxisCountLabelText: String
+    let centerText: String?
+    let headerText: String?
+    let subheaderText: String?
+
+    static func emptyViewModel(header header: String? = nil, subheader: String? = nil) -> AreaBarChartViewModel {
+        let items = [
+            AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.lipstick(), valueLabelMode: .Hidden),
+            AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.aquaMarine(), valueLabelMode: .Hidden),
+            AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.almostWhite(), valueLabelMode: .Hidden)]
+
+        return AreaBarChartViewModel(barItems: items, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", hotizontalAxisCountLabelText: "0", centerText: "We didn't work yesterday", headerText: header, subheaderText: subheader)
+    }
 }

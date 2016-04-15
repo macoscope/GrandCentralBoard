@@ -4,7 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Text-Bold.otf">
+            <string>SFUIText-Bold</string>
+        </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Semibold.otf">
@@ -19,31 +24,58 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-GJ-9Xa" customClass="AreaBarStackView" customModule="GrandCentralBoard" customModuleProvider="target">
-                    <rect key="frame" x="100" y="174" width="440" height="150"/>
+                    <rect key="frame" x="100" y="146" width="440" height="160"/>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67T-0x-MWe" customClass="AreaBarHorizontalAxisStackView" customModule="GrandCentralBoard" customModuleProvider="target">
-                    <rect key="frame" x="100" y="324" width="440" height="32"/>
+                    <rect key="frame" x="100" y="306" width="440" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="mMq-2y-IJq"/>
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="people billing:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzJ-7H-2ow">
-                    <rect key="frame" x="457" y="333" width="80" height="15"/>
+                    <rect key="frame" x="457" y="315" width="80" height="15"/>
                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBP-RG-2vV">
-                    <rect key="frame" x="545" y="329" width="22" height="22"/>
+                    <rect key="frame" x="545" y="311" width="22" height="22"/>
                     <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="fs4-Yy-wpp">
+                    <rect key="frame" x="300" y="230" width="40" height="40"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K4-6B-X3K">
+                    <rect key="frame" x="320" y="250" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HARVEST BURN REPORT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-zW-EJz">
+                    <rect key="frame" x="208" y="32" width="224" height="22"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday 28.03.2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T5-KP-Oc5">
+                    <rect key="frame" x="255" y="66" width="131" height="17"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="fs4-Yy-wpp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="08z-If-A7a"/>
+                <constraint firstItem="8ZG-zW-EJz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="09a-1H-f1Y"/>
+                <constraint firstItem="8ZG-zW-EJz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="CJZ-fx-tXH"/>
                 <constraint firstItem="4gQ-GJ-9Xa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="Dgo-jS-HXz"/>
-                <constraint firstItem="4gQ-GJ-9Xa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="174" id="Dng-Fe-UXN"/>
+                <constraint firstItem="4gQ-GJ-9Xa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="146" id="Dng-Fe-UXN"/>
+                <constraint firstItem="8K4-6B-X3K" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GNu-nz-G5R"/>
+                <constraint firstItem="fs4-Yy-wpp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="IHP-X2-plw"/>
+                <constraint firstItem="1T5-KP-Oc5" firstAttribute="top" secondItem="8ZG-zW-EJz" secondAttribute="bottom" constant="12" id="Ty2-yu-LNb"/>
                 <constraint firstAttribute="trailing" secondItem="67T-0x-MWe" secondAttribute="trailing" constant="100" id="VWN-am-yr1"/>
                 <constraint firstItem="UzJ-7H-2ow" firstAttribute="trailing" secondItem="67T-0x-MWe" secondAttribute="trailing" constant="-3" id="XFa-Lh-hfv"/>
                 <constraint firstItem="mBP-RG-2vV" firstAttribute="leading" secondItem="UzJ-7H-2ow" secondAttribute="trailing" constant="8" id="aaP-cA-8wk"/>
@@ -52,15 +84,21 @@
                 <constraint firstAttribute="trailing" secondItem="4gQ-GJ-9Xa" secondAttribute="trailing" constant="100" id="duh-0r-CN7"/>
                 <constraint firstItem="67T-0x-MWe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="ghU-Sj-dc4"/>
                 <constraint firstItem="UzJ-7H-2ow" firstAttribute="centerY" secondItem="67T-0x-MWe" secondAttribute="centerY" id="nMQ-0g-SVr"/>
-                <constraint firstAttribute="bottom" secondItem="4gQ-GJ-9Xa" secondAttribute="bottom" constant="216" id="vEF-Hn-tPW"/>
+                <constraint firstItem="1T5-KP-Oc5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nre-uD-Tfu"/>
+                <constraint firstItem="8K4-6B-X3K" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="oCQ-Ez-nbj"/>
+                <constraint firstAttribute="bottom" secondItem="4gQ-GJ-9Xa" secondAttribute="bottom" constant="234" id="vEF-Hn-tPW"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="activityIndicatorView" destination="fs4-Yy-wpp" id="9EN-OS-Rtk"/>
                 <outlet property="axisStackView" destination="67T-0x-MWe" id="17X-1M-JXv"/>
                 <outlet property="barStackView" destination="4gQ-GJ-9Xa" id="NOW-L6-8Ur"/>
+                <outlet property="centerLabel" destination="8K4-6B-X3K" id="FA0-WO-sek"/>
+                <outlet property="headerLabel" destination="8ZG-zW-EJz" id="Zuy-TR-poK"/>
                 <outlet property="horizontalAxisLabel" destination="UzJ-7H-2ow" id="j5C-TU-Oqg"/>
                 <outlet property="hotizontalAxisCountLabel" destination="mBP-RG-2vV" id="hYq-Yl-oHJ"/>
+                <outlet property="subheaderLabel" destination="1T5-KP-Oc5" id="lk3-eD-f79"/>
             </connections>
         </view>
     </objects>
