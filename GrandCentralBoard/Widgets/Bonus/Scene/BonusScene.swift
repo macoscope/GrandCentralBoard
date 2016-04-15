@@ -5,7 +5,8 @@
 
 import SpriteKit
 
-private let pokeTimeInterval: NSTimeInterval = 5
+private let pokeTimeInterval: NSTimeInterval = 8
+private let resizeSceneInterval: NSTimeInterval = 1.3
 
 class BonusScene: SKScene {
     

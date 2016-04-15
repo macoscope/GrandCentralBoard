@@ -12,7 +12,7 @@ final class BonusSource : Asynchronous {
     typealias ResultType = Result<[Person]>
 
     let sourceType: SourceType = .Momentary
-    let interval: NSTimeInterval = 5
+    let interval: NSTimeInterval = 10
 
     private let peopleFetchController: PeopleWithBonususFetchController
 
