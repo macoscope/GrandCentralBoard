@@ -1,5 +1,5 @@
 //
-//  FetchAccessTokenRequest.swift
+//  AccessTokenFetcher.swift
 //  GrandCentralBoard
 //
 //  Created by Karol Kozub on 2016-04-14.
@@ -10,10 +10,10 @@ import Foundation
 import GrandCentralBoardCore
 
 
-class FetchAccessTokenRequest {
-    let account: String
-    let refreshCredentials: TokenRefreshCredentials
-    let downloader: NetworkRequestManager
+class AccessTokenFetcher {
+    private let account: String
+    private let refreshCredentials: TokenRefreshCredentials
+    private let downloader: NetworkRequestManager
 
     init(account: String, refreshCredentials: TokenRefreshCredentials, downloader: NetworkRequestManager) {
         self.account = account
@@ -21,7 +21,7 @@ class FetchAccessTokenRequest {
         self.downloader = downloader
     }
 
-    func fetch(completion: (Result<AccessToken>) -> Void) {
+    func fetchAccessToken(completion: (Result<AccessToken>) -> Void) {
         downloader.requestJSON(.POST, url: url, parameters: parameters, headers: headers) { (result: ResultType<AnyObject, NSError>.result) -> Void in
             switch (result) {
             case .Success(let json):
@@ -38,18 +38,18 @@ class FetchAccessTokenRequest {
         }
     }
 
-    var url: NSURL {
+    private var url: NSURL {
         return NSURL(string: String(format: "https://%@.harvestapp.com/oauth2/token", account))!
     }
 
-    var parameters: [String: String] {
+    private var parameters: [String: String] {
         return ["refresh_token": refreshCredentials.refreshToken,
                 "client_id": refreshCredentials.clientID,
                 "client_secret": refreshCredentials.clientSecret,
                 "grant_type": "refresh_token"]
     }
 
-    var headers: [String: String] {
+    private var headers: [String: String] {
         return ["ContentType": "application/x-www-form-urlencoded"]
     }
 }

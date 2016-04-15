@@ -15,6 +15,7 @@ struct HarvestWidgetSettings : Decodable {
     let refreshToken: String
     let clientID: String
     let clientSecret: String
+    let numberOfDays: Int
     let refreshInterval: NSTimeInterval
     let downloader: NetworkRequestManager = Alamofire.Manager.sharedInstance
 
@@ -23,6 +24,7 @@ struct HarvestWidgetSettings : Decodable {
                                          refreshToken:    json => "refreshToken",
                                          clientID:        json => "clientID",
                                          clientSecret:    json => "clientSecret",
+                                         numberOfDays:    json => "numberOfDays",
                                          refreshInterval: json => "refreshInterval")
     }
 

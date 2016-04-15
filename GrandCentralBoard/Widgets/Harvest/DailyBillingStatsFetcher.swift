@@ -1,5 +1,5 @@
 //
-//  FetchDailyBillingStatsRequest.swift
+//  DailyBillingStatsFetcher.swift
 //  GrandCentralBoard
 //
 //  Created by Karol Kozub on 2016-04-14.
@@ -10,11 +10,11 @@ import Foundation
 import GrandCentralBoardCore
 
 
-final class FetchDailyBillingStatsRequest {
-    let date: NSDate
-    let account: String
-    let accessToken: AccessToken
-    let downloader: NetworkRequestManager
+final class DailyBillingStatsFetcher {
+    private let date: NSDate
+    private let account: String
+    private let accessToken: AccessToken
+    private let downloader: NetworkRequestManager
 
     init(date: NSDate, account: String, accessToken: AccessToken, downloader: NetworkRequestManager) {
         self.date = date
@@ -23,7 +23,7 @@ final class FetchDailyBillingStatsRequest {
         self.downloader = downloader
     }
 
-    func fetch(completion: (Result<DailyBillingStats>) -> Void) {
+    func fetchDailyBillingStats(completion: (Result<DailyBillingStats>) -> Void) {
         downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, completion: { (result: ResultType<AnyObject, NSError>.result) -> Void in
             switch result {
             case .Success(let json):
@@ -41,13 +41,13 @@ final class FetchDailyBillingStatsRequest {
         })
     }
 
-    var url: NSURL {
+    private var url: NSURL {
         let dailyStatsBaseURL = NSURL(string: String(format: "https://%@.harvestapp.com/daily", account))!
 
         return dailyStatsBaseURL.URLByAppendingPathComponent(String(date.dayOfYear)).URLByAppendingPathComponent(String(date.year))
     }
 
-    var headers: [String: String] {
+    private var headers: [String: String] {
         return ["Authorization": "Bearer " + accessToken.token, "Accept": "application/json"]
     }
 }

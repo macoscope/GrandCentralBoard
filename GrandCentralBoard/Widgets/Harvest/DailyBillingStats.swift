@@ -19,7 +19,7 @@ extension DailyBillingStats : Decodable {
     static func decode(json: AnyObject) throws -> DailyBillingStats {
         var hoursForUserIDs = [Int: Double]()
         let entries: [DayEntry] = try json => "day_entries"
-        let day: ForDay = try json => "for_day"
+        let day: Day = try json => "for_day"
 
         for entry in entries {
             hoursForUserIDs[entry.userID] = (hoursForUserIDs[entry.userID] ?? 0) + entry.hours
@@ -59,22 +59,18 @@ extension DailyBillingStats : Decodable {
         }
     }
 
-    private struct ForDay : Decodable {
+    private struct Day : Decodable {
         let date: NSDate
 
-        enum DecodingError : ErrorType {
-            case InvalidDateFormat
-        }
-
-        static func decode(json: AnyObject) throws -> ForDay {
+        static func decode(json: AnyObject) throws -> Day {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
 
             guard let date = formatter.dateFromString(try String.decode(json)) else {
-                throw DecodingError.InvalidDateFormat
+                throw RawRepresentableInitializationError(type: self, rawValue: json, object: json)
             }
             
-            return ForDay(date: date)
+            return Day(date: date)
         }
     }
 }

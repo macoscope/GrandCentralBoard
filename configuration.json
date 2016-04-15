@@ -13,6 +13,6 @@
                              ]
                     }
                 },
-                {"name": "harvest", "settings": {"accessToken": "", "refreshToken": "", "expirationTime": 0, "refreshInterval": 3600}}
+                {"name": "harvest", "settings": {"account": "The name used in harvest URLs, e.g. `gcbtest` from http://gcbtest.harvestapp.com", "refreshToken": "", "clientID": "", "clientSecret": "", "numberOfDays": 6, "refreshInterval": 3600}}
                ]
 }
