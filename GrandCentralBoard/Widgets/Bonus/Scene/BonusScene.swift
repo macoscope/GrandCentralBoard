@@ -5,7 +5,8 @@
 
 import SpriteKit
 
-private let pokeTimeInterval: NSTimeInterval = 5
+private let pokeTimeInterval: NSTimeInterval = 8
+private let resizeSceneInterval: NSTimeInterval = 1.3
 
 class BonusScene: SKScene {
     
@@ -17,6 +18,7 @@ class BonusScene: SKScene {
         setUpWithViewModel(viewModel)
 
         NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(resizeSceneInterval, target: self, selector: #selector(BonusScene.updateSceneSize), userInfo: nil, repeats: true)
     }
     
     func setUpWithViewModel(viewModel: BonusWidgetViewModel) {
@@ -38,7 +40,7 @@ class BonusScene: SKScene {
         }
     }
 
-    override func update(currentTime: NSTimeInterval) {
+    func updateSceneSize() {
         guard !world.children.isEmpty else { return }
 
         let calculatedAccumulatedFrame = world.calculateAccumulatedFrame()
@@ -50,7 +52,7 @@ class BonusScene: SKScene {
             scaleBubblesUp()
         }
     }
-    
+
     private func updateWithViewModel(viewModel: BonusWidgetViewModel) {
         self.viewModel = viewModel
         addOrUpdateBubbles()
@@ -117,8 +119,8 @@ class BonusScene: SKScene {
 
     private func scaleBubbles(scaleFactor: CGFloat) {
         // Scale bubbles down by increasing size of the scene
-        let scaleFactor: CGFloat = scaleFactor
-        size = CGSize(width: size.width * scaleFactor, height: size.width * scaleFactor)
+        let changeSizeAction = SKAction.resizeToWidth(size.width * scaleFactor, height: size.width * scaleFactor, duration: resizeSceneInterval)
+        runAction(changeSizeAction)
     }
     
 }
