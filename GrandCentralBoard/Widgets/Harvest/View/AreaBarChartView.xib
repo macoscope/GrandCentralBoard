@@ -6,6 +6,7 @@
     <customFonts key="customFonts">
         <mutableArray key="SF-UI-Text-Bold.otf">
             <string>SFUIText-Bold</string>
+            <string>SFUIText-Bold</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
             <string>SFUIText-Regular</string>
@@ -65,12 +66,23 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS 5 DAYS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJx-y5-X8l">
+                    <rect key="frame" x="256" y="378" width="129" height="17"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dZ-rl-cew">
+                    <rect key="frame" x="32" y="407" width="576" height="101"/>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="fs4-Yy-wpp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="08z-If-A7a"/>
                 <constraint firstItem="8ZG-zW-EJz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="09a-1H-f1Y"/>
+                <constraint firstItem="KJx-y5-X8l" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3lj-xo-cOe"/>
                 <constraint firstItem="8ZG-zW-EJz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="CJZ-fx-tXH"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0dZ-rl-cew" secondAttribute="trailing" constant="32" id="CoH-tr-xHJ"/>
                 <constraint firstItem="4gQ-GJ-9Xa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="Dgo-jS-HXz"/>
                 <constraint firstItem="4gQ-GJ-9Xa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="146" id="Dng-Fe-UXN"/>
                 <constraint firstItem="8K4-6B-X3K" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GNu-nz-G5R"/>
@@ -82,10 +94,15 @@
                 <constraint firstItem="67T-0x-MWe" firstAttribute="top" secondItem="4gQ-GJ-9Xa" secondAttribute="bottom" id="bAl-UM-gAJ"/>
                 <constraint firstItem="mBP-RG-2vV" firstAttribute="centerY" secondItem="67T-0x-MWe" secondAttribute="centerY" id="dVw-V6-6O5"/>
                 <constraint firstAttribute="trailing" secondItem="4gQ-GJ-9Xa" secondAttribute="trailing" constant="100" id="duh-0r-CN7"/>
+                <constraint firstAttribute="bottom" secondItem="0dZ-rl-cew" secondAttribute="bottom" constant="32" id="fYv-xg-gvs"/>
+                <constraint firstItem="0dZ-rl-cew" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="gXc-Ff-WYH"/>
                 <constraint firstItem="67T-0x-MWe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="ghU-Sj-dc4"/>
+                <constraint firstItem="KJx-y5-X8l" firstAttribute="top" secondItem="67T-0x-MWe" secondAttribute="bottom" constant="40" id="iPp-sy-TAW"/>
                 <constraint firstItem="UzJ-7H-2ow" firstAttribute="centerY" secondItem="67T-0x-MWe" secondAttribute="centerY" id="nMQ-0g-SVr"/>
                 <constraint firstItem="1T5-KP-Oc5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nre-uD-Tfu"/>
                 <constraint firstItem="8K4-6B-X3K" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="oCQ-Ez-nbj"/>
+                <constraint firstAttribute="trailing" secondItem="0dZ-rl-cew" secondAttribute="trailing" priority="750" constant="32" id="rNS-Wl-e4I"/>
+                <constraint firstItem="0dZ-rl-cew" firstAttribute="top" secondItem="KJx-y5-X8l" secondAttribute="bottom" constant="12" id="sJT-Lz-Jyg"/>
                 <constraint firstAttribute="bottom" secondItem="4gQ-GJ-9Xa" secondAttribute="bottom" constant="234" id="vEF-Hn-tPW"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -95,6 +112,7 @@
                 <outlet property="axisStackView" destination="67T-0x-MWe" id="17X-1M-JXv"/>
                 <outlet property="barStackView" destination="4gQ-GJ-9Xa" id="NOW-L6-8Ur"/>
                 <outlet property="centerLabel" destination="8K4-6B-X3K" id="FA0-WO-sek"/>
+                <outlet property="componentChartsStackView" destination="0dZ-rl-cew" id="p9J-hK-k81"/>
                 <outlet property="headerLabel" destination="8ZG-zW-EJz" id="Zuy-TR-poK"/>
                 <outlet property="horizontalAxisLabel" destination="UzJ-7H-2ow" id="j5C-TU-Oqg"/>
                 <outlet property="hotizontalAxisCountLabel" destination="mBP-RG-2vV" id="hYq-Yl-oHJ"/>
