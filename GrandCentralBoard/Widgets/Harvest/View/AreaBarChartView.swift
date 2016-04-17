@@ -62,7 +62,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     @IBOutlet private var barStackView: AreaBarStackView!
     @IBOutlet private var axisStackView: AreaBarHorizontalAxisStackView!
     @IBOutlet private var componentChartsStackView: UIStackView!
-    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var activityIndicatorView: UIView!
     @IBOutlet private var centerLabel: UILabel!
     @IBOutlet private var headerLabel: UILabel!
     @IBOutlet private var subheaderLabel: UILabel!
@@ -100,6 +100,13 @@ final class AreaBarChartView : UIView, ViewModelRendering {
 
     private func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
+        case (.Waiting, .Rendering(let viewModel)):
+            configureWithViewModel(viewModel)
+
+            UIView.animateWithDuration(1) {
+                self.activityIndicatorView.alpha = 0
+            }
+
         case (_, .Rendering(let viewModel)):
             configureWithViewModel(viewModel)
         default:
@@ -108,7 +115,6 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     }
 
     private func configureWithViewModel(viewModel: AreaBarChartViewModel) {
-        activityIndicatorView.stopAnimating()
         configureBarsWithViewModel(viewModel)
         configureComponentChartsWithViewModel(viewModel)
         configureLabelsWithViewModel(viewModel)
@@ -157,6 +163,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
         }
 
         bringSubviewToFront(barStackView)
+        bringSubviewToFront(activityIndicatorView)
     }
 
     private func addLineWithLabelToBarView(barView: UIView, withViewModel viewModel: AreaBarItemViewModel) {
