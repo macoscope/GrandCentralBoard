@@ -62,7 +62,9 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     @IBOutlet private var barStackView: AreaBarStackView!
     @IBOutlet private var axisStackView: AreaBarHorizontalAxisStackView!
     @IBOutlet private var componentChartsStackView: UIStackView!
-    @IBOutlet private var activityIndicatorView: UIView!
+    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var informationSheet: UIView!
+    @IBOutlet private var errorImageView: UIView!
     @IBOutlet private var centerLabel: UILabel!
     @IBOutlet private var headerLabel: UILabel!
     @IBOutlet private var subheaderLabel: UILabel!
@@ -89,7 +91,8 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     }
 
     func render(viewModel: ViewModel) {
-        state = .Rendering(viewModel)
+        //state = .Rendering(viewModel)
+        state = .Failed
     }
 
     func failure() {
@@ -104,11 +107,17 @@ final class AreaBarChartView : UIView, ViewModelRendering {
             configureWithViewModel(viewModel)
 
             UIView.animateWithDuration(1) {
-                self.activityIndicatorView.alpha = 0
+                self.informationSheet.alpha = 0
             }
 
         case (_, .Rendering(let viewModel)):
             configureWithViewModel(viewModel)
+        case (_, .Failed):
+            UIView.animateWithDuration(1) {
+                self.errorImageView.alpha = 1
+                self.activityIndicatorView.alpha = 0
+                self.informationSheet.alpha = 1
+            }
         default:
             break
         }
@@ -163,7 +172,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
         }
 
         bringSubviewToFront(barStackView)
-        bringSubviewToFront(activityIndicatorView)
+        bringSubviewToFront(informationSheet)
     }
 
     private func addLineWithLabelToBarView(barView: UIView, withViewModel viewModel: AreaBarItemViewModel) {

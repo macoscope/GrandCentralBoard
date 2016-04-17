@@ -78,11 +78,20 @@
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-X4-rHi">
                             <rect key="frame" x="300" y="250" width="40" height="40"/>
                         </activityIndicatorView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ConnectionErrorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="B4q-gd-JOU">
+                            <rect key="frame" x="209" y="185" width="223" height="169"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="169" id="H8S-Ha-L2d"/>
+                                <constraint firstAttribute="width" constant="223" id="V6n-vw-M00"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="1iI-X4-rHi" firstAttribute="centerY" secondItem="H1h-OM-5Pd" secondAttribute="centerY" id="EMR-eE-RvO"/>
                         <constraint firstItem="1iI-X4-rHi" firstAttribute="centerX" secondItem="H1h-OM-5Pd" secondAttribute="centerX" id="RAf-DO-6Ox"/>
+                        <constraint firstItem="B4q-gd-JOU" firstAttribute="centerY" secondItem="H1h-OM-5Pd" secondAttribute="centerY" id="gAu-Ml-8it"/>
+                        <constraint firstItem="B4q-gd-JOU" firstAttribute="centerX" secondItem="H1h-OM-5Pd" secondAttribute="centerX" id="obd-eN-y3S"/>
                     </constraints>
                 </view>
             </subviews>
@@ -120,16 +129,21 @@
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="activityIndicatorView" destination="H1h-OM-5Pd" id="PMW-Cj-b6c"/>
+                <outlet property="activityIndicatorView" destination="1iI-X4-rHi" id="L8k-62-v65"/>
                 <outlet property="axisStackView" destination="67T-0x-MWe" id="17X-1M-JXv"/>
                 <outlet property="barStackView" destination="4gQ-GJ-9Xa" id="NOW-L6-8Ur"/>
                 <outlet property="centerLabel" destination="8K4-6B-X3K" id="FA0-WO-sek"/>
                 <outlet property="componentChartsStackView" destination="0dZ-rl-cew" id="p9J-hK-k81"/>
+                <outlet property="errorImageView" destination="B4q-gd-JOU" id="zFT-Zc-nH8"/>
                 <outlet property="headerLabel" destination="8ZG-zW-EJz" id="Zuy-TR-poK"/>
                 <outlet property="horizontalAxisLabel" destination="UzJ-7H-2ow" id="j5C-TU-Oqg"/>
                 <outlet property="hotizontalAxisCountLabel" destination="mBP-RG-2vV" id="hYq-Yl-oHJ"/>
+                <outlet property="informationSheet" destination="H1h-OM-5Pd" id="q4m-rc-M1Z"/>
                 <outlet property="subheaderLabel" destination="1T5-KP-Oc5" id="lk3-eD-f79"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="ConnectionErrorIcon" width="223" height="169"/>
+    </resources>
 </document>
