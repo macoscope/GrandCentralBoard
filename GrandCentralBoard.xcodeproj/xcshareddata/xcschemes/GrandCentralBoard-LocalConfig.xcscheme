@@ -81,12 +81,13 @@
             ReferencedContainer = "container:GrandCentralBoard.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-LoadBundledConfig 1"
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "LoadBundledConfig"
+            value = "true"
             isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
