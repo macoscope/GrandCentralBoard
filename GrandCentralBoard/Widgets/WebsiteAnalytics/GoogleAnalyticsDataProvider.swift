@@ -8,7 +8,7 @@
 
 import GrandCentralBoardCore
 
-class GoogleAnalyticsDataProvider {
+final class GoogleAnalyticsDataProvider {
     private static let googleAnalyticsAPIURL = NSURL(string: "https://analyticsreporting.googleapis.com/v4/reports:batchGet?fields=reports")!
 
     private let dataProvider: APIDataProviding

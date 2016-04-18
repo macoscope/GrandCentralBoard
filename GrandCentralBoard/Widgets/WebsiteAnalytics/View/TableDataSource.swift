@@ -17,19 +17,19 @@ protocol TableViewModel {
 }
 
 
-final class TableDataSource<T: ViewConfiguring, U: TableViewModel where U.CellViewModel == T.CellViewModel, U.HeaderViewModel == T.HeaderViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
+final class TableDataSource<Configurator: ViewConfiguring, ViewModel: TableViewModel where ViewModel.CellViewModel == Configurator.CellViewModel, ViewModel.HeaderViewModel == Configurator.HeaderViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    private var viewModel: U
-    private let viewConfiguring: T
+    var viewModel: ViewModel
+    private let viewConfiguring: Configurator
     private let viewDequeuing: ViewDequeuing
 
-    init(viewDequeuing: ViewDequeuing, viewConfiguring: T, viewModel: U) {
+    init(viewDequeuing: ViewDequeuing, viewConfiguring: Configurator, viewModel: ViewModel) {
         self.viewConfiguring = viewConfiguring
         self.viewDequeuing = viewDequeuing
         self.viewModel = viewModel
     }
 
-    func configureWithViewModel(viewModel: U) {
+    func configureWithViewModel(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
 
@@ -39,7 +39,7 @@ final class TableDataSource<T: ViewConfiguring, U: TableViewModel where U.CellVi
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        guard let cell = viewDequeuing.dequeueCell() as? T.Cell else {
+        guard let cell = viewDequeuing.dequeueCell() as? Configurator.Cell else {
             fatalError("Cannot dequeue cell!")
         }
 
@@ -54,7 +54,7 @@ final class TableDataSource<T: ViewConfiguring, U: TableViewModel where U.CellVi
     }
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = viewDequeuing.dequeueHeader() as? T.Header else {
+        guard let headerView = viewDequeuing.dequeueHeader() as? Configurator.Header else {
             fatalError("Cannot dequeue header!")
         }
 

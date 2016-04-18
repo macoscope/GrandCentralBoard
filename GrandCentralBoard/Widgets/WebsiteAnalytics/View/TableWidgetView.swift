@@ -35,14 +35,20 @@ final class TableWidgetView: UIView {
     @IBOutlet weak var tableView: UITableView!
     private var dataSource: TableDataSource<CellConfigurator<TableViewCell, DoubleColumnCellViewModel, TableViewHeaderView, DoubleColumnHeaderViewModel>, DoubleColumnTableViewModel>?
 
+    private let headerViewModel = DoubleColumnHeaderViewModel(firstColumnName: "Title", secondColumnName: "Visits")
+
+    func setRowViewModels(rowViewModels: [DoubleColumnCellViewModel]) {
+        dataSource?.viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: rowViewModels, headerViewModel: headerViewModel)
+        tableView.reloadData()
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
         let viewReuseController = ViewReuseController(cellNib: TableViewCell.nib(), cellIdentifier: "TableViewCell", headerNib: TableViewHeaderView.nib(), headerIdentifier: "TableViewHeaderView", tableView: tableView)
         let viewConfigurator = CellConfigurator<TableViewCell, DoubleColumnCellViewModel, TableViewHeaderView, DoubleColumnHeaderViewModel>()
 
-        let headerViewModel = DoubleColumnHeaderViewModel(firstColumnName: "Title", secondColumnName: "Visits")
-        let viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: [DoubleColumnCellViewModel(title: "test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2", valueDescription: "123"), DoubleColumnCellViewModel(title: "test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2", valueDescription: "101"), DoubleColumnCellViewModel(title: "test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 ", valueDescription: "89")], headerViewModel: headerViewModel)
+        let viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: [], headerViewModel: headerViewModel)
 
         dataSource = TableDataSource(viewDequeuing: viewReuseController, viewConfiguring: viewConfigurator,viewModel: viewModel)
         tableView.dataSource = dataSource
