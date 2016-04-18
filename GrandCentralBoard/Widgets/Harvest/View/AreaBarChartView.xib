@@ -45,9 +45,6 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="fs4-Yy-wpp">
-                    <rect key="frame" x="300" y="230" width="40" height="40"/>
-                </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8K4-6B-X3K">
                     <rect key="frame" x="320" y="250" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="24"/>
@@ -75,10 +72,31 @@
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dZ-rl-cew">
                     <rect key="frame" x="32" y="407" width="576" height="101"/>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1h-OM-5Pd">
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-X4-rHi">
+                            <rect key="frame" x="300" y="250" width="40" height="40"/>
+                        </activityIndicatorView>
+                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ConnectionErrorIcon" translatesAutoresizingMaskIntoConstraints="NO" id="B4q-gd-JOU">
+                            <rect key="frame" x="209" y="185" width="223" height="169"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="169" id="H8S-Ha-L2d"/>
+                                <constraint firstAttribute="width" constant="223" id="V6n-vw-M00"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="1iI-X4-rHi" firstAttribute="centerY" secondItem="H1h-OM-5Pd" secondAttribute="centerY" id="EMR-eE-RvO"/>
+                        <constraint firstItem="1iI-X4-rHi" firstAttribute="centerX" secondItem="H1h-OM-5Pd" secondAttribute="centerX" id="RAf-DO-6Ox"/>
+                        <constraint firstItem="B4q-gd-JOU" firstAttribute="centerY" secondItem="H1h-OM-5Pd" secondAttribute="centerY" id="gAu-Ml-8it"/>
+                        <constraint firstItem="B4q-gd-JOU" firstAttribute="centerX" secondItem="H1h-OM-5Pd" secondAttribute="centerX" id="obd-eN-y3S"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fs4-Yy-wpp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="08z-If-A7a"/>
                 <constraint firstItem="8ZG-zW-EJz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="09a-1H-f1Y"/>
                 <constraint firstItem="KJx-y5-X8l" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3lj-xo-cOe"/>
                 <constraint firstItem="8ZG-zW-EJz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="CJZ-fx-tXH"/>
@@ -86,18 +104,21 @@
                 <constraint firstItem="4gQ-GJ-9Xa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="Dgo-jS-HXz"/>
                 <constraint firstItem="4gQ-GJ-9Xa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="146" id="Dng-Fe-UXN"/>
                 <constraint firstItem="8K4-6B-X3K" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GNu-nz-G5R"/>
-                <constraint firstItem="fs4-Yy-wpp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="IHP-X2-plw"/>
+                <constraint firstItem="H1h-OM-5Pd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ssi-9B-SKa"/>
                 <constraint firstItem="1T5-KP-Oc5" firstAttribute="top" secondItem="8ZG-zW-EJz" secondAttribute="bottom" constant="12" id="Ty2-yu-LNb"/>
                 <constraint firstAttribute="trailing" secondItem="67T-0x-MWe" secondAttribute="trailing" constant="100" id="VWN-am-yr1"/>
                 <constraint firstItem="UzJ-7H-2ow" firstAttribute="trailing" secondItem="67T-0x-MWe" secondAttribute="trailing" constant="-3" id="XFa-Lh-hfv"/>
                 <constraint firstItem="mBP-RG-2vV" firstAttribute="leading" secondItem="UzJ-7H-2ow" secondAttribute="trailing" constant="8" id="aaP-cA-8wk"/>
                 <constraint firstItem="67T-0x-MWe" firstAttribute="top" secondItem="4gQ-GJ-9Xa" secondAttribute="bottom" id="bAl-UM-gAJ"/>
                 <constraint firstItem="mBP-RG-2vV" firstAttribute="centerY" secondItem="67T-0x-MWe" secondAttribute="centerY" id="dVw-V6-6O5"/>
+                <constraint firstAttribute="trailing" secondItem="H1h-OM-5Pd" secondAttribute="trailing" id="dt3-Vw-mGG"/>
                 <constraint firstAttribute="trailing" secondItem="4gQ-GJ-9Xa" secondAttribute="trailing" constant="100" id="duh-0r-CN7"/>
                 <constraint firstAttribute="bottom" secondItem="0dZ-rl-cew" secondAttribute="bottom" constant="32" id="fYv-xg-gvs"/>
                 <constraint firstItem="0dZ-rl-cew" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="gXc-Ff-WYH"/>
                 <constraint firstItem="67T-0x-MWe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="ghU-Sj-dc4"/>
                 <constraint firstItem="KJx-y5-X8l" firstAttribute="top" secondItem="67T-0x-MWe" secondAttribute="bottom" constant="40" id="iPp-sy-TAW"/>
+                <constraint firstItem="H1h-OM-5Pd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jI1-Ia-cUw"/>
+                <constraint firstAttribute="bottom" secondItem="H1h-OM-5Pd" secondAttribute="bottom" id="ljb-r6-ccM"/>
                 <constraint firstItem="UzJ-7H-2ow" firstAttribute="centerY" secondItem="67T-0x-MWe" secondAttribute="centerY" id="nMQ-0g-SVr"/>
                 <constraint firstItem="1T5-KP-Oc5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nre-uD-Tfu"/>
                 <constraint firstItem="8K4-6B-X3K" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="oCQ-Ez-nbj"/>
@@ -108,16 +129,21 @@
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="activityIndicatorView" destination="fs4-Yy-wpp" id="9EN-OS-Rtk"/>
+                <outlet property="activityIndicatorView" destination="1iI-X4-rHi" id="L8k-62-v65"/>
                 <outlet property="axisStackView" destination="67T-0x-MWe" id="17X-1M-JXv"/>
                 <outlet property="barStackView" destination="4gQ-GJ-9Xa" id="NOW-L6-8Ur"/>
                 <outlet property="centerLabel" destination="8K4-6B-X3K" id="FA0-WO-sek"/>
                 <outlet property="componentChartsStackView" destination="0dZ-rl-cew" id="p9J-hK-k81"/>
+                <outlet property="errorImageView" destination="B4q-gd-JOU" id="zFT-Zc-nH8"/>
                 <outlet property="headerLabel" destination="8ZG-zW-EJz" id="Zuy-TR-poK"/>
                 <outlet property="horizontalAxisLabel" destination="UzJ-7H-2ow" id="j5C-TU-Oqg"/>
                 <outlet property="hotizontalAxisCountLabel" destination="mBP-RG-2vV" id="hYq-Yl-oHJ"/>
+                <outlet property="informationSheet" destination="H1h-OM-5Pd" id="q4m-rc-M1Z"/>
                 <outlet property="subheaderLabel" destination="1T5-KP-Oc5" id="lk3-eD-f79"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="ConnectionErrorIcon" width="223" height="169"/>
+    </resources>
 </document>

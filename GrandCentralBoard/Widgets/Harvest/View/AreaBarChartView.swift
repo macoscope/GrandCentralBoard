@@ -63,6 +63,8 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     @IBOutlet private var axisStackView: AreaBarHorizontalAxisStackView!
     @IBOutlet private var componentChartsStackView: UIStackView!
     @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var informationSheet: UIView!
+    @IBOutlet private var errorImageView: UIView!
     @IBOutlet private var centerLabel: UILabel!
     @IBOutlet private var headerLabel: UILabel!
     @IBOutlet private var subheaderLabel: UILabel!
@@ -100,15 +102,40 @@ final class AreaBarChartView : UIView, ViewModelRendering {
 
     private func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
-        case (_, .Rendering(let viewModel)):
+        case (.Waiting, .Rendering(let viewModel)):
             configureWithViewModel(viewModel)
+            informationSheetHidden = true
+        case (.Failed, .Rendering(let viewModel)):
+            configureWithViewModel(viewModel)
+            informationSheetHidden = true
+        case (.Rendering, .Rendering(let viewModel)):
+            configureWithViewModel(viewModel)
+        case (_, .Failed):
+            errorSheetVisible = true
         default:
             break
         }
     }
 
+    private var errorSheetVisible: Bool = false {
+        didSet {
+            UIView.animateWithDuration(1) {
+                self.errorImageView.alpha = self.errorSheetVisible ? 1 : 0
+                self.activityIndicatorView.alpha = self.errorSheetVisible ? 0 : 1
+                self.informationSheet.alpha = self.errorSheetVisible ? 1 : 0
+            }
+        }
+    }
+
+    private var informationSheetHidden: Bool = false {
+        didSet {
+            UIView.animateWithDuration(1) {
+                self.informationSheet.alpha = self.informationSheetHidden ? 0 : 1
+            }
+        }
+    }
+
     private func configureWithViewModel(viewModel: AreaBarChartViewModel) {
-        activityIndicatorView.stopAnimating()
         configureBarsWithViewModel(viewModel)
         configureComponentChartsWithViewModel(viewModel)
         configureLabelsWithViewModel(viewModel)
@@ -157,6 +184,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
         }
 
         bringSubviewToFront(barStackView)
+        bringSubviewToFront(informationSheet)
     }
 
     private func addLineWithLabelToBarView(barView: UIView, withViewModel viewModel: AreaBarItemViewModel) {
