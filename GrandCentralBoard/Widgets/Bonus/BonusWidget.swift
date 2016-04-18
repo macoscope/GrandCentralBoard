@@ -11,9 +11,11 @@ final class BonusWidget : Widget {
     private let widgetView: BonusWidgetView
     let sources: [UpdatingSource]
         
-    init(sources: [UpdatingSource]) {
+    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval) {
         self.widgetView = BonusWidgetView.fromNib()
         self.sources = sources
+
+        widgetView.bubbleResizeDuration = bubbleResizeDuration
     }
     
     var view: UIView {

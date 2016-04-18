@@ -15,7 +15,12 @@ final class BonusWidgetView: UIView {
     @IBOutlet private weak var activityView: UIView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private var scene: BonusScene!
-    
+
+    var bubbleResizeDuration: NSTimeInterval {
+        get { return scene.bubbleResizeDuration }
+        set { scene.bubbleResizeDuration = newValue }
+    }
+
     private(set) var state: RenderingState<ViewModel> = .Waiting {
         didSet { handleTransitionFromState(oldValue, toState: state) }
     }

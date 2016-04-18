@@ -9,15 +9,17 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
     
     private let initialSize = CGSize(width: 140, height: 140)
     private var lastBonusDate: NSDate? = nil
+    private let bubbleResizeDuration: NSTimeInterval
     private lazy var scalingAnimator: BubbleScalingAnimator = {
-        let animator = BubbleScalingAnimator(spriteNode: self)
+        let animator = BubbleScalingAnimator(spriteNode: self, bubbleResizeDuration: self.bubbleResizeDuration)
         animator.delegate = self
         return animator
     }()
     
-    init(bubbleViewModel: BubbleViewModel) {
+    init(bubbleViewModel: BubbleViewModel, bubbleResizeDuration: NSTimeInterval) {
         let image = bubbleViewModel.image
         let texture = SKTexture(image: image.cropToCircle())
+        self.bubbleResizeDuration = bubbleResizeDuration
 
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         

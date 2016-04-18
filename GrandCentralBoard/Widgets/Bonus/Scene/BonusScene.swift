@@ -13,6 +13,7 @@ class BonusScene: SKScene {
     
     private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
+    var bubbleResizeDuration: NSTimeInterval = 15
 
     override func didMoveToView(view: SKView) {
         assert(viewModel != nil)
@@ -35,7 +36,7 @@ class BonusScene: SKScene {
         addChild(world)
         
         for bubbleViewModel in viewModel.bubbles {
-            let bubble = Bubble(bubbleViewModel: bubbleViewModel)
+            let bubble = Bubble(bubbleViewModel: bubbleViewModel, bubbleResizeDuration: bubbleResizeDuration)
             bubble.position = randomPosition()
             world.addChild(bubble)
         }
@@ -63,7 +64,7 @@ class BonusScene: SKScene {
     private func addOrUpdateBubbles() {
         for bubbleViewModel in viewModel.bubbles {
             guard let bubble = world.childNodeWithName(bubbleViewModel.name) as? Bubble else {
-                let newBubble = Bubble(bubbleViewModel: bubbleViewModel)
+                let newBubble = Bubble(bubbleViewModel: bubbleViewModel, bubbleResizeDuration: bubbleResizeDuration)
                 newBubble.position = randomPosition()
                 self.world.addChild(newBubble)
                 continue
