@@ -42,7 +42,7 @@ class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplate
 
             var method = requestTemplate.method
             method.addQueryParameter("startTime", value: dateFormatter.stringFromDate(date))
-            method.addQueryParameter("take", value: String(take))
+            method.addQueryParameter("limit", value: String(take))
             return method
         }
     }
