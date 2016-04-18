@@ -16,7 +16,9 @@ class WrappingRequestTemplate<T: RequestTemplateProtocol> : RequestTemplateProto
     private let requestTemplate: T
 
     init(requestTemplate: T, queryParameters: parameters) {
-        self.queryParameters = queryParameters
+        var mQueryParameters = queryParameters
+        mQueryParameters.merge(queryParameters)
+        self.queryParameters = mQueryParameters
         self.requestTemplate = requestTemplate
     }
 
