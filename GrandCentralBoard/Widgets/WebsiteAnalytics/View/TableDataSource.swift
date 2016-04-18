@@ -19,7 +19,7 @@ protocol TableViewModel {
 
 final class TableDataSource<T: ViewConfiguring, U: TableViewModel where U.CellViewModel == T.CellViewModel, U.HeaderViewModel == T.HeaderViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    private var viewModel: U
+    var viewModel: U
     private let viewConfiguring: T
     private let viewDequeuing: ViewDequeuing
 
