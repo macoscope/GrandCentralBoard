@@ -25,7 +25,7 @@ private let report = [ "data": [ "rows" :  reportRows] ]
 private let responseData = [ "reports" : [ report ] ]
 
 private class TestDataProvider : APIDataProviding {
-    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String: AnyObject]?,
+    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding,
                  completion: ResultType<AnyObject, APIDataError>.result -> Void) {
 
         completion(.Success(responseData))

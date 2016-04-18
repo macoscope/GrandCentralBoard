@@ -139,6 +139,8 @@
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
 		F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */; };
 		F91F007D1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */; };
+		F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */; };
+		F9B7C3721CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */; };
 		F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */; };
 		F9C88F281CBE873600E81A14 /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */; };
 		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
@@ -147,6 +149,8 @@
 		F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F391CBFC36900E81A14 /* BillingStatsFetcher.swift */; };
 		F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F3B1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift */; };
 		F9C88F3E1CBFC72100E81A14 /* AccessTokenFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */; };
+		F9E237FE1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */; };
+		F9F4A6101CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4A60F1CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,6 +316,8 @@
 		F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestSource.swift; sourceTree = "<group>"; };
 		F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetSettings.swift; sourceTree = "<group>"; };
 		F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenRefreshCredentials.swift; sourceTree = "<group>"; };
+		F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartViewModel+FromBillingStats.swift"; sourceTree = "<group>"; };
+		F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestAPI.swift; sourceTree = "<group>"; };
 		F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		F9C88F291CBE876900E81A14 /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DailyBillingStats.json; sourceTree = "<group>"; };
@@ -320,6 +326,8 @@
 		F9C88F391CBFC36900E81A14 /* BillingStatsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingStatsFetcher.swift; sourceTree = "<group>"; };
 		F9C88F3B1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStatsFetcher.swift; sourceTree = "<group>"; };
 		F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenFetcher.swift; sourceTree = "<group>"; };
+		F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartComponentViewModel+FromDailyBillingStats.swift"; sourceTree = "<group>"; };
+		F9F4A60F1CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartComponentViewModel+Equatable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +459,8 @@
 				1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */,
 				1A1DBC7A1CC0F79D003DA40C /* ComponentChartView.xib */,
 				1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */,
+				F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */,
+				F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -850,6 +860,8 @@
 			children = (
 				F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */,
 				F9C88F291CBE876900E81A14 /* DailyBillingStats.json */,
+				F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */,
+				F9F4A60F1CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift */,
 			);
 			name = Harvest;
 			sourceTree = "<group>";
@@ -1165,6 +1177,7 @@
 				06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */,
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
 				F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */,
+				F9E237FE1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
 				F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */,
 				52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */,
@@ -1208,6 +1221,7 @@
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */,
 				067DA5561CBF829A00048E6A /* TableWidgetView.swift in Sources */,
+				F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */,
@@ -1255,7 +1269,9 @@
 				F9C88F281CBE873600E81A14 /* DailyBillingStatsTests.swift in Sources */,
 				0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */,
 				52FB507D1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift in Sources */,
+				F9B7C3721CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
+				F9F4A6101CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
