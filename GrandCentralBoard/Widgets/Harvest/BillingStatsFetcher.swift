@@ -61,7 +61,11 @@ extension NSDate {
     }
 
     func dateDaysAgo(daysAgo: Int) -> NSDate {
-        let timeInterval = NSTimeInterval(-daysAgo * 24 * 3600)
+        return dateWithDayOffset(-daysAgo)
+    }
+
+    func dateWithDayOffset(numberOfDays: Int) -> NSDate {
+        let timeInterval = NSTimeInterval(numberOfDays * 24 * 3600)
 
         return self.dateByAddingTimeInterval(timeInterval)
     }

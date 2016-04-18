@@ -19,10 +19,10 @@ extension AreaBarChartViewModel {
         let componentDailyStats = Array(billingStats.dropFirst())
 
         let componentViewModels = componentDailyStats.flatMap({ dailyBillingStats in
-            return AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStats)
+            return AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStats, isMainChart: false)
         })
 
-        if let mainViewModel = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(mainDailyStats) {
+        if let mainViewModel = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(mainDailyStats, isMainChart: true) {
             return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: componentViewModels, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:".localized, centerText: nil)
 
         } else {

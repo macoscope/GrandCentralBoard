@@ -119,17 +119,6 @@ extension AreaBarChartComponentViewModel {
 }
 
 
-extension NSDate {
-    func stringWithFormat(format: String) -> String {
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        formatter.dateFormat = format
-
-        return formatter.stringFromDate(self)
-    }
-}
-
-
 extension Double {
     var formattedString: String {
         let intValue = Int(self)

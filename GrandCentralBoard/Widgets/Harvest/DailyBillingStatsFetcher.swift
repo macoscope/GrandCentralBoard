@@ -24,47 +24,36 @@ final class DailyBillingStatsFetcher {
     }
 
     func fetchDailyBillingStats(completion: (Result<DailyBillingStats>) -> Void) {
-        downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, encoding: .URL, completion: { (result: ResultType<AnyObject, NSError>.result) -> Void in
+        let userFetcher = BillingUserListFetcher(account: account, accessToken: accessToken, downloader: downloader)
+        userFetcher.fetchUserList { result in
             switch result {
-            case .Success(let json):
-                do {
-                    let dailyStats = try DailyBillingStats.decode(json)
-                    completion(.Success(dailyStats))
-
-                } catch let error {
-                    completion(.Failure(error))
-                }
+            case .Success(let userIDs):
+                self.fetchDailyBillingStats(userIDs, dailyBillingStats: DailyBillingStats.emptyStats(), completion: completion)
 
             case .Failure(let error):
                 completion(.Failure(error))
             }
-        })
+        }
     }
 
-    private var url: NSURL {
-        let dailyStatsBaseURL = NSURL(string: String(format: "https://%@.harvestapp.com/daily", account))!
+    func fetchDailyBillingStats(userIDs: [BillingUserID], dailyBillingStats: DailyBillingStats, completion: (Result<DailyBillingStats>) -> Void) {
+        guard let userID = userIDs.first else {
+            return completion(.Success(dailyBillingStats))
+        }
 
-        return dailyStatsBaseURL.URLByAppendingPathComponent(String(date.dayOfYear)).URLByAppendingPathComponent(String(date.year))
-    }
+        let dailyUserStatsFetcher = DailyUserBillingStatsFetcher(date: date, userID: userID, account: account, accessToken: accessToken, downloader: downloader)
 
-    private var headers: [String: String] {
-        return ["Authorization": "Bearer " + accessToken.token, "Accept": "application/json"]
-    }
-}
+        dailyUserStatsFetcher.fetchDailyUserBillingStats { result in
+            switch result {
+            case .Success(let dailyUserBillingStats):
+                let remainingUserIDs = Array(userIDs.dropFirst())
+                let mergedDailyBillingStats = dailyBillingStats.merge(dailyUserBillingStats)
 
+                self.fetchDailyBillingStats(remainingUserIDs, dailyBillingStats: mergedDailyBillingStats, completion: completion)
 
-extension NSDate {
-    var gregorianCalendar: NSCalendar {
-        return NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-    }
-
-    var dayOfYear: Int {
-        return gregorianCalendar.ordinalityOfUnit(.Day, inUnit: .Year, forDate: self)
-    }
-
-    var year: Int {
-        return gregorianCalendar.component(.Year, fromDate: self)
+            case .Failure(let error):
+                completion(.Failure(error))
+            }
+        }
     }
 }
-
-
