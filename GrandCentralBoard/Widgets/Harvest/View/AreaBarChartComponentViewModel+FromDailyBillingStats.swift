@@ -10,8 +10,8 @@ import UIKit
 
 
 extension AreaBarChartComponentViewModel {
-    static func viewModelFromDailyBillingStats(dailyBillingStats: DailyBillingStats) -> AreaBarChartComponentViewModel? {
-        guard dailyBillingStats.groups.count == 3 else {
+    static func viewModelFromDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool = true) -> AreaBarChartComponentViewModel? {
+        guard dailyBillingStats.groups.count == 3 && totalCountForGroups(dailyBillingStats.groups) > 0 else {
             return nil
         }
 
@@ -34,9 +34,9 @@ extension AreaBarChartComponentViewModel {
             }
         }
 
-        let countLabelText = countLabelTextForDailyBillingStats(dailyBillingStats)
-        let headerText = headerTextForDailyBillingStats(dailyBillingStats)
-        let subheaderText = subheaderTextForDailyBillingStats(dailyBillingStats)
+        let countLabelText = countLabelTextForDailyBillingStats(dailyBillingStats, isMainChart: isMainChart)
+        let headerText = headerTextForDailyBillingStats(dailyBillingStats, isMainChart: isMainChart)
+        let subheaderText = subheaderTextForDailyBillingStats(dailyBillingStats, isMainChart: isMainChart)
 
         return AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: countLabelText, headerText: headerText, subheaderText: subheaderText)
     }
@@ -68,27 +68,44 @@ extension AreaBarChartComponentViewModel {
         }
     }
 
-    private static func countLabelTextForDailyBillingStats(dailyBillingStats: DailyBillingStats) -> String {
+    private static func countLabelTextForDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool) -> String {
         let totalCount = totalCountForGroups(dailyBillingStats.groups)
 
         return String(totalCount)
     }
 
-    private static func headerTextForDailyBillingStats(dailyBillingStats: DailyBillingStats) -> String {
-        return "HARVEST BURN REPORT"
+    private static func headerTextForDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool) -> String {
+        if (isMainChart) {
+            return "HARVEST BURN REPORT"
+
+        } else {
+            return dailyBillingStats.day.stringWithFormat("EEE")
+        }
     }
 
-    private static func subheaderTextForDailyBillingStats(dailyBillingStats: DailyBillingStats) -> String {
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        formatter.dateFormat = "EEEE dd.MM.yyyy"
+    private static func subheaderTextForDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool) -> String {
+        if (isMainChart) {
+            return dailyBillingStats.day.stringWithFormat("EEEE dd.MM.yyyy")
 
-        return formatter.stringFromDate(dailyBillingStats.day)
+        } else {
+            return dailyBillingStats.day.stringWithFormat("dd.MM.yyyy")
+        }
     }
 
     private static func totalCountForGroups(groups: [BillingStatsGroup]) -> Int {
         return groups.reduce(0) { (count, group) in
             return count + group.count
         }
+    }
+}
+
+
+extension NSDate {
+    func stringWithFormat(format: String) -> String {
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        formatter.dateFormat = format
+
+        return formatter.stringFromDate(self)
     }
 }

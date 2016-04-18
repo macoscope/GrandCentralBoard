@@ -151,6 +151,7 @@
 		F9C88F3E1CBFC72100E81A14 /* AccessTokenFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */; };
 		F9E237FE1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */; };
 		F9F4A6101CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4A60F1CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift */; };
+		F9F4A6141CC519F800ADF093 /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F4A6131CC519F800ADF093 /* AreaBarChartViewModelFromBillingStatsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +329,7 @@
 		F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenFetcher.swift; sourceTree = "<group>"; };
 		F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartComponentViewModel+FromDailyBillingStats.swift"; sourceTree = "<group>"; };
 		F9F4A60F1CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartComponentViewModel+Equatable.swift"; sourceTree = "<group>"; };
+		F9F4A6131CC519F800ADF093 /* AreaBarChartViewModelFromBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartViewModelFromBillingStatsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -861,6 +863,7 @@
 				F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */,
 				F9C88F291CBE876900E81A14 /* DailyBillingStats.json */,
 				F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */,
+				F9F4A6131CC519F800ADF093 /* AreaBarChartViewModelFromBillingStatsTests.swift */,
 				F9F4A60F1CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift */,
 			);
 			name = Harvest;
@@ -1263,6 +1266,7 @@
 			files = (
 				52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */,
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
+				F9F4A6141CC519F800ADF093 /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */,
 				1A242D331C357C2700D5BEE5 /* GrandCentralBoardTests.swift in Sources */,
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,

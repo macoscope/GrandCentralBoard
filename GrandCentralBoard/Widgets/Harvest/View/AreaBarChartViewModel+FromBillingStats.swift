@@ -11,17 +11,22 @@ import GrandCentralBoardCore
 
 extension AreaBarChartViewModel {
     static func viewModelFromBillingStats(billingStats: [DailyBillingStats]) -> AreaBarChartViewModel {
-        let componentViewModels = billingStats.flatMap({ dailyBillingStats in
-            return AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStats)
-        })
-
-        if (componentViewModels.count < 1) {
+        if (billingStats.count < 1) {
             return AreaBarChartViewModel.emptyViewModel()
         }
 
-        let mainViewModel = componentViewModels.first!
-        let historyViewModels = Array(componentViewModels.dropFirst())
+        let mainDailyStats = billingStats.first!
+        let componentDailyStats = Array(billingStats.dropFirst())
 
-        return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: historyViewModels, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", centerText: nil)
+        let componentViewModels = componentDailyStats.flatMap({ dailyBillingStats in
+            return AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStats)
+        })
+
+        if let mainViewModel = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(mainDailyStats) {
+            return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: componentViewModels, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", centerText: nil)
+
+        } else {
+            return AreaBarChartViewModel.emptyViewModel(header: nil, subheader: nil, historicalCharts: componentViewModels)
+        }
     }
 }
