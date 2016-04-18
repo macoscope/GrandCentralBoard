@@ -14,8 +14,8 @@ class TableViewHeaderView: UITableViewHeaderFooterView, HeaderConfigurableWithVi
     @IBOutlet weak var secondColumnTitleLabel: UILabel!
 
     func configureWithViewModel(viewModel: DoubleColumnHeaderViewModel) {
-        self.firstColumnTitleLabel.text = viewModel.firstColumnName
-        self.secondColumnTitleLabel.text = viewModel.secondColumnName
+        self.firstColumnTitleLabel.text = viewModel.firstColumnName.uppercaseString
+        self.secondColumnTitleLabel.text = viewModel.secondColumnName.uppercaseString
     }
 
     static func nib() -> UINib {
