@@ -8,6 +8,7 @@
 
 import GrandCentralBoardCore
 
+
 final class GoogleAnalyticsSource : Asynchronous {
 
     let dataProvider: GoogleAnalyticsDataProvider

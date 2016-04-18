@@ -27,3 +27,12 @@ struct PageViewsRowReport {
         return analyticsReport.rows.flatMap( { PageViewsRowReport(analyticsReportRow: $0) } )
     }
 }
+
+extension PageViewsRowReport {
+    var pageTitle: String {
+        return pagePath.stringByReplacingOccurrencesOfString("/blog/", withString: "")
+            .stringByReplacingOccurrencesOfString("-", withString: " ")
+            .stringByReplacingOccurrencesOfString("/", withString: "")
+            .capitalizedString
+    }
+}
