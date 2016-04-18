@@ -42,7 +42,7 @@ final class HarvestWidget : Widget {
             widgetView.render(model)
 
         case .Failure(_):
-            break
+            widgetView.failure()
         }
     }
 }

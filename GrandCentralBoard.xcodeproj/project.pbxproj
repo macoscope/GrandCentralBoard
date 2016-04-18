@@ -140,6 +140,7 @@
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
 		F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */; };
 		F91F007D1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */; };
+		F928B82E1CC52F77006D0332 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928B82D1CC52F77006D0332 /* String+Localized.swift */; };
 		F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */; };
 		F9B7C3721CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */; };
 		F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */; };
@@ -319,6 +320,7 @@
 		F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestSource.swift; sourceTree = "<group>"; };
 		F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetSettings.swift; sourceTree = "<group>"; };
 		F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenRefreshCredentials.swift; sourceTree = "<group>"; };
+		F928B82D1CC52F77006D0332 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartViewModel+FromBillingStats.swift"; sourceTree = "<group>"; };
 		F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestAPI.swift; sourceTree = "<group>"; };
@@ -780,6 +782,7 @@
 				5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */,
 				1AE1981D1CBE8323003B6AB3 /* UIColor.swift */,
 				1A76DFAD1CBBEF8200A2DF49 /* NSBundle.swift */,
+				F928B82D1CC52F77006D0332 /* String+Localized.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1250,6 +1253,7 @@
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
 				F9C88F3E1CBFC72100E81A14 /* AccessTokenFetcher.swift in Sources */,
 				52FB50621CBE862D0053DE8B /* EventsSource.swift in Sources */,
+				F928B82E1CC52F77006D0332 /* String+Localized.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
 				F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,

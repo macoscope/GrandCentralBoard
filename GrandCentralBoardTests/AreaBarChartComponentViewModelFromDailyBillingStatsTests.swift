@@ -14,7 +14,7 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     static let typicalDailyBillingStats = DailyBillingStats(day: NSDate(timeIntervalSinceReferenceDate: 0), groups: [
         BillingStatsGroup(type: .Less, count: 5, averageHours: 4),
         BillingStatsGroup(type: .Normal, count: 8, averageHours: 6.4),
-        BillingStatsGroup(type: .More, count: 3, averageHours: 7.2)])
+        BillingStatsGroup(type: .More, count: 3, averageHours: 7.234)])
     static let dailyBillingStatsWithEmptyGroup = DailyBillingStats(day: NSDate(timeIntervalSinceReferenceDate: 0), groups: [
         BillingStatsGroup(type: .Less, count: 7, averageHours: 1),
         BillingStatsGroup(type: .Normal, count: 0, averageHours: 0),
@@ -35,7 +35,7 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     func testHeightForTypicalDay() {
         XCTAssertEqual(viewModelForTypicalDay.barItems[0].proportionalHeight, 0.5)
         XCTAssertEqual(viewModelForTypicalDay.barItems[1].proportionalHeight, 0.8)
-        XCTAssertEqual(viewModelForTypicalDay.barItems[2].proportionalHeight, 0.9)
+        XCTAssertEqual(viewModelForTypicalDay.barItems[2].proportionalHeight, 0.90425)
     }
 
     func testHeightForDayWithAnEmptyGroup() {
@@ -72,8 +72,8 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     }
 
     func testValueLabelModeForDayWithEmptyGroup() {
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "Less than 3!"))
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "More than 8!"))
+        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "less than 3!"))
+        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "more than 8!"))
     }
 
     func testCountLabelText() {
