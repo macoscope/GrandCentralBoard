@@ -34,7 +34,6 @@
 		0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2863091CB515CE00C62700 /* UpdateTests.swift */; };
 		0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D28630B1CB516B400C62700 /* UpdatesTests.json */; };
 		0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */; };
-		1A1DBC681CBF9A19003DA40C /* NSProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC671CBF9A19003DA40C /* NSProcessInfo.swift */; };
 		1A1DBC6C1CBFA0FA003DA40C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6B1CBFA0FA003DA40C /* Event.swift */; };
 		1A1DBC731CBFBC07003DA40C /* AreaBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */; };
 		1A1DBC741CBFBC07003DA40C /* AreaBarChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */; };
@@ -95,6 +94,8 @@
 		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
 		1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */; };
 		1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1981D1CBE8323003B6AB3 /* UIColor.swift */; };
+		1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */; };
+		1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */; };
 		494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B31C92E89A00D460B0 /* BonusModels.swift */; };
 		494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B41C92E89A00D460B0 /* BonusWidget.swift */; };
 		494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B51C92E89A00D460B0 /* BonusWidgetBuilder.swift */; };
@@ -129,7 +130,6 @@
 		52FB50781CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50771CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift */; };
 		52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50791CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift */; };
 		52FB507D1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB507C1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift */; };
-		52FB507F1CBF9C320053DE8B /* PageViewsRowReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB507E1CBF9C320053DE8B /* PageViewsRowReport.swift */; };
 		52FB50811CBFB1660053DE8B /* ImageWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */; };
 		52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */; };
 		A51416475F94A413FB85F63B /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */; };
@@ -193,7 +193,6 @@
 		0D2863091CB515CE00C62700 /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTests.swift; sourceTree = "<group>"; };
 		0D28630B1CB516B400C62700 /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UpdatesTests.json; sourceTree = "<group>"; };
 		0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingAnimator.swift; sourceTree = "<group>"; };
-		1A1DBC671CBF9A19003DA40C /* NSProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSProcessInfo.swift; sourceTree = "<group>"; };
 		1A1DBC6B1CBFA0FA003DA40C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartView.swift; sourceTree = "<group>"; };
 		1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarChartView.xib; sourceTree = "<group>"; };
@@ -260,6 +259,8 @@
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetBuilder.swift; sourceTree = "<group>"; };
 		1AE1981D1CBE8323003B6AB3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsRowReport.swift; sourceTree = "<group>"; };
+		1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSProcessInfo.swift; sourceTree = "<group>"; };
 		234E74F21CF67378BBE359B7 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
 		494B68B31C92E89A00D460B0 /* BonusModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusModels.swift; sourceTree = "<group>"; };
 		494B68B41C92E89A00D460B0 /* BonusWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusWidget.swift; sourceTree = "<group>"; };
@@ -298,7 +299,6 @@
 		52FB50771CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsDataProvider.swift; sourceTree = "<group>"; };
 		52FB50791CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+GrandCentralBoard.swift"; path = "Extensions/NSDate+GrandCentralBoard.swift"; sourceTree = "<group>"; };
 		52FB507C1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsDataProviderTests.swift; sourceTree = "<group>"; };
-		52FB507E1CBF9C320053DE8B /* PageViewsRowReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsRowReport.swift; sourceTree = "<group>"; };
 		52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetConfiguration.swift; sourceTree = "<group>"; };
 		52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetBuilder.swift; sourceTree = "<group>"; };
 		6D4597498FBEF6B18712C28B /* Pods_GrandCentralBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -761,11 +761,11 @@
 		5274A4881CB69AD9005FD847 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */,
 				52FB50791CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift */,
 				5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */,
 				1AE1981D1CBE8323003B6AB3 /* UIColor.swift */,
 				1A76DFAD1CBBEF8200A2DF49 /* NSBundle.swift */,
-				1A1DBC671CBF9A19003DA40C /* NSProcessInfo.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -809,7 +809,7 @@
 		52FB50731CBF9B150053DE8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				52FB507E1CBF9C320053DE8B /* PageViewsRowReport.swift */,
+				1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */,
 				52FB50741CBF9B210053DE8B /* AnalyticsReport.swift */,
 			);
 			name = Model;
@@ -1171,6 +1171,7 @@
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
 				067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift in Sources */,
 				52FB50751CBF9B210053DE8B /* AnalyticsReport.swift in Sources */,
+				1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
 				062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */,
 				494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */,
@@ -1183,6 +1184,7 @@
 				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
+				1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				065588D11CC5001300BF2DF9 /* Dictionary.swift in Sources */,
 				52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */,
@@ -1208,10 +1210,6 @@
 				067DA5561CBF829A00048E6A /* TableWidgetView.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
-				1A1DBC681CBF9A19003DA40C /* NSProcessInfo.swift in Sources */,
-				52FB507F1CBF9C320053DE8B /* PageViewsReport.swift in Sources */,
-				1A1DBC681CBF9A19003DA40C /* NSUserDefaults.swift in Sources */,
-				52FB507F1CBF9C320053DE8B /* PageViewsRowReport.swift in Sources */,
 				52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */,
 				067DA5631CBFCA7D00048E6A /* TableViewHeaderView.swift in Sources */,
 				1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */,
