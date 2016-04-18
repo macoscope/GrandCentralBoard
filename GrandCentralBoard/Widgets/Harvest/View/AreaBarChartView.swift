@@ -91,8 +91,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     }
 
     func render(viewModel: ViewModel) {
-        //state = .Rendering(viewModel)
-        state = .Failed
+        state = .Rendering(viewModel)
     }
 
     func failure() {
@@ -105,21 +104,34 @@ final class AreaBarChartView : UIView, ViewModelRendering {
         switch (state, toState) {
         case (.Waiting, .Rendering(let viewModel)):
             configureWithViewModel(viewModel)
-
-            UIView.animateWithDuration(1) {
-                self.informationSheet.alpha = 0
-            }
-
-        case (_, .Rendering(let viewModel)):
+            informationSheetHidden = true
+        case (.Failed, .Rendering(let viewModel)):
+            configureWithViewModel(viewModel)
+            informationSheetHidden = true
+        case (.Rendering, .Rendering(let viewModel)):
             configureWithViewModel(viewModel)
         case (_, .Failed):
-            UIView.animateWithDuration(1) {
-                self.errorImageView.alpha = 1
-                self.activityIndicatorView.alpha = 0
-                self.informationSheet.alpha = 1
-            }
+            errorSheetVisible = true
         default:
             break
+        }
+    }
+
+    private var errorSheetVisible: Bool = false {
+        didSet {
+            UIView.animateWithDuration(1) {
+                self.errorImageView.alpha = self.errorSheetVisible ? 1 : 0
+                self.activityIndicatorView.alpha = self.errorSheetVisible ? 0 : 1
+                self.informationSheet.alpha = self.errorSheetVisible ? 1 : 0
+            }
+        }
+    }
+
+    private var informationSheetHidden: Bool = false {
+        didSet {
+            UIView.animateWithDuration(1) {
+                self.informationSheet.alpha = self.informationSheetHidden ? 0 : 1
+            }
         }
     }
 
