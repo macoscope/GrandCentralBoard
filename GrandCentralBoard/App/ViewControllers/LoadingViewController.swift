@@ -7,7 +7,7 @@ import UIKit
 import GrandCentralBoardCore
 
 
-private let debugBuild: Bool = _isDebugAssertConfiguration()
+let shouldLoadBundledConfig = NSBundle.alwaysUseLocalConfigurationFile || NSProcessInfo.loadBundledConfig
 
 class LoadingViewController: UIViewController {
 
@@ -24,7 +24,7 @@ class LoadingViewController: UIViewController {
 
     private lazy var configurationFetching: ConfigurationFetching = {
 
-        if debugBuild && NSUserDefaults.loadBundledConfig {
+        if shouldLoadBundledConfig {
             return LocalConfigurationLoader(configFileName: NSBundle.localConfigurationFileName,
                                          availableBuilders: self.availableBuilders)
         }
