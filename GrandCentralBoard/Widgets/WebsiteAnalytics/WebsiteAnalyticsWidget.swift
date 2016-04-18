@@ -25,7 +25,29 @@ final class WebsiteAnalyticsWidget: Widget {
     }
 
     func update(source: UpdatingSource) {
-        
+        switch source {
+        case let source as GoogleAnalyticsSource:
+            fetchAnalyticsFromSource(source)
+        default:
+            assertionFailure("Expected `source` as instance of `GoogleAnalyticsSource`.")
+        }
     }
 
+    private func fetchAnalyticsFromSource(source: GoogleAnalyticsSource) {
+        source.read { [weak self] result in
+            switch result {
+            case .Success(let reports):
+                self?.updateWithReports(reports)
+            case .Failure:
+                break
+            }
+        }
+    }
+
+    private func updateWithReports(reports: [PageViewsRowReport]) {
+        let viewModel = reports.map( {
+            DoubleColumnCellViewModel(title: $0.pagePath, valueDescription: "\($0.visits)")
+        })
+        widgetView.setRowViewModels(viewModel)
+    }
 }
