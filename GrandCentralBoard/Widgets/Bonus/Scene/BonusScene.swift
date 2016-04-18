@@ -7,6 +7,7 @@ import SpriteKit
 
 private let pokeTimeInterval: NSTimeInterval = 8
 private let resizeWorldInterval: NSTimeInterval = 0.2
+private let unitSceneResizeChange = 0.02
 
 class BonusScene: SKScene {
     
@@ -47,9 +48,9 @@ class BonusScene: SKScene {
         let nodesFitScreen = CGRectContainsRect(frame, calculatedAccumulatedFrame)
         let nodesToSmall = frame.width > calculatedAccumulatedFrame.width * 1.25 && frame.height > calculatedAccumulatedFrame.height * 1.25
         if !nodesFitScreen {
-            scaleBy(0.98)
+            scaleBy(1 - unitSceneResizeChange)
         } else if (nodesToSmall) {
-            scaleBy(1.02)
+            scaleBy(1 + unitSceneResizeChange)
         }
     }
 
