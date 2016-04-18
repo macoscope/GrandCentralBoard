@@ -62,24 +62,15 @@ extension AreaBarChartComponentViewModel {
         return CGFloat(hours / maxHours)
     }
 
-    private static func doubleText(value: Double) -> String {
-        if (Double(Int(value)) == value) {
-            return String(Int(value))
-
-        } else {
-            return String(value)
-        }
-    }
-
     private static func hoursText(hours: Double) -> String {
         if (hours > maxHours) {
-            return String(format: "More than %@!", doubleText(maxHours))
+            return String(format: "more than %@!".localized, maxHours.formattedString)
 
         } else if (hours < minHours) {
-            return String(format: "Less than %@!", doubleText(minHours))
+            return String(format: "less than %@!".localized, minHours.formattedString)
 
         } else {
-            return doubleText(hours)
+            return hours.formattedString
         }
     }
 
@@ -104,7 +95,7 @@ extension AreaBarChartComponentViewModel {
 
     private static func headerTextForDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool) -> String {
         if (isMainChart) {
-            return "HARVEST BURN REPORT"
+            return "HARVEST BURN REPORT".localized
 
         } else {
             return dailyBillingStats.day.stringWithFormat("EEE")
@@ -135,5 +126,20 @@ extension NSDate {
         formatter.dateFormat = format
 
         return formatter.stringFromDate(self)
+    }
+}
+
+
+extension Double {
+    var formattedString: String {
+        let intValue = Int(self)
+        let isInteger = Double(intValue) == self
+
+        if isInteger {
+            return String(intValue)
+
+        } else {
+            return String(format: "%0.1f", self)
+        }
     }
 }

@@ -23,7 +23,7 @@ extension AreaBarChartViewModel {
         })
 
         if let mainViewModel = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(mainDailyStats) {
-            return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: componentViewModels, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", centerText: nil)
+            return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: componentViewModels, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:".localized, centerText: nil)
 
         } else {
             return AreaBarChartViewModel.emptyViewModel(header: nil, subheader: nil, historicalCharts: componentViewModels)
