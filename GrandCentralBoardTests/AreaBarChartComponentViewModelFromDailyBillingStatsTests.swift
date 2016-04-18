@@ -21,6 +21,8 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
         BillingStatsGroup(type: .More, count: 3, averageHours: 8.2)])
     let viewModelForTypicalDay = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(typicalDailyBillingStats)!
     let viewModelForDayWithEmptyGroup = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStatsWithEmptyGroup)!
+    let viewModelForMainChart = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(typicalDailyBillingStats, isMainChart: true)!
+    let viewModelForPreviousDayChart = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStatsWithEmptyGroup, isMainChart: false)!
 
     func testItemCountForTypicalDay() {
         XCTAssertEqual(viewModelForTypicalDay.barItems.count, 3)
@@ -75,16 +77,25 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     }
 
     func testCountLabelText() {
-        XCTAssertEqual(viewModelForTypicalDay.horizontalAxisCountLabelText, "16")
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.horizontalAxisCountLabelText, "10")
+        XCTAssertEqual(viewModelForMainChart.horizontalAxisCountLabelText, "16")
+        XCTAssertEqual(viewModelForPreviousDayChart.horizontalAxisCountLabelText, "10")
     }
 
-    func testHeaderText() {
-        XCTAssertEqual(viewModelForTypicalDay.headerText, "HARVEST BURN REPORT")
+    func testHeaderAndSubheaderTextForMainChart() {
+        XCTAssertEqual(viewModelForMainChart.headerText, "HARVEST BURN REPORT")
+        XCTAssertEqual(viewModelForMainChart.subheaderText, "Monday 01.01.2001")
     }
 
-    func testSubheaderText() {
-        XCTAssertEqual(viewModelForTypicalDay.subheaderText, "Monday 01.01.2001")
+    func testHeaderAndSubheaderTextForPreviousDayChart() {
+        XCTAssertEqual(viewModelForPreviousDayChart.headerText, "Mon")
+        XCTAssertEqual(viewModelForPreviousDayChart.subheaderText, "01.01.2001")
+    }
+
+    func testCreatingTheViewModelWithBillingStatsWithOnlyEmptyGroups() {
+        let emptyGroups = BillingStatsGroup.allTypes().map { return BillingStatsGroup(type: $0, count: 0, averageHours: 0) }
+        let emptyBillingStats = DailyBillingStats(day: NSDate(), groups: emptyGroups)
+
+        XCTAssertNil(AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(emptyBillingStats))
     }
 }
 
