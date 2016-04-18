@@ -19,7 +19,7 @@ class LoadingViewController: UIViewController {
         GoogleCalendarWatchWidgetBuilder(),
         HarvestWidgetBuilder(),
         ImageWidgetBuilder(dataDownloader: self.dataDownloader),
-        WebsiteAnalyticsWidgetBuilder()
+        BlogPostsPopularityWidgetBuilder()
     ]
 
     private lazy var configurationFetching: ConfigurationFetching = {

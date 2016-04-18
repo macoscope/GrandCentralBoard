@@ -17,7 +17,7 @@
 		06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F281CB788FB00B93D90 /* RequestSender.swift */; };
 		06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F291CB788FB00B93D90 /* RequestTemplate.swift */; };
 		06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */; };
-		067DA5451CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5441CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift */; };
+		067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift */; };
 		067DA5471CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */; };
 		067DA5521CBE7F9800048E6A /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5511CBE7F9800048E6A /* HeaderCell.swift */; };
 		067DA5541CBE80C900048E6A /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5531CBE80C900048E6A /* TableDataSource.swift */; };
@@ -175,7 +175,7 @@
 		06684F281CB788FB00B93D90 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		06684F291CB788FB00B93D90 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
 		06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampableRequestTemplate.swift; sourceTree = "<group>"; };
-		067DA5441CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidgetBuilder.swift; sourceTree = "<group>"; };
+		067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostsPopularityWidget.swift; sourceTree = "<group>"; };
 		067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidget.swift; sourceTree = "<group>"; };
 		067DA5511CBE7F9800048E6A /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		067DA5531CBE80C900048E6A /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 				52FB50761CBF9B260053DE8B /* Source */,
 				52FB50731CBF9B150053DE8B /* Model */,
 				067DA5501CBE7F9100048E6A /* View */,
-				067DA5441CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift */,
+				067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift */,
 				067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */,
 				527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */,
 			);
@@ -1166,7 +1166,7 @@
 				F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */,
 				52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
-				067DA5451CBE5D6D00048E6A /* WebsiteAnalyticsWidgetBuilder.swift in Sources */,
+				067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift in Sources */,
 				52FB50751CBF9B210053DE8B /* AnalyticsReport.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
 				062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */,

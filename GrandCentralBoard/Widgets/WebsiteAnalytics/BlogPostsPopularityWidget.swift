@@ -8,9 +8,9 @@
 import GrandCentralBoardCore
 
 
-final class WebsiteAnalyticsWidgetBuilder : WidgetBuilding {
+final class BlogPostsPopularityWidgetBuilder : WidgetBuilding {
 
-    var name = "websiteAnalytics"
+    var name = "blogPostsPopularity"
 
     func build(settings: AnyObject) throws -> Widget {
         let settings = try WebsiteAnalyticsSettings.decode(settings)
