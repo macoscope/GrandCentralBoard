@@ -17,7 +17,7 @@ final class BillingStatsFetcher {
     private let downloader: NetworkRequestManager
 
     init(account: String, accessToken: AccessToken, downloader: NetworkRequestManager, numberOfDays: Int) {
-        self.dates = NSDate.lastNDays(numberOfDays)
+        self.dates = NSDate.arrayOfPreviousDays(numberOfDays)
         self.account = account
         self.accessToken = accessToken
         self.downloader = downloader
@@ -54,14 +54,18 @@ final class BillingStatsFetcher {
 
 
 extension NSDate {
-    static func lastNDays(numberOfDays: Int) -> [NSDate] {
-        return (0..<numberOfDays).map({ index in
+    static func arrayOfPreviousDays(numberOfDays: Int) -> [NSDate] {
+        return (1...numberOfDays).map({ index in
             return NSDate().dateDaysAgo(index)
         })
     }
 
     func dateDaysAgo(daysAgo: Int) -> NSDate {
-        let timeInterval = NSTimeInterval(-daysAgo * 24 * 3600)
+        return dateWithDayOffset(-daysAgo)
+    }
+
+    func dateWithDayOffset(numberOfDays: Int) -> NSDate {
+        let timeInterval = NSTimeInterval(numberOfDays * 24 * 3600)
 
         return self.dateByAddingTimeInterval(timeInterval)
     }

@@ -15,6 +15,31 @@ struct DailyBillingStats {
 }
 
 
+extension DailyBillingStats {
+    static func emptyStats(day: NSDate = NSDate()) -> DailyBillingStats {
+        return DailyBillingStats(day: day, groups: BillingStatsGroup.allTypes().map { BillingStatsGroup(type: $0, count: 0, averageHours: 0) })
+    }
+
+    func merge(dailyBillingStats: DailyBillingStats) -> DailyBillingStats {
+        let types = BillingStatsGroup.allTypes()
+        let indexes = 0..<types.count
+
+        let groups = indexes.map { index -> BillingStatsGroup in
+            let group1 = self.groups[index]
+            let group2 = dailyBillingStats.groups[index]
+            let count = group1.count + group2.count
+            let totalHours = group1.averageHours * Double(group1.count) + group2.averageHours * Double(group2.count)
+            let averageHours = totalHours / max(1.0, Double(count))
+            let type = types[index]
+
+            return BillingStatsGroup(type: type, count: count, averageHours: averageHours)
+        }
+
+        return DailyBillingStats(day: day, groups: groups)
+    }
+}
+
+
 extension DailyBillingStats : Decodable {
     static func decode(json: AnyObject) throws -> DailyBillingStats {
         var hoursForUserIDs = [Int: Double]()
