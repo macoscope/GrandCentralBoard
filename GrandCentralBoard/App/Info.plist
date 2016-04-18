@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>GCBRemoteConfigurationPath</key>
-	<string>http://dr-doom.local/mateusz/gcb-config/raw/master/configuration.json</string>
-	<key>GCBLocalConfigurationFileName</key>
-	<string>configuration</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -24,6 +20,12 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>GCBAlwaysUseLocalConfigurationFile</key>
+	<false/>
+	<key>GCBLocalConfigurationFileName</key>
+	<string>configuration</string>
+	<key>GCBRemoteConfigurationPath</key>
+	<string>http://dr-doom.local/mateusz/gcb-config/raw/master/configuration.json</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

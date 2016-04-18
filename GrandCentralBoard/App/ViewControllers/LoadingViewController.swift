@@ -7,8 +7,7 @@ import UIKit
 import GrandCentralBoardCore
 
 
-let loadBundledConfigPermanently = false
-let shouldLoadBundledConfig = NSProcessInfo.loadBundledConfig || loadBundledConfigPermanently
+let shouldLoadBundledConfig = NSBundle.alwaysUseLocalConfigurationFile || NSProcessInfo.loadBundledConfig
 
 class LoadingViewController: UIViewController {
 
