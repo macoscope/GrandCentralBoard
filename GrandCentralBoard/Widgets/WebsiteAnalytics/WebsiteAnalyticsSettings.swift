@@ -11,7 +11,8 @@ import Decodable
 
 struct WebsiteAnalyticsSettings  {
     let viewID: String
-    
+    let daysInReport: Int
+
     let clientID: String
     let clientSecret: String
     let refreshToken: String
@@ -22,9 +23,10 @@ struct WebsiteAnalyticsSettings  {
 extension WebsiteAnalyticsSettings: Decodable {
     static func decode(jsonObject: AnyObject) throws -> WebsiteAnalyticsSettings {
         return try WebsiteAnalyticsSettings(viewID: jsonObject => "viewID",
-                                                clientID: jsonObject => "clientID",
-                                                clientSecret: jsonObject => "clientSecret",
-                                                refreshToken: jsonObject => "refreshToken",
-                                                refreshInterval: jsonObject => "refreshInterval")
+                                            daysInReport: jsonObject => "daysInReport",
+                                            clientID: jsonObject => "clientID",
+                                            clientSecret: jsonObject => "clientSecret",
+                                            refreshToken: jsonObject => "refreshToken",
+                                            refreshInterval: jsonObject => "refreshInterval")
     }
 }

@@ -21,6 +21,7 @@ final class WebsiteAnalyticsWidgetBuilder : WidgetBuilding {
         let analyticsDataProvider = GoogleAnalyticsDataProvider(viewID: settings.viewID,
                                                                 dataProvider: apiDataProvider)
         let googleAnalyticsSource = GoogleAnalyticsSource(dataProvider: analyticsDataProvider,
+                                                          daysInReport: settings.daysInReport,
                                                           refreshInterval: NSTimeInterval(settings.refreshInterval))
 
         return WebsiteAnalyticsWidget(sources: [googleAnalyticsSource])
