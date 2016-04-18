@@ -48,15 +48,43 @@ extension AreaBarChartComponentViewModel {
         return CGFloat(count) / CGFloat(totalCount)
     }
 
+    private static var minHours: Double {
+        return 3.0
+    }
+
+    private static var maxHours: Double {
+        return 8.0
+    }
+
     private static func heightForGroup(group: BillingStatsGroup, groups: [BillingStatsGroup]) -> CGFloat {
-        let maxHours = 8.0
-        let hours = min(group.averageHours, maxHours)
+        let hours = max(minHours, min(maxHours, group.averageHours))
 
         return CGFloat(hours / maxHours)
     }
 
+    private static func doubleText(value: Double) -> String {
+        if (Double(Int(value)) == value) {
+            return String(Int(value))
+
+        } else {
+            return String(value)
+        }
+    }
+
+    private static func hoursText(hours: Double) -> String {
+        if (hours > maxHours) {
+            return String(format: "More than %@!", doubleText(maxHours))
+
+        } else if (hours < minHours) {
+            return String(format: "Less than %@!", doubleText(minHours))
+
+        } else {
+            return doubleText(hours)
+        }
+    }
+
     private static func valueLabelModeForGroup(group: BillingStatsGroup, groups: [BillingStatsGroup]) -> AreaBarItemValueLabelDisplayMode {
-        let text = String(group.averageHours)
+        let text = hoursText(group.averageHours)
 
         switch group.type {
         case .Less:

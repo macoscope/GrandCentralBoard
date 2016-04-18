@@ -12,13 +12,13 @@ import XCTest
 
 class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     static let typicalDailyBillingStats = DailyBillingStats(day: NSDate(timeIntervalSinceReferenceDate: 0), groups: [
-        BillingStatsGroup(type: .Less, count: 5, averageHours: 4.5),
+        BillingStatsGroup(type: .Less, count: 5, averageHours: 4),
         BillingStatsGroup(type: .Normal, count: 8, averageHours: 6.4),
-        BillingStatsGroup(type: .More, count: 3, averageHours: 8.2)])
+        BillingStatsGroup(type: .More, count: 3, averageHours: 7.2)])
     static let dailyBillingStatsWithEmptyGroup = DailyBillingStats(day: NSDate(timeIntervalSinceReferenceDate: 0), groups: [
-        BillingStatsGroup(type: .Less, count: 7, averageHours: 3.2),
+        BillingStatsGroup(type: .Less, count: 7, averageHours: 1),
         BillingStatsGroup(type: .Normal, count: 0, averageHours: 0),
-        BillingStatsGroup(type: .More, count: 3, averageHours: 8.2)])
+        BillingStatsGroup(type: .More, count: 3, averageHours: 10)])
     let viewModelForTypicalDay = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(typicalDailyBillingStats)!
     let viewModelForDayWithEmptyGroup = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStatsWithEmptyGroup)!
     let viewModelForMainChart = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(typicalDailyBillingStats, isMainChart: true)!
@@ -33,13 +33,13 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     }
 
     func testHeightForTypicalDay() {
-        XCTAssertEqual(viewModelForTypicalDay.barItems[0].proportionalHeight, 0.5625)
+        XCTAssertEqual(viewModelForTypicalDay.barItems[0].proportionalHeight, 0.5)
         XCTAssertEqual(viewModelForTypicalDay.barItems[1].proportionalHeight, 0.8)
-        XCTAssertEqual(viewModelForTypicalDay.barItems[2].proportionalHeight, 1)
+        XCTAssertEqual(viewModelForTypicalDay.barItems[2].proportionalHeight, 0.9)
     }
 
     func testHeightForDayWithAnEmptyGroup() {
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].proportionalHeight, 0.4)
+        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].proportionalHeight, 0.375)
         XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].proportionalHeight, 1)
     }
 
@@ -66,14 +66,14 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     }
 
     func testValueLabelModeForTypicalDay() {
-        XCTAssertEqual(viewModelForTypicalDay.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "4.5"))
+        XCTAssertEqual(viewModelForTypicalDay.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "4"))
         XCTAssertEqual(viewModelForTypicalDay.barItems[1].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleWithHiddenLabel)
-        XCTAssertEqual(viewModelForTypicalDay.barItems[2].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "8.2"))
+        XCTAssertEqual(viewModelForTypicalDay.barItems[2].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "7.2"))
     }
 
     func testValueLabelModeForDayWithEmptyGroup() {
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "3.2"))
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "8.2"))
+        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "Less than 3!"))
+        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "More than 8!"))
     }
 
     func testCountLabelText() {
