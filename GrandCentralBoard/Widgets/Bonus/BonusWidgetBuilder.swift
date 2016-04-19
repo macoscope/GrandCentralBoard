@@ -26,6 +26,17 @@ final class BonusWidgetBuilder : WidgetBuilding {
     }
 }
 
+enum BonusWidgetSettingsError: ErrorType, HavingMessage {
+    case BubbleResizeDurationInvalid(NSTimeInterval)
+
+    var message: String {
+        switch self {
+        case .BubbleResizeDurationInvalid(let duration):
+            return "BubbleResizeDuration of \(duration) is invalid."
+        }
+    }
+}
+
 struct BonusWidgetSettings: Decodable {
 
     // Remeber to add include_children=true to the Bonus.ly API query. It should look more or less like this:
@@ -34,7 +45,12 @@ struct BonusWidgetSettings: Decodable {
     let bubbleResizeDuration: NSTimeInterval
 
     static func decode(jsonObject: AnyObject) throws -> BonusWidgetSettings {
-        return try BonusWidgetSettings(accessToken: jsonObject => "accessToken",
+        let settings = try BonusWidgetSettings(accessToken: jsonObject => "accessToken",
                                        bubbleResizeDuration: jsonObject => "bubbleResizeDuration")
+
+        guard settings.bubbleResizeDuration > 0 else {
+            throw BonusWidgetSettingsError.BubbleResizeDurationInvalid(settings.bubbleResizeDuration)
+        }
+        return settings
     }
 }
