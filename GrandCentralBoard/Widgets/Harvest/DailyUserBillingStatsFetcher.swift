@@ -1,5 +1,5 @@
 //
-//  DailyUserBillingStatsFetcher.swift
+//  DailyProjectBillingStatsFetcher.swift
 //  GrandCentralBoard
 //
 //  Created by Karol Kozub on 2016-04-18.
@@ -8,34 +8,34 @@
 
 import Foundation
 import GrandCentralBoardCore
+import Decodable
 
 
-final class DailyUserBillingStatsFetcher {
+final class DailyProjectBillingStatsFetcher {
     private let date: NSDate
-    private let userID: BillingUserID
+    private let projectID: BillingProjectID
     private let account: String
     private let accessToken: AccessToken
     private let downloader: NetworkRequestManager
 
-    init(date: NSDate, userID: BillingUserID, account: String, accessToken: AccessToken, downloader: NetworkRequestManager) {
+    init(date: NSDate, projectID: BillingProjectID, account: String, accessToken: AccessToken, downloader: NetworkRequestManager) {
         self.date = date
-        self.userID = userID
+        self.projectID = projectID
         self.account = account
         self.accessToken = accessToken
         self.downloader = downloader
     }
 
-    func fetchDailyUserBillingStats(completion: (Result<DailyBillingStats>) -> Void) {
+    func fetchDailyProjectBillingStats(completion: (Result<[AnyObject]>) -> Void) {
         downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, encoding: .URL, completion: { result in
             switch result {
             case .Success(let json):
-                do {
-                    let dailyStats = try DailyBillingStats.decode(json)
-                    completion(.Success(dailyStats))
-
-                } catch let error {
-                    completion(.Failure(error))
+                guard let jsonArray = json as? [AnyObject] else {
+                    let error = RawRepresentableInitializationError(type: [AnyObject].self, rawValue: json, object: json)
+                    return completion(.Failure(error))
                 }
+
+                completion(.Success(jsonArray))
 
             case .Failure(let error):
                 completion(.Failure(error))
@@ -44,27 +44,13 @@ final class DailyUserBillingStatsFetcher {
     }
 
     private var url: NSURL {
-        let urlString = String(format: "https://%@.harvestapp.com/daily/%d/%d?of_user=%d", account, date.dayOfYear, date.year, userID)
+        let formattedDate = date.stringWithFormat("yyyyMMdd")
+        let urlString = String(format: "https://%@.harvestapp.com/projects/%d/entries?from=%@&to=%@", account, projectID, formattedDate, formattedDate)
 
         return NSURL(string: urlString)!
     }
 
     private var headers: [String: String] {
         return ["Authorization": "Bearer " + accessToken.token, "Accept": "application/json"]
-    }
-}
-
-
-extension NSDate {
-    var gregorianCalendar: NSCalendar {
-        return NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-    }
-
-    var dayOfYear: Int {
-        return gregorianCalendar.ordinalityOfUnit(.Day, inUnit: .Year, forDate: self)
-    }
-
-    var year: Int {
-        return gregorianCalendar.component(.Year, fromDate: self)
     }
 }

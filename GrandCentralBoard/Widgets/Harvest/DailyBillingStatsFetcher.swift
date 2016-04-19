@@ -11,12 +11,14 @@ import GrandCentralBoardCore
 
 
 final class DailyBillingStatsFetcher {
+    private let projectIDs: [BillingProjectID]
     private let date: NSDate
     private let account: String
     private let accessToken: AccessToken
     private let downloader: NetworkRequestManager
 
-    init(date: NSDate, account: String, accessToken: AccessToken, downloader: NetworkRequestManager) {
+    init(projectIDs: [BillingProjectID], date: NSDate, account: String, accessToken: AccessToken, downloader: NetworkRequestManager) {
+        self.projectIDs = projectIDs
         self.date = date
         self.account = account
         self.accessToken = accessToken
@@ -24,11 +26,17 @@ final class DailyBillingStatsFetcher {
     }
 
     func fetchDailyBillingStats(completion: (Result<DailyBillingStats>) -> Void) {
-        let userFetcher = BillingUserListFetcher(account: account, accessToken: accessToken, downloader: downloader)
-        userFetcher.fetchUserList { result in
+        self.fetchRawDailyBillingStats(projectIDs, json:[]) { result in
             switch result {
-            case .Success(let userIDs):
-                self.fetchDailyBillingStats(userIDs, dailyBillingStats: DailyBillingStats.emptyStats(), completion: completion)
+            case .Success(let jsonEntries):
+                do {
+                    let json = ["day_entries": jsonEntries.flatMap { $0["day_entry"] }, "for_day": self.date.stringWithFormat("yyyy-MM-dd")]
+                    let dailyBillingStats = try DailyBillingStats.decode(json)
+                    completion(.Success(dailyBillingStats))
+
+                } catch let error {
+                    completion(.Failure(error))
+                }
 
             case .Failure(let error):
                 completion(.Failure(error))
@@ -36,20 +44,20 @@ final class DailyBillingStatsFetcher {
         }
     }
 
-    func fetchDailyBillingStats(userIDs: [BillingUserID], dailyBillingStats: DailyBillingStats, completion: (Result<DailyBillingStats>) -> Void) {
-        guard let userID = userIDs.first else {
-            return completion(.Success(dailyBillingStats))
+    private func fetchRawDailyBillingStats(projectIDs: [BillingProjectID], json: [AnyObject], completion: (Result<[AnyObject]>) -> Void) {
+        guard let projectID = projectIDs.first else {
+            return completion(.Success(json))
         }
 
-        let dailyUserStatsFetcher = DailyUserBillingStatsFetcher(date: date, userID: userID, account: account, accessToken: accessToken, downloader: downloader)
+        let dailyUserStatsFetcher = DailyProjectBillingStatsFetcher(date: date, projectID: projectID, account: account, accessToken: accessToken, downloader: downloader)
 
-        dailyUserStatsFetcher.fetchDailyUserBillingStats { result in
+        dailyUserStatsFetcher.fetchDailyProjectBillingStats { result in
             switch result {
-            case .Success(let dailyUserBillingStats):
-                let remainingUserIDs = Array(userIDs.dropFirst())
-                let mergedDailyBillingStats = dailyBillingStats.merge(dailyUserBillingStats)
+            case .Success(let resultJSON):
+                let remainingProjectIDs = Array(projectIDs.dropFirst())
+                let mergedJSON = json + resultJSON
 
-                self.fetchDailyBillingStats(remainingUserIDs, dailyBillingStats: mergedDailyBillingStats, completion: completion)
+                self.fetchRawDailyBillingStats(remainingProjectIDs, json: mergedJSON, completion: completion)
 
             case .Failure(let error):
                 completion(.Failure(error))

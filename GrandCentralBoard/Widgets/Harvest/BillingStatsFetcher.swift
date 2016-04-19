@@ -24,10 +24,25 @@ final class BillingStatsFetcher {
     }
 
     func fetchBillingStats(completion: (Result<[DailyBillingStats]>) -> Void) {
-        fetchBillingStats(dates, fetchedStats: [], completion: completion)
+        fetchProjectList { result in
+            switch result {
+            case .Success(let projectIDs):
+                self.fetchBillingStats(projectIDs, dates: self.dates, fetchedStats: [], completion: completion)
+
+            case .Failure(let error):
+                completion(.Failure(error))
+            }
+
+        }
     }
 
-    private func fetchBillingStats(dates: [NSDate], fetchedStats: [DailyBillingStats], completion: (Result<[DailyBillingStats]>) -> Void) {
+    private func fetchProjectList(completion: (Result<[BillingProjectID]>) -> Void) {
+        let projectListFetcher = BillingProjectListFetcher(account: account, accessToken: accessToken, downloader: downloader)
+
+        projectListFetcher.fetchProjectList(completion)
+    }
+
+    private func fetchBillingStats(projectIDs: [BillingProjectID], dates: [NSDate], fetchedStats: [DailyBillingStats], completion: (Result<[DailyBillingStats]>) -> Void) {
         if (dates.count == 0) {
             return completion(.Success(fetchedStats))
         }
@@ -36,14 +51,14 @@ final class BillingStatsFetcher {
         let date = dates.first!
         remainingDates.removeFirst()
 
-        let dailyFetcher = DailyBillingStatsFetcher(date: date, account: account, accessToken: accessToken, downloader: downloader)
+        let dailyFetcher = DailyBillingStatsFetcher(projectIDs: projectIDs, date: date, account: account, accessToken: accessToken, downloader: downloader)
         dailyFetcher.fetchDailyBillingStats { result in
             switch result {
             case .Success(let dailyStats):
                 var fetchedStats = fetchedStats
                 fetchedStats.append(dailyStats)
 
-                self.fetchBillingStats(remainingDates, fetchedStats: fetchedStats, completion: completion)
+                self.fetchBillingStats(projectIDs, dates: remainingDates, fetchedStats: fetchedStats, completion: completion)
 
             case .Failure(let error):
                 completion(.Failure(error))

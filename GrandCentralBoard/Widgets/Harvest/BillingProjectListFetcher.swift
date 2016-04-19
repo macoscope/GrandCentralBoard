@@ -1,5 +1,5 @@
 //
-//  BillingUserListFetcher.swift
+//  BillingProjectListFetcher.swift
 //  GrandCentralBoard
 //
 //  Created by Karol Kozub on 2016-04-18.
@@ -10,7 +10,7 @@ import Foundation
 import GrandCentralBoardCore
 
 
-class BillingUserListFetcher {
+class BillingProjectListFetcher {
     private let account: String
     private let accessToken: AccessToken
     private let downloader: NetworkRequestManager
@@ -21,13 +21,13 @@ class BillingUserListFetcher {
         self.downloader = downloader
     }
 
-    func fetchUserList(completion: (Result<[BillingUserID]>) -> Void) {
+    func fetchProjectList(completion: (Result<[BillingProjectID]>) -> Void) {
         downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, encoding: .URL) { result in
             switch (result) {
             case .Success(let json):
                 do {
-                    let userIDs = try BillingUserList.decode(json).userIDs
-                    completion(.Success(userIDs))
+                    let projectIDs = try BillingProjectList.decode(json).projectIDs
+                    completion(.Success(projectIDs))
 
                 } catch let error {
                     completion(.Failure(error))
@@ -39,7 +39,7 @@ class BillingUserListFetcher {
     }
 
     private var url: NSURL {
-        return NSURL(string: String(format: "https://%@.harvestapp.com/people", account))!
+        return NSURL(string: String(format: "https://%@.harvestapp.com/projects", account))!
     }
 
     private var headers: [String: String] {
