@@ -36,7 +36,7 @@ class BonusScene: SKScene {
         addChild(world)
         
         for bubbleViewModel in viewModel.bubbles {
-            let bubble = Bubble(bubbleViewModel: bubbleViewModel, bubbleResizeDuration: bubbleResizeDuration)
+            let bubble = Bubble(bubbleViewModel: bubbleViewModel)
             bubble.position = randomPosition()
             world.addChild(bubble)
         }
@@ -64,7 +64,7 @@ class BonusScene: SKScene {
     private func addOrUpdateBubbles() {
         for bubbleViewModel in viewModel.bubbles {
             guard let bubble = world.childNodeWithName(bubbleViewModel.name) as? Bubble else {
-                let newBubble = Bubble(bubbleViewModel: bubbleViewModel, bubbleResizeDuration: bubbleResizeDuration)
+                let newBubble = Bubble(bubbleViewModel: bubbleViewModel)
                 newBubble.position = randomPosition()
                 self.world.addChild(newBubble)
                 continue

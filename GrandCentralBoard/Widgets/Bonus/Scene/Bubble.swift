@@ -16,10 +16,10 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
         return animator
     }()
     
-    init(bubbleViewModel: BubbleViewModel, bubbleResizeDuration: NSTimeInterval) {
+    init(bubbleViewModel: BubbleViewModel) {
         let image = bubbleViewModel.image
         let texture = SKTexture(image: image.cropToCircle())
-        self.bubbleResizeDuration = bubbleResizeDuration
+        self.bubbleResizeDuration = bubbleViewModel.bubbleResizeDuration
 
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
         
