@@ -17,17 +17,32 @@ final class BillingStatsFetcher {
     private let downloader: NetworkRequestManager
 
     init(account: String, accessToken: AccessToken, downloader: NetworkRequestManager, numberOfDays: Int) {
-        self.dates = NSDate.lastNDays(numberOfDays)
+        self.dates = NSDate.arrayOfPreviousDays(numberOfDays)
         self.account = account
         self.accessToken = accessToken
         self.downloader = downloader
     }
 
     func fetchBillingStats(completion: (Result<[DailyBillingStats]>) -> Void) {
-        fetchBillingStats(dates, fetchedStats: [], completion: completion)
+        fetchProjectList { result in
+            switch result {
+            case .Success(let projectIDs):
+                self.fetchBillingStats(projectIDs, dates: self.dates, fetchedStats: [], completion: completion)
+
+            case .Failure(let error):
+                completion(.Failure(error))
+            }
+
+        }
     }
 
-    private func fetchBillingStats(dates: [NSDate], fetchedStats: [DailyBillingStats], completion: (Result<[DailyBillingStats]>) -> Void) {
+    private func fetchProjectList(completion: (Result<[BillingProjectID]>) -> Void) {
+        let projectListFetcher = BillingProjectListFetcher(account: account, accessToken: accessToken, downloader: downloader)
+
+        projectListFetcher.fetchProjectList(completion)
+    }
+
+    private func fetchBillingStats(projectIDs: [BillingProjectID], dates: [NSDate], fetchedStats: [DailyBillingStats], completion: (Result<[DailyBillingStats]>) -> Void) {
         if (dates.count == 0) {
             return completion(.Success(fetchedStats))
         }
@@ -36,14 +51,14 @@ final class BillingStatsFetcher {
         let date = dates.first!
         remainingDates.removeFirst()
 
-        let dailyFetcher = DailyBillingStatsFetcher(date: date, account: account, accessToken: accessToken, downloader: downloader)
+        let dailyFetcher = DailyBillingStatsFetcher(projectIDs: projectIDs, date: date, account: account, accessToken: accessToken, downloader: downloader)
         dailyFetcher.fetchDailyBillingStats { result in
             switch result {
             case .Success(let dailyStats):
                 var fetchedStats = fetchedStats
                 fetchedStats.append(dailyStats)
 
-                self.fetchBillingStats(remainingDates, fetchedStats: fetchedStats, completion: completion)
+                self.fetchBillingStats(projectIDs, dates: remainingDates, fetchedStats: fetchedStats, completion: completion)
 
             case .Failure(let error):
                 completion(.Failure(error))
@@ -54,14 +69,18 @@ final class BillingStatsFetcher {
 
 
 extension NSDate {
-    static func lastNDays(numberOfDays: Int) -> [NSDate] {
-        return (0..<numberOfDays).map({ index in
+    static func arrayOfPreviousDays(numberOfDays: Int) -> [NSDate] {
+        return (1...numberOfDays).map({ index in
             return NSDate().dateDaysAgo(index)
         })
     }
 
     func dateDaysAgo(daysAgo: Int) -> NSDate {
-        let timeInterval = NSTimeInterval(-daysAgo * 24 * 3600)
+        return dateWithDayOffset(-daysAgo)
+    }
+
+    func dateWithDayOffset(numberOfDays: Int) -> NSDate {
+        let timeInterval = NSTimeInterval(numberOfDays * 24 * 3600)
 
         return self.dateByAddingTimeInterval(timeInterval)
     }

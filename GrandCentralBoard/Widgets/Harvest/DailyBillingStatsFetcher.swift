@@ -11,12 +11,14 @@ import GrandCentralBoardCore
 
 
 final class DailyBillingStatsFetcher {
+    private let projectIDs: [BillingProjectID]
     private let date: NSDate
     private let account: String
     private let accessToken: AccessToken
     private let downloader: NetworkRequestManager
 
-    init(date: NSDate, account: String, accessToken: AccessToken, downloader: NetworkRequestManager) {
+    init(projectIDs: [BillingProjectID], date: NSDate, account: String, accessToken: AccessToken, downloader: NetworkRequestManager) {
+        self.projectIDs = projectIDs
         self.date = date
         self.account = account
         self.accessToken = accessToken
@@ -24,12 +26,13 @@ final class DailyBillingStatsFetcher {
     }
 
     func fetchDailyBillingStats(completion: (Result<DailyBillingStats>) -> Void) {
-        downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, encoding: .URL, completion: { (result: ResultType<AnyObject, NSError>.result) -> Void in
+        self.fetchRawDailyBillingStats(projectIDs, json:[]) { result in
             switch result {
-            case .Success(let json):
+            case .Success(let jsonEntries):
                 do {
-                    let dailyStats = try DailyBillingStats.decode(json)
-                    completion(.Success(dailyStats))
+                    let json = ["day_entries": jsonEntries.flatMap { $0["day_entry"] }, "for_day": self.date.stringWithFormat("yyyy-MM-dd")]
+                    let dailyBillingStats = try DailyBillingStats.decode(json)
+                    completion(.Success(dailyBillingStats))
 
                 } catch let error {
                     completion(.Failure(error))
@@ -38,33 +41,27 @@ final class DailyBillingStatsFetcher {
             case .Failure(let error):
                 completion(.Failure(error))
             }
-        })
+        }
     }
 
-    private var url: NSURL {
-        let dailyStatsBaseURL = NSURL(string: String(format: "https://%@.harvestapp.com/daily", account))!
+    private func fetchRawDailyBillingStats(projectIDs: [BillingProjectID], json: [AnyObject], completion: (Result<[AnyObject]>) -> Void) {
+        guard let projectID = projectIDs.first else {
+            return completion(.Success(json))
+        }
 
-        return dailyStatsBaseURL.URLByAppendingPathComponent(String(date.dayOfYear)).URLByAppendingPathComponent(String(date.year))
-    }
+        let dailyUserStatsFetcher = DailyProjectBillingStatsFetcher(date: date, projectID: projectID, account: account, accessToken: accessToken, downloader: downloader)
 
-    private var headers: [String: String] {
-        return ["Authorization": "Bearer " + accessToken.token, "Accept": "application/json"]
-    }
-}
+        dailyUserStatsFetcher.fetchDailyProjectBillingStats { result in
+            switch result {
+            case .Success(let resultJSON):
+                let remainingProjectIDs = Array(projectIDs.dropFirst())
+                let mergedJSON = json + resultJSON
 
+                self.fetchRawDailyBillingStats(remainingProjectIDs, json: mergedJSON, completion: completion)
 
-extension NSDate {
-    var gregorianCalendar: NSCalendar {
-        return NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-    }
-
-    var dayOfYear: Int {
-        return gregorianCalendar.ordinalityOfUnit(.Day, inUnit: .Year, forDate: self)
-    }
-
-    var year: Int {
-        return gregorianCalendar.component(.Year, fromDate: self)
+            case .Failure(let error):
+                completion(.Failure(error))
+            }
+        }
     }
 }
-
-

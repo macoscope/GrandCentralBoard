@@ -167,6 +167,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
         headerLabel.text = viewModel.mainChart.headerText
         headerLabel.applyCustomAttributes()
         subheaderLabel.text = viewModel.mainChart.subheaderText
+        componentsSectionHeaderLabel.text = String(format: "PREVIOUS %d DAYS".localized, viewModel.componentCharts.count)
     }
 
     private func configureBarsWithViewModel(viewModel: AreaBarChartViewModel) {

@@ -22,7 +22,7 @@ class AccessTokenFetcher {
     }
 
     func fetchAccessToken(completion: (Result<AccessToken>) -> Void) {
-        downloader.requestJSON(.POST, url: url, parameters: parameters, headers: headers, encoding: .URL) { (result: ResultType<AnyObject, NSError>.result) -> Void in
+        downloader.requestJSON(.POST, url: url, parameters: parameters, headers: headers, encoding: .URL) { result in
             switch (result) {
             case .Success(let json):
                 do {
