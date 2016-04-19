@@ -32,6 +32,12 @@ private class TestDataProvider : APIDataProviding {
     }
 }
 
+private class BlogPostTitleTranslator: PathToTitleTranslating {
+    private func titleFromPath(path: String) -> String? {
+        return path
+    }
+}
+
 class GoogleAnalyticsDataProviderTests : XCTestCase {
 
     var dataProvider: GoogleAnalyticsDataProvider!
@@ -46,11 +52,14 @@ class GoogleAnalyticsDataProviderTests : XCTestCase {
         dataProvider.fetchPageViewsReportFromDate(NSDate(), toDate: NSDate()) { result in
             switch result {
             case .Success(let report):
-                let pageViewsReports = PageViewsRowReport.arrayFromAnalyticsReport(report)
+                let pageViewsReports = PageViewsRowReport.arrayFromAnalyticsReport(report, pathToTitleTranslator: BlogPostTitleTranslator())
 
                 XCTAssertEqual(2, pageViewsReports.count)
                 XCTAssertEqual(reportRows[0]["dimensions"]![0], pageViewsReports[0].pagePath)
                 XCTAssertEqual(reportRows[1]["dimensions"]![0], pageViewsReports[1].pagePath)
+                
+                XCTAssertEqual(pageViewsReports[0].pageTitle, pageViewsReports[0].pagePath)
+                XCTAssertEqual(pageViewsReports[1].pageTitle, pageViewsReports[1].pagePath)
 
                 //too much effort to get the values from `reportRows` dictionary - analytics response is quite complicated
                 XCTAssertEqual(12, pageViewsReports[0].visits)

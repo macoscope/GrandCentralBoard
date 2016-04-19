@@ -12,6 +12,7 @@ import Decodable
 struct WebsiteAnalyticsSettings  {
     let viewID: String
     let daysInReport: Int
+    let validPathPrefix: String?
 
     let clientID: String
     let clientSecret: String
@@ -24,6 +25,7 @@ extension WebsiteAnalyticsSettings: Decodable {
     static func decode(jsonObject: AnyObject) throws -> WebsiteAnalyticsSettings {
         return try WebsiteAnalyticsSettings(viewID: jsonObject => "viewID",
                                             daysInReport: jsonObject => "daysInReport",
+                                            validPathPrefix: jsonObject =>? "validPathPrefix",
                                             clientID: jsonObject => "clientID",
                                             clientSecret: jsonObject => "clientSecret",
                                             refreshToken: jsonObject => "refreshToken",

@@ -25,6 +25,7 @@ final class PageViewsSource : Asynchronous {
     let dataProvider: GoogleAnalyticsDataProvider
     let interval: NSTimeInterval
     let daysInReport: Int
+    let pathToTitleTranslator: PathToTitleTranslating
 
     typealias ResultType = Result<[PageViewsRowReport]>
     var sourceType: SourceType {
@@ -32,10 +33,11 @@ final class PageViewsSource : Asynchronous {
     }
 
     init(dataProvider: GoogleAnalyticsDataProvider, daysInReport: Int,
-         refreshInterval: NSTimeInterval = 5*60) {
+         refreshInterval: NSTimeInterval = 5*60, pathToTitleTranslator: PathToTitleTranslating) {
         self.dataProvider = dataProvider
         self.interval = refreshInterval
         self.daysInReport = daysInReport
+        self.pathToTitleTranslator = pathToTitleTranslator
     }
 
     func read(closure: (ResultType) -> Void) {
@@ -46,15 +48,10 @@ final class PageViewsSource : Asynchronous {
         }
 
         dataProvider.fetchPageViewsReportFromDate(reportStartTime, toDate: now) { result in
+            let pathToTitleTranslator = self.pathToTitleTranslator
             switch result {
             case .Success(let reports):
-                let pageViews = reports.rows.flatMap { row -> PageViewsRowReport? in
-                    let report = PageViewsRowReport(analyticsReportRow:row)
-                    if report?.isBlogPostPage == false {
-                        return nil
-                    }
-                    return report
-                }
+                let pageViews = reports.rows.flatMap { PageViewsRowReport(analyticsReportRow:$0, pathToTitleTranslator: pathToTitleTranslator) }
                 return closure(.Success(pageViews))
             case .Failure(let error):
                 closure(.Failure(error))
