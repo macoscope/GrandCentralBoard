@@ -14,11 +14,11 @@ final class BonusSource : Asynchronous {
     let sourceType: SourceType = .Momentary
     let interval: NSTimeInterval = 10
 
-    private let peopleFetchController: PeopleWithBonususFetchController
+    private let peopleFetchController: PeopleWithBonusesFetchController
 
     init(bonuslyAccessToken: String) {
         let requestSender = RequestSender(configuration: RequestSenderConfiguration.init(queryParameters: ["access_token": bonuslyAccessToken]))
-        self.peopleFetchController = PeopleWithBonususFetchController.init(requestSender: requestSender)
+        self.peopleFetchController = PeopleWithBonusesFetchController.init(requestSender: requestSender)
     }
     
     func read(closure: (ResultType) -> Void) {
