@@ -32,7 +32,7 @@ enum BonusWidgetSettingsError: ErrorType, HavingMessage {
     var message: String {
         switch self {
         case .BubbleResizeDurationInvalid(let duration):
-            return "BubbleResizeDuration of \(duration) is invalid."
+            return "A value of \(duration) for BubbleResizeDuration is invalid"
         }
     }
 }
