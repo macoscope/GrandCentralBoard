@@ -9,7 +9,7 @@
 import XCTest
 @testable import GrandCentralBoard
 
-
+// swiftlint:disable:next type_name
 class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     static let typicalDailyBillingStats = DailyBillingStats(day: NSDate(timeIntervalSinceReferenceDate: 0), groups: [
         BillingStatsGroup(type: .Less, count: 5, averageHours: 4),
@@ -22,7 +22,8 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     let viewModelForTypicalDay = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(typicalDailyBillingStats)!
     let viewModelForDayWithEmptyGroup = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStatsWithEmptyGroup)!
     let viewModelForMainChart = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(typicalDailyBillingStats, isMainChart: true)!
-    let viewModelForPreviousDayChart = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStatsWithEmptyGroup, isMainChart: false)!
+    let viewModelForPreviousDayChart = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStatsWithEmptyGroup,
+                                                                                                     isMainChart: false)!
 
     func testItemCountForTypicalDay() {
         XCTAssertEqual(viewModelForTypicalDay.barItems.count, 3)
@@ -72,8 +73,10 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
     }
 
     func testValueLabelModeForDayWithEmptyGroup() {
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "less than 3!"))
-        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].valueLabelMode, AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "more than 8!"))
+        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].valueLabelMode,
+                       AreaBarItemValueLabelDisplayMode.VisibleLabelLeft(text: "less than 3!"))
+        XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].valueLabelMode,
+                       AreaBarItemValueLabelDisplayMode.VisibleLabelRight(text: "more than 8!"))
     }
 
     func testCountLabelText() {

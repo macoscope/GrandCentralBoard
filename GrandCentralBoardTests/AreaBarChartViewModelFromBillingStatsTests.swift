@@ -9,7 +9,7 @@
 import XCTest
 @testable import GrandCentralBoard
 
-
+// swiftlint:disable:next type_name
 class AreaBarChartViewModelFromBillingStatsTests: XCTestCase {
     let emptyDailyBillingStats = DailyBillingStats(day: NSDate(), groups: [
         BillingStatsGroup(type: .Less, count: 0, averageHours: 0),

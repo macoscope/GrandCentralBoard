@@ -21,7 +21,8 @@ private let eventsDictionary = ["kind": "calendar#events", "items" :
 
 class TestAPIDataProvider: APIDataProviding {
 
-    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]?, encoding: ParameterEncoding, completion: Result<AnyObject, APIDataError> -> Void) {
+    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]?, encoding: ParameterEncoding,
+                 completion: Result<AnyObject, APIDataError> -> Void) {
         let urlString = url.URLString
         if urlString.hasSuffix("/events") {
             completion(.Success(eventsDictionary))
