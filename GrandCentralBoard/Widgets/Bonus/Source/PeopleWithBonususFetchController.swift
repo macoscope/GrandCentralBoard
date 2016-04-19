@@ -1,5 +1,5 @@
 //
-//  BonusFetchController.swift
+//  PeopleWithBonusesFetchController.swift
 //  GrandCentralBoard
 //
 //  Created by Rafal Augustyniak on 07/04/16.
@@ -18,7 +18,7 @@ enum PeopleWithBonususFetchControllerError : ErrorType {
 }
 
 
-final class PeopleWithBonususFetchController {
+final class PeopleWithBonusesFetchController {
 
     private let requestSender: RequestSender
 
