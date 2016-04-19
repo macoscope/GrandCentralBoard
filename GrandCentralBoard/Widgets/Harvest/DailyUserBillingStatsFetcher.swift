@@ -45,7 +45,8 @@ final class DailyProjectBillingStatsFetcher {
 
     private var url: NSURL {
         let formattedDate = date.stringWithFormat("yyyyMMdd")
-        let urlString = String(format: "https://%@.harvestapp.com/projects/%d/entries?from=%@&to=%@", account, projectID, formattedDate, formattedDate)
+        let urlString = String(format: "https://%@.harvestapp.com/projects/%d/entries?from=%@&to=%@",
+                               account, projectID, formattedDate, formattedDate)
 
         return NSURL(string: urlString)!
     }

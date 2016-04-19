@@ -17,7 +17,8 @@ enum APIDataError: ErrorType {
 }
 
 protocol APIDataProviding {
-    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding, completion: ResultType<AnyObject, APIDataError>.result -> Void)
+    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?,
+                 encoding: ParameterEncoding, completion: ResultType<AnyObject, APIDataError>.result -> Void)
 }
 
 final class GoogleAPIDataProvider: APIDataProviding {
@@ -51,7 +52,8 @@ final class GoogleAPIDataProvider: APIDataProviding {
         return refreshTokenOperation
     }
 
-    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL, completion: ResultType<AnyObject, APIDataError>.result -> Void) {
+    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL,
+                 completion: ResultType<AnyObject, APIDataError>.result -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
             guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {

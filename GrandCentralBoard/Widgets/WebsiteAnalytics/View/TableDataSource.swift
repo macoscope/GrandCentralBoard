@@ -17,7 +17,9 @@ protocol TableViewModel {
 }
 
 
-final class TableDataSource<Configurator: ViewConfiguring, ViewModel: TableViewModel where ViewModel.CellViewModel == Configurator.CellViewModel, ViewModel.HeaderViewModel == Configurator.HeaderViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
+final class TableDataSource<Configurator: ViewConfiguring, ViewModel: TableViewModel
+where ViewModel.CellViewModel == Configurator.CellViewModel, ViewModel.HeaderViewModel == Configurator.HeaderViewModel>
+: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     var viewModel: ViewModel
     private let viewConfiguring: Configurator

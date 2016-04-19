@@ -34,7 +34,8 @@ final class RequestSender {
         }
     }
 
-    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void {
+    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T,
+                                       completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void {
         let wrappingRequestTemplate = WrappingRequestTemplate(requestTemplate: requestTemplate, queryParameters: self.configuration.queryParameters)
         let requestBuilder = RequestBuilder<WrappingRequestTemplate<T>>(requestTemplate: wrappingRequestTemplate)
 
@@ -92,6 +93,6 @@ extension Request: Equatable {
 
 }
 
-public func ==(lhs: Request, rhs: Request) -> Bool {
+public func == (lhs: Request, rhs: Request) -> Bool {
     return lhs.request == rhs.request
 }

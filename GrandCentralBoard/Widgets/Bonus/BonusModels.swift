@@ -43,18 +43,18 @@ extension Bonus: Decodable {
         return formatter
     }()
 
-    static func decode(j: AnyObject) throws -> Bonus {
+    static func decode(json: AnyObject) throws -> Bonus {
 
-        let email: String = try j => "receiver" => "email"
+        let email: String = try json => "receiver" => "email"
         return try Bonus(name: email.removeDomainFromEmail(),
-                         amount: j => "amount",
-                         receiver: j => "receiver",
-                         date: dateFormatter.dateFromString(j => "created_at") ?? NSDate(),
-                         childBonuses: j =>? "child_bonuses" ?? [])
+                         amount: json => "amount",
+                         receiver: json => "receiver",
+                         date: dateFormatter.dateFromString(json => "created_at") ?? NSDate(),
+                         childBonuses: json =>? "child_bonuses" ?? [])
     }
 
-    static func decodeBonuses(j: AnyObject) throws -> [Bonus] {
-        return try j => "result" as [Bonus]
+    static func decodeBonuses(json: AnyObject) throws -> [Bonus] {
+        return try json => "result" as [Bonus]
     }
 
     static func updatesFromData(data: NSData) throws -> [Bonus] {
@@ -96,10 +96,10 @@ func==(lhs: Person, rhs: Person) -> Bool {
 
 extension Person: Decodable {
 
-    static func decode(j: AnyObject) throws -> Person {
-        return try Person(id: j => "id",
-                          name: j => "display_name",
-                          email: j => "email",
+    static func decode(json: AnyObject) throws -> Person {
+        return try Person(id: json => "id",
+                          name: json => "display_name",
+                          email: json => "email",
                           lastBonusDate: nil,
                           image: nil)
     }

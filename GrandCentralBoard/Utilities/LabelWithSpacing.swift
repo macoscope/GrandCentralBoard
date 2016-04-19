@@ -23,10 +23,12 @@ class LabelWithSpacing: UILabel {
             if lineSpace > 0.0 {
                 let paragraphStyle = NSMutableParagraphStyle()
                 paragraphStyle.lineSpacing = lineSpace
-                attributedString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range: NSMakeRange(0, text.characters.count))
+                attributedString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle,
+                                              range: NSRange(location: 0, length: text.characters.count))
             }
 
-            attributedString.addAttribute(NSKernAttributeName, value: kerning, range: NSMakeRange(0, text.characters.count))
+            attributedString.addAttribute(NSKernAttributeName, value: kerning,
+                                          range: NSRange(location: 0, length: text.characters.count))
             attributedString.endEditing()
             attributedText = attributedString
 

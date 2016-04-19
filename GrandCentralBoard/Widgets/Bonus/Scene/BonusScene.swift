@@ -19,8 +19,10 @@ class BonusScene: SKScene {
         assert(viewModel != nil)
         setUpWithViewModel(viewModel)
 
-        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles), userInfo: nil, repeats: true)
-        NSTimer.scheduledTimerWithTimeInterval(resizeWorldInterval, target: self, selector: #selector(BonusScene.updateWorldSize), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles),
+                                               userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(resizeWorldInterval, target: self, selector: #selector(BonusScene.updateWorldSize),
+                                               userInfo: nil, repeats: true)
     }
 
     func setUpWithViewModel(viewModel: BonusWidgetViewModel) {
@@ -50,7 +52,7 @@ class BonusScene: SKScene {
         let nodesToSmall = frame.width > calculatedAccumulatedFrame.width * 1.25 && frame.height > calculatedAccumulatedFrame.height * 1.25
         if !nodesFitScreen {
             scaleBy(1 - unitSceneResizeChange)
-        } else if (nodesToSmall) {
+        } else if nodesToSmall {
             scaleBy(1 + unitSceneResizeChange)
         }
     }

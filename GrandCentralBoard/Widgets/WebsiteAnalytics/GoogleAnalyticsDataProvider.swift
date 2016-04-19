@@ -28,7 +28,8 @@ final class GoogleAnalyticsDataProvider {
             "dateRanges": [ ["startDate": startDate.yearMonthDayStringForNetwork(), "endDate": endDate.yearMonthDayStringForNetwork()] ],
             "orderBys": [ ["fieldName": "ga:pageviews", "sortOrder": "DESCENDING"] ]
         ]
-        dataProvider.request(.POST, url: self.dynamicType.googleAnalyticsAPIURL, parameters: ["reportRequests": [ parameters ]], encoding: .JSON) { (result) in
+        dataProvider.request(.POST, url: self.dynamicType.googleAnalyticsAPIURL,
+                             parameters: ["reportRequests": [ parameters ]], encoding: .JSON) { (result) in
             switch result {
             case .Success(let json):
                 do {

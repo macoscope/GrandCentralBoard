@@ -11,7 +11,7 @@ import GrandCentralBoardCore
 
 extension AreaBarChartViewModel {
     static func viewModelFromBillingStats(billingStats: [DailyBillingStats]) -> AreaBarChartViewModel {
-        if (billingStats.count < 1) {
+        if billingStats.count < 1 {
             return AreaBarChartViewModel.emptyViewModel()
         }
 
@@ -23,7 +23,8 @@ extension AreaBarChartViewModel {
         })
 
         if let mainViewModel = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(mainDailyStats, isMainChart: true) {
-            return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: componentViewModels, horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:".localized, centerText: nil)
+            return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: componentViewModels,
+                                         horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:".localized, centerText: nil)
 
         } else {
             return AreaBarChartViewModel.emptyViewModel(header: nil, subheader: nil, historicalCharts: componentViewModels)

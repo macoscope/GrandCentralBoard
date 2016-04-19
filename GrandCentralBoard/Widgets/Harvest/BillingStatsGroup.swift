@@ -22,10 +22,10 @@ enum BillingStatsGroupType: Int {
 
 extension BillingStatsGroup {
     static func typeForHours(hours: Double) -> BillingStatsGroupType {
-        if (hours < 6.3) {
+        if hours < 6.3 {
             return .Less
 
-        } else if (hours < 6.7) {
+        } else if hours < 6.7 {
             return .Normal
 
         } else {

@@ -7,9 +7,9 @@ import UIKit
 import GrandCentralBoardCore
 
 
-private let FirstScaleLineHeight: CGFloat = 12
-private let NormalScaleLineHeight: CGFloat = 4
-private let LastScaleLineHeight: CGFloat = 32
+private let firstScaleLineHeight: CGFloat = 12
+private let normalScaleLineHeight: CGFloat = 4
+private let lastScaleLineHeight: CGFloat = 32
 
 final class AreaBarHorizontalAxisStackView: UIStackView {
 
@@ -47,11 +47,11 @@ final class AreaBarHorizontalAxisStackView: UIStackView {
     private func scaleLineHeightForStop(stop: Int, stops: Int) -> CGFloat {
         switch stop {
         case 0:
-            return FirstScaleLineHeight
+            return firstScaleLineHeight
         case stops:
-            return LastScaleLineHeight
+            return lastScaleLineHeight
         default:
-            return NormalScaleLineHeight
+            return normalScaleLineHeight
         }
     }
 }
@@ -201,9 +201,12 @@ final class AreaBarChartView: UIView, ViewModelRendering {
     private func setUpConstraintsOfDashedLine(dashedLine: UIView, toBar bar: UIView) {
         dashedLine.heightAnchor.constraintEqualToConstant(20).active = true
         dashedLine.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: dashedLine, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading, multiplier: 1.0, constant: 32).active = true
-        NSLayoutConstraint(item: dashedLine, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing, multiplier: 1.0, constant: -32).active = true
-        NSLayoutConstraint(item: dashedLine, attribute: .Bottom, relatedBy: .Equal, toItem: bar, attribute: .Top, multiplier: 1.0, constant: 2).active = true
+        NSLayoutConstraint(item: dashedLine, attribute: .Leading, relatedBy: .Equal,
+                           toItem: self, attribute: .Leading, multiplier: 1.0, constant: 32).active = true
+        NSLayoutConstraint(item: dashedLine, attribute: .Trailing, relatedBy: .Equal,
+                           toItem: self, attribute: .Trailing, multiplier: 1.0, constant: -32).active = true
+        NSLayoutConstraint(item: dashedLine, attribute: .Bottom, relatedBy: .Equal,
+                           toItem: bar, attribute: .Top, multiplier: 1.0, constant: 2).active = true
     }
 
     private func configureAxisWithViewModel(viewModel: AreaBarChartViewModel) {

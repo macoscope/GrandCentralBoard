@@ -54,8 +54,8 @@ final class AreaBarDashedLineWithLabel: UIView {
         CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), lineColor)
         let path = UIBezierPath()
         let height = rect.size.height - 1
-        path.moveToPoint(CGPointMake(0, height))
-        path.addLineToPoint(CGPointMake(rect.size.width, height))
+        path.moveToPoint(CGPoint(x: 0, y: height))
+        path.addLineToPoint(CGPoint(x: rect.size.width, y: height))
         path.lineWidth = 1
 
         let dashes: [CGFloat] = [4, 4]

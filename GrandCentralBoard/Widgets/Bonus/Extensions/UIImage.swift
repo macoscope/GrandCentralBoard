@@ -7,9 +7,9 @@ import UIKit
 
 extension UIImage {
     func cropToCircle() -> UIImage {
-        let imageFrame = CGRectMake(0, 0, self.size.width, self.size.height)
+        let imageFrame = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
         let shorterSide = min(imageFrame.size.width, imageFrame.size.height)
-        let circleFrame = CGRectMake(0, 0, shorterSide, shorterSide)
+        let circleFrame = CGRect(x: 0, y: 0, width: shorterSide, height: shorterSide)
         let imageFrameWithOffset = CGRect(size: imageFrame.size, center: circleFrame.center)
 
         UIGraphicsBeginImageContextWithOptions(circleFrame.size, false, self.scale)

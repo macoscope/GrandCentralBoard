@@ -17,5 +17,6 @@ public enum ParameterEncoding {
 }
 
 protocol NetworkRequestManager {
-    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?, encoding: ParameterEncoding, completion: (ResultType<AnyObject, NSError>.result) -> Void)
+    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?,
+                     encoding: ParameterEncoding, completion: (ResultType<AnyObject, NSError>.result) -> Void)
 }

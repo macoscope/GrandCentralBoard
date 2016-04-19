@@ -1,4 +1,3 @@
-
 //
 //  RequestSenderConfiguration.swift
 //  GrandCentralBoard

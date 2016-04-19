@@ -54,7 +54,8 @@ final class WatchWidgetView: UIView, ViewModelRendering {
         hourRight.text = ""
         calendarName.text = ""
 
-        blinkingImageFlashingAnimationController = FlashingAnimationController(view: blinkingImage, interval: pulsatingInterval, alphaDepth: semiTransparentAlpha)
+        blinkingImageFlashingAnimationController = FlashingAnimationController(view: blinkingImage, interval: pulsatingInterval,
+                                                                               alphaDepth: semiTransparentAlpha)
         blinkingImageFlashingAnimationController?.startFlashing()
     }
 

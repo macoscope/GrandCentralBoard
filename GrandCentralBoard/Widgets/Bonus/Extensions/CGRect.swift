@@ -14,11 +14,11 @@ extension CGRect {
     }
 
     var center: CGPoint {
-        get { return CGPointMake(self.midX, self.midY) }
+        get { return CGPoint(x: self.midX, y: self.midY) }
         set {
             let x = newValue.x - self.width / 2
             let y = newValue.y - self.height / 2
-            self.origin = CGPointMake(x, y)
+            self.origin = CGPoint(x: x, y: y)
         }
     }
 }

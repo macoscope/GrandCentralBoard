@@ -49,7 +49,8 @@ final class DailyBillingStatsFetcher {
             return completion(.Success(json))
         }
 
-        let dailyUserStatsFetcher = DailyProjectBillingStatsFetcher(date: date, projectID: projectID, account: account, accessToken: accessToken, downloader: downloader)
+        let dailyUserStatsFetcher = DailyProjectBillingStatsFetcher(date: date, projectID: projectID, account: account,
+                                                                    accessToken: accessToken, downloader: downloader)
 
         dailyUserStatsFetcher.fetchDailyProjectBillingStats { result in
             switch result {
