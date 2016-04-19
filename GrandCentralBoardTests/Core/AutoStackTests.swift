@@ -21,6 +21,6 @@ class AutoStackTests: XCTestCase {
             autoStack.stackView(view)
         }
 
-        XCTAssertEqual(autoStack.stackedViews.count, viewsCount)
+        XCTAssertEqual(autoStack.stackedViews.count, 50)
     }
 }
