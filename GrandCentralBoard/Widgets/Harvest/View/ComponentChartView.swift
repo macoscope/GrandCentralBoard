@@ -5,7 +5,7 @@
 
 import UIKit
 
-final class ComponentChartView : UIView {
+final class ComponentChartView: UIView {
 
     @IBOutlet private var headerLabel: UILabel!
     @IBOutlet private var subheaderLabel: UILabel!

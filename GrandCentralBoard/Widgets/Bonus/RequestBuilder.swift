@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum RequestBuilderError : ErrorType {
+enum RequestBuilderError: ErrorType {
     case IncorrectBaseURL(URL: NSURL)
     case IncorrectResultURL(baseURL: NSURL, path: String)
 }
@@ -17,7 +17,7 @@ enum RequestBuilderError : ErrorType {
 final class RequestBuilder<T: RequestTemplateProtocol> {
 
     private let requestTemplate: T
-    
+
     init(requestTemplate: T) {
         self.requestTemplate = requestTemplate
     }

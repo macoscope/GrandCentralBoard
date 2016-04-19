@@ -9,7 +9,7 @@
 import GrandCentralBoardCore
 
 
-final class HarvestSource : Asynchronous {
+final class HarvestSource: Asynchronous {
     typealias ResultType = Result<[DailyBillingStats]>
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary

@@ -54,7 +54,7 @@ enum ResponseResultType {
 }
 
 
-enum RequestTemplateError : ErrorType {
+enum RequestTemplateError: ErrorType {
     case FinalizeError
 }
 

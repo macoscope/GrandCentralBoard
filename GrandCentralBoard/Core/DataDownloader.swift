@@ -11,7 +11,7 @@ public protocol DataDownloading {
     func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void)
 }
 
-public enum DataDownloaderError : ErrorType, HavingMessage {
+public enum DataDownloaderError: ErrorType, HavingMessage {
     case EmptyResponse
 
     public var message: String {
@@ -22,7 +22,7 @@ public enum DataDownloaderError : ErrorType, HavingMessage {
     }
 }
 
-public final class DataDownloader : DataDownloading {
+public final class DataDownloader: DataDownloading {
 
     public init() {
 

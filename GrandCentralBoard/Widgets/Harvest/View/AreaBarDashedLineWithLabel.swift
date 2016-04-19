@@ -6,7 +6,7 @@
 import UIKit
 
 
-final class AreaBarDashedLineWithLabel : UIView {
+final class AreaBarDashedLineWithLabel: UIView {
 
     @IBOutlet private var valueLabelRight: UILabel!
     @IBOutlet private var valueLabelLeft: UILabel!

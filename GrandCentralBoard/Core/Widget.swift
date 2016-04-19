@@ -11,7 +11,7 @@ public protocol Updateable : class {
     func update(source: UpdatingSource)
 }
 
-public protocol Widget : Updateable {
+public protocol Widget: Updateable {
     var view: UIView { get }
 }
 

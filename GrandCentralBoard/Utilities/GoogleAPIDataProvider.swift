@@ -9,7 +9,7 @@
 import Alamofire
 import Operations
 
-enum APIDataError : ErrorType {
+enum APIDataError: ErrorType {
     case IncorrectRequestParameters
     case AuthorizationError
     case ModelDecodeError(ErrorType)
@@ -20,7 +20,7 @@ protocol APIDataProviding {
     func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding, completion: ResultType<AnyObject, APIDataError>.result -> Void)
 }
 
-final class GoogleAPIDataProvider : APIDataProviding {
+final class GoogleAPIDataProvider: APIDataProviding {
 
     private let tokenProvider: OAuth2TokenProviding
     private var accessToken: AccessToken?

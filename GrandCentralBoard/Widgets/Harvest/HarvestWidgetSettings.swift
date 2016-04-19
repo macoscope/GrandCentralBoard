@@ -10,7 +10,7 @@ import Decodable
 import Alamofire
 
 
-struct HarvestWidgetSettings : Decodable {
+struct HarvestWidgetSettings: Decodable {
     let account: String
     let refreshToken: String
     let clientID: String

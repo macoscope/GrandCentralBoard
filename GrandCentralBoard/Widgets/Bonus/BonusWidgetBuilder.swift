@@ -7,18 +7,18 @@ import Foundation
 import Decodable
 import GrandCentralBoardCore
 
-final class BonusWidgetBuilder : WidgetBuilding {
-    
+final class BonusWidgetBuilder: WidgetBuilding {
+
     var name = "bonus"
-    
+
     private let dataDownloader: DataDownloading
-    
+
     init(dataDownloader: DataDownloader) {
         self.dataDownloader = dataDownloader
     }
-    
+
     func build(settings: AnyObject) throws -> Widget {
-        
+
         let settings = try BonusWidgetSettings.decode(settings)
 
         let bonusSource = BonusSource(bonuslyAccessToken: settings.accessToken)

@@ -9,7 +9,7 @@
 import GrandCentralBoardCore
 
 
-final class HarvestWidgetBuilder : WidgetBuilding {
+final class HarvestWidgetBuilder: WidgetBuilding {
     let name = "harvest"
 
     func build(json: AnyObject) throws -> Widget {

@@ -27,16 +27,15 @@ extension NSBundle {
 
 extension NSBundle {
 
-    static var alwaysUseLocalConfigurationFile : Bool {
+    static var alwaysUseLocalConfigurationFile: Bool {
         return boolForInfoDictionaryKey(GCBAlwaysUseLocalConfigurationFileKey)!
     }
 
-    static var remoteConfigurationPath : String {
+    static var remoteConfigurationPath: String {
         return stringForInfoDictionaryKey(GCBRemoteConfigurationPathKey)!
     }
 
-    static var localConfigurationFileName : String {
+    static var localConfigurationFileName: String {
         return stringForInfoDictionaryKey(GCBLocalConfigurationFileNameKey)!
     }
 }
-

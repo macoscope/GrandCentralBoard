@@ -11,7 +11,7 @@ private let FirstScaleLineHeight: CGFloat = 12
 private let NormalScaleLineHeight: CGFloat = 4
 private let LastScaleLineHeight: CGFloat = 32
 
-final class AreaBarHorizontalAxisStackView : UIStackView {
+final class AreaBarHorizontalAxisStackView: UIStackView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,7 +56,7 @@ final class AreaBarHorizontalAxisStackView : UIStackView {
     }
 }
 
-final class AreaBarChartView : UIView, ViewModelRendering {
+final class AreaBarChartView: UIView, ViewModelRendering {
     typealias ViewModel = AreaBarChartViewModel
 
     @IBOutlet private var barStackView: AreaBarStackView!

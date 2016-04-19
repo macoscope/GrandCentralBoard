@@ -10,7 +10,7 @@ import Alamofire
 import GrandCentralBoardCore
 
 
-enum RequestSenderError : ErrorType {
+enum RequestSenderError: ErrorType {
     case URLRequestBuildingError(description: String)
     case RequestTemplateFinalizationError
     case SerializationError
@@ -82,9 +82,9 @@ final class RequestSender {
             let description = (error as? CustomStringConvertible)?.description ?? ""
             completionBlock?(.Failure(RequestSenderError.URLRequestBuildingError(description: description)))
         }
-        
+
     }
-    
+
 }
 
 

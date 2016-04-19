@@ -8,7 +8,7 @@
 
 import GrandCentralBoardCore
 
-final class CalendarNameSource : Asynchronous {
+final class CalendarNameSource: Asynchronous {
     typealias ResultType = Result<Calendar>
     let sourceType: SourceType = .Momentary
 

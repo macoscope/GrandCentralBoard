@@ -50,7 +50,7 @@ final class TableWidgetView: UIView {
 
         let viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: [], headerViewModel: headerViewModel)
 
-        dataSource = TableDataSource(viewDequeuing: viewReuseController, viewConfiguring: viewConfigurator,viewModel: viewModel)
+        dataSource = TableDataSource(viewDequeuing: viewReuseController, viewConfiguring: viewConfigurator, viewModel: viewModel)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.estimatedRowHeight = 100
@@ -61,5 +61,5 @@ final class TableWidgetView: UIView {
     class func fromNib() -> TableWidgetView {
         return NSBundle.mainBundle().loadNibNamed("TableWidgetView", owner: nil, options: nil)[0] as! TableWidgetView
     }
-    
+
 }

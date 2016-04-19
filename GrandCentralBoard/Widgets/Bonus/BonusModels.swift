@@ -10,7 +10,7 @@ import GrandCentralBoardCore
 struct BubbleImage {
     let fallbackImageName: String
     let url: String?
-    
+
     var remoteImage: UIImage?
     var fallbackImage: UIImage? {
         return UIImage(named: fallbackImageName)
@@ -18,7 +18,7 @@ struct BubbleImage {
     var image: UIImage? {
         return remoteImage ?? fallbackImage
     }
-    
+
     init(fallbackImageName: String = "placeholder", url: String? = nil, image: UIImage? = nil) {
         self.fallbackImageName = fallbackImageName
         self.url = url
@@ -61,13 +61,13 @@ extension Bonus: Decodable {
         if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
             return try Bonus.decodeBonuses(jsonResult)
         }
-        
+
         throw DecodeError.WrongFormat
     }
 
 }
 
-struct Person : Hashable, Equatable {
+struct Person: Hashable, Equatable {
     let id: String
     let name: String
     let email: String
@@ -116,7 +116,7 @@ extension String {
     }
 }
 
-enum DecodeError : ErrorType, HavingMessage {
+enum DecodeError: ErrorType, HavingMessage {
     case WrongFormat
 
     var message: String {

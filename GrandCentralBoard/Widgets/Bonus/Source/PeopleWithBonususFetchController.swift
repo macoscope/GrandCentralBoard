@@ -11,7 +11,7 @@ import GrandCentralBoardCore
 
 private let kPreferredPeopleCount = 10
 
-enum PeopleWithBonususFetchControllerError : ErrorType {
+enum PeopleWithBonususFetchControllerError: ErrorType {
     case IncorrectEmailAddress
     case Cancelled
     case Unknown
@@ -50,7 +50,7 @@ final class PeopleWithBonusesFetchController {
     private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus], completionBlock: (Result<[Person]>) -> Void) {
         let take = 100
         let requestTemplate = TimestampableRequestTemplate<BonusesRequestTemplate>.init(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
-        
+
         requestSender.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
                 completionBlock(.Failure(PeopleWithBonususFetchControllerError.Cancelled))
@@ -118,7 +118,7 @@ final class PeopleWithBonusesFetchController {
             }
         }
     }
-    
+
 }
 
 

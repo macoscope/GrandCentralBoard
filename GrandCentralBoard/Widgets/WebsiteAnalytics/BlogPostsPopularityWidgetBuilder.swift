@@ -28,7 +28,7 @@ private class BlogPostTitleTranslator: PathToTitleTranslating {
     }
 }
 
-final class BlogPostsPopularityWidgetBuilder : WidgetBuilding {
+final class BlogPostsPopularityWidgetBuilder: WidgetBuilding {
 
     var name = "blogPostsPopularity"
 
@@ -50,5 +50,5 @@ final class BlogPostsPopularityWidgetBuilder : WidgetBuilding {
 
         return WebsiteAnalyticsWidget(sources: [googleAnalyticsSource])
     }
-    
+
 }

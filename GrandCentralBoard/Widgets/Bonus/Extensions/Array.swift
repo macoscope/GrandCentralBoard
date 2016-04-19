@@ -11,10 +11,10 @@ import Foundation
 
 extension RangeReplaceableCollectionType where Generator.Element : Equatable {
 
-    mutating func removeObject(object : Generator.Element) {
+    mutating func removeObject(object: Generator.Element) {
         if let index = self.indexOf(object) {
             self.removeAtIndex(index)
         }
     }
-    
+
 }

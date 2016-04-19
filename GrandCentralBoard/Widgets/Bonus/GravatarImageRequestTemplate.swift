@@ -10,7 +10,7 @@ import UIKit
 import MD5
 
 
-final class GravatarImageRequestTemplate : RequestTemplate<UIImage?> {
+final class GravatarImageRequestTemplate: RequestTemplate<UIImage?> {
 
     init?(email: String) {
         let canonicalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).lowercaseString

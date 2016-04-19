@@ -7,8 +7,8 @@ import Foundation
 import GrandCentralBoardCore
 
 
-final class BonusSource : Asynchronous {
-    
+final class BonusSource: Asynchronous {
+
     typealias ResultType = Result<[Person]>
 
     let sourceType: SourceType = .Momentary
@@ -20,7 +20,7 @@ final class BonusSource : Asynchronous {
         let requestSender = RequestSender(configuration: RequestSenderConfiguration.init(queryParameters: ["access_token": bonuslyAccessToken]))
         self.peopleFetchController = PeopleWithBonusesFetchController.init(requestSender: requestSender)
     }
-    
+
     func read(closure: (ResultType) -> Void) {
 
         peopleFetchController.fetchPeopleWithBonuses { result in
@@ -32,5 +32,5 @@ final class BonusSource : Asynchronous {
             }
         }
     }
-    
+
 }

@@ -6,7 +6,7 @@
 import Foundation
 
 
-public enum LocalConfigurationLoaderError : ErrorType, HavingMessage {
+public enum LocalConfigurationLoaderError: ErrorType, HavingMessage {
     case NoFile
 
     public var message: String {
@@ -17,7 +17,7 @@ public enum LocalConfigurationLoaderError : ErrorType, HavingMessage {
     }
 }
 
-public final class LocalConfigurationLoader : ConfigurationFetching {
+public final class LocalConfigurationLoader: ConfigurationFetching {
 
     private let configFileName: String
     private let availableBuilders: [WidgetBuilding]

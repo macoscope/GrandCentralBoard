@@ -6,8 +6,8 @@
 import UIKit
 import GrandCentralBoardCore
 
-final class BonusWidget : Widget {
-    
+final class BonusWidget: Widget {
+
     private let widgetView: BonusWidgetView
     let sources: [UpdatingSource]
     let bubbleResizeDuration: NSTimeInterval
@@ -17,11 +17,11 @@ final class BonusWidget : Widget {
         self.sources = sources
         self.bubbleResizeDuration = bubbleResizeDuration
     }
-    
+
     var view: UIView {
         return widgetView
     }
-    
+
     func update(source: UpdatingSource) {
         switch source {
             case let source as BonusSource:

@@ -7,12 +7,12 @@ import UIKit
 
 extension CGRect {
     init(size: CGSize, center: CGPoint) {
-        var rect = CGRectZero
+        var rect = CGRect.zero
         rect.size = size
         rect.center = center
         self = rect
     }
-    
+
     var center: CGPoint {
         get { return CGPointMake(self.midX, self.midY) }
         set {

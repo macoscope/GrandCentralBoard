@@ -12,7 +12,7 @@ private let flashingInterval: NSTimeInterval = 0.4
 private let transitionInterval: NSTimeInterval = 0.3
 private let semiTransparentAlpha: CGFloat = 0.3
 
-final class WatchWidgetView : UIView, ViewModelRendering {
+final class WatchWidgetView: UIView, ViewModelRendering {
 
     @IBOutlet private weak var hourLeft: UILabel!
     @IBOutlet private weak var hourRight: UILabel!

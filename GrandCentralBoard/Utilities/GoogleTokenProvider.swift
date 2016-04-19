@@ -8,7 +8,7 @@
 
 import Alamofire
 
-enum RefreshTokenError : ErrorType {
+enum RefreshTokenError: ErrorType {
     case FailedResponseParsing
     case UnderlyingError(NSError)
 }
@@ -19,7 +19,7 @@ protocol OAuth2TokenProviding {
 
 private let googleRefreshTokenURL = "https://accounts.google.com/o/oauth2/token"
 
-final class GoogleTokenProvider : OAuth2TokenProviding {
+final class GoogleTokenProvider: OAuth2TokenProviding {
 
     private let clientID, clientSecret: String
     private let refreshToken: String

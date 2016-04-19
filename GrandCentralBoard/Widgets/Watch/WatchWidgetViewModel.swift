@@ -50,7 +50,7 @@ struct WatchWidgetViewModel {
             hourLeft = "\(currentTimeComponents.hour + 1 % 24)"
             hourRight = nil
         }
-        
+
         self.calendarName = calendarName?.uppercaseString
     }
 

@@ -8,12 +8,12 @@ import Decodable
 import GrandCentralBoardCore
 
 
-struct Time : Timed {
+struct Time: Timed {
     let time: NSDate
     let timeZone: NSTimeZone
 }
 
-struct TimeSourceSettings : Decodable {
+struct TimeSourceSettings: Decodable {
     let timeZone: NSTimeZone
 
     static func decode(jsonObject: AnyObject) throws -> TimeSourceSettings {
@@ -21,7 +21,7 @@ struct TimeSourceSettings : Decodable {
     }
 }
 
-final class TimeSource : Synchronous {
+final class TimeSource: Synchronous {
 
     typealias ResultType = Result<Time>
 

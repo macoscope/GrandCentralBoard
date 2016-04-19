@@ -8,7 +8,7 @@
 
 import Decodable
 
-struct GoogleCalendarSourceSettings : Decodable {
+struct GoogleCalendarSourceSettings: Decodable {
     let calendarID: String
     let clientID: String
     let clientSecret: String
@@ -22,7 +22,7 @@ struct GoogleCalendarSourceSettings : Decodable {
     }
 }
 
-struct EventsSourceSettings : Decodable {
+struct EventsSourceSettings: Decodable {
     let calendarPath: String
 
     static func decode(json: AnyObject) throws -> EventsSourceSettings {

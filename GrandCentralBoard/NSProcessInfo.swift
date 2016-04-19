@@ -20,4 +20,3 @@ extension NSProcessInfo {
         return false
     }
 }
-

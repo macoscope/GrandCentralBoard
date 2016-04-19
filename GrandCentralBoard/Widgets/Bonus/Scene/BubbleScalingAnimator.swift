@@ -19,7 +19,7 @@ final class BubbleScalingAnimator {
         case ScaledUp
         case ScalingDown
     }
-    
+
     private var state: State = .Idle
     private weak var spriteNode: SKSpriteNode?
     private var scaleDownTimer: NSTimer?
@@ -31,7 +31,7 @@ final class BubbleScalingAnimator {
         self.spriteNode = spriteNode
         self.bubbleResizeDuration = bubbleResizeDuration
     }
-    
+
     func scaleUp() {
         switch self.state {
         case .Idle: fallthrough
@@ -40,12 +40,12 @@ final class BubbleScalingAnimator {
         case .ScalingUp: return
         }
     }
-    
+
     // MARK - Scale actions
-    
+
     private func performScaleUpAction() {
         guard let spriteNode = self.spriteNode else { return }
-        
+
         let scaleUpAction = SKAction.scaleTo(2.3, duration: 0.5)
         self.state = .ScalingUp
         spriteNode.runAction(scaleUpAction, completion: {
@@ -53,10 +53,10 @@ final class BubbleScalingAnimator {
             self.rescheduleScaleDownDeferTimer()
         })
     }
-    
+
     @objc private func performScaleDownAction() {
         guard let spriteNode = self.spriteNode else { return }
-        
+
         let scaleDownAction = SKAction.scaleTo(1, duration: 0.5)
         self.state = .ScalingDown
         spriteNode.runAction(scaleDownAction, completion: {
@@ -64,9 +64,9 @@ final class BubbleScalingAnimator {
             self.delegate?.bubbleScalingAnimator(self, didScaleSpriteNodeDown: spriteNode)
         })
     }
-    
+
     // MARK - Scale down timer
-    
+
     private func rescheduleScaleDownDeferTimer() {
         self.scaleDownTimer?.invalidate()
         self.scaleDownTimer = NSTimer.scheduledTimerWithTimeInterval(bubbleResizeDuration,
