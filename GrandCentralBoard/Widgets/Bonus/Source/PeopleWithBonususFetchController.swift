@@ -20,10 +20,10 @@ enum PeopleWithBonususFetchControllerError: ErrorType {
 
 final class PeopleWithBonusesFetchController {
 
-    private let requestSender: RequestSender
+    private let requestSending: RequestSending
 
-    init(requestSender: RequestSender) {
-        self.requestSender = requestSender
+    init(requestSending: RequestSending) {
+        self.requestSending = requestSending
     }
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void) {
@@ -52,7 +52,7 @@ final class PeopleWithBonusesFetchController {
         let take = 100
         let requestTemplate = TimestampableRequestTemplate(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
         
-        requestSender.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
+        requestSending.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
                 completionBlock(.Failure(PeopleWithBonususFetchControllerError.Cancelled))
                 return
@@ -61,7 +61,7 @@ final class PeopleWithBonusesFetchController {
             switch result {
             case .Success(let bonuses):
                 var allBonuses: [Bonus] = fetchedBonuses
-                allBonuses.appendContentsOf(bonuses.reverse())
+                allBonuses.appendContentsOf(bonuses)
 
                 let people = allBonuses.uniqueReceivers(kPreferredPeopleCount)
                 if people.count >= kPreferredPeopleCount || bonuses.count < take {
@@ -110,7 +110,7 @@ final class PeopleWithBonusesFetchController {
             return
         }
 
-        requestSender.sendRequestForRequestTemplate(requestTemplate) { result in
+        requestSending.sendRequestForRequestTemplate(requestTemplate) { result in
             switch result {
             case .Success(let image):
                 completionBlock(.Success(person.copyWithImage(image)))
