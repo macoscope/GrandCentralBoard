@@ -51,11 +51,16 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HARVEST BURN REPORT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-zW-EJz">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HARVEST BURN REPORT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-zW-EJz" customClass="LabelWithSpacing" customModule="GrandCentralBoard" customModuleProvider="target">
                     <rect key="frame" x="208" y="32" width="224" height="22"/>
                     <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="18"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday 28.03.2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T5-KP-Oc5">
                     <rect key="frame" x="255" y="66" width="131" height="17"/>
@@ -63,11 +68,16 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS 5 DAYS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJx-y5-X8l">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREVIOUS 5 DAYS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJx-y5-X8l" customClass="LabelWithSpacing" customModule="GrandCentralBoard" customModuleProvider="target">
                     <rect key="frame" x="256" y="378" width="129" height="17"/>
                     <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="14"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dZ-rl-cew">
                     <rect key="frame" x="32" y="407" width="576" height="101"/>
@@ -134,6 +144,7 @@
                 <outlet property="barStackView" destination="4gQ-GJ-9Xa" id="NOW-L6-8Ur"/>
                 <outlet property="centerLabel" destination="8K4-6B-X3K" id="FA0-WO-sek"/>
                 <outlet property="componentChartsStackView" destination="0dZ-rl-cew" id="p9J-hK-k81"/>
+                <outlet property="componentsSectionHeaderLabel" destination="KJx-y5-X8l" id="XGT-t1-Qzv"/>
                 <outlet property="errorImageView" destination="B4q-gd-JOU" id="zFT-Zc-nH8"/>
                 <outlet property="headerLabel" destination="8ZG-zW-EJz" id="Zuy-TR-poK"/>
                 <outlet property="horizontalAxisLabel" destination="UzJ-7H-2ow" id="j5C-TU-Oqg"/>

@@ -94,6 +94,7 @@
 		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
 		1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */; };
 		1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1981D1CBE8323003B6AB3 /* UIColor.swift */; };
+		1AEE4C0C1CC6290A000CC88D /* LabelWithSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */; };
 		1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */; };
 		1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */; };
 		494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B31C92E89A00D460B0 /* BonusModels.swift */; };
@@ -259,6 +260,7 @@
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetBuilder.swift; sourceTree = "<group>"; };
 		1AE1981D1CBE8323003B6AB3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelWithSpacing.swift; path = Utilities/LabelWithSpacing.swift; sourceTree = "<group>"; };
 		1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsRowReport.swift; sourceTree = "<group>"; };
 		1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSProcessInfo.swift; sourceTree = "<group>"; };
 		234E74F21CF67378BBE359B7 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 		5274A4891CB69ADF005FD847 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */,
 				5274A48A1CB69AE9005FD847 /* AccessToken.swift */,
 				5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */,
 				5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */,
@@ -1235,6 +1238,7 @@
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */,
+				1AEE4C0C1CC6290A000CC88D /* LabelWithSpacing.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
