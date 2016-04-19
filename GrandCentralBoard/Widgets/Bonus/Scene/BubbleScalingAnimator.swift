@@ -24,9 +24,12 @@ final class BubbleScalingAnimator {
     private weak var spriteNode: SKSpriteNode?
     private var scaleDownTimer: NSTimer?
     weak var delegate: BubbleScalingAnimatorDelegate?
-    
-    init(spriteNode: SKSpriteNode) {
+
+    private let bubbleResizeDuration: NSTimeInterval
+
+    init(spriteNode: SKSpriteNode, bubbleResizeDuration: NSTimeInterval) {
         self.spriteNode = spriteNode
+        self.bubbleResizeDuration = bubbleResizeDuration
     }
     
     func scaleUp() {
@@ -66,7 +69,7 @@ final class BubbleScalingAnimator {
     
     private func rescheduleScaleDownDeferTimer() {
         self.scaleDownTimer?.invalidate()
-        self.scaleDownTimer = NSTimer.scheduledTimerWithTimeInterval(15,
+        self.scaleDownTimer = NSTimer.scheduledTimerWithTimeInterval(bubbleResizeDuration,
                                                                      target: self,
                                                                      selector: #selector(performScaleDownAction),
                                                                      userInfo: nil,

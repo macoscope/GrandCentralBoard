@@ -15,7 +15,7 @@ final class BonusWidgetView: UIView {
     @IBOutlet private weak var activityView: UIView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private var scene: BonusScene!
-    
+
     private(set) var state: RenderingState<ViewModel> = .Waiting {
         didSet { handleTransitionFromState(oldValue, toState: state) }
     }

@@ -13,6 +13,7 @@ class BonusScene: SKScene {
     
     private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
+    var bubbleResizeDuration: NSTimeInterval = 15
 
     override func didMoveToView(view: SKView) {
         assert(viewModel != nil)
