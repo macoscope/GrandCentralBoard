@@ -18,7 +18,7 @@
 		06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F281CB788FB00B93D90 /* RequestSender.swift */; };
 		06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F291CB788FB00B93D90 /* RequestTemplate.swift */; };
 		06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */; };
-		067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift */; };
+		067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift */; };
 		067DA5471CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */; };
 		067DA5521CBE7F9800048E6A /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5511CBE7F9800048E6A /* HeaderCell.swift */; };
 		067DA5541CBE80C900048E6A /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DA5531CBE80C900048E6A /* TableDataSource.swift */; };
@@ -117,7 +117,7 @@
 		5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48E1CB69AE9005FD847 /* ResultType.swift */; };
 		5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */; };
 		5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */; };
-		527FA0611CC4D619004614B8 /* GoogleAnalyticsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0601CC4D619004614B8 /* GoogleAnalyticsSource.swift */; };
+		527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0601CC4D619004614B8 /* PageViewsSource.swift */; };
 		527FA0631CC4D742004614B8 /* WebsiteAnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */; };
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
@@ -177,7 +177,7 @@
 		06684F281CB788FB00B93D90 /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		06684F291CB788FB00B93D90 /* RequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTemplate.swift; sourceTree = "<group>"; };
 		06684F311CB7896800B93D90 /* TimestampableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampableRequestTemplate.swift; sourceTree = "<group>"; };
-		067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostsPopularityWidget.swift; sourceTree = "<group>"; };
+		067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostsPopularityWidgetBuilder.swift; sourceTree = "<group>"; };
 		067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidget.swift; sourceTree = "<group>"; };
 		067DA5511CBE7F9800048E6A /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		067DA5531CBE80C900048E6A /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+NetworkRequestManager.swift"; path = "Extensions/Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
 		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleCalendarDataProvider.swift; path = ../Server/GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
 		5274A4981CB69DAC005FD847 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Server/Calendar.swift; sourceTree = "<group>"; };
-		527FA0601CC4D619004614B8 /* GoogleAnalyticsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsSource.swift; sourceTree = "<group>"; };
+		527FA0601CC4D619004614B8 /* PageViewsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsSource.swift; sourceTree = "<group>"; };
 		527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsSettings.swift; sourceTree = "<group>"; };
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
@@ -370,7 +370,7 @@
 				52FB50761CBF9B260053DE8B /* Source */,
 				52FB50731CBF9B150053DE8B /* Model */,
 				067DA5501CBE7F9100048E6A /* View */,
-				067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift */,
+				067DA5441CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift */,
 				067DA5461CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift */,
 				527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */,
 			);
@@ -819,7 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				52FB50771CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift */,
-				527FA0601CC4D619004614B8 /* GoogleAnalyticsSource.swift */,
+				527FA0601CC4D619004614B8 /* PageViewsSource.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -1169,7 +1169,7 @@
 				F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */,
 				52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
-				067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidget.swift in Sources */,
+				067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift in Sources */,
 				52FB50751CBF9B210053DE8B /* AnalyticsReport.swift in Sources */,
 				1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
@@ -1191,7 +1191,7 @@
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
 				1A1DBC751CBFBC07003DA40C /* AreaBarChartViewModel.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
-				527FA0611CC4D619004614B8 /* GoogleAnalyticsSource.swift in Sources */,
+				527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */,
 				5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */,
 				F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,

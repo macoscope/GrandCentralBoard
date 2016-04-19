@@ -20,7 +20,7 @@ enum GoogleAnalyticsSourceError: ErrorType, HavingMessage {
 }
 
 
-final class GoogleAnalyticsSource : Asynchronous {
+final class PageViewsSource : Asynchronous {
 
     let dataProvider: GoogleAnalyticsDataProvider
     let interval: NSTimeInterval
@@ -48,7 +48,13 @@ final class GoogleAnalyticsSource : Asynchronous {
         dataProvider.fetchPageViewsReportFromDate(reportStartTime, toDate: now) { result in
             switch result {
             case .Success(let reports):
-                let pageViews = reports.rows.flatMap({ PageViewsRowReport(analyticsReportRow:$0) })
+                let pageViews = reports.rows.flatMap { row -> PageViewsRowReport? in
+                    let report = PageViewsRowReport(analyticsReportRow:row)
+                    if report?.isBlogPostPage == false {
+                        return nil
+                    }
+                    return report
+                }
                 return closure(.Success(pageViews))
             case .Failure(let error):
                 closure(.Failure(error))

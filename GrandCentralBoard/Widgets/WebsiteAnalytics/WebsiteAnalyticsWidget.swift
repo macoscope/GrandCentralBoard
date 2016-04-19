@@ -26,14 +26,14 @@ final class WebsiteAnalyticsWidget: Widget {
 
     func update(source: UpdatingSource) {
         switch source {
-        case let source as GoogleAnalyticsSource:
+        case let source as PageViewsSource:
             fetchAnalyticsFromSource(source)
         default:
             assertionFailure("Expected `source` as instance of `GoogleAnalyticsSource`.")
         }
     }
 
-    private func fetchAnalyticsFromSource(source: GoogleAnalyticsSource) {
+    private func fetchAnalyticsFromSource(source: PageViewsSource) {
         source.read { [weak self] result in
             switch result {
             case .Success(let reports):

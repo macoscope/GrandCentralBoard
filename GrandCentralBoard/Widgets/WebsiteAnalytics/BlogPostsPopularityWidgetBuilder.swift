@@ -20,7 +20,7 @@ final class BlogPostsPopularityWidgetBuilder : WidgetBuilding {
         let apiDataProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider)
         let analyticsDataProvider = GoogleAnalyticsDataProvider(viewID: settings.viewID,
                                                                 dataProvider: apiDataProvider)
-        let googleAnalyticsSource = GoogleAnalyticsSource(dataProvider: analyticsDataProvider,
+        let googleAnalyticsSource = PageViewsSource(dataProvider: analyticsDataProvider,
                                                           daysInReport: settings.daysInReport,
                                                           refreshInterval: NSTimeInterval(settings.refreshInterval))
 
