@@ -1,9 +1,6 @@
-use_nested_configs: true
 disabled_rules:
   - force_cast
-included:
-  - GrandCentralBoard
-  - GrandCentralBoardTests
+  - force_try
 
 line_length: 150
 function_parameter_count: 6
