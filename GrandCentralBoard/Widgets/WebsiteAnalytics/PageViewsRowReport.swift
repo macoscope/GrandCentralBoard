@@ -29,6 +29,10 @@ struct PageViewsRowReport {
 }
 
 extension PageViewsRowReport {
+    var isBlogPostPage: Bool {
+        return pagePath.hasPrefix("/blog/")
+    }
+
     var pageTitle: String {
         return pagePath.stringByReplacingOccurrencesOfString("/blog/", withString: "")
             .stringByReplacingOccurrencesOfString("-", withString: " ")
