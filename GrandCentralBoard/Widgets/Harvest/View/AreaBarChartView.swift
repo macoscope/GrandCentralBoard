@@ -66,7 +66,8 @@ final class AreaBarChartView : UIView, ViewModelRendering {
     @IBOutlet private var informationSheet: UIView!
     @IBOutlet private var errorImageView: UIView!
     @IBOutlet private var centerLabel: UILabel!
-    @IBOutlet private var headerLabel: UILabel!
+    @IBOutlet private var headerLabel: LabelWithSpacing!
+    @IBOutlet private var componentsSectionHeaderLabel: LabelWithSpacing!
     @IBOutlet private var subheaderLabel: UILabel!
     @IBOutlet private var horizontalAxisLabel: UILabel!
     @IBOutlet private var hotizontalAxisCountLabel: UILabel!
@@ -164,6 +165,7 @@ final class AreaBarChartView : UIView, ViewModelRendering {
         hotizontalAxisCountLabel.text = viewModel.mainChart.horizontalAxisCountLabelText
         centerLabel.text = viewModel.centerText
         headerLabel.text = viewModel.mainChart.headerText
+        headerLabel.applyCustomAttributes()
         subheaderLabel.text = viewModel.mainChart.subheaderText
     }
 

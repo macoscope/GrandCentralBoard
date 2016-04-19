@@ -10,12 +10,14 @@ import UIKit
 
 
 class TableViewHeaderView: UITableViewHeaderFooterView, HeaderConfigurableWithViewModel {
-    @IBOutlet weak var firstColumnTitleLabel: UILabel!
-    @IBOutlet weak var secondColumnTitleLabel: UILabel!
+    @IBOutlet weak var firstColumnTitleLabel: LabelWithSpacing!
+    @IBOutlet weak var secondColumnTitleLabel: LabelWithSpacing!
 
     func configureWithViewModel(viewModel: DoubleColumnHeaderViewModel) {
-        self.firstColumnTitleLabel.text = viewModel.firstColumnName.uppercaseString
-        self.secondColumnTitleLabel.text = viewModel.secondColumnName.uppercaseString
+        firstColumnTitleLabel.text = viewModel.firstColumnName.uppercaseString
+        firstColumnTitleLabel.applyCustomAttributes()
+        secondColumnTitleLabel.text = viewModel.secondColumnName.uppercaseString
+        secondColumnTitleLabel.applyCustomAttributes()
     }
 
     static func nib() -> UINib {
