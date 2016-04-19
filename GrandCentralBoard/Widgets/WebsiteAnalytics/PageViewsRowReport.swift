@@ -34,6 +34,6 @@ struct PageViewsRowReport {
     }
 
     static func arrayFromAnalyticsReport(analyticsReport: AnalyticsReport, pathToTitleTranslator: PathToTitleTranslating) -> [PageViewsRowReport] {
-        return analyticsReport.rows.flatMap( { PageViewsRowReport(analyticsReportRow: $0, pathToTitleTranslator: pathToTitleTranslator) } )
+        return analyticsReport.rows.flatMap { PageViewsRowReport(analyticsReportRow: $0, pathToTitleTranslator: pathToTitleTranslator) }
     }
 }

@@ -9,7 +9,7 @@ import GrandCentralBoardCore
 
 
 private class BlogPostTitleTranslator: PathToTitleTranslating {
-    let pathPrefix: String?
+    private let pathPrefix: String?
 
     init(pathPrefix: String?) {
         self.pathPrefix = pathPrefix
