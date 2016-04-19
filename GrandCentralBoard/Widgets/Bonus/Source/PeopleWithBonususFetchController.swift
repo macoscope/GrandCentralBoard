@@ -50,8 +50,8 @@ final class PeopleWithBonusesFetchController {
     private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus],
                                                          completionBlock: (Result<[Person]>) -> Void) {
         let take = 100
-        let requestTemplate = TimestampableRequestTemplate.init(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
-
+        let requestTemplate = TimestampableRequestTemplate(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
+        
         requestSender.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
                 completionBlock(.Failure(PeopleWithBonususFetchControllerError.Cancelled))
@@ -60,8 +60,8 @@ final class PeopleWithBonusesFetchController {
 
             switch result {
             case .Success(let bonuses):
-                var allBonuses: [Bonus] = fetchedBonuses.reverse()
-                allBonuses.appendContentsOf(bonuses)
+                var allBonuses: [Bonus] = fetchedBonuses
+                allBonuses.appendContentsOf(bonuses.reverse())
 
                 let people = allBonuses.uniqueReceivers(kPreferredPeopleCount)
                 if people.count >= kPreferredPeopleCount || bonuses.count < take {
