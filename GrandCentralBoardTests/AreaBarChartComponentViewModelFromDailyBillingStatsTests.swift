@@ -48,7 +48,7 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
         XCTAssertEqual(viewModelForTypicalDay.barItems[1].proportionalWidth, 0.5)
         XCTAssertEqual(viewModelForTypicalDay.barItems[2].proportionalWidth, 0.1875)
     }
-    
+
     func testWidthForDayWithAnEmptyGroup() {
         XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[0].proportionalWidth, 0.7)
         XCTAssertEqual(viewModelForDayWithEmptyGroup.barItems[1].proportionalWidth, 0.3)
@@ -98,5 +98,3 @@ class AreaBarChartComponentViewModelFromDailyBillingStatsTests: XCTestCase {
         XCTAssertNil(AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(emptyBillingStats))
     }
 }
-
-

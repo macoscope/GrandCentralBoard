@@ -24,7 +24,7 @@ private let reportRows = [
 private let report = [ "data": [ "rows" :  reportRows] ]
 private let responseData = [ "reports" : [ report ] ]
 
-private class TestDataProvider : APIDataProviding {
+private class TestDataProvider: APIDataProviding {
     func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String: AnyObject]?,
                  encoding: ParameterEncoding, completion: ResultType<AnyObject, APIDataError>.result -> Void) {
 
@@ -38,7 +38,7 @@ private class BlogPostTitleTranslator: PathToTitleTranslating {
     }
 }
 
-class GoogleAnalyticsDataProviderTests : XCTestCase {
+class GoogleAnalyticsDataProviderTests: XCTestCase {
 
     var dataProvider: GoogleAnalyticsDataProvider!
 
@@ -57,7 +57,7 @@ class GoogleAnalyticsDataProviderTests : XCTestCase {
                 XCTAssertEqual(2, pageViewsReports.count)
                 XCTAssertEqual(reportRows[0]["dimensions"]![0], pageViewsReports[0].pagePath)
                 XCTAssertEqual(reportRows[1]["dimensions"]![0], pageViewsReports[1].pagePath)
-                
+
                 XCTAssertEqual(pageViewsReports[0].pageTitle, pageViewsReports[0].pagePath)
                 XCTAssertEqual(pageViewsReports[1].pageTitle, pageViewsReports[1].pagePath)
 

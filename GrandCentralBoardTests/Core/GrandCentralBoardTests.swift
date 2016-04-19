@@ -80,7 +80,7 @@ class GrandCentralBoardTests: XCTestCase {
 
     func testStackedSixViewsWhenWidgetsConfigurationIsCorrect() {
 
-        final class StackingMock : ViewStacking {
+        final class StackingMock: ViewStacking {
 
             var stackedViews = [UIView]()
 
@@ -100,7 +100,7 @@ class GrandCentralBoardTests: XCTestCase {
 
     func testScheduledEighteenJobsWhenWidgetsConfigurationIsCorrect() {
 
-        final class SchedulingMock : SchedulingJobs {
+        final class SchedulingMock: SchedulingJobs {
 
             var jobs = [Schedulable]()
 
