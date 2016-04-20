@@ -71,7 +71,7 @@ final class PeopleWithBonusesFetchController {
                     print(person.id)
                 }
 
-                if people.count >= self?.preferredNumberOfPeople || bonuses.count < strongSelf.pageSize {
+                if people.count >= strongSelf.preferredNumberOfPeople || bonuses.count < strongSelf.pageSize {
                     completionBlock(.Success(Array(people)))
                 } else if let lastBonus = bonuses.last {
                     strongSelf.fetchPeopleWithBonuses(startingFromDate: lastBonus.date, fetchedBonuses: allBonuses, completionBlock: completionBlock)
