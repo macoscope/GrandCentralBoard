@@ -124,9 +124,11 @@ public protocol Source : UpdatingSource {
 }
 ```
 
-# Summary
+# Contributing
 
 This project is still in its early stages and there is a lot to do. If you want to contribute, please add an issue and discuss your plans with us. This will allow us to give you assistance should you need it and to make sure that people aren’t working on the same things.
+
+If you want to open a Pull Request, make sure you have [SwiftLint](https://github.com/Realm/SwiftLint) installed, and check that your project does not generate warnings or errors. Any warning will cause Travis build script to fail. 
 
 # Credits
 
