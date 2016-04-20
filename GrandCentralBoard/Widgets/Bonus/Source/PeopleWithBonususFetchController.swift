@@ -9,8 +9,6 @@ import Foundation
 import GrandCentralBoardCore
 
 
-private let kPreferredPeopleCount = 10
-
 enum PeopleWithBonususFetchControllerError: ErrorType {
     case IncorrectEmailAddress
     case Cancelled
@@ -21,9 +19,13 @@ enum PeopleWithBonususFetchControllerError: ErrorType {
 final class PeopleWithBonusesFetchController {
 
     private let requestSending: RequestSending
+    private let pageSize: Int
+    private let preferredNumberOfPeople: Int
 
-    init(requestSending: RequestSending) {
+    init(requestSending: RequestSending, pageSize: Int, preferredNumberOfPeople: Int) {
         self.requestSending = requestSending
+        self.pageSize = pageSize
+        self.preferredNumberOfPeople = preferredNumberOfPeople
     }
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void) {
@@ -50,7 +52,7 @@ final class PeopleWithBonusesFetchController {
     private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus],
                                                          completionBlock: (Result<[Person]>) -> Void) {
         let take = 100
-        let requestTemplate = TimestampableRequestTemplate(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
+        let requestTemplate = TimestampableRequestTemplate(requestTemplate: BonusesRequestTemplate(), date: date, take: self.pageSize)
         
         requestSending.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
@@ -63,8 +65,13 @@ final class PeopleWithBonusesFetchController {
                 var allBonuses: [Bonus] = fetchedBonuses
                 allBonuses.appendContentsOf(bonuses)
 
-                let people = allBonuses.uniqueReceivers(kPreferredPeopleCount)
-                if people.count >= kPreferredPeopleCount || bonuses.count < take {
+                let people = allBonuses.uniqueReceivers(strongSelf.preferredNumberOfPeople)
+
+                for person in people {
+                    print(person.id)
+                }
+
+                if people.count >= self?.preferredNumberOfPeople || bonuses.count < strongSelf.pageSize {
                     completionBlock(.Success(Array(people)))
                 } else if let lastBonus = bonuses.last {
                     strongSelf.fetchPeopleWithBonuses(startingFromDate: lastBonus.date, fetchedBonuses: allBonuses, completionBlock: completionBlock)
@@ -127,7 +134,7 @@ extension SequenceType where Generator.Element == Bonus {
 
     func uniqueReceivers(maximumNumberOfReceivers: Int) -> [Person] {
         return reduce([Person](), combine: { people, bonus in
-            if people.count >= kPreferredPeopleCount {
+            if people.count >= maximumNumberOfReceivers {
                 return people
             } else {
                 var receiver = bonus.receiver

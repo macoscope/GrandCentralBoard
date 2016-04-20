@@ -29,6 +29,10 @@ final class RequestSender: RequestSending {
     private let configuration: RequestSenderConfiguration
     private var requestsInProgress: [Request] = []
 
+    convenience init() {
+        self.init(configuration: RequestSenderConfiguration(queryParameters: [:]))
+    }
+
     init(configuration: RequestSenderConfiguration) {
         self.configuration = configuration
     }
