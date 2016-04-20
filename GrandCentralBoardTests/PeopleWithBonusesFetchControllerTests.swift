@@ -14,7 +14,7 @@ struct TestRequestSender: RequestSending {
 
     var bonuses: [Bonus]
 
-    func sendRequestForRequestTemplate<T : RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((Result<T.ResultType>) -> Void)?) {
+    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((Result<T.ResultType>) -> Void)?) {
         if let dateStringForBonusesRequestTemplate = requestTemplate.method.queryParameters["end_time"] {
             //bonuses request
             for bonus in bonuses {
@@ -82,6 +82,4 @@ class PeopleWithBonusesFetchControllerTests: XCTestCase {
             XCTAssertTrue(fetchedPeople?.count == 10)
         }
     }
-    
 }
-

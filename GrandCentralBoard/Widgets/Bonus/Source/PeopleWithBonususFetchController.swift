@@ -51,9 +51,8 @@ final class PeopleWithBonusesFetchController {
 
     private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus],
                                                          completionBlock: (Result<[Person]>) -> Void) {
-        let take = 100
         let requestTemplate = TimestampableRequestTemplate(requestTemplate: BonusesRequestTemplate(), date: date, take: self.pageSize)
-        
+
         requestSending.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
                 completionBlock(.Failure(PeopleWithBonususFetchControllerError.Cancelled))

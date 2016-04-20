@@ -20,7 +20,8 @@ enum RequestSenderError: ErrorType {
 
 
 protocol RequestSending {
-    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void;
+    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T,
+                                                                   completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void
 }
 
 
