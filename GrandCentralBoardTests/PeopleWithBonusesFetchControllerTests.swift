@@ -72,7 +72,7 @@ class PeopleWithBonusesFetchControllerTests: XCTestCase {
             switch result {
             case .Success(let people):
                 fetchedPeople = people
-            case .Failure(_):
+            case .Failure:
                 XCTAssertTrue(false)
             }
             expectation.fulfill()

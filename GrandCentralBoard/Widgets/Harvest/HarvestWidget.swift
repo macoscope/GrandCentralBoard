@@ -41,7 +41,7 @@ final class HarvestWidget: Widget {
             let model = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
             widgetView.render(model)
 
-        case .Failure(_):
+        case .Failure:
             widgetView.failure()
         }
     }
