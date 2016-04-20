@@ -3,13 +3,16 @@ Grand Central Board for the Apple TV
 
 ![image](./README/screenshot.png)
 
+[![Build Status](https://travis-ci.org/macoscope/GrandCentralBoard.svg?branch=mvp)](https://travis-ci.org/macoscope/GrandCentralBoard)
+![Swift2.2](https://img.shields.io/badge/%20in-swift%202.2-orange.svg)
+
 Hang a TV in your open space or team room to show everyone what's up and get them up to speed.  
 
 The board is a lightweight piece of code. The TV screen is to be used in landscape orientation and will be split into six rectangular widgets loaded from a remote configuration file. This is just a UIView, so you can use the space in any way you want. Updating the widgets is standardized, though, therefore you should not ignore this convention.
 
 👷 Project maintained by: [@nsmeme](http://twitter.com/nsmeme) (Oktawian Chojnacki)
 
-✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2](https://swift.org).
+✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2.2](https://swift.org).
 
 ## Dependencies
 
