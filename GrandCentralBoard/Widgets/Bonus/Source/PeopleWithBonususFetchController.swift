@@ -67,10 +67,6 @@ final class PeopleWithBonusesFetchController {
 
                 let people = allBonuses.uniqueReceivers(strongSelf.preferredNumberOfPeople)
 
-                people.forEach { person in
-                    print(person.id)
-                }
-
                 if people.count >= strongSelf.preferredNumberOfPeople || bonuses.count < strongSelf.pageSize {
                     completionBlock(.Success(Array(people)))
                 } else if let lastBonus = bonuses.last {
