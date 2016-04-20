@@ -18,7 +18,10 @@ final class BonusSource: Asynchronous {
 
     init(bonuslyAccessToken: String) {
         let requestSender = RequestSender(configuration: RequestSenderConfiguration(queryParameters: ["access_token": bonuslyAccessToken]))
-        self.peopleFetchController = PeopleWithBonusesFetchController(requestSending: requestSender, pageSize: 1, preferredNumberOfPeople: 10)
+        self.peopleFetchController = PeopleWithBonusesFetchController(requestSending:requestSender,
+                                                                      dataDownloading: DataDownloader(),
+                                                                      pageSize: 1,
+                                                                      preferredNumberOfPeople: 10)
     }
 
     func read(closure: (ResultType) -> Void) {
