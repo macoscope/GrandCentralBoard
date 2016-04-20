@@ -25,7 +25,7 @@
 	<key>GCBLocalConfigurationFileName</key>
 	<string>configuration</string>
 	<key>GCBRemoteConfigurationPath</key>
-	<string>http://dr-doom.local/mateusz/gcb-config/raw/master/configuration.json</string>
+	<string>https://raw.githubusercontent.com/macoscope/GrandCentralBoard/develop/configuration.json</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
