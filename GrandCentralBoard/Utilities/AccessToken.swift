@@ -8,7 +8,7 @@
 
 import Decodable
 
-struct AccessToken : Decodable {
+struct AccessToken: Decodable {
 
     let token: String
     let expireDate: NSDate

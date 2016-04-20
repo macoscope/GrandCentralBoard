@@ -9,7 +9,7 @@
 import GrandCentralBoardCore
 import Alamofire
 
-final class GoogleCalendarWatchWidgetBuilder : WidgetBuilding {
+final class GoogleCalendarWatchWidgetBuilder: WidgetBuilding {
 
     let name = "googleCalendarWatch"
 

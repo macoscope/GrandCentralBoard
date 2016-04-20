@@ -14,7 +14,7 @@ extension AreaBarItemValueLabelDisplayMode : Equatable {
 }
 
 
-func ==(lhs: AreaBarItemValueLabelDisplayMode, rhs: AreaBarItemValueLabelDisplayMode) -> Bool {
+func == (lhs: AreaBarItemValueLabelDisplayMode, rhs: AreaBarItemValueLabelDisplayMode) -> Bool {
     switch (lhs, rhs) {
     case (.Hidden, .Hidden):
         return true

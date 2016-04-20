@@ -5,7 +5,7 @@
 
 import GrandCentralBoardCore
 
-final class WatchWidgetBuilder : WidgetBuilding {
+final class WatchWidgetBuilder: WidgetBuilding {
 
     let name = "watch"
 
@@ -16,7 +16,7 @@ final class WatchWidgetBuilder : WidgetBuilding {
     }
 
     func build(settings: AnyObject) throws -> Widget {
-        
+
         let timeSettings = try TimeSourceSettings.decode(settings)
         let eventsSettings = try EventsSourceSettings.decode(settings)
 

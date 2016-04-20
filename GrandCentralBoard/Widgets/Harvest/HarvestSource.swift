@@ -9,14 +9,15 @@
 import GrandCentralBoardCore
 
 
-final class HarvestSource : Asynchronous {
+final class HarvestSource: Asynchronous {
     typealias ResultType = Result<[DailyBillingStats]>
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
     let harvestAPI: HarvestAPI
 
     init(settings: HarvestWidgetSettings) {
-        self.harvestAPI = HarvestAPI(account: settings.account, refreshCredentials: settings.refreshCredentials, downloader: settings.downloader, numberOfDaysToFetch: settings.numberOfDays)
+        self.harvestAPI = HarvestAPI(account: settings.account, refreshCredentials: settings.refreshCredentials,
+                                     downloader: settings.downloader, numberOfDaysToFetch: settings.numberOfDays)
         self.interval = settings.refreshInterval
     }
 

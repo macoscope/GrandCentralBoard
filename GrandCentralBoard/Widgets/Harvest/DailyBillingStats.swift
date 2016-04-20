@@ -75,7 +75,7 @@ extension DailyBillingStats : Decodable {
         return DailyBillingStats(day: day.date, groups: groups)
     }
 
-    private struct DayEntry : Decodable {
+    private struct DayEntry: Decodable {
         let userID: Int
         let hours: Double
 
@@ -84,7 +84,7 @@ extension DailyBillingStats : Decodable {
         }
     }
 
-    private struct Day : Decodable {
+    private struct Day: Decodable {
         let date: NSDate
 
         static func decode(json: AnyObject) throws -> Day {
@@ -95,7 +95,7 @@ extension DailyBillingStats : Decodable {
             guard let date = formatter.dateFromString(try String.decode(json)) else {
                 throw RawRepresentableInitializationError(type: self, rawValue: json, object: json)
             }
-            
+
             return Day(date: date)
         }
     }

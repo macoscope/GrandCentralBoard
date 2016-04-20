@@ -9,7 +9,7 @@ public protocol ViewStacking {
     func stackView(view: UIView)
 }
 
-public final class AutoStack : UIView, ViewStacking {
+public final class AutoStack: UIView, ViewStacking {
 
     private let maximumColumns: Int = 2
     private let maximumRows: Int = 3
@@ -43,7 +43,7 @@ public final class AutoStack : UIView, ViewStacking {
     convenience init () {
         self.init(frame:CGRect.zero)
     }
-    
+
     // MARK: - ViewStacking
 
     public func stackView(view: UIView) {

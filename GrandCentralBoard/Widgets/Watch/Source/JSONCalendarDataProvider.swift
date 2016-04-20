@@ -6,7 +6,7 @@
 import Foundation
 import GrandCentralBoardCore
 
-enum EventsError : ErrorType, HavingMessage {
+enum EventsError: ErrorType, HavingMessage {
     case CannotConvertDate
     case WrongFormat
 
@@ -20,7 +20,7 @@ enum EventsError : ErrorType, HavingMessage {
     }
 }
 
-final class JSONCalendarDataProvider : CalendarDataProviding {
+final class JSONCalendarDataProvider: CalendarDataProviding {
 
     private let dataDownloader: DataDownloading
     private let path: String

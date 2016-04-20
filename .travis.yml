@@ -1,9 +1,11 @@
 language: objective-c
 osx_image: xcode7.3
-script:
-- "./scripts/travis-script.sh"
 before_install:
 - gem install xcpretty-travis-formatter
+- brew update && brew install swiftlint
+script:
+- swiftlint
+- "./scripts/travis-script.sh"
 notifications:
   email:
     on_success: never

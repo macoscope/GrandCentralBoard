@@ -14,7 +14,7 @@ protocol ViewDequeuing {
 }
 
 
-final class ViewReuseController : ViewDequeuing {
+final class ViewReuseController: ViewDequeuing {
     private let cellNib: UINib
     private let cellIdentifier: String
     private let headerNib: UINib

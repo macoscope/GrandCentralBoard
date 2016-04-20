@@ -23,7 +23,7 @@ class BillingProjectListFetcher {
 
     func fetchProjectList(completion: (Result<[BillingProjectID]>) -> Void) {
         downloader.requestJSON(.GET, url: url, parameters: [:], headers: headers, encoding: .URL) { result in
-            switch (result) {
+            switch result {
             case .Success(let json):
                 do {
                     let projectIDs = try BillingProjectList.decode(json).projectIDs

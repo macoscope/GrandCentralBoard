@@ -94,9 +94,9 @@
 		1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */; };
 		1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */; };
 		1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1981D1CBE8323003B6AB3 /* UIColor.swift */; };
-		1AEE4C0C1CC6290A000CC88D /* LabelWithSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */; };
 		1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */; };
 		1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */; };
+		1AEE4C0C1CC6290A000CC88D /* LabelWithSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */; };
 		494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B31C92E89A00D460B0 /* BonusModels.swift */; };
 		494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B41C92E89A00D460B0 /* BonusWidget.swift */; };
 		494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B51C92E89A00D460B0 /* BonusWidgetBuilder.swift */; };
@@ -134,6 +134,7 @@
 		52FB50811CBFB1660053DE8B /* ImageWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */; };
 		52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */; };
 		A51416475F94A413FB85F63B /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */; };
+		C11F30991CC6D85A0044AC88 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11F30981CC6D85A0044AC88 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */; };
 		E522BDB69BF4C217BDC7B691 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4597498FBEF6B18712C28B /* Pods_GrandCentralBoardTests.framework */; };
 		F91C41C21CC594CE00F834B3 /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = F91C41C11CC594CE00F834B3 /* BillingProjectList.json */; };
 		F91C41C41CC5952F00F834B3 /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91C41C31CC5952F00F834B3 /* NSBundle+LoadJSON.swift */; };
@@ -144,7 +145,6 @@
 		F91F007D1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */; };
 		F928B82E1CC52F77006D0332 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928B82D1CC52F77006D0332 /* String+Localized.swift */; };
 		F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */; };
-		F9B7C3721CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */; };
 		F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */; };
 		F9C88F281CBE873600E81A14 /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */; };
 		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
@@ -273,9 +273,9 @@
 		1AD5EAA91C7D2E3B00210BB9 /* WatchWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModel.swift; sourceTree = "<group>"; };
 		1AD6E8021C7DDC000003121C /* WatchWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetBuilder.swift; sourceTree = "<group>"; };
 		1AE1981D1CBE8323003B6AB3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelWithSpacing.swift; path = Utilities/LabelWithSpacing.swift; sourceTree = "<group>"; };
 		1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsRowReport.swift; sourceTree = "<group>"; };
 		1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSProcessInfo.swift; sourceTree = "<group>"; };
+		1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelWithSpacing.swift; path = Utilities/LabelWithSpacing.swift; sourceTree = "<group>"; };
 		234E74F21CF67378BBE359B7 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
 		494B68B31C92E89A00D460B0 /* BonusModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusModels.swift; sourceTree = "<group>"; };
 		494B68B41C92E89A00D460B0 /* BonusWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusWidget.swift; sourceTree = "<group>"; };
@@ -319,6 +319,7 @@
 		6D4597498FBEF6B18712C28B /* Pods_GrandCentralBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54D5D71277E3F90CA5F4248 /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C11F30981CC6D85A0044AC88 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		CFBE96CBFB48C5B717A0B405 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		E6198B62B278FF7C628510AB /* Pods-GrandCentralBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F6328205930630C7132BC7D9 /* Pods-GrandCentralBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.release.xcconfig"; sourceTree = "<group>"; };
@@ -331,7 +332,6 @@
 		F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenRefreshCredentials.swift; sourceTree = "<group>"; };
 		F928B82D1CC52F77006D0332 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartViewModel+FromBillingStats.swift"; sourceTree = "<group>"; };
-		F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestAPI.swift; sourceTree = "<group>"; };
 		F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		F9C88F291CBE876900E81A14 /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DailyBillingStats.json; sourceTree = "<group>"; };
@@ -891,10 +891,10 @@
 		F91F006A1CBBCFFD00DAAA77 /* Harvest */ = {
 			isa = PBXGroup;
 			children = (
+				C11F30981CC6D85A0044AC88 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */,
 				F91C41C51CC5963F00F834B3 /* Fixtures */,
 				F9C88F271CBE873600E81A14 /* DailyBillingStatsTests.swift */,
 				F9E9208C1CC5440700BC7994 /* BillingProjectListTests.swift */,
-				F9B7C3711CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */,
 				F9F4A6131CC519F800ADF093 /* AreaBarChartViewModelFromBillingStatsTests.swift */,
 				F9F4A60F1CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift */,
 			);
@@ -942,6 +942,7 @@
 			buildConfigurationList = 1A242D421C357C2700D5BEE5 /* Build configuration list for PBXNativeTarget "GrandCentralBoard" */;
 			buildPhases = (
 				59E306AAC48E78193F9B1DC5 /* Check Pods Manifest.lock */,
+				C1237CFD1CBF009800B7AEEE /* SwiftLint */,
 				1A242D191C357C2700D5BEE5 /* Sources */,
 				1A242D1A1C357C2700D5BEE5 /* Frameworks */,
 				1A242D1B1C357C2700D5BEE5 /* Resources */,
@@ -1197,6 +1198,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C1237CFD1CBF009800B7AEEE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1316,9 +1331,9 @@
 				F9C88F281CBE873600E81A14 /* DailyBillingStatsTests.swift in Sources */,
 				0D28630A1CB515CE00C62700 /* UpdateTests.swift in Sources */,
 				52FB507D1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift in Sources */,
-				F9B7C3721CC4F2100099E195 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 				F9E9208D1CC5440700BC7994 /* BillingProjectListTests.swift in Sources */,
+				C11F30991CC6D85A0044AC88 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
 				F9F4A6101CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

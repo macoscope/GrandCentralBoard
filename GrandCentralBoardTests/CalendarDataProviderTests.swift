@@ -19,9 +19,10 @@ private let eventsDictionary = ["kind": "calendar#events", "items" :
     ]
 ]
 
-class TestAPIDataProvider : APIDataProviding {
+class TestAPIDataProvider: APIDataProviding {
 
-    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]?, encoding: ParameterEncoding, completion: Result<AnyObject, APIDataError> -> Void) {
+    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]?, encoding: ParameterEncoding,
+                 completion: Result<AnyObject, APIDataError> -> Void) {
         let urlString = url.URLString
         if urlString.hasSuffix("/events") {
             completion(.Success(eventsDictionary))
@@ -31,12 +32,12 @@ class TestAPIDataProvider : APIDataProviding {
     }
 }
 
-class CalendarDataProviderTests : XCTestCase {
+class CalendarDataProviderTests: XCTestCase {
 
     let calendarDataProvider = GoogleCalendarDataProvider(calendarID: "id", dataProvider: TestAPIDataProvider())
-    private static let dateFormatter: NSDateFormatter =  {
+    private static let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()

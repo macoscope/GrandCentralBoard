@@ -13,7 +13,7 @@ struct AnalyticsReportRow {
     let values: [String]
 }
 
-struct AnalyticsReport  {
+struct AnalyticsReport {
     let rows: [AnalyticsReportRow]
 }
 

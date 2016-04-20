@@ -10,7 +10,8 @@ import Alamofire
 
 extension Manager : NetworkRequestManager {
 
-    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?, encoding: ParameterEncoding, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
+    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?,
+                     headers: [String : String]?, encoding: ParameterEncoding, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
         let method = Alamofire.Method(fromMethod: method)
         let encoding = Alamofire.ParameterEncoding(fromEncoding: encoding)
         self.request(method, url, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in

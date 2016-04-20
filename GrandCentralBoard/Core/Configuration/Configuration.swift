@@ -10,9 +10,9 @@ public protocol ConfigurationFetching {
     func fetchConfiguration(closure: (Result<Configuration>) -> ())
 }
 
-public enum ConfigurationError : ErrorType, HavingMessage {
+public enum ConfigurationError: ErrorType, HavingMessage {
     case WrongFormat
-    
+
     public var message: String {
         switch self {
             case .WrongFormat:
@@ -22,10 +22,10 @@ public enum ConfigurationError : ErrorType, HavingMessage {
 }
 
 public struct Configuration {
-    
+
     public let builders: [WidgetBuilding]
     public let settings: [WidgetSettings]
-    
+
     public init(builders: [WidgetBuilding], settings: [WidgetSettings]) {
         self.builders = builders
         self.settings = settings
@@ -38,7 +38,7 @@ public struct Configuration {
                 return Configuration(builders: availableBuilders, settings: WidgetSettings.settingsFromArray(widgets))
             }
         }
-        
+
         throw ConfigurationError.WrongFormat
     }
 }

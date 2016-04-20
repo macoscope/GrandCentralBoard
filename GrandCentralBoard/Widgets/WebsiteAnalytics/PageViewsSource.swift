@@ -20,7 +20,7 @@ enum GoogleAnalyticsSourceError: ErrorType, HavingMessage {
 }
 
 
-final class PageViewsSource : Asynchronous {
+final class PageViewsSource: Asynchronous {
 
     let dataProvider: GoogleAnalyticsDataProvider
     let interval: NSTimeInterval

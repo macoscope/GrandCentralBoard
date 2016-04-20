@@ -52,7 +52,8 @@ class GrandCentralBoardTests: XCTestCase {
 
         let wrongSettings = WidgetSettings(name: "watch", settings: ["timeZone": "Europe/Warsaw"])
 
-        let config = Configuration(builders: [watchWidgetBuilder], settings: [wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings])
+        let config = Configuration(builders: [watchWidgetBuilder],
+                                   settings: [wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings])
 
         do {
             let _ = try GrandCentralBoard(configuration: config, scheduler: scheduler, stack: stack)
@@ -80,7 +81,7 @@ class GrandCentralBoardTests: XCTestCase {
 
     func testStackedSixViewsWhenWidgetsConfigurationIsCorrect() {
 
-        final class StackingMock : ViewStacking {
+        final class StackingMock: ViewStacking {
 
             var stackedViews = [UIView]()
 
@@ -100,7 +101,7 @@ class GrandCentralBoardTests: XCTestCase {
 
     func testScheduledEighteenJobsWhenWidgetsConfigurationIsCorrect() {
 
-        final class SchedulingMock : SchedulingJobs {
+        final class SchedulingMock: SchedulingJobs {
 
             var jobs = [Schedulable]()
 

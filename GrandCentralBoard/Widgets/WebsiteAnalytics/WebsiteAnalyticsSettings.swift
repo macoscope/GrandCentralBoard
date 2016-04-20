@@ -9,7 +9,7 @@
 import Decodable
 
 
-struct WebsiteAnalyticsSettings  {
+struct WebsiteAnalyticsSettings {
     let viewID: String
     let daysInReport: Int
     let validPathPrefix: String?
@@ -17,7 +17,7 @@ struct WebsiteAnalyticsSettings  {
     let clientID: String
     let clientSecret: String
     let refreshToken: String
-    
+
     let refreshInterval: Int
 }
 

@@ -14,7 +14,7 @@ protocol CalendarDataProviding {
     func fetchCalendar(completion: (Result<Calendar, APIDataError>) -> Void)
 }
 
-private enum CalendarAPIAction : String {
+private enum CalendarAPIAction: String {
     case GetDetails = ""
     case GetEvents  = "events"
 
@@ -25,7 +25,7 @@ private enum CalendarAPIAction : String {
     }
 }
 
-final class GoogleCalendarDataProvider : CalendarDataProviding {
+final class GoogleCalendarDataProvider: CalendarDataProviding {
 
     private let dataProvider: APIDataProviding
     let calendarID: String
@@ -35,9 +35,9 @@ final class GoogleCalendarDataProvider : CalendarDataProviding {
         self.dataProvider = dataProvider
     }
 
-    private static let dateFormatter: NSDateFormatter =  {
+    private static let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()

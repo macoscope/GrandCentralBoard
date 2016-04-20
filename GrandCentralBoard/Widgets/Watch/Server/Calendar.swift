@@ -8,7 +8,7 @@
 
 import Decodable
 
-struct Calendar : Decodable {
+struct Calendar: Decodable {
     let name: String
 
     static func decode(json: AnyObject) throws -> Calendar {

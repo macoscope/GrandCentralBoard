@@ -1,0 +1,11 @@
+disabled_rules:
+  - force_cast
+  - force_try
+  - nesting
+
+line_length: 150
+function_parameter_count: 6
+variable_name:
+  min_length: 3
+  excluded:
+    - id

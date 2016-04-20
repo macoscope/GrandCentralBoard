@@ -23,7 +23,7 @@ class AccessTokenFetcher {
 
     func fetchAccessToken(completion: (Result<AccessToken>) -> Void) {
         downloader.requestJSON(.POST, url: url, parameters: parameters, headers: headers, encoding: .URL) { result in
-            switch (result) {
+            switch result {
             case .Success(let json):
                 do {
                     let accessToken = try AccessToken.decode(json)

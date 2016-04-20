@@ -18,7 +18,7 @@ class BonuslyRequestTemplate<ResultType> : RequestTemplate<ResultType> {
 }
 
 
-final class BonusesRequestTemplate : BonuslyRequestTemplate<[Bonus]> {
+final class BonusesRequestTemplate: BonuslyRequestTemplate<[Bonus]> {
 
     init() {
         super.init(path: "bonuses", method: .Get(queryParameters: [:]), responseResultType: .JSON)

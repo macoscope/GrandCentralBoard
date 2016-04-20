@@ -7,7 +7,7 @@ import UIKit
 import GrandCentralBoardCore
 
 
-enum RemoteImageSourceError : ErrorType, HavingMessage {
+enum RemoteImageSourceError: ErrorType, HavingMessage {
     case DownloadFailed
     case EmptyURLList
     var message: String {
@@ -31,7 +31,7 @@ struct Counter {
     }
 }
 
-final class RemoteImageSource : Asynchronous {
+final class RemoteImageSource: Asynchronous {
 
     typealias ResultType = GrandCentralBoardCore.Result<UIImage>
 

@@ -6,7 +6,7 @@
 import UIKit
 
 
-final class AreaBarStackView : UIStackView {
+final class AreaBarStackView: UIStackView {
 
     override func awakeFromNib() {
         super.awakeFromNib()

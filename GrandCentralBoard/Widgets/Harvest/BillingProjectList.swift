@@ -24,7 +24,7 @@ extension BillingProjectList : Decodable {
         return BillingProjectList(projectIDs: projectIDs)
     }
 
-    private struct BillingProject : Decodable {
+    private struct BillingProject: Decodable {
         let id: BillingProjectID
 
         static func decode(json: AnyObject) throws -> BillingProject {

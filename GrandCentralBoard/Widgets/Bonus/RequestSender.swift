@@ -10,7 +10,7 @@ import Alamofire
 import GrandCentralBoardCore
 
 
-enum RequestSenderError : ErrorType {
+enum RequestSenderError: ErrorType {
     case URLRequestBuildingError(description: String)
     case RequestTemplateFinalizationError
     case SerializationError
@@ -34,7 +34,8 @@ final class RequestSender {
         }
     }
 
-    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T, completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void {
+    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T,
+                                       completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void {
         let wrappingRequestTemplate = WrappingRequestTemplate(requestTemplate: requestTemplate, queryParameters: self.configuration.queryParameters)
         let requestBuilder = RequestBuilder<WrappingRequestTemplate<T>>(requestTemplate: wrappingRequestTemplate)
 
@@ -82,9 +83,9 @@ final class RequestSender {
             let description = (error as? CustomStringConvertible)?.description ?? ""
             completionBlock?(.Failure(RequestSenderError.URLRequestBuildingError(description: description)))
         }
-        
+
     }
-    
+
 }
 
 
@@ -92,6 +93,6 @@ extension Request: Equatable {
 
 }
 
-public func ==(lhs: Request, rhs: Request) -> Bool {
+public func == (lhs: Request, rhs: Request) -> Bool {
     return lhs.request == rhs.request
 }

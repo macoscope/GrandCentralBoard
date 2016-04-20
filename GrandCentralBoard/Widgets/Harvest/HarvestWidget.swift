@@ -9,7 +9,7 @@
 import GrandCentralBoardCore
 
 
-final class HarvestWidget : Widget {
+final class HarvestWidget: Widget {
 
     private let widgetView: AreaBarChartView
 
@@ -36,7 +36,7 @@ final class HarvestWidget : Widget {
     }
 
     func updateViewWithResult(result: HarvestSource.ResultType) {
-        switch (result) {
+        switch result {
         case .Success(let billingStats):
             let model = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
             widgetView.render(model)

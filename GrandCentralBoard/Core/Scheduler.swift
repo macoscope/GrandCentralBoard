@@ -13,7 +13,7 @@ public protocol Schedulable : class {
     var target: Updateable { get }
 }
 
-public final class Job : Schedulable {
+public final class Job: Schedulable {
 
     public let target: Updateable
     public let selector: Selector = "update"
@@ -38,7 +38,7 @@ public protocol SchedulingJobs {
     func schedule(job: Schedulable)
 }
 
-public final class Scheduler : SchedulingJobs {
+public final class Scheduler: SchedulingJobs {
 
     private var timers = [NSTimer]()
 

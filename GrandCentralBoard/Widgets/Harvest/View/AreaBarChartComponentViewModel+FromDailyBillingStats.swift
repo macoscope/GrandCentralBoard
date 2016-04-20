@@ -26,7 +26,7 @@ extension AreaBarChartComponentViewModel {
             let height = heightForGroup(group, groups: groups)
             let valueLabelMode = valueLabelModeForGroup(group, groups: groups)
 
-            if (width > 0) {
+            if width > 0 {
                 return AreaBarItemViewModel(proportionalWidth: width, proportionalHeight: height, color: color, valueLabelMode: valueLabelMode)
 
             } else {
@@ -38,7 +38,8 @@ extension AreaBarChartComponentViewModel {
         let headerText = headerTextForDailyBillingStats(dailyBillingStats, isMainChart: isMainChart)
         let subheaderText = subheaderTextForDailyBillingStats(dailyBillingStats, isMainChart: isMainChart)
 
-        return AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: countLabelText, headerText: headerText, subheaderText: subheaderText)
+        return AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: countLabelText,
+                                              headerText: headerText, subheaderText: subheaderText)
     }
 
     private static func widthForGroup(group: BillingStatsGroup, groups: [BillingStatsGroup]) -> CGFloat {
@@ -63,10 +64,10 @@ extension AreaBarChartComponentViewModel {
     }
 
     private static func hoursText(hours: Double) -> String {
-        if (hours > maxHours) {
+        if hours > maxHours {
             return String(format: "more than %@!".localized, maxHours.formattedString)
 
-        } else if (hours < minHours) {
+        } else if hours < minHours {
             return String(format: "less than %@!".localized, minHours.formattedString)
 
         } else {
@@ -94,7 +95,7 @@ extension AreaBarChartComponentViewModel {
     }
 
     private static func headerTextForDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool) -> String {
-        if (isMainChart) {
+        if isMainChart {
             return "HARVEST BURN REPORT".localized
 
         } else {
@@ -103,7 +104,7 @@ extension AreaBarChartComponentViewModel {
     }
 
     private static func subheaderTextForDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool) -> String {
-        if (isMainChart) {
+        if isMainChart {
             return dailyBillingStats.day.stringWithFormat("EEEE dd.MM.yyyy")
 
         } else {

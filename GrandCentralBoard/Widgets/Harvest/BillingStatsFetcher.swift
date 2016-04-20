@@ -42,8 +42,9 @@ final class BillingStatsFetcher {
         projectListFetcher.fetchProjectList(completion)
     }
 
-    private func fetchBillingStats(projectIDs: [BillingProjectID], dates: [NSDate], fetchedStats: [DailyBillingStats], completion: (Result<[DailyBillingStats]>) -> Void) {
-        if (dates.count == 0) {
+    private func fetchBillingStats(projectIDs: [BillingProjectID], dates: [NSDate], fetchedStats: [DailyBillingStats],
+                                   completion: (Result<[DailyBillingStats]>) -> Void) {
+        if dates.count == 0 {
             return completion(.Success(fetchedStats))
         }
 
@@ -51,7 +52,8 @@ final class BillingStatsFetcher {
         let date = dates.first!
         remainingDates.removeFirst()
 
-        let dailyFetcher = DailyBillingStatsFetcher(projectIDs: projectIDs, date: date, account: account, accessToken: accessToken, downloader: downloader)
+        let dailyFetcher = DailyBillingStatsFetcher(projectIDs: projectIDs, date: date, account: account,
+                                                    accessToken: accessToken, downloader: downloader)
         dailyFetcher.fetchDailyBillingStats { result in
             switch result {
             case .Success(let dailyStats):

@@ -10,7 +10,7 @@ private let resizeWorldInterval: NSTimeInterval = 0.2
 private let unitSceneResizeChange: CGFloat = 0.02
 
 class BonusScene: SKScene {
-    
+
     private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
     var bubbleResizeDuration: NSTimeInterval = 15
@@ -19,10 +19,12 @@ class BonusScene: SKScene {
         assert(viewModel != nil)
         setUpWithViewModel(viewModel)
 
-        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles), userInfo: nil, repeats: true)
-        NSTimer.scheduledTimerWithTimeInterval(resizeWorldInterval, target: self, selector: #selector(BonusScene.updateWorldSize), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(pokeTimeInterval, target: self, selector: #selector(BonusScene.pokeAllBubbles),
+                                               userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(resizeWorldInterval, target: self, selector: #selector(BonusScene.updateWorldSize),
+                                               userInfo: nil, repeats: true)
     }
-    
+
     func setUpWithViewModel(viewModel: BonusWidgetViewModel) {
         guard self.viewModel != nil else {
             setUpSceneForTheFirstTimeWithViewModel(viewModel)
@@ -30,11 +32,11 @@ class BonusScene: SKScene {
         }
         updateWithViewModel(viewModel)
     }
-    
+
     private func setUpSceneForTheFirstTimeWithViewModel(viewModel: BonusWidgetViewModel) {
         self.viewModel = viewModel
         addChild(world)
-        
+
         for bubbleViewModel in viewModel.bubbles {
             let bubble = Bubble(bubbleViewModel: bubbleViewModel)
             bubble.position = randomPosition()
@@ -50,7 +52,7 @@ class BonusScene: SKScene {
         let nodesToSmall = frame.width > calculatedAccumulatedFrame.width * 1.25 && frame.height > calculatedAccumulatedFrame.height * 1.25
         if !nodesFitScreen {
             scaleBy(1 - unitSceneResizeChange)
-        } else if (nodesToSmall) {
+        } else if nodesToSmall {
             scaleBy(1 + unitSceneResizeChange)
         }
     }
@@ -98,16 +100,16 @@ class BonusScene: SKScene {
             return CGPoint(x: 0, y: 0)
         }
     }
-    
+
     func pokeAllBubbles() {
         let movement = (-10...10)
         guard let dx = movement.randomElement(), let dy = movement.randomElement() else { return }
-        
+
         let vector = CGVector(dx: dx, dy: dy)
         let pokeAction = SKAction.moveBy(vector, duration: 2)
-        
+
         let gravityNode = childNodeWithName("radialGravityField")
-        gravityNode?.position = CGPointZero
+        gravityNode?.position = CGPoint.zero
         gravityNode?.runAction(pokeAction)
     }
 

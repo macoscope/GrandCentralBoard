@@ -17,7 +17,9 @@ protocol TableViewModel {
 }
 
 
-final class TableDataSource<Configurator: ViewConfiguring, ViewModel: TableViewModel where ViewModel.CellViewModel == Configurator.CellViewModel, ViewModel.HeaderViewModel == Configurator.HeaderViewModel> : NSObject, UITableViewDelegate, UITableViewDataSource {
+final class TableDataSource<Configurator: ViewConfiguring, ViewModel: TableViewModel
+where ViewModel.CellViewModel == Configurator.CellViewModel, ViewModel.HeaderViewModel == Configurator.HeaderViewModel>
+: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     var viewModel: ViewModel
     private let viewConfiguring: Configurator
@@ -45,7 +47,7 @@ final class TableDataSource<Configurator: ViewConfiguring, ViewModel: TableViewM
 
         let viewModel = self.viewModel.items[indexPath.row]
         viewConfiguring.configureCell(cell, withViewModel: viewModel)
-        
+
         return cell
     }
 
@@ -59,7 +61,7 @@ final class TableDataSource<Configurator: ViewConfiguring, ViewModel: TableViewM
         }
 
         viewConfiguring.configureHeader(headerView, withViewModel: self.viewModel.headerViewModel)
-        
+
         return headerView
     }
 

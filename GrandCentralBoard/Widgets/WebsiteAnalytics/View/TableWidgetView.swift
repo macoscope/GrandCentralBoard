@@ -33,24 +33,29 @@ struct DoubleColumnTableViewModel: TableViewModel {
 final class TableWidgetView: UIView {
 
     @IBOutlet weak var tableView: UITableView!
-    private var dataSource: TableDataSource<CellConfigurator<TableViewCell, DoubleColumnCellViewModel, TableViewHeaderView, DoubleColumnHeaderViewModel>, DoubleColumnTableViewModel>?
+    private var dataSource: TableDataSource<
+    CellConfigurator<TableViewCell, DoubleColumnCellViewModel, TableViewHeaderView, DoubleColumnHeaderViewModel>,
+    DoubleColumnTableViewModel>?
 
     private let headerViewModel = DoubleColumnHeaderViewModel(firstColumnName: "Title", secondColumnName: "Visits")
 
     func setRowViewModels(rowViewModels: [DoubleColumnCellViewModel]) {
-        dataSource?.viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: rowViewModels, headerViewModel: headerViewModel)
+        dataSource?.viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits",
+                                                           items: rowViewModels, headerViewModel: headerViewModel)
         tableView.reloadData()
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        let viewReuseController = ViewReuseController(cellNib: TableViewCell.nib(), cellIdentifier: "TableViewCell", headerNib: TableViewHeaderView.nib(), headerIdentifier: "TableViewHeaderView", tableView: tableView)
+        let viewReuseController = ViewReuseController(cellNib: TableViewCell.nib(), cellIdentifier: "TableViewCell",
+                                                      headerNib: TableViewHeaderView.nib(), headerIdentifier: "TableViewHeaderView",
+                                                      tableView: tableView)
         let viewConfigurator = CellConfigurator<TableViewCell, DoubleColumnCellViewModel, TableViewHeaderView, DoubleColumnHeaderViewModel>()
 
         let viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: [], headerViewModel: headerViewModel)
 
-        dataSource = TableDataSource(viewDequeuing: viewReuseController, viewConfiguring: viewConfigurator,viewModel: viewModel)
+        dataSource = TableDataSource(viewDequeuing: viewReuseController, viewConfiguring: viewConfigurator, viewModel: viewModel)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         tableView.estimatedRowHeight = 100
@@ -61,5 +66,5 @@ final class TableWidgetView: UIView {
     class func fromNib() -> TableWidgetView {
         return NSBundle.mainBundle().loadNibNamed("TableWidgetView", owner: nil, options: nil)[0] as! TableWidgetView
     }
-    
+
 }

@@ -10,7 +10,7 @@ import Result
 
 
 class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplateProtocol {
-    
+
     let requestTemplate: T
     let date: NSDate
     let take: Int
@@ -37,7 +37,7 @@ class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplate
         get {
             let dateFormatter = NSDateFormatter.init()
             dateFormatter.locale = NSLocale.init(localeIdentifier: "en_US_POSIX")
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
             dateFormatter.timeZone = NSTimeZone.init(name: "UTC")
 
             var method = requestTemplate.method
@@ -56,5 +56,5 @@ class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplate
     func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> T.ResultType {
         return try self.requestTemplate.finalizeWithResponse(response, result: result)
     }
-    
+
 }

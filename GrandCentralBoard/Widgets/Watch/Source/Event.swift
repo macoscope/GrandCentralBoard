@@ -8,15 +8,15 @@
 
 import Decodable
 
-struct DateFormattingError : ErrorType {
+struct DateFormattingError: ErrorType {
     let dateString: String
 }
 
-struct Event : Decodable {
+struct Event: Decodable {
 
-    private static let dateFormatter: NSDateFormatter =  {
+    private static let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()
@@ -44,4 +44,3 @@ struct Event : Decodable {
         throw EventsError.WrongFormat
     }
 }
-

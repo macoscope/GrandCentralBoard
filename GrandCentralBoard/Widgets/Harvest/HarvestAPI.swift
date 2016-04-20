@@ -30,7 +30,7 @@ final class HarvestAPI {
     }
 
     func refreshTokenIfNeeded(completion: (Result<AccessToken>) -> Void) {
-        if (accessToken.isExpired()) {
+        if accessToken.isExpired() {
             refreshToken(completion)
 
         } else {
@@ -41,7 +41,7 @@ final class HarvestAPI {
     func refreshToken(completion: (Result<AccessToken>) -> Void) {
         let request = AccessTokenFetcher(account: account, refreshCredentials: refreshCredentials, downloader: downloader)
         request.fetchAccessToken() { result in
-            switch (result) {
+            switch result {
             case .Success(let accessToken):
                 self.accessToken = accessToken
                 completion(result)

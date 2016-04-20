@@ -54,4 +54,3 @@ class LoadingViewController: UIViewController {
         }
     }
 }
-
