@@ -49,7 +49,8 @@ final class PeopleWithBonusesFetchController {
         })
     }
 
-    private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus],
+    private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(),
+                                                         fetchedBonuses: [Bonus],
                                                          completionBlock: (Result<[Person]>) -> Void) {
         let requestTemplate = TimestampableRequestTemplate(requestTemplate: BonusesRequestTemplate(), date: date, take: self.pageSize)
 
@@ -66,7 +67,7 @@ final class PeopleWithBonusesFetchController {
 
                 let people = allBonuses.uniqueReceivers(strongSelf.preferredNumberOfPeople)
 
-                for person in people {
+                people.forEach { person in
                     print(person.id)
                 }
 
@@ -87,7 +88,7 @@ final class PeopleWithBonusesFetchController {
         var groupError: ErrorType?
 
         let group = dispatch_group_create()
-        for person in people {
+        people.forEach { person in
             dispatch_group_enter(group)
             updatePersonWithImageFromNetwork(person, completionBlock: { result in
                 switch result {
