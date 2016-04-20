@@ -181,21 +181,37 @@ final class AreaBarChartView : UIView, ViewModelRendering {
             view.removeFromSuperview()
         }
 
+        var viewsToPutToFront = [UIView]()
+
         viewModel.mainChart.barItems.forEach { itemViewModel in
             let barView = barStackView.addBarWithItemViewModel(itemViewModel)
-            addLineWithLabelToBarView(barView, withViewModel: itemViewModel)
+            let lineView = addLineWithLabelToBarView(barView, withViewModel: itemViewModel)
+
+            switch itemViewModel.valueLabelMode {
+            case .VisibleWithHiddenLabel, .Hidden:
+                break
+            default:
+                viewsToPutToFront.append(lineView)
+            }
+
+        }
+
+        viewsToPutToFront.forEach {
+            bringSubviewToFront($0)
         }
 
         bringSubviewToFront(barStackView)
         bringSubviewToFront(informationSheet)
     }
 
-    private func addLineWithLabelToBarView(barView: UIView, withViewModel viewModel: AreaBarItemViewModel) {
+    private func addLineWithLabelToBarView(barView: UIView, withViewModel viewModel: AreaBarItemViewModel) -> UIView {
         let dashedLine = AreaBarDashedLineWithLabel.fromNib()
         dashedLine.configureWithViewModel(viewModel)
         addSubview(dashedLine)
         dashedLinesWithLabels.append(dashedLine)
         setUpConstraintsOfDashedLine(dashedLine, toBar: barView)
+
+        return dashedLine
     }
 
     private func setUpConstraintsOfDashedLine(dashedLine: UIView, toBar bar: UIView) {
