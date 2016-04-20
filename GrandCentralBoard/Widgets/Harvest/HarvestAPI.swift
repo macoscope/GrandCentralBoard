@@ -44,9 +44,8 @@ final class HarvestAPI {
             switch result {
             case .Success(let accessToken):
                 self.accessToken = accessToken
-                completion(result)
-
-            case .Failure(_):
+                fallthrough
+            default:
                 completion(result)
             }
         }

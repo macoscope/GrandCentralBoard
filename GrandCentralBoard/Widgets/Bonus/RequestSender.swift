@@ -19,10 +19,20 @@ enum RequestSenderError: ErrorType {
 }
 
 
-final class RequestSender {
+protocol RequestSending {
+    func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T,
+                                                                   completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void
+}
+
+
+final class RequestSender: RequestSending {
 
     private let configuration: RequestSenderConfiguration
     private var requestsInProgress: [Request] = []
+
+    convenience init() {
+        self.init(configuration: RequestSenderConfiguration(queryParameters: [:]))
+    }
 
     init(configuration: RequestSenderConfiguration) {
         self.configuration = configuration

@@ -25,7 +25,7 @@ enum MethodType {
         }
     }
 
-    var HTTPMethod: String {
+    var httpMethod: String {
         get {
             switch self {
             case .Get(_):

@@ -6,9 +6,9 @@
 import Foundation
 
 
-private let GCBRemoteConfigurationPathKey = "GCBRemoteConfigurationPath"
-private let GCBLocalConfigurationFileNameKey = "GCBLocalConfigurationFileName"
-private let GCBAlwaysUseLocalConfigurationFileKey = "GCBAlwaysUseLocalConfigurationFile"
+private let remoteConfigurationPathKey = "GCBRemoteConfigurationPath"
+private let localConfigurationFileNameKey = "GCBLocalConfigurationFileName"
+private let alwaysUseLocalConfigurationFileKey = "GCBAlwaysUseLocalConfigurationFile"
 
 extension NSBundle {
     static func stringForInfoDictionaryKey(key: String) -> String? {
@@ -28,14 +28,14 @@ extension NSBundle {
 extension NSBundle {
 
     static var alwaysUseLocalConfigurationFile: Bool {
-        return boolForInfoDictionaryKey(GCBAlwaysUseLocalConfigurationFileKey)!
+        return boolForInfoDictionaryKey(alwaysUseLocalConfigurationFileKey)!
     }
 
     static var remoteConfigurationPath: String {
-        return stringForInfoDictionaryKey(GCBRemoteConfigurationPathKey)!
+        return stringForInfoDictionaryKey(remoteConfigurationPathKey)!
     }
 
     static var localConfigurationFileName: String {
-        return stringForInfoDictionaryKey(GCBLocalConfigurationFileNameKey)!
+        return stringForInfoDictionaryKey(localConfigurationFileNameKey)!
     }
 }

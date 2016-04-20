@@ -41,7 +41,7 @@ class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplate
             dateFormatter.timeZone = NSTimeZone.init(name: "UTC")
 
             var method = requestTemplate.method
-            method.addQueryParameter("startTime", value: dateFormatter.stringFromDate(date))
+            method.addQueryParameter("end_time", value: dateFormatter.stringFromDate(date))
             method.addQueryParameter("limit", value: String(take))
             return method
         }

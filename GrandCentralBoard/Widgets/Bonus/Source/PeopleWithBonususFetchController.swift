@@ -9,8 +9,6 @@ import Foundation
 import GrandCentralBoardCore
 
 
-private let kPreferredPeopleCount = 10
-
 enum PeopleWithBonususFetchControllerError: ErrorType {
     case IncorrectEmailAddress
     case Cancelled
@@ -20,10 +18,14 @@ enum PeopleWithBonususFetchControllerError: ErrorType {
 
 final class PeopleWithBonusesFetchController {
 
-    private let requestSender: RequestSender
+    private let requestSending: RequestSending
+    private let pageSize: Int
+    private let preferredNumberOfPeople: Int
 
-    init(requestSender: RequestSender) {
-        self.requestSender = requestSender
+    init(requestSending: RequestSending, pageSize: Int, preferredNumberOfPeople: Int) {
+        self.requestSending = requestSending
+        self.pageSize = pageSize
+        self.preferredNumberOfPeople = preferredNumberOfPeople
     }
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void) {
@@ -47,12 +49,12 @@ final class PeopleWithBonusesFetchController {
         })
     }
 
-    private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(), fetchedBonuses: [Bonus],
+    private func fetchPeopleWithBonuses(startingFromDate date: NSDate = NSDate.init(),
+                                                         fetchedBonuses: [Bonus],
                                                          completionBlock: (Result<[Person]>) -> Void) {
-        let take = 100
-        let requestTemplate = TimestampableRequestTemplate.init(requestTemplate: BonusesRequestTemplate(), date: date, take: take)
+        let requestTemplate = TimestampableRequestTemplate(requestTemplate: BonusesRequestTemplate(), date: date, take: self.pageSize)
 
-        requestSender.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
+        requestSending.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
                 completionBlock(.Failure(PeopleWithBonususFetchControllerError.Cancelled))
                 return
@@ -60,11 +62,16 @@ final class PeopleWithBonusesFetchController {
 
             switch result {
             case .Success(let bonuses):
-                var allBonuses: [Bonus] = fetchedBonuses.reverse()
+                var allBonuses: [Bonus] = fetchedBonuses
                 allBonuses.appendContentsOf(bonuses)
 
-                let people = allBonuses.uniqueReceivers(kPreferredPeopleCount)
-                if people.count >= kPreferredPeopleCount || bonuses.count < take {
+                let people = allBonuses.uniqueReceivers(strongSelf.preferredNumberOfPeople)
+
+                people.forEach { person in
+                    print(person.id)
+                }
+
+                if people.count >= strongSelf.preferredNumberOfPeople || bonuses.count < strongSelf.pageSize {
                     completionBlock(.Success(Array(people)))
                 } else if let lastBonus = bonuses.last {
                     strongSelf.fetchPeopleWithBonuses(startingFromDate: lastBonus.date, fetchedBonuses: allBonuses, completionBlock: completionBlock)
@@ -81,7 +88,7 @@ final class PeopleWithBonusesFetchController {
         var groupError: ErrorType?
 
         let group = dispatch_group_create()
-        for person in people {
+        people.forEach { person in
             dispatch_group_enter(group)
             updatePersonWithImageFromNetwork(person, completionBlock: { result in
                 switch result {
@@ -110,7 +117,7 @@ final class PeopleWithBonusesFetchController {
             return
         }
 
-        requestSender.sendRequestForRequestTemplate(requestTemplate) { result in
+        requestSending.sendRequestForRequestTemplate(requestTemplate) { result in
             switch result {
             case .Success(let image):
                 completionBlock(.Success(person.copyWithImage(image)))
@@ -127,7 +134,7 @@ extension SequenceType where Generator.Element == Bonus {
 
     func uniqueReceivers(maximumNumberOfReceivers: Int) -> [Person] {
         return reduce([Person](), combine: { people, bonus in
-            if people.count >= kPreferredPeopleCount {
+            if people.count >= maximumNumberOfReceivers {
                 return people
             } else {
                 var receiver = bonus.receiver
