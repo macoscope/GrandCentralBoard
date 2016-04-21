@@ -26,7 +26,7 @@ public struct Configuration {
     public let builders: [WidgetBuilding]
     public let settings: [WidgetSettings]
 
-    private init(builders: [WidgetBuilding], settings: [WidgetSettings]) {
+    public init(builders: [WidgetBuilding], settings: [WidgetSettings]) {
         self.builders = builders
         self.settings = settings
     }

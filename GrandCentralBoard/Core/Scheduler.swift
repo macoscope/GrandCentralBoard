@@ -54,7 +54,7 @@ public final class Scheduler: SchedulingJobs {
     }
 
     public func invalidateAll() {
-        
+
         timers.forEach { timer in
             timer.invalidate()
         }
