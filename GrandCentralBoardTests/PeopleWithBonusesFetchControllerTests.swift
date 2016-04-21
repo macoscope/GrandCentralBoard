@@ -34,6 +34,23 @@ struct TestRequestSender: RequestSending {
 
 }
 
+final class DataDownloaderMock: DataDownloading {
+    func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void) {
+        let image = getImageWithColor(UIColor.blueColor(), size: CGSize(width: 1, height: 1))
+        completion(.Success(UIImagePNGRepresentation(image)!))
+    }
+
+    func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
 
 class PeopleWithBonusesFetchControllerTests: XCTestCase {
 
@@ -44,7 +61,12 @@ class PeopleWithBonusesFetchControllerTests: XCTestCase {
         super.setUp()
 
         let createPerson = { (id: String) in
-            return Person.init(id: id, name: "Rafal", email: "test@test.com", lastBonusDate: NSDate.init(), image: nil)
+            return Person.init(id: id,
+                               name: "Rafal",
+                               email: "test@test.com",
+                               lastBonusDate: NSDate.init(),
+                               image: nil,
+                               avatarPath: "http://google.com")
         }
 
         let createBonus = { (date: NSDate, person: Person) in
@@ -61,7 +83,10 @@ class PeopleWithBonusesFetchControllerTests: XCTestCase {
         }
 
         requestSender = TestRequestSender(bonuses: bonuses.reverse())
-        fetchController = PeopleWithBonusesFetchController(requestSending: self.requestSender, pageSize: 1, preferredNumberOfPeople: 10)
+        fetchController = PeopleWithBonusesFetchController(requestSending: self.requestSender,
+                                                           dataDownloading: DataDownloaderMock(),
+                                                           pageSize: 1,
+                                                           preferredNumberOfPeople: 10)
     }
 
     func testWhetherNextPagesAreFetchedWhenFirstOneDoesntContain10UniquePeople() {

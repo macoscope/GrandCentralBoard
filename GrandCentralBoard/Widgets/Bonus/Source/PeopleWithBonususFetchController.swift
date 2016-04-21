@@ -11,6 +11,7 @@ import GrandCentralBoardCore
 
 enum PeopleWithBonususFetchControllerError: ErrorType {
     case IncorrectEmailAddress
+    case NoAvatarURL
     case Cancelled
     case Unknown
 }
@@ -21,11 +22,13 @@ final class PeopleWithBonusesFetchController {
     private let requestSending: RequestSending
     private let pageSize: Int
     private let preferredNumberOfPeople: Int
+    private let dataDownloading: DataDownloading
 
-    init(requestSending: RequestSending, pageSize: Int, preferredNumberOfPeople: Int) {
+    init(requestSending: RequestSending, dataDownloading: DataDownloading, pageSize: Int, preferredNumberOfPeople: Int) {
         self.requestSending = requestSending
         self.pageSize = pageSize
         self.preferredNumberOfPeople = preferredNumberOfPeople
+        self.dataDownloading = dataDownloading
     }
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void) {
@@ -108,12 +111,14 @@ final class PeopleWithBonusesFetchController {
     }
 
     private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Result<Person>) -> Void) {
-        guard let requestTemplate = GravatarImageRequestTemplate(email: person.email) else {
-            completionBlock(.Failure(PeopleWithBonususFetchControllerError.IncorrectEmailAddress))
+
+        guard let avatarPath = person.avatarPath else {
+            completionBlock(.Failure(PeopleWithBonususFetchControllerError.NoAvatarURL))
+
             return
         }
 
-        requestSending.sendRequestForRequestTemplate(requestTemplate) { result in
+        dataDownloading.downloadImageAtPath(avatarPath) { result in
             switch result {
             case .Success(let image):
                 completionBlock(.Success(person.copyWithImage(image)))
@@ -122,7 +127,6 @@ final class PeopleWithBonusesFetchController {
             }
         }
     }
-
 }
 
 
