@@ -17,20 +17,32 @@ public enum GrandCentralBoardError: ErrorType, HavingMessage {
     }
 }
 
+public protocol Configurable {
+    func configure(configuration: Configuration) throws
+}
+
 public final class GrandCentralBoard {
 
     private let stack: ViewStacking
     private let scheduler: SchedulingJobs
     private let expectedWidgetsCount = 6
 
-    private var widgets: [Widget]
+    private var configuration: Configuration?
+    private var widgets: [Widget] = []
 
-    public init(configuration: Configuration, scheduler: SchedulingJobs, stack: ViewStacking) throws {
-
+    public init(scheduler: SchedulingJobs, stack: ViewStacking) {
         self.scheduler = scheduler
         self.stack = stack
+    }
+}
 
-        widgets = []
+extension GrandCentralBoard: Configurable {
+
+    public func configure(configuration: Configuration) throws {
+
+        if let previousConfiguration = self.configuration where previousConfiguration == configuration {
+            return
+        }
 
         widgets = try configuration.settings.flatMap({ widgetConfiguration in
 
@@ -44,6 +56,8 @@ public final class GrandCentralBoard {
         guard widgets.count == expectedWidgetsCount else {
             throw GrandCentralBoardError.WrongWidgetsCount
         }
+
+        stack.removeAllStackedViews()
 
         widgets.forEach { widget in
             stack.stackView(widget.view)

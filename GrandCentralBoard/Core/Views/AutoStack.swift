@@ -6,6 +6,7 @@
 import UIKit
 
 public protocol ViewStacking {
+    func removeAllStackedViews()
     func stackView(view: UIView)
 }
 
@@ -58,6 +59,17 @@ public final class AutoStack: UIView, ViewStacking {
 
             columnStackView.addArrangedSubview(view)
         }
+    }
+
+    public func removeAllStackedViews() {
+
+        mainStackView.arrangedSubviews.forEach { view in
+            mainStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+
+        stackedViews = []
+        columnStackViews = []
     }
 
     // MARK: - NSCoding
