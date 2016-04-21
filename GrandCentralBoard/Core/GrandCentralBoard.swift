@@ -44,6 +44,11 @@ extension GrandCentralBoard: Configurable {
             return
         }
 
+        scheduler.invalidateAll()
+        stack.removeAllStackedViews()
+
+        self.configuration = configuration
+
         widgets = try configuration.settings.flatMap({ widgetConfiguration in
 
             if let builder = configuration.builders.filter({ $0.name == widgetConfiguration.name }).first {
@@ -56,8 +61,6 @@ extension GrandCentralBoard: Configurable {
         guard widgets.count == expectedWidgetsCount else {
             throw GrandCentralBoardError.WrongWidgetsCount
         }
-
-        stack.removeAllStackedViews()
 
         widgets.forEach { widget in
             stack.stackView(widget.view)

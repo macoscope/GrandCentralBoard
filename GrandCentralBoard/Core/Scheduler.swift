@@ -36,6 +36,7 @@ public final class Job: Schedulable {
 
 public protocol SchedulingJobs {
     func schedule(job: Schedulable)
+    func invalidateAll()
 }
 
 public final class Scheduler: SchedulingJobs {
@@ -50,5 +51,14 @@ public final class Scheduler: SchedulingJobs {
         let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job, selector: job.selector, userInfo: nil, repeats: true)
         timers.append(timer)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+    }
+
+    public func invalidateAll() {
+        
+        timers.forEach { timer in
+            timer.invalidate()
+        }
+
+        timers = []
     }
 }

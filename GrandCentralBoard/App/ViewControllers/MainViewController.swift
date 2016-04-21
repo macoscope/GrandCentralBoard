@@ -7,9 +7,11 @@ import UIKit
 import GrandCentralBoardCore
 
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
-    private var board: GrandCentralBoard?
+    private let autoStack = AutoStack()
+    private let scheduler = Scheduler()
+    private lazy var board: GrandCentralBoard = { GrandCentralBoard(scheduler: self.scheduler, stack: self.autoStack) }()
 
     var configuration: Configuration! {
         didSet {
@@ -19,18 +21,14 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setUpBoardWithConfiguration(configuration)
     }
 
     private func setUpBoardWithConfiguration(configuration: Configuration) {
-
-        guard board == nil else { return }
-
+        view = autoStack
         do {
-            let autoStack = AutoStack()
-            let scheduler = Scheduler()
-            board = try GrandCentralBoard(configuration: configuration, scheduler: scheduler, stack: autoStack)
-            view = autoStack
+            try board.configure(configuration)
         } catch let error {
             showRetryDialogWithMessage(error.userMessage) { [weak self] in
                 self?.navigationController?.popViewControllerAnimated(true)

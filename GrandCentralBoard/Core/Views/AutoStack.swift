@@ -29,7 +29,10 @@ public final class AutoStack: UIView, ViewStacking {
         mainStackView.autoresizingMask = [ .FlexibleHeight, .FlexibleWidth ]
         mainStackView.translatesAutoresizingMaskIntoConstraints = true
         addSubview(mainStackView)
+        prepareColumnStackViews()
+    }
 
+    private func prepareColumnStackViews() {
         for _ in 0..<maximumColumns {
             let stack = UIStackView()
             stack.distribution = .FillEqually
@@ -70,6 +73,8 @@ public final class AutoStack: UIView, ViewStacking {
 
         stackedViews = []
         columnStackViews = []
+
+        prepareColumnStackViews()
     }
 
     // MARK: - NSCoding
