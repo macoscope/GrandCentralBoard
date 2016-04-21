@@ -26,7 +26,7 @@ public struct Configuration {
     public let builders: [WidgetBuilding]
     public let settings: [WidgetSettings]
 
-    public init(builders: [WidgetBuilding], settings: [WidgetSettings]) {
+    private init(builders: [WidgetBuilding], settings: [WidgetSettings]) {
         self.builders = builders
         self.settings = settings
     }
@@ -42,3 +42,16 @@ public struct Configuration {
         throw ConfigurationError.WrongFormat
     }
 }
+
+public func == (lhs: Configuration, rhs: Configuration) -> Bool {
+
+    for (index, settings) in lhs.settings.enumerate() {
+        if rhs.settings[index].hashValue != settings.hashValue {
+            return false
+        }
+    }
+
+    return true
+}
+
+extension Configuration : Equatable { }
