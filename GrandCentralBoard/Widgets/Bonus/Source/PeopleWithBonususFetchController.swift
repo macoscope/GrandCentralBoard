@@ -11,7 +11,6 @@ import GrandCentralBoardCore
 
 enum PeopleWithBonususFetchControllerError: ErrorType {
     case IncorrectEmailAddress
-    case ImageCannotBeFetched
     case NoAvatarURL
     case Cancelled
     case Unknown
@@ -123,15 +122,10 @@ final class PeopleWithBonusesFetchController {
             return
         }
 
-        dataDownloading.downloadDataAtPath(avatarPath) { result in
+        dataDownloading.downloadImageAtPath(avatarPath) { result in
             switch result {
-            case .Success(let data):
-                if let image = UIImage(data: data) {
-                    completionBlock(.Success(person.copyWithImage(image)))
-                    return
-                }
-
-                completionBlock(.Failure(PeopleWithBonususFetchControllerError.ImageCannotBeFetched))
+            case .Success(let image):
+                completionBlock(.Success(person.copyWithImage(image)))
             case .Failure(let error):
                 completionBlock(.Failure(error))
             }

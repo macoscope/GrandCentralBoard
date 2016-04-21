@@ -11,13 +11,16 @@ public protocol DataDownloading {
     func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void)
 }
 
-public enum DataDownloaderError: ErrorType, HavingMessage {
+public enum DataDownloadingError: ErrorType, HavingMessage {
     case EmptyResponse
+    case ImageCannotBeFetched
 
     public var message: String {
         switch self {
-            case .EmptyResponse:
-                return NSLocalizedString("Received empty data!", comment: "")
+        case .EmptyResponse:
+            return NSLocalizedString("Received empty data!", comment: "")
+        case .ImageCannotBeFetched:
+            return NSLocalizedString("Cannot download image!", comment: "")
         }
     }
 }
@@ -37,7 +40,24 @@ public final class DataDownloader: DataDownloading {
                 return
             }
 
-            completion(.Failure(error ?? DataDownloaderError.EmptyResponse))
+            completion(.Failure(error ?? DataDownloadingError.EmptyResponse))
+        }
+    }
+}
+
+public extension DataDownloading {
+    func downloadImageAtPath(path: String, completion: (Result<UIImage>) -> Void) {
+        downloadDataAtPath(path) { result in
+            switch result {
+            case .Success(let data):
+                if let image = UIImage(data: data) {
+                    completion(.Success(image))
+                } else {
+                    completion(.Failure(DataDownloadingError.ImageCannotBeFetched))
+                }
+            case .Failure(let error):
+                completion(.Failure(error))
+            }
         }
     }
 }
