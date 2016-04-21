@@ -3,16 +3,8 @@
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
-                
                 {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
-                {"name":"image", "settings":  {
-                    "urls": [
-                             "http://i2.cdn.turner.com/cnnnext/dam/assets/150324154025-14-internet-cats-restricted-super-169.jpeg",
-                             "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg",
-                             "https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg"
-                             ]
-                    }
-                },
-                {"name": "harvest", "settings": {"account": "The name used in harvest URLs, e.g. `gcbtest` from http://gcbtest.harvestapp.com", "refreshToken": "", "clientID": "", "clientSecret": "", "numberOfDays": 6, "refreshInterval": 3600}}
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
                ]
 }
