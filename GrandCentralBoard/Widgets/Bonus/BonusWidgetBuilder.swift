@@ -7,35 +7,47 @@ import Foundation
 import Decodable
 import GrandCentralBoardCore
 
-final class BonusWidgetBuilder : WidgetBuilding {
-    
+final class BonusWidgetBuilder: WidgetBuilding {
+
     var name = "bonus"
-    
+
     private let dataDownloader: DataDownloading
-    
+
     init(dataDownloader: DataDownloader) {
         self.dataDownloader = dataDownloader
     }
-    
+
     func build(settings: AnyObject) throws -> Widget {
-        
+
         let settings = try BonusWidgetSettings.decode(settings)
-        
-        let imageMappingSource = ImageMappingSource(settings: settings, dataDownloader: dataDownloader)
-        let bonusSource = BonusSource(settings: settings, dataDownloader: dataDownloader)
-        return BonusWidget(sources: [bonusSource, imageMappingSource])
+
+        let bonusSource = BonusSource(bonuslyAccessToken: settings.accessToken)
+        return BonusWidget(sources: [bonusSource], bubbleResizeDuration: settings.bubbleResizeDuration)
+    }
+}
+
+enum BonusWidgetSettingsError: ErrorType, HavingMessage {
+    case BubbleResizeDurationInvalid(NSTimeInterval)
+
+    var message: String {
+        switch self {
+        case .BubbleResizeDurationInvalid(let duration):
+            return "A value of \(duration) for BubbleResizeDuration is invalid"
+        }
     }
 }
 
 struct BonusWidgetSettings: Decodable {
-    
-    let mappingPath: String
-    
-    // Remeber to add include_children=true to the Bonus.ly API query. It should look more or less like this:
-    // https://bonus.ly/api/v1/bonuses?access_token=YOUR_ACCESS_TOKEN&include_children=true
-    let bonuslyPath: String
-    
+    let accessToken: String
+    let bubbleResizeDuration: NSTimeInterval
+
     static func decode(jsonObject: AnyObject) throws -> BonusWidgetSettings {
-        return try BonusWidgetSettings(mappingPath: jsonObject => "mappingPath", bonuslyPath: jsonObject => "bonusly")
+        let settings = try BonusWidgetSettings(accessToken: jsonObject => "accessToken",
+                                       bubbleResizeDuration: jsonObject => "bubbleResizeDuration")
+
+        guard settings.bubbleResizeDuration > 0 else {
+            throw BonusWidgetSettingsError.BubbleResizeDurationInvalid(settings.bubbleResizeDuration)
+        }
+        return settings
     }
 }

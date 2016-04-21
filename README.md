@@ -3,13 +3,16 @@ Grand Central Board for the Apple TV
 
 ![image](./README/screenshot.png)
 
+[![Build Status](https://travis-ci.org/macoscope/GrandCentralBoard.svg?branch=mvp)](https://travis-ci.org/macoscope/GrandCentralBoard)
+![Swift2.2](https://img.shields.io/badge/%20in-swift%202.2-orange.svg)
+
 Hang a TV in your open space or team room to show everyone what's up and get them up to speed.  
 
 The board is a lightweight piece of code. The TV screen is to be used in landscape orientation and will be split into six rectangular widgets loaded from a remote configuration file. This is just a UIView, so you can use the space in any way you want. Updating the widgets is standardized, though, therefore you should not ignore this convention.
 
 👷 Project maintained by: [@nsmeme](http://twitter.com/nsmeme) (Oktawian Chojnacki)
 
-✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2](https://swift.org).
+✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2.2](https://swift.org).
 
 ## Dependencies
 
@@ -86,11 +89,19 @@ protocol Synchronous : Source {
 }
 ```
 
-- **Asynchronous** - the source will call the provided block after the value is retrieved. 
+- **Asynchronous** - the source will call the provided block after the value is retrieved (only once). 
 
 ```swift
 protocol Asynchronous : Source {
     func read(closure: (ResultType) -> Void)
+}
+```
+
+- **Subscribable** - the source will call the provided block each time a new value arrives (multiple times). Note that `interval` can and often will be ignored.
+
+```swift
+public protocol Subscribable : Source {
+    var subscriptionBlock: ((ResultType) -> Void)? { get set }
 }
 ```
 
@@ -99,29 +110,28 @@ Fail can be handled silently, but there may be Widgets for which the fail state 
 All strategies inherit the **Source** protocol:
 
 ```swift
-
-enum SourceType {
+public enum SourceType {
     case Cumulative
     case Momentary
 }
 
-enum Result<T> {
-    case Failure(ErrorType)
-    case Success(T)
+public protocol UpdatingSource : class {
+    var interval: NSTimeInterval { get }
 }
 
-protocol Source {
+public protocol Source : UpdatingSource {
 
-    typealias ResultType
+    associatedtype ResultType
 
     var sourceType: SourceType { get }
-    var optimalFrequency: NSTimeInterval { get }
 }
 ```
 
-# Summary
+# Contributing
 
 This project is still in its early stages and there is a lot to do. If you want to contribute, please add an issue and discuss your plans with us. This will allow us to give you assistance should you need it and to make sure that people aren’t working on the same things.
+
+If you want to open a Pull Request, make sure you have [SwiftLint](https://github.com/Realm/SwiftLint) installed, and check that your project does not generate warnings or errors. Any warning will cause Travis build script to fail. 
 
 # Credits
 

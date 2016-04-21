@@ -8,13 +8,13 @@ import GrandCentralBoardCore
 @testable import GrandCentralBoard
 
 
-final class SourceMock : UpdatingSource {
+final class SourceMock: UpdatingSource {
     var interval: NSTimeInterval = 0
 }
 
 let source = SourceMock()
 
-final class TargetMock : Updateable {
+final class TargetMock: Updateable {
     var sources: [UpdatingSource] = [source]
     let expectation: XCTestExpectation
 

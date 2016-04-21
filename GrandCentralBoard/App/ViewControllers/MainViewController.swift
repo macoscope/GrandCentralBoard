@@ -6,6 +6,7 @@
 import UIKit
 import GrandCentralBoardCore
 
+
 class MainViewController: UIViewController {
 
     private var board: GrandCentralBoard?
@@ -30,7 +31,7 @@ class MainViewController: UIViewController {
             let scheduler = Scheduler()
             board = try GrandCentralBoard(configuration: configuration, scheduler: scheduler, stack: autoStack)
             view = autoStack
-        } catch let error  {
+        } catch let error {
             showRetryDialogWithMessage(error.userMessage) { [weak self] in
                 self?.navigationController?.popViewControllerAnimated(true)
             }

@@ -4,50 +4,68 @@
 //
 
 import UIKit
-import Alamofire
 import GrandCentralBoardCore
 
 
-struct Image : Timed {
-    let value: UIImage
-    let time: NSDate
-}
-
-enum RemoteImageSourceError : ErrorType, HavingMessage {
+enum RemoteImageSourceError: ErrorType, HavingMessage {
     case DownloadFailed
-
+    case EmptyURLList
     var message: String {
         switch self {
-            case .DownloadFailed:
-                return NSLocalizedString("Cannot download image!", comment: "")
+        case .DownloadFailed:
+            return NSLocalizedString("Cannot download image!", comment: "")
+        case .EmptyURLList:
+            return NSLocalizedString("Provided list of URLs with images is empty!", comment: "")
         }
     }
 }
 
-final class RemoteImageSource : Asynchronous {
+struct Counter {
+    private(set) var value = 0
+    let modulo: Int
 
-    typealias ResultType = GrandCentralBoardCore.Result<Image>
+    mutating func nextValue() -> Int {
+        let returnValue = value
+        value = (value + 1) % modulo
+        return returnValue
+    }
+}
+
+final class RemoteImageSource: Asynchronous {
+
+    typealias ResultType = GrandCentralBoardCore.Result<UIImage>
 
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
+    let dataDownloader: DataDownloader
 
-    private let url: NSURL
+    private let paths: [String]
+    private var counter: Counter
 
-    init(url: NSURL, interval: NSTimeInterval = 30) {
+    init(paths: [String], dataDownloader: DataDownloader, interval: NSTimeInterval = 30) throws {
+        guard paths.count > 0 else {
+            throw RemoteImageSourceError.EmptyURLList
+        }
+
         self.interval = interval
-        self.url = url
+        self.paths = paths
+        self.dataDownloader = dataDownloader
+        self.counter = Counter(value: 0, modulo: paths.count)
     }
 
     func read(closure: (ResultType) -> Void) {
-        Alamofire.request(.GET, url).response { (request, response, data, error) in
-
-            if let data = data, image = UIImage(data: data) {
-                let image = Image(value: image, time: NSDate())
-                closure(.Success(image))
-                return
+        let path = paths[counter.nextValue()]
+        dataDownloader.downloadDataAtPath(path) { result in
+            switch result {
+            case .Success(let data):
+                if let image = UIImage(data: data) {
+                    closure(.Success(image))
+                } else {
+                    closure(.Failure(RemoteImageSourceError.DownloadFailed))
+                }
+            case .Failure(let error):
+                closure(.Failure(error))
             }
-
-            closure(.Failure(error ?? RemoteImageSourceError.DownloadFailed))
         }
     }
 }

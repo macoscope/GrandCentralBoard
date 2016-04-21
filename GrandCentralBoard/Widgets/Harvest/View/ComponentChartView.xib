@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
+        </mutableArray>
+        <mutableArray key="SF-UI-Text-Semibold.otf">
+            <string>SFUIText-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ComponentChartView" customModule="GrandCentralBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="101"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulr-JH-uON">
+                    <rect key="frame" x="29" y="79" width="22" height="22"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="18"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qkR-mT-Fbo">
+                    <rect key="frame" x="0.0" y="3" width="80" height="17"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24.03.2016" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oxv-0g-Mnm">
+                    <rect key="frame" x="0.0" y="19" width="80" height="15"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ee8-gK-FSG" customClass="AreaBarStackView" customModule="GrandCentralBoard" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="43" width="80" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="m1r-D2-f6s"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qkR-mT-Fbo" secondAttribute="trailing" id="4HT-gE-LnD"/>
+                <constraint firstItem="oxv-0g-Mnm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Cs8-oP-zI9"/>
+                <constraint firstItem="ee8-gK-FSG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aYY-2z-CAI"/>
+                <constraint firstAttribute="trailing" secondItem="ee8-gK-FSG" secondAttribute="trailing" id="ffj-II-SfP"/>
+                <constraint firstItem="Ulr-JH-uON" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fw3-5h-WcU"/>
+                <constraint firstItem="Ulr-JH-uON" firstAttribute="top" secondItem="ee8-gK-FSG" secondAttribute="bottom" constant="9" id="fzo-lk-LGN"/>
+                <constraint firstItem="ee8-gK-FSG" firstAttribute="top" secondItem="oxv-0g-Mnm" secondAttribute="bottom" constant="9" id="glf-Hy-Gto"/>
+                <constraint firstItem="oxv-0g-Mnm" firstAttribute="top" secondItem="qkR-mT-Fbo" secondAttribute="bottom" constant="-1" id="oeh-AT-Vbp"/>
+                <constraint firstAttribute="trailing" secondItem="oxv-0g-Mnm" secondAttribute="trailing" id="wDD-v8-df4"/>
+                <constraint firstItem="qkR-mT-Fbo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yZ5-AQ-Dyw"/>
+                <constraint firstAttribute="bottom" secondItem="Ulr-JH-uON" secondAttribute="bottom" id="zPa-oG-xT0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="barStackView" destination="ee8-gK-FSG" id="USX-Ah-Vvk"/>
+                <outlet property="headerLabel" destination="qkR-mT-Fbo" id="QGh-11-OiB"/>
+                <outlet property="horizontalAxisCountLabel" destination="Ulr-JH-uON" id="ceB-O4-FEG"/>
+                <outlet property="subheaderLabel" destination="oxv-0g-Mnm" id="6ck-7e-efv"/>
+            </connections>
+        </view>
+    </objects>
+</document>

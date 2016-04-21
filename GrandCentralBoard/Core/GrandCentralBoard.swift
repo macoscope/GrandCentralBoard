@@ -6,7 +6,7 @@
 import UIKit
 
 
-public enum GrandCentralBoardError : ErrorType, HavingMessage {
+public enum GrandCentralBoardError: ErrorType, HavingMessage {
     case WrongWidgetsCount
 
     public var message: String {
@@ -31,9 +31,9 @@ public final class GrandCentralBoard {
         self.stack = stack
 
         widgets = []
-        
+
         widgets = try configuration.settings.flatMap({ widgetConfiguration in
-            
+
             if let builder = configuration.builders.filter({ $0.name == widgetConfiguration.name }).first {
                 return try builder.build(widgetConfiguration.settings)
             }

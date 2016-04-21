@@ -5,7 +5,7 @@
 
 import Foundation
 
-public final class ConfigurationDownloader : ConfigurationFetching {
+public final class ConfigurationDownloader: ConfigurationFetching {
 
     private let dataDownloader: DataDownloading
     private let path: String

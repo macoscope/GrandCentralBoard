@@ -6,11 +6,9 @@
 import UIKit
 import GrandCentralBoardCore
 
+private let secondsInAnHour: NSTimeInterval = 3600
 
-private let slideshowInterval = 10.0
-private let secondsInDay: NSTimeInterval = 3600
-
-final class WatchWidget : Widget {
+final class WatchWidget: Widget {
 
     private let widgetView: WatchWidgetView
     let sources: [UpdatingSource]
@@ -24,6 +22,7 @@ final class WatchWidget : Widget {
         return widgetView
     }
 
+    private var calendarName: String?
     private var events: [Event]?
     private var lastFetch: NSDate?
 
@@ -33,8 +32,21 @@ final class WatchWidget : Widget {
                 updateTimeFromSource(source)
             case let source as EventsSource:
                 fetchEventsFromSource(source)
+            case let source as CalendarNameSource:
+                fetchCalendarNameFromSource(source)
             default:
                 assertionFailure("Expected `source` as instance of `TimeSource` or `EventsSource`.")
+        }
+    }
+
+    private func fetchCalendarNameFromSource(source: CalendarNameSource) {
+        source.read { [weak self] result in
+            switch result {
+            case .Success(let calendar):
+                self?.calendarName = calendar.name
+            case .Failure:
+                break
+            }
         }
     }
 
@@ -54,7 +66,7 @@ final class WatchWidget : Widget {
         source.read { [weak self] result in
             switch result {
                 case .Success(let events):
-                    self?.events = events.events
+                    self?.events = events
                 case .Failure:
                     break
             }
@@ -65,18 +77,12 @@ final class WatchWidget : Widget {
 
         let relevantEvents = events?.filter {
             let secondsLeftToEvent = $0.time.timeIntervalSinceDate(NSDate())
-            return secondsLeftToEvent > 0 && secondsLeftToEvent < secondsInDay
+            return secondsLeftToEvent > 0 && secondsLeftToEvent < secondsInAnHour
         }
 
-        var event: Event? = nil
-
-        if let relevantEvents = relevantEvents where !relevantEvents.isEmpty {
-            let eventsCount = relevantEvents.count
-            let index = Int(NSDate().timeIntervalSince1970 / slideshowInterval) % eventsCount
-            event = relevantEvents[index]
-        }
-
-        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event)
+        let event: Event? = relevantEvents?.first
+        let displayedCalendarName = event != nil ? calendarName : nil
+        let timeViewModel = WatchWidgetViewModel(date: time.time, timeZone: time.timeZone, event: event, calendarName: displayedCalendarName)
         widgetView.render(timeViewModel)
     }
 }

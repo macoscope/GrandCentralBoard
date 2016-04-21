@@ -8,22 +8,20 @@ import Decodable
 import GrandCentralBoardCore
 
 
-struct Time : Timed {
+struct Time: Timed {
     let time: NSDate
     let timeZone: NSTimeZone
 }
 
-struct TimeSourceSettings : Decodable {
+struct TimeSourceSettings: Decodable {
     let timeZone: NSTimeZone
-    let calendarPath: String
 
     static func decode(jsonObject: AnyObject) throws -> TimeSourceSettings {
-        return try TimeSourceSettings(timeZone: NSTimeZone(name: jsonObject => "timeZone") ?? NSTimeZone.defaultTimeZone(),
-                                  calendarPath: jsonObject => "calendar")
+        return try TimeSourceSettings(timeZone: NSTimeZone(name: jsonObject => "timeZone") ?? NSTimeZone.defaultTimeZone())
     }
 }
 
-final class TimeSource : Synchronous {
+final class TimeSource: Synchronous {
 
     typealias ResultType = Result<Time>
 

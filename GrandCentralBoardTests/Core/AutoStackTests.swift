@@ -11,7 +11,7 @@ import GrandCentralBoardCore
 class AutoStackTests: XCTestCase {
 
     let autoStack: AutoStack = AutoStack()
-    
+
     func testStackedSixViews() {
 
         let viewsCount = 6

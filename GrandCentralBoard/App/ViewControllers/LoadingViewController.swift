@@ -6,19 +6,32 @@
 import UIKit
 import GrandCentralBoardCore
 
-private let dataDownloader = DataDownloader()
-private let availableBuilders: [WidgetBuilding] = [WatchWidgetBuilder(dataDownloader: dataDownloader), BonusWidgetBuilder(dataDownloader: dataDownloader)]
-private let useLocal = debugBuild
+
+let shouldLoadBundledConfig = NSBundle.alwaysUseLocalConfigurationFile || NSProcessInfo.loadBundledConfig
 
 class LoadingViewController: UIViewController {
 
-    lazy var configurationFetching: ConfigurationFetching = {
+    private let dataDownloader = DataDownloader()
 
-        if useLocal {
-            return LocalConfigurationLoader(configFileName: localConfigurationFileName, availableBuilders: availableBuilders)
+    private lazy var availableBuilders: [WidgetBuilding] = [
+        WatchWidgetBuilder(dataDownloader: self.dataDownloader),
+        BonusWidgetBuilder(dataDownloader: self.dataDownloader),
+        GoogleCalendarWatchWidgetBuilder(),
+        HarvestWidgetBuilder(),
+        ImageWidgetBuilder(dataDownloader: self.dataDownloader),
+        BlogPostsPopularityWidgetBuilder()
+    ]
+
+    private lazy var configurationFetching: ConfigurationFetching = {
+
+        if shouldLoadBundledConfig {
+            return LocalConfigurationLoader(configFileName: NSBundle.localConfigurationFileName,
+                                         availableBuilders: self.availableBuilders)
         }
 
-        return ConfigurationDownloader(dataDownloader: dataDownloader, path: configurationPath, builders: availableBuilders)
+        return ConfigurationDownloader(dataDownloader: self.dataDownloader,
+                                                 path: NSBundle.remoteConfigurationPath,
+                                             builders: self.availableBuilders)
     }()
 
     override func viewWillAppear(animated: Bool) {
@@ -27,6 +40,7 @@ class LoadingViewController: UIViewController {
     }
 
     private func fetchConfiguration() {
+
         configurationFetching.fetchConfiguration { [weak self] result in
             switch result {
                 case .Success(let configuration):
@@ -40,4 +54,3 @@ class LoadingViewController: UIViewController {
         }
     }
 }
-

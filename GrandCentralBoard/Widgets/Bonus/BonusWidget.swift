@@ -6,29 +6,26 @@
 import UIKit
 import GrandCentralBoardCore
 
-final class BonusWidget : Widget {
-    
+final class BonusWidget: Widget {
+
     private let widgetView: BonusWidgetView
     let sources: [UpdatingSource]
-    
-    private var mapping: Mapping?
-    
-    init(sources: [UpdatingSource]) {
+    let bubbleResizeDuration: NSTimeInterval
+
+    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval) {
         self.widgetView = BonusWidgetView.fromNib()
         self.sources = sources
+        self.bubbleResizeDuration = bubbleResizeDuration
     }
-    
+
     var view: UIView {
         return widgetView
     }
-    
+
     func update(source: UpdatingSource) {
         switch source {
             case let source as BonusSource:
-                source.mapping = mapping
                 updateBonusFromSource(source)
-            case let source as ImageMappingSource:
-                updateFromImageMappingSource(source)
             default:
                 assertionFailure("Expected `source` as instance of `BonusSource`.")
         }
@@ -38,22 +35,12 @@ final class BonusWidget : Widget {
         source.read { result in
             switch result {
                 case .Success(let people):
-                    let bonusViewModel = BonusWidgetViewModel(people: people)
+                    let bonusViewModel = BonusWidgetViewModel(people: people, bubbleResizeDuration: self.bubbleResizeDuration)
                     self.widgetView.render(bonusViewModel)
                 case .Failure:
                     self.widgetView.failure()
             }
         }
     }
-    
-    private func updateFromImageMappingSource(source: ImageMappingSource) {
-        source.read { result in
-            switch result {
-                case .Success(let mapping):
-                    self.mapping = mapping
-                case .Failure:
-                    break
-            }
-        }
-    }
+
 }

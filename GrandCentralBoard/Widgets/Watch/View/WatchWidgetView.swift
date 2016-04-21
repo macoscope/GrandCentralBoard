@@ -12,7 +12,7 @@ private let flashingInterval: NSTimeInterval = 0.4
 private let transitionInterval: NSTimeInterval = 0.3
 private let semiTransparentAlpha: CGFloat = 0.3
 
-final class WatchWidgetView : UIView, ViewModelRendering {
+final class WatchWidgetView: UIView, ViewModelRendering {
 
     @IBOutlet private weak var hourLeft: UILabel!
     @IBOutlet private weak var hourRight: UILabel!
@@ -22,6 +22,9 @@ final class WatchWidgetView : UIView, ViewModelRendering {
     @IBOutlet private weak var blinkingImage: UIImageView!
     @IBOutlet private weak var watchFaceImage: UIImageView!
     @IBOutlet private weak var selectionImage: UIImageView!
+    @IBOutlet private weak var calendarName: UILabel!
+
+    private var blinkingImageFlashingAnimationController: FlashingAnimationController?
 
     // MARK - ViewModelRendering
 
@@ -49,8 +52,11 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         startsIn.text = ""
         hourLeft.text = ""
         hourRight.text = ""
+        calendarName.text = ""
 
-        blinkingImage.startFlashingWithInterval(pulsatingInterval, alphaDepth: semiTransparentAlpha)
+        blinkingImageFlashingAnimationController = FlashingAnimationController(view: blinkingImage, interval: pulsatingInterval,
+                                                                               alphaDepth: semiTransparentAlpha)
+        blinkingImageFlashingAnimationController?.startFlashing()
     }
 
     // MARK - Transitions
@@ -77,6 +83,7 @@ final class WatchWidgetView : UIView, ViewModelRendering {
         meetingName.animateTextTransition(viewModel.meetingName)
         meetingETA.animateTextTransition(viewModel.meetingETA)
         startsIn.animateTextTransition(viewModel.startsIn)
+        calendarName.animateTextTransition(viewModel.calendarName)
     }
 
 

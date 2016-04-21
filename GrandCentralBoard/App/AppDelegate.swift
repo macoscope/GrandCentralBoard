@@ -5,9 +5,6 @@
 
 import UIKit
 
-let debugBuild: Bool = _isDebugAssertConfiguration()
-let configurationPath = "http://localhost:8000/configuration.json"
-let localConfigurationFileName = "configuration"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,10 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
         UIApplication.sharedApplication().idleTimerDisabled = true
 
         return true
     }
 }
-

@@ -1,0 +1,13 @@
+use_nested_configs: true
+disabled_rules:
+  - force_cast
+included:
+  - GrandCentralBoard
+  - GrandCentralBoardTests
+
+line_length: 150
+function_parameter_count: 6
+variable_name:
+  min_length: 3
+  excluded:
+    - id

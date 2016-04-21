@@ -7,11 +7,11 @@ import Foundation
 
 
 public protocol HavingMessage {
-    var message : String { get }
+    var message: String { get }
 }
 
-public extension ErrorType  {
-    var userMessage : String {
+public extension ErrorType {
+    var userMessage: String {
 
         if let error = self as? HavingMessage {
             return error.message

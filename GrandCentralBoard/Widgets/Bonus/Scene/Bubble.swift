@@ -5,29 +5,32 @@
 
 import SpriteKit
 
-class Bubble: SKSpriteNode {
-    
-    private var bonus: Int = 0
-    private let initialSize = CGSize(width: 100, height: 100)
-    
+class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
+
+    private let initialSize = CGSize(width: 140, height: 140)
+    private var lastBonusDate: NSDate? = nil
+    private let bubbleResizeDuration: NSTimeInterval
+    private lazy var scalingAnimator: BubbleScalingAnimator = {
+        let animator = BubbleScalingAnimator(spriteNode: self, bubbleResizeDuration: self.bubbleResizeDuration)
+        animator.delegate = self
+        return animator
+    }()
+
     init(bubbleViewModel: BubbleViewModel) {
         let image = bubbleViewModel.image
-        
-        self.bonus = bubbleViewModel.bonus
         let texture = SKTexture(image: image.cropToCircle())
+        self.bubbleResizeDuration = bubbleViewModel.bubbleResizeDuration
+
         super.init(texture: texture, color: UIColor.clearColor(), size: initialSize)
-        
+
         setUpPhysicsBody(texture, size: initialSize, bubbleViewModel: bubbleViewModel)
         self.name = bubbleViewModel.name
-        
-        let scaleBy: CGFloat = 1 + CGFloat(bubbleViewModel.bonus) / 100
-        setScale(scaleBy)
     }
-    
+
     private func findImage(bubbleViewModel: BubbleViewModel) -> UIImage? {
         return UIImage(named: "placeholder")
     }
-    
+
     private func setUpPhysicsBody(texture: SKTexture, size: CGSize, bubbleViewModel: BubbleViewModel) {
         let spacing: CGFloat = 1
         physicsBody = SKPhysicsBody(circleOfRadius: initialSize.width / 2 + spacing)
@@ -36,45 +39,32 @@ class Bubble: SKSpriteNode {
         physicsBody?.linearDamping = 0.5
         physicsBody?.allowsRotation = false
     }
-    
+
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func updateImage(image: UIImage) {
         let newImage = image.cropToCircle()
         self.texture = SKTexture(image: newImage)
     }
-    
-    func updateWithNewBonus(newBonus: Int) {
-        let difference = newBonus - self.bonus
 
-        // We increase bonus and run animation only if the value of bonus changes for a bigger one.
-        guard difference > 0 else { return }
-        
-        self.bonus += difference
-        
-        var scaleBy: CGFloat = 2.3
-        let scaleUpAction = SKAction.scaleBy(scaleBy, duration: 0.5)
-        let scaleDownAction = SKAction.scaleBy(1/scaleBy, duration: 0.1)
-        
-        scaleBy = 1 + CGFloat(difference) / 100
-        let finalScaleAction = SKAction.scaleBy(scaleBy, duration: 0.1)
+    func updateWithLastBonusDate(lastBonusDate: NSDate) {
+        guard self.lastBonusDate != nil else {
+            self.lastBonusDate = lastBonusDate
+            return
+        }
 
-        parent?.children.forEach({ node in
-            node.removeActionForKey("shakeAction")
-        })
-        runAction(SKAction.sequence([scaleUpAction, scaleDownAction, finalScaleAction]), completion: {
-            self.runAction(SKAction.shakeForever(), withKey: "shakeAction")
-        })
+        guard lastBonusDate.timeIntervalSinceDate(self.lastBonusDate!) > 0 else {
+            return
+        }
+
+        self.lastBonusDate = lastBonusDate
+        self.scalingAnimator.scaleUp()
     }
-}
 
-extension SKAction {
-    class func shakeForever(amplitudeX: CGFloat = 5, amplitudeY: CGFloat = 5) -> SKAction {
+    // MARK - BubbleScalingControllerDelegate
 
-        let forward = SKAction.moveByX(amplitudeX, y:amplitudeY, duration: 0.015)
-        let reverse = forward.reversedAction()
-        return SKAction.repeatActionForever(SKAction.sequence([forward, reverse]))
-    }
+    func bubbleScalingAnimator(bubbleScalingAnimator: BubbleScalingAnimator, didScaleSpriteNodeDown spriteNode: SKSpriteNode) { }
+
 }
