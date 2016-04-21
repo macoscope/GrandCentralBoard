@@ -29,7 +29,7 @@ struct Event: Decodable {
         guard let startTime = Event.dateFormatter.dateFromString(startString) else {
             throw DateFormattingError(dateString: startString)
         }
-        return try Event(name: json => "summary", time: startTime)
+        return try Event(name: json =>? "summary" ?? "-", time: startTime)
     }
 
     static func decodeArray(json: AnyObject) throws -> [Event] {

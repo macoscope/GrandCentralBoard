@@ -15,7 +15,7 @@ private let calendarDictionary = ["kind": "calendar#calendar", "summary": "TestC
 private let eventsDictionary = ["kind": "calendar#events", "items" :
     [
         ["kind": "calendar#event", "summary" : "Name of event #1", "start" : ["dateTime" : "2016-04-11T08:00:00Z"]],
-        ["kind": "calendar#event", "summary" : "Name of event #2", "start" : ["dateTime" : "2016-04-11T12:15:00Z"]]
+        ["kind": "calendar#event", "start" : ["dateTime" : "2016-04-11T12:15:00Z"]]
     ]
 ]
 
@@ -62,9 +62,9 @@ class CalendarDataProviderTests: XCTestCase {
                 let eventItems = eventsDictionary["items"] as! [NSDictionary]
                 XCTAssertEqual(eventItems.count, events.count)
                 for i in 0..<events.count {
-                    let eventName: String = try! eventItems[i] => "summary"
+                    let eventName: String = eventItems[i]["summary"] as? String ?? "-"
                     let eventDateString: String = try! eventItems[i] => "start" => "dateTime"
-                    let eventDate = self.dynamicType.dateFormatter.dateFromString(eventDateString)!
+                    let eventDate = CalendarDataProviderTests.dateFormatter.dateFromString(eventDateString)!
                     XCTAssertEqual(eventName, events[i].name)
                     XCTAssertEqual(eventDate, events[i].time)
                 }
@@ -73,6 +73,4 @@ class CalendarDataProviderTests: XCTestCase {
             }
         }
     }
-
-
 }
