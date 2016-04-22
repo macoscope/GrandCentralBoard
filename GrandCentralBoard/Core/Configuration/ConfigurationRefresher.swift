@@ -6,22 +6,29 @@
 import Foundation
 
 
-final class ConfigurationRefresher: Schedulable {
+public final class ConfigurationRefresher: Schedulable {
 
     private let scheduler: SchedulingJobs
     private let fetcher: ConfigurationFetching
     private weak var configuree: Configurable?
 
-    let interval: NSTimeInterval
-    let selector: Selector = #selector(fetch)
+    public let interval: NSTimeInterval
+    public let selector: Selector = #selector(fetch)
 
-    init(interval: NSTimeInterval, fetcher: ConfigurationFetching, scheduler: SchedulingJobs = Scheduler()) {
+    public init(interval: NSTimeInterval,
+                configuree: Configurable,
+                fetcher: ConfigurationFetching,
+                scheduler: SchedulingJobs = Scheduler()) {
+
         self.scheduler = scheduler
         self.fetcher = fetcher
         self.interval = interval
+        self.configuree = configuree
+
+        start()
     }
 
-    func start() {
+    private func start() {
         scheduler.schedule(self)
     }
 
@@ -30,7 +37,7 @@ final class ConfigurationRefresher: Schedulable {
             switch result {
             case .Success(let configuration):
                 do {
-                try self?.configuree?.configure(configuration)
+                    try self?.configuree?.configure(configuration)
                 } catch (let error) {
                     print("ConfigurationRefresher Error: '\(error)'")
                 }

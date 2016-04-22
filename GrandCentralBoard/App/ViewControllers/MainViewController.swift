@@ -12,7 +12,7 @@ final class MainViewController: UIViewController {
     private let autoStack = AutoStack()
     private let scheduler = Scheduler()
     private let dataDownloader = DataDownloader()
-    private lazy var configurationRefresher: ConfigurationRefresher = { ConfigurationRefresher(interval: 30, fetcher: self.configurationFetching) }()
+    private var configurationRefresher: ConfigurationRefresher?
 
     private lazy var board: GrandCentralBoard = { GrandCentralBoard(scheduler: self.scheduler, stack: self.autoStack) }()
 
@@ -31,7 +31,7 @@ final class MainViewController: UIViewController {
 
         if shouldLoadBundledConfig {
             return LocalConfigurationLoader(configFileName: NSBundle.localConfigurationFileName,
-                                            availableBuilders: self.availableBuilders)
+                                         availableBuilders: self.availableBuilders)
         }
 
         return ConfigurationDownloader(dataDownloader: self.dataDownloader,
@@ -39,11 +39,11 @@ final class MainViewController: UIViewController {
                                        builders: self.availableBuilders)
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
 
-        configurationRefresher.start()
-        //setUpBoardWithConfiguration(configuration)
+        view = autoStack
+        configurationRefresher = ConfigurationRefresher(interval: 2, configuree: board, fetcher: self.configurationFetching)
     }
 
     private func setUpBoardWithConfiguration(configuration: Configuration) {
