@@ -51,7 +51,7 @@ public func == (lhs: Configuration, rhs: Configuration) -> Bool {
         }
     }
 
-    return false // TODO: AAAA
+    return true
 }
 
 extension Configuration : Equatable { }

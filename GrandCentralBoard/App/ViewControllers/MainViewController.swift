@@ -43,17 +43,7 @@ final class MainViewController: UIViewController {
         super.viewDidAppear(animated)
 
         view = autoStack
-        configurationRefresher = ConfigurationRefresher(interval: 2, configuree: board, fetcher: self.configurationFetching)
-    }
 
-    private func setUpBoardWithConfiguration(configuration: Configuration) {
-        view = autoStack
-        do {
-            try board.configure(configuration)
-        } catch let error {
-            showRetryDialogWithMessage(error.userMessage) { [weak self] in
-                self?.navigationController?.popViewControllerAnimated(true)
-            }
-        }
+        configurationRefresher = ConfigurationRefresher(interval: 60, configuree: board, fetcher: self.configurationFetching)
     }
 }

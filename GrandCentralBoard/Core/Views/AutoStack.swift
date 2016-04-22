@@ -22,6 +22,7 @@ public final class AutoStack: UIView, ViewStacking {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        backgroundColor = UIColor.blackColor()
         mainStackView.distribution = .FillEqually
         mainStackView.alignment = .Fill
         mainStackView.axis = .Vertical
