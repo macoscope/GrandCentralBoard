@@ -16,9 +16,8 @@ struct Storyboards {
             return UIStoryboard(name: name, bundle: nil)
         }
 
-        static func instantiate(configuration: Configuration) -> MainViewController! {
+        static func instantiate() -> MainViewController! {
             let viewController = storyboard.instantiateViewControllerWithIdentifier("Main") as! MainViewController
-            viewController.configuration = configuration
             return viewController
         }
     }

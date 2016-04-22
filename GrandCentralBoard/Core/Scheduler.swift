@@ -5,15 +5,20 @@
 
 import Foundation
 
+public protocol HavingSource {
+    var source: UpdatingSource { get }
+}
+
+public protocol HavingTarget {
+    var target: Updateable { get }
+}
 
 public protocol Schedulable : class {
     var interval: NSTimeInterval { get }
     var selector: Selector { get }
-    var source: UpdatingSource { get }
-    var target: Updateable { get }
 }
 
-public final class Job: Schedulable {
+public final class Job: Schedulable, HavingSource, HavingTarget {
 
     public let target: Updateable
     public let selector: Selector = "update"

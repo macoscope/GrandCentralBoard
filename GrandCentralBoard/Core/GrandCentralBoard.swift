@@ -17,7 +17,7 @@ public enum GrandCentralBoardError: ErrorType, HavingMessage {
     }
 }
 
-public protocol Configurable {
+public protocol Configurable : class {
     func configure(configuration: Configuration) throws
 }
 
