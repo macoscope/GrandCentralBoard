@@ -94,7 +94,6 @@ final class PeopleWithBonusesFetchController {
                 case .Success(let personWithImage):
                     peopleWithImages?.append(personWithImage)
                 case .Failure(let error):
-                    peopleWithImages = nil
                     groupError = error
                 }
                 dispatch_group_leave(group)
@@ -122,8 +121,8 @@ final class PeopleWithBonusesFetchController {
             switch result {
             case .Success(let image):
                 completionBlock(.Success(person.copyWithImage(image)))
-            case .Failure(let error):
-                completionBlock(.Failure(error))
+            case .Failure:
+                completionBlock(.Success(person.copyWithImage(UIImage(named: "placeholder")!)))
             }
         }
     }
