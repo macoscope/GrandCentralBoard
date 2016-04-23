@@ -22,6 +22,7 @@
 		17D5DAC4FE9A2C243545810B2F799108 /* AlertOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16667ADFC79C27A9FEA7137DB44816 /* AlertOperation.swift */; };
 		191D88768D9F688118E26454E4245F71 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = A849BA2AA66ED0009E1DABC075D427EE /* Match.swift */; };
 		19E8E8F91047DD8BFFC1179F968AFEFC /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28125345B5EF7868E2F221F415CEA118 /* BeGreaterThanOrEqualTo.swift */; };
+		1A954F061CCBACC6004905E0 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A954F051CCBACC6004905E0 /* Job.swift */; };
 		1C9A12761204BD7DD754D2E92460249C /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7921421D1464A32880AF325AFA9D55 /* MD5.swift */; };
 		1EAA94CE67393EAEBE4E454E3B0CF8A6 /* PostNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA45FE500C47695050A34B5D16F89B3 /* PostNotification.swift */; };
 		1FFEB519175C90E60C298ADFBE416A13 /* DataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5046553FDFA63C53297D4914FDBFB099 /* DataDownloader.swift */; };
@@ -278,6 +279,7 @@
 		17E831BADFD0966C8309221DA5AFF11A /* RepeatedOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RepeatedOperation.swift; path = Sources/Core/Shared/RepeatedOperation.swift; sourceTree = "<group>"; };
 		180D2B91A218583EC6DFCE4F2CCD341E /* ErrorType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		1918479DB2D95EE76822FD8FA930F0E3 /* HashProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashProtocol.swift; path = Sources/HashProtocol.swift; sourceTree = "<group>"; };
+		1A954F051CCBACC6004905E0 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		1B14B8F12465E9DF5A35DDDBE2642F6E /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		1B1FE19B2C4BB36801FB2C9690FE7FC0 /* EndWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EndWith.swift; path = Sources/Nimble/Matchers/EndWith.swift; sourceTree = "<group>"; };
 		1BFED7187D0BF862E4ABAD3F38F46C8A /* RetryOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryOperation.swift; path = Sources/Core/Shared/RetryOperation.swift; sourceTree = "<group>"; };
@@ -949,6 +951,7 @@
 				3302E835AF460A2F3E453B07A277752B /* Rendering.swift */,
 				2C59C00A8C5A6A0EDE61E22D30087972 /* Result.swift */,
 				FDB3508879C939AFB8D8F03374E7ABCC /* Scheduler.swift */,
+				1A954F051CCBACC6004905E0 /* Job.swift */,
 				478BB67B30FE9400FFEDBED3CBD2DAB6 /* Widget.swift */,
 				637CC82028CABFD0053273DF9654ED71 /* Configuration */,
 				D00F7B9B02F9BD38762B3D4494CD0CB4 /* Extensions */,
@@ -1511,6 +1514,7 @@
 				EFBAD3417C19C8BBD71F26EE117AFFEF /* Timed.swift in Sources */,
 				ED535A460F0F6A11084033C132F6E5F0 /* UIAlertController.swift in Sources */,
 				2ED180D6A1D4F96DC9792ACD3C1AE48B /* UILabel.swift in Sources */,
+				1A954F061CCBACC6004905E0 /* Job.swift in Sources */,
 				6DFC8F9929A9E064BD0431C884301C0E /* UIView.swift in Sources */,
 				343FEF648059F0A002D109D7E8F57546 /* UIViewController.swift in Sources */,
 				53E903554B60D78BB32343CF957D4883 /* Widget.swift in Sources */,
