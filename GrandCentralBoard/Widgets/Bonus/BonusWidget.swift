@@ -6,7 +6,7 @@
 import UIKit
 import GrandCentralBoardCore
 
-final class BonusWidget: Widget {
+final class BonusWidget: WidgetControlling {
 
     private let widgetView: BonusWidgetView
     let sources: [UpdatingSource]

@@ -38,7 +38,7 @@ public final class GrandCentralBoard {
     private let expectedWidgetsCount = 6
 
     private var configuration: Configuration?
-    private var widgets: [Widget] = []
+    private var widgets: [WidgetControlling] = []
 
     /**
      Initialize the `GrandCentralBoard`.

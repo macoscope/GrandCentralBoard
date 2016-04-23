@@ -5,17 +5,19 @@
 
 import UIKit
 
+public protocol HavingSources : class {
+    var sources: [UpdatingSource] { get }
+}
 
 public protocol Updateable : class {
-    var sources: [UpdatingSource] { get }
     func update(source: UpdatingSource)
 }
 
-public protocol Widget: Updateable {
+public protocol WidgetControlling: Updateable, HavingSources {
     var view: UIView { get }
 }
 
 public protocol WidgetBuilding : class {
     var name: String { get }
-    func build(settings: AnyObject) throws -> Widget
+    func build(settings: AnyObject) throws -> WidgetControlling
 }

@@ -5,39 +5,6 @@
 
 import Foundation
 
-public protocol HavingSource {
-    var source: UpdatingSource { get }
-}
-
-public protocol HavingTarget {
-    var target: Updateable { get }
-}
-
-public protocol Schedulable : class {
-    var interval: NSTimeInterval { get }
-    var selector: Selector { get }
-}
-
-public final class Job: Schedulable, HavingSource, HavingTarget {
-
-    public let target: Updateable
-    public let selector: Selector = "update"
-    public let source: UpdatingSource
-
-    public init(target: Updateable, source: UpdatingSource) {
-        self.target = target
-        self.source = source
-    }
-
-    public var interval: NSTimeInterval {
-        return source.interval
-    }
-
-    // This selector is called by NSTimer initiated in Scheduler `schedule` method.
-    @objc func update() {
-        target.update(source)
-    }
-}
 
 public protocol SchedulingJobs {
     func schedule(job: Schedulable)

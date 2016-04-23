@@ -15,7 +15,7 @@ final class WatchWidgetBuilder: WidgetBuilding {
         self.dataDownloader = dataDownloader
     }
 
-    func build(settings: AnyObject) throws -> Widget {
+    func build(settings: AnyObject) throws -> WidgetControlling {
 
         let timeSettings = try TimeSourceSettings.decode(settings)
         let eventsSettings = try EventsSourceSettings.decode(settings)

@@ -8,7 +8,7 @@
 import GrandCentralBoardCore
 
 
-final class WebsiteAnalyticsWidget: Widget {
+final class WebsiteAnalyticsWidget: WidgetControlling {
 
     private let widgetView: TableWidgetView
     let sources: [UpdatingSource]

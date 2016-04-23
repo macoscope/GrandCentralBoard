@@ -8,7 +8,7 @@ import GrandCentralBoardCore
 
 private let secondsInAnHour: NSTimeInterval = 3600
 
-final class WatchWidget: Widget {
+final class WatchWidget: WidgetControlling {
 
     private let widgetView: WatchWidgetView
     let sources: [UpdatingSource]

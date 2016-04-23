@@ -7,7 +7,7 @@ import UIKit
 import GrandCentralBoardCore
 
 
-final class ImageWidget: Widget {
+final class ImageWidget: WidgetControlling {
 
     let widgetView: ImageWidgetView
     let sources: [UpdatingSource]
