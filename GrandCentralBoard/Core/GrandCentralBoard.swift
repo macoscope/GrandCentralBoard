@@ -55,13 +55,6 @@ public final class GrandCentralBoard {
 
 extension GrandCentralBoard: Configurable {
 
-    /**
-     Configure class with `Configuration`.
-
-     - parameter configuration: Widgets Settings and Widget Builders.
-
-     - throws: GrandCentralBoardError if widget count is different than **6** but can throw other `ErrorTypes`.
-     */
     public func configure(configuration: Configuration) throws {
 
         if let previousConfiguration = self.configuration where previousConfiguration == configuration {
