@@ -14,12 +14,10 @@ public extension UIView {
 
         self.addSubview(view)
 
-        let viewsDict = ["view" : view]
-
-        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: [], metrics: nil, views: viewsDict)
-        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: [], metrics: nil, views: viewsDict)
-        self.addConstraints(horizontalConstraints)
-        self.addConstraints(verticalConstraints)
+        view.topAnchor.constraintEqualToAnchor(topAnchor).active = true
+        view.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
+        view.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
+        view.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
 
         if animated {
             UIView.animateWithDuration(0.2) {
