@@ -31,11 +31,11 @@ public protocol Schedulable : class {
     /// This selector will be called periodically
     var selector: Selector { get }
 }
-/** 
- This class have `source` and `target`. 
- 
+/**
+ This class have `source` and `target`.
+
  Target is updated from the source when `update()` method is called.
- 
+
  The `update()` method is called periodically. The period length is specified by `interval` property.
  */
 public final class Job: Schedulable, HavingSource, HavingTarget {
