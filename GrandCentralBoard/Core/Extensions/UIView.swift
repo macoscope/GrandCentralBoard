@@ -8,6 +8,12 @@ import UIKit
 
 public extension UIView {
 
+    /**
+     Fill view with another view using AutoLayout.
+
+     - parameter view:     view to be filled with.
+     - parameter animated: should animate the transition.
+     */
     func fillViewWithView(view: UIView, animated: Bool) {
 
         view.translatesAutoresizingMaskIntoConstraints = false

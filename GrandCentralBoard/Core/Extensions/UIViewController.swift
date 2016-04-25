@@ -6,6 +6,13 @@
 import UIKit
 
 public extension UIViewController {
+
+    /**
+     Show `UIAlertController` with error message and just one `Retry` button calling closure on tap.
+
+     - parameter message:      error message.
+     - parameter retryClosure: this closure will be called when user taps `Retry` button.
+     */
     public func showRetryDialogWithMessage(message: String, retryClosure: (() -> Void)) {
         let alert = UIAlertController.retryAlertWithMessage(message) {
             retryClosure()
