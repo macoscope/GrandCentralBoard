@@ -17,11 +17,18 @@ public enum LocalConfigurationLoaderError: ErrorType, HavingMessage {
     }
 }
 
+/// This class will fetch configuration file bundled with the application.
 public final class LocalConfigurationLoader: ConfigurationFetching {
 
     private let configFileName: String
     private let availableBuilders: [WidgetBuilding]
 
+    /**
+     Initialize `LocalConfigurationLoader`.
+
+     - parameter configFileName:    configuration filename without extension, **.json** is assumed.
+     - parameter availableBuilders: collection of subjects building widgets of different kinds.
+     */
     public init(configFileName: String, availableBuilders: [WidgetBuilding]) {
         self.configFileName = configFileName
         self.availableBuilders = availableBuilders
@@ -37,7 +44,8 @@ public final class LocalConfigurationLoader: ConfigurationFetching {
         }
 
         do {
-            closure(.Success(try Configuration.configurationFromData(data, availableBuilders: availableBuilders)))
+            let configuration = try Configuration.configurationFromData(data, availableBuilders: availableBuilders)
+            closure(.Success(configuration))
         } catch (let error) {
             closure(.Failure(error))
         }
