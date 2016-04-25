@@ -50,7 +50,7 @@ public func == (lhs: Configuration, rhs: Configuration) -> Bool {
     }
 
     for (index, settings) in lhs.settings.enumerate() {
-        if rhs.settings[index].hashValue != settings.hashValue {
+        if rhs.settings[index] == settings {
             return false
         }
     }
