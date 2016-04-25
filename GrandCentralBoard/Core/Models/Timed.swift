@@ -5,7 +5,9 @@
 
 import Foundation
 
-
+/**
+ The entity implementing the protocol is timed (ex. value can represent state in given point in time).
+ */
 public protocol Timed {
     var time: NSDate { get }
 }
