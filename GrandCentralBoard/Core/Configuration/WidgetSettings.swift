@@ -26,21 +26,30 @@ extension WidgetSettings : Hashable {
     public var hashValue: Int {
 
         if let settings = settings as? [String : AnyObject] {
-            return settings.enumerate().reduce(name.hashValue) { first, second in
+            return settings.enumerate().reduce(name.hashValue) { previousHash, widgetSettings in
 
-                if let string = second.element.1 as? String {
-                    return first ^ second.element.0.hashValue ^ string.hashValue
+                let key = widgetSettings.element.0
+                let value = widgetSettings.element.1
+
+                var valueHash: Int?
+
+                if let string = value as? String {
+                    valueHash = string.hashValue
                 }
 
-                if let number = second.element.1 as? NSNumber {
-                    return first ^ second.element.0.hashValue ^ number.hashValue
+                if let number = widgetSettings.element.1 as? NSNumber {
+                    valueHash = number.integerValue
                 }
 
-                if second.element.1 is NSNull {
-                    return first ^ second.element.0.hashValue
+                if let valueHash = valueHash {
+                    return previousHash ^ key.hashValue ^ valueHash
                 }
 
-                return first
+                if widgetSettings.element.1 is NSNull {
+                    return previousHash ^ key.hashValue
+                }
+
+                return previousHash
             }
         }
 
