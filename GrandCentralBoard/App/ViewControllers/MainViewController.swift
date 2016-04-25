@@ -7,43 +7,52 @@ import UIKit
 import GrandCentralBoardCore
 
 
+private let shouldLoadBundledConfig = NSBundle.alwaysUseLocalConfigurationFile || NSProcessInfo.loadBundledConfig
+private let configRefreshInterval: NSTimeInterval = 60
+
 final class MainViewController: UIViewController {
 
     private let autoStack = AutoStack()
     private let scheduler = Scheduler()
     private let dataDownloader = DataDownloader()
-    private var configurationRefresher: ConfigurationRefresher?
+    private let configurationRefresher: ConfigurationRefresher
+    private let configurationFetching: ConfigurationFetching
+    private let board: GrandCentralBoard
 
-    private lazy var board: GrandCentralBoard = { GrandCentralBoard(scheduler: self.scheduler, stack: self.autoStack) }()
+    required init?(coder aDecoder: NSCoder) {
 
-    private lazy var availableBuilders: [WidgetBuilding] = [
-        WatchWidgetBuilder(dataDownloader: self.dataDownloader),
-        BonusWidgetBuilder(dataDownloader: self.dataDownloader),
-        GoogleCalendarWatchWidgetBuilder(),
-        HarvestWidgetBuilder(),
-        ImageWidgetBuilder(dataDownloader: self.dataDownloader),
-        BlogPostsPopularityWidgetBuilder()
-    ]
-
-    private lazy var configurationFetching: ConfigurationFetching = {
-
-        let shouldLoadBundledConfig = NSBundle.alwaysUseLocalConfigurationFile || NSProcessInfo.loadBundledConfig
+        let availableBuilders: [WidgetBuilding] = [
+            WatchWidgetBuilder(dataDownloader: dataDownloader),
+            BonusWidgetBuilder(dataDownloader: dataDownloader),
+            GoogleCalendarWatchWidgetBuilder(),
+            HarvestWidgetBuilder(),
+            ImageWidgetBuilder(dataDownloader: dataDownloader),
+            BlogPostsPopularityWidgetBuilder()
+        ]
 
         if shouldLoadBundledConfig {
-            return LocalConfigurationLoader(configFileName: NSBundle.localConfigurationFileName,
-                                         availableBuilders: self.availableBuilders)
+            configurationFetching = LocalConfigurationLoader(configFileName: NSBundle.localConfigurationFileName,
+                                            availableBuilders: availableBuilders)
+        } else {
+            configurationFetching = ConfigurationDownloader(dataDownloader: dataDownloader,
+                                                            path: NSBundle.remoteConfigurationPath,
+                                                            builders: availableBuilders)
         }
 
-        return ConfigurationDownloader(dataDownloader: self.dataDownloader,
-                                       path: NSBundle.remoteConfigurationPath,
-                                       builders: self.availableBuilders)
-    }()
+        board = GrandCentralBoard(scheduler: self.scheduler, stack: self.autoStack)
+
+        configurationRefresher = ConfigurationRefresher(interval: configRefreshInterval,
+                                                        configuree: board,
+                                                        fetcher: configurationFetching)
+
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
         view = autoStack
 
-        configurationRefresher = ConfigurationRefresher(interval: 60, configuree: board, fetcher: self.configurationFetching)
+        configurationRefresher.start()
     }
 }

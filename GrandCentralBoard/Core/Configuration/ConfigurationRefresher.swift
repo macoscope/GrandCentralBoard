@@ -24,11 +24,9 @@ public final class ConfigurationRefresher: Schedulable {
         self.fetcher = fetcher
         self.interval = interval
         self.configuree = configuree
-
-        start()
     }
 
-    private func start() {
+    public func start() {
         scheduler.schedule(self)
     }
 
