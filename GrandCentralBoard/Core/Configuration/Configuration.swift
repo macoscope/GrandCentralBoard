@@ -6,10 +6,17 @@
 import Foundation
 
 
+/**
+ Ability to fetch configuration.
+ */
 public protocol ConfigurationFetching {
+    /**
+     After attempt to fetch configuration closure with Result will be called.
+     */
     func fetchConfiguration(closure: (Result<Configuration>) -> ())
 }
 
+/// The errors that `Configuration.configurationFromData(data:)` can throw.
 public enum ConfigurationError: ErrorType, HavingMessage {
     case WrongFormat
 
@@ -21,6 +28,9 @@ public enum ConfigurationError: ErrorType, HavingMessage {
     }
 }
 
+/**
+ This struct has configuration information for `GrandCentralBoard` to display and update widgets.
+ */
 public struct Configuration {
 
     public let builders: [WidgetBuilding]
@@ -33,9 +43,9 @@ public struct Configuration {
 
     @warn_unused_result public static func configurationFromData(data: NSData, availableBuilders: [WidgetBuilding]) throws -> Configuration {
 
-        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+        if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary {
             if let widgets = jsonResult["widgets"] as? [AnyObject] {
-                return Configuration(builders: availableBuilders, settings: WidgetSettings.settingsFromArray(widgets))
+                return try Configuration(builders: availableBuilders, settings: WidgetSettings.settingsFromArray(widgets))
             }
         }
 
