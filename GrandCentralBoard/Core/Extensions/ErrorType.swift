@@ -6,6 +6,9 @@
 import Foundation
 
 
+/**
+ Entity conforming to this protocol contains custom localized error message.
+ */
 public protocol HavingMessage {
     var message: String { get }
 }
