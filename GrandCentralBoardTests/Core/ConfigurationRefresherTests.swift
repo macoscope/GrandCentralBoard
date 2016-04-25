@@ -38,6 +38,7 @@ class ConfigurationRefresherTests: XCTestCase {
         configurationFetching = ConfigurationDownloaderMock()
 
         refresher = ConfigurationRefresher(interval: 1, configuree: configuree!, fetcher: configurationFetching!)
+        refresher?.start()
 
         waitForExpectationsWithTimeout(2) { error in
             XCTAssert(error == nil)
