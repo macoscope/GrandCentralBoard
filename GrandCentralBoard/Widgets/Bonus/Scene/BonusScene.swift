@@ -44,15 +44,25 @@ class BonusScene: SKScene {
         }
     }
 
+    func areNodesToSmallWithAccumulatedFrame(accumulatedFrame: CGRect) -> Bool {
+        let marginY = frame.height * 0.05
+        let marginX = frame.width * 0.05
+
+        return (accumulatedFrame.minX - frame.minX > marginX) &&
+               (frame.maxX - accumulatedFrame.maxX > marginX) &&
+               (accumulatedFrame.minY - frame.minY > marginY) &&
+               (frame.maxY - accumulatedFrame.maxY > marginY)
+
+    }
+
     func updateWorldSize() {
         guard !world.children.isEmpty else { return }
 
         let calculatedAccumulatedFrame = world.calculateAccumulatedFrame()
         let nodesFitScreen = CGRectContainsRect(frame, calculatedAccumulatedFrame)
-        let nodesToSmall = frame.width > calculatedAccumulatedFrame.width * 1.25 && frame.height > calculatedAccumulatedFrame.height * 1.25
         if !nodesFitScreen {
             scaleBy(1 - unitSceneResizeChange)
-        } else if nodesToSmall {
+        } else if areNodesToSmallWithAccumulatedFrame(calculatedAccumulatedFrame) {
             scaleBy(1 + unitSceneResizeChange)
         }
     }
