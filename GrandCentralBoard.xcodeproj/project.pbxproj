@@ -147,6 +147,18 @@
 		5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */; };
 		547A45831D018E07004E6504 /* BillableDatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A45821D018E07004E6504 /* BillableDatesTests.swift */; };
 		548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */; };
+		5D5221BA1D08675F00ED123A /* WeatherWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF366B91D05B8A20092BE86 /* WeatherWidgetBuilder.swift */; };
+		5D5221BB1D08677900ED123A /* Climacons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D600DE41D05D2B2004C2852 /* Climacons.ttf */; };
+		5D600DE81D05E8E9004C2852 /* WeatherWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DE71D05E8E9004C2852 /* WeatherWidgetViewModelTests.swift */; };
+		5D600DEA1D05EDB6004C2852 /* WeatherWidgetForecastViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DE91D05EDB6004C2852 /* WeatherWidgetForecastViewModelTests.swift */; };
+		5DA22CC21D08538B00245F5F /* configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DA22CC11D08538B00245F5F /* configuration.json */; };
+		5DF366BA1D05B8A20092BE86 /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF366B21D05B8A20092BE86 /* WeatherForecastView.swift */; };
+		5DF366BB1D05B8A20092BE86 /* WeatherForecastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DF366B31D05B8A20092BE86 /* WeatherForecastView.xib */; };
+		5DF366BC1D05B8A20092BE86 /* WeatherWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF366B41D05B8A20092BE86 /* WeatherWidgetView.swift */; };
+		5DF366BD1D05B8A20092BE86 /* WeatherWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DF366B51D05B8A20092BE86 /* WeatherWidgetView.xib */; };
+		5DF366BE1D05B8A20092BE86 /* WeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF366B61D05B8A20092BE86 /* WeatherModels.swift */; };
+		5DF366BF1D05B8A20092BE86 /* WeatherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF366B71D05B8A20092BE86 /* WeatherSource.swift */; };
+		5DF366C01D05B8A20092BE86 /* WeatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF366B81D05B8A20092BE86 /* WeatherWidget.swift */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -338,6 +350,18 @@
 		547A45821D018E07004E6504 /* BillableDatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillableDatesTests.swift; sourceTree = "<group>"; };
 		548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D600DE41D05D2B2004C2852 /* Climacons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Climacons.ttf; sourceTree = "<group>"; };
+		5D600DE71D05E8E9004C2852 /* WeatherWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherWidgetViewModelTests.swift; path = Widgets/Weather/WeatherWidgetViewModelTests.swift; sourceTree = "<group>"; };
+		5D600DE91D05EDB6004C2852 /* WeatherWidgetForecastViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherWidgetForecastViewModelTests.swift; path = Widgets/Weather/WeatherWidgetForecastViewModelTests.swift; sourceTree = "<group>"; };
+		5DA22CC11D08538B00245F5F /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
+		5DF366B21D05B8A20092BE86 /* WeatherForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
+		5DF366B31D05B8A20092BE86 /* WeatherForecastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherForecastView.xib; sourceTree = "<group>"; };
+		5DF366B41D05B8A20092BE86 /* WeatherWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherWidgetView.swift; sourceTree = "<group>"; };
+		5DF366B51D05B8A20092BE86 /* WeatherWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherWidgetView.xib; sourceTree = "<group>"; };
+		5DF366B61D05B8A20092BE86 /* WeatherModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModels.swift; sourceTree = "<group>"; };
+		5DF366B71D05B8A20092BE86 /* WeatherSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherSource.swift; sourceTree = "<group>"; };
+		5DF366B81D05B8A20092BE86 /* WeatherWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherWidget.swift; sourceTree = "<group>"; };
+		5DF366B91D05B8A20092BE86 /* WeatherWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherWidgetBuilder.swift; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -453,6 +477,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				5D600DE61D05E8A7004C2852 /* Weather */,
 				52B9C3D31CEF38C300EE6BD0 /* Image */,
 				520B7A6A1CE4A969005F53EC /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
@@ -533,6 +558,7 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				5DF366B01D05B8A20092BE86 /* Weather */,
 				520B7A591CE36ACC005F53EC /* Slack */,
 				526FC2411CD0ADCC00D7843A /* GitHub */,
 				067DA5411CBE5CE400048E6A /* WebsiteAnalytics */,
@@ -568,6 +594,14 @@
 			path = Files;
 			sourceTree = "<group>";
 		};
+		1A60365F1C7F161D0034EFE9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5D600DE41D05D2B2004C2852 /* Climacons.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		1A9A3D7E1C87197A0070DB17 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA97DE41CA2DE720058DBCE /* configuration.json */,
+				1A60365F1C7F161D0034EFE9 /* Fonts */,
 				1AD5EA9C1C7B8FED00210BB9 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -938,6 +973,39 @@
 			name = WebsiteAnalytics;
 			sourceTree = "<group>";
 		};
+		5D600DE61D05E8A7004C2852 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				5D600DE71D05E8E9004C2852 /* WeatherWidgetViewModelTests.swift */,
+				5D600DE91D05EDB6004C2852 /* WeatherWidgetForecastViewModelTests.swift */,
+			);
+			name = Weather;
+			sourceTree = "<group>";
+		};
+		5DF366B01D05B8A20092BE86 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				5DF366B11D05B8A20092BE86 /* View */,
+				5DF366B61D05B8A20092BE86 /* WeatherModels.swift */,
+				5DF366B71D05B8A20092BE86 /* WeatherSource.swift */,
+				5DF366B81D05B8A20092BE86 /* WeatherWidget.swift */,
+				5DF366B91D05B8A20092BE86 /* WeatherWidgetBuilder.swift */,
+				5DA22CC11D08538B00245F5F /* configuration.json */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		5DF366B11D05B8A20092BE86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DF366B21D05B8A20092BE86 /* WeatherForecastView.swift */,
+				5DF366B31D05B8A20092BE86 /* WeatherForecastView.xib */,
+				5DF366B41D05B8A20092BE86 /* WeatherWidgetView.swift */,
+				5DF366B51D05B8A20092BE86 /* WeatherWidgetView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C14EA2EA1CF061E500961DF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1130,11 +1198,15 @@
 				529CEF0A1CEC6A2200636A4A /* HarvestWidgetView.xib in Resources */,
 				521B68541CF5BC5D00E112CC /* Assets.xcassets in Resources */,
 				067DA55F1CBFA98F00048E6A /* TableViewCell.xib in Resources */,
+				5DF366BD1D05B8A20092BE86 /* WeatherWidgetView.xib in Resources */,
+				5DF366BB1D05B8A20092BE86 /* WeatherForecastView.xib in Resources */,
 				C14EA2EC1CF0728000961DF6 /* GitHubCell.xib in Resources */,
+				5DA22CC21D08538B00245F5F /* configuration.json in Resources */,
 				1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */,
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
 				1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */,
+				5D5221BB1D08677900ED123A /* Climacons.ttf in Resources */,
 				1AA97DE91CA2E0C80058DBCE /* calendar.json in Resources */,
 				1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */,
 				1AD5EA9B1C7B828200210BB9 /* WatchWidgetView.xib in Resources */,
@@ -1309,6 +1381,7 @@
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
+				5DF366BA1D05B8A20092BE86 /* WeatherForecastView.swift in Sources */,
 				C14EA2EE1CF072A500961DF6 /* GitHubCell.swift in Sources */,
 				1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
@@ -1334,6 +1407,7 @@
 				494B68CC1C92E89A00D460B0 /* BonusWidgetView.swift in Sources */,
 				521B68681CFC316300E112CC /* GitHubWidgetSettings.swift in Sources */,
 				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
+				5DF366BC1D05B8A20092BE86 /* WeatherWidgetView.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				067DA5561CBF829A00048E6A /* TableWidgetView.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
@@ -1352,15 +1426,18 @@
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				067DA55D1CBFA8F900048E6A /* TableViewCell.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
+				5DF366BF1D05B8A20092BE86 /* WeatherSource.swift in Sources */,
 				526D1C671CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
 				529CEF191CECC35600636A4A /* UIColor+BillingColor.swift in Sources */,
 				529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */,
+				5DF366C01D05B8A20092BE86 /* WeatherWidget.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
 				1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */,
+				5D5221BA1D08675F00ED123A /* WeatherWidgetBuilder.swift in Sources */,
 				F9C88F3E1CBFC72100E81A14 /* AccessTokenFetcher.swift in Sources */,
 				52FB50621CBE862D0053DE8B /* EventsSource.swift in Sources */,
 				F928B82E1CC52F77006D0332 /* String+Localized.swift in Sources */,
@@ -1369,6 +1446,7 @@
 				F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */,
 				F9E9208F1CC54A9400BC7994 /* DailyUserBillingStatsFetcher.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
+				5DF366BE1D05B8A20092BE86 /* WeatherModels.swift in Sources */,
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				543596961CF47501000592FE /* NSThread.swift in Sources */,
 				C1719D5B1CF099E8009B52BA /* GitHubTableDataSource.swift in Sources */,
@@ -1409,6 +1487,7 @@
 				521B68581CF5D6D700E112CC /* MessageBubbleViewSnapshotTests.swift in Sources */,
 				52B9C3CE1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift in Sources */,
 				526FC25F1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift in Sources */,
+				5D600DE81D05E8E9004C2852 /* WeatherWidgetViewModelTests.swift in Sources */,
 				C1719D611CF187C8009B52BA /* GitHubWidgetSnapshotTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
 				5250277D1CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift in Sources */,
@@ -1420,6 +1499,7 @@
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				49175CD41CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift in Sources */,
 				526FC25C1CD365C700D7843A /* BonusSceneTests.swift in Sources */,
+				5D600DEA1D05EDB6004C2852 /* WeatherWidgetForecastViewModelTests.swift in Sources */,
 				528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */,
 				521B68641CFC25E200E112CC /* TestError.swift in Sources */,
 			);

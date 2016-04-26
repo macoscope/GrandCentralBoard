@@ -1,0 +1,6 @@
+framework module CZWeatherKit {
+  umbrella header "CZWeatherKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
