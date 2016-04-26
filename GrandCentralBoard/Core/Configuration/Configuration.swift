@@ -42,3 +42,20 @@ public struct Configuration {
         throw ConfigurationError.WrongFormat
     }
 }
+
+public func == (lhs: Configuration, rhs: Configuration) -> Bool {
+
+    guard lhs.settings.count == rhs.settings.count else {
+        return false
+    }
+
+    for (index, settings) in lhs.settings.enumerate() {
+        if rhs.settings[index] == settings {
+            return false
+        }
+    }
+
+    return true
+}
+
+extension Configuration : Equatable { }

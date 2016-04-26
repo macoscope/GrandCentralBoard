@@ -6,6 +6,7 @@
 import UIKit
 
 public protocol ViewStacking {
+    func removeAllStackedViews()
     func stackView(view: UIView)
 }
 
@@ -21,6 +22,7 @@ public final class AutoStack: UIView, ViewStacking {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        backgroundColor = UIColor.blackColor()
         mainStackView.distribution = .FillEqually
         mainStackView.alignment = .Fill
         mainStackView.axis = .Vertical
@@ -28,7 +30,10 @@ public final class AutoStack: UIView, ViewStacking {
         mainStackView.autoresizingMask = [ .FlexibleHeight, .FlexibleWidth ]
         mainStackView.translatesAutoresizingMaskIntoConstraints = true
         addSubview(mainStackView)
+        prepareColumnStackViews()
+    }
 
+    private func prepareColumnStackViews() {
         for _ in 0..<maximumColumns {
             let stack = UIStackView()
             stack.distribution = .FillEqually
@@ -58,6 +63,19 @@ public final class AutoStack: UIView, ViewStacking {
 
             columnStackView.addArrangedSubview(view)
         }
+    }
+
+    public func removeAllStackedViews() {
+
+        mainStackView.arrangedSubviews.forEach { view in
+            mainStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+
+        stackedViews = []
+        columnStackViews = []
+
+        prepareColumnStackViews()
     }
 
     // MARK: - NSCoding

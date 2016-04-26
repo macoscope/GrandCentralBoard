@@ -5,15 +5,20 @@
 
 import Foundation
 
+public protocol HavingSource {
+    var source: UpdatingSource { get }
+}
+
+public protocol HavingTarget {
+    var target: Updateable { get }
+}
 
 public protocol Schedulable : class {
     var interval: NSTimeInterval { get }
     var selector: Selector { get }
-    var source: UpdatingSource { get }
-    var target: Updateable { get }
 }
 
-public final class Job: Schedulable {
+public final class Job: Schedulable, HavingSource, HavingTarget {
 
     public let target: Updateable
     public let selector: Selector = "update"
@@ -36,6 +41,7 @@ public final class Job: Schedulable {
 
 public protocol SchedulingJobs {
     func schedule(job: Schedulable)
+    func invalidateAll()
 }
 
 public final class Scheduler: SchedulingJobs {
@@ -50,5 +56,14 @@ public final class Scheduler: SchedulingJobs {
         let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job, selector: job.selector, userInfo: nil, repeats: true)
         timers.append(timer)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+    }
+
+    public func invalidateAll() {
+
+        timers.forEach { timer in
+            timer.invalidate()
+        }
+
+        timers = []
     }
 }

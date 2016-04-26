@@ -7,34 +7,52 @@ import UIKit
 import GrandCentralBoardCore
 
 
-class MainViewController: UIViewController {
+private let shouldLoadBundledConfig = NSBundle.alwaysUseLocalConfigurationFile || NSProcessInfo.loadBundledConfig
+private let configRefreshInterval: NSTimeInterval = 60
 
-    private var board: GrandCentralBoard?
+final class MainViewController: UIViewController {
 
-    var configuration: Configuration! {
-        didSet {
-            setUpBoardWithConfiguration(configuration)
+    private let autoStack = AutoStack()
+    private let scheduler = Scheduler()
+    private let dataDownloader = DataDownloader()
+    private let configurationRefresher: ConfigurationRefresher
+    private let configurationFetching: ConfigurationFetching
+    private let board: GrandCentralBoard
+
+    required init?(coder aDecoder: NSCoder) {
+
+        let availableBuilders: [WidgetBuilding] = [
+            WatchWidgetBuilder(dataDownloader: dataDownloader),
+            BonusWidgetBuilder(dataDownloader: dataDownloader),
+            GoogleCalendarWatchWidgetBuilder(),
+            HarvestWidgetBuilder(),
+            ImageWidgetBuilder(dataDownloader: dataDownloader),
+            BlogPostsPopularityWidgetBuilder()
+        ]
+
+        if shouldLoadBundledConfig {
+            configurationFetching = LocalConfigurationLoader(configFileName: NSBundle.localConfigurationFileName,
+                                            availableBuilders: availableBuilders)
+        } else {
+            configurationFetching = ConfigurationDownloader(dataDownloader: dataDownloader,
+                                                            path: NSBundle.remoteConfigurationPath,
+                                                            builders: availableBuilders)
         }
+
+        board = GrandCentralBoard(scheduler: self.scheduler, stack: self.autoStack)
+
+        configurationRefresher = ConfigurationRefresher(interval: configRefreshInterval,
+                                                        configuree: board,
+                                                        fetcher: configurationFetching)
+
+        super.init(coder: aDecoder)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUpBoardWithConfiguration(configuration)
-    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
 
-    private func setUpBoardWithConfiguration(configuration: Configuration) {
+        view = autoStack
 
-        guard board == nil else { return }
-
-        do {
-            let autoStack = AutoStack()
-            let scheduler = Scheduler()
-            board = try GrandCentralBoard(configuration: configuration, scheduler: scheduler, stack: autoStack)
-            view = autoStack
-        } catch let error {
-            showRetryDialogWithMessage(error.userMessage) { [weak self] in
-                self?.navigationController?.popViewControllerAnimated(true)
-            }
-        }
+        configurationRefresher.start()
     }
 }

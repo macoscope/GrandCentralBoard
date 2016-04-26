@@ -5,6 +5,7 @@
 
 import Foundation
 
+
 public final class ConfigurationDownloader: ConfigurationFetching {
 
     private let dataDownloader: DataDownloading
@@ -32,5 +33,4 @@ public final class ConfigurationDownloader: ConfigurationFetching {
             }
         }
     }
-
 }
