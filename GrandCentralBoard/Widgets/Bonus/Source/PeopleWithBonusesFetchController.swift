@@ -9,9 +9,8 @@ import Foundation
 import GrandCentralBoardCore
 
 
-enum PeopleWithBonususFetchControllerError: ErrorType {
+enum PeopleWithBonusesFetchControllerError: ErrorType {
     case IncorrectEmailAddress
-    case NoAvatarURL
     case Cancelled
     case Unknown
 }
@@ -59,7 +58,7 @@ final class PeopleWithBonusesFetchController {
 
         requestSending.sendRequestForRequestTemplate(requestTemplate) { [weak self] result in
             guard let strongSelf = self else {
-                completionBlock(.Failure(PeopleWithBonususFetchControllerError.Cancelled))
+                completionBlock(.Failure(PeopleWithBonusesFetchControllerError.Cancelled))
                 return
             }
 
@@ -84,19 +83,12 @@ final class PeopleWithBonusesFetchController {
 
     private func fetchAvatarsForPeople(people: [Person], completionBlock: Result<[Person]> -> Void) {
         var peopleWithImages: [Person]? = [Person]()
-        var groupError: ErrorType?
 
         let group = dispatch_group_create()
         people.forEach { person in
             dispatch_group_enter(group)
-            updatePersonWithImageFromNetwork(person, completionBlock: { result in
-                switch result {
-                case .Success(let personWithImage):
-                    peopleWithImages?.append(personWithImage)
-                case .Failure(let error):
-                    peopleWithImages = nil
-                    groupError = error
-                }
+            updatePersonWithImageFromNetwork(person, completionBlock: { person in
+                peopleWithImages?.append(person)
                 dispatch_group_leave(group)
             })
         }
@@ -105,15 +97,15 @@ final class PeopleWithBonusesFetchController {
             if let peopleWithImages = peopleWithImages {
                 completionBlock(.Success(peopleWithImages))
             } else {
-                completionBlock(.Failure(groupError ?? PeopleWithBonususFetchControllerError.Unknown))
+                completionBlock(.Failure(PeopleWithBonusesFetchControllerError.Unknown))
             }
         }
     }
 
-    private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Result<Person>) -> Void) {
+    private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Person) -> Void) {
 
         guard let avatarPath = person.avatarPath else {
-            completionBlock(.Failure(PeopleWithBonususFetchControllerError.NoAvatarURL))
+            completionBlock(person.copyWithImage(UIImage(named: "placeholder")!))
 
             return
         }
@@ -121,9 +113,9 @@ final class PeopleWithBonusesFetchController {
         dataDownloading.downloadImageAtPath(avatarPath) { result in
             switch result {
             case .Success(let image):
-                completionBlock(.Success(person.copyWithImage(image)))
-            case .Failure(let error):
-                completionBlock(.Failure(error))
+                completionBlock(person.copyWithImage(image))
+            case .Failure:
+                completionBlock(person.copyWithImage(UIImage(named: "placeholder")!))
             }
         }
     }

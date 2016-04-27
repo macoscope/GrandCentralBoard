@@ -13,7 +13,7 @@ public protocol DataDownloading {
 
 public enum DataDownloadingError: ErrorType, HavingMessage {
     case EmptyResponse
-    case ImageCannotBeFetched
+    case ImageCannotBeFetched(path: String)
 
     public var message: String {
         switch self {
@@ -53,7 +53,7 @@ public extension DataDownloading {
                 if let image = UIImage(data: data) {
                     completion(.Success(image))
                 } else {
-                    completion(.Failure(DataDownloadingError.ImageCannotBeFetched))
+                    completion(.Failure(DataDownloadingError.ImageCannotBeFetched(path: path)))
                 }
             case .Failure(let error):
                 completion(.Failure(error))
