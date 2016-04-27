@@ -9,7 +9,7 @@ import GrandCentralBoardCore
 
 
 final class SourceMock: UpdatingSource {
-    var interval: NSTimeInterval = 0
+    var interval: NSTimeInterval = 1
 }
 
 let source = SourceMock()
@@ -41,7 +41,7 @@ class SchedulerTests: XCTestCase {
 
         scheduler.schedule(job)
 
-        waitForExpectationsWithTimeout(2) { error in
+        waitForExpectationsWithTimeout(5) { error in
             XCTAssertNil(error)
         }
     }
