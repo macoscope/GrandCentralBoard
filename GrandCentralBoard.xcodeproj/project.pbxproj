@@ -111,6 +111,10 @@
 		494B68E21C92E97900D460B0 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DF1C92E97900D460B0 /* Range.swift */; };
 		494B68E31C92E97900D460B0 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68E01C92E97900D460B0 /* UIImage.swift */; };
 		494B68E51C92E98800D460B0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68E41C92E98800D460B0 /* CGRect.swift */; };
+		526FC2431CD0ADF300D7843A /* GitHubDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */; };
+		526FC24A1CD0E1A700D7843A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC2491CD0E1A700D7843A /* Repository.swift */; };
+		526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC24C1CD0E7C400D7843A /* GitHubDataProviderTests.swift */; };
+		526FC2501CD0E8E400D7843A /* repos.json in Resources */ = {isa = PBXBuildFile; fileRef = 526FC24F1CD0E8E400D7843A /* repos.json */; };
 		5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48A1CB69AE9005FD847 /* AccessToken.swift */; };
 		5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */; };
 		5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */; };
@@ -293,6 +297,10 @@
 		494B68DF1C92E97900D460B0 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		494B68E01C92E97900D460B0 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		494B68E41C92E98800D460B0 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubDataProvider.swift; path = GitHub/GitHubDataProvider.swift; sourceTree = "<group>"; };
+		526FC2491CD0E1A700D7843A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = GitHub/Model/Repository.swift; sourceTree = "<group>"; };
+		526FC24C1CD0E7C400D7843A /* GitHubDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubDataProviderTests.swift; sourceTree = "<group>"; };
+		526FC24F1CD0E8E400D7843A /* repos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = repos.json; path = Widgets/GitHub/repos.json; sourceTree = "<group>"; };
 		5274A48A1CB69AE9005FD847 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessToken.swift; path = Utilities/AccessToken.swift; sourceTree = "<group>"; };
 		5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAPIDataProvider.swift; path = Utilities/GoogleAPIDataProvider.swift; sourceTree = "<group>"; };
 		5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleTokenProvider.swift; path = Utilities/GoogleTokenProvider.swift; sourceTree = "<group>"; };
@@ -439,6 +447,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				526FC24B1CD0E74700D7843A /* GitHub */,
 				52FB507B1CBF9BAF0053DE8B /* WebsiteAnalytics */,
 				52FB50491CBB93030053DE8B /* Watch */,
 				F91F006A1CBBCFFD00DAAA77 /* Harvest */,
@@ -541,6 +550,7 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				526FC2411CD0ADCC00D7843A /* GitHub */,
 				067DA5411CBE5CE400048E6A /* WebsiteAnalytics */,
 				F91F00691CBBCFD900DAAA77 /* Harvest */,
 				494B68B21C92E89A00D460B0 /* Bonus */,
@@ -786,6 +796,40 @@
 				065588D01CC5001300BF2DF9 /* Dictionary.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		526FC2411CD0ADCC00D7843A /* GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				526FC2441CD0D65F00D7843A /* Model */,
+				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
+			);
+			name = GitHub;
+			sourceTree = "<group>";
+		};
+		526FC2441CD0D65F00D7843A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				526FC2491CD0E1A700D7843A /* Repository.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		526FC24B1CD0E74700D7843A /* GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				526FC24E1CD0E80300D7843A /* Files */,
+				526FC24C1CD0E7C400D7843A /* GitHubDataProviderTests.swift */,
+			);
+			name = GitHub;
+			sourceTree = "<group>";
+		};
+		526FC24E1CD0E80300D7843A /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				526FC24F1CD0E8E400D7843A /* repos.json */,
+			);
+			name = Files;
 			sourceTree = "<group>";
 		};
 		5274A4881CB69AD9005FD847 /* Extensions */ = {
@@ -1094,6 +1138,7 @@
 				1A4616B11C904FC800361B2E /* configurationCorrect.json in Resources */,
 				0D28630C1CB516B400C62700 /* UpdatesTests.json in Resources */,
 				F91C41C21CC594CE00F834B3 /* BillingProjectList.json in Resources */,
+				526FC2501CD0E8E400D7843A /* repos.json in Resources */,
 				1A4616B31C90534500361B2E /* configurationBrokenJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1230,6 +1275,7 @@
 				067DA5521CBE7F9800048E6A /* HeaderCell.swift in Sources */,
 				06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */,
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
+				526FC24A1CD0E1A700D7843A /* Repository.swift in Sources */,
 				F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */,
 				F9E237FE1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
@@ -1245,6 +1291,7 @@
 				062B00911CBA9A800034C13C /* RequestSenderConfiguration.swift in Sources */,
 				52FB50781CBF9B2E0053DE8B /* GoogleAnalyticsDataProvider.swift in Sources */,
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
+				526FC2431CD0ADF300D7843A /* GitHubDataProvider.swift in Sources */,
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
 				1A1DBC7D1CC0F7E9003DA40C /* ComponentChartView.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
@@ -1333,6 +1380,7 @@
 				52FB507D1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 				F9E9208D1CC5440700BC7994 /* BillingProjectListTests.swift in Sources */,
+				526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */,
 				C11F30991CC6D85A0044AC88 /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
 				F9F4A6101CC5035600ADF093 /* AreaBarChartComponentViewModel+Equatable.swift in Sources */,
 			);
