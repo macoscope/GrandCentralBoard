@@ -11,7 +11,7 @@
 		062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */; };
 		065588D11CC5001300BF2DF9 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065588D01CC5001300BF2DF9 /* Dictionary.swift */; };
 		0662F2661CC046BF00729093 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4981CB69DAC005FD847 /* Calendar.swift */; };
-		06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */; };
+		06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F221CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift */; };
 		06684F2B1CB788FB00B93D90 /* BonuslyRequestTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */; };
 		06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */; };
 		06684F2D1CB788FB00B93D90 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06684F271CB788FB00B93D90 /* RequestBuilder.swift */; };
@@ -184,7 +184,7 @@
 		062B00901CBA9A800034C13C /* RequestSenderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSenderConfiguration.swift; sourceTree = "<group>"; };
 		062B00921CBA9EF10034C13C /* WrappingRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrappingRequestTemplate.swift; sourceTree = "<group>"; };
 		065588D01CC5001300BF2DF9 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleWithBonususFetchController.swift; sourceTree = "<group>"; };
+		06684F221CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleWithBonusesFetchController.swift; sourceTree = "<group>"; };
 		06684F251CB788FB00B93D90 /* BonuslyRequestTemplates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonuslyRequestTemplates.swift; sourceTree = "<group>"; };
 		06684F261CB788FB00B93D90 /* PaginatableRequestTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatableRequestTemplate.swift; sourceTree = "<group>"; };
 		06684F271CB788FB00B93D90 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
@@ -759,7 +759,7 @@
 			isa = PBXGroup;
 			children = (
 				494B68C71C92E89A00D460B0 /* BonusSource.swift */,
-				06684F221CB69EB100B93D90 /* PeopleWithBonususFetchController.swift */,
+				06684F221CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1291,7 +1291,7 @@
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06DB17A01CB79E2A00188FCB /* String.swift in Sources */,
-				06684F231CB69EB100B93D90 /* PeopleWithBonususFetchController.swift in Sources */,
+				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
 				1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1AC247BC1C834E4900A179CB /* LoadingViewController.swift in Sources */,

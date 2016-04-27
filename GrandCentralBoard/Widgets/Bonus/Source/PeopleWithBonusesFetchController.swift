@@ -9,7 +9,7 @@ import Foundation
 import GrandCentralBoardCore
 
 
-enum PeopleWithBonususFetchControllerError: ErrorType {
+enum PeopleWithBonusesFetchControllerError: ErrorType {
     case IncorrectEmailAddress
     case NoAvatarURL
     case Cancelled
@@ -104,7 +104,7 @@ final class PeopleWithBonusesFetchController {
             if let peopleWithImages = peopleWithImages {
                 completionBlock(.Success(peopleWithImages))
             } else {
-                completionBlock(.Failure(groupError ?? PeopleWithBonususFetchControllerError.Unknown))
+                completionBlock(.Failure(groupError ?? PeopleWithBonusesFetchControllerError.Unknown))
             }
         }
     }
@@ -112,7 +112,7 @@ final class PeopleWithBonusesFetchController {
     private func updatePersonWithImageFromNetwork(person: Person, completionBlock: (Result<Person>) -> Void) {
 
         guard let avatarPath = person.avatarPath else {
-            completionBlock(.Failure(PeopleWithBonususFetchControllerError.NoAvatarURL))
+            completionBlock(.Failure(PeopleWithBonusesFetchControllerError.NoAvatarURL))
 
             return
         }
