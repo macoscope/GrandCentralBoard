@@ -14,6 +14,7 @@ class BonusScene: SKScene {
     private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
     var bubbleResizeDuration: NSTimeInterval = 15
+    var relativeScenePadding: (x: CGFloat, y: CGFloat) = (x: 0.05, y: 0.05)
 
     override func didMoveToView(view: SKView) {
         assert(viewModel != nil)
@@ -45,8 +46,8 @@ class BonusScene: SKScene {
     }
 
     func areNodesToSmallWithAccumulatedFrame(accumulatedFrame: CGRect) -> Bool {
-        let marginY = frame.height * 0.05
-        let marginX = frame.width * 0.05
+        let marginY = frame.height * relativeScenePadding.y
+        let marginX = frame.width * relativeScenePadding.x
 
         return (accumulatedFrame.minX - frame.minX > marginX) &&
                (frame.maxX - accumulatedFrame.maxX > marginX) &&
