@@ -24,9 +24,9 @@ final class BonusSceneTests: XCTestCase {
     var paddingFrame: CGRect {
         let frame = scene.frame
         return CGRect(x: frame.minX + paddingX,
-                                      y: frame.minY + paddingY,
-                                      width: frame.width - 2 * paddingX,
-                                      height: frame.height - 2 * paddingY)
+                      y: frame.minY + paddingY,
+                      width: frame.width - 2 * paddingX,
+                      height: frame.height - 2 * paddingY)
     }
 
     override func setUp() {
@@ -37,25 +37,25 @@ final class BonusSceneTests: XCTestCase {
 
     func testSceneNodesNotToSmall() {
         var frame = paddingFrame
-        expect(self.scene.areNodesToSmallWithAccumulatedFrame(frame)) == false
+        expect(self.scene.areNodesTooSmallWithAccumulatedFrame(frame)) == false
 
         frame.origin.y += 10
         frame.size.height -= 10
-        expect(self.scene.areNodesToSmallWithAccumulatedFrame(frame)) == false
+        expect(self.scene.areNodesTooSmallWithAccumulatedFrame(frame)) == false
 
         frame.origin.x += 100
         frame.size.width -= 100
-        expect(self.scene.areNodesToSmallWithAccumulatedFrame(frame)) == false
+        expect(self.scene.areNodesTooSmallWithAccumulatedFrame(frame)) == false
 
         frame = paddingFrame
         frame.origin.x += 80
         frame.size.width -= 200
-        expect(self.scene.areNodesToSmallWithAccumulatedFrame(frame)) == false
+        expect(self.scene.areNodesTooSmallWithAccumulatedFrame(frame)) == false
 
         frame = paddingFrame
         frame.origin.y += 80
         frame.size.height -= 200
-        expect(self.scene.areNodesToSmallWithAccumulatedFrame(frame)) == false
+        expect(self.scene.areNodesTooSmallWithAccumulatedFrame(frame)) == false
     }
 
     func testSceneNeedsToResize() {
@@ -65,6 +65,6 @@ final class BonusSceneTests: XCTestCase {
         frame.size.height -= 20
         frame.origin.x += 10
         frame.size.width -= 20
-        expect(self.scene.areNodesToSmallWithAccumulatedFrame(frame)) == true
+        expect(self.scene.areNodesTooSmallWithAccumulatedFrame(frame)) == true
     }
 }

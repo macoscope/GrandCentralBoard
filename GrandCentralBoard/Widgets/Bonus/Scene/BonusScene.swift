@@ -45,7 +45,7 @@ class BonusScene: SKScene {
         }
     }
 
-    func areNodesToSmallWithAccumulatedFrame(accumulatedFrame: CGRect) -> Bool {
+    func areNodesTooSmallWithAccumulatedFrame(accumulatedFrame: CGRect) -> Bool {
         let marginY = frame.height * relativeScenePadding.y
         let marginX = frame.width * relativeScenePadding.x
 
@@ -63,7 +63,7 @@ class BonusScene: SKScene {
         let nodesFitScreen = CGRectContainsRect(frame, calculatedAccumulatedFrame)
         if !nodesFitScreen {
             scaleBy(1 - unitSceneResizeChange)
-        } else if areNodesToSmallWithAccumulatedFrame(calculatedAccumulatedFrame) {
+        } else if areNodesTooSmallWithAccumulatedFrame(calculatedAccumulatedFrame) {
             scaleBy(1 + unitSceneResizeChange)
         }
     }
