@@ -12,7 +12,7 @@ import GrandCentralBoardCore
 final class HarvestWidgetBuilder: WidgetBuilding {
     let name = "harvest"
 
-    func build(json: AnyObject) throws -> Widget {
+    func build(json: AnyObject) throws -> WidgetControlling {
         let settings = try HarvestWidgetSettings.decode(json)
         let view = AreaBarChartView.fromNib()
         let source = HarvestSource(settings: settings)

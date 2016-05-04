@@ -5,45 +5,26 @@
 
 import Foundation
 
-public protocol HavingSource {
-    var source: UpdatingSource { get }
-}
 
-public protocol HavingTarget {
-    var target: Updateable { get }
-}
-
-public protocol Schedulable : class {
-    var interval: NSTimeInterval { get }
-    var selector: Selector { get }
-}
-
-public final class Job: Schedulable, HavingSource, HavingTarget {
-
-    public let target: Updateable
-    public let selector: Selector = "update"
-    public let source: UpdatingSource
-
-    public init(target: Updateable, source: UpdatingSource) {
-        self.target = target
-        self.source = source
-    }
-
-    public var interval: NSTimeInterval {
-        return source.interval
-    }
-
-    // This selector is called by NSTimer initiated in Scheduler `schedule` method.
-    @objc func update() {
-        target.update(source)
-    }
-}
-
+/**
+ Ability to schedule `Schedulable` jobs and to invalidate all scheduled jobs.
+ */
 public protocol SchedulingJobs {
+
+    /**
+     Schedule job - job's selector will be called with certain frequency.
+
+     - parameter job: A class having `selector` to be called periodically (defined by `interval` property). **Will be held strongly.**
+     */
     func schedule(job: Schedulable)
+
+    /**
+     Invalidate all jobs previously scheduled by calling `schedule(job:)`.
+     */
     func invalidateAll()
 }
 
+/// Scheduler can schedule `Schedulable` jobs to be updated with certain frequency. I can also invalidate all previously scheduled jobs.
 public final class Scheduler: SchedulingJobs {
 
     private var timers = [NSTimer]()
@@ -52,12 +33,20 @@ public final class Scheduler: SchedulingJobs {
 
     }
 
+    /**
+     Schedule job - job's selector will be called with certain frequency.
+
+     - parameter job: A class having `selector` to be called periodically (defined by `interval` property). **Will be held strongly.**
+     */
     public func schedule(job: Schedulable) {
         let timer = NSTimer(fireDate: NSDate(), interval: job.interval, target: job, selector: job.selector, userInfo: nil, repeats: true)
         timers.append(timer)
         NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
 
+    /**
+     Invalidate all jobs previously scheduled by calling `schedule(job:)`.
+     */
     public func invalidateAll() {
 
         timers.forEach { timer in

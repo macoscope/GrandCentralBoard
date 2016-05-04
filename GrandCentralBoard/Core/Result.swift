@@ -6,7 +6,13 @@
 import Foundation
 
 
-public enum Result<T> {
+/**
+ `GrandCentralBoard` native `Result`.
+
+ - Failure: operation **Failed** - this case contains `ErrorType` value with further information.
+ - Success: operation **Succeeded** - this case contains value/object of generic type specified.
+ */
+public enum Result<SuccessType> {
     case Failure(ErrorType)
-    case Success(T)
+    case Success(SuccessType)
 }

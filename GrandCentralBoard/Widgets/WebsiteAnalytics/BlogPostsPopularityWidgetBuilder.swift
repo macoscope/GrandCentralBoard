@@ -32,7 +32,7 @@ final class BlogPostsPopularityWidgetBuilder: WidgetBuilding {
 
     var name = "blogPostsPopularity"
 
-    func build(settings: AnyObject) throws -> Widget {
+    func build(settings: AnyObject) throws -> WidgetControlling {
         let settings = try WebsiteAnalyticsSettings.decode(settings)
         let tokenProvider = GoogleTokenProvider(clientID: settings.clientID,
                                                 clientSecret: settings.clientSecret,

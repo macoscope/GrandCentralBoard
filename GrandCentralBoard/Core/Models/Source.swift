@@ -6,15 +6,25 @@
 import Foundation
 
 
+/**
+ Source can be:
+
+ - Cumulative: values should cumulated (ex. website visits)
+ - Momentary:  values should be presented live (ex. temperature).
+ */
 public enum SourceType {
     case Cumulative
     case Momentary
 }
 
+/// Updating Source has an interval that defines the time between updates.
 public protocol UpdatingSource : class {
     var interval: NSTimeInterval { get }
 }
 
+/**
+ The Source has associated type ResultType in form of proparty `sourceType` and inherits the `UpdatingSource` protocol.
+ */
 public protocol Source: UpdatingSource {
 
     associatedtype ResultType

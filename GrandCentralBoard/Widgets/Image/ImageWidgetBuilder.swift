@@ -17,7 +17,7 @@ final class ImageWidgetBuilder: WidgetBuilding {
         self.dataDownloader = dataDownloader
     }
 
-    func build(settings: AnyObject) throws -> Widget {
+    func build(settings: AnyObject) throws -> WidgetControlling {
         let settings = try ImageWidgetConfiguration.decode(settings)
 
         let imagesSource = try RemoteImageSource(paths: settings.imagePaths, dataDownloader: dataDownloader)

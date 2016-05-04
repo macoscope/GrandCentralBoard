@@ -13,7 +13,7 @@ final class GoogleCalendarWatchWidgetBuilder: WidgetBuilding {
 
     let name = "googleCalendarWatch"
 
-    func build(settings: AnyObject) throws -> Widget {
+    func build(settings: AnyObject) throws -> WidgetControlling {
         let timeSettings = try TimeSourceSettings.decode(settings)
         let calendarSettings = try GoogleCalendarSourceSettings.decode(settings)
         let calendarID = calendarSettings.calendarID

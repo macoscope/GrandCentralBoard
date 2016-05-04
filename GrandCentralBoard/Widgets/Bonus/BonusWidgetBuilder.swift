@@ -17,7 +17,7 @@ final class BonusWidgetBuilder: WidgetBuilding {
         self.dataDownloader = dataDownloader
     }
 
-    func build(settings: AnyObject) throws -> Widget {
+    func build(settings: AnyObject) throws -> WidgetControlling {
 
         let settings = try BonusWidgetSettings.decode(settings)
 

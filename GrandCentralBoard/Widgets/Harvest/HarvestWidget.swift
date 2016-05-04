@@ -9,7 +9,7 @@
 import GrandCentralBoardCore
 
 
-final class HarvestWidget: Widget {
+final class HarvestWidget: WidgetControlling {
 
     private let widgetView: AreaBarChartView
 

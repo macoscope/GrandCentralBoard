@@ -5,9 +5,13 @@
 
 import Decodable
 
-
+/**
+ This struct contains name and settigs for one widget.
+ */
 public struct WidgetSettings {
+    /// Name specifying which Widget Builder should be used.
     public let name: String
+    /// Deserialized settings section of configuration file.
     public let settings: AnyObject
 
     public init(name: String, settings: AnyObject) {
@@ -15,9 +19,16 @@ public struct WidgetSettings {
         self.settings = settings
     }
 
-    @warn_unused_result public static func settingsFromArray(array: [AnyObject]) -> [WidgetSettings] {
-        return array.flatMap({ settings in
-            return try? WidgetSettings.decode(settings)
+    /**
+     Generate array of `WidgetSettings` from deserialized settings.
+
+     - parameter array: contains deserialized settings (in form of NSDictionary)
+     - throws: Decodable exception
+     - returns: array of `WidgetSettings`
+     */
+    @warn_unused_result public static func settingsFromArray(array: [AnyObject]) throws -> [WidgetSettings] {
+        return try array.flatMap({ settings in
+            return try WidgetSettings.decode(settings)
         })
     }
 }

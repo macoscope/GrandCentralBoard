@@ -5,11 +5,24 @@
 
 import UIKit
 
+/**
+ Ability to stack views (in a unspecified way) as well as remove all stacked views.
+ */
 public protocol ViewStacking {
-    func removeAllStackedViews()
+    /**
+     Stack view.
+
+     - parameter view: specified view will be stacked on called subject.
+     */
     func stackView(view: UIView)
+
+    /**
+     Calling this method will result in removing all previously stacked views.
+     */
+    func removeAllStackedViews()
 }
 
+/// This UIView subclass is using a collection of Stack Views to display grid of 6 views.
 public final class AutoStack: UIView, ViewStacking {
 
     private let maximumColumns: Int = 2
@@ -27,9 +40,9 @@ public final class AutoStack: UIView, ViewStacking {
         mainStackView.alignment = .Fill
         mainStackView.axis = .Vertical
         mainStackView.spacing = 0
-        mainStackView.autoresizingMask = [ .FlexibleHeight, .FlexibleWidth ]
-        mainStackView.translatesAutoresizingMaskIntoConstraints = true
-        addSubview(mainStackView)
+
+        fillViewWithView(mainStackView, animated: false)
+
         prepareColumnStackViews()
     }
 
@@ -62,6 +75,8 @@ public final class AutoStack: UIView, ViewStacking {
             }
 
             columnStackView.addArrangedSubview(view)
+
+            return
         }
     }
 

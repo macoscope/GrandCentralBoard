@@ -7,6 +7,12 @@ import UIKit
 
 
 public extension UILabel {
+
+    /**
+     Set text with fade-out -> fade-in animation.
+
+     - parameter text: Text to set.
+     */
     func animateTextTransition(text: String?) {
 
         guard self.text != text else { return }

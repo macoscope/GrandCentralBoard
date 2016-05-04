@@ -5,7 +5,7 @@
 
 import UIKit
 
-
+/// The errors that `GrandCentralBoard` can throw.
 public enum GrandCentralBoardError: ErrorType, HavingMessage {
     case WrongWidgetsCount
 
@@ -17,10 +17,20 @@ public enum GrandCentralBoardError: ErrorType, HavingMessage {
     }
 }
 
-public protocol Configurable : class {
+/// The class is configurable with `Configuration`.
+public protocol Configurable: class {
+
+    /**
+     Configure class with `Configuration`.
+
+     - parameter configuration: Widgets Settings and Widget Builders.
+
+     - throws: GrandCentralBoardError if widget count is different than **6** but can throw other `ErrorTypes`.
+     */
     func configure(configuration: Configuration) throws
 }
 
+/// This is a controller class that stacks views on `ViewStacking` view and schedules updates for Widgets using object conforming to `SchedulingJobs`.
 public final class GrandCentralBoard {
 
     private let stack: ViewStacking
@@ -28,8 +38,15 @@ public final class GrandCentralBoard {
     private let expectedWidgetsCount = 6
 
     private var configuration: Configuration?
-    private var widgets: [Widget] = []
+    private var widgets: [WidgetControlling] = []
 
+    /**
+     Initialize the `GrandCentralBoard`.
+
+     - parameter scheduler: scheduling updates for widgets.
+     - parameter stack:     a view having the ability to stack views.
+
+     */
     public init(scheduler: SchedulingJobs, stack: ViewStacking) {
         self.scheduler = scheduler
         self.stack = stack

@@ -6,12 +6,20 @@
 import Foundation
 
 
+/// This class is for downloading configuration from remote source.
 public final class ConfigurationDownloader: ConfigurationFetching {
 
     private let dataDownloader: DataDownloading
     private let path: String
     private let builders: [WidgetBuilding]
 
+    /**
+     Initialize `ConfigurationDownloader`.
+
+     - parameter dataDownloader: class downloading data from remote source.
+     - parameter path:           path to remote source.
+     - parameter builders:       available builders.
+     */
     public init(dataDownloader: DataDownloading, path: String, builders: [WidgetBuilding]) {
         self.path = path
         self.builders = builders
