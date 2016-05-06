@@ -18,9 +18,11 @@ extension AreaBarChartViewModel {
         let mainDailyStats = billingStats.first!
         let componentDailyStats = Array(billingStats.dropFirst())
 
-        let componentViewModels = componentDailyStats.flatMap({ dailyBillingStats in
-            return AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStats, isMainChart: false)
-        })
+        let componentViewModels = componentDailyStats.sort { (stat1, stat2) -> Bool in
+                stat1.day < stat2.day
+            }.flatMap { dailyBillingStats in
+                return AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(dailyBillingStats, isMainChart: false)
+            }
 
         if let mainViewModel = AreaBarChartComponentViewModel.viewModelFromDailyBillingStats(mainDailyStats, isMainChart: true) {
             return AreaBarChartViewModel(mainChart: mainViewModel, componentCharts: componentViewModels,
