@@ -33,9 +33,21 @@ struct AreaBarChartViewModel {
     let componentCharts: [AreaBarChartComponentViewModel]
 
     let horizontalAxisStops: Int
-    let horizontalAxisLabelText: String
+    let horizontalAxisLabelText: String = "people billing:"
 
     let centerText: String?
+    let historicalHeaderText: String
+
+    init(mainChart: AreaBarChartComponentViewModel, componentCharts: [AreaBarChartComponentViewModel], horizontalAxisStops: Int,
+         centerText: String?) {
+        self.mainChart = mainChart
+        self.componentCharts = componentCharts
+        self.horizontalAxisStops = horizontalAxisStops
+        self.centerText = centerText
+
+        let headerTextFormat = componentCharts.count == 1 ? "PREVIOUS %d DAY" : "PREVIOUS %d DAYS"
+        historicalHeaderText = String(format: headerTextFormat.localized, componentCharts.count)
+    }
 
     static func emptyViewModel(header header: String? = nil, subheader: String? = nil,
                                       historicalCharts: [AreaBarChartComponentViewModel] = []) -> AreaBarChartViewModel {
@@ -45,9 +57,10 @@ struct AreaBarChartViewModel {
             AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.almostWhite(), valueLabelMode: .Hidden)]
 
         let mainChart = AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: "0",
-                                                       headerText: "HARVEST BURN REPORT", subheaderText: "Monday 28.03.2016")
+                                                       headerText: "HARVEST BURN REPORT", subheaderText: "")
+
 
         return AreaBarChartViewModel(mainChart: mainChart, componentCharts: historicalCharts,
-                                     horizontalAxisStops: 20, horizontalAxisLabelText: "people billing:", centerText: "We didn't work yesterday")
+                                     horizontalAxisStops: 20, centerText: "We didn't work yesterday")
     }
 }
