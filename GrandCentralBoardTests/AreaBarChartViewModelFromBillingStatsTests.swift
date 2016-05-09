@@ -9,6 +9,14 @@
 import XCTest
 @testable import GrandCentralBoard
 
+
+private extension DailyBillingStats {
+    
+    func statsByAddingDaysToDate(days: Int) -> DailyBillingStats {
+        return DailyBillingStats(day: day.dateByAddingTimeInterval(NSTimeInterval(days) * 3600 * 24), groups: groups)
+    }
+}
+
 // swiftlint:disable:next type_name
 class AreaBarChartViewModelFromBillingStatsTests: XCTestCase {
     let emptyDailyBillingStats = DailyBillingStats(day: NSDate(), groups: [
@@ -21,7 +29,9 @@ class AreaBarChartViewModelFromBillingStatsTests: XCTestCase {
         BillingStatsGroup(type: .More, count: 7, averageHours: 8)])
 
     func testCreatingTheViewModelFromBillingStatsWithEmptyFirstDay() {
-        let billingStats = [emptyDailyBillingStats, normalDailyBillingStats, normalDailyBillingStats]
+        let billingStats = [emptyDailyBillingStats.statsByAddingDaysToDate(2),
+                            normalDailyBillingStats.statsByAddingDaysToDate(1),
+                            normalDailyBillingStats]
         let viewModel = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
 
         XCTAssertEqual(viewModel.mainChart.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.Hidden)
@@ -38,7 +48,9 @@ class AreaBarChartViewModelFromBillingStatsTests: XCTestCase {
     }
 
     func testCreatingTheViewModelFromBillingStatsWithEmptyOtherDays() {
-        let billingStats = [normalDailyBillingStats, emptyDailyBillingStats, emptyDailyBillingStats]
+        let billingStats = [normalDailyBillingStats.statsByAddingDaysToDate(2),
+                            emptyDailyBillingStats.statsByAddingDaysToDate(1),
+                            emptyDailyBillingStats]
         let viewModel = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
 
         XCTAssertEqual(viewModel.mainChart.barItems[0].proportionalWidth, 0.1)
@@ -46,5 +58,18 @@ class AreaBarChartViewModelFromBillingStatsTests: XCTestCase {
         XCTAssertEqual(viewModel.mainChart.barItems[2].proportionalWidth, 0.7)
 
         XCTAssertEqual(viewModel.componentCharts.count, 0)
+    }
+
+    func testBillingStatsAreSortedCorrectlyByDate() {
+        let billingStats = [normalDailyBillingStats.statsByAddingDaysToDate(1),
+                            normalDailyBillingStats,
+                            emptyDailyBillingStats.statsByAddingDaysToDate(2)]
+        let viewModel = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
+
+        XCTAssertEqual(viewModel.mainChart.barItems[0].proportionalWidth, 1 / 3.0)
+        XCTAssertEqual(viewModel.mainChart.barItems[1].proportionalWidth, 1 / 3.0)
+        XCTAssertEqual(viewModel.mainChart.barItems[2].proportionalWidth, 1 / 3.0)
+
+        XCTAssertEqual(viewModel.componentCharts.count, 2)
     }
 }
