@@ -13,24 +13,28 @@ import Nimble
 
 final class AreBarChartViewModelTests: XCTestCase {
 
-    func testHeaderForPreviousDay() {
-        let mainChartViewModel = AreaBarChartComponentViewModel(barItems: [], horizontalAxisCountLabelText: "", headerText: "", subheaderText: "")
-        var viewModel = AreaBarChartViewModel(mainChart: mainChartViewModel, componentCharts: [],
+    let emptyComponentViewModel = AreaBarChartComponentViewModel(barItems: [], horizontalAxisCountLabelText: "", headerText: "", subheaderText: "")
+
+    func testHeaderForNoHistoricalData() {
+        let viewModel = AreaBarChartViewModel(mainChart: emptyComponentViewModel, componentCharts: [],
                                               horizontalAxisStops: 20, centerText: "")
-        expect(viewModel.historicalHeaderText) == "PREVIOUS 0 DAYS"
+        expect(viewModel.historicalHeaderText) == "Previous 0 Days".uppercaseString
+    }
 
-        viewModel = AreaBarChartViewModel(mainChart: mainChartViewModel, componentCharts: [mainChartViewModel],
+    func testHeaderForOneHistoricalDay() {
+        let viewModel = AreaBarChartViewModel(mainChart: emptyComponentViewModel, componentCharts: [emptyComponentViewModel],
                                           horizontalAxisStops: 20, centerText: "")
-        expect(viewModel.historicalHeaderText) == "PREVIOUS 1 DAY"
+        expect(viewModel.historicalHeaderText) == "Previous Day".uppercaseString
+    }
 
+    func testHeaderForTwoAndMoreHistoricalDays() {
         for numberOfDays in 2...5 {
             var componentCharts = [AreaBarChartComponentViewModel]()
-            for _ in 1...numberOfDays { componentCharts.append(mainChartViewModel) }
+            for _ in 1...numberOfDays { componentCharts.append(emptyComponentViewModel) }
 
-            viewModel = AreaBarChartViewModel(mainChart: mainChartViewModel, componentCharts: componentCharts,
+            let viewModel = AreaBarChartViewModel(mainChart: emptyComponentViewModel, componentCharts: componentCharts,
                                               horizontalAxisStops: 20, centerText: "")
-            expect(viewModel.historicalHeaderText) == "PREVIOUS \(numberOfDays) DAYS"
+            expect(viewModel.historicalHeaderText) == "Previous \(numberOfDays) Days".uppercaseString
         }
-
     }
 }

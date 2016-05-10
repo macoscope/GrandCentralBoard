@@ -45,8 +45,9 @@ struct AreaBarChartViewModel {
         self.horizontalAxisStops = horizontalAxisStops
         self.centerText = centerText
 
-        let headerTextFormat = componentCharts.count == 1 ? "PREVIOUS %d DAY" : "PREVIOUS %d DAYS"
-        historicalHeaderText = String(format: headerTextFormat.localized, componentCharts.count)
+        historicalHeaderText = componentCharts.count == 1 ?
+            "Previous Day".localized.uppercaseString :
+            String(format: "Previous %d Days".localized, componentCharts.count).uppercaseString
     }
 
     static func emptyViewModel(header header: String? = nil, subheader: String? = nil,
