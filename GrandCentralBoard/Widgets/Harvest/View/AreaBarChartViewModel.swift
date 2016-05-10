@@ -53,9 +53,9 @@ struct AreaBarChartViewModel {
     static func emptyViewModel(header header: String? = nil, subheader: String? = nil,
                                       historicalCharts: [AreaBarChartComponentViewModel] = []) -> AreaBarChartViewModel {
         let items = [
-            AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.lipstick(), valueLabelMode: .Hidden),
-            AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.aquaMarine(), valueLabelMode: .Hidden),
-            AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.almostWhite(), valueLabelMode: .Hidden)]
+            AreaBarItemViewModel(proportionalWidth: 1 / 3.0, proportionalHeight: 0.05, color: UIColor.lipstick(), valueLabelMode: .Hidden),
+            AreaBarItemViewModel(proportionalWidth: 1 / 3.0, proportionalHeight: 0.05, color: UIColor.aquaMarine(), valueLabelMode: .Hidden),
+            AreaBarItemViewModel(proportionalWidth: 1 / 3.0, proportionalHeight: 0.05, color: UIColor.almostWhite(), valueLabelMode: .Hidden)]
 
         let mainChart = AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: "0",
                                                        headerText: "Harvest Burn Report".localized.uppercaseString, subheaderText: "")

@@ -103,14 +103,9 @@ final class AreaBarChartView: UIView, ViewModelRendering {
 
     private func handleTransitionFromState(state: RenderingState<ViewModel>, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
-        case (.Waiting, .Rendering(let viewModel)):
+        case (_, .Rendering(let viewModel)):
             configureWithViewModel(viewModel)
             informationSheetHidden = true
-        case (.Failed, .Rendering(let viewModel)):
-            configureWithViewModel(viewModel)
-            informationSheetHidden = true
-        case (.Rendering, .Rendering(let viewModel)):
-            configureWithViewModel(viewModel)
         case (_, .Failed):
             errorSheetVisible = true
         default:
