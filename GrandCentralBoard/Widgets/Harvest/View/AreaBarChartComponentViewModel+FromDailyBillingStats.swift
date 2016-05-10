@@ -96,7 +96,7 @@ extension AreaBarChartComponentViewModel {
 
     private static func headerTextForDailyBillingStats(dailyBillingStats: DailyBillingStats, isMainChart: Bool) -> String {
         if isMainChart {
-            return "HARVEST BURN REPORT".localized
+            return "Harvest Burn Report".localized.uppercaseString
 
         } else {
             return dailyBillingStats.day.stringWithFormat("EEE")
