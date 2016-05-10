@@ -3,7 +3,7 @@
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 28.04.2016.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Copyright © 2016 Macoscope. All rights reserved.
 //
 
 import Moya
