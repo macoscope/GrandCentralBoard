@@ -20,6 +20,10 @@ We use [CocoaPods](https://cocoapods.org) and the current dependencies include:
 
 - [Alamofire](https://github.com/Alamofire/Alamofire)
 - [Decodable](https://github.com/Anviking/Decodable)
+- [Result](https://github.com/antitypical/Result)
+- [MD5](https://github.com/3lvis/MD5)
+- [Operations](https://github.com/danthorpe/Operations)
+- [Nimble](https://github.com/Quick/Nimble)
 
 ## Widgets
 
