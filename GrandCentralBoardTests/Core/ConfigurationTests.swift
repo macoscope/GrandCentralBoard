@@ -57,4 +57,31 @@ class ConfigurationTests: XCTestCase {
         }
     }
 
+    func testComparisonOfIdenticalConfigurations() {
+        if let path = NSBundle(forClass: ConfigurationTests.self).pathForResource("configurationCorrect", ofType: "json") {
+            if let jsonData = NSData(contentsOfFile: path) {
+                do {
+                    let firstConfiguration = try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
+                    let secondConfiguration = firstConfiguration
+                    XCTAssertEqual(firstConfiguration, secondConfiguration)
+                } catch {
+                    XCTFail()
+                }
+            }
+        }
+    }
+
+    func testComparisonOfDifferentConfigurations() {
+        if let path = NSBundle(forClass: ConfigurationTests.self).pathForResource("configurationCorrect", ofType: "json") {
+            if let jsonData = NSData(contentsOfFile: path) {
+                do {
+                    let firstConfiguration = try Configuration.configurationFromData(jsonData, availableBuilders: availableBuilders)
+                    let secondConfiguration = Configuration(builders: [], settings: [])
+                    XCTAssertNotEqual(firstConfiguration, secondConfiguration)
+                } catch {
+                    XCTFail()
+                }
+            }
+        }
+    }
 }
