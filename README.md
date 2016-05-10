@@ -14,13 +14,6 @@ The board is a lightweight piece of code. The TV screen is to be used in landsca
 
 ✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2.2](https://swift.org).
 
-## Dependencies
-
-We use [CocoaPods](https://cocoapods.org) and the current dependencies include:
-
-- [Alamofire](https://github.com/Alamofire/Alamofire)
-- [Decodable](https://github.com/Anviking/Decodable)
-
 ## Widgets
 
 ### Adding a new Widget
@@ -50,7 +43,8 @@ This size is constant and won't change on tvOS. Future releases are planned for 
 
 ### Configuration
 
-A remote `JSON` file formatted like this is used to configure the Grand Central Board:
+There are two ways to configure Grand Central Board: with a remote or bundled configuration file. 
+A `JSON` file formatted like this is used to configure the Grand Central Board:
 
 ```json
 { "widgets":[ 
@@ -61,13 +55,21 @@ A remote `JSON` file formatted like this is used to configure the Grand Central 
     {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} },
     {"name":"somewatch", "settings":  {"timeZone":"Europe/Warsaw"} }
 ]}
-
 ```
 
 **NOTE:** Each widget will have its own settings properties.
 
-If you don't have your own server you can create a configuration file and run server locally. You don't have to install any frameworks, just run in your console:
-```$ python -m SimpleHTTPServer``` and then provide new link in `Configuration.swift`.
+The way a configuration file is loaded is specified in `Info.plist` file.
+![image](./README/plist_configuration.png)
+
+#### Remote configuration file
+
+To have the configuration file loaded from a remote location, edit `Info.plist` and set `GCBRemoteConfigurationPath` to the desired location. Make sure `GCBAlwaysUseLocalConfigurationFile` is set to `NO`.
+
+#### Bundled configuration file
+
+To use a bundled configuration file, set `GCBAlwaysUseLocalConfigurationFile` in `Info.plist` to `YES`. If necessary edit `GCBLocalConfigurationFileName` and check if the file is listed under `Copy Bundle Resources` in `Build Phases`.
+For development purposes you can also launch the application via `GrandCentralBoard-LocalConfig` scheme.
 
 ## View States
 
