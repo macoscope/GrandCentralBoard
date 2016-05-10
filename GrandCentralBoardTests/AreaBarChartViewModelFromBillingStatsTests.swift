@@ -11,9 +11,10 @@ import XCTest
 
 
 private extension DailyBillingStats {
-    
+
     func statsByAddingDaysToDate(days: Int) -> DailyBillingStats {
-        return DailyBillingStats(day: day.dateByAddingTimeInterval(NSTimeInterval(days) * 3600 * 24), groups: groups)
+        let newDay = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: days, toDate: day, options: [])!
+        return DailyBillingStats(day: newDay, groups: groups)
     }
 }
 
@@ -34,16 +35,16 @@ class AreaBarChartViewModelFromBillingStatsTests: XCTestCase {
                             normalDailyBillingStats]
         let viewModel = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
 
-        XCTAssertEqual(viewModel.mainChart.barItems[0].valueLabelMode, AreaBarItemValueLabelDisplayMode.Hidden)
-        XCTAssertEqual(viewModel.mainChart.barItems[1].valueLabelMode, AreaBarItemValueLabelDisplayMode.Hidden)
-        XCTAssertEqual(viewModel.mainChart.barItems[2].valueLabelMode, AreaBarItemValueLabelDisplayMode.Hidden)
+        XCTAssertEqual(viewModel.mainChart.barItems.count, 3)
+        viewModel.mainChart.barItems.forEach {
+            XCTAssertEqual($0.valueLabelMode, AreaBarItemValueLabelDisplayMode.Hidden)
+        }
 
         XCTAssertEqual(viewModel.componentCharts.count, 2)
-
-        for componentChart in viewModel.componentCharts {
-            XCTAssertEqual(componentChart.barItems[0].proportionalWidth, 0.1)
-            XCTAssertEqual(componentChart.barItems[1].proportionalWidth, 0.2)
-            XCTAssertEqual(componentChart.barItems[2].proportionalWidth, 0.7)
+        viewModel.componentCharts.forEach {
+            XCTAssertEqual($0.barItems[0].proportionalWidth, 0.1)
+            XCTAssertEqual($0.barItems[1].proportionalWidth, 0.2)
+            XCTAssertEqual($0.barItems[2].proportionalWidth, 0.7)
         }
     }
 
@@ -66,9 +67,10 @@ class AreaBarChartViewModelFromBillingStatsTests: XCTestCase {
                             emptyDailyBillingStats.statsByAddingDaysToDate(2)]
         let viewModel = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
 
-        XCTAssertEqual(viewModel.mainChart.barItems[0].proportionalWidth, 1 / 3.0)
-        XCTAssertEqual(viewModel.mainChart.barItems[1].proportionalWidth, 1 / 3.0)
-        XCTAssertEqual(viewModel.mainChart.barItems[2].proportionalWidth, 1 / 3.0)
+        XCTAssertEqual(viewModel.mainChart.barItems.count, 3)
+        viewModel.mainChart.barItems.forEach {
+            XCTAssertEqual($0.proportionalWidth, 1 / 3.0)
+        }
 
         XCTAssertEqual(viewModel.componentCharts.count, 2)
     }
