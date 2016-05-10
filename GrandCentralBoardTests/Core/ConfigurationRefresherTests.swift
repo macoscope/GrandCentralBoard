@@ -9,13 +9,18 @@ import GrandCentralBoardCore
 
 final class ConfigurableMock: Configurable {
     let expectation: XCTestExpectation
+    var expectationAlreadyFulfilled = false
 
     init(expectation: XCTestExpectation) {
         self.expectation = expectation
     }
 
     func configure(configuration: Configuration) throws {
+        // We need this because on Travis we can't depend on timer firing exactly as often as it should.
+        guard !expectationAlreadyFulfilled else { return }
+
         expectation.fulfill()
+        expectationAlreadyFulfilled = true
     }
 }
 
