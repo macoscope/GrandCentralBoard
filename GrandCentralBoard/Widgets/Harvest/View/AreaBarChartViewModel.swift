@@ -33,7 +33,7 @@ struct AreaBarChartViewModel {
     let componentCharts: [AreaBarChartComponentViewModel]
 
     let horizontalAxisStops: Int
-    let horizontalAxisLabelText: String = "people billing:"
+    let horizontalAxisLabelText: String = "people billing:".localized
 
     let centerText: String?
     let historicalHeaderText: String
@@ -58,10 +58,10 @@ struct AreaBarChartViewModel {
             AreaBarItemViewModel(proportionalWidth: 0.333, proportionalHeight: 0.05, color: UIColor.almostWhite(), valueLabelMode: .Hidden)]
 
         let mainChart = AreaBarChartComponentViewModel(barItems: items, horizontalAxisCountLabelText: "0",
-                                                       headerText: "HARVEST BURN REPORT", subheaderText: "")
+                                                       headerText: "Harvest Burn Report".localized.uppercaseString, subheaderText: "")
 
 
         return AreaBarChartViewModel(mainChart: mainChart, componentCharts: historicalCharts,
-                                     horizontalAxisStops: 20, centerText: "We didn't work yesterday")
+                                     horizontalAxisStops: 20, centerText: "We didn't work yesterday".localized)
     }
 }
