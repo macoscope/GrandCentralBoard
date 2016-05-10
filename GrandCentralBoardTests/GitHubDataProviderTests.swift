@@ -48,7 +48,7 @@ final class GitHubDataProviderTests: XCTestCase {
 
 
     func testAreHeadersValid() {
-        let token = "token"
+        let token = "sample_test_token"
         let provider = GitHubDataProvider(accessToken: token)
 
         waitUntil { done in
@@ -81,8 +81,7 @@ final class GitHubDataProviderTests: XCTestCase {
     }
 
     func testResponseIsValid() {
-        let token = "token"
-        let provider = GitHubDataProvider(accessToken: token)
+        let provider = GitHubDataProvider(accessToken: "")
         waitUntil { done in
             let _ = provider.repositoriesWithPRsCount().subscribeNext { (repos) in
                 self.checkReposResponse(repos)
