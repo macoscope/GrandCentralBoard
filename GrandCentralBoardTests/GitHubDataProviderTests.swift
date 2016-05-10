@@ -52,7 +52,7 @@ final class GitHubDataProviderTests: XCTestCase {
         let provider = GitHubDataProvider(accessToken: token)
 
         waitUntil { done in
-            let _ = provider.requestRepositories().subscribeNext { _ in
+            let _ = provider.repositories().subscribeNext { _ in
                 expect(self.urlRequest.valueForHTTPHeaderField("Authorization")) == "token \(token)"
                 done()
             }
@@ -84,7 +84,7 @@ final class GitHubDataProviderTests: XCTestCase {
         let token = "token"
         let provider = GitHubDataProvider(accessToken: token)
         waitUntil { done in
-            let _ = provider.requestRepositoriesWithPRs().subscribeNext { (repos) in
+            let _ = provider.repositoriesWithPRsCount().subscribeNext { (repos) in
                 self.checkReposResponse(repos)
                 done()
             }

@@ -32,8 +32,8 @@ enum GitHubTarget: TargetType {
 
 
 protocol GitHubDataProviding {
-    func requestRepositories() -> Observable<[Repository]>
-    func requestRepositoriesWithPRs() -> Observable<[Repository]>
+    func repositories() -> Observable<[Repository]>
+    func repositoriesWithPRsCount() -> Observable<[Repository]>
 }
 
 final class GitHubDataProvider: GitHubDataProviding {
@@ -44,11 +44,11 @@ final class GitHubDataProvider: GitHubDataProviding {
         self.moyaProvider = moyaProvider ?? RxMoyaProvider<GitHubTarget>.providerWithHeaders(headers)
     }
 
-    func requestRepositories() -> Observable<[Repository]> {
+    func repositories() -> Observable<[Repository]> {
         return moyaProvider.request(.Repositories).mapDecodableArray(Repository)
     }
 
-    func requestPullRequestsCountForRepository(repo: Repository) -> Observable<Repository> {
+    private func requestPullRequestsCountForRepository(repo: Repository) -> Observable<Repository> {
         return moyaProvider.request(.PullRequests(repositoryFullName: repo.fullName)).mapJSON().map({ (object: AnyObject) -> Repository in
             guard let array = object as? NSArray else {
                 assertionFailure("Object is not an array")
@@ -58,8 +58,8 @@ final class GitHubDataProvider: GitHubDataProviding {
         })
     }
 
-    func requestRepositoriesWithPRs() -> Observable<[Repository]> {
-        return requestRepositories().flatMap { (repos: [Repository]) -> Observable<Repository> in
+    func repositoriesWithPRsCount() -> Observable<[Repository]> {
+        return repositories().flatMap { (repos: [Repository]) -> Observable<Repository> in
                 repos.toObservable().flatMap { repo -> Observable<Repository> in self.requestPullRequestsCountForRepository(repo) }
             }.toArray()
     }
