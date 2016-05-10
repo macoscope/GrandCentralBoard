@@ -14,17 +14,6 @@ The board is a lightweight piece of code. The TV screen is to be used in landsca
 
 ✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2.2](https://swift.org).
 
-## Dependencies
-
-We use [CocoaPods](https://cocoapods.org) and the current dependencies include:
-
-- [Alamofire](https://github.com/Alamofire/Alamofire)
-- [Decodable](https://github.com/Anviking/Decodable)
-- [Result](https://github.com/antitypical/Result)
-- [MD5](https://github.com/3lvis/MD5)
-- [Operations](https://github.com/danthorpe/Operations)
-- [Nimble](https://github.com/Quick/Nimble)
-
 ## Widgets
 
 ### Adding a new Widget
