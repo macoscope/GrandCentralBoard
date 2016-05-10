@@ -88,14 +88,18 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-GrandCentralBoard/Decodable.framework"
   install_framework "Pods-GrandCentralBoard/GrandCentralBoardCore.framework"
   install_framework "Pods-GrandCentralBoard/MD5.framework"
+  install_framework "Pods-GrandCentralBoard/Moya.framework"
   install_framework "Pods-GrandCentralBoard/Operations.framework"
   install_framework "Pods-GrandCentralBoard/Result.framework"
+  install_framework "Pods-GrandCentralBoard/RxSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-GrandCentralBoard/Alamofire.framework"
   install_framework "Pods-GrandCentralBoard/Decodable.framework"
   install_framework "Pods-GrandCentralBoard/GrandCentralBoardCore.framework"
   install_framework "Pods-GrandCentralBoard/MD5.framework"
+  install_framework "Pods-GrandCentralBoard/Moya.framework"
   install_framework "Pods-GrandCentralBoard/Operations.framework"
   install_framework "Pods-GrandCentralBoard/Result.framework"
+  install_framework "Pods-GrandCentralBoard/RxSwift.framework"
 fi

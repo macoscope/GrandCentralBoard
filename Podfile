@@ -8,9 +8,12 @@ target "GrandCentralBoard" do
  pod 'MD5', '~> 0.1'
  pod 'GrandCentralBoardCore', :path => './'
  pod 'Operations', '~> 2.9'
+ pod 'Moya/RxSwift', '~> 6.4'
 end
 
 target "GrandCentralBoardTests" do
  pod 'Nimble', '~> 4.0'
+ pod 'OHHTTPStubs', '~> 5.0'
+ pod 'OHHTTPStubs/Swift', '~> 5.0'
 end
 

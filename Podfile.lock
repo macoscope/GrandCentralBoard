@@ -5,32 +5,60 @@ PODS:
     - Alamofire (~> 3.0)
     - Decodable (~> 0.4)
   - MD5 (0.1.1)
+  - Moya/Core (6.4.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (6.4.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
   - Nimble (4.0.0)
+  - OHHTTPStubs (5.0.0):
+    - OHHTTPStubs/Default (= 5.0.0)
+  - OHHTTPStubs/Core (5.0.0)
+  - OHHTTPStubs/Default (5.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.0.0)
+  - OHHTTPStubs/Swift (5.0.0):
+    - OHHTTPStubs/Core
   - Operations (2.9.0):
     - Operations/Standard (= 2.9.0)
   - Operations/Standard (2.9.0)
   - Result (2.0.0)
+  - RxSwift (2.4)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Decodable (~> 0.4)
   - GrandCentralBoardCore (from `./`)
   - MD5 (~> 0.1)
+  - Moya/RxSwift (~> 6.4)
   - Nimble (~> 4.0)
+  - OHHTTPStubs (~> 5.0)
+  - OHHTTPStubs/Swift (~> 5.0)
   - Operations (~> 2.9)
   - Result (~> 2.0)
 
 EXTERNAL SOURCES:
   GrandCentralBoardCore:
-    :path: "./"
+    :path: ./
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
   GrandCentralBoardCore: ed3bb94976714fbf2d73f6a971f471d0a19b924c
   MD5: 62e4416c91af0514c6aeeb6e6d80171f3bd48c3f
+  Moya: 4d526954c8afd79820991393d40d7d8af756ceee
   Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
+  OHHTTPStubs: a5d2e9eea07869d42ec03338325f398bc520e159
   Operations: 62f6d7942ed37d06476426fb275233b21a48617c
   Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
 
 COCOAPODS: 0.39.0
