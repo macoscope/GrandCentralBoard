@@ -33,40 +33,7 @@ public struct WidgetSettings {
     }
 }
 
-extension WidgetSettings : Hashable {
-    public var hashValue: Int {
-
-        if let settings = settings as? [String : AnyObject] {
-            return settings.enumerate().reduce(name.hashValue) { previousHash, widgetSettings in
-
-                let key = widgetSettings.element.0
-                let value = widgetSettings.element.1
-
-                var valueHash: Int?
-
-                if let string = value as? String {
-                    valueHash = string.hashValue
-                }
-
-                if let number = widgetSettings.element.1 as? NSNumber {
-                    valueHash = number.integerValue
-                }
-
-                if let valueHash = valueHash {
-                    return previousHash ^ key.hashValue ^ valueHash
-                }
-
-                if widgetSettings.element.1 is NSNull {
-                    return previousHash ^ key.hashValue
-                }
-
-                return previousHash
-            }
-        }
-
-        return 0
-    }
-}
+extension WidgetSettings : Equatable { }
 
 public func == (lhs: WidgetSettings, rhs: WidgetSettings) -> Bool {
     if lhs.name != rhs.name {
