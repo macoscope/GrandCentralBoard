@@ -48,4 +48,15 @@ final class SlackRestAPIProviderTests: XCTestCase {
             }
         }
     }
+
+    func testTokenIsProvided() {
+        let token = "just_test_token"
+        let provider = SlackRestAPIProvider(accessToken: token)
+        waitUntil { done in
+            let _ = provider.websocketAddress().subscribeNext { _ in
+                expect(self.urlRequest.URL?.query) == "token=\(token)"
+                done()
+            }
+        }
+    }
 }
