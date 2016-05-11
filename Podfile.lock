@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (3.3.1)
   - Decodable (0.4.2)
-  - GrandCentralBoardCore (0.0.1):
+  - GCBCore (0.0.1):
     - Alamofire (~> 3.0)
     - Decodable (~> 0.4)
   - MD5 (0.1.1)
@@ -36,7 +36,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Decodable (~> 0.4)
-  - GrandCentralBoardCore (from `./`)
+  - GCBCore (from `./`)
   - MD5 (~> 0.1)
   - Moya/RxSwift (~> 6.4)
   - Nimble (~> 4.0)
@@ -46,13 +46,13 @@ DEPENDENCIES:
   - Result (~> 2.0)
 
 EXTERNAL SOURCES:
-  GrandCentralBoardCore:
+  GCBCore:
     :path: ./
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
-  GrandCentralBoardCore: ed3bb94976714fbf2d73f6a971f471d0a19b924c
+  GCBCore: 50bd889773433c8c55b59e1ce1d86ec260df7633
   MD5: 62e4416c91af0514c6aeeb6e6d80171f3bd48c3f
   Moya: 4d526954c8afd79820991393d40d7d8af756ceee
   Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
