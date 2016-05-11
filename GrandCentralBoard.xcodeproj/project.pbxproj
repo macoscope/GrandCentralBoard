@@ -118,6 +118,7 @@
 		525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */; };
 		525027811CE2103800DFE32A /* configurationCorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616B01C904FC800361B2E /* configurationCorrect.json */; };
 		525027851CE3345F00DFE32A /* SlackRestAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027841CE3345F00DFE32A /* SlackRestAPIProvider.swift */; };
+		525027891CE340BE00DFE32A /* SlackRestAPIProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027881CE340BE00DFE32A /* SlackRestAPIProviderTests.swift */; };
 		526FC2431CD0ADF300D7843A /* GitHubDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */; };
 		526FC24A1CD0E1A700D7843A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC2491CD0E1A700D7843A /* Repository.swift */; };
 		526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC24C1CD0E7C400D7843A /* GitHubDataProviderTests.swift */; };
@@ -309,6 +310,7 @@
 		5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillingProjectListTests.swift; path = Widgets/Harvest/BillingProjectListTests.swift; sourceTree = "<group>"; };
 		5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyBillingStatsTests.swift; path = Widgets/Harvest/DailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		525027841CE3345F00DFE32A /* SlackRestAPIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackRestAPIProvider.swift; path = Slack/Source/SlackRestAPIProvider.swift; sourceTree = "<group>"; };
+		525027881CE340BE00DFE32A /* SlackRestAPIProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackRestAPIProviderTests.swift; path = Widgets/Slack/SlackRestAPIProviderTests.swift; sourceTree = "<group>"; };
 		526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubDataProvider.swift; path = GitHub/GitHubDataProvider.swift; sourceTree = "<group>"; };
 		526FC2491CD0E1A700D7843A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = GitHub/Model/Repository.swift; sourceTree = "<group>"; };
 		526FC24C1CD0E7C400D7843A /* GitHubDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubDataProviderTests.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				525027871CE3407C00DFE32A /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
 				52FB507B1CBF9BAF0053DE8B /* WebsiteAnalytics */,
 				52FB50491CBB93030053DE8B /* Watch */,
@@ -824,6 +827,14 @@
 				525027841CE3345F00DFE32A /* SlackRestAPIProvider.swift */,
 			);
 			name = Source;
+			sourceTree = "<group>";
+		};
+		525027871CE3407C00DFE32A /* Slack */ = {
+			isa = PBXGroup;
+			children = (
+				525027881CE340BE00DFE32A /* SlackRestAPIProviderTests.swift */,
+			);
+			name = Slack;
 			sourceTree = "<group>";
 		};
 		526FC2411CD0ADCC00D7843A /* GitHub */ = {
@@ -1414,6 +1425,7 @@
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
 				52FB507D1CBF9BB90053DE8B /* GoogleAnalyticsDataProviderTests.swift in Sources */,
 				5250277D1CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
+				525027891CE340BE00DFE32A /* SlackRestAPIProviderTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
 				5250277E1CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */,
