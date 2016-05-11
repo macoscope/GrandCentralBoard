@@ -10,6 +10,17 @@ import GCBCore
 import SlackKit
 
 
+private extension String {
+
+    func slackMessageTimestamp() -> NSDate? {
+        if let timestampString = self.componentsSeparatedByString(".").first, let timeInterval = NSTimeInterval(timestampString) {
+            return NSDate(timeIntervalSinceReferenceDate: timeInterval)
+        } else {
+            return nil
+        }
+    }
+}
+
 final class SlackSource: Subscribable, MessageEventsDelegate {
     typealias ResultType = SlackMessage
     var subscriptionBlock: ((SlackMessage) -> Void)?
@@ -37,7 +48,8 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
             return
         }
 
-        let slackMessage = SlackMessage(text: text.stringByRemovingOccurrencesOfStrings(searchedTags))
+        let timestamp = message.ts?.slackMessageTimestamp() ?? NSDate()
+        let slackMessage = SlackMessage(text: text.stringByRemovingOccurrencesOfStrings(searchedTags), timestamp: timestamp)
         subscriptionBlock?(slackMessage)
     }
 }

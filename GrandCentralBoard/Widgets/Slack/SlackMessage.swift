@@ -10,4 +10,5 @@ import Foundation
 
 struct SlackMessage {
     let text: String
+    let timestamp: NSDate
 }
