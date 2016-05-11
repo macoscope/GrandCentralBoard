@@ -9,6 +9,7 @@ target "GrandCentralBoard" do
  pod 'GrandCentralBoardCore', :path => './'
  pod 'Operations', '~> 2.9'
  pod 'Moya/RxSwift', '~> 6.4'
+ pod 'SlackKit', :git => "https://github.com/michallaskowski/SlackKit", :branch => "add-tv-os-to-podspec"
 end
 
 target "GrandCentralBoardTests" do
