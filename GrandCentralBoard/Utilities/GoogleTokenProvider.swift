@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import GCBCore
 
 enum RefreshTokenError: ErrorType {
     case FailedResponseParsing
@@ -14,7 +15,7 @@ enum RefreshTokenError: ErrorType {
 }
 
 protocol OAuth2TokenProviding {
-    func accessTokenFromRefreshToken(completion: (ResultType<AccessToken, RefreshTokenError>.result) -> Void)
+    func accessTokenFromRefreshToken(completion: (GCBCore.Result<AccessToken>) -> Void)
 }
 
 private let googleRefreshTokenURL = "https://accounts.google.com/o/oauth2/token"
@@ -32,7 +33,7 @@ final class GoogleTokenProvider: OAuth2TokenProviding {
         self.refreshURL = refreshURL
     }
 
-    func accessTokenFromRefreshToken(completion: (ResultType<AccessToken, RefreshTokenError>.result) -> Void) {
+    func accessTokenFromRefreshToken(completion: (GCBCore.Result<AccessToken>) -> Void) {
         Alamofire.request(.POST, googleRefreshTokenURL, parameters: [
             "client_id": clientID,
             "client_secret": clientSecret,
@@ -40,12 +41,12 @@ final class GoogleTokenProvider: OAuth2TokenProviding {
             "grant_type": "refresh_token"
             ]).responseJSON { response in
                 switch response.result {
-                case .Failure(let error): completion(.Failure(.UnderlyingError(error)))
+                case .Failure(let error): completion(.Failure(RefreshTokenError.UnderlyingError(error)))
                 case .Success(let json):
                     if let tokenResponse = try? AccessToken.decode(json) {
                         completion(.Success(tokenResponse))
                     } else {
-                        completion(.Failure(.FailedResponseParsing))
+                        completion(.Failure(RefreshTokenError.FailedResponseParsing))
                     }
                 }
         }

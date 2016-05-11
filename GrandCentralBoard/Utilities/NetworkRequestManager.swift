@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import GCBCore
+
 
 public enum Method: String {
     case OPTIONS, GET, HEAD, POST, PUT, PATCH, DELETE, TRACE, CONNECT
@@ -18,5 +20,5 @@ public enum ParameterEncoding {
 
 protocol NetworkRequestManager {
     func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?, headers: [String : String]?,
-                     encoding: ParameterEncoding, completion: (ResultType<AnyObject, NSError>.result) -> Void)
+                     encoding: ParameterEncoding, completion: (Result<AnyObject>) -> Void)
 }

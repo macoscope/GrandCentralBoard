@@ -134,7 +134,6 @@
 		5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */; };
 		5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */; };
 		5274A4921CB69AE9005FD847 /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48D1CB69AE9005FD847 /* NetworkRequestManager.swift */; };
-		5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48E1CB69AE9005FD847 /* ResultType.swift */; };
 		5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */; };
 		5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */; };
 		527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0601CC4D619004614B8 /* PageViewsSource.swift */; };
@@ -319,7 +318,6 @@
 		5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAPIDataProvider.swift; path = Utilities/GoogleAPIDataProvider.swift; sourceTree = "<group>"; };
 		5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleTokenProvider.swift; path = Utilities/GoogleTokenProvider.swift; sourceTree = "<group>"; };
 		5274A48D1CB69AE9005FD847 /* NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkRequestManager.swift; path = Utilities/NetworkRequestManager.swift; sourceTree = "<group>"; };
-		5274A48E1CB69AE9005FD847 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultType.swift; path = Utilities/ResultType.swift; sourceTree = "<group>"; };
 		5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+NetworkRequestManager.swift"; path = "Extensions/Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
 		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleCalendarDataProvider.swift; path = ../Server/GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
 		5274A4981CB69DAC005FD847 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Server/Calendar.swift; sourceTree = "<group>"; };
@@ -859,7 +857,6 @@
 				5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */,
 				5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */,
 				5274A48D1CB69AE9005FD847 /* NetworkRequestManager.swift */,
-				5274A48E1CB69AE9005FD847 /* ResultType.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1284,7 +1281,6 @@
 				1A1DBC751CBFBC07003DA40C /* AreaBarChartViewModel.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */,
-				5274A4931CB69AE9005FD847 /* ResultType.swift in Sources */,
 				F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
 				1A1DBC731CBFBC07003DA40C /* AreaBarChartView.swift in Sources */,
