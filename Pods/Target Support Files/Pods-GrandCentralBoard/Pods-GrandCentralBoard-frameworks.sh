@@ -92,6 +92,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-GrandCentralBoard/Operations.framework"
   install_framework "Pods-GrandCentralBoard/Result.framework"
   install_framework "Pods-GrandCentralBoard/RxSwift.framework"
+  install_framework "Pods-GrandCentralBoard/SlackKit.framework"
+  install_framework "Pods-GrandCentralBoard/Starscream.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-GrandCentralBoard/Alamofire.framework"
@@ -102,4 +104,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-GrandCentralBoard/Operations.framework"
   install_framework "Pods-GrandCentralBoard/Result.framework"
   install_framework "Pods-GrandCentralBoard/RxSwift.framework"
+  install_framework "Pods-GrandCentralBoard/SlackKit.framework"
+  install_framework "Pods-GrandCentralBoard/Starscream.framework"
 fi
