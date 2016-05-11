@@ -37,7 +37,7 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
             return
         }
 
-        let slackMessage = SlackMessage(text: text.stringByRemovingOccurencesOfStrings(searchedTags))
+        let slackMessage = SlackMessage(text: text.stringByRemovingOccurrencesOfStrings(searchedTags))
         subscriptionBlock?(slackMessage)
     }
 }
