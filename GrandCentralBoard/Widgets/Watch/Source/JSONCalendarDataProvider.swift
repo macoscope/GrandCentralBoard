@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import GrandCentralBoardCore
+import GCBCore
 
 enum EventsError: ErrorType, HavingMessage {
     case CannotConvertDate

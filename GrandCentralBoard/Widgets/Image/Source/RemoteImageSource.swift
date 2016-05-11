@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import GrandCentralBoardCore
+import GCBCore
 
 
 enum RemoteImageSourceError: ErrorType, HavingMessage {
@@ -33,7 +33,7 @@ struct Counter {
 
 final class RemoteImageSource: Asynchronous {
 
-    typealias ResultType = GrandCentralBoardCore.Result<UIImage>
+    typealias ResultType = GCBCore.Result<UIImage>
 
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary

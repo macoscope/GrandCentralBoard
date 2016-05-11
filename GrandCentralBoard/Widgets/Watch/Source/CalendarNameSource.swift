@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import GrandCentralBoardCore
+import GCBCore
 
 final class CalendarNameSource: Asynchronous {
     typealias ResultType = Result<Calendar>

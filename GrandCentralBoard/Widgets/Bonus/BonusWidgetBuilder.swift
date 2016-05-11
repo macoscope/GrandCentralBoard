@@ -5,7 +5,7 @@
 
 import Foundation
 import Decodable
-import GrandCentralBoardCore
+import GCBCore
 
 final class BonusWidgetBuilder: WidgetBuilding {
 

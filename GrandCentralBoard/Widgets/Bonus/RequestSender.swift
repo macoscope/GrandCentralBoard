@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-import GrandCentralBoardCore
+import GCBCore
 
 
 enum RequestSenderError: ErrorType {
@@ -21,7 +21,7 @@ enum RequestSenderError: ErrorType {
 
 protocol RequestSending {
     func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T,
-                                                                   completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void
+                                                                   completionBlock: ((GCBCore.Result<T.ResultType>) -> Void)?) -> Void
 }
 
 
@@ -45,7 +45,7 @@ final class RequestSender: RequestSending {
     }
 
     func sendRequestForRequestTemplate<T: RequestTemplateProtocol>(requestTemplate: T,
-                                       completionBlock: ((GrandCentralBoardCore.Result<T.ResultType>) -> Void)?) -> Void {
+                                       completionBlock: ((GCBCore.Result<T.ResultType>) -> Void)?) -> Void {
         let wrappingRequestTemplate = WrappingRequestTemplate(requestTemplate: requestTemplate, queryParameters: self.configuration.queryParameters)
         let requestBuilder = RequestBuilder<WrappingRequestTemplate<T>>(requestTemplate: wrappingRequestTemplate)
 

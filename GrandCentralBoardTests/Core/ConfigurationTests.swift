@@ -4,7 +4,7 @@
 //
 
 import XCTest
-import GrandCentralBoardCore
+import GCBCore
 @testable import GrandCentralBoard
 
 

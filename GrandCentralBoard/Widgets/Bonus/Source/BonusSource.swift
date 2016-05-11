@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import GrandCentralBoardCore
+import GCBCore
 
 
 final class BonusSource: Asynchronous {

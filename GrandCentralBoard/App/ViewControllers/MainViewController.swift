@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import GrandCentralBoardCore
+import GCBCore
 
 
 private let shouldLoadBundledConfig = NSBundle.alwaysUseLocalConfigurationFile || NSProcessInfo.loadBundledConfig

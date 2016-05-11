@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import GrandCentralBoardCore
+import GCBCore
 
 
 final class BillingStatsFetcher {

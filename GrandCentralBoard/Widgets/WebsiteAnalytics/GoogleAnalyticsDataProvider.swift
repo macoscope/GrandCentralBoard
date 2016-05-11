@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import GrandCentralBoardCore
+import GCBCore
 
 final class GoogleAnalyticsDataProvider {
     private static let googleAnalyticsAPIURL = NSURL(string: "https://analyticsreporting.googleapis.com/v4/reports:batchGet?fields=reports")!
