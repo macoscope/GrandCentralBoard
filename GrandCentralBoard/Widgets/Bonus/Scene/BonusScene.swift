@@ -13,7 +13,6 @@ class BonusScene: SKScene {
 
     private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
-    var bubbleResizeDuration: NSTimeInterval = 15
     var relativeScenePadding: (x: CGFloat, y: CGFloat) = (x: 0.05, y: 0.05)
 
     override func didMoveToView(view: SKView) {
