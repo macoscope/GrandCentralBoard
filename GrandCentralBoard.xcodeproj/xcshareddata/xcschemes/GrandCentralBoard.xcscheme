@@ -38,16 +38,6 @@
                ReferencedContainer = "container:GrandCentralBoard.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A242D381C357C2700D5BEE5"
-               BuildableName = "GrandCentralBoardUITests.xctest"
-               BlueprintName = "GrandCentralBoardUITests"
-               ReferencedContainer = "container:GrandCentralBoard.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
