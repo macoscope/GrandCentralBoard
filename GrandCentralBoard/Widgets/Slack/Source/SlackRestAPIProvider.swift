@@ -47,13 +47,8 @@ final class SlackRestAPIProvider {
     }
 
     func websocketAddress() -> Observable<NSURL> {
-        return moyaProvider.request(.GetWebsocketAddress).mapDecodable(String).flatMap { urlString -> Observable<NSURL> in
-            if let url = NSURL(string: urlString) {
-                return Observable.just(url)
-            } else {
-                return Observable.error(SlackError.IncorrectWebsocketURL(urlString))
-            }
+        return moyaProvider.request(.GetWebsocketAddress).mapDecodable(SlackRTMStartResponse).map {
+            $0.websocketURL
         }
     }
-
 }

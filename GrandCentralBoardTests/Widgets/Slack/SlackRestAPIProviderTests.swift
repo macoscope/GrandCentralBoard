@@ -27,8 +27,9 @@ final class SlackRestAPIProviderTests: XCTestCase {
 
     override func setUp() {
         urlRequest = nil
+        let rtmStartPath = SlackTarget.GetWebsocketAddress.baseURL.URLByAppendingPathComponent(SlackTarget.GetWebsocketAddress.path).path!
 
-        stub(isPath(SlackTarget.GetWebsocketAddress.path)) { urlRequest in
+        stub(isPath(rtmStartPath)) { urlRequest in
             self.urlRequest = urlRequest
             return OHHTTPStubsResponse(JSONObject: ["ok": true, "url": self.websocketURL], statusCode: 200, headers: nil)
         }
