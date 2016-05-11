@@ -12,9 +12,11 @@ import RxSwift
 
 
 extension RxMoyaProvider {
-    static func providerWithHeaders(headers: [String: String]) -> RxMoyaProvider {
+    static func providerWithHeaders(headers: [String: String], parameters: [String: AnyObject] = [:]) -> RxMoyaProvider {
         let endpointClosure: MoyaProvider<Target>.EndpointClosure = { target  in
-            return MoyaProvider<Target>.DefaultEndpointMapping(target).endpointByAddingHTTPHeaderFields(headers)
+            return MoyaProvider<Target>.DefaultEndpointMapping(target)
+                .endpointByAddingHTTPHeaderFields(headers)
+                .endpointByAddingParameters(parameters)
         }
         return RxMoyaProvider(endpointClosure: endpointClosure)
     }
