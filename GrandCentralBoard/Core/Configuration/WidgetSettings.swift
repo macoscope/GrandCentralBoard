@@ -68,8 +68,18 @@ extension WidgetSettings : Hashable {
     }
 }
 
-public func == (lhc: WidgetSettings, rhc: WidgetSettings) -> Bool {
-    return lhc.hashValue == rhc.hashValue
+public func == (lhs: WidgetSettings, rhs: WidgetSettings) -> Bool {
+    if lhs.name != rhs.name {
+        return false
+    }
+
+    if let lhsSettings = lhs.settings as? [String: AnyObject],
+        let rhsSettings = rhs.settings as? [String: AnyObject] {
+
+        return NSDictionary(dictionary: lhsSettings).isEqualToDictionary(rhsSettings)
+    }
+
+    return false
 }
 
 extension WidgetSettings : Decodable {
