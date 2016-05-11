@@ -9,6 +9,7 @@
 import GrandCentralBoardCore
 import SlackKit
 
+
 final class SlackSource: Subscribable, MessageEventsDelegate {
     typealias ResultType = SlackMessage
     var subscriptionBlock: ((SlackMessage) -> Void)?
@@ -31,11 +32,12 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
     func messageDeleted(message: Message?) {}
 
     func messageReceived(message: Message) {
-        guard let text = message.text where text.containsString("@here") || text.containsString("@channel") else {
+        let searchedTags = ["<!here|@here>", "<!here>", "<!channel>", "<!everyone>"]
+        guard let text = message.text where text.containsAnyString(searchedTags) else {
             return
         }
 
-        let slackMessage = SlackMessage(text: text)
+        let slackMessage = SlackMessage(text: text.stringByRemovingOccurencesOfStrings(searchedTags))
         subscriptionBlock?(slackMessage)
     }
 }

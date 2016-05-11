@@ -3,7 +3,7 @@
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 11.05.2016.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Copyright © 2016 Macoscope. All rights reserved.
 //
 
 import GrandCentralBoardCore
@@ -11,7 +11,11 @@ import GrandCentralBoardCore
 
 final class SlackMessagesWidget: WidgetControlling {
 
-    private let widgetView = UILabel()
+    private let widgetView: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.whiteColor()
+        return label
+    }()
 
     let sources: [UpdatingSource]
     var view: UIView { return widgetView }
