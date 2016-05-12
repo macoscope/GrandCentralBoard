@@ -11,17 +11,6 @@ import SlackKit
 import RxSwift
 
 
-private extension String {
-
-    func slackMessageTimestamp() -> NSDate? {
-        if let timestampString = self.componentsSeparatedByString(".").first, let timeInterval = NSTimeInterval(timestampString) {
-            return NSDate(timeIntervalSince1970: timeInterval)
-        } else {
-            return nil
-        }
-    }
-}
-
 final class SlackSource: Subscribable, MessageEventsDelegate {
     typealias ResultType = SlackMessage
     var subscriptionBlock: ((SlackMessage) -> Void)?
