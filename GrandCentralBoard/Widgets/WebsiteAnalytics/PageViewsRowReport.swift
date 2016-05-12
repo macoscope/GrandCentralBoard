@@ -19,8 +19,8 @@ struct PageViewsRowReport {
 
     init?(analyticsReportRow row: AnalyticsReportRow, pathToTitleTranslator: PathToTitleTranslating) {
         guard let dimension = row.dimensions.first,
-            let value = row.values.first,
-            let count = Int(value) else {
+            value = row.values.first,
+            count = Int(value) else {
                 return nil
         }
 
