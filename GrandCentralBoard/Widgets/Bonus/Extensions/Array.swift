@@ -18,3 +18,17 @@ extension RangeReplaceableCollectionType where Generator.Element : Equatable {
     }
 
 }
+
+extension SequenceType where Generator.Element == Bonus {
+    func sortByDate() -> [Bonus] {
+        return self.sort({ $0.date.compare($1.date) == .OrderedDescending })
+    }
+
+    func flatten() -> [Bonus] {
+        let mappedBonuses = self.map { bonus in
+            return [ Bonus(name: bonus.name, amount: bonus.amount, receiver: bonus.receiver, date: bonus.date, childBonuses: [])]
+                + bonus.childBonuses
+        }
+        return mappedBonuses.flatMap { $0 }
+    }
+}
