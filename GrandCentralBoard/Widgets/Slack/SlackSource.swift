@@ -15,7 +15,7 @@ private extension String {
 
     func slackMessageTimestamp() -> NSDate? {
         if let timestampString = self.componentsSeparatedByString(".").first, let timeInterval = NSTimeInterval(timestampString) {
-            return NSDate(timeIntervalSinceReferenceDate: timeInterval)
+            return NSDate(timeIntervalSince1970: timeInterval)
         } else {
             return nil
         }
@@ -53,7 +53,7 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
         }
 
         let timestamp = message.ts?.slackMessageTimestamp() ?? NSDate()
-        let formattedText = text.stringByRemovingOccurrencesOfStrings(searchedTags)
+        let formattedText = text.stringByRemovingOccurrencesOfStrings(searchedTags).trim()
         let slackClient = self.slackClient
 
         let userInfoObservable = slackClient.webAPI.userInfo(author)
