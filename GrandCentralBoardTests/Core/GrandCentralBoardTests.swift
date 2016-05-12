@@ -21,7 +21,7 @@ class GrandCentralBoardTests: XCTestCase {
         let config = Configuration(builders: [watchWidgetBuilder], settings: [settings])
 
         do {
-            let board = GrandCentralBoard(scheduler: scheduler, stack: stack)
+            let board = GrandCentralBoardController(scheduler: scheduler, stack: stack)
             try board.configure(config)
         } catch let error as GrandCentralBoardError {
             XCTAssertTrue(error == GrandCentralBoardError.WrongWidgetsCount)
@@ -38,7 +38,7 @@ class GrandCentralBoardTests: XCTestCase {
         let config = Configuration(builders: [], settings: [settings])
 
         do {
-            let board = GrandCentralBoard(scheduler: scheduler, stack: stack)
+            let board = GrandCentralBoardController(scheduler: scheduler, stack: stack)
             try board.configure(config)
         } catch let error as GrandCentralBoardError {
             XCTAssertTrue(error == GrandCentralBoardError.WrongWidgetsCount)
@@ -58,7 +58,7 @@ class GrandCentralBoardTests: XCTestCase {
                                    settings: [wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings, wrongSettings])
 
         do {
-            let board = GrandCentralBoard(scheduler: scheduler, stack: stack)
+            let board = GrandCentralBoardController(scheduler: scheduler, stack: stack)
             try board.configure(config)
         } catch let error as MissingKeyError {
             XCTAssertTrue(error.key == "calendar")
@@ -76,7 +76,7 @@ class GrandCentralBoardTests: XCTestCase {
         let config = Configuration(builders: [watchWidgetBuilder], settings: [settings, settings, settings, settings, settings, settings])
 
         do {
-            let board = GrandCentralBoard(scheduler: scheduler, stack: stack)
+            let board = GrandCentralBoardController(scheduler: scheduler, stack: stack)
             try board.configure(config)
         } catch {
             XCTFail()
@@ -102,7 +102,7 @@ class GrandCentralBoardTests: XCTestCase {
 
         let stackingMock = StackingMock()
 
-        let board = GrandCentralBoard(scheduler: scheduler, stack: stackingMock)
+        let board = GrandCentralBoardController(scheduler: scheduler, stack: stackingMock)
         try! board.configure(config)
 
         XCTAssertEqual(stackingMock.stackedViews.count, 6)
@@ -125,7 +125,7 @@ class GrandCentralBoardTests: XCTestCase {
         let schedulingMock = SchedulingMock()
         let config = Configuration(builders: [watchWidgetBuilder], settings: [settings, settings, settings, settings, settings, settings])
 
-        let board = GrandCentralBoard(scheduler: schedulingMock, stack: stack)
+        let board = GrandCentralBoardController(scheduler: schedulingMock, stack: stack)
         try! board.configure(config)
 
         XCTAssertEqual(schedulingMock.jobs.count, 18)

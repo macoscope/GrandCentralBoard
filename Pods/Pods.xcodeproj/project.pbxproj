@@ -211,7 +211,7 @@
 		7DB5B060D21C2FD411B345D4DF501702 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210914C8BEBB41819DB855F2A8CFBBA /* Attachment.swift */; };
 		80CD48C204EEB818BD204423FFCEFF85 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C19D65D719110BAC6F60D16FD8828E /* CFNetwork.framework */; };
 		82698CAA9BD4190DE34507B6D7399D54 /* TimeoutObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEA1F75ABBEC96028236FD012F3D037 /* TimeoutObserver.swift */; };
-		82CAD8CE1D95A7EF30DB2ED3269927D0 /* GrandCentralBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FDAA27721B30FD77BBE0623EFB18D2 /* GrandCentralBoard.swift */; };
+		82CAD8CE1D95A7EF30DB2ED3269927D0 /* GrandCentralBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FDAA27721B30FD77BBE0623EFB18D2 /* GrandCentralBoardController.swift */; };
 		83105D1426A4891CB5C3F1206D2253E1 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C303A230945AD5F4B017ECEED89224C /* Starscream.framework */; };
 		83C9E886014CA6EBABF754F47A2D74DA /* LoggingObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67478F5A37A8493DDDE13329733A0765 /* LoggingObserver.swift */; };
 		83D8C2C626006F3993A1F06D7E8CE960 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BAD9F5DA70579D38EA45DA2F79DFE5 /* Logging.swift */; };
@@ -784,7 +784,7 @@
 		9412F8D170DADD2D40B36E35E7ADDCEF /* Pods-GrandCentralBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GrandCentralBoard.release.xcconfig"; sourceTree = "<group>"; };
 		94812A2DA665C941CDBCAE86DBBAB131 /* AnonymousDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnonymousDisposable.swift; path = RxSwift/Disposables/AnonymousDisposable.swift; sourceTree = "<group>"; };
 		94F3D8A2CAE8735E0EA88BF7470FF1D6 /* Compatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Compatibility.h; path = OHHTTPStubs/Sources/Compatibility.h; sourceTree = "<group>"; };
-		94FDAA27721B30FD77BBE0623EFB18D2 /* GrandCentralBoard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GrandCentralBoard.swift; sourceTree = "<group>"; };
+		94FDAA27721B30FD77BBE0623EFB18D2 /* GrandCentralBoardController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GrandCentralBoardController.swift; sourceTree = "<group>"; };
 		95D2F060D6F0F5E62F14470B3CD0A714 /* ThreadSafety.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadSafety.swift; path = Sources/Core/Shared/ThreadSafety.swift; sourceTree = "<group>"; };
 		97991F6CFC1D9440C057AA49AD2DC800 /* Queue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = RxSwift/DataStructures/Queue.swift; sourceTree = "<group>"; };
 		98314E9A8122CD82E2D4EEE2A5439913 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1606,7 +1606,7 @@
 			isa = PBXGroup;
 			children = (
 				7BDD76D73C0A481E1DB875DAB386B53A /* DataDownloader.swift */,
-				94FDAA27721B30FD77BBE0623EFB18D2 /* GrandCentralBoard.swift */,
+				94FDAA27721B30FD77BBE0623EFB18D2 /* GrandCentralBoardController.swift */,
 				4A53C745F93EB55F8CC6418D27DDA8F2 /* Job.swift */,
 				13FB88A7E1717EE2E68136E26DF99FFD /* Rendering.swift */,
 				71EF50062E2069E6210563C5B5C3EA26 /* Result.swift */,
@@ -2759,7 +2759,7 @@
 				1BAA831DA6DB6FF4044034A39BC2D1DA /* DataDownloader.swift in Sources */,
 				7C33637EAD881585306B51843D087CCF /* ErrorType.swift in Sources */,
 				26AF66317730F7DBCB2D1F9B09A93875 /* GCBCore-dummy.m in Sources */,
-				82CAD8CE1D95A7EF30DB2ED3269927D0 /* GrandCentralBoard.swift in Sources */,
+				82CAD8CE1D95A7EF30DB2ED3269927D0 /* GrandCentralBoardController.swift in Sources */,
 				74F1D0C26EE11537A06F0621A2EB96A3 /* Job.swift in Sources */,
 				CB4AC8C182BE042E36CDEFD0CE12C4C0 /* LocalConfigurationLoader.swift in Sources */,
 				F4FBE75155EA4A8F1320740C94152A32 /* Rendering.swift in Sources */,
