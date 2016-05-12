@@ -6,7 +6,7 @@
 //  Copyright © 2016 Macoscope. All rights reserved.
 //
 
-import GrandCentralBoardCore
+import GCBCore
 
 
 final class SlackMessagesWidget: WidgetControlling {
