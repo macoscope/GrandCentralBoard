@@ -9,11 +9,11 @@ target "GrandCentralBoard" do
  pod 'Operations', '~> 2.9'
  pod 'Moya/RxSwift', '~> 6.4'
  pod 'SlackKit', :git => "https://github.com/michallaskowski/SlackKit", :branch => "add-tv-os-to-podspec"
+ 
+ target "GrandCentralBoardTests" do
+     inherit! :search_paths
+     pod 'Nimble', '~> 4.0'
+     pod 'OHHTTPStubs', '~> 5.0'
+     pod 'OHHTTPStubs/Swift', '~> 5.0'
+ end
 end
-
-target "GrandCentralBoardTests" do
- pod 'Nimble', '~> 4.0'
- pod 'OHHTTPStubs', '~> 5.0'
- pod 'OHHTTPStubs/Swift', '~> 5.0'
-end
-
