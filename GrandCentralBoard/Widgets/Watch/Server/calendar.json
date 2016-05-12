@@ -1,0 +1,15 @@
+{
+    "summary": "Calendar name",
+	"items": [ 
+        {"start" : { "dateTime": "2016-03-23T12:16:00+01:00"}, "summary" : "BLAX Daily"},
+		{"start" : { "dateTime": "2016-03-23T12:26:00+01:00"}, "summary" : "BLAX Retro"},
+		{"start" : { "dateTime": "2016-03-23T13:26:00+01:00"}, "summary" : "BLAX Planning"},
+		{"start" : { "dateTime": "2016-03-23T14:26:00+01:00"}, "summary" : "BLAX Retro"},
+		{"start" : { "dateTime": "2016-03-23T15:26:00+01:00"}, "summary" : "BLAX Retro"},
+		{"start" : { "dateTime": "2016-03-23T16:27:00+01:00"}, "summary" : "XWER Retro"},
+		{"start" : { "dateTime": "2016-03-23T22:26:00+01:00"}, "summary" : "BLAX Retro"},
+		{"start" : { "dateTime": "2016-03-23T23:42:00+01:00"}, "summary" : "DDOS vol 4"},
+		{"start" : { "dateTime": "2016-03-23T23:25:00+01:00"}, "summary" : "NBA Daily"}
+	 ]
+
+}

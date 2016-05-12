@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Text-Bold.otf">
+            <string>SFUIText-Bold</string>
+            <string>SFUIText-Bold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TableViewHeaderView" customModule="GrandCentralBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="654-YU-xWe" customClass="LabelWithSpacing" customModule="GrandCentralBoard" customModuleProvider="target">
+                    <rect key="frame" x="32" y="530" width="1687" height="20"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o39-jM-Ykk" customClass="LabelWithSpacing" customModule="GrandCentralBoard" customModuleProvider="target">
+                    <rect key="frame" x="1749" y="530" width="140" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="Hof-Wj-Dj6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="16"/>
+                    <color key="textColor" red="0.13333333333333333" green="0.83137254901960778" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="654-YU-xWe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1oF-qa-lFa"/>
+                <constraint firstItem="o39-jM-Ykk" firstAttribute="top" secondItem="654-YU-xWe" secondAttribute="top" id="71y-jz-NCD"/>
+                <constraint firstItem="654-YU-xWe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="D2y-zn-KRs"/>
+                <constraint firstAttribute="trailing" secondItem="o39-jM-Ykk" secondAttribute="trailing" constant="31" id="WUk-ov-b0R"/>
+                <constraint firstItem="o39-jM-Ykk" firstAttribute="leading" secondItem="654-YU-xWe" secondAttribute="trailing" constant="30" id="sPj-us-Dlp"/>
+            </constraints>
+            <connections>
+                <outlet property="firstColumnTitleLabel" destination="654-YU-xWe" id="sqj-MF-hCQ"/>
+                <outlet property="secondColumnTitleLabel" destination="o39-jM-Ykk" id="yN6-I0-Pws"/>
+            </connections>
+        </view>
+    </objects>
+</document>

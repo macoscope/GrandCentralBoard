@@ -1,0 +1,4 @@
+platform :tvos, '9.0'
+use_frameworks!
+
+pod 'Alamofire', :git => "https://github.com/Alamofire/Alamofire", :branch => "tvOS"

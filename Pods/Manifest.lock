@@ -1,0 +1,78 @@
+PODS:
+  - Alamofire (3.3.1)
+  - Decodable (0.4.2)
+  - GCBCore (0.0.1):
+    - Alamofire (~> 3.0)
+    - Decodable (~> 0.4)
+  - MD5 (0.1.1)
+  - Moya/Core (6.4.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (6.4.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - Nimble (4.0.0)
+  - OHHTTPStubs (5.0.0):
+    - OHHTTPStubs/Default (= 5.0.0)
+  - OHHTTPStubs/Core (5.0.0)
+  - OHHTTPStubs/Default (5.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.0.0)
+  - OHHTTPStubs/Swift (5.0.0):
+    - OHHTTPStubs/Core
+  - Operations (2.9.0):
+    - Operations/Standard (= 2.9.0)
+  - Operations/Standard (2.9.0)
+  - Result (2.0.0)
+  - RxSwift (2.4)
+  - SlackKit (1.0.2):
+    - Starscream (~> 1.1.2)
+  - Starscream (1.1.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - Decodable (~> 0.4)
+  - GCBCore (from `./`)
+  - MD5 (~> 0.1)
+  - Moya/RxSwift (~> 6.4)
+  - Nimble (~> 4.0)
+  - OHHTTPStubs (~> 5.0)
+  - OHHTTPStubs/Swift (~> 5.0)
+  - Operations (~> 2.9)
+  - Result (~> 2.0)
+  - SlackKit (from `https://github.com/michallaskowski/SlackKit`, branch `add-tv-os-to-podspec`)
+
+EXTERNAL SOURCES:
+  GCBCore:
+    :path: ./
+  SlackKit:
+    :branch: add-tv-os-to-podspec
+    :git: https://github.com/michallaskowski/SlackKit
+
+CHECKOUT OPTIONS:
+  SlackKit:
+    :commit: bd3d0793330575f01f12ca0efe352b9fd0424dc4
+    :git: https://github.com/michallaskowski/SlackKit
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
+  GCBCore: 50bd889773433c8c55b59e1ce1d86ec260df7633
+  MD5: 62e4416c91af0514c6aeeb6e6d80171f3bd48c3f
+  Moya: 4d526954c8afd79820991393d40d7d8af756ceee
+  Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
+  OHHTTPStubs: a5d2e9eea07869d42ec03338325f398bc520e159
+  Operations: 62f6d7942ed37d06476426fb275233b21a48617c
+  Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
+  SlackKit: 10dfee029d482bf35eff8799a799acf70ee2f05a
+  Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
+
+COCOAPODS: 0.39.0
