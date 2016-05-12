@@ -3,7 +3,7 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import GrandCentralBoardCore
+import GCBCore
 
 final class WatchWidgetBuilder: WidgetBuilding {
 

@@ -5,7 +5,7 @@
 
 import UIKit
 import SpriteKit
-import GrandCentralBoardCore
+import GCBCore
 
 final class BonusWidgetView: UIView {
 

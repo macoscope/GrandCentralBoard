@@ -4,7 +4,7 @@
 //
 
 import UIKit
-import GrandCentralBoardCore
+import GCBCore
 
 final class BonusWidget: WidgetControlling {
 

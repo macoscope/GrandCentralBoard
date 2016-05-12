@@ -5,7 +5,7 @@
 //  Created by Rafal Augustyniak on 13/04/16.
 //
 
-import GrandCentralBoardCore
+import GCBCore
 
 
 private class BlogPostTitleTranslator: PathToTitleTranslating {

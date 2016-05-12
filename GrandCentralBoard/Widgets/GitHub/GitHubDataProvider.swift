@@ -6,7 +6,7 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import GrandCentralBoardCore
+import GCBCore
 import Moya
 import RxSwift
 import Decodable

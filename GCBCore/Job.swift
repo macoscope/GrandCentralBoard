@@ -41,7 +41,7 @@ public protocol Schedulable : class {
 public final class Job: Schedulable, HavingSource, HavingTarget {
 
     public let target: Updateable
-    public let selector: Selector = "update"
+    public let selector: Selector = #selector(update)
     public let source: UpdatingSource
 
     public init(target: Updateable, source: UpdatingSource) {

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import GrandCentralBoardCore
+import GCBCore
 
 
 enum PeopleWithBonusesFetchControllerError: ErrorType {

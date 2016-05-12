@@ -1,6 +1,0 @@
-framework module GrandCentralBoardCore {
-  umbrella header "GrandCentralBoardCore-umbrella.h"
-
-  export *
-  module * { export * }
-}
