@@ -8,6 +8,7 @@
 
 import GCBCore
 import SlackKit
+import RxSwift
 
 
 private extension String {
@@ -30,6 +31,8 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
 
     let slackClient: Client
 
+    private let disposeBag = DisposeBag()
+
     init(apiToken: String) {
         slackClient = Client(apiToken: apiToken)
         slackClient.messageEventsDelegate = self
@@ -44,12 +47,25 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
 
     func messageReceived(message: Message) {
         let searchedTags = ["<!here|@here>", "<!here>", "<!channel>", "<!everyone>"]
-        guard let text = message.text where text.containsAnyString(searchedTags) else {
+        guard let text = message.text, channel = message.channel, author = message.user
+            where text.containsAnyString(searchedTags) else {
             return
         }
 
         let timestamp = message.ts?.slackMessageTimestamp() ?? NSDate()
-        let slackMessage = SlackMessage(text: text.stringByRemovingOccurrencesOfStrings(searchedTags), timestamp: timestamp)
-        subscriptionBlock?(slackMessage)
+        let formattedText = text.stringByRemovingOccurrencesOfStrings(searchedTags)
+        let slackClient = self.slackClient
+
+        let userInfoObservable = slackClient.webAPI.userInfo(author)
+        let channelInfoObservable = slackClient.webAPI.channelInfo(channel)
+
+        Observable.zip(userInfoObservable, channelInfoObservable) { (userInfo: User, channelInfo: Channel) -> SlackMessage in
+            SlackMessage(text: formattedText, timestamp: timestamp, channel: channelInfo.name,
+                author: userInfo.name, avatarPath: userInfo.profile?.image192)
+        }.subscribeNext({ [weak self] message in
+            dispatch_async(dispatch_get_main_queue(), {
+                self?.subscriptionBlock?(message)
+            })
+        }).addDisposableTo(disposeBag)
     }
 }

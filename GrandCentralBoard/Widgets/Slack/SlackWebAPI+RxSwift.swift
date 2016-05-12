@@ -50,5 +50,4 @@ extension SlackWebAPI {
             return NopDisposable.instance
         })
     }
-
 }
