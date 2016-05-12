@@ -27,7 +27,8 @@ final class MainViewController: UIViewController {
             GoogleCalendarWatchWidgetBuilder(),
             HarvestWidgetBuilder(),
             ImageWidgetBuilder(dataDownloader: dataDownloader),
-            BlogPostsPopularityWidgetBuilder()
+            BlogPostsPopularityWidgetBuilder(),
+            SlackWidgetBuilder()
         ]
 
         if shouldLoadBundledConfig {
