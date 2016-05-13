@@ -6,7 +6,7 @@
 //
 
 import GCBCore
-
+import GCBUtilities
 
 private class BlogPostTitleTranslator: PathToTitleTranslating {
     private let pathPrefix: String?

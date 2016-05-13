@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import GCBUtilities
 
 
 class TableViewHeaderView: UITableViewHeaderFooterView, HeaderConfigurableWithViewModel {
-    @IBOutlet weak var firstColumnTitleLabel: LabelWithSpacing!
-    @IBOutlet weak var secondColumnTitleLabel: LabelWithSpacing!
+    @IBOutlet weak var firstColumnTitleLabel: GCBUtilities.LabelWithSpacing!
+    @IBOutlet weak var secondColumnTitleLabel: GCBUtilities.LabelWithSpacing!
 
     func configureWithViewModel(viewModel: DoubleColumnHeaderViewModel) {
         firstColumnTitleLabel.text = viewModel.firstColumnName.uppercaseString
