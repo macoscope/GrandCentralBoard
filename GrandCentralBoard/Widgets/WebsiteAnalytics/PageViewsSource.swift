@@ -22,22 +22,22 @@ enum GoogleAnalyticsSourceError: ErrorType, HavingMessage {
 
 final class PageViewsSource: Asynchronous {
 
-    let dataProvider: GoogleAnalyticsDataProvider
-    let interval: NSTimeInterval
-    let daysInReport: Int
-    let pathToTitleTranslator: PathToTitleTranslating
+    private let dataProvider: GoogleAnalyticsDataProvider
+    private let daysInReport: Int
+    private let validPathPrefix: String?
 
+
+    let interval: NSTimeInterval
     typealias ResultType = Result<[PageViewsRowReport]>
     var sourceType: SourceType {
         return .Momentary
     }
 
-    init(dataProvider: GoogleAnalyticsDataProvider, daysInReport: Int,
-         refreshInterval: NSTimeInterval = 5*60, pathToTitleTranslator: PathToTitleTranslating) {
+    init(dataProvider: GoogleAnalyticsDataProvider, daysInReport: Int, refreshInterval: NSTimeInterval = 5*60, validPathPrefix: String?) {
         self.dataProvider = dataProvider
         self.interval = refreshInterval
         self.daysInReport = daysInReport
-        self.pathToTitleTranslator = pathToTitleTranslator
+        self.validPathPrefix = validPathPrefix
     }
 
     func read(closure: (ResultType) -> Void) {
@@ -47,12 +47,19 @@ final class PageViewsSource: Asynchronous {
             return
         }
 
+        let validPathPrefix = self.validPathPrefix
         dataProvider.fetchPageViewsReportFromDate(reportStartTime, toDate: now) { result in
-            let pathToTitleTranslator = self.pathToTitleTranslator
             switch result {
-            case .Success(let reports):
-                let pageViews = reports.rows.flatMap { PageViewsRowReport(analyticsReportRow:$0, pathToTitleTranslator: pathToTitleTranslator) }
-                return closure(.Success(pageViews))
+            case .Success(let report):
+                let pageViews = report.rows.flatMap { row -> PageViewsRowReport? in
+                    let pageViewsReport = PageViewsRowReport(analyticsReportRow:row)
+                    if let pageViewsReport = pageViewsReport, let prefix = validPathPrefix where !pageViewsReport.hasTitleWithPrefix(prefix) {
+                         return nil
+                    }
+                    return pageViewsReport
+                }
+
+                closure(.Success(pageViews))
             case .Failure(let error):
                 closure(.Failure(error))
             }

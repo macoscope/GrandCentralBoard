@@ -24,7 +24,7 @@ final class GoogleAnalyticsDataProvider {
         let parameters = [
             "viewId": viewID,
             "metrics": [ ["expression": "ga:pageviews"] ],
-            "dimensions": [ ["name": "ga:pagePath"] ],
+            "dimensions": [ ["name": "ga:pagePath"], ["name": "ga:pageTitle"] ],
             "dateRanges": [ ["startDate": startDate.yearMonthDayStringForNetwork(), "endDate": endDate.yearMonthDayStringForNetwork()] ],
             "orderBys": [ ["fieldName": "ga:pageviews", "sortOrder": "DESCENDING"] ]
         ]
