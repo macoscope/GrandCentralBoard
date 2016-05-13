@@ -25,10 +25,6 @@ extension SequenceType where Generator.Element == Bonus {
     }
 
     func flatten() -> [Bonus] {
-        let mappedBonuses = self.map { bonus in
-            return [ Bonus(name: bonus.name, amount: bonus.amount, receiver: bonus.receiver, date: bonus.date, childBonuses: [])]
-                + bonus.childBonuses
-        }
-        return mappedBonuses.flatMap { $0 }
+        return self.flatMap { return [$0] + $0.childBonuses }
     }
 }
