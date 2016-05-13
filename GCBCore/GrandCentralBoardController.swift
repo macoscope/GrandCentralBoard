@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// The errors that `GrandCentralBoard` can throw.
+/// The errors that `GrandCentralBoardController` can throw.
 public enum GrandCentralBoardError: ErrorType, HavingMessage {
     case WrongWidgetsCount
 
