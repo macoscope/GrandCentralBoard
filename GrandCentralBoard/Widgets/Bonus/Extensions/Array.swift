@@ -20,8 +20,8 @@ extension RangeReplaceableCollectionType where Generator.Element : Equatable {
 }
 
 extension SequenceType where Generator.Element == Bonus {
-    func sortByDate() -> [Bonus] {
-        return self.sort({ $0.date.compare($1.date) == .OrderedDescending })
+    func sortByDate(order: NSComparisonResult) -> [Bonus] {
+        return self.sort({ $0.date.compare($1.date) == order })
     }
 
     func flatten() -> [Bonus] {

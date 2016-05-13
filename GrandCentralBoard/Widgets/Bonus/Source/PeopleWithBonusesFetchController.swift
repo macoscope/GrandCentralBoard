@@ -64,7 +64,7 @@ final class PeopleWithBonusesFetchController {
 
             switch result {
             case .Success(let bonuses):
-                let sortedBonuses = bonuses.flatten().sortByDate()
+                let sortedBonuses = bonuses.flatten().sortByDate(.OrderedDescending)
                 var allBonuses: [Bonus] = fetchedBonuses
                 allBonuses.appendContentsOf(sortedBonuses)
 
