@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Result
 
 
 class BonuslyRequestTemplate<ResultType> : RequestTemplate<ResultType> {

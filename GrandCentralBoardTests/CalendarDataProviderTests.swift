@@ -7,9 +7,10 @@
 //
 
 import XCTest
-import Result
 import Decodable
 @testable import GrandCentralBoard
+import GCBCore
+
 
 private let calendarDictionary = ["kind": "calendar#calendar", "summary": "TestCalendar"]
 private let eventsDictionary = ["kind": "calendar#events", "items" :
@@ -22,7 +23,7 @@ private let eventsDictionary = ["kind": "calendar#events", "items" :
 class TestAPIDataProvider: APIDataProviding {
 
     func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String : AnyObject]?, encoding: ParameterEncoding,
-                 completion: Result<AnyObject, APIDataError> -> Void) {
+                 completion: Result<AnyObject> -> Void) {
         let urlString = url.URLString
         if urlString.hasSuffix("/events") {
             completion(.Success(eventsDictionary))

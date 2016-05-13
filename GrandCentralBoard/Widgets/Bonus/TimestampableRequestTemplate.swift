@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Result
 
 
 class TimestampableRequestTemplate<T: RequestTemplateProtocol> : RequestTemplateProtocol {
