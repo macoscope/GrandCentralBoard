@@ -49,12 +49,14 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
         let channelInfoObservable = slackClient.webAPI.channelInfo(channel)
 
         Observable.zip(userInfoObservable, channelInfoObservable) { (userInfo: User, channelInfo: Channel) -> SlackMessage in
-            SlackMessage(text: formattedText, timestamp: timestamp, channel: channelInfo.name,
-                author: userInfo.name, avatarPath: userInfo.profile?.image192)
-        }.subscribeNext({ [weak self] message in
-            dispatch_async(dispatch_get_main_queue(), {
-                self?.subscriptionBlock?(message)
-            })
+            guard let userName = userInfo.name else {
+                throw ErrorWithMessage(message: "Missing author in Slack Message")
+            }
+
+            return SlackMessage(text: formattedText, timestamp: timestamp, author: userName,
+                                channel: channelInfo.name, avatarPath: userInfo.profile?.image192)
+        }.observeOn(MainScheduler.instance).subscribeNext({ [weak self] message in
+            self?.subscriptionBlock?(message)
         }).addDisposableTo(disposeBag)
     }
 }
