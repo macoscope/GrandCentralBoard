@@ -90,7 +90,6 @@
 		1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1981D1CBE8323003B6AB3 /* UIColor.swift */; };
 		1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */; };
 		1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */; };
-		1AEE4C0C1CC6290A000CC88D /* LabelWithSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */; };
 		494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B31C92E89A00D460B0 /* BonusModels.swift */; };
 		494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B41C92E89A00D460B0 /* BonusWidget.swift */; };
 		494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B51C92E89A00D460B0 /* BonusWidgetBuilder.swift */; };
@@ -135,10 +134,6 @@
 		526FC25F1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC25D1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift */; };
 		526FC2601CD365E300D7843A /* UpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC25E1CD365E300D7843A /* UpdateTests.swift */; };
 		526FC2621CD365EF00D7843A /* UpdatesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 526FC2611CD365EF00D7843A /* UpdatesTests.json */; };
-		5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48A1CB69AE9005FD847 /* AccessToken.swift */; };
-		5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */; };
-		5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */; };
-		5274A4921CB69AE9005FD847 /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A48D1CB69AE9005FD847 /* NetworkRequestManager.swift */; };
 		5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */; };
 		5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */; };
 		527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0601CC4D619004614B8 /* PageViewsSource.swift */; };
@@ -277,7 +272,6 @@
 		1AE1981D1CBE8323003B6AB3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsRowReport.swift; sourceTree = "<group>"; };
 		1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSProcessInfo.swift; sourceTree = "<group>"; };
-		1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelWithSpacing.swift; path = Utilities/LabelWithSpacing.swift; sourceTree = "<group>"; };
 		1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2C434E565598D53FEBE822 /* Pods-GrandCentralBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.release.xcconfig"; sourceTree = "<group>"; };
 		494B68B31C92E89A00D460B0 /* BonusModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusModels.swift; sourceTree = "<group>"; };
@@ -324,10 +318,6 @@
 		526FC25D1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeopleWithBonusesFetchControllerTests.swift; path = Widgets/Bonus/PeopleWithBonusesFetchControllerTests.swift; sourceTree = "<group>"; };
 		526FC25E1CD365E300D7843A /* UpdateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateTests.swift; path = Widgets/Bonus/UpdateTests.swift; sourceTree = "<group>"; };
 		526FC2611CD365EF00D7843A /* UpdatesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UpdatesTests.json; path = Widgets/Bonus/UpdatesTests.json; sourceTree = "<group>"; };
-		5274A48A1CB69AE9005FD847 /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessToken.swift; path = Utilities/AccessToken.swift; sourceTree = "<group>"; };
-		5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAPIDataProvider.swift; path = Utilities/GoogleAPIDataProvider.swift; sourceTree = "<group>"; };
-		5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleTokenProvider.swift; path = Utilities/GoogleTokenProvider.swift; sourceTree = "<group>"; };
-		5274A48D1CB69AE9005FD847 /* NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkRequestManager.swift; path = Utilities/NetworkRequestManager.swift; sourceTree = "<group>"; };
 		5274A4941CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+NetworkRequestManager.swift"; path = "Extensions/Alamofire+NetworkRequestManager.swift"; sourceTree = "<group>"; };
 		5274A4961CB69C66005FD847 /* GoogleCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleCalendarDataProvider.swift; path = ../Server/GoogleCalendarDataProvider.swift; sourceTree = "<group>"; };
 		5274A4981CB69DAC005FD847 /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Server/Calendar.swift; sourceTree = "<group>"; };
@@ -515,7 +505,6 @@
 		1A242D1F1C357C2700D5BEE5 /* GrandCentralBoard */ = {
 			isa = PBXGroup;
 			children = (
-				5274A4891CB69ADF005FD847 /* Utilities */,
 				5274A4881CB69AD9005FD847 /* Extensions */,
 				1A9A3D7E1C87197A0070DB17 /* App */,
 				1A242D561C357DFD00D5BEE5 /* Widgets */,
@@ -857,18 +846,6 @@
 				520B7A661CE38B68005F53EC /* String.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		5274A4891CB69ADF005FD847 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				1AEE4C0B1CC6290A000CC88D /* LabelWithSpacing.swift */,
-				5274A48A1CB69AE9005FD847 /* AccessToken.swift */,
-				5274A48B1CB69AE9005FD847 /* GoogleAPIDataProvider.swift */,
-				5274A48C1CB69AE9005FD847 /* GoogleTokenProvider.swift */,
-				5274A48D1CB69AE9005FD847 /* NetworkRequestManager.swift */,
-			);
-			name = Utilities;
 			sourceTree = "<group>";
 		};
 		52873E6A1CB662CD00C24E13 /* DataProvider */ = {
@@ -1263,7 +1240,6 @@
 				067DA5471CBE5D7B00048E6A /* WebsiteAnalyticsWidget.swift in Sources */,
 				06684F2B1CB788FB00B93D90 /* BonuslyRequestTemplates.swift in Sources */,
 				F91F007D1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift in Sources */,
-				5274A4921CB69AE9005FD847 /* NetworkRequestManager.swift in Sources */,
 				494B68CE1C92E89A00D460B0 /* BonusWidgetViewModel.swift in Sources */,
 				52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */,
 				06684F2E1CB788FB00B93D90 /* RequestSender.swift in Sources */,
@@ -1290,7 +1266,6 @@
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
 				1A1DBC7D1CC0F7E9003DA40C /* ComponentChartView.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
-				5274A48F1CB69AE9005FD847 /* AccessToken.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
 				1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */,
@@ -1318,7 +1293,6 @@
 				494B68CC1C92E89A00D460B0 /* BonusWidgetView.swift in Sources */,
 				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
-				5274A4911CB69AE9005FD847 /* GoogleTokenProvider.swift in Sources */,
 				067DA5561CBF829A00048E6A /* TableWidgetView.swift in Sources */,
 				F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */,
 				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
@@ -1331,7 +1305,6 @@
 				520B7A5B1CE36ADC005F53EC /* SlackSource.swift in Sources */,
 				F9E9208B1CC543CD00BC7994 /* BillingProjectList.swift in Sources */,
 				520B7A5D1CE36C2B005F53EC /* SlackMessage.swift in Sources */,
-				5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */,
 				520B7A691CE3912A005F53EC /* SlackWebAPI+RxSwift.swift in Sources */,
 				F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */,
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
@@ -1355,7 +1328,6 @@
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */,
-				1AEE4C0C1CC6290A000CC88D /* LabelWithSpacing.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
