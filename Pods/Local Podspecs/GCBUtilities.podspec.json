@@ -1,6 +1,6 @@
 {
-  "name": "GCBCore",
-  "version": "1.0.0",
+  "name": "GCBUtilities",
+  "version": "0.0.1",
   "license": "GPLv3",
   "summary": "Hang a TV in your open space or team room to show everyone what`s up and get them up to speed.",
   "homepage": "https://github.com/macoscope/GrandCentralBoard",
@@ -9,19 +9,25 @@
   },
   "source": {
     "git": "https://github.com/macoscope/GrandCentralBoard.git",
-    "tag": "1.0.0"
+    "tag": "0.0.1"
   },
   "requires_arc": true,
   "platforms": {
     "tvos": "9.0"
   },
-  "source_files": "GCBCore/**/*.swift",
+  "source_files": "GCBUtilities/**/*.swift",
   "dependencies": {
     "Alamofire": [
       "~> 3.0"
     ],
     "Decodable": [
       "~> 0.4"
+    ],
+    "Operations": [
+      "~> 2.9"
+    ],
+    "GCBCore": [
+
     ]
   }
 }
