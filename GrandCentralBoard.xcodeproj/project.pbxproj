@@ -100,7 +100,6 @@
 		494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68BB1C92E89A00D460B0 /* BonusScene.swift */; };
 		494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68BD1C92E89A00D460B0 /* Bubble.swift */; };
 		494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68C71C92E89A00D460B0 /* BonusSource.swift */; };
-		494B68E11C92E97900D460B0 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DE1C92E97900D460B0 /* NSDate.swift */; };
 		494B68E21C92E97900D460B0 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68DF1C92E97900D460B0 /* Range.swift */; };
 		494B68E31C92E97900D460B0 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68E01C92E97900D460B0 /* UIImage.swift */; };
 		494B68E51C92E98800D460B0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68E41C92E98800D460B0 /* CGRect.swift */; };
@@ -286,7 +285,6 @@
 		494B68C21C92E89A00D460B0 /* bonusly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bonusly.json; sourceTree = "<group>"; };
 		494B68C31C92E89A00D460B0 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configuration.json; sourceTree = "<group>"; };
 		494B68C71C92E89A00D460B0 /* BonusSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusSource.swift; sourceTree = "<group>"; };
-		494B68DE1C92E97900D460B0 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		494B68DF1C92E97900D460B0 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		494B68E01C92E97900D460B0 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		494B68E41C92E98800D460B0 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
@@ -765,7 +763,6 @@
 			isa = PBXGroup;
 			children = (
 				494B68E41C92E98800D460B0 /* CGRect.swift */,
-				494B68DE1C92E97900D460B0 /* NSDate.swift */,
 				494B68DF1C92E97900D460B0 /* Range.swift */,
 				494B68E01C92E97900D460B0 /* UIImage.swift */,
 				0692DB901CBD39DC006F46C9 /* Array.swift */,
@@ -1295,7 +1292,6 @@
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				067DA5561CBF829A00048E6A /* TableWidgetView.swift in Sources */,
 				F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */,
-				494B68E11C92E97900D460B0 /* NSDate.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				520B7A651CE37C08005F53EC /* SlackMessagesWidget.swift in Sources */,
 				52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */,
