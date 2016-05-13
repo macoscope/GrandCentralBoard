@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name = 'GCBCore'
-  s.version = '0.0.1'
+  s.version = '1.0.0'
   s.license = 'GPLv3'
   s.summary = 'Hang a TV in your open space or team room to show everyone what`s up and get them up to speed.'
   s.homepage = 'https://github.com/macoscope/GrandCentralBoard'
