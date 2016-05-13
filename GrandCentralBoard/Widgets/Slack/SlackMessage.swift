@@ -10,4 +10,9 @@ import Foundation
 
 struct SlackMessage {
     let text: String
+    let timestamp: NSDate
+    var author: String
+
+    var channel: String?
+    var avatarPath: String?
 }

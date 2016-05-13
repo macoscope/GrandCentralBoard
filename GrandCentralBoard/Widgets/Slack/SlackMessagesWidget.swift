@@ -28,7 +28,7 @@ final class SlackMessagesWidget: WidgetControlling {
     }
 
     private func onNewMessage(message: SlackMessage) {
-        widgetView.text = message.text
+        widgetView.text = "\(message.text) - by \(message.author ?? "unknown") on \(message.channel ?? "unknown channel")"
     }
 
     func update(source: UpdatingSource) {}
