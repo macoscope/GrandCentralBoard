@@ -8,8 +8,8 @@ import UIKit
 
 public class LabelWithSpacing: UILabel {
 
-    @IBInspectable var kerning: Float = 1.0
-    @IBInspectable var lineSpace: CGFloat = 0.0
+    @IBInspectable public  var kerning: Float = 1.0
+    @IBInspectable public  var lineSpace: CGFloat = 0.0
 
     public override func awakeFromNib() {
         super.awakeFromNib()
