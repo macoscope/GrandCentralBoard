@@ -8,6 +8,7 @@
 
 import GCBCore
 import SlackKit
+import RxSwift
 
 
 final class SlackSource: Subscribable, MessageEventsDelegate {
@@ -18,6 +19,8 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
     let sourceType: SourceType = .Momentary
 
     let slackClient: Client
+
+    private let disposeBag = DisposeBag()
 
     init(apiToken: String) {
         slackClient = Client(apiToken: apiToken)
@@ -33,11 +36,27 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
 
     func messageReceived(message: Message) {
         let searchedTags = ["<!here|@here>", "<!here>", "<!channel>", "<!everyone>"]
-        guard let text = message.text where text.containsAnyString(searchedTags) else {
+        guard let text = message.text, channel = message.channel, author = message.user
+            where text.containsAnyString(searchedTags) else {
             return
         }
 
-        let slackMessage = SlackMessage(text: text.stringByRemovingOccurrencesOfStrings(searchedTags))
-        subscriptionBlock?(slackMessage)
+        let timestamp = message.ts?.slackMessageTimestamp() ?? NSDate()
+        let formattedText = text.stringByRemovingOccurrencesOfStrings(searchedTags).trim()
+        let slackClient = self.slackClient
+
+        let userInfoObservable = slackClient.webAPI.userInfo(author)
+        let channelInfoObservable = slackClient.webAPI.channelInfo(channel)
+
+        Observable.zip(userInfoObservable, channelInfoObservable) { (userInfo: User, channelInfo: Channel) -> SlackMessage in
+            guard let userName = userInfo.name else {
+                throw ErrorWithMessage(message: "Missing author in Slack Message")
+            }
+
+            return SlackMessage(text: formattedText, timestamp: timestamp, author: userName,
+                                channel: channelInfo.name, avatarPath: userInfo.profile?.image192)
+        }.observeOn(MainScheduler.instance).subscribeNext({ [weak self] message in
+            self?.subscriptionBlock?(message)
+        }).addDisposableTo(disposeBag)
     }
 }

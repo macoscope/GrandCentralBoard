@@ -111,6 +111,8 @@
 		520B7A631CE37B56005F53EC /* SlackWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A621CE37B56005F53EC /* SlackWidgetBuilder.swift */; };
 		520B7A651CE37C08005F53EC /* SlackMessagesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A641CE37C08005F53EC /* SlackMessagesWidget.swift */; };
 		520B7A671CE38B68005F53EC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A661CE38B68005F53EC /* String.swift */; };
+		520B7A691CE3912A005F53EC /* SlackWebAPI+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A681CE3912A005F53EC /* SlackWebAPI+RxSwift.swift */; };
+		520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */; };
 		525027701CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
@@ -121,6 +123,9 @@
 		5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */; };
 		525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */; };
 		525027811CE2103800DFE32A /* configurationCorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616B01C904FC800361B2E /* configurationCorrect.json */; };
+		526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D1C641CE4B99700604174 /* SlackTimestampParseTests.swift */; };
+		526D1C671CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D1C661CE4BA2000604174 /* String+SlackTimestampParsing.swift */; };
+		526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D1C661CE4BA2000604174 /* String+SlackTimestampParsing.swift */; };
 		526FC2431CD0ADF300D7843A /* GitHubDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */; };
 		526FC24A1CD0E1A700D7843A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC2491CD0E1A700D7843A /* Repository.swift */; };
 		526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FC24C1CD0E7C400D7843A /* GitHubDataProviderTests.swift */; };
@@ -297,6 +302,8 @@
 		520B7A621CE37B56005F53EC /* SlackWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackWidgetBuilder.swift; path = Slack/SlackWidgetBuilder.swift; sourceTree = "<group>"; };
 		520B7A641CE37C08005F53EC /* SlackMessagesWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackMessagesWidget.swift; path = Slack/SlackMessagesWidget.swift; sourceTree = "<group>"; };
 		520B7A661CE38B68005F53EC /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Extensions/String.swift; sourceTree = "<group>"; };
+		520B7A681CE3912A005F53EC /* SlackWebAPI+RxSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SlackWebAPI+RxSwift.swift"; path = "Slack/SlackWebAPI+RxSwift.swift"; sourceTree = "<group>"; };
+		520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackSourceTests.swift; path = Widgets/Slack/SlackSourceTests.swift; sourceTree = "<group>"; };
 		5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartViewModelTests.swift; path = Widgets/Harvest/AreaBarChartViewModelTests.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
@@ -306,6 +313,8 @@
 		525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartViewModelFromBillingStatsTests.swift; path = Widgets/Harvest/AreaBarChartViewModelFromBillingStatsTests.swift; sourceTree = "<group>"; };
 		5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillingProjectListTests.swift; path = Widgets/Harvest/BillingProjectListTests.swift; sourceTree = "<group>"; };
 		5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyBillingStatsTests.swift; path = Widgets/Harvest/DailyBillingStatsTests.swift; sourceTree = "<group>"; };
+		526D1C641CE4B99700604174 /* SlackTimestampParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackTimestampParseTests.swift; path = Widgets/Slack/SlackTimestampParseTests.swift; sourceTree = "<group>"; };
+		526D1C661CE4BA2000604174 /* String+SlackTimestampParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+SlackTimestampParsing.swift"; path = "Slack/String+SlackTimestampParsing.swift"; sourceTree = "<group>"; };
 		526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubDataProvider.swift; path = GitHub/GitHubDataProvider.swift; sourceTree = "<group>"; };
 		526FC2491CD0E1A700D7843A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = GitHub/Model/Repository.swift; sourceTree = "<group>"; };
 		526FC24C1CD0E7C400D7843A /* GitHubDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubDataProviderTests.swift; sourceTree = "<group>"; };
@@ -445,6 +454,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				520B7A6A1CE4A969005F53EC /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
 				52FB507B1CBF9BAF0053DE8B /* WebsiteAnalytics */,
 				52FB50491CBB93030053DE8B /* Watch */,
@@ -783,6 +793,17 @@
 				520B7A5C1CE36C2B005F53EC /* SlackMessage.swift */,
 				520B7A601CE37B3F005F53EC /* SlackWidgetSettings.swift */,
 				520B7A641CE37C08005F53EC /* SlackMessagesWidget.swift */,
+				520B7A681CE3912A005F53EC /* SlackWebAPI+RxSwift.swift */,
+				526D1C661CE4BA2000604174 /* String+SlackTimestampParsing.swift */,
+			);
+			name = Slack;
+			sourceTree = "<group>";
+		};
+		520B7A6A1CE4A969005F53EC /* Slack */ = {
+			isa = PBXGroup;
+			children = (
+				520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */,
+				526D1C641CE4B99700604174 /* SlackTimestampParseTests.swift */,
 			);
 			name = Slack;
 			sourceTree = "<group>";
@@ -1311,11 +1332,13 @@
 				F9E9208B1CC543CD00BC7994 /* BillingProjectList.swift in Sources */,
 				520B7A5D1CE36C2B005F53EC /* SlackMessage.swift in Sources */,
 				5274A4901CB69AE9005FD847 /* GoogleAPIDataProvider.swift in Sources */,
+				520B7A691CE3912A005F53EC /* SlackWebAPI+RxSwift.swift in Sources */,
 				F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */,
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				067DA55D1CBFA8F900048E6A /* TableViewCell.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
+				526D1C671CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
 				1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */,
@@ -1348,6 +1371,7 @@
 				52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */,
 				5250277C1CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift in Sources */,
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
+				520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */,
 				525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */,
 				526FC2601CD365E300D7843A /* UpdateTests.swift in Sources */,
 				1A242D331C357C2700D5BEE5 /* GrandCentralBoardTests.swift in Sources */,
@@ -1363,6 +1387,8 @@
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
 				5250277E1CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */,
 				526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */,
+				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
+				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				526FC25C1CD365C700D7843A /* BonusSceneTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
