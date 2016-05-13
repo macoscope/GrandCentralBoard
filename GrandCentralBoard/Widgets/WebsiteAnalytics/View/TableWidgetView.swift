@@ -20,8 +20,6 @@ struct DoubleColumnCellViewModel: CellViewModel {
 
 
 struct DoubleColumnTableViewModel: TableViewModel {
-    let firstColumnName: String
-    let secondColumnName: String
     let items: [DoubleColumnCellViewModel]
     let headerViewModel: EmptyHeaderViewModel
 }
@@ -38,8 +36,7 @@ final class TableWidgetView: UIView {
     private let headerViewModel = EmptyHeaderViewModel()
 
     func setRowViewModels(rowViewModels: [DoubleColumnCellViewModel]) {
-        dataSource?.viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits",
-                                                           items: rowViewModels, headerViewModel: headerViewModel)
+        dataSource?.viewModel = DoubleColumnTableViewModel(items: rowViewModels, headerViewModel: headerViewModel)
         tableView.reloadData()
     }
 
@@ -51,7 +48,7 @@ final class TableWidgetView: UIView {
                                                       tableView: tableView)
         let viewConfigurator = CellConfigurator<TableViewCell, DoubleColumnCellViewModel, EmptyHeaderView, EmptyHeaderViewModel>()
 
-        let viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: [], headerViewModel: headerViewModel)
+        let viewModel = DoubleColumnTableViewModel(items: [], headerViewModel: headerViewModel)
 
         dataSource = TableDataSource(viewDequeuing: viewReuseController, viewConfiguring: viewConfigurator, viewModel: viewModel)
         tableView.dataSource = dataSource
