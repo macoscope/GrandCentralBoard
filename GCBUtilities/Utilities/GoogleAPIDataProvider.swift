@@ -32,7 +32,7 @@ final class GoogleAPIDataProvider: APIDataProviding {
 
     private let operationQueue = OperationQueue()
 
-    init(tokenProvider: OAuth2TokenProviding, networkRequestManager: NetworkRequestManager = Manager()) {
+    init(tokenProvider: OAuth2TokenProviding, networkRequestManager: NetworkRequestManager) {
         self.tokenProvider = tokenProvider
         self.networkRequestManager = networkRequestManager
     }
