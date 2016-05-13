@@ -8,7 +8,7 @@
 
 import SlackKit
 import RxSwift
-import GrandCentralBoardCore
+import GCBCore
 
 
 struct ErrorWithMessage: ErrorType, HavingMessage {
