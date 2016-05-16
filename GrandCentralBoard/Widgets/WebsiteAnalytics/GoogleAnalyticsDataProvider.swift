@@ -9,7 +9,13 @@
 import GCBCore
 import GCBUtilities
 
-final class GoogleAnalyticsDataProvider {
+
+protocol AnalyticsDataProviding {
+    func pageViewsReportFromDate(startDate: NSDate, toDate endDate: NSDate,
+                                      completion: (Result<AnalyticsReport>) -> Void)
+}
+
+final class GoogleAnalyticsDataProvider: AnalyticsDataProviding {
     private static let googleAnalyticsAPIURL = NSURL(string: "https://analyticsreporting.googleapis.com/v4/reports:batchGet?fields=reports")!
 
     private let dataProvider: APIDataProviding
@@ -20,12 +26,12 @@ final class GoogleAnalyticsDataProvider {
         self.dataProvider = dataProvider
     }
 
-    func fetchPageViewsReportFromDate(startDate: NSDate, toDate endDate: NSDate,
+    func pageViewsReportFromDate(startDate: NSDate, toDate endDate: NSDate,
                                       completion: (Result<AnalyticsReport>) -> Void) {
         let parameters = [
             "viewId": viewID,
             "metrics": [ ["expression": "ga:pageviews"] ],
-            "dimensions": [ ["name": "ga:pagePath"] ],
+            "dimensions": [ ["name": "ga:pagePath"], ["name": "ga:pageTitle"] ],
             "dateRanges": [ ["startDate": startDate.yearMonthDayStringForNetwork(), "endDate": endDate.yearMonthDayStringForNetwork()] ],
             "orderBys": [ ["fieldName": "ga:pageviews", "sortOrder": "DESCENDING"] ]
         ]
