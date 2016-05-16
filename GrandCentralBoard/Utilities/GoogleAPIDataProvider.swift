@@ -58,7 +58,7 @@ final class GoogleAPIDataProvider: APIDataProviding {
                  completion: GCBCore.Result<AnyObject> -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
-            guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {
+            guard let strongSelf = self, accessToken = strongSelf.accessToken?.token else {
                 completion(.Failure(APIDataError.AuthorizationError))
                 continueWithError(error: APIDataError.AuthorizationError)
                 return
