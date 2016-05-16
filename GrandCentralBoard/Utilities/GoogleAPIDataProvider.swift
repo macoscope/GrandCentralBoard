@@ -8,6 +8,8 @@
 
 import Alamofire
 import Operations
+import GCBCore
+
 
 enum APIDataError: ErrorType {
     case IncorrectRequestParameters
@@ -18,7 +20,7 @@ enum APIDataError: ErrorType {
 
 protocol APIDataProviding {
     func request(method: Method, url: NSURL, parameters: [String: AnyObject]?,
-                 encoding: ParameterEncoding, completion: ResultType<AnyObject, APIDataError>.result -> Void)
+                 encoding: ParameterEncoding, completion: GCBCore.Result<AnyObject> -> Void)
 }
 
 final class GoogleAPIDataProvider: APIDataProviding {
@@ -53,11 +55,11 @@ final class GoogleAPIDataProvider: APIDataProviding {
     }
 
     func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL,
-                 completion: ResultType<AnyObject, APIDataError>.result -> Void) {
+                 completion: GCBCore.Result<AnyObject> -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
-            guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {
-                completion(.Failure(.AuthorizationError))
+            guard let strongSelf = self, accessToken = strongSelf.accessToken?.token else {
+                completion(.Failure(APIDataError.AuthorizationError))
                 continueWithError(error: APIDataError.AuthorizationError)
                 return
             }
@@ -66,7 +68,7 @@ final class GoogleAPIDataProvider: APIDataProviding {
 
             strongSelf.networkRequestManager.requestJSON(method, url: url, parameters: parameters, headers: headers, encoding: encoding) { result in
                     switch result {
-                    case .Failure(let error): completion(.Failure(.UnderlyingError(error)))
+                    case .Failure(let error): completion(.Failure(error))
                     case .Success(let value): completion(.Success(value))
                     }
             }

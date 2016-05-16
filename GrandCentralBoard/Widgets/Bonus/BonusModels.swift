@@ -64,7 +64,6 @@ extension Bonus: Decodable {
 
         throw DecodeError.WrongFormat
     }
-
 }
 
 struct Person: Hashable, Equatable {

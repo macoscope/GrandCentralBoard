@@ -15,10 +15,8 @@ struct PageViewsRowReport {
     let visits: Int
 
     init?(analyticsReportRow row: AnalyticsReportRow) {
-        guard row.dimensions.count == 2,
-              let visitCountString = row.values.first,
-              let visitCount = Int(visitCountString) else {
-                return nil
+        guard row.dimensions.count == 2, let visitCountString = row.values.first, let visitCount = Int(visitCountString) else {
+            return nil
         }
 
         pagePath = row.dimensions[0]

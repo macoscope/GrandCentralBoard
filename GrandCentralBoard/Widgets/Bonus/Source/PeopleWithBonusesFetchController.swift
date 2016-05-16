@@ -64,14 +64,15 @@ final class PeopleWithBonusesFetchController {
 
             switch result {
             case .Success(let bonuses):
+                let sortedBonuses = bonuses.flatten().sortByDate(.OrderedDescending)
                 var allBonuses: [Bonus] = fetchedBonuses
-                allBonuses.appendContentsOf(bonuses)
+                allBonuses.appendContentsOf(sortedBonuses)
 
                 let people = allBonuses.uniqueReceivers(strongSelf.preferredNumberOfPeople)
 
                 if people.count >= strongSelf.preferredNumberOfPeople || bonuses.count < strongSelf.pageSize {
                     completionBlock(.Success(Array(people)))
-                } else if let lastBonus = bonuses.last {
+                } else if let lastBonus = sortedBonuses.last {
                     strongSelf.fetchPeopleWithBonuses(startingFromDate: lastBonus.date, fetchedBonuses: allBonuses, completionBlock: completionBlock)
                 }
 

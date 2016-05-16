@@ -24,6 +24,10 @@ extension String {
         }
         return result
     }
+
+    func trim() -> String {
+        return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
 }
 
 extension String {

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Result
 
 
 class BonuslyRequestTemplate<ResultType> : RequestTemplate<ResultType> {
@@ -21,7 +20,7 @@ class BonuslyRequestTemplate<ResultType> : RequestTemplate<ResultType> {
 final class BonusesRequestTemplate: BonuslyRequestTemplate<[Bonus]> {
 
     init() {
-        super.init(path: "bonuses", method: .Get(queryParameters: [:]), responseResultType: .JSON)
+        super.init(path: "bonuses", method: .Get(queryParameters: ["include_children" : "true"]), responseResultType: .JSON)
     }
 
     override func finalizeWithResponse(response: NSURLResponse, result: AnyObject) throws -> [Bonus] {

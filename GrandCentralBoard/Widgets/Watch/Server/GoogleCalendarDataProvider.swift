@@ -7,11 +7,12 @@
 //
 
 import Foundation
-import Result
+import GCBCore
+
 
 protocol CalendarDataProviding {
-    func fetchEventsForCalendar(completion: (Result<[Event], APIDataError>) -> Void)
-    func fetchCalendar(completion: (Result<Calendar, APIDataError>) -> Void)
+    func fetchEventsForCalendar(completion: (Result<[Event]>) -> Void)
+    func fetchCalendar(completion: (Result<Calendar>) -> Void)
 }
 
 private enum CalendarAPIAction: String {
@@ -43,10 +44,10 @@ final class GoogleCalendarDataProvider: CalendarDataProviding {
     }()
 
 
-    func fetchEventsForCalendar(completion: (Result<[Event], APIDataError>) -> Void) {
+    func fetchEventsForCalendar(completion: (Result<[Event]>) -> Void) {
                 let timeMin = self.dynamicType.dateFormatter.stringFromDate(NSDate())
         guard let url = CalendarAPIAction.GetEvents.URLForCalendar(calendarID) else {
-            completion(.Failure(.IncorrectRequestParameters))
+            completion(.Failure(APIDataError.IncorrectRequestParameters))
             return
         }
 
@@ -65,15 +66,15 @@ final class GoogleCalendarDataProvider: CalendarDataProviding {
                     let events = try Event.decodeArray(json)
                     completion(.Success(events))
                 } catch {
-                    completion(.Failure(.ModelDecodeError(error)))
+                    completion(.Failure(APIDataError.ModelDecodeError(error)))
                 }
             }
         }
     }
 
-    func fetchCalendar(completion: (Result<Calendar, APIDataError>) -> Void) {
+    func fetchCalendar(completion: (Result<Calendar>) -> Void) {
         guard let url = CalendarAPIAction.GetDetails.URLForCalendar(calendarID) else {
-            completion(.Failure(.IncorrectRequestParameters))
+            completion(.Failure(APIDataError.IncorrectRequestParameters))
             return
         }
 
@@ -86,7 +87,7 @@ final class GoogleCalendarDataProvider: CalendarDataProviding {
                     let model = try Calendar.decode(json)
                     completion(.Success(model))
                 } catch {
-                    completion(.Failure(.ModelDecodeError(error)))
+                    completion(.Failure(APIDataError.ModelDecodeError(error)))
                 }
             }
         }
