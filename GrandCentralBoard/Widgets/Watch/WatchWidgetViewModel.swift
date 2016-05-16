@@ -24,7 +24,7 @@ struct WatchWidgetViewModel {
             let eventComponents = WatchWidgetViewModel.componentsFromDate(event.time, timeZone: timeZone)
             let selected = (eventComponents.minute / 5) + 1
             selectedImage = UIImage(named: "s\(selected)")
-            let minutes = Int(event.time.timeIntervalSinceDate(NSDate()) / 60)
+            let minutes = Int(event.time.timeIntervalSinceDate(date) / 60)
             let isNow = minutes <= 1
             meetingName = event.name
             startsIn = isNow ? "is" : "starts in"
