@@ -22,7 +22,7 @@ enum GoogleAnalyticsSourceError: ErrorType, HavingMessage {
 
 final class PageViewsSource: Asynchronous {
 
-    private let dataProvider: GoogleAnalyticsDataProvider
+    private let dataProvider: AnalyticsDataProviding
     private let daysInReport: Int
     private let validPathPrefix: String?
 
@@ -33,7 +33,7 @@ final class PageViewsSource: Asynchronous {
         return .Momentary
     }
 
-    init(dataProvider: GoogleAnalyticsDataProvider, daysInReport: Int, refreshInterval: NSTimeInterval = 5*60, validPathPrefix: String?) {
+    init(dataProvider: AnalyticsDataProviding, daysInReport: Int, refreshInterval: NSTimeInterval = 5*60, validPathPrefix: String?) {
         self.dataProvider = dataProvider
         self.interval = refreshInterval
         self.daysInReport = daysInReport
@@ -48,7 +48,7 @@ final class PageViewsSource: Asynchronous {
         }
 
         let validPathPrefix = self.validPathPrefix
-        dataProvider.fetchPageViewsReportFromDate(reportStartTime, toDate: now) { result in
+        dataProvider.pageViewsReportFromDate(reportStartTime, toDate: now) { result in
             switch result {
             case .Success(let report):
                 let pageViews = report.rows.flatMap { row -> PageViewsRowReport? in

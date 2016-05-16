@@ -3,7 +3,7 @@
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 13.04.2016.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Copyright © 2016 Macoscope. All rights reserved.
 //
 
 import XCTest
@@ -46,7 +46,7 @@ class GoogleAnalyticsDataProviderTests: XCTestCase {
 
     func testResponseDeserialization() {
         let expectation = expectationWithDescription("deserialization")
-        dataProvider.fetchPageViewsReportFromDate(NSDate(), toDate: NSDate()) { result in
+        dataProvider.pageViewsReportFromDate(NSDate(), toDate: NSDate()) { result in
             switch result {
             case .Success(let report):
                 let pageViewsReports = PageViewsRowReport.arrayFromAnalyticsReport(report)
