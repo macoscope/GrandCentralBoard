@@ -5,6 +5,7 @@
 
 import UIKit
 import GCBCore
+import GCBUtilities
 
 
 private let firstScaleLineHeight: CGFloat = 12

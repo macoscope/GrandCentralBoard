@@ -1,9 +1,14 @@
 PODS:
   - Alamofire (3.3.1)
   - Decodable (0.4.2)
-  - GCBCore (0.0.1):
+  - GCBCore (1.0.0):
     - Alamofire (~> 3.0)
     - Decodable (~> 0.4)
+  - GCBUtilities (0.0.1):
+    - Alamofire (~> 3.0)
+    - Decodable (~> 0.4)
+    - GCBCore
+    - Operations (~> 2.9)
   - MD5 (0.1.1)
   - Moya/Core (6.4.0):
     - Alamofire (~> 3.0)
@@ -40,6 +45,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Decodable (~> 0.4)
   - GCBCore (from `./`)
+  - GCBUtilities (from `./`)
   - MD5 (~> 0.1)
   - Moya/RxSwift (~> 6.4)
   - Nimble (~> 4.0)
@@ -50,6 +56,8 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   GCBCore:
+    :path: ./
+  GCBUtilities:
     :path: ./
   SlackKit:
     :branch: add-tv-os-to-podspec
@@ -63,7 +71,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
-  GCBCore: 50bd889773433c8c55b59e1ce1d86ec260df7633
+  GCBCore: 413f332f4d4be41a05fa5c5d64a273eba8c0533a
+  GCBUtilities: 1e94bbae032e212846cab45a2aa7a7118baacad0
   MD5: 62e4416c91af0514c6aeeb6e6d80171f3bd48c3f
   Moya: 4d526954c8afd79820991393d40d7d8af756ceee
   Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
@@ -74,6 +83,6 @@ SPEC CHECKSUMS:
   SlackKit: 10dfee029d482bf35eff8799a799acf70ee2f05a
   Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
 
-PODFILE CHECKSUM: 82f70236f7c21ffbc1cb57d9592d11c7f8882084
+PODFILE CHECKSUM: 623ecc0e35da29ffcf6541b9831134db4435b2d0
 
 COCOAPODS: 1.0.0

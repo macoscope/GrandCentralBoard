@@ -5,6 +5,7 @@
 
 import Foundation
 import GCBCore
+import GCBUtilities
 
 enum EventsError: ErrorType, HavingMessage {
     case CannotConvertDate

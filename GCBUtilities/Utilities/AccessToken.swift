@@ -8,21 +8,21 @@
 
 import Decodable
 
-struct AccessToken: Decodable {
+public struct AccessToken: Decodable {
 
-    let token: String
-    let expireDate: NSDate
+    public let token: String
+    public let expireDate: NSDate
 
-    init(token: String, expiresIn: Int) {
+    public init(token: String, expiresIn: Int) {
         self.token = token
         self.expireDate = NSDate(timeIntervalSinceNow: NSTimeInterval(expiresIn))
     }
 
-    static func decode(json: AnyObject) throws -> AccessToken {
+    public static func decode(json: AnyObject) throws -> AccessToken {
         return try AccessToken(token: json => "access_token", expiresIn: json => "expires_in")
     }
 
-    func isExpired() -> Bool {
+    public func isExpired() -> Bool {
         return NSDate() >= expireDate
     }
 }

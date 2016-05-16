@@ -6,8 +6,9 @@
 //  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
-import GCBCore
 import Alamofire
+import GCBCore
+import GCBUtilities
 
 final class GoogleCalendarWatchWidgetBuilder: WidgetBuilding {
 

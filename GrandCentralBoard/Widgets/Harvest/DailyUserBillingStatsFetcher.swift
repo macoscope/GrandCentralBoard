@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import GCBCore
 import Decodable
+import GCBCore
+import GCBUtilities
 
 
 final class DailyProjectBillingStatsFetcher {
