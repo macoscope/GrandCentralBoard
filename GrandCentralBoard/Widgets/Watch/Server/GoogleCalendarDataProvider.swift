@@ -8,6 +8,7 @@
 
 import Foundation
 import GCBCore
+import GCBUtilities
 
 
 protocol CalendarDataProviding {

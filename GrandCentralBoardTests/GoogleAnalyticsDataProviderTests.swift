@@ -9,6 +9,7 @@
 import XCTest
 @testable import GrandCentralBoard
 import GCBCore
+import GCBUtilities
 
 
 private let reportRows = [
@@ -27,7 +28,7 @@ private let report = [ "data": [ "rows" :  reportRows] ]
 private let responseData = [ "reports" : [ report ] ]
 
 private class TestDataProvider: APIDataProviding {
-    func request(method: GrandCentralBoard.Method, url: NSURL, parameters: [String: AnyObject]?,
+    func request(method: GCBUtilities.Method, url: NSURL, parameters: [String: AnyObject]?,
                  encoding: ParameterEncoding, completion: Result<AnyObject> -> Void) {
 
         completion(.Success(responseData))

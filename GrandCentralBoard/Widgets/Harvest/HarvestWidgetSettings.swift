@@ -8,7 +8,7 @@
 
 import Decodable
 import Alamofire
-
+import GCBUtilities
 
 struct HarvestWidgetSettings: Decodable {
     let account: String

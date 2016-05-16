@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GCBUtilities
 
 
 class TableViewHeaderView: UITableViewHeaderFooterView, HeaderConfigurableWithViewModel {

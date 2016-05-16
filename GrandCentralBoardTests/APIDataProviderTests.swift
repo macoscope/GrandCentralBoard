@@ -9,6 +9,7 @@
 import XCTest
 @testable import GrandCentralBoard
 import GCBCore
+import GCBUtilities
 
 
 class TestTokenProvider: OAuth2TokenProviding {
@@ -37,11 +38,11 @@ class TestRequestManager: NetworkRequestManager {
         self.token = token
     }
 
-    func requestJSON(method: GrandCentralBoard.Method,
+    func requestJSON(method: GCBUtilities.Method,
                      url: NSURL,
                      parameters: [String : AnyObject]? = nil,
                      headers: [String : String]? = nil,
-                     encoding: GrandCentralBoard.ParameterEncoding,
+                     encoding: ParameterEncoding,
                      completion: (Result<AnyObject>) -> Void) {
 
         XCTAssertEqual("Bearer \(token)", headers!["Authorization"])

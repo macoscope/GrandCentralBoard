@@ -5,8 +5,9 @@
 //  Created by Rafal Augustyniak on 13/04/16.
 //
 
+import Alamofire
 import GCBCore
-
+import GCBUtilities
 
 private class BlogPostTitleTranslator: PathToTitleTranslating {
     private let pathPrefix: String?
@@ -37,7 +38,7 @@ final class BlogPostsPopularityWidgetBuilder: WidgetBuilding {
         let tokenProvider = GoogleTokenProvider(clientID: settings.clientID,
                                                 clientSecret: settings.clientSecret,
                                                 refreshToken: settings.refreshToken)
-        let apiDataProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider)
+        let apiDataProvider = GoogleAPIDataProvider(tokenProvider: tokenProvider, networkRequestManager: Manager())
         let analyticsDataProvider = GoogleAnalyticsDataProvider(viewID: settings.viewID,
                                                                 dataProvider: apiDataProvider)
 

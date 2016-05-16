@@ -7,6 +7,7 @@
 //
 
 import GCBCore
+import GCBUtilities
 
 final class GoogleAnalyticsDataProvider {
     private static let googleAnalyticsAPIURL = NSURL(string: "https://analyticsreporting.googleapis.com/v4/reports:batchGet?fields=reports")!

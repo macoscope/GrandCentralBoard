@@ -7,7 +7,7 @@
 //
 
 import GCBCore
-
+import GCBUtilities
 
 final class HarvestAPI {
     let account: String

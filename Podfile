@@ -6,6 +6,7 @@ target "GrandCentralBoard" do
  pod 'Decodable', '~> 0.4'
  pod 'MD5', '~> 0.1'
  pod 'GCBCore', :path => './'
+ pod 'GCBUtilities', :path => './'
  pod 'Operations', '~> 2.9'
  pod 'Moya/RxSwift', '~> 6.4'
  pod 'SlackKit', :git => "https://github.com/michallaskowski/SlackKit", :branch => "add-tv-os-to-podspec"
