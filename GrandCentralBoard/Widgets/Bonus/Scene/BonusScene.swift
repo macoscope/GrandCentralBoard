@@ -13,7 +13,6 @@ class BonusScene: SKScene {
 
     private var viewModel: BonusWidgetViewModel!
     private let world = SKNode()
-    var bubbleResizeDuration: NSTimeInterval = 15
     var relativeScenePadding: (x: CGFloat, y: CGFloat) = (x: 0.05, y: 0.05)
 
     override func didMoveToView(view: SKView) {
@@ -60,7 +59,7 @@ class BonusScene: SKScene {
         guard !world.children.isEmpty else { return }
 
         let calculatedAccumulatedFrame = world.calculateAccumulatedFrame()
-        let nodesFitScreen = CGRectContainsRect(frame, calculatedAccumulatedFrame)
+        let nodesFitScreen = frame.contains(calculatedAccumulatedFrame)
         if !nodesFitScreen {
             scaleBy(1 - unitSceneResizeChange)
         } else if areNodesTooSmallWithAccumulatedFrame(calculatedAccumulatedFrame) {
@@ -105,7 +104,7 @@ class BonusScene: SKScene {
         let topRightPoint = CGPoint(x: size.width / 2, y: size.height / 2)
         let widthRange = Int(-topRightPoint.x) ... Int(topRightPoint.x)
         let heightRange = Int(-topRightPoint.y) ... Int(topRightPoint.y)
-        if let x = widthRange.randomElement(), let y = heightRange.randomElement() {
+        if let x = widthRange.randomElement(), y = heightRange.randomElement() {
             return CGPoint(x: x, y: y)
         } else {
             return CGPoint(x: 0, y: 0)
@@ -114,7 +113,7 @@ class BonusScene: SKScene {
 
     func pokeAllBubbles() {
         let movement = (-10...10)
-        guard let dx = movement.randomElement(), let dy = movement.randomElement() else { return }
+        guard let dx = movement.randomElement(), dy = movement.randomElement() else { return }
 
         let vector = CGVector(dx: dx, dy: dy)
         let pokeAction = SKAction.moveBy(vector, duration: 2)

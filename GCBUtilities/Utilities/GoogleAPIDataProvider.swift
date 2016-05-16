@@ -11,19 +11,19 @@ import Operations
 import GCBCore
 
 
-enum APIDataError: ErrorType {
+public enum APIDataError: ErrorType {
     case IncorrectRequestParameters
     case AuthorizationError
     case ModelDecodeError(ErrorType)
     case UnderlyingError(NSError)
 }
 
-protocol APIDataProviding {
+public protocol APIDataProviding {
     func request(method: Method, url: NSURL, parameters: [String: AnyObject]?,
                  encoding: ParameterEncoding, completion: GCBCore.Result<AnyObject> -> Void)
 }
 
-final class GoogleAPIDataProvider: APIDataProviding {
+public final class GoogleAPIDataProvider: APIDataProviding {
 
     private let tokenProvider: OAuth2TokenProviding
     private var accessToken: AccessToken?
@@ -32,7 +32,7 @@ final class GoogleAPIDataProvider: APIDataProviding {
 
     private let operationQueue = OperationQueue()
 
-    init(tokenProvider: OAuth2TokenProviding, networkRequestManager: NetworkRequestManager = Manager()) {
+    public init(tokenProvider: OAuth2TokenProviding, networkRequestManager: NetworkRequestManager) {
         self.tokenProvider = tokenProvider
         self.networkRequestManager = networkRequestManager
     }
@@ -54,11 +54,11 @@ final class GoogleAPIDataProvider: APIDataProviding {
         return refreshTokenOperation
     }
 
-    func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL,
+    public func request(method: Method, url: NSURL, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL,
                  completion: GCBCore.Result<AnyObject> -> Void) {
 
         let fetchDataOperation = BlockOperation (block: { [weak self] (continueWithError) in
-            guard let strongSelf = self, let accessToken = strongSelf.accessToken?.token else {
+            guard let strongSelf = self, accessToken = strongSelf.accessToken?.token else {
                 completion(.Failure(APIDataError.AuthorizationError))
                 continueWithError(error: APIDataError.AuthorizationError)
                 return

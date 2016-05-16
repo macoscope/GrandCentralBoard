@@ -8,32 +8,31 @@
 
 import Foundation
 
-protocol PathToTitleTranslating {
-    func titleFromPath(path: String) -> String?
-}
 
 struct PageViewsRowReport {
     let pagePath: String
     let pageTitle: String
     let visits: Int
 
-    init?(analyticsReportRow row: AnalyticsReportRow, pathToTitleTranslator: PathToTitleTranslating) {
-        guard let dimension = row.dimensions.first,
-            let value = row.values.first,
-            let count = Int(value) else {
-                return nil
-        }
-
-        pagePath = dimension
-        visits = count
-
-        guard let pageTitle = pathToTitleTranslator.titleFromPath(pagePath) else {
+    init?(analyticsReportRow row: AnalyticsReportRow) {
+        guard row.dimensions.count == 2, let visitCountString = row.values.first, visitCount = Int(visitCountString) else {
             return nil
         }
-        self.pageTitle = pageTitle
+
+        pagePath = row.dimensions[0]
+        visits = visitCount
+
+        self.pageTitle = row.dimensions[1]
     }
 
-    static func arrayFromAnalyticsReport(analyticsReport: AnalyticsReport, pathToTitleTranslator: PathToTitleTranslating) -> [PageViewsRowReport] {
-        return analyticsReport.rows.flatMap { PageViewsRowReport(analyticsReportRow: $0, pathToTitleTranslator: pathToTitleTranslator) }
+    static func arrayFromAnalyticsReport(analyticsReport: AnalyticsReport) -> [PageViewsRowReport] {
+        return analyticsReport.rows.flatMap { PageViewsRowReport(analyticsReportRow: $0) }
+    }
+}
+
+extension PageViewsRowReport {
+
+    func hasTitleWithPrefix(prefix: String) -> Bool {
+        return pagePath.hasPrefix(prefix) && pagePath.characters.count > prefix.characters.count
     }
 }

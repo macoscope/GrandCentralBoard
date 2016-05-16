@@ -11,7 +11,7 @@ import Foundation
 extension String {
 
     func slackMessageTimestamp() -> NSDate? {
-        guard let timestampString = componentsSeparatedByString(".").first, let timeInterval = NSTimeInterval(timestampString) else {
+        guard let timestampString = componentsSeparatedByString(".").first, timeInterval = NSTimeInterval(timestampString) else {
             return nil
         }
         return NSDate(timeIntervalSince1970: timeInterval)

@@ -47,7 +47,7 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
     private func updateWithReports(reports: [PageViewsRowReport]) {
         let reportsSlice = reports[0...min(3, reports.count)]
         let viewModel = reportsSlice.flatMap({ report -> DoubleColumnCellViewModel? in
-            if report.pageTitle.isEmpty { return nil }
+            guard !report.pageTitle.isEmpty else { return nil }
             return DoubleColumnCellViewModel(title: report.pageTitle, valueDescription: "\(report.visits)")
         })
 
