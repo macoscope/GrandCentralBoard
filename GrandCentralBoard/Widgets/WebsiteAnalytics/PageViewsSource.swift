@@ -53,7 +53,7 @@ final class PageViewsSource: Asynchronous {
             case .Success(let report):
                 let pageViews = report.rows.flatMap { row -> PageViewsRowReport? in
                     let pageViewsReport = PageViewsRowReport(analyticsReportRow:row)
-                    if let pageViewsReport = pageViewsReport, let prefix = validPathPrefix where !pageViewsReport.hasTitleWithPrefix(prefix) {
+                    if let pageViewsReport = pageViewsReport, prefix = validPathPrefix where !pageViewsReport.hasTitleWithPrefix(prefix) {
                          return nil
                     }
                     return pageViewsReport
