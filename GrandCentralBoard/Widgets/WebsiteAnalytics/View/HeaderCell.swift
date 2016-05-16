@@ -17,11 +17,11 @@ protocol ViewDequeuing {
 final class ViewReuseController: ViewDequeuing {
     private let cellNib: UINib
     private let cellIdentifier: String
-    private let headerNib: UINib
-    private let headerIdentifier: String
+    private let headerNib: UINib?
+    private let headerIdentifier: String?
     private weak var tableView: UITableView?
 
-    init(cellNib: UINib, cellIdentifier: String, headerNib: UINib, headerIdentifier: String, tableView: UITableView) {
+    init(cellNib: UINib, cellIdentifier: String, headerNib: UINib?, headerIdentifier: String?, tableView: UITableView) {
         self.cellNib = cellNib
         self.cellIdentifier = cellIdentifier
         self.headerNib = headerNib
@@ -29,7 +29,9 @@ final class ViewReuseController: ViewDequeuing {
         self.tableView = tableView
 
         tableView.registerNib(cellNib, forCellReuseIdentifier: cellIdentifier)
-        tableView.registerNib(headerNib, forHeaderFooterViewReuseIdentifier: headerIdentifier)
+        if let headerNib = headerNib, headerIdentifier = headerIdentifier {
+            tableView.registerNib(headerNib, forHeaderFooterViewReuseIdentifier: headerIdentifier)
+        }
     }
 
     func dequeueCell() -> UITableViewCell? {
@@ -37,6 +39,7 @@ final class ViewReuseController: ViewDequeuing {
     }
 
     func dequeueHeader() -> UIView? {
+        guard let headerIdentifier = headerIdentifier else { return nil }
         return tableView?.dequeueReusableHeaderFooterViewWithIdentifier(headerIdentifier)
     }
 }
