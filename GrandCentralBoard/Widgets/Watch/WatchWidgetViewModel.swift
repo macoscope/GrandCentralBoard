@@ -13,24 +13,18 @@ struct WatchWidgetViewModel {
     let meetingName: String?
     let meetingETA: String?
     let startsIn: String?
-    let blinkingImage: UIImage?
     let watchFaceImage: UIImage?
-    let selectedImage: UIImage?
     let calendarName: String?
 
     init(date: NSDate, timeZone: NSTimeZone, event: Event?, calendarName: String?) {
 
         if let event = event {
-            let eventComponents = WatchWidgetViewModel.componentsFromDate(event.time, timeZone: timeZone)
-            let selected = (eventComponents.minute / 5) + 1
-            selectedImage = UIImage(named: "s\(selected)")
             let minutes = Int(event.time.timeIntervalSinceDate(date) / 60)
             let isNow = minutes <= 1
             meetingName = event.name
             startsIn = isNow ? "is" : "starts in"
             meetingETA = isNow ? "now" : "\(minutes) minutes"
         } else {
-            selectedImage = nil
             meetingName = nil
             meetingETA = nil
             startsIn = nil
@@ -40,7 +34,6 @@ struct WatchWidgetViewModel {
 
         let blinking = (currentTimeComponents.minute / 5) + 1
 
-        blinkingImage = UIImage(named: "\(blinking)")
         watchFaceImage = UIImage(named: "f\(blinking)")
 
         if currentTimeComponents.minute < 30 {

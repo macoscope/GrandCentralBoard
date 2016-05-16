@@ -7,11 +7,6 @@ import UIKit
 import GCBCore
 
 
-private let pulsatingInterval: NSTimeInterval = 0.5
-private let flashingInterval: NSTimeInterval = 0.4
-private let transitionInterval: NSTimeInterval = 0.3
-private let semiTransparentAlpha: CGFloat = 0.3
-
 final class WatchWidgetView: UIView, ViewModelRendering {
 
     @IBOutlet private weak var hourLeft: UILabel!
@@ -19,12 +14,9 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     @IBOutlet private weak var meetingName: UILabel!
     @IBOutlet private weak var meetingETA: UILabel!
     @IBOutlet private weak var startsIn: UILabel!
-    @IBOutlet private weak var blinkingImage: UIImageView!
     @IBOutlet private weak var watchFaceImage: UIImageView!
-    @IBOutlet private weak var selectionImage: UIImageView!
     @IBOutlet private weak var calendarName: UILabel!
 
-    private var blinkingImageFlashingAnimationController: FlashingAnimationController?
 
     // MARK - ViewModelRendering
 
@@ -53,10 +45,6 @@ final class WatchWidgetView: UIView, ViewModelRendering {
         hourLeft.text = ""
         hourRight.text = ""
         calendarName.text = ""
-
-        blinkingImageFlashingAnimationController = FlashingAnimationController(view: blinkingImage, interval: pulsatingInterval,
-                                                                               alphaDepth: semiTransparentAlpha)
-        blinkingImageFlashingAnimationController?.startFlashing()
     }
 
     // MARK - Transitions
@@ -72,9 +60,7 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     }
 
     private func setUpImagesWithViewModel(viewModel: ViewModel) {
-        blinkingImage.image = viewModel.blinkingImage
         watchFaceImage.image = viewModel.watchFaceImage
-        selectionImage.image = viewModel.selectedImage
     }
 
     private func setUpLabelsWithViewModel(viewModel: ViewModel) {
