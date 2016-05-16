@@ -29,7 +29,7 @@ final class ViewReuseController: ViewDequeuing {
         self.tableView = tableView
 
         tableView.registerNib(cellNib, forCellReuseIdentifier: cellIdentifier)
-        if let headerNib = headerNib, let headerIdentifier = headerIdentifier {
+        if let headerNib = headerNib, headerIdentifier = headerIdentifier {
             tableView.registerNib(headerNib, forHeaderFooterViewReuseIdentifier: headerIdentifier)
         }
     }
