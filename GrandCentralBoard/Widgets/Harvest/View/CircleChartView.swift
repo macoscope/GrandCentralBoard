@@ -22,6 +22,16 @@ private struct CircleChartItemModel {
 
 private extension CollectionType where Generator.Element == CircleChartItem {
 
+    private func normalize() -> [CircleChartItem] {
+        let ratioSum = reduce(0.0, combine: { $0 + $1.ratio })
+        guard ratioSum != 0 else {
+            return Array(self)
+        }
+        return map {
+            CircleChartItem(color: $0.color, ratio: $0.ratio / ratioSum)
+        }
+    }
+
     func mapToModelsWithStartAngle(startAngle: Double) -> [CircleChartItemModel] {
         var nextStartAngle = startAngle
         return map { (item) -> CircleChartItemModel in
@@ -40,7 +50,7 @@ final class CircleChart: UIView {
 
     init(startAngle: Double, strokeWidth: CGFloat, items: [CircleChartItem]) {
         self.strokeWidth = strokeWidth
-        itemModels = items.mapToModelsWithStartAngle(startAngle)
+        itemModels = items.normalize().mapToModelsWithStartAngle(startAngle)
 
         super.init(frame: CGRect.zero)
     }
@@ -67,8 +77,8 @@ final class CircleChart: UIView {
         CGPathAddArc(path, nil, center.x, center.y, smallerArcRadius, startAngle, endAngle, true)
         CGPathAddArc(path, nil, roundingInsideCenter.x, roundingInsideCenter.y, strokeWidth / 2, endAngle - CGFloat(M_PI), endAngle, true)
         CGPathAddArc(path, nil, center.x, center.y, biggerArcRadius, endAngle, startAngle, false)
-        CGPathAddArc(path, nil, roundingOutsideCenter.x, roundingOutsideCenter.y, strokeWidth / 2, endAngle, endAngle - CGFloat(M_PI), false)
-        CGPathCloseSubpath(path)
+        CGPathAddArc(path, nil, roundingOutsideCenter.x, roundingOutsideCenter.y, strokeWidth / 2, startAngle, startAngle + CGFloat(M_PI), false)
+
 
         CGContextAddPath(context, path)
         CGContextSetFillColorWithColor(context, model.color.CGColor)
