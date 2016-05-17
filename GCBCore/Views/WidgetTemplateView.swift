@@ -17,6 +17,16 @@ public struct WidgetTemplateViewModel {
     }
 }
 
+public struct WidgetTemplateLayoutSettings {
+    let displayContentUnderHeader: Bool
+    let contentMargin: UIEdgeInsets
+
+    public init(displayContentUnderHeader: Bool = false, contentMargin: UIEdgeInsets) {
+        self.displayContentUnderHeader = displayContentUnderHeader
+        self.contentMargin = contentMargin
+    }
+}
+
 public class WidgetTemplateView: UIView {
 
     @IBOutlet private weak var titleLabel: UILabel!
@@ -25,10 +35,22 @@ public class WidgetTemplateView: UIView {
     @IBOutlet private var headerView: UIView!
     @IBOutlet private var contentViewContainer: UIView!
 
+    @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
+
     public func configureWithViewModel(viewModel: WidgetTemplateViewModel) {
         configureContenView(viewModel.contentView)
         configureTitle(viewModel.title)
         configureSubtitle(viewModel.subtitle)
+    }
+
+    public func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
+        if layoutSettings.displayContentUnderHeader {
+            containerTopConstraint.constant = 0
+        } else {
+            containerTopConstraint.constant = headerView.frame.height
+        }
+
+        contentViewContainer.bounds = UIEdgeInsetsInsetRect(contentViewContainer.frame, layoutSettings.contentMargin)
     }
 
     private func configureContenView(contentView: UIView) {
