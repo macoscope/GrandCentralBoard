@@ -16,5 +16,6 @@ target "GrandCentralBoard" do
      pod 'Nimble', '~> 4.0'
      pod 'OHHTTPStubs', '~> 5.0'
      pod 'OHHTTPStubs/Swift', '~> 5.0'
+     pod 'FBSnapshotTestCase', :git => "https://github.com/facebook/ios-snapshot-test-case"
  end
 end
