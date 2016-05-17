@@ -5,6 +5,9 @@
 
 import UIKit
 
+/**
+ This viewModel is used to configure a template view for widgets: `WidgetTemplateView`
+ */
 public struct WidgetTemplateViewModel {
     let title: String
     let subtitle: String
@@ -17,6 +20,9 @@ public struct WidgetTemplateViewModel {
     }
 }
 
+/**
+ Struct which is used to configure layout of a template view for widgets.
+ */
 public struct WidgetTemplateLayoutSettings {
     let displayContentUnderHeader: Bool
     let contentMargin: UIEdgeInsets
@@ -27,6 +33,9 @@ public struct WidgetTemplateLayoutSettings {
     }
 }
 
+/**
+ This is template view for a widget which contains a header and a content.
+ */
 public class WidgetTemplateView: UIView {
 
     @IBOutlet private weak var titleLabel: UILabel!
