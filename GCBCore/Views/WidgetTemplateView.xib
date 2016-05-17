@@ -14,14 +14,28 @@
                     <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-3F-gEn">
+                    <rect key="frame" x="0.0" y="0.0" width="1920" height="91"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="91" id="ISH-ps-CeA"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="KXO-ig-m9j" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3TS-Fp-gLn"/>
+                <constraint firstAttribute="trailing" secondItem="uj0-3F-gEn" secondAttribute="trailing" id="GPf-x3-PIs"/>
                 <constraint firstAttribute="bottom" secondItem="KXO-ig-m9j" secondAttribute="bottom" id="S3J-pY-qPC"/>
                 <constraint firstItem="KXO-ig-m9j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X1f-3O-YBX"/>
+                <constraint firstItem="uj0-3F-gEn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mjW-h5-gGc"/>
+                <constraint firstItem="uj0-3F-gEn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="z0y-MN-erE"/>
                 <constraint firstAttribute="trailing" secondItem="KXO-ig-m9j" secondAttribute="trailing" id="z1k-i1-Lpu"/>
             </constraints>
+            <connections>
+                <outlet property="contentView" destination="KXO-ig-m9j" id="5yh-PD-AEu"/>
+                <outlet property="headerView" destination="uj0-3F-gEn" id="VfI-YB-5gY"/>
+            </connections>
         </view>
     </objects>
 </document>
