@@ -12,7 +12,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXO-ig-m9j">
                     <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.12549020349979401" green="0.12549020349979401" blue="0.12549020349979401" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-3F-gEn">
                     <rect key="frame" x="0.0" y="0.0" width="640" height="91"/>
@@ -38,7 +38,6 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.12549020349979401" green="0.12549020349979401" blue="0.12549020349979401" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="6ee-IO-aQx" firstAttribute="top" secondItem="uj0-3F-gEn" secondAttribute="top" constant="19" id="2T9-jP-d2U"/>
                         <constraint firstItem="0fN-aj-bf4" firstAttribute="top" secondItem="6ee-IO-aQx" secondAttribute="bottom" constant="4" id="3mo-BN-62t"/>
@@ -62,6 +61,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="containerTopConstraint" destination="X1f-3O-YBX" id="9rd-lA-Kmz"/>
                 <outlet property="contentViewContainer" destination="KXO-ig-m9j" id="bXM-bf-agd"/>
                 <outlet property="descriptionLabel" destination="0fN-aj-bf4" id="KgT-Df-tfq"/>
                 <outlet property="headerView" destination="uj0-3F-gEn" id="VfI-YB-5gY"/>
