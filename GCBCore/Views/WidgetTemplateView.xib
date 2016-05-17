@@ -18,13 +18,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="640" height="91"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIDGET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ee-IO-aQx">
-                            <rect key="frame" x="26" y="19" width="113" height="36"/>
+                            <rect key="frame" x="26" y="19" width="588" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIDGET DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fN-aj-bf4">
-                            <rect key="frame" x="26" y="59" width="208" height="24"/>
+                            <rect key="frame" x="26" y="59" width="588" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -43,13 +43,15 @@
                         <constraint firstItem="0fN-aj-bf4" firstAttribute="top" secondItem="6ee-IO-aQx" secondAttribute="bottom" constant="4" id="3mo-BN-62t"/>
                         <constraint firstAttribute="bottom" secondItem="zYE-fA-fPI" secondAttribute="bottom" id="EQ1-d8-Xts"/>
                         <constraint firstAttribute="height" constant="91" id="ISH-ps-CeA"/>
+                        <constraint firstAttribute="trailing" secondItem="6ee-IO-aQx" secondAttribute="trailing" constant="26" id="M8c-Lb-G73"/>
+                        <constraint firstItem="0fN-aj-bf4" firstAttribute="trailing" secondItem="6ee-IO-aQx" secondAttribute="trailing" id="lnx-Si-Jau"/>
                         <constraint firstItem="zYE-fA-fPI" firstAttribute="centerX" secondItem="uj0-3F-gEn" secondAttribute="centerX" id="ptz-ik-dd8"/>
                         <constraint firstItem="6ee-IO-aQx" firstAttribute="leading" secondItem="uj0-3F-gEn" secondAttribute="leading" constant="26" id="r7a-jS-jCZ"/>
                         <constraint firstItem="0fN-aj-bf4" firstAttribute="leading" secondItem="6ee-IO-aQx" secondAttribute="leading" id="vFS-2H-gvo"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.12549020349979401" green="0.12549020349979401" blue="0.12549020349979401" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="KXO-ig-m9j" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3TS-Fp-gLn"/>
                 <constraint firstAttribute="trailing" secondItem="uj0-3F-gEn" secondAttribute="trailing" id="GPf-x3-PIs"/>
