@@ -8,52 +8,119 @@ import UIKit
 
 struct WatchWidgetViewModel {
 
-    let hourLeft: String?
-    let hourRight: String?
-    let meetingName: String?
-    let meetingETA: String?
-    let startsIn: String?
     let watchFaceImage: UIImage?
-    let calendarName: String?
+    let centeredTimeText: String?
+    let alignedTimeText: String?
+    let eventText: NSAttributedString?
+
 
     init(date: NSDate, timeZone: NSTimeZone, event: Event?, calendarName: String?) {
-
         if let event = event {
-            let minutes = Int(event.time.timeIntervalSinceDate(date) / 60)
-            let isNow = minutes <= 1
-            meetingName = event.name
-            startsIn = isNow ? "is" : "starts in"
-            meetingETA = isNow ? "now" : "\(minutes) minutes"
+            let timeToEvent = event.time.timeIntervalSinceDate(date)
+            let minutesToEvent = Int(ceil(timeToEvent / 60)) // 10 seconds is "1 minute left"; 1 minute and 10 seconds is "2 minutes left"
+
+            centeredTimeText = nil
+            alignedTimeText = WatchWidgetViewModel.dateFormatterWithTimeZone(timeZone).stringFromDate(date)
+            eventText = WatchWidgetViewModel.descriptionForEvent(event, fromCalendar: calendarName, startingInMinutes: minutesToEvent)
+            watchFaceImage = WatchWidgetViewModel.watchFaceImageForEventStartingInMinutes(minutesToEvent)
         } else {
-            meetingName = nil
-            meetingETA = nil
-            startsIn = nil
+            centeredTimeText = WatchWidgetViewModel.dateFormatterWithTimeZone(timeZone).stringFromDate(date)
+            alignedTimeText = nil
+            eventText = nil
+            watchFaceImage = nil
         }
-
-        let currentTimeComponents = WatchWidgetViewModel.componentsFromDate(date, timeZone: timeZone)
-
-        let blinking = (currentTimeComponents.minute / 5) + 1
-
-        watchFaceImage = UIImage(named: "f\(blinking)")
-
-        if currentTimeComponents.minute < 30 {
-            hourLeft = nil
-            hourRight = "\(currentTimeComponents.hour % 24)"
-        } else {
-            hourLeft = "\(currentTimeComponents.hour + 1 % 24)"
-            hourRight = nil
-        }
-
-        self.calendarName = calendarName?.uppercaseString
     }
 
-    private static func componentsFromDate(date: NSDate, timeZone: NSTimeZone) -> (hour: Int, minute: Int) {
-        let calendar = NSCalendar.currentCalendar()
-        calendar.timeZone = timeZone
-        let components = calendar.components([.Hour, .Minute], fromDate: date)
-        let hour = components.hour
-        let minute = components.minute
+    private static func watchFaceImageForEventStartingInMinutes(minutesToEvent: Int) -> UIImage? {
+        guard minutesToEvent > 0 else { return nil }
 
-        return (hour: hour, minute: minute)
+        let minutesInSlot = 5
+        let numberOfSlots = 12
+        let slotIndex = min(Int(ceil(Float(minutesToEvent) / Float(minutesInSlot))), numberOfSlots)
+
+        return UIImage(named: "\(slotIndex)")
+    }
+
+
+    // MARK: Event description formatting
+
+    private static let nextMeetingInFont = UIFont.systemFontOfSize(24, weight: UIFontWeightSemibold)
+    private static let minutesFont = UIFont.systemFontOfSize(50, weight: UIFontWeightSemibold)
+    private static let nowFont = UIFont.systemFontOfSize(50, weight: UIFontWeightSemibold)
+    private static let calendarNameFont = UIFont.systemFontOfSize(22, weight: UIFontWeightBold)
+    private static let eventNameFont = UIFont.systemFontOfSize(22, weight: UIFontWeightBold)
+    private static let calendarNameTextColor = UIColor(red: 35/255, green: 208/255, blue: 165/255, alpha: 1)
+    private static let highLineSpacingStyle: NSParagraphStyle = {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 34
+        style.alignment = .Center
+        return style
+    }()
+    private static let lowLineSpacingStyle: NSParagraphStyle = {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 12
+        style.alignment = .Center
+        return style
+    }()
+
+    private static func descriptionForEvent(event: Event,
+                                            fromCalendar calendarName: String?,
+                                            startingInMinutes minutesToEvent: Int) -> NSAttributedString {
+        let resultString = NSMutableAttributedString()
+
+        if minutesToEvent > 0 {
+            let nextMeetingIn = NSAttributedString(
+                string: "NEXT MEETING IN" + "\n",
+                attributes: [NSFontAttributeName : nextMeetingInFont, NSParagraphStyleAttributeName : lowLineSpacingStyle]
+            )
+
+            let minutes = NSMutableAttributedString(
+                string: "\(minutesToEvent) MIN" + "\n",
+                attributes: [NSFontAttributeName : minutesFont, NSParagraphStyleAttributeName : lowLineSpacingStyle]
+            )
+            resultString.appendAttributedString(nextMeetingIn)
+            resultString.appendAttributedString(minutes)
+        } else {
+            let now = NSAttributedString(
+                string: "NOW" + "\n",
+                attributes: [NSFontAttributeName : nowFont, NSParagraphStyleAttributeName : highLineSpacingStyle]
+            )
+            resultString.appendAttributedString(now)
+        }
+
+        if let calendarName = calendarName {
+            let calendarNameString = NSMutableAttributedString(
+                string: "@\(calendarName.uppercaseString)" + "\n",
+                attributes: [NSFontAttributeName : calendarNameFont, NSForegroundColorAttributeName : calendarNameTextColor]
+            )
+            resultString.appendAttributedString(calendarNameString)
+        }
+
+        let eventNameString = NSMutableAttributedString(
+            string: event.name.uppercaseString,
+            attributes: [NSFontAttributeName : eventNameFont]
+        )
+        resultString.appendAttributedString(eventNameString)
+
+        return resultString
+    }
+
+
+    // MARK: Date formatting
+
+    private static var cachedFormatter: NSDateFormatter?
+
+    private static func dateFormatterWithTimeZone(timeZone: NSTimeZone) -> NSDateFormatter {
+        if let formatter = cachedFormatter where formatter.timeZone == timeZone {
+            return formatter
+        }
+
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .NoStyle
+        formatter.timeStyle = .ShortStyle
+        formatter.timeZone = timeZone
+        cachedFormatter = formatter
+
+        return formatter
     }
 }

@@ -9,13 +9,10 @@ import GCBCore
 
 final class WatchWidgetView: UIView, ViewModelRendering {
 
-    @IBOutlet private weak var hourLeft: UILabel!
-    @IBOutlet private weak var hourRight: UILabel!
-    @IBOutlet private weak var meetingName: UILabel!
-    @IBOutlet private weak var meetingETA: UILabel!
-    @IBOutlet private weak var startsIn: UILabel!
     @IBOutlet private weak var watchFaceImage: UIImageView!
-    @IBOutlet private weak var calendarName: UILabel!
+    @IBOutlet weak var centeredTimeLabel: UILabel!
+    @IBOutlet weak var alignedTimeLabel: UILabel!
+    @IBOutlet private weak var eventLabel: UILabel!
 
 
     // MARK - ViewModelRendering
@@ -39,12 +36,10 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        meetingName.text = ""
-        meetingETA.text = ""
-        startsIn.text = ""
-        hourLeft.text = ""
-        hourRight.text = ""
-        calendarName.text = ""
+        watchFaceImage.image = nil
+        centeredTimeLabel.text = nil
+        alignedTimeLabel.text = nil
+        eventLabel.attributedText = nil
     }
 
     // MARK - Transitions
@@ -64,12 +59,9 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     }
 
     private func setUpLabelsWithViewModel(viewModel: ViewModel) {
-        hourLeft.animateTextTransition(viewModel.hourLeft)
-        hourRight.animateTextTransition(viewModel.hourRight)
-        meetingName.animateTextTransition(viewModel.meetingName)
-        meetingETA.animateTextTransition(viewModel.meetingETA)
-        startsIn.animateTextTransition(viewModel.startsIn)
-        calendarName.animateTextTransition(viewModel.calendarName)
+        centeredTimeLabel.animateTextTransition(viewModel.centeredTimeText)
+        alignedTimeLabel.animateTextTransition(viewModel.alignedTimeText)
+        eventLabel.attributedText = viewModel.eventText
     }
 
 
