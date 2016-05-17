@@ -41,18 +41,25 @@ public class WidgetTemplateView: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 
-    @IBOutlet private var headerView: UIView!
-    @IBOutlet private var contentViewContainer: UIView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var contentViewContainer: UIView!
 
     @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
 
-    public func configureWithViewModel(viewModel: WidgetTemplateViewModel) {
+    public class func viewWithViewModel(viewModel: WidgetTemplateViewModel, layoutSettings: WidgetTemplateLayoutSettings) -> WidgetTemplateView {
+        let view = WidgetTemplateView.fromNib()
+        view.configureWithViewModel(viewModel)
+        view.configureLayoutSettings(layoutSettings)
+        return view
+    }
+
+    private func configureWithViewModel(viewModel: WidgetTemplateViewModel) {
         configureContenView(viewModel.contentView)
         configureTitle(viewModel.title)
         configureSubtitle(viewModel.subtitle)
     }
 
-    public func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
+    private func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
         if layoutSettings.displayContentUnderHeader {
             containerTopConstraint.constant = 0
         } else {
