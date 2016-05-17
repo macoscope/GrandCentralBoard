@@ -18,7 +18,10 @@ final class ImageWidget: WidgetControlling {
     }
 
     var view: UIView {
-        return widgetView
+        let widgetTemplateView = WidgetTemplateView.fromNib()
+        let viewModel = WidgetTemplateViewModel(title: "Title", subtitle: "Subtitle", contentView: widgetView)
+        widgetTemplateView.configureWithViewModel(viewModel)
+        return widgetTemplateView
     }
 
     func update(source: UpdatingSource) {
