@@ -7,15 +7,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WidgetTemplateView" customModule="GCBCore">
-            <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+            <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXO-ig-m9j">
-                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-3F-gEn">
-                    <rect key="frame" x="0.0" y="0.0" width="1920" height="91"/>
+                    <rect key="frame" x="0.0" y="0.0" width="640" height="91"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="91" id="ISH-ps-CeA"/>
@@ -32,8 +32,9 @@
                 <constraint firstItem="uj0-3F-gEn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="z0y-MN-erE"/>
                 <constraint firstAttribute="trailing" secondItem="KXO-ig-m9j" secondAttribute="trailing" id="z1k-i1-Lpu"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="contentView" destination="KXO-ig-m9j" id="5yh-PD-AEu"/>
+                <outlet property="contentViewContainer" destination="KXO-ig-m9j" id="bXM-bf-agd"/>
                 <outlet property="headerView" destination="uj0-3F-gEn" id="VfI-YB-5gY"/>
             </connections>
         </view>
