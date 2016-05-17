@@ -15,7 +15,10 @@
   "platforms": {
     "tvos": "9.0"
   },
-  "source_files": "GCBCore/**/*.swift",
+  "source_files": [
+    "GCBCore/**/*.swift",
+    "GCBCore/**/*.xib"
+  ],
   "resource_bundles": {
     "GCBCore": [
       "GCBCore/**/*.xib"
