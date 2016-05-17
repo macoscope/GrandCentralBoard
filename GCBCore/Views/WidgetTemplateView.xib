@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,9 +16,37 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-3F-gEn">
                     <rect key="frame" x="0.0" y="0.0" width="640" height="91"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIDGET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ee-IO-aQx">
+                            <rect key="frame" x="26" y="19" width="113" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIDGET DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fN-aj-bf4">
+                            <rect key="frame" x="26" y="59" width="208" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYE-fA-fPI" userLabel="Separator">
+                            <rect key="frame" x="27" y="89" width="587" height="2"/>
+                            <color key="backgroundColor" red="0.13725490868091583" green="0.81568628549575806" blue="0.64705884456634521" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="587" id="9MC-Nu-Wrc"/>
+                                <constraint firstAttribute="height" constant="2" id="YjE-76-Xi1"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.12549020349979401" green="0.12549020349979401" blue="0.12549020349979401" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="6ee-IO-aQx" firstAttribute="top" secondItem="uj0-3F-gEn" secondAttribute="top" constant="19" id="2T9-jP-d2U"/>
+                        <constraint firstItem="0fN-aj-bf4" firstAttribute="top" secondItem="6ee-IO-aQx" secondAttribute="bottom" constant="4" id="3mo-BN-62t"/>
+                        <constraint firstAttribute="bottom" secondItem="zYE-fA-fPI" secondAttribute="bottom" id="EQ1-d8-Xts"/>
                         <constraint firstAttribute="height" constant="91" id="ISH-ps-CeA"/>
+                        <constraint firstItem="zYE-fA-fPI" firstAttribute="centerX" secondItem="uj0-3F-gEn" secondAttribute="centerX" id="ptz-ik-dd8"/>
+                        <constraint firstItem="6ee-IO-aQx" firstAttribute="leading" secondItem="uj0-3F-gEn" secondAttribute="leading" constant="26" id="r7a-jS-jCZ"/>
+                        <constraint firstItem="0fN-aj-bf4" firstAttribute="leading" secondItem="6ee-IO-aQx" secondAttribute="leading" id="vFS-2H-gvo"/>
                     </constraints>
                 </view>
             </subviews>
@@ -35,7 +63,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contentViewContainer" destination="KXO-ig-m9j" id="bXM-bf-agd"/>
+                <outlet property="descriptionLabel" destination="0fN-aj-bf4" id="KgT-Df-tfq"/>
                 <outlet property="headerView" destination="uj0-3F-gEn" id="VfI-YB-5gY"/>
+                <outlet property="titleLabel" destination="6ee-IO-aQx" id="I5t-gI-YaK"/>
             </connections>
         </view>
     </objects>

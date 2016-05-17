@@ -19,13 +19,42 @@ public struct WidgetTemplateViewModel {
 
 public class WidgetTemplateView: UIView {
 
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+
     @IBOutlet private var headerView: UIView!
     @IBOutlet private var contentViewContainer: UIView!
 
     public func configureWithViewModel(viewModel: WidgetTemplateViewModel) {
-        contentViewContainer.addSubview(viewModel.contentView)
-        viewModel.contentView.frame = contentViewContainer.bounds
+        configureContenView(viewModel.contentView)
+        configureTitle(viewModel.title)
+        configureSubtitle(viewModel.subtitle)
+    }
+
+    private func configureContenView(contentView: UIView) {
+        contentViewContainer.addSubview(contentView)
+        contentView.frame = contentViewContainer.bounds
         contentViewContainer.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+    }
+
+    private func configureTitle(title: String) {
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.gcb_greenColor(),
+            NSFontAttributeName : UIFont.systemFontOfSize(30, weight: UIFontWeightRegular),
+            NSKernAttributeName : 4.0
+        ]
+        let attributedString = NSMutableAttributedString(string: title, attributes: attributes)
+        titleLabel.attributedText = attributedString
+    }
+
+    private func configureSubtitle(subtitle: String) {
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.gcb_whitetextColor(),
+            NSFontAttributeName : UIFont.systemFontOfSize(20, weight: UIFontWeightRegular),
+            NSKernAttributeName : 2.9
+        ]
+        let attributedString = NSMutableAttributedString(string: subtitle, attributes: attributes)
+        descriptionLabel.attributedText = attributedString
     }
 
     public class func fromNib() -> WidgetTemplateView {
