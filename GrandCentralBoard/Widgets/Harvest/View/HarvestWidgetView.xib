@@ -22,14 +22,14 @@
             <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="60R-ec-tBk">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="60R-ec-tBk">
                     <rect key="frame" x="46" y="49" width="548" height="442"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hj-Yw-D99">
-                            <rect key="frame" x="0.0" y="0.0" width="274" height="442"/>
+                            <rect key="frame" x="0.0" y="0.0" width="241" height="442"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IER-cD-0TG" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="84" width="274" height="274"/>
+                                    <rect key="frame" x="0.0" y="101" width="241" height="241"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="IER-cD-0TG" secondAttribute="height" multiplier="1:1" id="2gl-q8-gfa"/>
@@ -41,7 +41,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-lZ-jv7" customClass="LabelWithSpacing" customModule="GCBUtilities">
-                                    <rect key="frame" x="107" y="189" width="60" height="63"/>
+                                    <rect key="frame" x="91" y="189" width="60" height="63"/>
                                     <string key="text">LAST
 DAY</string>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="26"/>
@@ -64,10 +64,10 @@ DAY</string>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2M-fE-9UI">
-                            <rect key="frame" x="274" y="0.0" width="274" height="442"/>
+                            <rect key="frame" x="307" y="0.0" width="241" height="442"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fM-dt-Lxz" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="84" width="274" height="274"/>
+                                    <rect key="frame" x="0.0" y="101" width="241" height="241"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="4fM-dt-Lxz" secondAttribute="height" multiplier="1:1" id="XMz-wX-fXb"/>
@@ -80,7 +80,7 @@ DAY</string>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-AC-k12" customClass="LabelWithSpacing" customModule="GCBUtilities">
-                                    <rect key="frame" x="95" y="190" width="85" height="63"/>
+                                    <rect key="frame" x="78" y="190" width="85" height="63"/>
                                     <string key="text">LAST
 N DAYS</string>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="26"/>
