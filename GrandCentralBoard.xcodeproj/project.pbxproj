@@ -153,6 +153,7 @@
 		52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50791CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift */; };
 		52FB50811CBFB1660053DE8B /* ImageWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */; };
 		52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */; };
+		5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -341,6 +342,7 @@
 		52FB50791CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+GrandCentralBoard.swift"; path = "Extensions/NSDate+GrandCentralBoard.swift"; sourceTree = "<group>"; };
 		52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetConfiguration.swift; sourceTree = "<group>"; };
 		52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetBuilder.swift; sourceTree = "<group>"; };
+		5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModelTests.swift; sourceTree = "<group>"; };
 		54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -867,6 +869,7 @@
 			isa = PBXGroup;
 			children = (
 				52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */,
+				5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */,
 			);
 			name = Watch;
 			sourceTree = "<group>";
@@ -1353,6 +1356,7 @@
 				52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */,
 				5250277C1CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift in Sources */,
 				52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */,
+				5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */,
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
 				520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */,
 				525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */,
