@@ -40,6 +40,8 @@ public class WidgetTemplateView: UIView {
     @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var containerTopToHeaderBottomConstraint: NSLayoutConstraint!
 
+    private var contentView: UIView?
+
     public class func viewWithViewModel(viewModel: WidgetTemplateViewModel, layoutSettings: WidgetTemplateLayoutSettings) -> WidgetTemplateView {
         let view = WidgetTemplateView.fromNib()
         view.configureWithViewModel(viewModel)
@@ -48,6 +50,7 @@ public class WidgetTemplateView: UIView {
     }
 
     private func configureWithViewModel(viewModel: WidgetTemplateViewModel) {
+        contentView = viewModel.contentView
         configureContenView(viewModel.contentView)
         configureTitle(viewModel.title)
         configureSubtitle(viewModel.subtitle)
@@ -62,13 +65,14 @@ public class WidgetTemplateView: UIView {
             containerTopConstraint.active = false
         }
 
-        contentViewContainer.bounds = UIEdgeInsetsInsetRect(contentViewContainer.frame, layoutSettings.contentMargin)
+        guard let contentView = contentView else { return }
+        contentView.bounds = UIEdgeInsetsInsetRect(contentView.frame, layoutSettings.contentMargin)
     }
 
     private func configureContenView(contentView: UIView) {
         contentViewContainer.addSubview(contentView)
         contentView.frame = contentViewContainer.bounds
-        contentViewContainer.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     }
 
     private func configureTitle(title: String) {
