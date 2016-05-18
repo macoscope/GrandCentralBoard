@@ -88,6 +88,7 @@
 		1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE1981D1CBE8323003B6AB3 /* UIColor.swift */; };
 		1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C071CC52E30000CC88D /* PageViewsRowReport.swift */; };
 		1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */; };
+		49175CD41CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49175CD31CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift */; };
 		494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B31C92E89A00D460B0 /* BonusModels.swift */; };
 		494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B41C92E89A00D460B0 /* BonusWidget.swift */; };
 		494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B68B51C92E89A00D460B0 /* BonusWidgetBuilder.swift */; };
@@ -274,6 +275,7 @@
 		1AEE4C091CC52E41000CC88D /* NSProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSProcessInfo.swift; sourceTree = "<group>"; };
 		1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2C434E565598D53FEBE822 /* Pods-GrandCentralBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.release.xcconfig"; sourceTree = "<group>"; };
+		49175CD31CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetTemplateViewTests.swift; sourceTree = "<group>"; };
 		494B68B31C92E89A00D460B0 /* BonusModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusModels.swift; sourceTree = "<group>"; };
 		494B68B41C92E89A00D460B0 /* BonusWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusWidget.swift; sourceTree = "<group>"; };
 		494B68B51C92E89A00D460B0 /* BonusWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusWidgetBuilder.swift; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 				1A242D321C357C2700D5BEE5 /* GrandCentralBoardTests.swift */,
 				1A4616A11C8DF99D00361B2E /* SchedulerTests.swift */,
 				1AB810F21CCA5DD800E3A430 /* ConfigurationRefresherTests.swift */,
+				49175CD31CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1368,6 +1371,7 @@
 				526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */,
 				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
+				49175CD41CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift in Sources */,
 				526FC25C1CD365C700D7843A /* BonusSceneTests.swift in Sources */,
 				528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */,
 			);
