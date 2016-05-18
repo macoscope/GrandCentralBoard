@@ -9,6 +9,11 @@ import FBSnapshotTestCase
 
 final class WidgetTemplateViewTests: FBSnapshotTestCase {
 
+    override func setUp() {
+        super.setUp()
+//        recordMode = true
+    }
+
     private static func buildViewModel() -> WidgetTemplateViewModel {
         let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 540))
         contentView.backgroundColor = UIColor.redColor()
