@@ -4,6 +4,7 @@
 //
 
 import SpriteKit
+import GCBCore
 
 class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
 
@@ -25,6 +26,17 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
 
         setUpPhysicsBody(texture, size: initialSize, bubbleViewModel: bubbleViewModel)
         self.name = bubbleViewModel.name
+
+        let edge = Bubble.edgeForCircleOfRadius(initialSize.width / 2)
+        addChild(edge)
+    }
+
+    private static func edgeForCircleOfRadius(radius: CGFloat) -> SKShapeNode {
+        let lineWidth: CGFloat = 2
+        let circle = SKShapeNode(circleOfRadius: radius - lineWidth + 1)
+        circle.strokeColor = UIColor.gcb_greenColor()
+        circle.lineWidth = lineWidth
+        return circle
     }
 
     private func findImage(bubbleViewModel: BubbleViewModel) -> UIImage? {

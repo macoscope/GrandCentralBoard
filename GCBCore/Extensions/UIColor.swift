@@ -5,7 +5,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     static func gcb_redColor() -> UIColor {
         return UIColor(red: 208/255, green: 22/255, blue: 43/255, alpha: 1.0)
     }
