@@ -58,15 +58,16 @@
                 <constraint firstAttribute="bottom" secondItem="KXO-ig-m9j" secondAttribute="bottom" id="S3J-pY-qPC"/>
                 <constraint firstItem="KXO-ig-m9j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X1f-3O-YBX"/>
                 <constraint firstItem="uj0-3F-gEn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mjW-h5-gGc"/>
+                <constraint firstItem="KXO-ig-m9j" firstAttribute="top" secondItem="uj0-3F-gEn" secondAttribute="bottom" priority="999" id="nhU-Gn-za1"/>
                 <constraint firstItem="uj0-3F-gEn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="z0y-MN-erE"/>
                 <constraint firstAttribute="trailing" secondItem="KXO-ig-m9j" secondAttribute="trailing" id="z1k-i1-Lpu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="containerTopConstraint" destination="X1f-3O-YBX" id="9rd-lA-Kmz"/>
+                <outlet property="containerTopToHeaderBottomConstraint" destination="nhU-Gn-za1" id="Yf2-2a-4eT"/>
                 <outlet property="contentViewContainer" destination="KXO-ig-m9j" id="bXM-bf-agd"/>
                 <outlet property="descriptionLabel" destination="0fN-aj-bf4" id="KgT-Df-tfq"/>
-                <outlet property="headerView" destination="uj0-3F-gEn" id="VfI-YB-5gY"/>
                 <outlet property="titleLabel" destination="6ee-IO-aQx" id="I5t-gI-YaK"/>
             </connections>
         </view>
