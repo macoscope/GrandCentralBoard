@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import GCBCore
 
 
 struct WatchWidgetViewModel {
@@ -49,7 +50,6 @@ struct WatchWidgetViewModel {
     private static let nowFont = UIFont.systemFontOfSize(50, weight: UIFontWeightSemibold)
     private static let calendarNameFont = UIFont.systemFontOfSize(22, weight: UIFontWeightBold)
     private static let eventNameFont = UIFont.systemFontOfSize(22, weight: UIFontWeightBold)
-    private static let calendarNameTextColor = UIColor(red: 35/255, green: 208/255, blue: 165/255, alpha: 1)
     private static let highLineSpacingStyle: NSParagraphStyle = {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 34
@@ -91,7 +91,7 @@ struct WatchWidgetViewModel {
         if let calendarName = calendarName {
             let calendarNameString = NSMutableAttributedString(
                 string: "@\(calendarName.uppercaseString)" + "\n",
-                attributes: [NSFontAttributeName : calendarNameFont, NSForegroundColorAttributeName : calendarNameTextColor]
+                attributes: [NSFontAttributeName : calendarNameFont, NSForegroundColorAttributeName : UIColor.gcb_greenColor()]
             )
             resultString.appendAttributedString(calendarNameString)
         }
