@@ -37,6 +37,7 @@ private extension CollectionType where Generator.Element == CircleChartItem {
     }
 }
 
+@IBDesignable
 final class CircleChart: UIView {
 
     private var itemModels: [CircleChartItemModel] = []
