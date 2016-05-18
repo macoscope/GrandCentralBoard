@@ -19,7 +19,7 @@
                         <constraint firstAttribute="height" constant="473" id="c1H-3P-ggR"/>
                     </constraints>
                 </imageView>
-                <imageView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="nVI-OH-3Fa" userLabel="canvas">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="nVI-OH-3Fa" userLabel="canvas">
                     <rect key="frame" x="83" y="34" width="474" height="473"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -47,7 +47,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="bT9-d0-3tx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AFR-WR-VTV"/>
                 <constraint firstItem="bT9-d0-3tx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B5T-wO-gY6"/>
