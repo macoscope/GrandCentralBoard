@@ -140,6 +140,7 @@
 		527FA0631CC4D742004614B8 /* WebsiteAnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */; };
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */; };
+		529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF031CEC580800636A4A /* CircleChartViewModel.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
@@ -326,6 +327,7 @@
 		527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsSettings.swift; sourceTree = "<group>"; };
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleChartViewTests.swift; path = Widgets/Harvest/CircleChartViewTests.swift; sourceTree = "<group>"; };
+		529CEF031CEC580800636A4A /* CircleChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleChartViewModel.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */,
 				F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */,
 				C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */,
+				529CEF031CEC580800636A4A /* CircleChartViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1317,6 +1320,7 @@
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
 				1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */,
+				529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,

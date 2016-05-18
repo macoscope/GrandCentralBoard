@@ -8,12 +8,6 @@
 
 import UIKit
 
-
-struct CircleChartItem {
-    let color: UIColor
-    let ratio: Double
-}
-
 private struct CircleChartItemModel {
     let color: UIColor
     let startAngle: Double
@@ -45,18 +39,14 @@ private extension CollectionType where Generator.Element == CircleChartItem {
 
 final class CircleChart: UIView {
 
-    private let itemModels: [CircleChartItemModel]
-    private let strokeWidth: CGFloat
-
-    init(startAngle: Double, strokeWidth: CGFloat, items: [CircleChartItem]) {
-        self.strokeWidth = strokeWidth
-        itemModels = items.normalize().mapToModelsWithStartAngle(startAngle)
-
-        super.init(frame: CGRect.zero)
+    private var itemModels: [CircleChartItemModel] = []
+    @IBInspectable var strokeWidth: CGFloat = 1 {
+        didSet { setNeedsDisplay() }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func configureWithViewModel(viewModel: CircleChartViewModel) {
+        itemModels = viewModel.items.normalize().mapToModelsWithStartAngle(viewModel.startAngle)
+        setNeedsDisplay()
     }
 
     private func drawArcForModel(model: CircleChartItemModel, inContext context: CGContext?, inRect rect: CGRect) {
