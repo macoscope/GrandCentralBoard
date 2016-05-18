@@ -14,7 +14,7 @@ struct WatchWidgetViewModel {
     let eventText: NSAttributedString?
 
 
-    init(date: NSDate, timeZone: NSTimeZone, event: Event?, calendarName: String?) {
+    init(date: NSDate, timeZone: NSTimeZone, event: Event? = nil, calendarName: String? = nil) {
         if let event = event {
             let timeToEvent = event.time.timeIntervalSinceDate(date)
             let minutesToEvent = Int(ceil(timeToEvent / 60)) // 10 seconds is "1 minute left"; 1 minute and 10 seconds is "2 minutes left"
