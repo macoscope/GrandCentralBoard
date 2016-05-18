@@ -104,13 +104,10 @@
 		520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */; };
 		52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */; };
 		52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */; };
-		525027701CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
 		525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */; };
-		5250277C1CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027771CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift */; };
 		5250277D1CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */; };
-		5250277E1CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */; };
 		5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */; };
 		525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */; };
 		525027811CE2103800DFE32A /* configurationCorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616B01C904FC800361B2E /* configurationCorrect.json */; };
@@ -288,13 +285,10 @@
 		520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackSourceTests.swift; path = Widgets/Slack/SlackSourceTests.swift; sourceTree = "<group>"; };
 		52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewsSourceTests.swift; path = Widgets/WebsiteAnalytics/PageViewsSourceTests.swift; sourceTree = "<group>"; };
 		52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsDataProviderTests.swift; path = Widgets/WebsiteAnalytics/GoogleAnalyticsDataProviderTests.swift; sourceTree = "<group>"; };
-		5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartViewModelTests.swift; path = Widgets/Harvest/AreaBarChartViewModelTests.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
 		525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSBundle+LoadJSON.swift"; path = "Widgets/Harvest/Fixtures/NSBundle+LoadJSON.swift"; sourceTree = "<group>"; };
-		525027771CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AreaBarChartComponentViewModel+Equatable.swift"; path = "Widgets/Harvest/AreaBarChartComponentViewModel+Equatable.swift"; sourceTree = "<group>"; };
 		525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; path = Widgets/Harvest/AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; sourceTree = "<group>"; };
-		525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartViewModelFromBillingStatsTests.swift; path = Widgets/Harvest/AreaBarChartViewModelFromBillingStatsTests.swift; sourceTree = "<group>"; };
 		5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillingProjectListTests.swift; path = Widgets/Harvest/BillingProjectListTests.swift; sourceTree = "<group>"; };
 		5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyBillingStatsTests.swift; path = Widgets/Harvest/DailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		526D1C641CE4B99700604174 /* SlackTimestampParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackTimestampParseTests.swift; path = Widgets/Slack/SlackTimestampParseTests.swift; sourceTree = "<group>"; };
@@ -928,10 +922,7 @@
 		F91F006A1CBBCFFD00DAAA77 /* Harvest */ = {
 			isa = PBXGroup;
 			children = (
-				5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */,
-				525027771CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift */,
 				525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */,
-				525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */,
 				5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */,
 				5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */,
 				528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */,
@@ -1330,7 +1321,6 @@
 			files = (
 				52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */,
 				52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */,
-				5250277C1CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift in Sources */,
 				52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */,
 				5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */,
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
@@ -1341,13 +1331,11 @@
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1AB810F31CCA5DD800E3A430 /* ConfigurationRefresherTests.swift in Sources */,
 				5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */,
-				525027701CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift in Sources */,
 				526FC25F1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
 				5250277D1CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
-				5250277E1CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */,
 				526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */,
 				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
