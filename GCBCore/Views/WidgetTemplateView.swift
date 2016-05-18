@@ -12,6 +12,12 @@ public struct WidgetTemplateViewModel {
     let title: String
     let subtitle: String
     let contentView: UIView
+
+    public init(title: String, subtitle: String, contentView: UIView) {
+        self.title = title
+        self.subtitle = subtitle
+        self.contentView = contentView
+    }
 }
 
 /**
