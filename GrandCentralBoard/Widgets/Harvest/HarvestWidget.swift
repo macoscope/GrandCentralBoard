@@ -41,6 +41,12 @@ final class HarvestWidget: WidgetControlling {
     }
 
     func updateViewWithResult(result: HarvestSource.ResultType) {
+        switch result {
+        case .Success(let billingStats):
+            let model = HarvestWidgetViewModel.viewModelFromBillingStats(billingStats)
+            widgetView.configureWithViewModel(model)
+        case .Failure: break
+        }
 
     }
 }

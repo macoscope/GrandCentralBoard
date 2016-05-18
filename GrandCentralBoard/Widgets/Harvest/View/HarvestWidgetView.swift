@@ -16,6 +16,29 @@ struct HarvestWidgetViewModel {
     let numberOfLastDays: Int
 }
 
+extension HarvestWidgetViewModel {
+
+    static func viewModelFromBillingStats(stats: [DailyBillingStats]) -> HarvestWidgetViewModel {
+        //sort with timestamp descending
+        let stats = stats.sort { (left, right) -> Bool in
+            left.day > right.day
+        }
+
+        guard let lastDayStats = stats.first else {
+            let emptyCircleChartViewModel = CircleChartViewModel(startAngle: 0, items: [])
+            return HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartViewModel,
+                                          lastNDaysChartModel: emptyCircleChartViewModel,
+                                          numberOfLastDays: stats.count)
+        }
+
+        let lastDayChartViewModel = CircleChartViewModel.chartItemFromBillingStats(lastDayStats)
+        let lastNDaysChartViewModel = CircleChartViewModel.chartItemFromMultipleBillingStats(stats)
+        return HarvestWidgetViewModel(lastDayChartModel: lastDayChartViewModel,
+                                      lastNDaysChartModel: lastNDaysChartViewModel,
+                                      numberOfLastDays: stats.count)
+    }
+}
+
 final class HarvestWidgetView: UIView {
 
     @IBOutlet private weak var lastDayCircleChart: CircleChart!
