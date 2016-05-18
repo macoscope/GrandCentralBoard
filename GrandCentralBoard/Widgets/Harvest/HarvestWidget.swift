@@ -12,6 +12,7 @@ import GCBCore
 final class HarvestWidget: WidgetControlling {
 
     private let widgetView = HarvestWidgetView.fromNib()
+    private let numberOfDays: Int
 
     let sources: [UpdatingSource]
 
@@ -19,8 +20,13 @@ final class HarvestWidget: WidgetControlling {
         return widgetView
     }
 
-    init(sources: [UpdatingSource]) {
+    init(sources: [UpdatingSource], numberOfDays: Int) {
         self.sources = sources
+        self.numberOfDays = numberOfDays
+
+        let emptyCircleChartModel = CircleChartViewModel(startAngle: 0, items: [CircleChartItem(color: UIColor.gcb_blackColor(), ratio: 1.0)])
+        widgetView.configureWithViewModel(HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
+            lastNDaysChartModel: emptyCircleChartModel, numberOfLastDays: numberOfDays))
     }
 
     func update(source: UpdatingSource) {
