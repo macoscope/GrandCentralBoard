@@ -39,10 +39,6 @@ class Bubble: SKSpriteNode, BubbleScalingAnimatorDelegate {
         return circle
     }
 
-    private func findImage(bubbleViewModel: BubbleViewModel) -> UIImage? {
-        return UIImage(named: "placeholder")
-    }
-
     private func setUpPhysicsBody(texture: SKTexture, size: CGSize, bubbleViewModel: BubbleViewModel) {
         let spacing: CGFloat = 1
         physicsBody = SKPhysicsBody(circleOfRadius: initialSize.width / 2 + spacing)
