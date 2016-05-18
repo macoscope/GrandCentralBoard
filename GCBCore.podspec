@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.source_files = ['GCBCore/**/*.swift', 'GCBCore/**/*.xib']
   s.resource_bundles = {
-    'GCBCore' => ['GCBCore/**/*.xib']
+    'GCBCore' => ['GCBCore/**/*.xib', 'GCBCore/*.png']
   }
 
   s.dependency 'Alamofire', '~> 3.0'

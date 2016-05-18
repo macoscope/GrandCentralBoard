@@ -51,10 +51,14 @@ public struct WidgetErrorTemplateViewModel: WidgetTemplateViewModelType {
      - parameter iconImage: optional image for icon (if set, it gets centered below the header)
      
      */
-    public init(title: String, subtitle: String, iconImage: UIImage?) {
+    public init(title: String,
+                subtitle: String,
+                iconImage: UIImage? = UIImage(named: "gcb-error-icon", inBundle: NSBundle.resourcesBundle(), compatibleWithTraitCollection: nil)){
         self.title = title
         self.subtitle = subtitle
-        self.contentView = UIImageView(image: iconImage)
+        let imageView = UIImageView(image: iconImage)
+        imageView.contentMode = .Center
+        self.contentView = imageView
     }
 }
 
@@ -91,6 +95,11 @@ public class WidgetTemplateView: UIView {
         view.configureWithViewModel(viewModel)
         view.configureLayoutSettings(layoutSettings)
         return view
+    }
+    
+    public class func viewWithErrorViewModel(viewModel: WidgetErrorTemplateViewModel) -> WidgetTemplateView {
+        let defaultErrorLayout = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: false)
+        return viewWithViewModel(viewModel, layoutSettings: defaultErrorLayout)
     }
 
     private func configureWithViewModel(viewModel: WidgetTemplateViewModelType) {
