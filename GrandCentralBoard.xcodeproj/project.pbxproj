@@ -142,6 +142,8 @@
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */; };
 		529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF031CEC580800636A4A /* CircleChartViewModel.swift */; };
+		529CEF0A1CEC6A2200636A4A /* HarvestWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529CEF091CEC6A2100636A4A /* HarvestWidgetView.xib */; };
+		529CEF151CEC9A5B00636A4A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF141CEC9A5B00636A4A /* CircleView.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
@@ -331,6 +333,8 @@
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleChartViewTests.swift; path = Widgets/Harvest/CircleChartViewTests.swift; sourceTree = "<group>"; };
 		529CEF031CEC580800636A4A /* CircleChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleChartViewModel.swift; sourceTree = "<group>"; };
+		529CEF091CEC6A2100636A4A /* HarvestWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HarvestWidgetView.xib; sourceTree = "<group>"; };
+		529CEF141CEC9A5B00636A4A /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -485,8 +489,11 @@
 				1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */,
 				F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */,
 				F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */,
+				529CEF141CEC9A5B00636A4A /* CircleView.swift */,
 				C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */,
 				529CEF031CEC580800636A4A /* CircleChartViewModel.swift */,
+				529CEF091CEC6A2100636A4A /* HarvestWidgetView.xib */,
+				529CEF141CEC9A5B00636A4A /* CircleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1086,6 +1093,7 @@
 				1A1DBC7B1CC0F79D003DA40C /* ComponentChartView.xib in Resources */,
 				1A6036801C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf in Resources */,
 				494B68CD1C92E89A00D460B0 /* BonusWidgetView.xib in Resources */,
+				529CEF0A1CEC6A2200636A4A /* HarvestWidgetView.xib in Resources */,
 				067DA55F1CBFA98F00048E6A /* TableViewCell.xib in Resources */,
 				1A6036811C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				1A6036871C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf in Resources */,
@@ -1342,6 +1350,7 @@
 				F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
+				529CEF151CEC9A5B00636A4A /* CircleView.swift in Sources */,
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
 				527FA0631CC4D742004614B8 /* WebsiteAnalyticsSettings.swift in Sources */,

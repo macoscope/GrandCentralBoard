@@ -88,4 +88,13 @@ final class CircleChart: UIView {
             drawArcForModel(model, inContext: context, inRect: rect)
         }
     }
+
+    override func prepareForInterfaceBuilder() {
+        let viewModel = CircleChartViewModel(startAngle: 0, items: [
+            CircleChartItem(color: .redColor(), ratio: 1 / 3.0),
+            CircleChartItem(color: .greenColor(), ratio: 1 / 3.0),
+            CircleChartItem(color: .blueColor(), ratio: 1 / 3.0)
+            ])
+        configureWithViewModel(viewModel)
+    }
 }
