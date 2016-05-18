@@ -1,6 +1,6 @@
 //
 //  Created by Krzysztof Werys on 16.05.2016.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Copyright © 2016 Macoscope. All rights reserved.
 //
 
 import UIKit
@@ -35,10 +35,10 @@ public class WidgetTemplateView: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
 
-    @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var contentViewContainer: UIView!
 
     @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var containerTopToHeaderBottomConstraint: NSLayoutConstraint!
 
     public class func viewWithViewModel(viewModel: WidgetTemplateViewModel, layoutSettings: WidgetTemplateLayoutSettings) -> WidgetTemplateView {
         let view = WidgetTemplateView.fromNib()
@@ -55,9 +55,11 @@ public class WidgetTemplateView: UIView {
 
     private func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
         if layoutSettings.displayContentUnderHeader {
-            containerTopConstraint.constant = 0
+            containerTopToHeaderBottomConstraint.active = false
+            containerTopConstraint.active = true
         } else {
-            containerTopConstraint.constant = headerView.frame.height
+            containerTopToHeaderBottomConstraint.active = true
+            containerTopConstraint.active = false
         }
 
         contentViewContainer.bounds = UIEdgeInsetsInsetRect(contentViewContainer.frame, layoutSettings.contentMargin)
