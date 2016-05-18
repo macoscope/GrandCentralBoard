@@ -11,7 +11,7 @@ import GCBCore
 
 final class HarvestWidget: WidgetControlling {
 
-    private let widgetView: AreaBarChartView
+    private let widgetView = HarvestWidgetView.fromNib()
 
     let sources: [UpdatingSource]
 
@@ -19,8 +19,7 @@ final class HarvestWidget: WidgetControlling {
         return widgetView
     }
 
-    init(view: AreaBarChartView, sources: [UpdatingSource]) {
-        self.widgetView = view
+    init(sources: [UpdatingSource]) {
         self.sources = sources
     }
 
@@ -36,13 +35,6 @@ final class HarvestWidget: WidgetControlling {
     }
 
     func updateViewWithResult(result: HarvestSource.ResultType) {
-        switch result {
-        case .Success(let billingStats):
-            let model = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
-            widgetView.render(model)
 
-        case .Failure:
-            widgetView.failure()
-        }
     }
 }

@@ -14,9 +14,8 @@ final class HarvestWidgetBuilder: WidgetBuilding {
 
     func build(json: AnyObject) throws -> WidgetControlling {
         let settings = try HarvestWidgetSettings.decode(json)
-        let view = AreaBarChartView.fromNib()
         let source = HarvestSource(settings: settings)
 
-        return HarvestWidget(view: view, sources: [source])
+        return HarvestWidget(sources: [source])
     }
 }

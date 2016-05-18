@@ -18,7 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HarvestWidgetView" customModule="GrandCentralBoard" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -45,7 +45,7 @@
                                     <string key="text">LAST
 DAY</string>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="26"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="kerning">
@@ -84,7 +84,7 @@ DAY</string>
                                     <string key="text">LAST
 N DAYS</string>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="26"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="kerning">
@@ -124,7 +124,7 @@ N DAYS</string>
                                         <constraint firstAttribute="width" constant="164" id="oCh-os-cbh"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="kerning">
@@ -160,7 +160,7 @@ N DAYS</string>
                                         <constraint firstAttribute="width" constant="112" id="j0V-NW-eRi"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="kerning">
@@ -196,7 +196,7 @@ N DAYS</string>
                                         <constraint firstAttribute="width" constant="127" id="p3T-y6-b4n"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="kerning">
@@ -232,6 +232,11 @@ N DAYS</string>
                 <constraint firstItem="60R-ec-tBk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="uHx-0T-Rev"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lastDayCircleChart" destination="IER-cD-0TG" id="9oK-ih-ztl"/>
+                <outlet property="lastNDaysCircleChart" destination="4fM-dt-Lxz" id="LhZ-yB-a8M"/>
+                <outlet property="lastNDaysLabel" destination="kei-AC-k12" id="eE8-Uu-e6E"/>
+            </connections>
         </view>
     </objects>
 </document>
