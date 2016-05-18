@@ -15,6 +15,10 @@ public class LabelWithSpacing: UILabel {
         didSet { applyCustomAttributes() }
     }
 
+    public override var text: String? {
+        didSet { applyCustomAttributes() }
+    }
+
     public override func awakeFromNib() {
         super.awakeFromNib()
         applyCustomAttributes()
