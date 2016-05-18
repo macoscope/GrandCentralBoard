@@ -24,12 +24,12 @@ public struct WidgetTemplateViewModel {
  Struct which is used to configure layout of a template view for widgets.
  */
 public struct WidgetTemplateLayoutSettings {
-    let displayContentUnderHeader: Bool
     let contentMargin: UIEdgeInsets
+    let displayContentUnderHeader: Bool
 
-    public init(displayContentUnderHeader: Bool = false, contentMargin: UIEdgeInsets) {
-        self.displayContentUnderHeader = displayContentUnderHeader
+    public init(contentMargin: UIEdgeInsets, displayContentUnderHeader: Bool = false) {
         self.contentMargin = contentMargin
+        self.displayContentUnderHeader = displayContentUnderHeader
     }
 }
 
