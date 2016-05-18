@@ -66,19 +66,6 @@ DAY</string>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2M-fE-9UI">
                             <rect key="frame" x="307" y="0.0" width="241" height="442"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fM-dt-Lxz" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="101" width="241" height="241"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="4fM-dt-Lxz" secondAttribute="height" multiplier="1:1" id="XMz-wX-fXb"/>
-                                        <constraint firstAttribute="width" secondItem="4fM-dt-Lxz" secondAttribute="height" multiplier="1:1" id="Zxb-sA-oZb"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
-                                            <real key="value" value="22"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-AC-k12" customClass="LabelWithSpacing" customModule="GCBUtilities">
                                     <rect key="frame" x="78" y="190" width="85" height="63"/>
                                     <string key="text">LAST
@@ -92,6 +79,19 @@ N DAYS</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fM-dt-Lxz" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="101" width="241" height="241"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="4fM-dt-Lxz" secondAttribute="height" multiplier="1:1" id="XMz-wX-fXb"/>
+                                        <constraint firstAttribute="width" secondItem="4fM-dt-Lxz" secondAttribute="height" multiplier="1:1" id="Zxb-sA-oZb"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
+                                            <real key="value" value="22"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>

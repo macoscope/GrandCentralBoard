@@ -21,7 +21,7 @@ struct CircleChartViewModel {
 
 extension CircleChartViewModel {
 
-    static func chartItemFromBillingStats(stats: DailyBillingStats) -> CircleChartViewModel {
+    static func chartViewModelFromBillingStats(stats: DailyBillingStats) -> CircleChartViewModel {
         let peopleWithHoursBelow = stats.groups.filter { $0.type == .Less }.first?.count ?? 0
         let peopleWithHoursNormal = stats.groups.filter { $0.type == .Normal }.first?.count ?? 0
         let peopleWithHoursAbove = stats.groups.filter { $0.type == .More }.first?.count ?? 0
@@ -38,7 +38,7 @@ extension CircleChartViewModel {
             ])
     }
 
-    static func chartItemFromMultipleBillingStats(stats: [DailyBillingStats]) -> CircleChartViewModel {
+    static func chartViewModelFromMultipleBillingStats(stats: [DailyBillingStats]) -> CircleChartViewModel {
         var manDayTypes = [BillingStatsGroupType: Int]()
         stats.forEach { stat in
             stat.groups.forEach { group in

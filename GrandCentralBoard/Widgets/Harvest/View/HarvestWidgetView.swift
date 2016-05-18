@@ -3,7 +3,7 @@
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 18.05.2016.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Copyright © 2016 Macoscope. All rights reserved.
 //
 
 import UIKit
@@ -31,8 +31,8 @@ extension HarvestWidgetViewModel {
                                           numberOfLastDays: stats.count)
         }
 
-        let lastDayChartViewModel = CircleChartViewModel.chartItemFromBillingStats(lastDayStats)
-        let lastNDaysChartViewModel = CircleChartViewModel.chartItemFromMultipleBillingStats(stats)
+        let lastDayChartViewModel = CircleChartViewModel.chartViewModelFromBillingStats(lastDayStats)
+        let lastNDaysChartViewModel = CircleChartViewModel.chartViewModelFromMultipleBillingStats(stats)
         return HarvestWidgetViewModel(lastDayChartModel: lastDayChartViewModel,
                                       lastNDaysChartModel: lastNDaysChartViewModel,
                                       numberOfLastDays: stats.count)

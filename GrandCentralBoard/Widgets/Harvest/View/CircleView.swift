@@ -3,7 +3,7 @@
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 18.05.2016.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Copyright © 2016 Macoscope. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,6 @@ import UIKit
 
 @IBDesignable
 final class CircleView: UIView {
-
 
     override func layoutSubviews() {
         super.layoutSubviews()

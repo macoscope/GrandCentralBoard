@@ -20,8 +20,8 @@ final class HarvestWidget: WidgetControlling {
         return widgetView
     }
 
-    init(sources: [UpdatingSource], numberOfDays: Int) {
-        self.sources = sources
+    init(source: HarvestSource, numberOfDays: Int) {
+        self.sources = [source]
         self.numberOfDays = numberOfDays
 
         let emptyCircleChartModel = CircleChartViewModel(startAngle: 0, items: [CircleChartItem(color: UIColor.gcb_blackColor(), ratio: 1.0)])

@@ -16,6 +16,6 @@ final class HarvestWidgetBuilder: WidgetBuilding {
         let settings = try HarvestWidgetSettings.decode(json)
         let source = HarvestSource(settings: settings)
 
-        return HarvestWidget(sources: [source], numberOfDays: settings.numberOfDays)
+        return HarvestWidget(source: source, numberOfDays: settings.numberOfDays)
     }
 }
