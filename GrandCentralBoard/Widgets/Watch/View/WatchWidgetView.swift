@@ -7,24 +7,13 @@ import UIKit
 import GCBCore
 
 
-private let pulsatingInterval: NSTimeInterval = 0.5
-private let flashingInterval: NSTimeInterval = 0.4
-private let transitionInterval: NSTimeInterval = 0.3
-private let semiTransparentAlpha: CGFloat = 0.3
-
 final class WatchWidgetView: UIView, ViewModelRendering {
 
-    @IBOutlet private weak var hourLeft: UILabel!
-    @IBOutlet private weak var hourRight: UILabel!
-    @IBOutlet private weak var meetingName: UILabel!
-    @IBOutlet private weak var meetingETA: UILabel!
-    @IBOutlet private weak var startsIn: UILabel!
-    @IBOutlet private weak var blinkingImage: UIImageView!
     @IBOutlet private weak var watchFaceImage: UIImageView!
-    @IBOutlet private weak var selectionImage: UIImageView!
-    @IBOutlet private weak var calendarName: UILabel!
+    @IBOutlet private weak var centeredTimeLabel: UILabel!
+    @IBOutlet private weak var alignedTimeLabel: UILabel!
+    @IBOutlet private weak var eventLabel: UILabel!
 
-    private var blinkingImageFlashingAnimationController: FlashingAnimationController?
 
     // MARK - ViewModelRendering
 
@@ -47,16 +36,10 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        meetingName.text = ""
-        meetingETA.text = ""
-        startsIn.text = ""
-        hourLeft.text = ""
-        hourRight.text = ""
-        calendarName.text = ""
-
-        blinkingImageFlashingAnimationController = FlashingAnimationController(view: blinkingImage, interval: pulsatingInterval,
-                                                                               alphaDepth: semiTransparentAlpha)
-        blinkingImageFlashingAnimationController?.startFlashing()
+        watchFaceImage.image = nil
+        centeredTimeLabel.text = nil
+        alignedTimeLabel.text = nil
+        eventLabel.attributedText = nil
     }
 
     // MARK - Transitions
@@ -72,18 +55,13 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     }
 
     private func setUpImagesWithViewModel(viewModel: ViewModel) {
-        blinkingImage.image = viewModel.blinkingImage
         watchFaceImage.image = viewModel.watchFaceImage
-        selectionImage.image = viewModel.selectedImage
     }
 
     private func setUpLabelsWithViewModel(viewModel: ViewModel) {
-        hourLeft.animateTextTransition(viewModel.hourLeft)
-        hourRight.animateTextTransition(viewModel.hourRight)
-        meetingName.animateTextTransition(viewModel.meetingName)
-        meetingETA.animateTextTransition(viewModel.meetingETA)
-        startsIn.animateTextTransition(viewModel.startsIn)
-        calendarName.animateTextTransition(viewModel.calendarName)
+        centeredTimeLabel.animateTextTransition(viewModel.centeredTimeText)
+        alignedTimeLabel.animateTextTransition(viewModel.alignedTimeText)
+        eventLabel.attributedText = viewModel.eventText
     }
 
 
