@@ -139,6 +139,8 @@
 		527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0601CC4D619004614B8 /* PageViewsSource.swift */; };
 		527FA0631CC4D742004614B8 /* WebsiteAnalyticsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */; };
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
+		528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */; };
+		529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF031CEC580800636A4A /* CircleChartViewModel.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
@@ -153,6 +155,7 @@
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
+		C14EA2E91CEA605D00961DF6 /* CircleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */; };
 		F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */; };
 		F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */; };
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
@@ -323,6 +326,8 @@
 		527FA0601CC4D619004614B8 /* PageViewsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsSource.swift; sourceTree = "<group>"; };
 		527FA0621CC4D742004614B8 /* WebsiteAnalyticsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsSettings.swift; sourceTree = "<group>"; };
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
+		528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleChartViewTests.swift; path = Widgets/Harvest/CircleChartViewTests.swift; sourceTree = "<group>"; };
+		529CEF031CEC580800636A4A /* CircleChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleChartViewModel.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -339,6 +344,7 @@
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
 		C110E0D21CD778CB00B19DC6 /* pull_requests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pull_requests.json; path = Widgets/GitHub/pull_requests.json; sourceTree = "<group>"; };
+		C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleChartView.swift; sourceTree = "<group>"; };
 		DA60135A140C4D223A45E971 /* Pods-GrandCentralBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidget.swift; sourceTree = "<group>"; };
 		F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetBuilder.swift; sourceTree = "<group>"; };
@@ -475,6 +481,8 @@
 				1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */,
 				F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */,
 				F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */,
+				C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */,
+				529CEF031CEC580800636A4A /* CircleChartViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -938,6 +946,7 @@
 				525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */,
 				5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */,
 				5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */,
+				528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */,
 				F91C41C51CC5963F00F834B3 /* Fixtures */,
 			);
 			name = Harvest;
@@ -1250,6 +1259,7 @@
 				52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
 				067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift in Sources */,
+				C14EA2E91CEA605D00961DF6 /* CircleChartView.swift in Sources */,
 				52FB50751CBF9B210053DE8B /* AnalyticsReport.swift in Sources */,
 				1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
@@ -1310,6 +1320,7 @@
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
 				1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */,
+				529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
 				494B68DA1C92E89A00D460B0 /* BonusSource.swift in Sources */,
@@ -1358,6 +1369,7 @@
 				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				526FC25C1CD365C700D7843A /* BonusSceneTests.swift in Sources */,
+				528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
