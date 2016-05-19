@@ -14,9 +14,9 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
     let sources: [UpdatingSource]
 
     var view: UIView {
-        get {
-            return widgetView
-        }
+        let viewModel = WidgetTemplateViewModel(title: "BLOGPOSTS", subtitle: "MOST POPULAR", contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: -90, left: 0, bottom: 0, right: 0))
+        return WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
     }
 
     init(sources: [UpdatingSource]) {
