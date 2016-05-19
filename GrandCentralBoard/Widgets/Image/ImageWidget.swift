@@ -20,7 +20,11 @@ final class ImageWidget: WidgetControlling {
     }
 
     var view: UIView {
-        return widgetView
+        guard isHeaderVisible else { return widgetView }
+
+        let viewModel = WidgetTemplateViewModel(title: "CAT PHOTOS", subtitle: "NEWEST CAT PROFILES", contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
+        return WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
     }
 
     func update(source: UpdatingSource) {
