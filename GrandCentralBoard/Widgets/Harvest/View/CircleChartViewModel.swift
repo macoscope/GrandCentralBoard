@@ -20,12 +20,26 @@ struct CircleChartViewModel {
 
 extension CircleChartViewModel {
 
-    static func chartViewModelFromBillingStats(stats: DailyBillingStats) -> CircleChartViewModel {
-        let peopleWithHoursBelow = stats.groups.filter { $0.type == .Less }.first?.count ?? 0
-        let peopleWithHoursNormal = stats.groups.filter { $0.type == .Normal }.first?.count ?? 0
-        let peopleWithHoursAbove = stats.groups.filter { $0.type == .More }.first?.count ?? 0
+    static func chartViewModelFromBillingStats(stats: [DailyBillingStats]) -> CircleChartViewModel {
+        var hoursPerUser = [Int: Double]()
+        var workingDaysPerUser = [Int: Int]()
+        stats.forEach { dayStat in
+            dayStat.billings.forEach { userStat in
+                workingDaysPerUser[userStat.userID] = (workingDaysPerUser[userStat.userID] ?? 0) + 1
+                hoursPerUser[userStat.userID] = (hoursPerUser[userStat.userID] ?? 0) + userStat.hours
+            }
+        }
 
-        let totalPeople = stats.groups.reduce(0) { $0 + $1.count }
+        let billingGroups = hoursPerUser.map { (userID, hours) -> BillingStatsGroupType in
+            let workedDays = workingDaysPerUser[userID]!
+            return BillingStatsGroupType.typeForHours( hours / Double(workedDays) )
+        }
+
+        let peopleWithHoursBelow = billingGroups.filter { $0 == .Less }.count
+        let peopleWithHoursNormal = billingGroups.filter { $0 == .Normal }.count
+        let peopleWithHoursAbove = billingGroups.filter { $0 == .More }.count
+
+        let totalPeople = peopleWithHoursBelow + peopleWithHoursNormal + peopleWithHoursAbove
         guard totalPeople > 0 else {
             return CircleChartViewModel(items: [])
         }
@@ -35,31 +49,5 @@ extension CircleChartViewModel {
             CircleChartItem(color: .hoursLessColor(), ratio: Double(peopleWithHoursBelow) / Double(totalPeople)),
             CircleChartItem(color: .hoursMoreColor(), ratio: Double(peopleWithHoursAbove) / Double(totalPeople)),
             ])
-    }
-
-    static func chartViewModelFromMultipleBillingStats(stats: [DailyBillingStats]) -> CircleChartViewModel {
-        var manDayTypes = [BillingStatsGroupType: Int]()
-        stats.forEach { stat in
-            stat.groups.forEach { group in
-                manDayTypes[group.type] = (manDayTypes[group.type] ?? 0) + group.count
-            }
-        }
-
-        let totalManDays = manDayTypes.reduce(0) { $0 + $1.1 }
-        guard totalManDays > 0 else {
-            return CircleChartViewModel(items: [])
-        }
-
-        var circleChartItems = [CircleChartItem]()
-        if let manDaysNormal = manDayTypes[.Normal] {
-            circleChartItems.append(CircleChartItem(color: .hoursNormalColor(), ratio: Double(manDaysNormal) / Double(totalManDays)))
-        }
-        if let manDaysLess = manDayTypes[.Less] {
-            circleChartItems.append(CircleChartItem(color: .hoursLessColor(), ratio: Double(manDaysLess) / Double(totalManDays)))
-        }
-        if let manDaysMore = manDayTypes[.More] {
-            circleChartItems.append(CircleChartItem(color: .hoursMoreColor(), ratio: Double(manDaysMore) / Double(totalManDays)))
-        }
-        return CircleChartViewModel(items: circleChartItems)
     }
 }
