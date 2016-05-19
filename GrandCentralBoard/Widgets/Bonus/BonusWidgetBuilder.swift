@@ -43,9 +43,10 @@ struct BonusWidgetSettings: Decodable {
     let numberOfBubbles: Int
 
     static func decode(jsonObject: AnyObject) throws -> BonusWidgetSettings {
+        let defaultNumberOfBubbles = 7
         let settings = try BonusWidgetSettings(accessToken: jsonObject => "accessToken",
                                        bubbleResizeDuration: jsonObject => "bubbleResizeDuration",
-                                       numberOfBubbles: jsonObject => "numberOfBubbles")
+                                       numberOfBubbles: (try? jsonObject => "numberOfBubbles") ?? defaultNumberOfBubbles)
 
         guard settings.bubbleResizeDuration > 0 else {
             throw BonusWidgetSettingsError.BubbleResizeDurationInvalid(settings.bubbleResizeDuration)
