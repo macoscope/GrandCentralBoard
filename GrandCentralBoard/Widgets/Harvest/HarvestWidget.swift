@@ -13,6 +13,7 @@ final class HarvestWidget: WidgetControlling {
 
     private let widgetView = HarvestWidgetView.fromNib()
     private let numberOfDays: Int
+    private weak var loadingIndicatorView: UIActivityIndicatorView?
 
     let sources: [UpdatingSource]
 
@@ -27,10 +28,11 @@ final class HarvestWidget: WidgetControlling {
         let emptyCircleChartModel = CircleChartViewModel(items: [CircleChartItem(color: UIColor.gcb_blackColor(), ratio: 1.0)])
         widgetView.configureWithViewModel(HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
             lastNDaysChartModel: emptyCircleChartModel, numberOfLastDays: numberOfDays))
+
+        widgetView.startAnimatingActivityIndicator()
     }
 
     func update(source: UpdatingSource) {
-
         guard let source = source as? HarvestSource else {
             fatalError("Expected `source` as instance of `HarvestSource`.")
         }
@@ -41,6 +43,8 @@ final class HarvestWidget: WidgetControlling {
     }
 
     func updateViewWithResult(result: HarvestSource.ResultType) {
+        widgetView.stopAnimatingActivityIndicator()
+
         switch result {
         case .Success(let billingStats):
             let model = HarvestWidgetViewModel.viewModelFromBillingStats(billingStats)

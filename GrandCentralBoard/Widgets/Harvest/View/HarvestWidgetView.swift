@@ -55,7 +55,17 @@ final class HarvestWidgetView: UIView {
     @IBOutlet private weak var lastDayCircleChart: CircleChart!
     @IBOutlet private weak var lastNDaysCircleChart: CircleChart!
     @IBOutlet private weak var lastNDaysLabel: LabelWithSpacing!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
+    func startAnimatingActivityIndicator() {
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
+    }
+
+    func stopAnimatingActivityIndicator() {
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
+    }
 
     func configureWithViewModel(viewModel: HarvestWidgetViewModel) {
         lastDayCircleChart.configureWithViewModel(viewModel.lastDayChartModel)

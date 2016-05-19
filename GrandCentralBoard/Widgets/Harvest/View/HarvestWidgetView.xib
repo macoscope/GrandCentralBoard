@@ -226,19 +226,25 @@ N DAYS</string>
                         <constraint firstAttribute="height" constant="20" id="hMu-un-zmZ"/>
                     </constraints>
                 </stackView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Sao-o5-SOF">
+                    <rect key="frame" x="300" y="250" width="40" height="40"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Sao-o5-SOF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SD5-iz-I7k"/>
                 <constraint firstItem="rLH-wg-lHQ" firstAttribute="top" secondItem="60R-ec-tBk" secondAttribute="bottom" id="Z8I-Qk-L78"/>
                 <constraint firstItem="rLH-wg-lHQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="33" id="a6q-xs-bD1"/>
                 <constraint firstAttribute="trailing" secondItem="rLH-wg-lHQ" secondAttribute="trailing" constant="33" id="aYu-VW-lnz"/>
                 <constraint firstItem="60R-ec-tBk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dqS-pO-bNs"/>
                 <constraint firstAttribute="bottom" secondItem="rLH-wg-lHQ" secondAttribute="bottom" constant="29" id="e5g-wy-NJm"/>
+                <constraint firstItem="Sao-o5-SOF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hjc-DR-Wje"/>
                 <constraint firstAttribute="trailing" secondItem="60R-ec-tBk" secondAttribute="trailing" constant="46" id="mlc-RM-9ZE"/>
                 <constraint firstItem="60R-ec-tBk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="uHx-0T-Rev"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="activityIndicator" destination="Sao-o5-SOF" id="ggl-Lw-OZb"/>
                 <outlet property="lastDayCircleChart" destination="IER-cD-0TG" id="9oK-ih-ztl"/>
                 <outlet property="lastNDaysCircleChart" destination="4fM-dt-Lxz" id="LhZ-yB-a8M"/>
                 <outlet property="lastNDaysLabel" destination="kei-AC-k12" id="eE8-Uu-e6E"/>
