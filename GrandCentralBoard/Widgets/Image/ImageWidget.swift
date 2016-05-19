@@ -11,10 +11,12 @@ final class ImageWidget: WidgetControlling {
 
     let widgetView: ImageWidgetView
     let sources: [UpdatingSource]
+    let isHeaderVisible: Bool
 
-    init(view: ImageWidgetView, sources: [UpdatingSource]) {
+    init(view: ImageWidgetView, sources: [UpdatingSource], isHeaderVisible: Bool) {
         self.widgetView = view
         self.sources = sources
+        self.isHeaderVisible = isHeaderVisible
     }
 
     var view: UIView {

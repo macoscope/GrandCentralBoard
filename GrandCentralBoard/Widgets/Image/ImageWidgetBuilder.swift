@@ -22,6 +22,9 @@ final class ImageWidgetBuilder: WidgetBuilding {
 
         let imagesSource = try RemoteImageSource(paths: settings.imagePaths, dataDownloader: dataDownloader)
         let view = ImageWidgetView.fromNib()
-        return ImageWidget(view: view, sources: [imagesSource])
+
+        return ImageWidget(view: view,
+                           sources: [imagesSource],
+                           isHeaderVisible: settings.isHeaderVisible ?? true)
     }
 }
