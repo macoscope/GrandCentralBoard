@@ -14,6 +14,7 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     @IBOutlet private weak var alignedTimeLabel: UILabel!
     @IBOutlet private weak var eventLabel: UILabel!
 
+    private weak var failureView: UIView?
 
     // MARK - ViewModelRendering
 
@@ -46,11 +47,14 @@ final class WatchWidgetView: UIView, ViewModelRendering {
 
     private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
-            case (_, .Rendering(let viewModel)):
-                setUpLabelsWithViewModel(viewModel)
-                setUpImagesWithViewModel(viewModel)
-            default:
-                break
+        case (_, .Rendering(let viewModel)):
+            removeFailureView()
+            setUpLabelsWithViewModel(viewModel)
+            setUpImagesWithViewModel(viewModel)
+        case (_, .Failed):
+            showFailureView()
+        default:
+            break
         }
     }
 
@@ -62,6 +66,17 @@ final class WatchWidgetView: UIView, ViewModelRendering {
         centeredTimeLabel.animateTextTransition(viewModel.centeredTimeText)
         alignedTimeLabel.animateTextTransition(viewModel.alignedTimeText)
         eventLabel.attributedText = viewModel.eventText
+    }
+
+    private func showFailureView() {
+        let errorViewModel = WidgetErrorTemplateViewModel(title: "Clock & Calendar".localized.uppercaseString,
+                                                          subtitle: "Error".localized.uppercaseString)
+        let failureView = WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
+        fillViewWithView(failureView, animated: false)
+    }
+
+    private func removeFailureView() {
+        failureView?.removeFromSuperview()
     }
 
 

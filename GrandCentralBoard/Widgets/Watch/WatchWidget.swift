@@ -26,6 +26,9 @@ final class WatchWidget: WidgetControlling {
     private var events: [Event]?
     private var lastFetch: NSDate?
 
+    private var hasCalendarNameFetchFailed = false
+    private var hasEventsFetchFailed = false
+
     func update(source: UpdatingSource) {
         switch source {
             case let source as TimeSource:
@@ -44,8 +47,9 @@ final class WatchWidget: WidgetControlling {
             switch result {
             case .Success(let calendar):
                 self?.calendarName = calendar.name
+                self?.hasCalendarNameFetchFailed = false
             case .Failure:
-                break
+                self?.hasCalendarNameFetchFailed = true
             }
         }
     }
@@ -67,13 +71,18 @@ final class WatchWidget: WidgetControlling {
             switch result {
                 case .Success(let events):
                     self?.events = events
+                    self?.hasEventsFetchFailed = false
                 case .Failure:
-                    break
+                    self?.hasEventsFetchFailed = true
             }
         }
     }
 
     private func renderTime(time: Time) {
+        guard !hasCalendarNameFetchFailed && !hasEventsFetchFailed else {
+            widgetView.failure()
+            return
+        }
 
         let relevantEvents = events?.filter {
             let secondsLeftToEvent = $0.time.timeIntervalSinceDate(NSDate())
