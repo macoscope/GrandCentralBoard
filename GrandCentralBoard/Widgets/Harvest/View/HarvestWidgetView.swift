@@ -13,7 +13,18 @@ import GCBUtilities
 struct HarvestWidgetViewModel {
     let lastDayChartModel: CircleChartViewModel
     let lastNDaysChartModel: CircleChartViewModel
-    let numberOfLastDays: Int
+    let lastDaysLabelText: String
+
+    init(lastDayChartModel: CircleChartViewModel, lastNDaysChartModel: CircleChartViewModel, numberOfLastDays: Int) {
+        self.lastDayChartModel = lastDayChartModel
+        self.lastNDaysChartModel = lastNDaysChartModel
+
+        if numberOfLastDays == 1 {
+            lastDaysLabelText = "Last\nDay".localized.uppercaseString
+        } else {
+            lastDaysLabelText = String(format: "Last\n%d Days".localized, numberOfLastDays).uppercaseString
+        }
+    }
 }
 
 extension HarvestWidgetViewModel {
@@ -49,7 +60,7 @@ final class HarvestWidgetView: UIView {
     func configureWithViewModel(viewModel: HarvestWidgetViewModel) {
         lastDayCircleChart.configureWithViewModel(viewModel.lastDayChartModel)
         lastNDaysCircleChart.configureWithViewModel(viewModel.lastNDaysChartModel)
-        lastNDaysLabel.text =  String(format: "Last\n%d Days".localized, viewModel.numberOfLastDays).uppercaseString
+        lastNDaysLabel.text = viewModel.lastDaysLabelText
     }
 
     // MARK - fromNib

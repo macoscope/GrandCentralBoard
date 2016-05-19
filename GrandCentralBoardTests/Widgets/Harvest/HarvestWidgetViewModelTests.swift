@@ -1,9 +1,9 @@
 //
-//  HarvestWidgetViewModelFromDailyBillingStatsTests.swift
+//  HarvestWidgetViewModelTests.swift
 //  GrandCentralBoard
 //
-//  Created by Karol Kozub on 2016-04-18.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Created by Michał Laskowski on 2016-05-19.
+//  Copyright © 2016 Macoscope. All rights reserved.
 //
 
 import XCTest
@@ -19,8 +19,7 @@ private extension DailyBillingStats {
 }
 
 
-// swiftlint:disable:next type_name
-class HarvestWidgetViewModelFromDailyBillingStatsTests: XCTestCase {
+class HarvestWidgetViewModelTests: XCTestCase {
     private let typicalDailyBillingStats = DailyBillingStats(day: NSDate(timeIntervalSinceReferenceDate: 0), groups: [
         BillingStatsGroup(type: .Less, count: 5, averageHours: 4),
         BillingStatsGroup(type: .Normal, count: 8, averageHours: 6.4),
@@ -43,7 +42,6 @@ class HarvestWidgetViewModelFromDailyBillingStatsTests: XCTestCase {
         let emptyGroupManDays = dailyBillingStatsWithEmptyGroup.groups.reduce(0, combine: { $0 + $1.count })
         let totalManDays = typicalManDays + emptyGroupManDays
 
-        expect(viewModel.numberOfLastDays) == 4
         expect(viewModel.lastDayChartModel.items.count) == 3
         expect(viewModel.lastDayChartModel.items[0].ratio) == Double(typicalDailyBillingStats.groups[1].count) / Double(typicalManDays)
         expect(viewModel.lastDayChartModel.items[1].ratio) == Double(typicalDailyBillingStats.groups[2].count) / Double(typicalManDays)
@@ -56,5 +54,23 @@ class HarvestWidgetViewModelFromDailyBillingStatsTests: XCTestCase {
         expect(viewModel.lastNDaysChartModel.items[1].ratio) == Double(overManDays) / Double(totalManDays)
         let lessManDays = typicalDailyBillingStats.groups[0].count + dailyBillingStatsWithEmptyGroup.groups[0].count
         expect(viewModel.lastNDaysChartModel.items[2].ratio) == Double(lessManDays) / Double(totalManDays)
+    }
+
+    func testLastDaysLabelTextFor1Day() {
+        let viewModel = HarvestWidgetViewModel(lastDayChartModel: CircleChartViewModel(items: []),
+                                               lastNDaysChartModel: CircleChartViewModel(items: []),
+                                               numberOfLastDays: 1)
+
+        expect(viewModel.lastDaysLabelText) == "LAST\nDAY"
+    }
+
+    func testLastDaysLabelTextForMultipleDays() {
+        for numberOfDays in 2...5 {
+            let viewModel = HarvestWidgetViewModel(lastDayChartModel: CircleChartViewModel(items: []),
+                                                   lastNDaysChartModel: CircleChartViewModel(items: []),
+                                                   numberOfLastDays: numberOfDays)
+
+            expect(viewModel.lastDaysLabelText) == "LAST\n\(numberOfDays) DAYS"
+        }
     }
 }

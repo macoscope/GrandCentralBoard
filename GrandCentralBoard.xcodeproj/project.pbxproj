@@ -107,7 +107,7 @@
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
 		525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */; };
-		5250277D1CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */; };
+		5250277D1CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027781CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift */; };
 		5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */; };
 		525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */; };
 		525027811CE2103800DFE32A /* configurationCorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616B01C904FC800361B2E /* configurationCorrect.json */; };
@@ -288,7 +288,7 @@
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
 		525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSBundle+LoadJSON.swift"; path = "Widgets/Harvest/Fixtures/NSBundle+LoadJSON.swift"; sourceTree = "<group>"; };
-		525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; path = Widgets/Harvest/AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; sourceTree = "<group>"; };
+		525027781CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarvestWidgetViewModelTests.swift; path = Widgets/Harvest/HarvestWidgetViewModelTests.swift; sourceTree = "<group>"; };
 		5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillingProjectListTests.swift; path = Widgets/Harvest/BillingProjectListTests.swift; sourceTree = "<group>"; };
 		5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyBillingStatsTests.swift; path = Widgets/Harvest/DailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		526D1C641CE4B99700604174 /* SlackTimestampParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackTimestampParseTests.swift; path = Widgets/Slack/SlackTimestampParseTests.swift; sourceTree = "<group>"; };
@@ -922,7 +922,7 @@
 		F91F006A1CBBCFFD00DAAA77 /* Harvest */ = {
 			isa = PBXGroup;
 			children = (
-				525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */,
+				525027781CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift */,
 				5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */,
 				5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */,
 				528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */,
@@ -1333,7 +1333,7 @@
 				5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */,
 				526FC25F1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
-				5250277D1CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
+				5250277D1CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
 				526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */,
