@@ -16,13 +16,13 @@ final class BonusSource: Asynchronous {
 
     private let peopleFetchController: PeopleWithBonusesFetchController
 
-    init(bonuslyAccessToken: String) {
+    init(bonuslyAccessToken: String, preferredNumberOfPeople: Int) {
         let configuration = RequestSenderConfiguration(queryParameters: ["access_token": bonuslyAccessToken])
         let requestSender = RequestSender(configuration: configuration)
         self.peopleFetchController = PeopleWithBonusesFetchController(requestSending:requestSender,
                                                                       dataDownloading: DataDownloader(),
                                                                       pageSize: 1,
-                                                                      preferredNumberOfPeople: 10)
+                                                                      preferredNumberOfPeople: preferredNumberOfPeople)
     }
 
     func read(closure: (ResultType) -> Void) {
