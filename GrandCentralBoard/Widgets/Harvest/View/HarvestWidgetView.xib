@@ -5,11 +5,9 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="SF-UI-Display-Light.otf">
-            <string>SFUIDisplay-Light</string>
-            <string>SFUIDisplay-Light</string>
-        </mutableArray>
         <mutableArray key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
             <string>SFUIDisplay-Regular</string>
@@ -28,21 +26,23 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hj-Yw-D99">
                             <rect key="frame" x="0.0" y="0.0" width="241" height="442"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-lZ-jv7" customClass="LabelWithSpacing" customModule="GCBUtilities">
-                                    <rect key="frame" x="91" y="189" width="60" height="63"/>
-                                    <string key="text">LAST
-DAY</string>
-                                    <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="26"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
-                                            <real key="value" value="6"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IER-cD-0TG" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="100" width="241" height="241"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-lZ-jv7" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                            <rect key="frame" x="90" y="89" width="61" height="63"/>
+                                            <string key="text">LAST
+DAY</string>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="26"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                                                    <real key="value" value="6"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="IER-cD-0TG" secondAttribute="height" multiplier="1:1" id="2gl-q8-gfa"/>
@@ -59,29 +59,14 @@ DAY</string>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="nkF-lZ-jv7" firstAttribute="centerY" secondItem="2Hj-Yw-D99" secondAttribute="centerY" id="1YC-au-lfb"/>
                                 <constraint firstItem="IER-cD-0TG" firstAttribute="centerY" secondItem="2Hj-Yw-D99" secondAttribute="centerY" id="CPW-5Z-RiM"/>
                                 <constraint firstItem="IER-cD-0TG" firstAttribute="leading" secondItem="2Hj-Yw-D99" secondAttribute="leading" id="VTr-g3-rCP"/>
                                 <constraint firstAttribute="trailing" secondItem="IER-cD-0TG" secondAttribute="trailing" id="WkQ-A8-eDc"/>
-                                <constraint firstItem="nkF-lZ-jv7" firstAttribute="centerX" secondItem="2Hj-Yw-D99" secondAttribute="centerX" id="mgM-BK-MDO"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2M-fE-9UI">
                             <rect key="frame" x="307" y="0.0" width="241" height="442"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-AC-k12" customClass="LabelWithSpacing" customModule="GCBUtilities">
-                                    <rect key="frame" x="78" y="190" width="85" height="63"/>
-                                    <string key="text">LAST
-N DAYS</string>
-                                    <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="26"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
-                                            <real key="value" value="6"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fM-dt-Lxz" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="101" width="241" height="241"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -98,6 +83,19 @@ N DAYS</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-AC-k12" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                    <rect key="frame" x="77" y="190" width="88" height="63"/>
+                                    <string key="text">LAST
+N DAYS</string>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                                            <real key="value" value="6"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
