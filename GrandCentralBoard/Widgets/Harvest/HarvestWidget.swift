@@ -24,7 +24,7 @@ final class HarvestWidget: WidgetControlling {
         self.sources = [source]
         self.numberOfDays = numberOfDays
 
-        let emptyCircleChartModel = CircleChartViewModel(startAngle: 0, items: [CircleChartItem(color: UIColor.gcb_blackColor(), ratio: 1.0)])
+        let emptyCircleChartModel = CircleChartViewModel(items: [CircleChartItem(color: UIColor.gcb_blackColor(), ratio: 1.0)])
         widgetView.configureWithViewModel(HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
             lastNDaysChartModel: emptyCircleChartModel, numberOfLastDays: numberOfDays))
     }

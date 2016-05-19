@@ -15,7 +15,6 @@ struct CircleChartItem {
 }
 
 struct CircleChartViewModel {
-    let startAngle: Double
     let items: [CircleChartItem]
 }
 
@@ -28,10 +27,10 @@ extension CircleChartViewModel {
 
         let totalPeople = stats.groups.reduce(0) { $0 + $1.count }
         guard totalPeople > 0 else {
-            return CircleChartViewModel(startAngle: 0, items: [])
+            return CircleChartViewModel(items: [])
         }
 
-        return CircleChartViewModel(startAngle: 0, items: [
+        return CircleChartViewModel(items: [
             CircleChartItem(color: .hoursNormalColor(), ratio: Double(peopleWithHoursNormal) / Double(totalPeople)),
             CircleChartItem(color: .hoursMoreColor(), ratio: Double(peopleWithHoursAbove) / Double(totalPeople)),
             CircleChartItem(color: .hoursLessColor(), ratio: Double(peopleWithHoursBelow) / Double(totalPeople)),
@@ -48,7 +47,7 @@ extension CircleChartViewModel {
 
         let totalManDays = manDayTypes.reduce(0) { $0 + $1.1 }
         guard totalManDays > 0 else {
-            return CircleChartViewModel(startAngle: 0, items: [])
+            return CircleChartViewModel(items: [])
         }
 
         var circleChartItems = [CircleChartItem]()
@@ -61,6 +60,6 @@ extension CircleChartViewModel {
         if let manDaysLess = manDayTypes[.Less] {
             circleChartItems.append(CircleChartItem(color: .hoursLessColor(), ratio: Double(manDaysLess) / Double(totalManDays)))
         }
-        return CircleChartViewModel(startAngle: 0, items: circleChartItems)
+        return CircleChartViewModel(items: circleChartItems)
     }
 }

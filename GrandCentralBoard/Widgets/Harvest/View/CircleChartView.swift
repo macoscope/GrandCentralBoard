@@ -40,13 +40,18 @@ private extension CollectionType where Generator.Element == CircleChartItem {
 @IBDesignable
 final class CircleChart: UIView {
 
-    private var itemModels: [CircleChartItemModel] = []
+    var items: [CircleChartItem] = [] {
+        didSet { setNeedsDisplay() }
+    }
     @IBInspectable var strokeWidth: CGFloat = 1 {
+        didSet { setNeedsDisplay() }
+    }
+    @IBInspectable var startAngle: Double = 0 {
         didSet { setNeedsDisplay() }
     }
 
     func configureWithViewModel(viewModel: CircleChartViewModel) {
-        itemModels = viewModel.items.normalize().mapToModelsWithStartAngle(viewModel.startAngle)
+        items = viewModel.items.normalize()
         setNeedsDisplay()
     }
 
@@ -77,6 +82,7 @@ final class CircleChart: UIView {
     }
 
     override func drawRect(rect: CGRect) {
+        let itemModels = items.mapToModelsWithStartAngle(startAngle)
         guard itemModels.count > 0 else {
             return
         }
@@ -90,7 +96,7 @@ final class CircleChart: UIView {
     }
 
     override func prepareForInterfaceBuilder() {
-        let viewModel = CircleChartViewModel(startAngle: 0, items: [
+        let viewModel = CircleChartViewModel(items: [
             CircleChartItem(color: .redColor(), ratio: 1 / 3.0),
             CircleChartItem(color: .greenColor(), ratio: 1 / 3.0),
             CircleChartItem(color: .blueColor(), ratio: 1 / 3.0)
