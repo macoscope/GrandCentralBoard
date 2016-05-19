@@ -10,10 +10,14 @@ import Decodable
 
 struct ImageWidgetConfiguration {
     let imagePaths: [String]
+    let isHeaderVisible: Bool?
 }
 
 extension ImageWidgetConfiguration: Decodable {
     static func decode(json: AnyObject) throws -> ImageWidgetConfiguration {
-        return try ImageWidgetConfiguration(imagePaths: json => "urls")
+        return try ImageWidgetConfiguration(
+            imagePaths: json => "urls",
+            isHeaderVisible: json =>? "isHeaderVisible"
+        )
     }
 }
