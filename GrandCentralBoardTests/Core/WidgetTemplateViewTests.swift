@@ -15,10 +15,6 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
     let errorTitle = "WIDGET NAME"
     let errorSubtitle = "ERROR REASON"
 
-    override func setUp() {
-        super.setUp()
-//        recordMode = true
-    }
 
     private func contentView() -> UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 540))
