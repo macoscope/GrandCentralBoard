@@ -22,7 +22,7 @@ final class BonusWidgetBuilder: WidgetBuilding {
         let settings = try BonusWidgetSettings.decode(settings)
 
         let bonusSource = BonusSource(bonuslyAccessToken: settings.accessToken, preferredNumberOfPeople: settings.numberOfBubbles)
-        return BonusWidget(sources: [bonusSource], bubbleResizeDuration: settings.bubbleResizeDuration)
+        return BonusWidget(sources: [bonusSource], bubbleResizeDuration: settings.bubbleResizeDuration, numberOfPeople: settings.numberOfBubbles)
     }
 }
 

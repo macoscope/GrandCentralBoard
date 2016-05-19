@@ -11,15 +11,20 @@ final class BonusWidget: WidgetControlling {
     private let widgetView: BonusWidgetView
     let sources: [UpdatingSource]
     let bubbleResizeDuration: NSTimeInterval
+    let numberOfPeople: Int
 
-    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval) {
+    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval, numberOfPeople: Int) {
         self.widgetView = BonusWidgetView.fromNib()
         self.sources = sources
         self.bubbleResizeDuration = bubbleResizeDuration
+        self.numberOfPeople = numberOfPeople
     }
 
     var view: UIView {
-        return widgetView
+        let viewModel = WidgetTemplateViewModel(title: "BONUSLY", subtitle: "LAST \(numberOfPeople) PEOPLE", contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
+        let templateView = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
+        return templateView
     }
 
     func update(source: UpdatingSource) {
