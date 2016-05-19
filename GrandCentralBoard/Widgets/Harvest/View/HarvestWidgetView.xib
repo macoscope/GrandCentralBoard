@@ -29,8 +29,8 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IER-cD-0TG" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="100" width="241" height="241"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-lZ-jv7" customClass="LabelWithSpacing" customModule="GCBUtilities">
-                                            <rect key="frame" x="90" y="89" width="61" height="63"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-lZ-jv7" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                            <rect key="frame" x="30" y="89" width="181" height="63"/>
                                             <string key="text">LAST
 DAY</string>
                                             <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="26"/>
@@ -45,7 +45,10 @@ DAY</string>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="nkF-lZ-jv7" firstAttribute="leading" secondItem="IER-cD-0TG" secondAttribute="leading" constant="30" id="1pL-3K-C6A"/>
                                         <constraint firstAttribute="width" secondItem="IER-cD-0TG" secondAttribute="height" multiplier="1:1" id="2gl-q8-gfa"/>
+                                        <constraint firstAttribute="trailing" secondItem="nkF-lZ-jv7" secondAttribute="trailing" constant="30" id="M1p-AA-BAF"/>
+                                        <constraint firstItem="nkF-lZ-jv7" firstAttribute="centerY" secondItem="IER-cD-0TG" secondAttribute="centerY" id="gTj-u4-AN4"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
@@ -83,8 +86,8 @@ DAY</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-AC-k12" customClass="LabelWithSpacing" customModule="GCBUtilities">
-                                    <rect key="frame" x="77" y="190" width="88" height="63"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="63" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-AC-k12" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                    <rect key="frame" x="66" y="190" width="110" height="63"/>
                                     <string key="text">LAST
 N DAYS</string>
                                     <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="26"/>
@@ -99,10 +102,10 @@ N DAYS</string>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="kei-AC-k12" firstAttribute="centerX" secondItem="r2M-fE-9UI" secondAttribute="centerX" id="Bsp-gO-fMk"/>
                                 <constraint firstItem="kei-AC-k12" firstAttribute="centerY" secondItem="r2M-fE-9UI" secondAttribute="centerY" id="Cz0-65-4xA"/>
                                 <constraint firstItem="4fM-dt-Lxz" firstAttribute="leading" secondItem="r2M-fE-9UI" secondAttribute="leading" id="Yu0-d1-f3y"/>
                                 <constraint firstItem="4fM-dt-Lxz" firstAttribute="centerY" secondItem="r2M-fE-9UI" secondAttribute="centerY" id="aWu-dU-lJ6"/>
+                                <constraint firstItem="kei-AC-k12" firstAttribute="centerX" secondItem="r2M-fE-9UI" secondAttribute="centerX" id="bER-vU-IWK"/>
                                 <constraint firstAttribute="trailing" secondItem="4fM-dt-Lxz" secondAttribute="trailing" id="ndO-Wj-ONT"/>
                             </constraints>
                         </view>
