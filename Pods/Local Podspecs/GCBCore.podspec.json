@@ -21,7 +21,8 @@
   ],
   "resource_bundles": {
     "GCBCore": [
-      "GCBCore/**/*.xib"
+      "GCBCore/**/*.xib",
+      "GCBCore/*.png"
     ]
   },
   "dependencies": {

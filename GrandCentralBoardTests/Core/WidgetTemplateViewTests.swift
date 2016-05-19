@@ -5,18 +5,25 @@
 
 
 import FBSnapshotTestCase
-@testable import GCBCore
+import GCBCore
 
 final class WidgetTemplateViewTests: FBSnapshotTestCase {
 
-    private static func buildViewModel() -> WidgetTemplateViewModel {
-        let contentView = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 540))
-        contentView.backgroundColor = UIColor.redColor()
-        return WidgetTemplateViewModel(title: "TITLE", subtitle: "SUBTITLE", contentView: contentView)
+    let title = "TITLE"
+    let subtitle = "SUBTITLE"
+
+    let errorTitle = "WIDGET NAME"
+    let errorSubtitle = "ERROR REASON"
+
+
+    private func contentView() -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 540))
+        view.backgroundColor = UIColor.redColor()
+        return view
     }
 
     func testDefaultLayout() {
-        let viewModel = WidgetTemplateViewTests.buildViewModel()
+        let viewModel = WidgetTemplateViewModel(title: title, subtitle: subtitle, contentView: contentView())
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
         let view = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
 
@@ -24,7 +31,7 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
     }
 
     func testDisplayingContentUnderHeader() {
-        let viewModel = WidgetTemplateViewTests.buildViewModel()
+        let viewModel = WidgetTemplateViewModel(title: title, subtitle: subtitle, contentView: contentView())
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
         let view = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
 
@@ -32,9 +39,23 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
     }
 
     func testContentViewMargin() {
-        let viewModel = WidgetTemplateViewTests.buildViewModel()
+        let viewModel = WidgetTemplateViewModel(title: title, subtitle: subtitle, contentView: contentView())
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30))
         let view = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
+
+        FBSnapshotVerifyView(view)
+    }
+
+    func testConfigureForErrorWithoutIcon() {
+        let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle, iconImage: nil)
+        let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
+
+        FBSnapshotVerifyView(view)
+    }
+
+    func testConfigureForErrorWithDefaultIcon() {
+        let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle)
+        let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
 
         FBSnapshotVerifyView(view)
     }
