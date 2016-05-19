@@ -30,7 +30,7 @@ private extension CollectionType where Generator.Element == CircleChartItem {
         var nextStartAngle = startAngle
         return map { (item) -> CircleChartItemModel in
             let startAngle = nextStartAngle
-            let endAngle = startAngle - 2 * M_PI * item.ratio
+            let endAngle = startAngle + 2 * M_PI * item.ratio
             nextStartAngle = endAngle
             return CircleChartItemModel(color: item.color, startAngle: startAngle, endAngle: endAngle)
         }
@@ -70,9 +70,9 @@ final class CircleChart: UIView {
 
         let path = CGPathCreateMutable()
         CGPathMoveToPoint(path, nil, startPointInternal.x, startPointInternal.y)
-        CGPathAddArc(path, nil, center.x, center.y, smallerArcRadius, startAngle, endAngle, true)
+        CGPathAddArc(path, nil, center.x, center.y, smallerArcRadius, startAngle, endAngle, false)
         CGPathAddArc(path, nil, roundingInsideCenter.x, roundingInsideCenter.y, strokeWidth / 2, endAngle - CGFloat(M_PI), endAngle, true)
-        CGPathAddArc(path, nil, center.x, center.y, biggerArcRadius, endAngle, startAngle, false)
+        CGPathAddArc(path, nil, center.x, center.y, biggerArcRadius, endAngle, startAngle, true)
         CGPathAddArc(path, nil, roundingOutsideCenter.x, roundingOutsideCenter.y, strokeWidth / 2, startAngle, startAngle + CGFloat(M_PI), false)
 
 
