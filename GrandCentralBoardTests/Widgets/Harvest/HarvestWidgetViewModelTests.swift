@@ -36,24 +36,42 @@ class HarvestWidgetViewModelTests: XCTestCase {
         ])
 
     func testViewModelForNotSortedStats() {
-        let viewModel = HarvestWidgetViewModel.viewModelFromBillingStats([
+        let billingStats = [
             dayWithoutUsers.statsByAddingDaysToDate(0),
             typicalDailyBillingStats.statsByAddingDaysToDate(4), //this will be the last day
             typicalDailyBillingStats.statsByAddingDaysToDate(3),
             dayWithoutUsers.statsByAddingDaysToDate(1),
             dayWithoutUsers.statsByAddingDaysToDate(2)
-            ]
-        )
+        ]
+        let viewModel = HarvestWidgetViewModel.viewModelFromBillingStats(billingStats)
+
+        var statsLastDay: [BillingStatsGroupType: Int] = [ .Less: 0, .Normal: 0, .More: 0 ]
+        var statsMultipleDays: [BillingStatsGroupType: Int] = [ .Less: 0, .Normal: 0, .More: 0 ]
+
+        for userID in 1...6 {
+            let hoursInDayTypical = typicalDailyBillingStats.billings.filter { $0.userID == userID }.map { $0.hours }.first
+            let hoursInDayWithoutUsers = dayWithoutUsers.billings.filter { $0.userID == userID }.map { $0.hours }.first
+
+            let userLastDayStatType = BillingStatsGroupType.typeForHours(hoursInDayTypical!)
+            statsLastDay[userLastDayStatType] = statsLastDay[userLastDayStatType]! + 1
+
+            if let hoursInDayWithoutUsers = hoursInDayWithoutUsers {
+                let userMultipleDaysStatType = BillingStatsGroupType.typeForHours((hoursInDayTypical! * 2.0 + hoursInDayWithoutUsers * 3.0) / 5.0)
+                statsMultipleDays[userMultipleDaysStatType] = statsMultipleDays[userMultipleDaysStatType]! + 1
+            } else {
+                statsMultipleDays[userLastDayStatType] = statsMultipleDays[userLastDayStatType]! + 1
+            }
+        }
 
         expect(viewModel.lastDayChartModel.items.count) == 3
-        expect(viewModel.lastDayChartModel.items[0].ratio) == 2 / 6.0
-        expect(viewModel.lastDayChartModel.items[1].ratio) == 1 / 6.0
-        expect(viewModel.lastDayChartModel.items[2].ratio) == 3 / 6.0
+        expect(viewModel.lastDayChartModel.items[0].ratio) == Double(statsLastDay[.Normal]!) / 6.0
+        expect(viewModel.lastDayChartModel.items[1].ratio) == Double(statsLastDay[.Less]!) / 6.0
+        expect(viewModel.lastDayChartModel.items[2].ratio) == Double(statsLastDay[.More]!) / 6.0
 
         expect(viewModel.lastNDaysChartModel.items.count) == 3
-        expect(viewModel.lastNDaysChartModel.items[0].ratio) == 3 / 6.0
-        expect(viewModel.lastNDaysChartModel.items[1].ratio) == 1 / 6.0
-        expect(viewModel.lastNDaysChartModel.items[2].ratio) == 2 / 6.0
+        expect(viewModel.lastNDaysChartModel.items[0].ratio) == Double(statsMultipleDays[.Normal]!) / 6.0
+        expect(viewModel.lastNDaysChartModel.items[1].ratio) == Double(statsMultipleDays[.Less]!) / 6.0
+        expect(viewModel.lastNDaysChartModel.items[2].ratio) == Double(statsMultipleDays[.More]!) / 6.0
     }
 
     func testLastDaysLabelTextFor1Day() {
