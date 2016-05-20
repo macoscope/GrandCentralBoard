@@ -44,16 +44,17 @@ class HarvestWidgetViewModelTests: XCTestCase {
 
         expect(viewModel.lastDayChartModel.items.count) == 3
         expect(viewModel.lastDayChartModel.items[0].ratio) == Double(typicalDailyBillingStats.groups[1].count) / Double(typicalManDays)
-        expect(viewModel.lastDayChartModel.items[1].ratio) == Double(typicalDailyBillingStats.groups[2].count) / Double(typicalManDays)
-        expect(viewModel.lastDayChartModel.items[2].ratio) == Double(typicalDailyBillingStats.groups[0].count) / Double(typicalManDays)
+        expect(viewModel.lastDayChartModel.items[1].ratio) == Double(typicalDailyBillingStats.groups[0].count) / Double(typicalManDays)
+        expect(viewModel.lastDayChartModel.items[2].ratio) == Double(typicalDailyBillingStats.groups[2].count) / Double(typicalManDays)
+
+        let normalManDays = typicalDailyBillingStats.groups[1].count + dailyBillingStatsWithEmptyGroup.groups[1].count
+        let overManDays = typicalDailyBillingStats.groups[2].count + dailyBillingStatsWithEmptyGroup.groups[2].count
+        let lessManDays = typicalDailyBillingStats.groups[0].count + dailyBillingStatsWithEmptyGroup.groups[0].count
 
         expect(viewModel.lastDayChartModel.items.count) == 3
-        let normalManDays = typicalDailyBillingStats.groups[1].count + dailyBillingStatsWithEmptyGroup.groups[1].count
         expect(viewModel.lastNDaysChartModel.items[0].ratio) == Double(normalManDays) / Double(totalManDays)
-        let overManDays = typicalDailyBillingStats.groups[2].count + dailyBillingStatsWithEmptyGroup.groups[2].count
-        expect(viewModel.lastNDaysChartModel.items[1].ratio) == Double(overManDays) / Double(totalManDays)
-        let lessManDays = typicalDailyBillingStats.groups[0].count + dailyBillingStatsWithEmptyGroup.groups[0].count
-        expect(viewModel.lastNDaysChartModel.items[2].ratio) == Double(lessManDays) / Double(totalManDays)
+        expect(viewModel.lastNDaysChartModel.items[1].ratio) == Double(lessManDays) / Double(totalManDays)
+        expect(viewModel.lastNDaysChartModel.items[2].ratio) == Double(overManDays) / Double(totalManDays)
     }
 
     func testLastDaysLabelTextFor1Day() {

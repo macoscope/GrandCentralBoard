@@ -32,8 +32,8 @@ extension CircleChartViewModel {
 
         return CircleChartViewModel(items: [
             CircleChartItem(color: .hoursNormalColor(), ratio: Double(peopleWithHoursNormal) / Double(totalPeople)),
-            CircleChartItem(color: .hoursMoreColor(), ratio: Double(peopleWithHoursAbove) / Double(totalPeople)),
             CircleChartItem(color: .hoursLessColor(), ratio: Double(peopleWithHoursBelow) / Double(totalPeople)),
+            CircleChartItem(color: .hoursMoreColor(), ratio: Double(peopleWithHoursAbove) / Double(totalPeople)),
             ])
     }
 
@@ -54,11 +54,11 @@ extension CircleChartViewModel {
         if let manDaysNormal = manDayTypes[.Normal] {
             circleChartItems.append(CircleChartItem(color: .hoursNormalColor(), ratio: Double(manDaysNormal) / Double(totalManDays)))
         }
-        if let manDaysMore = manDayTypes[.More] {
-            circleChartItems.append(CircleChartItem(color: .hoursMoreColor(), ratio: Double(manDaysMore) / Double(totalManDays)))
-        }
         if let manDaysLess = manDayTypes[.Less] {
             circleChartItems.append(CircleChartItem(color: .hoursLessColor(), ratio: Double(manDaysLess) / Double(totalManDays)))
+        }
+        if let manDaysMore = manDayTypes[.More] {
+            circleChartItems.append(CircleChartItem(color: .hoursMoreColor(), ratio: Double(manDaysMore) / Double(totalManDays)))
         }
         return CircleChartViewModel(items: circleChartItems)
     }
