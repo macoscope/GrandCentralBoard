@@ -11,17 +11,20 @@ import GCBCore
 final class WebsiteAnalyticsWidget: WidgetControlling {
 
     private let widgetView: TableWidgetView
+    private let widgetViewWrapper: UIView
     let sources: [UpdatingSource]
 
     var view: UIView {
-        let viewModel = WidgetTemplateViewModel(title: "BLOGPOSTS", subtitle: "MOST POPULAR", contentView: widgetView)
-        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: -90, left: 0, bottom: 0, right: 0))
-        return WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
+        return widgetViewWrapper
     }
 
     init(sources: [UpdatingSource]) {
         self.widgetView = TableWidgetView.fromNib()
         self.sources = sources
+
+        let viewModel = WidgetTemplateViewModel(title: "BLOGPOSTS", subtitle: "MOST POPULAR", contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: -90, left: 0, bottom: 0, right: 0))
+        widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
     }
 
     func update(source: UpdatingSource) {
