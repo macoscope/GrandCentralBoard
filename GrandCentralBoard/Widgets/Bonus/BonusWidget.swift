@@ -9,17 +9,25 @@ import GCBCore
 final class BonusWidget: WidgetControlling {
 
     private let widgetView: BonusWidgetView
+    private let widgetViewWrapper: UIView
+    
     let sources: [UpdatingSource]
     let bubbleResizeDuration: NSTimeInterval
+    let numberOfBubbles: Int
 
-    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval) {
+    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval, numberOfBubbles: Int) {
         self.widgetView = BonusWidgetView.fromNib()
         self.sources = sources
         self.bubbleResizeDuration = bubbleResizeDuration
+        self.numberOfBubbles = numberOfBubbles
+
+        let viewModel = WidgetTemplateViewModel(title: "BONUSLY", subtitle: "LAST \(numberOfBubbles) PEOPLE", contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
+        widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
     }
 
     var view: UIView {
-        return widgetView
+        return widgetViewWrapper
     }
 
     func update(source: UpdatingSource) {

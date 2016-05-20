@@ -21,8 +21,12 @@ final class BonusWidgetBuilder: WidgetBuilding {
 
         let settings = try BonusWidgetSettings.decode(settings)
 
-        let bonusSource = BonusSource(bonuslyAccessToken: settings.accessToken)
-        return BonusWidget(sources: [bonusSource], bubbleResizeDuration: settings.bubbleResizeDuration)
+        let defaultNumberOfBubbles = 7
+        let bonusSource = BonusSource(bonuslyAccessToken: settings.accessToken,
+                                      preferredNumberOfPeople: settings.numberOfBubbles ?? defaultNumberOfBubbles)
+        return BonusWidget(sources: [bonusSource],
+                           bubbleResizeDuration: settings.bubbleResizeDuration,
+                           numberOfBubbles: settings.numberOfBubbles ?? defaultNumberOfBubbles)
     }
 }
 
@@ -40,10 +44,12 @@ enum BonusWidgetSettingsError: ErrorType, HavingMessage {
 struct BonusWidgetSettings: Decodable {
     let accessToken: String
     let bubbleResizeDuration: NSTimeInterval
+    let numberOfBubbles: Int?
 
     static func decode(jsonObject: AnyObject) throws -> BonusWidgetSettings {
         let settings = try BonusWidgetSettings(accessToken: jsonObject => "accessToken",
-                                       bubbleResizeDuration: jsonObject => "bubbleResizeDuration")
+                                       bubbleResizeDuration: jsonObject => "bubbleResizeDuration",
+                                       numberOfBubbles: jsonObject =>? "numberOfBubbles")
 
         guard settings.bubbleResizeDuration > 0 else {
             throw BonusWidgetSettingsError.BubbleResizeDurationInvalid(settings.bubbleResizeDuration)
