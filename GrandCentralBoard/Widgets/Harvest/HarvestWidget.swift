@@ -14,13 +14,18 @@ final class HarvestWidget: WidgetControlling {
     private let widgetView: HarvestWidgetView
     private let widgetViewWrapper: WidgetTemplateView
 
-    private let numberOfDays: Int
-
-    let sources: [UpdatingSource]
+    private lazy var errorView: UIView = {
+        let errorViewModel = WidgetErrorTemplateViewModel(title: "HARVEST",
+                                                          subtitle: "Error".localized.uppercaseString)
+        return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
+    }()
 
     var view: UIView {
         return widgetViewWrapper
     }
+    private let numberOfDays: Int
+
+    let sources: [UpdatingSource]
 
     init(source: HarvestSource, numberOfDays: Int) {
         self.sources = [source]
@@ -34,12 +39,21 @@ final class HarvestWidget: WidgetControlling {
         widgetView.configureWithViewModel(emptyWidgetViewModel)
 
         let viewModel = WidgetTemplateViewModel(title: "HARVEST",
-                                                subtitle: "USERS BILLED HOURS REPORT".localized.uppercaseString,
+                                                subtitle: "Users Billed Hours Report".localized.uppercaseString,
                                                 contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
         widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
 
         widgetView.startAnimatingActivityIndicator()
+    }
+
+    private func renderErrorView() {
+        guard !view.subviews.contains(errorView) else { return }
+        view.fillViewWithView(errorView, animated: false)
+    }
+
+    private func removeErrorView() {
+        errorView.removeFromSuperview()
     }
 
     func update(source: UpdatingSource) {
@@ -57,9 +71,11 @@ final class HarvestWidget: WidgetControlling {
 
         switch result {
         case .Success(let billingStats):
+            removeErrorView()
             let model = HarvestWidgetViewModel.viewModelFromBillingStats(billingStats)
             widgetView.configureWithViewModel(model)
-        case .Failure: break
+        case .Failure:
+            renderErrorView()
         }
 
     }

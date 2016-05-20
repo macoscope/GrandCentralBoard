@@ -1,0 +1,64 @@
+//
+//  HarvestWidgetSnapshotTests.swift
+//  GrandCentralBoard
+//
+//  Created by Michał Laskowski on 20.05.2016.
+//  Copyright © 2016 Macoscope. All rights reserved.
+//
+
+import FBSnapshotTestCase
+import GCBCore
+import GCBUtilities
+@testable import GrandCentralBoard
+
+
+private final class TestHarvestProvider: HarvestAPIProviding {
+
+    let shouldFailRequest: Bool
+
+    init(shouldFailRequest: Bool) {
+        self.shouldFailRequest = shouldFailRequest
+    }
+
+    private func refreshTokenIfNeeded(completion: (Result<AccessToken>) -> Void) {
+        completion(.Success(AccessToken(token: "test_token", expiresIn: 3600)))
+    }
+
+    private func fetchBillingStats(completion: (Result<[DailyBillingStats]>) -> Void) {
+        if shouldFailRequest {
+            completion(.Failure(ErrorWithMessage(message: "error_message")))
+        } else {
+            completion(.Success([]))
+        }
+    }
+}
+
+final class HarvestWidgetSnapshotTests: FBSnapshotTestCase {
+
+    override func setUp() {
+        super.setUp()
+//        recordMode = true
+    }
+
+    func testViewWithFailure() {
+        let harvestSource = HarvestSource(apiProvider: TestHarvestProvider(shouldFailRequest: true), refreshInterval: 60)
+        let widget = HarvestWidget(source: harvestSource, numberOfDays: 5)
+        widget.update(harvestSource)
+
+        let widgetView = widget.view
+        widgetView.frame = CGRect(x: 0, y: 0, width: 640, height: 540)
+
+        FBSnapshotVerifyView(widget.view)
+    }
+
+    func testViewWithNoStats() {
+        let harvestSource = HarvestSource(apiProvider: TestHarvestProvider(shouldFailRequest: false), refreshInterval: 60)
+        let widget = HarvestWidget(source: harvestSource, numberOfDays: 5)
+        widget.update(harvestSource)
+
+        let widgetView = widget.view
+        widgetView.frame = CGRect(x: 0, y: 0, width: 640, height: 540)
+
+        FBSnapshotVerifyView(widget.view)
+    }
+}
