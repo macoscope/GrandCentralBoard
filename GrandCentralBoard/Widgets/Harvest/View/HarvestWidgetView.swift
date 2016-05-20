@@ -8,6 +8,7 @@
 
 import UIKit
 import GCBUtilities
+import GCBCore
 
 
 struct HarvestWidgetViewModel {
@@ -36,7 +37,7 @@ extension HarvestWidgetViewModel {
         }
 
         guard let lastDayStats = stats.first else {
-            let emptyCircleChartViewModel = CircleChartViewModel(items: [])
+            let emptyCircleChartViewModel = CircleChartViewModel.emptyViewModel()
             return HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartViewModel,
                                           lastNDaysChartModel: emptyCircleChartViewModel,
                                           numberOfLastDays: stats.count)

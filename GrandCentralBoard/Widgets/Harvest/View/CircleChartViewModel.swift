@@ -20,6 +20,10 @@ struct CircleChartViewModel {
 
 extension CircleChartViewModel {
 
+    static func emptyViewModel() -> CircleChartViewModel {
+        return CircleChartViewModel(items: [CircleChartItem(color: .gcb_blackColor(), ratio: 1.0)])
+    }
+
     static func chartViewModelFromBillingStats(stats: [DailyBillingStats]) -> CircleChartViewModel {
         var hoursPerUser = [Int: Double]()
         var workingDaysPerUser = [Int: Int]()
@@ -41,7 +45,7 @@ extension CircleChartViewModel {
 
         let totalPeople = peopleWithHoursBelow + peopleWithHoursNormal + peopleWithHoursAbove
         guard totalPeople > 0 else {
-            return CircleChartViewModel(items: [])
+            return CircleChartViewModel.emptyViewModel()
         }
 
         return CircleChartViewModel(items: [
