@@ -13,7 +13,6 @@ final class HarvestWidget: WidgetControlling {
 
     private let widgetView = HarvestWidgetView.fromNib()
     private let numberOfDays: Int
-    private weak var loadingIndicatorView: UIActivityIndicatorView?
 
     let sources: [UpdatingSource]
 
@@ -26,8 +25,10 @@ final class HarvestWidget: WidgetControlling {
         self.numberOfDays = numberOfDays
 
         let emptyCircleChartModel = CircleChartViewModel(items: [CircleChartItem(color: UIColor.gcb_blackColor(), ratio: 1.0)])
-        widgetView.configureWithViewModel(HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
-            lastNDaysChartModel: emptyCircleChartModel, numberOfLastDays: numberOfDays))
+        let emptyWidgetViewModel = HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
+                                                          lastNDaysChartModel: emptyCircleChartModel,
+                                                          numberOfLastDays: numberOfDays)
+        widgetView.configureWithViewModel(emptyWidgetViewModel)
 
         widgetView.startAnimatingActivityIndicator()
     }
