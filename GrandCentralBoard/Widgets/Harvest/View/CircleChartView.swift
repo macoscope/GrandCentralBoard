@@ -30,7 +30,7 @@ private extension CollectionType where Generator.Element == CircleChartItem {
         var nextStartAngle = startAngle
         return map { (item) -> CircleChartItemModel in
             let startAngle = nextStartAngle
-            let endAngle = startAngle - 2 * M_PI * item.ratio
+            let endAngle = startAngle + 2 * M_PI * item.ratio
             nextStartAngle = endAngle
             return CircleChartItemModel(color: item.color, startAngle: startAngle, endAngle: endAngle)
         }
@@ -40,13 +40,18 @@ private extension CollectionType where Generator.Element == CircleChartItem {
 @IBDesignable
 final class CircleChart: UIView {
 
-    private var itemModels: [CircleChartItemModel] = []
+    var items: [CircleChartItem] = [] {
+        didSet { setNeedsDisplay() }
+    }
     @IBInspectable var strokeWidth: CGFloat = 1 {
+        didSet { setNeedsDisplay() }
+    }
+    @IBInspectable var startAngle: Double = 0 {
         didSet { setNeedsDisplay() }
     }
 
     func configureWithViewModel(viewModel: CircleChartViewModel) {
-        itemModels = viewModel.items.normalize().mapToModelsWithStartAngle(viewModel.startAngle)
+        items = viewModel.items.normalize()
         setNeedsDisplay()
     }
 
@@ -65,9 +70,9 @@ final class CircleChart: UIView {
 
         let path = CGPathCreateMutable()
         CGPathMoveToPoint(path, nil, startPointInternal.x, startPointInternal.y)
-        CGPathAddArc(path, nil, center.x, center.y, smallerArcRadius, startAngle, endAngle, true)
+        CGPathAddArc(path, nil, center.x, center.y, smallerArcRadius, startAngle, endAngle, false)
         CGPathAddArc(path, nil, roundingInsideCenter.x, roundingInsideCenter.y, strokeWidth / 2, endAngle - CGFloat(M_PI), endAngle, true)
-        CGPathAddArc(path, nil, center.x, center.y, biggerArcRadius, endAngle, startAngle, false)
+        CGPathAddArc(path, nil, center.x, center.y, biggerArcRadius, endAngle, startAngle, true)
         CGPathAddArc(path, nil, roundingOutsideCenter.x, roundingOutsideCenter.y, strokeWidth / 2, startAngle, startAngle + CGFloat(M_PI), false)
 
 
@@ -77,6 +82,7 @@ final class CircleChart: UIView {
     }
 
     override func drawRect(rect: CGRect) {
+        let itemModels = items.mapToModelsWithStartAngle(startAngle)
         guard itemModels.count > 0 else {
             return
         }
@@ -87,5 +93,14 @@ final class CircleChart: UIView {
         for model in itemModels {
             drawArcForModel(model, inContext: context, inRect: rect)
         }
+    }
+
+    override func prepareForInterfaceBuilder() {
+        let viewModel = CircleChartViewModel(items: [
+            CircleChartItem(color: .redColor(), ratio: 1 / 3.0),
+            CircleChartItem(color: .greenColor(), ratio: 1 / 3.0),
+            CircleChartItem(color: .blueColor(), ratio: 1 / 3.0)
+            ])
+        configureWithViewModel(viewModel)
     }
 }

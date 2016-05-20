@@ -29,14 +29,6 @@
 		0692DB911CBD39DC006F46C9 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0692DB901CBD39DC006F46C9 /* Array.swift */; };
 		0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */; };
 		1A1DBC6C1CBFA0FA003DA40C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6B1CBFA0FA003DA40C /* Event.swift */; };
-		1A1DBC731CBFBC07003DA40C /* AreaBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */; };
-		1A1DBC741CBFBC07003DA40C /* AreaBarChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */; };
-		1A1DBC751CBFBC07003DA40C /* AreaBarChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC701CBFBC07003DA40C /* AreaBarChartViewModel.swift */; };
-		1A1DBC761CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */; };
-		1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */; };
-		1A1DBC791CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */; };
-		1A1DBC7B1CC0F79D003DA40C /* ComponentChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1DBC7A1CC0F79D003DA40C /* ComponentChartView.xib */; };
-		1A1DBC7D1CC0F7E9003DA40C /* ComponentChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */; };
 		1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D201C357C2700D5BEE5 /* AppDelegate.swift */; };
 		1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A242D221C357C2700D5BEE5 /* MainViewController.swift */; };
 		1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A242D241C357C2700D5BEE5 /* Main.storyboard */; };
@@ -112,13 +104,10 @@
 		520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */; };
 		52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */; };
 		52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */; };
-		525027701CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
 		525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */; };
-		5250277C1CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027771CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift */; };
-		5250277D1CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */; };
-		5250277E1CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */; };
+		5250277D1CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027781CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift */; };
 		5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */; };
 		525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */; };
 		525027811CE2103800DFE32A /* configurationCorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616B01C904FC800361B2E /* configurationCorrect.json */; };
@@ -142,6 +131,10 @@
 		52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */; };
 		528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */; };
 		529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF031CEC580800636A4A /* CircleChartViewModel.swift */; };
+		529CEF0A1CEC6A2200636A4A /* HarvestWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 529CEF091CEC6A2100636A4A /* HarvestWidgetView.xib */; };
+		529CEF151CEC9A5B00636A4A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF141CEC9A5B00636A4A /* CircleView.swift */; };
+		529CEF171CECA50300636A4A /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF161CECA50300636A4A /* HarvestWidgetView.swift */; };
+		529CEF191CECC35600636A4A /* UIColor+BillingColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF181CECC35600636A4A /* UIColor+BillingColor.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
@@ -164,14 +157,12 @@
 		F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */; };
 		F91F007D1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */; };
 		F928B82E1CC52F77006D0332 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928B82D1CC52F77006D0332 /* String+Localized.swift */; };
-		F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */; };
 		F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */; };
 		F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */; };
 		F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */; };
 		F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F391CBFC36900E81A14 /* BillingStatsFetcher.swift */; };
 		F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F3B1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift */; };
 		F9C88F3E1CBFC72100E81A14 /* AccessTokenFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */; };
-		F9E237FE1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */; };
 		F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E920881CC5421200BC7994 /* BillingProjectListFetcher.swift */; };
 		F9E9208B1CC543CD00BC7994 /* BillingProjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9208A1CC543CD00BC7994 /* BillingProjectList.swift */; };
 		F9E9208F1CC54A9400BC7994 /* DailyUserBillingStatsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9208E1CC54A9400BC7994 /* DailyUserBillingStatsFetcher.swift */; };
@@ -210,14 +201,6 @@
 		0692DB901CBD39DC006F46C9 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		0D7970C41CB6B01F00401A65 /* BubbleScalingAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleScalingAnimator.swift; sourceTree = "<group>"; };
 		1A1DBC6B1CBFA0FA003DA40C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartView.swift; sourceTree = "<group>"; };
-		1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarChartView.xib; sourceTree = "<group>"; };
-		1A1DBC701CBFBC07003DA40C /* AreaBarChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarChartViewModel.swift; sourceTree = "<group>"; };
-		1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaBarDashedLineWithLabel.xib; sourceTree = "<group>"; };
-		1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarStackView.swift; sourceTree = "<group>"; };
-		1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaBarDashedLineWithLabel.swift; sourceTree = "<group>"; };
-		1A1DBC7A1CC0F79D003DA40C /* ComponentChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComponentChartView.xib; sourceTree = "<group>"; };
-		1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentChartView.swift; sourceTree = "<group>"; };
 		1A242D1D1C357C2700D5BEE5 /* GrandCentralBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandCentralBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A242D201C357C2700D5BEE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A242D221C357C2700D5BEE5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -302,13 +285,10 @@
 		520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackSourceTests.swift; path = Widgets/Slack/SlackSourceTests.swift; sourceTree = "<group>"; };
 		52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewsSourceTests.swift; path = Widgets/WebsiteAnalytics/PageViewsSourceTests.swift; sourceTree = "<group>"; };
 		52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsDataProviderTests.swift; path = Widgets/WebsiteAnalytics/GoogleAnalyticsDataProviderTests.swift; sourceTree = "<group>"; };
-		5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartViewModelTests.swift; path = Widgets/Harvest/AreaBarChartViewModelTests.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
 		525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSBundle+LoadJSON.swift"; path = "Widgets/Harvest/Fixtures/NSBundle+LoadJSON.swift"; sourceTree = "<group>"; };
-		525027771CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AreaBarChartComponentViewModel+Equatable.swift"; path = "Widgets/Harvest/AreaBarChartComponentViewModel+Equatable.swift"; sourceTree = "<group>"; };
-		525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; path = Widgets/Harvest/AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift; sourceTree = "<group>"; };
-		525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaBarChartViewModelFromBillingStatsTests.swift; path = Widgets/Harvest/AreaBarChartViewModelFromBillingStatsTests.swift; sourceTree = "<group>"; };
+		525027781CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarvestWidgetViewModelTests.swift; path = Widgets/Harvest/HarvestWidgetViewModelTests.swift; sourceTree = "<group>"; };
 		5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BillingProjectListTests.swift; path = Widgets/Harvest/BillingProjectListTests.swift; sourceTree = "<group>"; };
 		5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyBillingStatsTests.swift; path = Widgets/Harvest/DailyBillingStatsTests.swift; sourceTree = "<group>"; };
 		526D1C641CE4B99700604174 /* SlackTimestampParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackTimestampParseTests.swift; path = Widgets/Slack/SlackTimestampParseTests.swift; sourceTree = "<group>"; };
@@ -331,6 +311,10 @@
 		52873E6B1CB662F300C24E13 /* APIDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataProviderTests.swift; sourceTree = "<group>"; };
 		528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleChartViewTests.swift; path = Widgets/Harvest/CircleChartViewTests.swift; sourceTree = "<group>"; };
 		529CEF031CEC580800636A4A /* CircleChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleChartViewModel.swift; sourceTree = "<group>"; };
+		529CEF091CEC6A2100636A4A /* HarvestWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HarvestWidgetView.xib; sourceTree = "<group>"; };
+		529CEF141CEC9A5B00636A4A /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		529CEF161CECA50300636A4A /* HarvestWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetView.swift; sourceTree = "<group>"; };
+		529CEF181CECC35600636A4A /* UIColor+BillingColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+BillingColor.swift"; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -356,14 +340,12 @@
 		F91F007A1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetSettings.swift; sourceTree = "<group>"; };
 		F91F007C1CBBDF2200DAAA77 /* TokenRefreshCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenRefreshCredentials.swift; sourceTree = "<group>"; };
 		F928B82D1CC52F77006D0332 /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
-		F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartViewModel+FromBillingStats.swift"; sourceTree = "<group>"; };
 		F9C88F1F1CBD3C4200E81A14 /* HarvestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestAPI.swift; sourceTree = "<group>"; };
 		F9C88F2D1CBE991C00E81A14 /* BillingStatsGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingStatsGroup.swift; sourceTree = "<group>"; };
 		F9C88F2E1CBE991C00E81A14 /* DailyBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStats.swift; sourceTree = "<group>"; };
 		F9C88F391CBFC36900E81A14 /* BillingStatsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingStatsFetcher.swift; sourceTree = "<group>"; };
 		F9C88F3B1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyBillingStatsFetcher.swift; sourceTree = "<group>"; };
 		F9C88F3D1CBFC72100E81A14 /* AccessTokenFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenFetcher.swift; sourceTree = "<group>"; };
-		F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AreaBarChartComponentViewModel+FromDailyBillingStats.swift"; sourceTree = "<group>"; };
 		F9E920881CC5421200BC7994 /* BillingProjectListFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingProjectListFetcher.swift; sourceTree = "<group>"; };
 		F9E9208A1CC543CD00BC7994 /* BillingProjectList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingProjectList.swift; sourceTree = "<group>"; };
 		F9E9208E1CC54A9400BC7994 /* DailyUserBillingStatsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyUserBillingStatsFetcher.swift; sourceTree = "<group>"; };
@@ -475,18 +457,11 @@
 		1A1DBC6D1CBFBC07003DA40C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1A1DBC781CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift */,
-				1A1DBC6E1CBFBC07003DA40C /* AreaBarChartView.swift */,
-				1A1DBC6F1CBFBC07003DA40C /* AreaBarChartView.xib */,
-				1A1DBC701CBFBC07003DA40C /* AreaBarChartViewModel.swift */,
-				1A1DBC711CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib */,
-				1A1DBC721CBFBC07003DA40C /* AreaBarStackView.swift */,
-				1A1DBC7A1CC0F79D003DA40C /* ComponentChartView.xib */,
-				1A1DBC7C1CC0F7E9003DA40C /* ComponentChartView.swift */,
-				F9365D4D1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift */,
-				F9E237FD1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift */,
+				529CEF141CEC9A5B00636A4A /* CircleView.swift */,
 				C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */,
 				529CEF031CEC580800636A4A /* CircleChartViewModel.swift */,
+				529CEF161CECA50300636A4A /* HarvestWidgetView.swift */,
+				529CEF091CEC6A2100636A4A /* HarvestWidgetView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -939,6 +914,7 @@
 				1A1DBC6D1CBFBC07003DA40C /* View */,
 				F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */,
 				F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */,
+				529CEF181CECC35600636A4A /* UIColor+BillingColor.swift */,
 			);
 			path = Harvest;
 			sourceTree = "<group>";
@@ -946,10 +922,7 @@
 		F91F006A1CBBCFFD00DAAA77 /* Harvest */ = {
 			isa = PBXGroup;
 			children = (
-				5250276F1CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift */,
-				525027771CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift */,
-				525027781CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift */,
-				525027791CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift */,
+				525027781CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift */,
 				5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */,
 				5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */,
 				528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */,
@@ -1083,16 +1056,15 @@
 				1A60367E1C7F161D0034EFE9 /* SF-UI-Text-Bold.otf in Resources */,
 				1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */,
 				1A6036831C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf in Resources */,
-				1A1DBC7B1CC0F79D003DA40C /* ComponentChartView.xib in Resources */,
 				1A6036801C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf in Resources */,
 				494B68CD1C92E89A00D460B0 /* BonusWidgetView.xib in Resources */,
+				529CEF0A1CEC6A2200636A4A /* HarvestWidgetView.xib in Resources */,
 				067DA55F1CBFA98F00048E6A /* TableViewCell.xib in Resources */,
 				1A6036811C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				1A6036871C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */,
 				1A6036791C7F161D0034EFE9 /* SF-UI-Display-Medium.otf in Resources */,
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
-				1A1DBC761CBFBC07003DA40C /* AreaBarDashedLineWithLabel.xib in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
 				1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */,
 				1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */,
@@ -1105,7 +1077,6 @@
 				1A6036841C7F161D0034EFE9 /* SF-UI-Text-Medium.otf in Resources */,
 				1A60367C1C7F161D0034EFE9 /* SF-UI-Display-Thin.otf in Resources */,
 				1A60367F1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf in Resources */,
-				1A1DBC741CBFBC07003DA40C /* AreaBarChartView.xib in Resources */,
 				1A60367B1C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf in Resources */,
 				1A60367A1C7F161D0034EFE9 /* SF-UI-Display-Regular.otf in Resources */,
 				1A60367D1C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf in Resources */,
@@ -1259,7 +1230,6 @@
 				1AD5EAAA1C7D2E3B00210BB9 /* WatchWidgetViewModel.swift in Sources */,
 				526FC24A1CD0E1A700D7843A /* Repository.swift in Sources */,
 				F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */,
-				F9E237FE1CC4D68300EDF2EE /* AreaBarChartComponentViewModel+FromDailyBillingStats.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
 				F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */,
 				52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */,
@@ -1267,6 +1237,7 @@
 				067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift in Sources */,
 				C14EA2E91CEA605D00961DF6 /* CircleChartView.swift in Sources */,
 				52FB50751CBF9B210053DE8B /* AnalyticsReport.swift in Sources */,
+				529CEF171CECA50300636A4A /* HarvestWidgetView.swift in Sources */,
 				1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
 				062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */,
@@ -1276,7 +1247,6 @@
 				494B68E31C92E97900D460B0 /* UIImage.swift in Sources */,
 				526FC2431CD0ADF300D7843A /* GitHubDataProvider.swift in Sources */,
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
-				1A1DBC7D1CC0F7E9003DA40C /* ComponentChartView.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
@@ -1286,16 +1256,13 @@
 				065588D11CC5001300BF2DF9 /* Dictionary.swift in Sources */,
 				52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
-				1A1DBC751CBFBC07003DA40C /* AreaBarChartViewModel.swift in Sources */,
 				1AC247BE1C83517600A179CB /* Storyboards.swift in Sources */,
 				527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */,
 				F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
-				1A1DBC731CBFBC07003DA40C /* AreaBarChartView.swift in Sources */,
 				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
 				520B7A671CE38B68005F53EC /* String.swift in Sources */,
 				520B7A631CE37B56005F53EC /* SlackWidgetBuilder.swift in Sources */,
-				1A1DBC791CBFBC2C003DA40C /* AreaBarDashedLineWithLabel.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				520B7A611CE37B3F005F53EC /* SlackWidgetSettings.swift in Sources */,
 				1AD5EA9F1C7C6DE300210BB9 /* TimeSource.swift in Sources */,
@@ -1306,7 +1273,6 @@
 				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				067DA5561CBF829A00048E6A /* TableWidgetView.swift in Sources */,
-				F9365D4E1CC110C9005AF93A /* AreaBarChartViewModel+FromBillingStats.swift in Sources */,
 				494B68E21C92E97900D460B0 /* Range.swift in Sources */,
 				520B7A651CE37C08005F53EC /* SlackMessagesWidget.swift in Sources */,
 				52FB50601CBE5B570053DE8B /* SourceSettings.swift in Sources */,
@@ -1325,7 +1291,7 @@
 				526D1C671CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
-				1A1DBC771CBFBC07003DA40C /* AreaBarStackView.swift in Sources */,
+				529CEF191CECC35600636A4A /* UIColor+BillingColor.swift in Sources */,
 				529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
@@ -1342,6 +1308,7 @@
 				F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
+				529CEF151CEC9A5B00636A4A /* CircleView.swift in Sources */,
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
 				527FA0631CC4D742004614B8 /* WebsiteAnalyticsSettings.swift in Sources */,
@@ -1354,7 +1321,6 @@
 			files = (
 				52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */,
 				52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */,
-				5250277C1CDCE92E00DFE32A /* AreaBarChartComponentViewModel+Equatable.swift in Sources */,
 				52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */,
 				5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */,
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
@@ -1365,13 +1331,11 @@
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1AB810F31CCA5DD800E3A430 /* ConfigurationRefresherTests.swift in Sources */,
 				5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */,
-				525027701CDCE8C400DFE32A /* AreaBarChartViewModelTests.swift in Sources */,
 				526FC25F1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
-				5250277D1CDCE92E00DFE32A /* AreaBarChartComponentViewModelFromDailyBillingStatsTests.swift in Sources */,
+				5250277D1CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift in Sources */,
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
-				5250277E1CDCE92E00DFE32A /* AreaBarChartViewModelFromBillingStatsTests.swift in Sources */,
 				526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */,
 				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,

@@ -11,7 +11,8 @@ import GCBCore
 
 final class HarvestWidget: WidgetControlling {
 
-    private let widgetView: AreaBarChartView
+    private let widgetView = HarvestWidgetView.fromNib()
+    private let numberOfDays: Int
 
     let sources: [UpdatingSource]
 
@@ -19,13 +20,20 @@ final class HarvestWidget: WidgetControlling {
         return widgetView
     }
 
-    init(view: AreaBarChartView, sources: [UpdatingSource]) {
-        self.widgetView = view
-        self.sources = sources
+    init(source: HarvestSource, numberOfDays: Int) {
+        self.sources = [source]
+        self.numberOfDays = numberOfDays
+
+        let emptyCircleChartModel = CircleChartViewModel(items: [CircleChartItem(color: UIColor.gcb_blackColor(), ratio: 1.0)])
+        let emptyWidgetViewModel = HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
+                                                          lastNDaysChartModel: emptyCircleChartModel,
+                                                          numberOfLastDays: numberOfDays)
+        widgetView.configureWithViewModel(emptyWidgetViewModel)
+
+        widgetView.startAnimatingActivityIndicator()
     }
 
     func update(source: UpdatingSource) {
-
         guard let source = source as? HarvestSource else {
             fatalError("Expected `source` as instance of `HarvestSource`.")
         }
@@ -36,13 +44,14 @@ final class HarvestWidget: WidgetControlling {
     }
 
     func updateViewWithResult(result: HarvestSource.ResultType) {
+        widgetView.stopAnimatingActivityIndicator()
+
         switch result {
         case .Success(let billingStats):
-            let model = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
-            widgetView.render(model)
-
-        case .Failure:
-            widgetView.failure()
+            let model = HarvestWidgetViewModel.viewModelFromBillingStats(billingStats)
+            widgetView.configureWithViewModel(model)
+        case .Failure: break
         }
+
     }
 }
