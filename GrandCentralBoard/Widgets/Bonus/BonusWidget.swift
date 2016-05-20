@@ -10,7 +10,7 @@ final class BonusWidget: WidgetControlling {
 
     private let widgetView: BonusWidgetView
     private let widgetViewWrapper: UIView
-    
+
     let sources: [UpdatingSource]
     let bubbleResizeDuration: NSTimeInterval
     let numberOfBubbles: Int
