@@ -68,7 +68,6 @@ final class ImageWidget: WidgetControlling {
                 self?.widgetView.render(imageViewModel)
             case .Failure:
                 self?.showErrorView()
-                break
             }
         }
     }
