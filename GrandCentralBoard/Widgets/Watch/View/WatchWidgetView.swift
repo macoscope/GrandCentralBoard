@@ -51,6 +51,8 @@ final class WatchWidgetView: UIView, ViewModelRendering {
             removeFailureView()
             setUpLabelsWithViewModel(viewModel)
             setUpImagesWithViewModel(viewModel)
+        case (.Failed?, .Failed):
+            break
         case (_, .Failed):
             showFailureView()
         default:
@@ -69,9 +71,14 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     }
 
     private func showFailureView() {
+        guard self.failureView == nil else {
+            return
+        }
+
         let errorViewModel = WidgetErrorTemplateViewModel(title: "Clock & Calendar".localized.uppercaseString,
                                                           subtitle: "Error".localized.uppercaseString)
         let failureView = WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
+        self.failureView = failureView
         fillViewWithView(failureView, animated: false)
     }
 
