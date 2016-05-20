@@ -13,12 +13,11 @@ final class HarvestSource: Asynchronous {
     typealias ResultType = Result<[DailyBillingStats]>
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
-    let harvestAPI: HarvestAPI
+    let harvestAPI: HarvestAPIProviding
 
-    init(settings: HarvestWidgetSettings) {
-        self.harvestAPI = HarvestAPI(account: settings.account, refreshCredentials: settings.refreshCredentials,
-                                     downloader: settings.downloader, numberOfDaysToFetch: settings.numberOfDays)
-        self.interval = settings.refreshInterval
+    init(apiProvider: HarvestAPIProviding, refreshInterval: NSTimeInterval) {
+        harvestAPI = apiProvider
+        interval = refreshInterval
     }
 
     func read(callback: (ResultType) -> Void) {

@@ -14,7 +14,9 @@ final class HarvestWidgetBuilder: WidgetBuilding {
 
     func build(json: AnyObject) throws -> WidgetControlling {
         let settings = try HarvestWidgetSettings.decode(json)
-        let source = HarvestSource(settings: settings)
+        let harvestAPI = HarvestAPI(account: settings.account, refreshCredentials: settings.refreshCredentials,
+                                     downloader: settings.downloader, numberOfDaysToFetch: settings.numberOfDays)
+        let source = HarvestSource(apiProvider: harvestAPI, refreshInterval: settings.refreshInterval)
 
         return HarvestWidget(source: source, numberOfDays: settings.numberOfDays)
     }

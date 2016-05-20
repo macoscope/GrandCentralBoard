@@ -9,7 +9,13 @@
 import GCBCore
 import GCBUtilities
 
-final class HarvestAPI {
+
+protocol HarvestAPIProviding {
+    func fetchBillingStats(completion: (Result<[DailyBillingStats]>) -> Void)
+    func refreshTokenIfNeeded(completion: (Result<AccessToken>) -> Void)
+}
+
+final class HarvestAPI: HarvestAPIProviding {
     let account: String
     let refreshCredentials: TokenRefreshCredentials
     let downloader: NetworkRequestManager
