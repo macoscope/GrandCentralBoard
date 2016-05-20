@@ -37,12 +37,12 @@ final class RemoteImageSource: Asynchronous {
 
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
-    let dataDownloader: DataDownloader
+    let dataDownloader: DataDownloading
 
     private let paths: [String]
     private var counter: Counter
 
-    init(paths: [String], dataDownloader: DataDownloader, interval: NSTimeInterval = 30) throws {
+    init(paths: [String], dataDownloader: DataDownloading, interval: NSTimeInterval = 30) throws {
         guard paths.count > 0 else {
             throw RemoteImageSourceError.EmptyURLList
         }
