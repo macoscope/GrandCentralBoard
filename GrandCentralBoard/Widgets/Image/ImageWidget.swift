@@ -12,6 +12,12 @@ final class ImageWidget: WidgetControlling {
     private let widgetView: ImageWidgetView
     private let mainView: UIView
 
+    private lazy var errorView: UIView = {
+        let errorViewModel = WidgetErrorTemplateViewModel(title: "Cat Photos".uppercaseString,
+                                                          subtitle: "Error".localized.uppercaseString)
+        return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
+    }()
+
     let sources: [UpdatingSource]
     let isHeaderVisible: Bool
 
@@ -21,7 +27,9 @@ final class ImageWidget: WidgetControlling {
         self.isHeaderVisible = isHeaderVisible
 
         if isHeaderVisible {
-            let viewModel = WidgetTemplateViewModel(title: "CAT PHOTOS", subtitle: "NEWEST CAT PROFILES", contentView: widgetView)
+            let viewModel = WidgetTemplateViewModel(title: "Cat Photos".uppercaseString,
+                                                    subtitle: "Newest Cat Profiles".uppercaseString,
+                                                    contentView: widgetView)
             let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
             mainView = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
         } else {
@@ -31,6 +39,15 @@ final class ImageWidget: WidgetControlling {
 
     var view: UIView {
         return mainView
+    }
+
+    private func showErrorView() {
+        guard !view.subviews.contains(errorView) else { return }
+        view.fillViewWithView(errorView, animated: false)
+    }
+
+    private func removeErrorView() {
+        errorView.removeFromSuperview()
     }
 
     func update(source: UpdatingSource) {
@@ -45,11 +62,13 @@ final class ImageWidget: WidgetControlling {
     private func updateImageFromSource(source: RemoteImageSource) {
         source.read { [weak self] result in
             switch result {
-                case .Success(let image):
-                    let imageViewModel = ImageViewModel(image: image)
-                    self?.widgetView.render(imageViewModel)
-                case .Failure:
-                    break
+            case .Success(let image):
+                self?.removeErrorView()
+                let imageViewModel = ImageViewModel(image: image)
+                self?.widgetView.render(imageViewModel)
+            case .Failure:
+                self?.showErrorView()
+                break
             }
         }
     }
