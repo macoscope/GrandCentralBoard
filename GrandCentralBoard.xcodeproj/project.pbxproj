@@ -136,6 +136,7 @@
 		529CEF171CECA50300636A4A /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF161CECA50300636A4A /* HarvestWidgetView.swift */; };
 		529CEF191CECC35600636A4A /* UIColor+BillingColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF181CECC35600636A4A /* UIColor+BillingColor.swift */; };
 		52B9C3CE1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9C3CD1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift */; };
+		52B9C3D01CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9C3CF1CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
@@ -317,6 +318,7 @@
 		529CEF161CECA50300636A4A /* HarvestWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetView.swift; sourceTree = "<group>"; };
 		529CEF181CECC35600636A4A /* UIColor+BillingColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+BillingColor.swift"; sourceTree = "<group>"; };
 		52B9C3CD1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchWidgetSnapshotTests.swift; path = Widgets/Watch/WatchWidgetSnapshotTests.swift; sourceTree = "<group>"; };
+		52B9C3CF1CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarvestWidgetViewSnapshotTests.swift; path = Widgets/Harvest/HarvestWidgetViewSnapshotTests.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -929,6 +931,7 @@
 				5250277A1CDCE92E00DFE32A /* BillingProjectListTests.swift */,
 				5250277B1CDCE92E00DFE32A /* DailyBillingStatsTests.swift */,
 				528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */,
+				52B9C3CF1CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift */,
 				F91C41C51CC5963F00F834B3 /* Fixtures */,
 			);
 			name = Harvest;
@@ -1334,6 +1337,7 @@
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1AB810F31CCA5DD800E3A430 /* ConfigurationRefresherTests.swift in Sources */,
 				5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */,
+				52B9C3D01CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift in Sources */,
 				52B9C3CE1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift in Sources */,
 				526FC25F1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
