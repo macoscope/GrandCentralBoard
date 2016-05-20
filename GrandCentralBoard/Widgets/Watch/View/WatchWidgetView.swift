@@ -14,8 +14,6 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     @IBOutlet private weak var alignedTimeLabel: UILabel!
     @IBOutlet private weak var eventLabel: UILabel!
 
-    private weak var failureView: UIView?
-
     // MARK - ViewModelRendering
 
     typealias ViewModel = WatchWidgetViewModel
