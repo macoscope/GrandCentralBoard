@@ -13,7 +13,6 @@ final class HarvestWidget: WidgetControlling {
 
     private let widgetView: HarvestWidgetView
     private let widgetViewWrapper: WidgetTemplateView
-    private let mainView: UIView
 
     private lazy var errorView: UIView = {
         let errorViewModel = WidgetErrorTemplateViewModel(title: "HARVEST",
@@ -22,7 +21,7 @@ final class HarvestWidget: WidgetControlling {
     }()
 
     var view: UIView {
-        return mainView
+        return widgetViewWrapper
     }
     private let numberOfDays: Int
 
@@ -45,15 +44,12 @@ final class HarvestWidget: WidgetControlling {
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
         widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
 
-        mainView = UIView()
-        mainView.fillViewWithView(widgetViewWrapper, animated: false)
-
         widgetView.startAnimatingActivityIndicator()
     }
 
     private func renderErrorView() {
-        guard !mainView.subviews.contains(errorView) else { return }
-        mainView.fillViewWithView(errorView, animated: false)
+        guard !view.subviews.contains(errorView) else { return }
+        view.fillViewWithView(errorView, animated: false)
     }
 
     private func removeErrorView() {
