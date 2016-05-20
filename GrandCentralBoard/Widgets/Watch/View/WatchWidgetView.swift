@@ -48,13 +48,8 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
         case (_, .Rendering(let viewModel)):
-            removeFailureView()
             setUpLabelsWithViewModel(viewModel)
             setUpImagesWithViewModel(viewModel)
-        case (.Failed?, .Failed):
-            break
-        case (_, .Failed):
-            showFailureView()
         default:
             break
         }
@@ -69,23 +64,6 @@ final class WatchWidgetView: UIView, ViewModelRendering {
         alignedTimeLabel.animateTextTransition(viewModel.alignedTimeText)
         eventLabel.attributedText = viewModel.eventText
     }
-
-    private func showFailureView() {
-        guard self.failureView == nil else {
-            return
-        }
-
-        let errorViewModel = WidgetErrorTemplateViewModel(title: "Clock & Calendar".localized.uppercaseString,
-                                                          subtitle: "Error".localized.uppercaseString)
-        let failureView = WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
-        self.failureView = failureView
-        fillViewWithView(failureView, animated: false)
-    }
-
-    private func removeFailureView() {
-        failureView?.removeFromSuperview()
-    }
-
 
     // MARK - fromNib
 
