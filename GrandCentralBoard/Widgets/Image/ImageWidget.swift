@@ -13,7 +13,7 @@ final class ImageWidget: WidgetControlling {
     private let mainView: UIView
 
     private lazy var errorView: UIView = {
-        let errorViewModel = WidgetErrorTemplateViewModel(title: "Cat Photos".uppercaseString,
+        let errorViewModel = WidgetErrorTemplateViewModel(title: "Photos".uppercaseString,
                                                           subtitle: "Error".localized.uppercaseString)
         return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
     }()
@@ -27,7 +27,7 @@ final class ImageWidget: WidgetControlling {
         self.isHeaderVisible = isHeaderVisible
 
         if isHeaderVisible {
-            let viewModel = WidgetTemplateViewModel(title: "Cat Photos".uppercaseString,
+            let viewModel = WidgetTemplateViewModel(title: "Photos".uppercaseString,
                                                     subtitle: "Newest Cat Profiles".uppercaseString,
                                                     contentView: widgetView)
             let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
