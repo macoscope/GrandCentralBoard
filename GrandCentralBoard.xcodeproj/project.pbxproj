@@ -138,6 +138,8 @@
 		52B9C3CE1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9C3CD1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift */; };
 		52B9C3D01CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9C3CF1CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift */; };
 		52B9C3D21CEF301200EE6BD0 /* HarvestWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9C3D11CEF301200EE6BD0 /* HarvestWidgetSnapshotTests.swift */; };
+		52B9C3D51CEF38D500EE6BD0 /* ImageWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9C3D41CEF38D500EE6BD0 /* ImageWidgetSnapshotTests.swift */; };
+		52B9C3D71CEF39B200EE6BD0 /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 52B9C3D61CEF39B200EE6BD0 /* cat.jpeg */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
@@ -321,6 +323,8 @@
 		52B9C3CD1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchWidgetSnapshotTests.swift; path = Widgets/Watch/WatchWidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		52B9C3CF1CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarvestWidgetViewSnapshotTests.swift; path = Widgets/Harvest/HarvestWidgetViewSnapshotTests.swift; sourceTree = "<group>"; };
 		52B9C3D11CEF301200EE6BD0 /* HarvestWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarvestWidgetSnapshotTests.swift; path = Widgets/Harvest/HarvestWidgetSnapshotTests.swift; sourceTree = "<group>"; };
+		52B9C3D41CEF38D500EE6BD0 /* ImageWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWidgetSnapshotTests.swift; path = Widgets/Image/ImageWidgetSnapshotTests.swift; sourceTree = "<group>"; };
+		52B9C3D61CEF39B200EE6BD0 /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpeg; path = Widgets/Image/cat.jpeg; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -439,6 +443,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				52B9C3D31CEF38C300EE6BD0 /* Image */,
 				520B7A6A1CE4A969005F53EC /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
 				52FB507B1CBF9BAF0053DE8B /* WebsiteAnalytics */,
@@ -846,6 +851,15 @@
 			name = DataProvider;
 			sourceTree = "<group>";
 		};
+		52B9C3D31CEF38C300EE6BD0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				52B9C3D61CEF39B200EE6BD0 /* cat.jpeg */,
+				52B9C3D41CEF38D500EE6BD0 /* ImageWidgetSnapshotTests.swift */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
 		52FB50491CBB93030053DE8B /* Watch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,6 +1124,7 @@
 				526FC2621CD365EF00D7843A /* UpdatesTests.json in Resources */,
 				1A4616B31C90534500361B2E /* configurationBrokenJSON.json in Resources */,
 				525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */,
+				52B9C3D71CEF39B200EE6BD0 /* cat.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,6 +1347,7 @@
 				52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */,
 				52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */,
 				52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */,
+				52B9C3D51CEF38D500EE6BD0 /* ImageWidgetSnapshotTests.swift in Sources */,
 				5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */,
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
 				520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */,
