@@ -42,8 +42,8 @@ extension HarvestWidgetViewModel {
                                           numberOfLastDays: stats.count)
         }
 
-        let lastDayChartViewModel = CircleChartViewModel.chartViewModelFromBillingStats(lastDayStats)
-        let lastNDaysChartViewModel = CircleChartViewModel.chartViewModelFromMultipleBillingStats(stats)
+        let lastDayChartViewModel = CircleChartViewModel.chartViewModelFromBillingStats([lastDayStats])
+        let lastNDaysChartViewModel = CircleChartViewModel.chartViewModelFromBillingStats(stats)
         return HarvestWidgetViewModel(lastDayChartModel: lastDayChartViewModel,
                                       lastNDaysChartModel: lastNDaysChartViewModel,
                                       numberOfLastDays: stats.count)
