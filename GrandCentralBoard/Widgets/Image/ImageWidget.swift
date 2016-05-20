@@ -10,7 +10,7 @@ import GCBCore
 final class ImageWidget: WidgetControlling {
 
     private let widgetView: ImageWidgetView
-    private let widgetViewWrapper: UIView
+    private let mainView: UIView
 
     let sources: [UpdatingSource]
     let isHeaderVisible: Bool
@@ -20,14 +20,17 @@ final class ImageWidget: WidgetControlling {
         self.sources = sources
         self.isHeaderVisible = isHeaderVisible
 
-        let viewModel = WidgetTemplateViewModel(title: "CAT PHOTOS", subtitle: "NEWEST CAT PROFILES", contentView: widgetView)
-        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
-        widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
+        if isHeaderVisible {
+            let viewModel = WidgetTemplateViewModel(title: "CAT PHOTOS", subtitle: "NEWEST CAT PROFILES", contentView: widgetView)
+            let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
+            mainView = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
+        } else {
+            mainView = widgetView
+        }
     }
 
     var view: UIView {
-        guard isHeaderVisible else { return widgetView }
-        return widgetViewWrapper
+        return mainView
     }
 
     func update(source: UpdatingSource) {
