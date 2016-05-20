@@ -14,7 +14,6 @@ final class WatchWidgetView: UIView, ViewModelRendering {
     @IBOutlet private weak var alignedTimeLabel: UILabel!
     @IBOutlet private weak var eventLabel: UILabel!
 
-
     // MARK - ViewModelRendering
 
     typealias ViewModel = WatchWidgetViewModel
@@ -46,11 +45,11 @@ final class WatchWidgetView: UIView, ViewModelRendering {
 
     private func handleTransitionFromState(state: RenderingState<ViewModel>?, toState: RenderingState<ViewModel>) {
         switch (state, toState) {
-            case (_, .Rendering(let viewModel)):
-                setUpLabelsWithViewModel(viewModel)
-                setUpImagesWithViewModel(viewModel)
-            default:
-                break
+        case (_, .Rendering(let viewModel)):
+            setUpLabelsWithViewModel(viewModel)
+            setUpImagesWithViewModel(viewModel)
+        default:
+            break
         }
     }
 
@@ -63,7 +62,6 @@ final class WatchWidgetView: UIView, ViewModelRendering {
         alignedTimeLabel.animateTextTransition(viewModel.alignedTimeText)
         eventLabel.attributedText = viewModel.eventText
     }
-
 
     // MARK - fromNib
 

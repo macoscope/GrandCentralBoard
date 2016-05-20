@@ -135,6 +135,7 @@
 		529CEF151CEC9A5B00636A4A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF141CEC9A5B00636A4A /* CircleView.swift */; };
 		529CEF171CECA50300636A4A /* HarvestWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF161CECA50300636A4A /* HarvestWidgetView.swift */; };
 		529CEF191CECC35600636A4A /* UIColor+BillingColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CEF181CECC35600636A4A /* UIColor+BillingColor.swift */; };
+		52B9C3CE1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B9C3CD1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift */; };
 		52FB504B1CBB94470053DE8B /* CalendarDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */; };
 		52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */; };
 		52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50571CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift */; };
@@ -315,6 +316,7 @@
 		529CEF141CEC9A5B00636A4A /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		529CEF161CECA50300636A4A /* HarvestWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetView.swift; sourceTree = "<group>"; };
 		529CEF181CECC35600636A4A /* UIColor+BillingColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+BillingColor.swift"; sourceTree = "<group>"; };
+		52B9C3CD1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatchWidgetSnapshotTests.swift; path = Widgets/Watch/WatchWidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataProviderTests.swift; sourceTree = "<group>"; };
 		52FB504F1CBC051B0053DE8B /* JSONCalendarDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCalendarDataProvider.swift; sourceTree = "<group>"; };
 		52FB50551CBD2E4B0053DE8B /* EventsSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsSource.swift; sourceTree = "<group>"; };
@@ -845,6 +847,7 @@
 			children = (
 				52FB504A1CBB94470053DE8B /* CalendarDataProviderTests.swift */,
 				5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */,
+				52B9C3CD1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift */,
 			);
 			name = Watch;
 			sourceTree = "<group>";
@@ -1331,6 +1334,7 @@
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1AB810F31CCA5DD800E3A430 /* ConfigurationRefresherTests.swift in Sources */,
 				5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */,
+				52B9C3CE1CEE057E00EE6BD0 /* WatchWidgetSnapshotTests.swift in Sources */,
 				526FC25F1CD365E300D7843A /* PeopleWithBonusesFetchControllerTests.swift in Sources */,
 				1A4616A21C8DF99D00361B2E /* SchedulerTests.swift in Sources */,
 				5250277D1CDCE92E00DFE32A /* HarvestWidgetViewModelTests.swift in Sources */,
