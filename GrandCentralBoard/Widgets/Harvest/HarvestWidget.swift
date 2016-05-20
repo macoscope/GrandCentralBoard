@@ -11,13 +11,15 @@ import GCBCore
 
 final class HarvestWidget: WidgetControlling {
 
-    private let widgetView = HarvestWidgetView.fromNib()
+    private let widgetView: HarvestWidgetView
+    private let widgetViewWrapper: WidgetTemplateView
+
     private let numberOfDays: Int
 
     let sources: [UpdatingSource]
 
     var view: UIView {
-        return widgetView
+        return widgetViewWrapper
     }
 
     init(source: HarvestSource, numberOfDays: Int) {
@@ -28,7 +30,14 @@ final class HarvestWidget: WidgetControlling {
         let emptyWidgetViewModel = HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
                                                           lastNDaysChartModel: emptyCircleChartModel,
                                                           numberOfLastDays: numberOfDays)
+        widgetView = HarvestWidgetView.fromNib()
         widgetView.configureWithViewModel(emptyWidgetViewModel)
+
+        let viewModel = WidgetTemplateViewModel(title: "HARVEST",
+                                                subtitle: "USERS BILLED HOURS REPORT".localized.uppercaseString,
+                                                contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
+        widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
 
         widgetView.startAnimatingActivityIndicator()
     }
