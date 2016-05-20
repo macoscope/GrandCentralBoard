@@ -25,13 +25,16 @@ struct DayEntry: Decodable {
 
 private struct Day: Decodable {
     let date: NSDate
-
-    static func decode(json: AnyObject) throws -> Day {
+    private static let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
 
-        guard let date = formatter.dateFromString(try String.decode(json)) else {
+    static func decode(json: AnyObject) throws -> Day {
+
+        guard let date = Day.dateFormatter.dateFromString(try String.decode(json)) else {
             throw RawRepresentableInitializationError(type: self, rawValue: json, object: json)
         }
 

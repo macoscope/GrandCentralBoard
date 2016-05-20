@@ -12,14 +12,10 @@ enum BillingStatsGroupType: Int {
     case More
 
     static func typeForHours(hours: Double) -> BillingStatsGroupType {
-        if hours < 6.3 {
-            return .Less
-
-        } else if hours < 6.7 {
-            return .Normal
-
-        } else {
-            return .More
+        switch hours {
+        case 0 ..< 6.3: return .Less
+        case 6.3 ..< 6.7: return .Normal
+        default: return .More
         }
     }
 }
