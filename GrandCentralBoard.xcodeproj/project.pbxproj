@@ -149,6 +149,7 @@
 		52FB50811CBFB1660053DE8B /* ImageWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */; };
 		52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */; };
 		5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */; };
+		548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -331,6 +332,7 @@
 		52FB50801CBFB1660053DE8B /* ImageWidgetConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetConfiguration.swift; sourceTree = "<group>"; };
 		52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetBuilder.swift; sourceTree = "<group>"; };
 		5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModelTests.swift; sourceTree = "<group>"; };
+		548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -885,6 +887,7 @@
 			children = (
 				52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */,
 				52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */,
+				548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */,
 			);
 			name = WebsiteAnalytics;
 			sourceTree = "<group>";
@@ -1345,6 +1348,7 @@
 				52873E6C1CB662F300C24E13 /* APIDataProviderTests.swift in Sources */,
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
 				526FC24D1CD0E7C400D7843A /* GitHubDataProviderTests.swift in Sources */,
+				548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */,
 				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				49175CD41CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift in Sources */,
