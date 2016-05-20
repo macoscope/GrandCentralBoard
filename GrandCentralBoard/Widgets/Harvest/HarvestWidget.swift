@@ -33,7 +33,9 @@ final class HarvestWidget: WidgetControlling {
         widgetView = HarvestWidgetView.fromNib()
         widgetView.configureWithViewModel(emptyWidgetViewModel)
 
-        let viewModel = WidgetTemplateViewModel(title: "HARVEST", subtitle: "USERS BILLED HOURS REPORT", contentView: widgetView)
+        let viewModel = WidgetTemplateViewModel(title: "HARVEST",
+                                                subtitle: "USERS BILLED HOURS REPORT".localized.uppercaseString,
+                                                contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
         widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
 
