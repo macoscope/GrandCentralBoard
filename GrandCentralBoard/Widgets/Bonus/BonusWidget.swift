@@ -11,6 +11,11 @@ final class BonusWidget: WidgetControlling {
     private let widgetView: BonusWidgetView
     private let widgetViewWrapper: UIView
 
+    private let errorView: UIView = {
+        let viewModel = WidgetErrorTemplateViewModel(title: "BONUSLY", subtitle: "ERROR")
+        return WidgetTemplateView.viewWithErrorViewModel(viewModel)
+    }()
+
     let sources: [UpdatingSource]
     let bubbleResizeDuration: NSTimeInterval
     let numberOfBubbles: Int
@@ -43,12 +48,23 @@ final class BonusWidget: WidgetControlling {
         source.read { result in
             switch result {
                 case .Success(let people):
+                    self.hideErrorView()
                     let bonusViewModel = BonusWidgetViewModel(people: people, bubbleResizeDuration: self.bubbleResizeDuration)
                     self.widgetView.render(bonusViewModel)
                 case .Failure:
+                    self.displayErrorView()
                     self.widgetView.failure()
             }
         }
+    }
+
+    private func displayErrorView() {
+        guard !view.subviews.contains(errorView) else { return }
+        view.fillViewWithView(errorView, animated: false)
+    }
+
+    private func hideErrorView() {
+        errorView.removeFromSuperview()
     }
 
 }
