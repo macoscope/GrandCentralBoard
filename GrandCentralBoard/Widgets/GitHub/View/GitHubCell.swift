@@ -29,4 +29,8 @@ final class GitHubCell: UITableViewCell {
 
         circleView.color = viewModel.color
     }
+
+    class func fromNib() -> GitHubCell {
+        return NSBundle.mainBundle().loadNibNamed("GitHubCell", owner: nil, options: nil)[0] as! GitHubCell
+    }
 }

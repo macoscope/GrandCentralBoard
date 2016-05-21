@@ -23,6 +23,9 @@ final class EllipseView: UIView {
         let context = UIGraphicsGetCurrentContext()
         CGContextSetStrokeColorWithColor(context, color.CGColor)
         CGContextSetLineWidth(context, strokeWidth)
-        CGContextStrokeEllipseInRect(context, rect)
+
+        let margin = strokeWidth / 2
+        let strokedRect = CGRect(x: margin, y: margin, width: rect.width - margin * 2, height: rect.height - margin * 2)
+        CGContextStrokeEllipseInRect(context, strokedRect)
     }
 }
