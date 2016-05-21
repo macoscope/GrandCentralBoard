@@ -159,6 +159,9 @@
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
 		C14EA2E91CEA605D00961DF6 /* CircleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */; };
+		C14EA2EC1CF0728000961DF6 /* GitHubCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C14EA2EB1CF0728000961DF6 /* GitHubCell.xib */; };
+		C14EA2EE1CF072A500961DF6 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14EA2ED1CF072A500961DF6 /* GitHubCell.swift */; };
+		C14EA2F01CF0737000961DF6 /* EllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14EA2EF1CF0737000961DF6 /* EllipseView.swift */; };
 		F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */; };
 		F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */; };
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
@@ -349,6 +352,9 @@
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
 		C110E0D21CD778CB00B19DC6 /* pull_requests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pull_requests.json; path = Widgets/GitHub/pull_requests.json; sourceTree = "<group>"; };
 		C14EA2E81CEA605D00961DF6 /* CircleChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleChartView.swift; sourceTree = "<group>"; };
+		C14EA2EB1CF0728000961DF6 /* GitHubCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GitHubCell.xib; path = GitHub/GitHubCell.xib; sourceTree = "<group>"; };
+		C14EA2ED1CF072A500961DF6 /* GitHubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubCell.swift; path = GitHub/View/GitHubCell.swift; sourceTree = "<group>"; };
+		C14EA2EF1CF0737000961DF6 /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EllipseView.swift; path = GitHub/View/EllipseView.swift; sourceTree = "<group>"; };
 		DA60135A140C4D223A45E971 /* Pods-GrandCentralBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidget.swift; sourceTree = "<group>"; };
 		F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetBuilder.swift; sourceTree = "<group>"; };
@@ -802,6 +808,7 @@
 		526FC2411CD0ADCC00D7843A /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
+				C14EA2EA1CF061E500961DF6 /* View */,
 				526FC2441CD0D65F00D7843A /* Model */,
 				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
 			);
@@ -912,6 +919,16 @@
 				548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */,
 			);
 			name = WebsiteAnalytics;
+			sourceTree = "<group>";
+		};
+		C14EA2EA1CF061E500961DF6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C14EA2EB1CF0728000961DF6 /* GitHubCell.xib */,
+				C14EA2ED1CF072A500961DF6 /* GitHubCell.swift */,
+				C14EA2EF1CF0737000961DF6 /* EllipseView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		C4243D059EF59590F1F37DB2 /* Pods */ = {
@@ -1093,6 +1110,7 @@
 				529CEF0A1CEC6A2200636A4A /* HarvestWidgetView.xib in Resources */,
 				067DA55F1CBFA98F00048E6A /* TableViewCell.xib in Resources */,
 				1A6036811C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf in Resources */,
+				C14EA2EC1CF0728000961DF6 /* GitHubCell.xib in Resources */,
 				1A6036871C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */,
 				1A6036791C7F161D0034EFE9 /* SF-UI-Display-Medium.otf in Resources */,
@@ -1272,6 +1290,7 @@
 				52FB50751CBF9B210053DE8B /* AnalyticsReport.swift in Sources */,
 				529CEF171CECA50300636A4A /* HarvestWidgetView.swift in Sources */,
 				1AEE4C081CC52E30000CC88D /* PageViewsRowReport.swift in Sources */,
+				C14EA2F01CF0737000961DF6 /* EllipseView.swift in Sources */,
 				06684F2C1CB788FB00B93D90 /* PaginatableRequestTemplate.swift in Sources */,
 				062B00931CBA9EF10034C13C /* WrappingRequestTemplate.swift in Sources */,
 				494B68D21C92E89A00D460B0 /* Bubble.swift in Sources */,
@@ -1283,6 +1302,7 @@
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
+				C14EA2EE1CF072A500961DF6 /* GitHubCell.swift in Sources */,
 				1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				F9E920911CC54BF000BC7994 /* NSDate+StringWithFormat.swift in Sources */,
