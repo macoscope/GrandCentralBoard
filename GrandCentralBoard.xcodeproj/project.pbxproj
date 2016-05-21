@@ -163,6 +163,8 @@
 		C14EA2F01CF0737000961DF6 /* EllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14EA2EF1CF0737000961DF6 /* EllipseView.swift */; };
 		C1719D551CF07A0C009B52BA /* GitHubCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D541CF07A0C009B52BA /* GitHubCellSnapshotTests.swift */; };
 		C1719D571CF07A2B009B52BA /* GitHubDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D561CF07A2B009B52BA /* GitHubDataProviderTests.swift */; };
+		C1719D591CF09124009B52BA /* GitHubWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D581CF09124009B52BA /* GitHubWidget.swift */; };
+		C1719D5B1CF099E8009B52BA /* GitHubTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */; };
 		F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */; };
 		F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */; };
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
@@ -357,6 +359,8 @@
 		C14EA2EF1CF0737000961DF6 /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EllipseView.swift; path = GitHub/View/EllipseView.swift; sourceTree = "<group>"; };
 		C1719D541CF07A0C009B52BA /* GitHubCellSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubCellSnapshotTests.swift; path = Widgets/GitHub/GitHubCellSnapshotTests.swift; sourceTree = "<group>"; };
 		C1719D561CF07A2B009B52BA /* GitHubDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubDataProviderTests.swift; path = Widgets/GitHub/GitHubDataProviderTests.swift; sourceTree = "<group>"; };
+		C1719D581CF09124009B52BA /* GitHubWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidget.swift; path = GitHub/View/GitHubWidget.swift; sourceTree = "<group>"; };
+		C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubTableDataSource.swift; path = GitHub/GitHubTableDataSource.swift; sourceTree = "<group>"; };
 		DA60135A140C4D223A45E971 /* Pods-GrandCentralBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidget.swift; sourceTree = "<group>"; };
 		F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetBuilder.swift; sourceTree = "<group>"; };
@@ -810,9 +814,11 @@
 		526FC2411CD0ADCC00D7843A /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
+				C1719D581CF09124009B52BA /* GitHubWidget.swift */,
 				C14EA2EA1CF061E500961DF6 /* View */,
 				526FC2441CD0D65F00D7843A /* Model */,
 				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
+				C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */,
 			);
 			name = GitHub;
 			sourceTree = "<group>";
@@ -1286,6 +1292,7 @@
 				F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */,
 				5274A4951CB69AF5005FD847 /* Alamofire+NetworkRequestManager.swift in Sources */,
 				F91F007B1CBBDE0A00DAAA77 /* HarvestWidgetSettings.swift in Sources */,
+				C1719D591CF09124009B52BA /* GitHubWidget.swift in Sources */,
 				52FB507A1CBF9B370053DE8B /* NSDate+GrandCentralBoard.swift in Sources */,
 				1A242D231C357C2700D5BEE5 /* MainViewController.swift in Sources */,
 				067DA5451CBE5D6D00048E6A /* BlogPostsPopularityWidgetBuilder.swift in Sources */,
@@ -1362,6 +1369,7 @@
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				543596961CF47501000592FE /* NSThread.swift in Sources */,
+				C1719D5B1CF099E8009B52BA /* GitHubTableDataSource.swift in Sources */,
 				F9C88F3C1CBFC3EE00E81A14 /* DailyBillingStatsFetcher.swift in Sources */,
 				1A4616A01C8DC02900361B2E /* ImageWidget.swift in Sources */,
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,

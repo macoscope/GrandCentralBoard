@@ -15,6 +15,29 @@ struct GitHubCellViewModel {
     let color: UIColor
 }
 
+extension GitHubCellViewModel {
+
+    init?(forRepository repo: Repository) {
+        guard let prCount = repo.pullRequestsCount else {
+            return nil
+        }
+
+        countLabelText = "\(prCount)"
+        nameLabelText = repo.name.uppercaseString
+        color = UIColor.colorForPRCount(prCount)
+    }
+}
+
+private extension UIColor {
+    class func colorForPRCount(count: Int) -> UIColor {
+        switch count {
+        case 0 ..< 4: return UIColor.gcb_greenColor()
+        case 4 ..< 8: return UIColor.gcb_fadedOrangeColor()
+        default: return UIColor.gcb_redColor()
+        }
+    }
+}
+
 final class GitHubCell: UITableViewCell {
 
     @IBOutlet private weak var countLabel: UILabel!
