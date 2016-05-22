@@ -15,6 +15,10 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
     let errorTitle = "WIDGET NAME"
     let errorSubtitle = "ERROR REASON"
 
+    override func setUp() {
+        super.setUp()
+//        recordMode = true
+    }
 
     private func contentView() -> UIView {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 640, height: 540))
@@ -41,6 +45,14 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
     func testContentViewMargin() {
         let viewModel = WidgetTemplateViewModel(title: title, subtitle: subtitle, contentView: contentView())
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30))
+        let view = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
+
+        FBSnapshotVerifyView(view)
+    }
+
+    func testMixedContentViewMargin() {
+        let viewModel = WidgetTemplateViewModel(title: title, subtitle: subtitle, contentView: contentView())
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 0, left: 30, bottom: 60, right: 90))
         let view = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
 
         FBSnapshotVerifyView(view)

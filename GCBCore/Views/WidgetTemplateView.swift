@@ -119,7 +119,7 @@ public class WidgetTemplateView: UIView {
         }
 
         guard let contentView = contentView else { return }
-        contentView.bounds = UIEdgeInsetsInsetRect(contentView.frame, layoutSettings.contentMargin)
+        contentView.frame = UIEdgeInsetsInsetRect(contentView.bounds, layoutSettings.contentMargin)
     }
 
     private func configureContenView(contentView: UIView) {

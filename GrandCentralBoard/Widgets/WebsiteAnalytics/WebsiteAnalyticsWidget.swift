@@ -37,7 +37,7 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
         let viewModel = WidgetTemplateViewModel(title: widgetTitle,
                                                 subtitle: "Most popular".localized.uppercaseString,
                                                 contentView: widgetView)
-        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: -90, left: 0, bottom: 0, right: 0))
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 45, left: 0, bottom: 0, right: 0))
         let widgetViewWithHeader = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
         mainView = widgetViewWithHeader
     }
