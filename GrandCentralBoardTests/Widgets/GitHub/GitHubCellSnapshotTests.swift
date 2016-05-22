@@ -18,7 +18,7 @@ final class GitHubCellSnapshotTests: FBSnapshotTestCase {
         super.setUp()
         view = GitHubCell.fromNib()
         view.frame = CGRect(x: 0, y: 0, width: 640, height: 106)
-        view.backgroundColor = UIColor.blackColor()
+        view.backgroundColor = .blackColor()
 
 //        recordMode = true
     }
@@ -26,7 +26,7 @@ final class GitHubCellSnapshotTests: FBSnapshotTestCase {
     func testGitHubCellWithCount100() {
         let viewModel = GitHubCellViewModel(countLabelText: "100",
                                             nameLabelText: "Some repo name".uppercaseString,
-                                            color: UIColor.redColor())
+                                            color: .redColor())
         view.configureWithViewModel(viewModel)
         FBSnapshotVerifyView(view)
     }
@@ -34,7 +34,7 @@ final class GitHubCellSnapshotTests: FBSnapshotTestCase {
     func testGitHubCellWithCount5() {
         let viewModel = GitHubCellViewModel(countLabelText: "5",
                                             nameLabelText: "Some repo name".uppercaseString,
-                                            color: UIColor.orangeColor())
+                                            color: .orangeColor())
         view.configureWithViewModel(viewModel)
         FBSnapshotVerifyView(view)
     }
@@ -42,7 +42,7 @@ final class GitHubCellSnapshotTests: FBSnapshotTestCase {
     func testGitHubCellWithCount0AndLongName() {
         let viewModel = GitHubCellViewModel(countLabelText: "0",
                                             nameLabelText: "Some repo name name name name name name name name name name name name ".uppercaseString,
-                                            color: UIColor.greenColor())
+                                            color: .greenColor())
         view.configureWithViewModel(viewModel)
         FBSnapshotVerifyView(view)
     }

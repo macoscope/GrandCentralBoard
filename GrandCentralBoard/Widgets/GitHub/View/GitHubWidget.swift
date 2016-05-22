@@ -34,7 +34,7 @@ final class GitHubWidget: WidgetControlling {
         let wrapperViewModel = WidgetTemplateViewModel(title: "GitHub".uppercaseString,
                                                        subtitle: "Pull Requests".uppercaseString,
                                                        contentView: widgetView)
-        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 36, left: 27, bottom: 36, right: 27))
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 36, left: 27, bottom: 0, right: 27))
         view = WidgetTemplateView.viewWithViewModel(wrapperViewModel, layoutSettings: layoutSettings)
     }
 

@@ -19,7 +19,10 @@ final class GitHubWidgetView: UITableView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        dataSource = tableDataSource
+        rowHeight = 116
+        layoutMargins = UIEdgeInsetsZero
+        maskView = nil
+        tableDataSource.setUpTableView(self)
     }
 
     func configureWithViewModel(viewModel: GitHubWidgetViewModel) {
