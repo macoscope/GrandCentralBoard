@@ -165,6 +165,8 @@
 		C1719D571CF07A2B009B52BA /* GitHubDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D561CF07A2B009B52BA /* GitHubDataProviderTests.swift */; };
 		C1719D591CF09124009B52BA /* GitHubWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D581CF09124009B52BA /* GitHubWidget.swift */; };
 		C1719D5B1CF099E8009B52BA /* GitHubTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */; };
+		C1719D5D1CF16B80009B52BA /* GitHubSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D5C1CF16B80009B52BA /* GitHubSource.swift */; };
+		C1719D5F1CF184C4009B52BA /* GitHubWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1719D5E1CF184C4009B52BA /* GitHubWidgetView.swift */; };
 		F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */; };
 		F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */; };
 		F91F00711CBBD1A800DAAA77 /* HarvestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91F00701CBBD1A800DAAA77 /* HarvestSource.swift */; };
@@ -361,6 +363,8 @@
 		C1719D561CF07A2B009B52BA /* GitHubDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubDataProviderTests.swift; path = Widgets/GitHub/GitHubDataProviderTests.swift; sourceTree = "<group>"; };
 		C1719D581CF09124009B52BA /* GitHubWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidget.swift; path = GitHub/View/GitHubWidget.swift; sourceTree = "<group>"; };
 		C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubTableDataSource.swift; path = GitHub/GitHubTableDataSource.swift; sourceTree = "<group>"; };
+		C1719D5C1CF16B80009B52BA /* GitHubSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubSource.swift; path = GitHub/GitHubSource.swift; sourceTree = "<group>"; };
+		C1719D5E1CF184C4009B52BA /* GitHubWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetView.swift; path = GitHub/View/GitHubWidgetView.swift; sourceTree = "<group>"; };
 		DA60135A140C4D223A45E971 /* Pods-GrandCentralBoardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F91F006B1CBBD02600DAAA77 /* HarvestWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidget.swift; sourceTree = "<group>"; };
 		F91F006D1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarvestWidgetBuilder.swift; sourceTree = "<group>"; };
@@ -819,6 +823,7 @@
 				526FC2441CD0D65F00D7843A /* Model */,
 				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
 				C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */,
+				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
 			);
 			name = GitHub;
 			sourceTree = "<group>";
@@ -936,6 +941,7 @@
 				C14EA2EB1CF0728000961DF6 /* GitHubCell.xib */,
 				C14EA2ED1CF072A500961DF6 /* GitHubCell.swift */,
 				C14EA2EF1CF0737000961DF6 /* EllipseView.swift */,
+				C1719D5E1CF184C4009B52BA /* GitHubWidgetView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1325,6 +1331,7 @@
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
 				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
 				520B7A671CE38B68005F53EC /* String.swift in Sources */,
+				C1719D5F1CF184C4009B52BA /* GitHubWidgetView.swift in Sources */,
 				520B7A631CE37B56005F53EC /* SlackWidgetBuilder.swift in Sources */,
 				494B68CB1C92E89A00D460B0 /* BonusWidgetBuilder.swift in Sources */,
 				520B7A611CE37B3F005F53EC /* SlackWidgetSettings.swift in Sources */,
@@ -1364,6 +1371,7 @@
 				52FB50621CBE862D0053DE8B /* EventsSource.swift in Sources */,
 				F928B82E1CC52F77006D0332 /* String+Localized.swift in Sources */,
 				494B68C91C92E89A00D460B0 /* BonusModels.swift in Sources */,
+				C1719D5D1CF16B80009B52BA /* GitHubSource.swift in Sources */,
 				F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */,
 				F9E9208F1CC54A9400BC7994 /* DailyUserBillingStatsFetcher.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,

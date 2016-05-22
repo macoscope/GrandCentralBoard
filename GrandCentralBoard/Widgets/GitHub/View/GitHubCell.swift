@@ -31,9 +31,9 @@ extension GitHubCellViewModel {
 private extension UIColor {
     class func colorForPRCount(count: Int) -> UIColor {
         switch count {
-        case 0 ..< 4: return UIColor.gcb_greenColor()
-        case 4 ..< 8: return UIColor.gcb_fadedOrangeColor()
-        default: return UIColor.gcb_redColor()
+        case 0: return UIColor(red: 35/255, green: 208/255, blue: 165/255, alpha: 1)
+        case 1 ..< 4: return UIColor(red: 246/255, green: 157/255, blue: 67/255, alpha: 1)
+        case 4 ... Int.max: return UIColor(red: 206/255, green: 18/255, blue: 37/255, alpha: 1)
         }
     }
 }

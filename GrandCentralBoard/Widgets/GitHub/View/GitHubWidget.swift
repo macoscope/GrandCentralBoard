@@ -7,38 +7,23 @@
 //
 
 import GCBCore
-import RxSwift
 
-extension GitHubCellViewModel: CellViewModel {}
 
-class GitHubSource: Asynchronous {
-    typealias ResultType = Result<[Repository]>
-    let sourceType: SourceType = .Momentary
+private extension CollectionType where Generator.Element == Repository {
 
-    private let disposeBag = DisposeBag()
-    private let dataProvider: GitHubDataProviding
-    let interval: NSTimeInterval
-
-    init(dataProvider: GitHubDataProviding, refreshInterval: NSTimeInterval) {
-        self.dataProvider = dataProvider
-        interval = refreshInterval
-    }
-
-    func read(closure: (ResultType) -> Void) {
-        dataProvider.repositoriesWithPRsCount().single().subscribe { (event) in
-            switch event {
-            case .Error(let error): closure(.Failure(error))
-            case .Next(let repositories): closure(.Success(repositories))
-            case .Completed: break
+    func sortByPRCountAndName() -> [Repository] {
+        return filter { $0.pullRequestsCount != nil }.sort({ (left, right) -> Bool in
+            if left.pullRequestsCount == right.pullRequestsCount {
+                return left.name < right.name
             }
-        }.addDisposableTo(disposeBag)
+            return left.pullRequestsCount > right.pullRequestsCount
+        })
     }
 }
 
 final class GitHubWidget: WidgetControlling {
 
-    private let tableView = UITableView()
-    private let tableViewDataSource = GitHubTableDataSource()
+    private let widgetView = GitHubWidgetView()
 
     let view: UIView
     let sources: [UpdatingSource]
@@ -48,11 +33,9 @@ final class GitHubWidget: WidgetControlling {
 
         let wrapperViewModel = WidgetTemplateViewModel(title: "GitHub".uppercaseString,
                                                        subtitle: "Pull Requests".uppercaseString,
-                                                       contentView: tableView)
+                                                       contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 36, left: 27, bottom: 36, right: 27))
         view = WidgetTemplateView.viewWithViewModel(wrapperViewModel, layoutSettings: layoutSettings)
-
-        tableViewDataSource.setUpTableView(tableView)
     }
 
     func update(source: UpdatingSource) {
@@ -65,11 +48,12 @@ final class GitHubWidget: WidgetControlling {
         source.read { [weak self] result in
             switch result {
             case .Success(let repos):
-                self?.tableViewDataSource.items = repos.flatMap { GitHubCellViewModel(forRepository: $0) }
-                self?.tableView.reloadData()
+                let items = repos.sortByPRCountAndName().flatMap { GitHubCellViewModel(forRepository: $0) }
+                self?.widgetView.configureWithViewModel(GitHubWidgetViewModel(cellItems: items))
             case .Failure:
                 break
             }
         }
     }
+
 }
