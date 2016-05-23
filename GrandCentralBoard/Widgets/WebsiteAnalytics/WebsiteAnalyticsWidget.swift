@@ -8,6 +8,9 @@
 import GCBCore
 
 
+private let widgetTitle = "Blogposts".localized.uppercaseString
+
+
 final class WebsiteAnalyticsWidget: WidgetControlling {
     private enum State {
         case Loading
@@ -29,8 +32,8 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
         self.widgetView = TableWidgetView.fromNib()
         self.sources = sources
 
-        let viewModel = WidgetTemplateViewModel(title: "BLOGPOSTS".localized.uppercaseString,
-                                                subtitle: "MOST POPULAR".localized.uppercaseString,
+        let viewModel = WidgetTemplateViewModel(title: widgetTitle,
+                                                subtitle: "Most popular".localized.uppercaseString,
                                                 contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: -90, left: 0, bottom: 0, right: 0))
         let widgetViewWithHeader = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
@@ -66,10 +69,10 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
     private func fetchAnalyticsFromSource(source: PageViewsSource) {
         source.read { [weak self] result in
             switch result {
-                case .Success(let reports):
-                    self?.state = reports.isEmpty ? .NoData : .Data(reports: reports)
-                case .Failure:
-                    self?.state = .Error
+            case .Success(let reports):
+                self?.state = reports.isEmpty ? .NoData : .Data(reports: reports)
+            case .Failure:
+                self?.state = .Error
             }
         }
     }
@@ -88,17 +91,17 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
 
     private func changeFromState(fromState: State, toState: State) {
         switch toState {
-            case .Error:
-                guard !mainView.subviews.contains(errorView) else { return }
-                mainView.fillViewWithView(errorView, animated: false)
-            case .NoData:
-                guard !mainView.subviews.contains(noDataView) else { return }
-                mainView.fillViewWithView(noDataView, animated: false)
-            case .Data(let reports):
-                [errorView, noDataView].forEach { $0.removeFromSuperview() }
-                updateWithReports(reports)
-            default:
-                break
+        case .Error:
+            guard !mainView.subviews.contains(errorView) else { return }
+            mainView.fillViewWithView(errorView, animated: false)
+        case .NoData:
+            guard !mainView.subviews.contains(noDataView) else { return }
+            mainView.fillViewWithView(noDataView, animated: false)
+        case .Data(let reports):
+            [errorView, noDataView].forEach { $0.removeFromSuperview() }
+            updateWithReports(reports)
+        default:
+            break
         }
     }
 
@@ -113,14 +116,14 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
     }
 
     private lazy var errorView: UIView = {
-        let viewModel = WidgetErrorTemplateViewModel(title: "BLOGPOSTS".localized.uppercaseString,
+        let viewModel = WidgetErrorTemplateViewModel(title: widgetTitle,
                                                      subtitle: "Error".localized.uppercaseString)
         return WidgetTemplateView.viewWithErrorViewModel(viewModel)
     }()
 
     private lazy var noDataView: UIView = {
-        let viewModel = WidgetErrorTemplateViewModel(title: "BLOGPOSTS".localized.uppercaseString,
-                                                     subtitle: "NO DATA".localized)
+        let viewModel = WidgetErrorTemplateViewModel(title: widgetTitle,
+                                                     subtitle: "No data".localized.uppercaseString)
         return WidgetTemplateView.viewWithErrorViewModel(viewModel)
     }()
 }
