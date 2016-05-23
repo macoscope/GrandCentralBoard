@@ -15,8 +15,11 @@ enum PeopleWithBonusesFetchControllerError: ErrorType {
     case Unknown
 }
 
+protocol PeopleWithBonusesProviding {
+    func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void)
+}
 
-final class PeopleWithBonusesFetchController {
+final class PeopleWithBonusesFetchController: PeopleWithBonusesProviding {
 
     private let requestSending: RequestSending
     private let pageSize: Int
@@ -28,6 +31,15 @@ final class PeopleWithBonusesFetchController {
         self.pageSize = pageSize
         self.preferredNumberOfPeople = preferredNumberOfPeople
         self.dataDownloading = dataDownloading
+    }
+
+    convenience init(bonuslyAccessToken: String, preferredNumberOfPeople: Int) {
+        let configuration = RequestSenderConfiguration(queryParameters: ["access_token": bonuslyAccessToken])
+        let requestSender = RequestSender(configuration: configuration)
+        self.init(requestSending:requestSender,
+                  dataDownloading: DataDownloader(),
+                  pageSize: 1,
+                  preferredNumberOfPeople: preferredNumberOfPeople)
     }
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void) {
