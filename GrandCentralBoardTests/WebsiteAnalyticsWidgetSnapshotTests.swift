@@ -33,7 +33,8 @@ final class WebsiteAnalyticsWidgetSnapshotTests: FBSnapshotTestCase {
     }
 
     func testWidgetShowsErrorWhenError() {
-        let errorProvider = TestAnalyticsDataProvider(result: .Failure(NSError(domain: "", code: 0, userInfo: nil)))
+        let error = NSError(domain: "", code: 0, userInfo: nil)
+        let errorProvider = TestAnalyticsDataProvider(result: .Failure(error))
         let pageViewsSource = PageViewsSource(dataProvider: errorProvider, daysInReport: 0, refreshInterval: 0, validPathPrefix: nil)
 
         let widget = WebsiteAnalyticsWidget(sources: [])
@@ -44,8 +45,8 @@ final class WebsiteAnalyticsWidgetSnapshotTests: FBSnapshotTestCase {
 
     func testWidgetShowsErrorWhenNoData() {
         let emptyDataSet = AnalyticsReport(rows: [])
-        let errorProvider = TestAnalyticsDataProvider(result: .Success(emptyDataSet))
-        let pageViewsSource = PageViewsSource(dataProvider: errorProvider, daysInReport: 0, refreshInterval: 0, validPathPrefix: nil)
+        let noDataProvider = TestAnalyticsDataProvider(result: .Success(emptyDataSet))
+        let pageViewsSource = PageViewsSource(dataProvider: noDataProvider, daysInReport: 0, refreshInterval: 0, validPathPrefix: nil)
 
         let widget = WebsiteAnalyticsWidget(sources: [])
         widget.update(pageViewsSource)
@@ -60,11 +61,29 @@ final class WebsiteAnalyticsWidgetSnapshotTests: FBSnapshotTestCase {
                 AnalyticsReportRow(dimensions: ["/url/", "Title C"], values: ["31"]),
                 AnalyticsReportRow(dimensions: ["/url/", "Title D"], values: ["30"]),
             ])
-        let errorProvider = TestAnalyticsDataProvider(result: .Success(dataSet))
-        let pageViewsSource = PageViewsSource(dataProvider: errorProvider, daysInReport: 0, refreshInterval: 0, validPathPrefix: nil)
+        let dataProvider = TestAnalyticsDataProvider(result: .Success(dataSet))
+        let pageViewsSource = PageViewsSource(dataProvider: dataProvider, daysInReport: 0, refreshInterval: 0, validPathPrefix: nil)
 
         let widget = WebsiteAnalyticsWidget(sources: [])
         widget.update(pageViewsSource)
+
+        FBSnapshotVerifyView(widget.view)
+    }
+
+    func testWidgetShowsErrorWhenInterlacingWithNoDataState() {
+        let error = NSError(domain: "", code: 0, userInfo: nil)
+        let emptyDataSet = AnalyticsReport(rows: [])
+
+        let errorProvider = TestAnalyticsDataProvider(result: .Failure(error))
+        let noDataProvider = TestAnalyticsDataProvider(result: .Success(emptyDataSet))
+
+        let errorPageViewsSource = PageViewsSource(dataProvider: errorProvider, daysInReport: 0, refreshInterval: 0, validPathPrefix: nil)
+        let noDataPageViewsSource = PageViewsSource(dataProvider: noDataProvider, daysInReport: 0, refreshInterval: 0, validPathPrefix: nil)
+
+        let widget = WebsiteAnalyticsWidget(sources: [])
+        widget.update(errorPageViewsSource)
+        widget.update(noDataPageViewsSource)
+        widget.update(errorPageViewsSource)
 
         FBSnapshotVerifyView(widget.view)
     }

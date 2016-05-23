@@ -90,6 +90,15 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
     // MARK: State rendering
 
     private func changeFromState(fromState: State, toState: State) {
+        switch fromState {
+        case .Error:
+            errorView.removeFromSuperview()
+        case .NoData:
+            noDataView.removeFromSuperview()
+        default:
+            break
+        }
+
         switch toState {
         case .Error:
             guard !mainView.subviews.contains(errorView) else { return }
@@ -98,7 +107,6 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
             guard !mainView.subviews.contains(noDataView) else { return }
             mainView.fillViewWithView(noDataView, animated: false)
         case .Data(let reports):
-            [errorView, noDataView].forEach { $0.removeFromSuperview() }
             updateWithReports(reports)
         default:
             break
