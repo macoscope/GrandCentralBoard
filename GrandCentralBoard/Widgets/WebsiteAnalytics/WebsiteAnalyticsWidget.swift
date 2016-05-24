@@ -24,7 +24,9 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
 
     private var state: State = .Loading {
         didSet {
-            changeFromState(oldValue, toState: state)
+            NSThread.runOnMainThread {
+                self.changeFromState(oldValue, toState: self.state)
+            }
         }
     }
 
