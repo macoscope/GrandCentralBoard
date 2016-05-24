@@ -11,8 +11,9 @@ final class BonusWidget: WidgetControlling {
     private let widgetView: BonusWidgetView
     private let widgetViewWrapper: UIView
 
-    private let errorView: UIView = {
-        let viewModel = WidgetErrorTemplateViewModel(title: "BONUSLY", subtitle: "ERROR")
+    private lazy var errorView: UIView = {
+        let viewModel = WidgetErrorTemplateViewModel(title: "Bonusly".localized.uppercaseString,
+                                                     subtitle: "Error".localized.uppercaseString)
         return WidgetTemplateView.viewWithErrorViewModel(viewModel)
     }()
 
@@ -26,7 +27,9 @@ final class BonusWidget: WidgetControlling {
         self.bubbleResizeDuration = bubbleResizeDuration
         self.numberOfBubbles = numberOfBubbles
 
-        let viewModel = WidgetTemplateViewModel(title: "BONUSLY", subtitle: "LAST \(numberOfBubbles) PEOPLE", contentView: widgetView)
+        let viewModel = WidgetTemplateViewModel(title: "Bonusly".localized.uppercaseString,
+                                                subtitle: "Last \(numberOfBubbles) people".localized.uppercaseString,
+                                                contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
         widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
     }
