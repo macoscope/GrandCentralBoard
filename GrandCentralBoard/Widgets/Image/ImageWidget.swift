@@ -55,10 +55,10 @@ final class ImageWidget: WidgetControlling {
 
     func update(source: UpdatingSource) {
         switch source {
-            case let source as RemoteImageSource:
-                updateImageFromSource(source)
-            default:
-                assertionFailure("Expected `source` as instance of `RemoteImageSource`.")
+        case let source as RemoteImageSource:
+            updateImageFromSource(source)
+        default:
+            assertionFailure("Expected `source` as instance of `RemoteImageSource`.")
         }
     }
 
