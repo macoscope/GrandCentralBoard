@@ -61,10 +61,10 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
 
     func update(source: UpdatingSource) {
         switch source {
-            case let source as PageViewsSource:
-                fetchAnalyticsFromSource(source)
-            default:
-                assertionFailure("Expected `source` as instance of `GoogleAnalyticsSource`.")
+        case let source as PageViewsSource:
+            fetchAnalyticsFromSource(source)
+        default:
+            assertionFailure("Expected `source` as instance of `GoogleAnalyticsSource`.")
         }
     }
 
