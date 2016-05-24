@@ -37,7 +37,7 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
         let viewModel = WidgetTemplateViewModel(title: widgetTitle,
                                                 subtitle: "Most popular".localized.uppercaseString,
                                                 contentView: widgetView)
-        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: -90, left: 0, bottom: 0, right: 0))
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 45, left: 0, bottom: 0, right: 0))
         let widgetViewWithHeader = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
         mainView = widgetViewWithHeader
     }
@@ -114,7 +114,7 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
     }
 
     private func updateWithReports(reports: [PageViewsRowReport]) {
-        let reportsSlice = reports[0...min(3, reports.count)]
+        let reportsSlice = reports[0..<min(3, reports.count)]
         let viewModel = reportsSlice.flatMap({ report -> DoubleColumnCellViewModel? in
             guard !report.pageTitle.isEmpty else { return nil }
             return DoubleColumnCellViewModel(title: report.pageTitle, valueDescription: "\(report.visits)")
