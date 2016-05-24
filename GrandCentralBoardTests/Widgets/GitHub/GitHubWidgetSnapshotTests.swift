@@ -14,8 +14,10 @@ import RxSwift
 private final class TestGitHubDataProvider: GitHubDataProviding {
     private func repositories() -> Observable<[Repository]> {
         return Observable.just([
-            Repository(name: "Test repository", fullName: "", openIssuesCount: 10, pullRequestsCount: 0),
+            Repository(name: "This should not be displayed", fullName: "", openIssuesCount: 10, pullRequestsCount: 0),
             Repository(name: "Test repository 3", fullName: "", openIssuesCount: 10, pullRequestsCount: 3),
+            Repository(name: "Another repository", fullName: "", openIssuesCount: 10, pullRequestsCount: 3),
+            Repository(name: "This should not be displayed too", fullName: "", openIssuesCount: 10, pullRequestsCount: 2),
             Repository(name: "Test repository with 101 open Pull Requests", fullName: "", openIssuesCount: 10, pullRequestsCount: 101)
             ])
     }

@@ -9,18 +9,6 @@
 import GCBCore
 
 
-private extension CollectionType where Generator.Element == Repository {
-
-    func sortByPRCountAndName() -> [Repository] {
-        return filter { $0.pullRequestsCount != nil }.sort({ (left, right) -> Bool in
-            if left.pullRequestsCount == right.pullRequestsCount {
-                return left.name < right.name
-            }
-            return left.pullRequestsCount > right.pullRequestsCount
-        })
-    }
-}
-
 final class GitHubWidget: WidgetControlling {
 
     private let widgetView = GitHubWidgetView()
@@ -48,7 +36,7 @@ final class GitHubWidget: WidgetControlling {
         source.read { [weak self] result in
             switch result {
             case .Success(let repos):
-                let items = repos.sortByPRCountAndName().flatMap { GitHubCellViewModel(forRepository: $0) }
+                let items = repos.flatMap { GitHubCellViewModel(forRepository: $0) }
                 self?.widgetView.configureWithViewModel(GitHubWidgetViewModel(cellItems: items))
             case .Failure:
                 break

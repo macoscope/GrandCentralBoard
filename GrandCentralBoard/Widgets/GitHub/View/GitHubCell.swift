@@ -31,8 +31,7 @@ extension GitHubCellViewModel {
 private extension UIColor {
     class func colorForPRCount(count: Int) -> UIColor {
         switch count {
-        case 0: return UIColor(red: 35/255, green: 208/255, blue: 165/255, alpha: 1)
-        case 1 ..< 4: return UIColor(red: 246/255, green: 157/255, blue: 67/255, alpha: 1)
+        case 0 ..< 4: return UIColor(red: 246/255, green: 157/255, blue: 67/255, alpha: 1)
         default: return UIColor(red: 206/255, green: 18/255, blue: 37/255, alpha: 1)
         }
     }
