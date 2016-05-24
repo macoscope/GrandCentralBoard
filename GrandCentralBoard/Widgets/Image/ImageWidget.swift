@@ -13,9 +13,11 @@ final class ImageWidget: WidgetControlling {
 
     private let widgetView: ImageWidgetView
     private let mainView: UIView
+    private let header: ImageWidgetHeader?
 
     private lazy var errorView: UIView = {
-        let errorViewModel = WidgetErrorTemplateViewModel(title: "Photos".uppercaseString,
+        let errorTitle = self.header?.title ?? "Photos"
+        let errorViewModel = WidgetErrorTemplateViewModel(title: errorTitle.uppercaseString,
                                                           subtitle: "Error".localized.uppercaseString)
         return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
     }()
@@ -25,6 +27,7 @@ final class ImageWidget: WidgetControlling {
     init(view: ImageWidgetView, sources: [UpdatingSource], header: ImageWidgetHeader?) {
         self.widgetView = view
         self.sources = sources
+        self.header = header
 
         if let header = header {
             let viewModel = WidgetTemplateViewModel(title: header.title.uppercaseString,
