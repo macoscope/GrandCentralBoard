@@ -50,15 +50,17 @@ final class BonusWidget: WidgetControlling {
     }
 
     private func updateBonusFromSource(source: BonusSource) {
-        source.read { result in
+        source.read { [weak self] result in
+            guard let strongSelf = self else { return }
+
             switch result {
                 case .Success(let people):
-                    self.hideErrorView()
-                    let bonusViewModel = BonusWidgetViewModel(people: people, bubbleResizeDuration: self.bubbleResizeDuration)
-                    self.widgetView.render(bonusViewModel)
+                    strongSelf.hideErrorView()
+                    let bonusViewModel = BonusWidgetViewModel(people: people, bubbleResizeDuration: strongSelf.bubbleResizeDuration)
+                    strongSelf.widgetView.render(bonusViewModel)
                 case .Failure:
-                    self.displayErrorView()
-                    self.widgetView.failure()
+                    strongSelf.displayErrorView()
+                    strongSelf.widgetView.failure()
             }
         }
     }
