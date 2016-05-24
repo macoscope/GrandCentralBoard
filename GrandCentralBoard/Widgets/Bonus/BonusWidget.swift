@@ -30,7 +30,7 @@ final class BonusWidget: WidgetControlling {
         self.numberOfBubbles = numberOfBubbles
 
         let viewModel = WidgetTemplateViewModel(title: widgetTitle,
-                                                subtitle: "Last \(numberOfBubbles) people".localized.uppercaseString,
+                                                subtitle: String(format: "Last %d people".localized, numberOfBubbles).uppercaseString,
                                                 contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
         widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
