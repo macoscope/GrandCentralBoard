@@ -31,7 +31,7 @@ public protocol Configurable: class {
 }
 
 /// This is a controller class that stacks views on `ViewStacking` view and schedules updates for Widgets using object conforming to `SchedulingJobs`.
-public final class GrandCentralBoardController {
+public class GrandCentralBoardController {
 
     private let stack: ViewStacking
     private let scheduler: SchedulingJobs
@@ -86,4 +86,9 @@ extension GrandCentralBoardController: Configurable {
             }
         }
     }
+}
+
+@available(*, deprecated, message="`GrandCentralBoard` class name is deprecated, use the replacement class `GrandCentralBoardController` as in v1.5 this class will cease to exist.")
+public final class GrandCentralBoard : GrandCentralBoardController {
+
 }
