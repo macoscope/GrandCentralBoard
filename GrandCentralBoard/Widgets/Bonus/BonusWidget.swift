@@ -6,13 +6,15 @@
 import UIKit
 import GCBCore
 
+private let widgetTitle = "Bonusly".localized.uppercaseString
+
 final class BonusWidget: WidgetControlling {
 
     private let widgetView: BonusWidgetView
     private let widgetViewWrapper: UIView
 
     private lazy var errorView: UIView = {
-        let viewModel = WidgetErrorTemplateViewModel(title: "Bonusly".localized.uppercaseString,
+        let viewModel = WidgetErrorTemplateViewModel(title: widgetTitle,
                                                      subtitle: "Error".localized.uppercaseString)
         return WidgetTemplateView.viewWithErrorViewModel(viewModel)
     }()
@@ -27,7 +29,7 @@ final class BonusWidget: WidgetControlling {
         self.bubbleResizeDuration = bubbleResizeDuration
         self.numberOfBubbles = numberOfBubbles
 
-        let viewModel = WidgetTemplateViewModel(title: "Bonusly".localized.uppercaseString,
+        let viewModel = WidgetTemplateViewModel(title: widgetTitle,
                                                 subtitle: "Last \(numberOfBubbles) people".localized.uppercaseString,
                                                 contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
