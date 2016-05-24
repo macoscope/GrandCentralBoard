@@ -5,6 +5,11 @@ Grand Central Board for the Apple TV
 
 [![Build Status](https://travis-ci.org/macoscope/GrandCentralBoard.svg?branch=mvp)](https://travis-ci.org/macoscope/GrandCentralBoard)
 ![Swift2.2](https://img.shields.io/badge/%20in-swift%202.2-orange.svg)
+[![Version](https://img.shields.io/cocoapods/v/GCBCore.svg?style=flat)](http://cocoadocs.org/docsets/GCBCore)
+[![License](https://img.shields.io/cocoapods/l/GCBCore.svg?style=flat)](http://cocoadocs.org/docsets/GCBCore)
+[![Platform](https://img.shields.io/cocoapods/p/GCBCore.svg?style=flat)](http://cocoadocs.org/docsets/GCBCore)
+[![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/GCBCore.svg?style=flat)](http://cocoadocs.org/docsets/GCBCore)
+
 
 Hang a TV in your open space or team room to show everyone what's up and get them up to speed.  
 
