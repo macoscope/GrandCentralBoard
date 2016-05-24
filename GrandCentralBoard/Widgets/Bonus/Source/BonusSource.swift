@@ -14,15 +14,15 @@ final class BonusSource: Asynchronous {
     let sourceType: SourceType = .Momentary
     let interval: NSTimeInterval = 10
 
-    private let peopleWithBonuses: PeopleWithBonusesProviding
+    private let peopleWithBonusesProvider: PeopleWithBonusesProviding
 
-    init(peopleWithBonuses: PeopleWithBonusesProviding) {
-        self.peopleWithBonuses = peopleWithBonuses
+    init(peopleWithBonusesProvider: PeopleWithBonusesProviding) {
+        self.peopleWithBonusesProvider = peopleWithBonusesProvider
     }
 
     func read(closure: (ResultType) -> Void) {
 
-        peopleWithBonuses.fetchPeopleWithBonuses { result in
+        peopleWithBonusesProvider.fetchPeopleWithBonuses { result in
             switch result {
             case .Success(let people):
                 closure(.Success(people))

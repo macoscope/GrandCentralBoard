@@ -11,7 +11,7 @@ import GCBCore
 import GCBUtilities
 @testable import GrandCentralBoard
 
-private final class PeopleWithBonusesTestFetchController: PeopleWithBonusesProviding {
+private final class PeopleWithBonusesProvider: PeopleWithBonusesProviding {
     let shouldFailRequest: Bool
 
     init(shouldFailRequest: Bool) {
@@ -36,8 +36,8 @@ final class BonusWidgetSnapshotTests: FBSnapshotTestCase {
     }
 
     func testViewWithFailure() {
-        let peopleWithBonuses = PeopleWithBonusesTestFetchController(shouldFailRequest: true)
-        let source = BonusSource(peopleWithBonuses: peopleWithBonuses)
+        let peopleWithBonusesProvider = PeopleWithBonusesProvider(shouldFailRequest: true)
+        let source = BonusSource(peopleWithBonusesProvider: peopleWithBonusesProvider)
         let widget = BonusWidget(sources: [source], bubbleResizeDuration: 4, numberOfBubbles: 5)
         widget.update(source)
 
@@ -48,8 +48,8 @@ final class BonusWidgetSnapshotTests: FBSnapshotTestCase {
     }
 
     func testViewWithSuccess() {
-        let peopleWithBonuses = PeopleWithBonusesTestFetchController(shouldFailRequest: false)
-        let source = BonusSource(peopleWithBonuses: peopleWithBonuses)
+        let peopleWithBonusesProvider = PeopleWithBonusesProvider(shouldFailRequest: false)
+        let source = BonusSource(peopleWithBonusesProvider: peopleWithBonusesProvider)
         let widget = BonusWidget(sources: [source], bubbleResizeDuration: 4, numberOfBubbles: 5)
         widget.update(source)
 
