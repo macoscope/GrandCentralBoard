@@ -18,9 +18,11 @@ final class GitHubWidgetView: UITableView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+
         rowHeight = 116
         layoutMargins = UIEdgeInsetsZero
         maskView = nil
+        allowsSelection = false
         tableDataSource.setUpTableView(self)
     }
 
