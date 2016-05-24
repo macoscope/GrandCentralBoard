@@ -39,9 +39,7 @@ final class WebsiteAnalyticsWidget: WidgetControlling {
                                                 contentView: widgetView)
         let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: -90, left: 0, bottom: 0, right: 0))
         let widgetViewWithHeader = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
-
-        mainView = UIView(frame: widgetViewWithHeader.frame)
-        mainView.fillViewWithView(widgetViewWithHeader, animated: false)
+        mainView = widgetViewWithHeader
     }
 
 
