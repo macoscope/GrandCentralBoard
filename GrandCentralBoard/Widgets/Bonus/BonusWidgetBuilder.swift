@@ -22,8 +22,10 @@ final class BonusWidgetBuilder: WidgetBuilding {
         let settings = try BonusWidgetSettings.decode(settings)
 
         let defaultNumberOfBubbles = 7
-        let bonusSource = BonusSource(bonuslyAccessToken: settings.accessToken,
-                                      preferredNumberOfPeople: settings.numberOfBubbles ?? defaultNumberOfBubbles)
+        let peopleWithBonusesProvider = PeopleWithBonusesFetchController(bonuslyAccessToken: settings.accessToken,
+                                                                         preferredNumberOfPeople: settings.numberOfBubbles ?? defaultNumberOfBubbles)
+        let bonusSource = BonusSource(peopleWithBonusesProvider: peopleWithBonusesProvider)
+
         return BonusWidget(sources: [bonusSource],
                            bubbleResizeDuration: settings.bubbleResizeDuration,
                            numberOfBubbles: settings.numberOfBubbles ?? defaultNumberOfBubbles)

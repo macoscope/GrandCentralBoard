@@ -14,20 +14,15 @@ final class BonusSource: Asynchronous {
     let sourceType: SourceType = .Momentary
     let interval: NSTimeInterval = 10
 
-    private let peopleFetchController: PeopleWithBonusesFetchController
+    private let peopleWithBonusesProvider: PeopleWithBonusesProviding
 
-    init(bonuslyAccessToken: String, preferredNumberOfPeople: Int) {
-        let configuration = RequestSenderConfiguration(queryParameters: ["access_token": bonuslyAccessToken])
-        let requestSender = RequestSender(configuration: configuration)
-        self.peopleFetchController = PeopleWithBonusesFetchController(requestSending:requestSender,
-                                                                      dataDownloading: DataDownloader(),
-                                                                      pageSize: 1,
-                                                                      preferredNumberOfPeople: preferredNumberOfPeople)
+    init(peopleWithBonusesProvider: PeopleWithBonusesProviding) {
+        self.peopleWithBonusesProvider = peopleWithBonusesProvider
     }
 
     func read(closure: (ResultType) -> Void) {
 
-        peopleFetchController.fetchPeopleWithBonuses { result in
+        peopleWithBonusesProvider.fetchPeopleWithBonuses { result in
             switch result {
             case .Success(let people):
                 closure(.Success(people))
