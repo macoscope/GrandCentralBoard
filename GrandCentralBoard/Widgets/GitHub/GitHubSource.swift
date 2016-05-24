@@ -3,7 +3,6 @@
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 22/05/16.
-//  Copyright © 2016 Michał Laskowski. All rights reserved.
 //
 
 import RxSwift

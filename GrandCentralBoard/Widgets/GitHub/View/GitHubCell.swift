@@ -2,8 +2,7 @@
 //  GitHubCell.swift
 //  GrandCentralBoard
 //
-//  Created by mlaskowski on 21/05/16.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
+//  Created by Michał Laskowski on 21/05/16.
 //
 
 import UIKit
