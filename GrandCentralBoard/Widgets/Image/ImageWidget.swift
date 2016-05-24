@@ -7,6 +7,8 @@ import UIKit
 import GCBCore
 
 
+typealias ImageWidgetHeader = (title: String, subtitle: String)
+
 final class ImageWidget: WidgetControlling {
 
     private let widgetView: ImageWidgetView
@@ -19,16 +21,14 @@ final class ImageWidget: WidgetControlling {
     }()
 
     let sources: [UpdatingSource]
-    let isHeaderVisible: Bool
 
-    init(view: ImageWidgetView, sources: [UpdatingSource], isHeaderVisible: Bool) {
+    init(view: ImageWidgetView, sources: [UpdatingSource], header: ImageWidgetHeader?) {
         self.widgetView = view
         self.sources = sources
-        self.isHeaderVisible = isHeaderVisible
 
-        if isHeaderVisible {
-            let viewModel = WidgetTemplateViewModel(title: "Photos".uppercaseString,
-                                                    subtitle: "Newest Cat Profiles".uppercaseString,
+        if let header = header {
+            let viewModel = WidgetTemplateViewModel(title: header.title.uppercaseString,
+                                                    subtitle: header.subtitle.uppercaseString,
                                                     contentView: widgetView)
             let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
             mainView = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
