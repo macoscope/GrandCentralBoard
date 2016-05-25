@@ -22,7 +22,9 @@ final class ImageWidgetBuilder: WidgetBuilding {
 
         let view = ImageWidgetView.fromNib()
         let imagesSource = try RemoteImageSource(paths: settings.imagePaths, dataDownloader: dataDownloader)
-        let headerConfiguration = settings.header.flatMap { (title: $0.title, subtitle: $0.subtitle ?? "") }
+        let headerConfiguration = settings.header.map {
+            ImageWidgetHeader(title: $0.title, subtitle: $0.subtitle ?? "")
+        }
 
         return ImageWidget(view: view, sources: [imagesSource], header: headerConfiguration)
     }

@@ -56,7 +56,7 @@ final class ImageWidgetSnapshotTests: FBSnapshotTestCase {
     func testViewWithFailureAndCustomHeader() {
         let dataDownloader = TestDataDownloader(shouldFail: true)
         let source = try! RemoteImageSource(paths: ["http://macoscope.com"], dataDownloader: dataDownloader)
-        let header: ImageWidgetHeader? = (title: "Title", subtitle: "Subtitle")
+        let header = ImageWidgetHeader(title: "Title", subtitle: "Subtitle")
 
         let widget = ImageWidget(view: widgetView, sources: [source], header: header)
         widget.update(source)
@@ -78,7 +78,7 @@ final class ImageWidgetSnapshotTests: FBSnapshotTestCase {
     func testViewWithCatImageAndCustomHeader() {
         let dataDownloader = TestDataDownloader(shouldFail: false)
         let source = try! RemoteImageSource(paths: ["http://macoscope.com"], dataDownloader: dataDownloader)
-        let header: ImageWidgetHeader? = (title: "Title", subtitle: "Subtitle")
+        let header = ImageWidgetHeader(title: "Title", subtitle: "Subtitle")
 
         let widget = ImageWidget(view: widgetView, sources: [source], header: header)
         widget.update(source)

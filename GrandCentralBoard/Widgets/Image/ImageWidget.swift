@@ -7,7 +7,11 @@ import UIKit
 import GCBCore
 
 
-typealias ImageWidgetHeader = (title: String, subtitle: String)
+struct ImageWidgetHeader {
+    let title: String
+    let subtitle: String
+}
+
 
 final class ImageWidget: WidgetControlling {
 
