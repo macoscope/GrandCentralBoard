@@ -7,28 +7,35 @@ import UIKit
 import GCBCore
 
 
+struct ImageWidgetHeader {
+    let title: String
+    let subtitle: String
+}
+
+
 final class ImageWidget: WidgetControlling {
 
     private let widgetView: ImageWidgetView
     private let mainView: UIView
+    private let header: ImageWidgetHeader?
 
     private lazy var errorView: UIView = {
-        let errorViewModel = WidgetErrorTemplateViewModel(title: "Photos".uppercaseString,
+        let errorTitle = self.header?.title ?? "Photos"
+        let errorViewModel = WidgetErrorTemplateViewModel(title: errorTitle.uppercaseString,
                                                           subtitle: "Error".localized.uppercaseString)
         return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
     }()
 
     let sources: [UpdatingSource]
-    let isHeaderVisible: Bool
 
-    init(view: ImageWidgetView, sources: [UpdatingSource], isHeaderVisible: Bool) {
+    init(view: ImageWidgetView, sources: [UpdatingSource], header: ImageWidgetHeader?) {
         self.widgetView = view
         self.sources = sources
-        self.isHeaderVisible = isHeaderVisible
+        self.header = header
 
-        if isHeaderVisible {
-            let viewModel = WidgetTemplateViewModel(title: "Photos".uppercaseString,
-                                                    subtitle: "Newest Cat Profiles".uppercaseString,
+        if let header = header {
+            let viewModel = WidgetTemplateViewModel(title: header.title.uppercaseString,
+                                                    subtitle: header.subtitle.uppercaseString,
                                                     contentView: widgetView)
             let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: true)
             mainView = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
@@ -52,10 +59,10 @@ final class ImageWidget: WidgetControlling {
 
     func update(source: UpdatingSource) {
         switch source {
-            case let source as RemoteImageSource:
-                updateImageFromSource(source)
-            default:
-                assertionFailure("Expected `source` as instance of `RemoteImageSource`.")
+        case let source as RemoteImageSource:
+            updateImageFromSource(source)
+        default:
+            assertionFailure("Expected `source` as instance of `RemoteImageSource`.")
         }
     }
 
