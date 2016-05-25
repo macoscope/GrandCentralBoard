@@ -10,6 +10,7 @@ import UIKit
 
 class GitHubTableDataSource: NSObject, UITableViewDataSource {
 
+    private let maxRowsToShow = 3
     private let cellID = "cell"
     var items: [GitHubCellViewModel] = []
 
@@ -19,7 +20,7 @@ class GitHubTableDataSource: NSObject, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(3, items.count)
+        return min(maxRowsToShow, items.count)
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
