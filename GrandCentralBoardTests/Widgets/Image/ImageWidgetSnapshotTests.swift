@@ -85,4 +85,15 @@ final class ImageWidgetSnapshotTests: FBSnapshotTestCase {
 
         FBSnapshotVerifyView(widget.view)
     }
+
+    func testViewWithCatImageAndCustomHeaderWithoutSubtitle() {
+        let dataDownloader = TestDataDownloader(shouldFail: false)
+        let source = try! RemoteImageSource(paths: ["http://macoscope.com"], dataDownloader: dataDownloader)
+        let header = ImageWidgetHeader(title: "Title", subtitle: "")
+
+        let widget = ImageWidget(view: widgetView, sources: [source], header: header)
+        widget.update(source)
+
+        FBSnapshotVerifyView(widget.view)
+    }
 }
