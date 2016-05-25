@@ -85,4 +85,16 @@ final class GitHubWidgetSnapshotTests: FBSnapshotTestCase {
 
         FBSnapshotVerifyView(view)
     }
+
+    func testWidgetWithNoDataReturned() {
+        let dataProvider = TestGitHubDataProvider(data: [], shouldFail: false)
+        let source = GitHubSource(dataProvider: dataProvider, refreshInterval: 60)
+        let widget = GitHubWidget(source: source)
+
+        widget.update(source)
+        let view = widget.view
+        view.frame = CGRect(x: 0, y: 0, width: 640, height: 540)
+
+        FBSnapshotVerifyView(view)
+    }
 }
