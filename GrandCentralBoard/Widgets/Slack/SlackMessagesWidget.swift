@@ -25,10 +25,19 @@ final class SlackMessagesWidget: WidgetControlling {
     private let widgetView = SlackWidgetView.fromNib()
 
     let sources: [UpdatingSource]
-    var view: UIView { return widgetView }
+    let view: UIView
 
     init(source: SlackSource) {
         sources = [source]
+
+        let widgetTemplateViewModel = WidgetTemplateViewModel(title: "Slack".uppercaseString,
+                                                              subtitle: "",
+                                                              contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 26, left: 27, bottom: 27, right: 26))
+        view = WidgetTemplateView.viewWithViewModel(widgetTemplateViewModel, layoutSettings: layoutSettings)
+
+        widgetView.hidden = true
+
         source.subscriptionBlock = { [weak self] message in
             self?.onNewMessage(message)
         }
@@ -37,6 +46,7 @@ final class SlackMessagesWidget: WidgetControlling {
     private func onNewMessage(message: SlackMessage) {
         let viewModel = SlackWidgetViewModel.fromMessage(message)
         widgetView.configureWithViewModel(viewModel)
+        widgetView.hidden = false
     }
 
     func update(source: UpdatingSource) {}
