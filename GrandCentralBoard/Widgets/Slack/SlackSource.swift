@@ -9,24 +9,7 @@
 import GCBCore
 import SlackKit
 import RxSwift
-import Moya
 
-struct SlackAvatarRequest: TargetType {
-    let baseURL: NSURL
-    let path = ""
-    let method: Moya.Method = .GET
-    let parameters: [String : AnyObject]? = nil
-    let sampleData = NSData()
-
-    init(url: NSURL) {
-        baseURL = url
-    }
-}
-
-private func AvatarEndpointMapping(target: SlackAvatarRequest) -> Endpoint<SlackAvatarRequest> {
-    let url = target.baseURL.absoluteString
-    return Endpoint(URL: url, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
-}
 
 final class SlackSource: Subscribable, MessageEventsDelegate {
     typealias ResultType = SlackMessage
@@ -36,7 +19,7 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
     let sourceType: SourceType = .Momentary
 
     let slackClient: Client
-    let avatarProvider = RxMoyaProvider<SlackAvatarRequest>(endpointClosure: AvatarEndpointMapping)
+    let avatarProvider = AvatarProvider()
 
     private let disposeBag = DisposeBag()
 
@@ -65,7 +48,7 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
 
         var avatarImageObservable: Observable<UIImage!>
         if let avatarPath = author.profile?.image192, avatarURL = NSURL(string: avatarPath) {
-            avatarImageObservable = avatarProvider.request(SlackAvatarRequest(url: avatarURL)).mapImage()
+            avatarImageObservable = avatarProvider.avatarWithURL(avatarURL)
         } else {
             avatarImageObservable = Observable.just(nil)
         }

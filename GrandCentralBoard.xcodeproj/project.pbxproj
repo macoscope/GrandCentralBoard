@@ -115,6 +115,7 @@
 		521B685C1CF8893D00E112CC /* SlackAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B685B1CF8893D00E112CC /* SlackAvatarView.swift */; };
 		521B685E1CF88C7F00E112CC /* SlackWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B685D1CF88C7F00E112CC /* SlackWidgetView.xib */; };
 		521B68601CF88E0F00E112CC /* SlackWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B685F1CF88E0F00E112CC /* SlackWidgetView.swift */; };
+		521B68621CF8A5C300E112CC /* AvatarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68611CF8A5C300E112CC /* AvatarProvider.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
 		525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */; };
@@ -323,6 +324,7 @@
 		521B685B1CF8893D00E112CC /* SlackAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackAvatarView.swift; path = Slack/SlackAvatarView.swift; sourceTree = "<group>"; };
 		521B685D1CF88C7F00E112CC /* SlackWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SlackWidgetView.xib; path = Slack/View/SlackWidgetView.xib; sourceTree = "<group>"; };
 		521B685F1CF88E0F00E112CC /* SlackWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackWidgetView.swift; path = Slack/View/SlackWidgetView.swift; sourceTree = "<group>"; };
+		521B68611CF8A5C300E112CC /* AvatarProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarProvider.swift; path = Slack/AvatarProvider.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
 		525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSBundle+LoadJSON.swift"; path = "Widgets/Harvest/Fixtures/NSBundle+LoadJSON.swift"; sourceTree = "<group>"; };
@@ -866,6 +868,7 @@
 			children = (
 				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
 				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
+				521B68611CF8A5C300E112CC /* AvatarProvider.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -1459,6 +1462,7 @@
 				5274A4971CB69C66005FD847 /* GoogleCalendarDataProvider.swift in Sources */,
 				529CEF151CEC9A5B00636A4A /* CircleView.swift in Sources */,
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
+				521B68621CF8A5C300E112CC /* AvatarProvider.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
 				527FA0631CC4D742004614B8 /* WebsiteAnalyticsSettings.swift in Sources */,
 				521B68601CF88E0F00E112CC /* SlackWidgetView.swift in Sources */,
