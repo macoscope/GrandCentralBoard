@@ -16,6 +16,7 @@ final class SlackAvatarView: UIImageView {
         super.layoutSubviews()
 
         layer.cornerRadius = min(bounds.width / 2, bounds.height / 2)
+        layer.masksToBounds = true
         layer.borderWidth = 2
         layer.borderColor = UIColor.gcb_greenColor().CGColor
     }
