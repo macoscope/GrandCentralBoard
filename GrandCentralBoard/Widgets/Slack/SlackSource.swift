@@ -9,7 +9,24 @@
 import GCBCore
 import SlackKit
 import RxSwift
+import Moya
 
+struct SlackAvatarRequest: TargetType {
+    let baseURL: NSURL
+    let path = ""
+    let method: Moya.Method = .GET
+    let parameters: [String : AnyObject]? = nil
+    let sampleData = NSData()
+
+    init(url: NSURL) {
+        baseURL = url
+    }
+}
+
+private func AvatarEndpointMapping(target: SlackAvatarRequest) -> Endpoint<SlackAvatarRequest> {
+    let url = target.baseURL.absoluteString
+    return Endpoint(URL: url, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+}
 
 final class SlackSource: Subscribable, MessageEventsDelegate {
     typealias ResultType = SlackMessage
@@ -19,6 +36,7 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
     let sourceType: SourceType = .Momentary
 
     let slackClient: Client
+    let avatarProvider = RxMoyaProvider<SlackAvatarRequest>(endpointClosure: AvatarEndpointMapping)
 
     private let disposeBag = DisposeBag()
 
@@ -36,27 +54,32 @@ final class SlackSource: Subscribable, MessageEventsDelegate {
 
     func messageReceived(message: Message) {
         let searchedTags = ["<!here|@here>", "<!here>", "<!channel>", "<!everyone>"]
-        guard let text = message.text, channel = message.channel, author = message.user
+        guard let text = message.text, channelName = message.channel, authorID = message.user,
+            author = slackClient.users[authorID], authorName = author.name, channel = slackClient.channels[channelName]
             where text.containsAnyString(searchedTags) else {
             return
         }
 
         let timestamp = message.ts?.slackMessageTimestamp() ?? NSDate()
         let formattedText = text.stringByRemovingOccurrencesOfStrings(searchedTags).trim()
-        let slackClient = self.slackClient
 
-        let userInfoObservable = slackClient.webAPI.userInfo(author)
-        let channelInfoObservable = slackClient.webAPI.channelInfo(channel)
+        var avatarImageObservable: Observable<UIImage!>
+        if let avatarPath = author.profile?.image192, avatarURL = NSURL(string: avatarPath) {
+            avatarImageObservable = avatarProvider.request(SlackAvatarRequest(url: avatarURL)).mapImage()
+        } else {
+            avatarImageObservable = Observable.just(nil)
+        }
 
-        Observable.zip(userInfoObservable, channelInfoObservable) { (userInfo: User, channelInfo: Channel) -> SlackMessage in
-            guard let userName = userInfo.name else {
-                throw ErrorWithMessage(message: "Missing author in Slack Message")
+
+        let subscriptionBlock = self.subscriptionBlock
+        avatarImageObservable.map { SlackMessage(text: formattedText, timestamp: timestamp, author: authorName, channel: channel.name, avatar: $0) }
+        .observeOn(MainScheduler.instance).subscribe {
+            switch $0 {
+            case .Next(let message): subscriptionBlock?(message)
+            case .Error(let error): assertionFailure("\(error)")
+            case .Completed: break
             }
-
-            return SlackMessage(text: formattedText, timestamp: timestamp, author: userName,
-                                channel: channelInfo.name, avatarPath: userInfo.profile?.image192)
-        }.observeOn(MainScheduler.instance).subscribeNext({ [weak self] message in
-            self?.subscriptionBlock?(message)
-        }).addDisposableTo(disposeBag)
+        }
+        .addDisposableTo(disposeBag)
     }
 }

@@ -9,9 +9,20 @@
 import GCBCore
 
 
+extension SlackWidgetViewModel {
+    static func fromMessage(message: SlackMessage) -> SlackWidgetViewModel {
+        if let avatar = message.avatar {
+            return SlackWidgetViewModel(avatarImage: avatar, message: message.text)
+        } else {
+            return SlackWidgetViewModel(avatarImage: UIImage(named: "default_avatar")!, message: message.text)
+        }
+    }
+}
+
+
 final class SlackMessagesWidget: WidgetControlling {
 
-    private let widgetView = MessageBubbleView()
+    private let widgetView = SlackWidgetView.fromNib()
 
     let sources: [UpdatingSource]
     var view: UIView { return widgetView }
@@ -24,7 +35,8 @@ final class SlackMessagesWidget: WidgetControlling {
     }
 
     private func onNewMessage(message: SlackMessage) {
-        widgetView.text = "\(message.text) - by \(message.author ?? "unknown") on \(message.channel ?? "unknown channel")"
+        let viewModel = SlackWidgetViewModel.fromMessage(message)
+        widgetView.configureWithViewModel(viewModel)
     }
 
     func update(source: UpdatingSource) {}
