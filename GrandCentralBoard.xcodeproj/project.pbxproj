@@ -113,6 +113,8 @@
 		521B68661CFC303A00E112CC /* GitHubWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */; };
 		521B68681CFC316300E112CC /* GitHubWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */; };
 		521B685C1CF8893D00E112CC /* SlackAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B685B1CF8893D00E112CC /* SlackAvatarView.swift */; };
+		521B685E1CF88C7F00E112CC /* SlackWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B685D1CF88C7F00E112CC /* SlackWidgetView.xib */; };
+		521B68601CF88E0F00E112CC /* SlackWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B685F1CF88E0F00E112CC /* SlackWidgetView.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
 		525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */; };
@@ -319,6 +321,8 @@
 		521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetBuilder.swift; path = GitHub/GitHubWidgetBuilder.swift; sourceTree = "<group>"; };
 		521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetSettings.swift; path = GitHub/GitHubWidgetSettings.swift; sourceTree = "<group>"; };
 		521B685B1CF8893D00E112CC /* SlackAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackAvatarView.swift; path = Slack/SlackAvatarView.swift; sourceTree = "<group>"; };
+		521B685D1CF88C7F00E112CC /* SlackWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SlackWidgetView.xib; path = Slack/View/SlackWidgetView.xib; sourceTree = "<group>"; };
+		521B685F1CF88E0F00E112CC /* SlackWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackWidgetView.swift; path = Slack/View/SlackWidgetView.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
 		525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSBundle+LoadJSON.swift"; path = "Widgets/Harvest/Fixtures/NSBundle+LoadJSON.swift"; sourceTree = "<group>"; };
@@ -841,6 +845,8 @@
 			children = (
 				521B685B1CF8893D00E112CC /* SlackAvatarView.swift */,
 				521B68551CF5BDCB00E112CC /* MessageBubbleView.swift */,
+				521B685D1CF88C7F00E112CC /* SlackWidgetView.xib */,
+				521B685F1CF88E0F00E112CC /* SlackWidgetView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1202,6 +1208,7 @@
 				1AA97DE91CA2E0C80058DBCE /* calendar.json in Resources */,
 				1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				1A6036861C7F161D0034EFE9 /* SF-UI-Text-Regular.otf in Resources */,
+				521B685E1CF88C7F00E112CC /* SlackWidgetView.xib in Resources */,
 				1A6036781C7F161D0034EFE9 /* SF-UI-Display-Light.otf in Resources */,
 				1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */,
 				1A6036841C7F161D0034EFE9 /* SF-UI-Text-Medium.otf in Resources */,
@@ -1454,6 +1461,7 @@
 				F9C88F301CBE991C00E81A14 /* DailyBillingStats.swift in Sources */,
 				494B68E51C92E98800D460B0 /* CGRect.swift in Sources */,
 				527FA0631CC4D742004614B8 /* WebsiteAnalyticsSettings.swift in Sources */,
+				521B68601CF88E0F00E112CC /* SlackWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
