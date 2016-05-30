@@ -3,7 +3,6 @@
 //  GrandCentralBoard
 //
 //  Created by Michał Laskowski on 27.04.2016.
-//  Copyright © 2016 Oktawian Chojnacki. All rights reserved.
 //
 
 import XCTest
