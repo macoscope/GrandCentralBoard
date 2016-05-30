@@ -25,7 +25,7 @@ final class GitHubWidget: WidgetControlling {
     private lazy var noOpenPullRequestsView: UIView = {
         let view = NSBundle.mainBundle().loadNibNamed("NoOpenPRPlaceholder", owner: nil, options: nil)[0] as! UIView
         let viewModel = WidgetTemplateViewModel(title: widgetTitle, subtitle: widgetSubtitle, contentView: view)
-        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
         return WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
     }()
 
