@@ -10,7 +10,7 @@ import GCBCore
 
 
 struct GitHubSourceNoDataError: ErrorType, HavingMessage {
-    let message = "GitHub returned no repositories."
+    let message = "GitHub returned no repositories".localized
 }
 
 private extension CollectionType where Generator.Element == Repository {
