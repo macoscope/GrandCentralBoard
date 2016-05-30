@@ -21,7 +21,7 @@ private final class TestDataDownloader: DataDownloading {
 
     private func downloadDataAtPath(path: String, completion: (Result<NSData>) -> Void) {
         if shouldFail {
-            completion(.Failure(ErrorWithMessage(message: "error_messsage")))
+            completion(.Failure(TestError()))
         } else {
             let path = NSBundle(forClass: TestDataDownloader.self).pathForResource("cat", ofType:"jpeg")!
             let data = NSData(contentsOfFile: path)!

@@ -21,7 +21,7 @@ private final class TestGitHubDataProvider: GitHubDataProviding {
     }
 
     private func repositories() -> Observable<[Repository]> {
-        if shouldFail { return Observable.error(ErrorWithMessage(message: "Test error")) }
+        if shouldFail { return Observable.error(TestError()) }
         return Observable.just(data)
     }
 

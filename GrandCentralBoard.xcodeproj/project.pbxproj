@@ -115,6 +115,7 @@
 		521B685E1CF88C7F00E112CC /* SlackWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B685D1CF88C7F00E112CC /* SlackWidgetView.xib */; };
 		521B68601CF88E0F00E112CC /* SlackWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B685F1CF88E0F00E112CC /* SlackWidgetView.swift */; };
 		521B68621CF8A5C300E112CC /* AvatarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68611CF8A5C300E112CC /* AvatarProvider.swift */; };
+		521B68641CFC25E200E112CC /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68631CFC25E200E112CC /* TestError.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
 		525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */; };
@@ -323,6 +324,7 @@
 		521B685D1CF88C7F00E112CC /* SlackWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SlackWidgetView.xib; path = Slack/View/SlackWidgetView.xib; sourceTree = "<group>"; };
 		521B685F1CF88E0F00E112CC /* SlackWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackWidgetView.swift; path = Slack/View/SlackWidgetView.swift; sourceTree = "<group>"; };
 		521B68611CF8A5C300E112CC /* AvatarProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvatarProvider.swift; path = Slack/AvatarProvider.swift; sourceTree = "<group>"; };
+		521B68631CFC25E200E112CC /* TestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
 		525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSBundle+LoadJSON.swift"; path = "Widgets/Harvest/Fixtures/NSBundle+LoadJSON.swift"; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				52873E6A1CB662CD00C24E13 /* DataProvider */,
 				1A4616A31C90480500361B2E /* Core */,
 				1A242D341C357C2700D5BEE5 /* Info.plist */,
+				521B68631CFC25E200E112CC /* TestError.swift */,
 			);
 			path = GrandCentralBoardTests;
 			sourceTree = "<group>";
@@ -1502,6 +1505,7 @@
 				49175CD41CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift in Sources */,
 				526FC25C1CD365C700D7843A /* BonusSceneTests.swift in Sources */,
 				528AFBC51CEB773E001263C8 /* CircleChartViewTests.swift in Sources */,
+				521B68641CFC25E200E112CC /* TestError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

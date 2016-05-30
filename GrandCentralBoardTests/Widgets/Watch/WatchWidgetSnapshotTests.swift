@@ -15,10 +15,10 @@ import GCBCore
 private final class TestCalendarErrorsDataProvider: CalendarDataProviding {
 
     func fetchEventsForCalendar(completion: (Result<[Event]>) -> Void) {
-        completion(.Failure(ErrorWithMessage(message: "")))
+        completion(.Failure(TestError()))
     }
     func fetchCalendar(completion: (Result<Calendar>) -> Void) {
-        completion(.Failure(ErrorWithMessage(message: "")))
+        completion(.Failure(TestError()))
     }
 }
 

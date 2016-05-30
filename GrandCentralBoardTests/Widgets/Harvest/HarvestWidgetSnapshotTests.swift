@@ -26,7 +26,7 @@ private final class TestHarvestProvider: HarvestAPIProviding {
 
     private func fetchBillingStats(completion: (Result<[DailyBillingStats]>) -> Void) {
         if shouldFailRequest {
-            completion(.Failure(ErrorWithMessage(message: "error_message")))
+            completion(.Failure(TestError()))
         } else {
             completion(.Success([]))
         }

@@ -65,7 +65,6 @@ final class SlackSourceTests: XCTestCase {
                 expect(message.timestamp.timeIntervalSince1970).to(beCloseTo(timestamp, within: 1.0))
                 expect(message.author) == self.userName
                 expect(message.channel) == self.channelName
-                expect(message.avatarPath) == self.avatarPath
                 done()
             }
             source.messageReceived(fakeMessage)
