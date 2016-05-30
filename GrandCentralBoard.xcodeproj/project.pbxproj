@@ -107,6 +107,8 @@
 		52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */; };
 		521B684D1CF4700600E112CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521B684C1CF4700600E112CC /* Assets.xcassets */; };
 		521B68511CF58D5400E112CC /* NoOpenPRPlaceholder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */; };
+		521B68661CFC303A00E112CC /* GitHubWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */; };
+		521B68681CFC316300E112CC /* GitHubWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
 		525027751CDCE91C00DFE32A /* DailyBillingStats.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027721CDCE91C00DFE32A /* DailyBillingStats.json */; };
 		525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */; };
@@ -307,6 +309,8 @@
 		52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsDataProviderTests.swift; path = Widgets/WebsiteAnalytics/GoogleAnalyticsDataProviderTests.swift; sourceTree = "<group>"; };
 		521B684C1CF4700600E112CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GitHub/Assets.xcassets; sourceTree = "<group>"; };
 		521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoOpenPRPlaceholder.xib; path = GitHub/View/NoOpenPRPlaceholder.xib; sourceTree = "<group>"; };
+		521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetBuilder.swift; path = GitHub/GitHubWidgetBuilder.swift; sourceTree = "<group>"; };
+		521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetSettings.swift; path = GitHub/GitHubWidgetSettings.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
 		525027721CDCE91C00DFE32A /* DailyBillingStats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DailyBillingStats.json; path = Widgets/Harvest/Fixtures/DailyBillingStats.json; sourceTree = "<group>"; };
 		525027731CDCE91C00DFE32A /* NSBundle+LoadJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSBundle+LoadJSON.swift"; path = "Widgets/Harvest/Fixtures/NSBundle+LoadJSON.swift"; sourceTree = "<group>"; };
@@ -821,15 +825,24 @@
 			name = Slack;
 			sourceTree = "<group>";
 		};
+		521B68691CFC31FA00E112CC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
+				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		526FC2411CD0ADCC00D7843A /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
 				C1719D581CF09124009B52BA /* GitHubWidget.swift */,
+				521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */,
+				521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */,
+				521B68691CFC31FA00E112CC /* Source */,
 				C14EA2EA1CF061E500961DF6 /* View */,
 				526FC2441CD0D65F00D7843A /* Model */,
-				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
-				C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */,
-				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
 				521B684C1CF4700600E112CC /* Assets.xcassets */,
 			);
 			name = GitHub;
@@ -950,6 +963,7 @@
 				C14EA2ED1CF072A500961DF6 /* GitHubCell.swift */,
 				C14EA2EF1CF0737000961DF6 /* EllipseView.swift */,
 				C1719D5E1CF184C4009B52BA /* GitHubWidgetView.swift */,
+				C1719D5A1CF099E8009B52BA /* GitHubTableDataSource.swift */,
 				521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */,
 			);
 			name = View;
@@ -1351,6 +1365,7 @@
 				52FB50811CBFB1660053DE8B /* ImageWidgetConfiguration.swift in Sources */,
 				1A1DBC6C1CBFA0FA003DA40C /* Event.swift in Sources */,
 				494B68CC1C92E89A00D460B0 /* BonusWidgetView.swift in Sources */,
+				521B68681CFC316300E112CC /* GitHubWidgetSettings.swift in Sources */,
 				06684F2F1CB788FB00B93D90 /* RequestTemplate.swift in Sources */,
 				494B68CA1C92E89A00D460B0 /* BonusWidget.swift in Sources */,
 				067DA5561CBF829A00048E6A /* TableWidgetView.swift in Sources */,
@@ -1363,6 +1378,7 @@
 				526D1C6A1CE608FD00604174 /* EmptyHeaderView.swift in Sources */,
 				F9E9208B1CC543CD00BC7994 /* BillingProjectList.swift in Sources */,
 				520B7A5D1CE36C2B005F53EC /* SlackMessage.swift in Sources */,
+				521B68661CFC303A00E112CC /* GitHubWidgetBuilder.swift in Sources */,
 				520B7A691CE3912A005F53EC /* SlackWebAPI+RxSwift.swift in Sources */,
 				F9C88F201CBD3C4200E81A14 /* HarvestAPI.swift in Sources */,
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
