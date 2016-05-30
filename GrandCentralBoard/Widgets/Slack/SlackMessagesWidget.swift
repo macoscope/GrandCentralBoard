@@ -7,17 +7,7 @@
 //
 
 import GCBCore
-
-
-extension SlackWidgetViewModel {
-    static func fromMessage(message: SlackMessage) -> SlackWidgetViewModel {
-        if let avatar = message.avatar {
-            return SlackWidgetViewModel(avatarImage: avatar, message: message.text)
-        } else {
-            return SlackWidgetViewModel(avatarImage: UIImage(named: "default_avatar")!, message: message.text)
-        }
-    }
-}
+import RxSwift
 
 
 final class SlackMessagesWidget: WidgetControlling {
@@ -25,6 +15,9 @@ final class SlackMessagesWidget: WidgetControlling {
     private let widgetView = SlackWidgetView.fromNib()
 
     let sources: [UpdatingSource]
+    private let avatarProvider = AvatarProvider()
+    private let disposeBag = DisposeBag()
+
     let view: UIView
 
     init(source: SlackSource) {
@@ -44,9 +37,10 @@ final class SlackMessagesWidget: WidgetControlling {
     }
 
     private func onNewMessage(message: SlackMessage) {
-        let viewModel = SlackWidgetViewModel.fromMessage(message)
-        widgetView.configureWithViewModel(viewModel)
-        widgetView.hidden = false
+        SlackWidgetViewModel.fromMessage(message, withAvatarProvider: avatarProvider).subscribeNext { [weak self] in
+            self?.widgetView.configureWithViewModel($0)
+            self?.widgetView.hidden = false
+        }.addDisposableTo(disposeBag)
     }
 
     func update(source: UpdatingSource) {}

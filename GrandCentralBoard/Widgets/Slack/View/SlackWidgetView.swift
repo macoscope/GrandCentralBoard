@@ -9,11 +9,6 @@
 import UIKit
 
 
-struct SlackWidgetViewModel {
-    let avatarImage: UIImage
-    let message: String
-}
-
 final class SlackWidgetView: UIView {
 
     @IBOutlet private weak var messageView: MessageBubbleView!

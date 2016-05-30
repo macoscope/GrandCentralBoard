@@ -6,7 +6,7 @@
 //  Copyright © 2016 Macoscope. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct SlackMessage {
     let text: String
@@ -14,5 +14,5 @@ struct SlackMessage {
     var author: String
 
     var channel: String?
-    var avatar: UIImage?
+    var avatarPath: String?
 }
