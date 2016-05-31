@@ -16,11 +16,21 @@ final class GitHubWidgetView: UITableView {
 
     private let tableDataSource = GitHubTableDataSource()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setUp()
+    }
+
+    override init(frame: CGRect, style: UITableViewStyle) {
+        super.init(frame: frame, style: style)
+        setUp()
+    }
+
+    private func setUp() {
         rowHeight = 116
         layoutMargins = UIEdgeInsetsZero
         maskView = nil
+        allowsSelection = false
         tableDataSource.setUpTableView(self)
     }
 
