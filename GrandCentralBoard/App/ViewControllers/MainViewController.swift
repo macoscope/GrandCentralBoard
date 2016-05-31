@@ -28,7 +28,8 @@ final class MainViewController: UIViewController {
             HarvestWidgetBuilder(),
             ImageWidgetBuilder(dataDownloader: dataDownloader),
             BlogPostsPopularityWidgetBuilder(),
-            SlackWidgetBuilder()
+            SlackWidgetBuilder(),
+            GitHubWidgetBuilder()
         ]
 
         if shouldLoadBundledConfig {

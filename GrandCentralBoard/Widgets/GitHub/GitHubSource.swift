@@ -9,6 +9,10 @@ import RxSwift
 import GCBCore
 
 
+struct GitHubSourceNoDataError: ErrorType, HavingMessage {
+    let message = "GitHub returned no repositories".localized
+}
+
 private extension CollectionType where Generator.Element == Repository {
 
     func filterAndSortByPRCountAndName() -> [Repository] {
@@ -35,12 +39,15 @@ final class GitHubSource: Asynchronous {
     }
 
     func read(closure: (ResultType) -> Void) {
-        dataProvider.repositoriesWithPRsCount().single().subscribe { (event) in
+        dataProvider.repositoriesWithPRsCount().single().map { (repositories) -> [Repository] in
+            guard repositories.count > 0 else { throw GitHubSourceNoDataError() }
+            return repositories.filterAndSortByPRCountAndName()
+        }.observeOn(MainScheduler.instance).subscribe { (event) in
             switch event {
             case .Error(let error): closure(.Failure(error))
             case .Next(let repositories): closure(.Success(repositories.filterAndSortByPRCountAndName()))
             case .Completed: break
             }
-            }.addDisposableTo(disposeBag)
+        }.addDisposableTo(disposeBag)
     }
 }
