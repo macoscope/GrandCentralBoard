@@ -14,7 +14,7 @@ final class MessageBubbleViewSnapshotTests: FBSnapshotTestCase {
 
     override func setUp() {
         super.setUp()
-//        recordMode = true
+        recordMode = false
     }
 
     func testMessageBubbleShortText() {
