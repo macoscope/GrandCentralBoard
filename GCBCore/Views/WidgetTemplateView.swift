@@ -102,14 +102,14 @@ public class WidgetTemplateView: UIView {
         return viewWithViewModel(viewModel, layoutSettings: defaultErrorLayout)
     }
 
-    private func configureWithViewModel(viewModel: WidgetTemplateViewModelType) {
+    public func configureWithViewModel(viewModel: WidgetTemplateViewModelType) {
         contentView = viewModel.contentView
-        configureContenView(viewModel.contentView)
+        configureContentView(viewModel.contentView)
         configureTitle(viewModel.title)
         configureSubtitle(viewModel.subtitle)
     }
 
-    private func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
+    public func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
         if layoutSettings.displayContentUnderHeader {
             containerTopToHeaderBottomConstraint.active = false
             containerTopConstraint.active = true
@@ -120,9 +120,11 @@ public class WidgetTemplateView: UIView {
 
         guard let contentView = contentView else { return }
         contentView.frame = UIEdgeInsetsInsetRect(contentView.bounds, layoutSettings.contentMargin)
+        setNeedsLayout()
     }
 
-    private func configureContenView(contentView: UIView) {
+    private func configureContentView(contentView: UIView) {
+        contentViewContainer.subviews.forEach { $0.removeFromSuperview() }
         contentViewContainer.addSubview(contentView)
         contentView.frame = contentViewContainer.bounds
         contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
