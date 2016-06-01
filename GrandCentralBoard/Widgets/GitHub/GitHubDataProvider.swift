@@ -49,7 +49,7 @@ final class GitHubDataProvider: GitHubDataProviding {
     }
 
     private func requestPullRequestsCountForRepository(repo: Repository) -> Observable<Repository> {
-        if repo.openIssuesCount == 0 {
+        guard repo.openIssuesCount > 0 else {
             return Observable.just(repo.repositoryWithPRCount(0))
         }
 
