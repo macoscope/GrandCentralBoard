@@ -12,44 +12,52 @@ import UIKit
 @IBDesignable
 final class MessageBubbleView: UIView {
 
+    private let textToBubbleMargin = UIEdgeInsets(top: 25, left: 33, bottom: 25, right: 43)
+
     private lazy var imageView: UIImageView = { [unowned self] in
         let imageView = UIImageView(image: UIImage(named: "message_bubble")!)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageView)
+
         return imageView
-    }()
+        }()
 
     private lazy var label: UILabel = { [unowned self] in
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFontOfSize(40)
         label.textColor = UIColor.whiteColor()
         label.numberOfLines = 0
 
         self.addSubview(label)
         return label
-    }()
+        }()
 
     @IBInspectable var text: String = "" {
         didSet {
             label.text = text
-            setNeedsLayout()
         }
     }
 
-    override func layoutSubviews() {
-        let textToBubbleMargin = (x: CGFloat(33), y: CGFloat(25.0))
-        let maxTextWidth = bounds.width - 2 * textToBubbleMargin.x
-        let maxTextHeight = bounds.height - 2 * textToBubbleMargin.y
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setConstraints()
+    }
 
-        let labelText: NSString = label.text ?? ""
-        let textSize = labelText.boundingRectWithSize(CGSize(width: maxTextWidth, height: maxTextHeight),
-                                                      options: .UsesLineFragmentOrigin,
-                                                      attributes: [NSFontAttributeName: label.font],
-                                                      context: nil)
-        let textHeight = min(textSize.height, maxTextHeight)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setConstraints()
+    }
 
-        let imageHeight = textHeight + 2 * textToBubbleMargin.y
-        imageView.frame = CGRect(x: 0, y: bounds.height - imageHeight, width: bounds.width, height: imageHeight)
+    private func setConstraints() {
+        label.topAnchor.constraintGreaterThanOrEqualToAnchor(topAnchor, constant: textToBubbleMargin.top).active = true
+        label.leftAnchor.constraintEqualToAnchor(leftAnchor, constant: textToBubbleMargin.left).active = true
+        label.rightAnchor.constraintEqualToAnchor(rightAnchor, constant: -textToBubbleMargin.right).active = true
+        label.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -textToBubbleMargin.bottom).active = true
 
-        label.frame = CGRect(x: textToBubbleMargin.x, y: imageView.frame.minY + textToBubbleMargin.y, width: maxTextWidth, height: textHeight)
+        imageView.topAnchor.constraintEqualToAnchor(label.topAnchor, constant: -textToBubbleMargin.top).active = true
+        imageView.leftAnchor.constraintEqualToAnchor(leftAnchor, constant: 0).active = true
+        imageView.rightAnchor.constraintEqualToAnchor(rightAnchor, constant: 0).active = true
+        imageView.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: 0).active = true
     }
 }
