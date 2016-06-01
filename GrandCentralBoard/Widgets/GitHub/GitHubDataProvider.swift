@@ -49,6 +49,10 @@ final class GitHubDataProvider: GitHubDataProviding {
     }
 
     private func requestPullRequestsCountForRepository(repo: Repository) -> Observable<Repository> {
+        guard repo.openIssuesCount > 0 else {
+            return Observable.just(repo.repositoryWithPRCount(0))
+        }
+
         return moyaProvider.request(.PullRequests(repositoryFullName: repo.fullName)).mapJSON().map({ (object: AnyObject) -> Repository in
             guard let array = object as? NSArray else {
                 assertionFailure("Object is not an array")

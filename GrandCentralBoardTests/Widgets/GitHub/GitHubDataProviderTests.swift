@@ -75,7 +75,11 @@ final class GitHubDataProviderTests: XCTestCase {
             expect(repo.fullName) == fullName
             expect(repo.name) == jsonReposArray[index]["name"] as? String
             expect(repo.openIssuesCount) == jsonReposArray[index]["open_issues_count"] as? Int
-            expect(repo.pullRequestsCount) == pullRequestsArray.count
+            if repo.openIssuesCount == 0 {
+                expect(repo.pullRequestsCount) == 0
+            } else {
+                expect(repo.pullRequestsCount) == pullRequestsArray.count
+            }
         }
     }
 
