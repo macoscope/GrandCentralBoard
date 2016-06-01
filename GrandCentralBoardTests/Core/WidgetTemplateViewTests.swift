@@ -17,7 +17,7 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
 
     override func setUp() {
         super.setUp()
-//        recordMode = true
+        recordMode = false
     }
 
     private func contentView() -> UIView {
@@ -68,6 +68,16 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
     func testConfigureForErrorWithDefaultIcon() {
         let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle)
         let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
+
+        FBSnapshotVerifyView(view)
+    }
+
+    func testConfigureMultipleTimes() {
+        let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle)
+        let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
+
+        let newViewModel = WidgetErrorTemplateViewModel(title: "Some different title", subtitle: "This is a totally different subtitle")
+        view.configureWithViewModel(newViewModel)
 
         FBSnapshotVerifyView(view)
     }
