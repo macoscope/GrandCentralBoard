@@ -191,4 +191,4 @@ public protocol Source : UpdatingSource {
 
 # Credits
 
-- Icon design based on illustration by [Michał Bednarski](https://www.behance.net/emas)
+- Illustration and icon by [Michał Bednarski](https://www.behance.net/emas)
