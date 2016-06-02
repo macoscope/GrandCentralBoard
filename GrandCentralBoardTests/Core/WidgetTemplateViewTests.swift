@@ -81,4 +81,26 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
 
         FBSnapshotVerifyView(view)
     }
+
+
+    func testConfigureLayoutMultipleTimes() {
+        let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle)
+        let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
+
+        let newContentView = UILabel()
+        newContentView.text = "Background of this should be shown under the header with 10px top margin."
+        newContentView.font = UIFont.systemFontOfSize(60)
+        newContentView.backgroundColor = .grayColor()
+        newContentView.numberOfLines = 0
+
+        let newViewModel = WidgetTemplateViewModel(title: "Some different title",
+                                                   subtitle: "This is a totally different subtitle",
+                                                   contentView: newContentView)
+        view.configureWithViewModel(newViewModel)
+
+        let newLayout = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 10, left: 60, bottom: 60, right: 60),
+                                                     displayContentUnderHeader: true)
+        view.configureLayoutSettings(newLayout)
+        FBSnapshotVerifyView(view)
+    }
 }
