@@ -66,6 +66,16 @@ let boardController = GrandCentralBoardController(scheduler: self.scheduler, sta
 let configurationRefresher = ConfigurationRefresher(interval: configRefreshInterval,
                                                     configuree: boardController,
                                                     fetcher: configurationFetching)
+
+// in ViewController:
+                                                    
+override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+
+    view = autoStack
+
+    configurationRefresher.start()
+}
 ```
 
 # Contributing
