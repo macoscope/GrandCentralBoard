@@ -11,11 +11,7 @@ import GCBCore
 
 final class SlackMessagesWidget: WidgetControlling {
 
-    private let widgetView: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.whiteColor()
-        return label
-    }()
+    private let widgetView = MessageBubbleView()
 
     let sources: [UpdatingSource]
     var view: UIView { return widgetView }
