@@ -1,7 +1,7 @@
 Grand Central Board for the Apple TV
 ====================================
 
-![image](./README/screenshot.png)
+![image](./README/appletv941.png)
 
 [![Build Status](https://travis-ci.org/macoscope/GrandCentralBoard.svg?branch=mvp)](https://travis-ci.org/macoscope/GrandCentralBoard)
 ![Swift2.2](https://img.shields.io/badge/%20in-swift%202.2-orange.svg)
@@ -9,7 +9,6 @@ Grand Central Board for the Apple TV
 [![License](https://img.shields.io/cocoapods/l/GCBCore.svg?style=flat)](http://cocoadocs.org/docsets/GCBCore)
 [![Platform](https://img.shields.io/cocoapods/p/GCBCore.svg?style=flat)](http://cocoadocs.org/docsets/GCBCore)
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/GCBCore.svg?style=flat)](http://cocoadocs.org/docsets/GCBCore)
-
 
 Hang a TV in your open space or team room to show everyone what's up and get them up to speed.  
 
@@ -19,13 +18,70 @@ The board is a lightweight piece of code. The TV screen is to be used in landsca
 
 ✋ Don't even ask - it's obviously written entirely in ♥️ [Swift 2.2](https://swift.org).
 
-## Widgets
+## GCBCore
 
-### Adding a new Widget
+The small set of sources needed to load configuration, initialize and show the Board.
+
+## CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. 
+
+You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate GCBCore into your Xcode project using CocoaPods, add this to your `Podfile`:
+
+```ruby
+pod 'GCBCore', '~> 1.0'
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+### Usage
+
+This is how you configure Grand Central Board:
+
+```swift
+let autoStack = AutoStack()
+let scheduler = Scheduler()
+let dataDownloader = DataDownloader()
+
+let availableBuilders: [WidgetBuilding] = [
+    ImageWidgetBuilder(dataDownloader: dataDownloader),
+]
+
+let configFileName = NSBundle.localConfigurationFileName
+let configurationFetching = LocalConfigurationLoader(configFileName: configFileName,
+                                                     availableBuilders: availableBuilders)
+
+let boardController = GrandCentralBoardController(scheduler: self.scheduler, stack: self.autoStack)
+
+let configurationRefresher = ConfigurationRefresher(interval: configRefreshInterval,
+                                                    configuree: boardController,
+                                                    fetcher: configurationFetching)
+```
+
+# Contributing
+
+If you want to contribute, please [add an issue](https://github.com/macoscope/GrandCentralBoard/issues) and discuss your plans with us. This will allow us to give you assistance should you need it and to make sure that people aren’t working on the same things.
+
+If you want to open a Pull Request, make sure you have [SwiftLint](https://github.com/Realm/SwiftLint) installed, and check that your project does not generate warnings or errors. Any warning will cause Travis build script to fail. 
+
+
+# Widgets
+
+## Adding a new Widget
 
 There is a separate article ([TUTORIAL.md](./TUTORIAL.md)) covering adding new widgets.
 
-### Components
+## Components
 
 A Widget consists of four main components:
 
@@ -34,19 +90,18 @@ A Widget consists of four main components:
 - **Widget**: a controller class implementing `Widget` protocol that is exposed to the scheduler and connecting previous two components with each other.
 - **WidgetBuilder**: implements `WidgetBuilding` protocol, instantiate Widget with settings from configuration file.
 
-### Widgets order on screen
 
-![image](./README/widgets.png)
-
-### Size
+## Size
 
 Widget canvas for 1080p:
 
-- 640px x 540px
+- 640pt x 540pt
 
-This size is constant and won't change on tvOS. Future releases are planned for iOS devices and they will be able to utilize slightly different (and more dense) canvases.
+This size is constant and won't change on tvOS.
 
-### Configuration
+The GCBCore v2.0 will support iOS target but the canvas sizes are yet to be defined.
+
+## Configuration
 
 There are two ways to configure Grand Central Board: with a remote or bundled configuration file. 
 A `JSON` file formatted like this is used to configure the Grand Central Board:
@@ -67,11 +122,11 @@ A `JSON` file formatted like this is used to configure the Grand Central Board:
 The way a configuration file is loaded is specified in `Info.plist` file.
 ![image](./README/plist_configuration.png)
 
-#### Remote configuration file
+### Remote configuration file
 
 To have the configuration file loaded from a remote location, edit `Info.plist` and set `GCBRemoteConfigurationPath` to the desired location. Make sure `GCBAlwaysUseLocalConfigurationFile` is set to `NO`.
 
-#### Bundled configuration file
+### Bundled configuration file
 
 To use a bundled configuration file, set `GCBAlwaysUseLocalConfigurationFile` in `Info.plist` to `YES`. If necessary edit `GCBLocalConfigurationFileName` and check if the file is listed under `Copy Bundle Resources` in `Build Phases`.
 For development purposes you can also launch the application via `GrandCentralBoard-LocalConfig` scheme.
@@ -134,13 +189,6 @@ public protocol Source : UpdatingSource {
 }
 ```
 
-# Contributing
-
-This project is still in its early stages and there is a lot to do. If you want to contribute, please add an issue and discuss your plans with us. This will allow us to give you assistance should you need it and to make sure that people aren’t working on the same things.
-
-If you want to open a Pull Request, make sure you have [SwiftLint](https://github.com/Realm/SwiftLint) installed, and check that your project does not generate warnings or errors. Any warning will cause Travis build script to fail. 
-
 # Credits
 
-- Watch widget design: [Dawid Woldu](http://macoscope.com/#dawid)
 - Icon design based on illustration by [Michał Bednarski](https://www.behance.net/emas)
