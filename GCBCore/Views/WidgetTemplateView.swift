@@ -85,31 +85,34 @@ public class WidgetTemplateView: UIView {
 
     @IBOutlet private weak var contentViewContainer: UIView!
 
-    @IBOutlet private weak var containerTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var containerTopToHeaderBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var containerTopConstraint: NSLayoutConstraint!
+    @IBOutlet private var containerTopToHeaderBottomConstraint: NSLayoutConstraint!
 
     private var contentView: UIView?
+    private(set) var currentLayoutSettings: WidgetTemplateLayoutSettings?
+    static let defaultLayoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: false)
 
     public class func viewWithViewModel(viewModel: WidgetTemplateViewModelType, layoutSettings: WidgetTemplateLayoutSettings) -> WidgetTemplateView {
         let view = WidgetTemplateView.fromNib()
-        view.configureWithViewModel(viewModel)
-        view.configureLayoutSettings(layoutSettings)
+        view.configureWithViewModel(viewModel, layoutSettings: layoutSettings)
         return view
     }
     
     public class func viewWithErrorViewModel(viewModel: WidgetErrorTemplateViewModel) -> WidgetTemplateView {
-        let defaultErrorLayout = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero, displayContentUnderHeader: false)
-        return viewWithViewModel(viewModel, layoutSettings: defaultErrorLayout)
+        return viewWithViewModel(viewModel, layoutSettings: defaultLayoutSettings)
     }
 
-    private func configureWithViewModel(viewModel: WidgetTemplateViewModelType) {
+    public func configureWithViewModel(viewModel: WidgetTemplateViewModelType, layoutSettings: WidgetTemplateLayoutSettings? = nil) {
+        let layoutSettings = (layoutSettings ?? currentLayoutSettings) ?? self.dynamicType.defaultLayoutSettings
+        
         contentView = viewModel.contentView
-        configureContenView(viewModel.contentView)
+        configureContentView(viewModel.contentView)
         configureTitle(viewModel.title)
         configureSubtitle(viewModel.subtitle)
+        configureLayoutSettings(layoutSettings)
     }
 
-    private func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
+    public func configureLayoutSettings(layoutSettings: WidgetTemplateLayoutSettings) {
         if layoutSettings.displayContentUnderHeader {
             containerTopToHeaderBottomConstraint.active = false
             containerTopConstraint.active = true
@@ -117,15 +120,16 @@ public class WidgetTemplateView: UIView {
             containerTopToHeaderBottomConstraint.active = true
             containerTopConstraint.active = false
         }
+        currentLayoutSettings = layoutSettings
 
         guard let contentView = contentView else { return }
-        contentView.frame = UIEdgeInsetsInsetRect(contentView.bounds, layoutSettings.contentMargin)
+        contentView.frame = UIEdgeInsetsInsetRect(contentViewContainer.bounds, layoutSettings.contentMargin)
+        contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     }
 
-    private func configureContenView(contentView: UIView) {
+    private func configureContentView(contentView: UIView) {
+        contentViewContainer.subviews.forEach { $0.removeFromSuperview() }
         contentViewContainer.addSubview(contentView)
-        contentView.frame = contentViewContainer.bounds
-        contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
     }
 
     private func configureTitle(title: String) {

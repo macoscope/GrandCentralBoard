@@ -17,7 +17,7 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
 
     override func setUp() {
         super.setUp()
-//        recordMode = true
+        recordMode = false
     }
 
     private func contentView() -> UIView {
@@ -69,6 +69,38 @@ final class WidgetTemplateViewTests: FBSnapshotTestCase {
         let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle)
         let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
 
+        FBSnapshotVerifyView(view)
+    }
+
+    func testConfigureMultipleTimes() {
+        let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle)
+        let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
+
+        let newViewModel = WidgetErrorTemplateViewModel(title: "Some different title", subtitle: "This is a totally different subtitle")
+        view.configureWithViewModel(newViewModel)
+
+        FBSnapshotVerifyView(view)
+    }
+
+
+    func testConfigureLayoutMultipleTimes() {
+        let viewModel = WidgetErrorTemplateViewModel(title: errorTitle, subtitle: errorSubtitle)
+        let view = WidgetTemplateView.viewWithErrorViewModel(viewModel)
+
+        let newContentView = UILabel()
+        newContentView.text = "Background of this should be shown under the header with 10px top margin."
+        newContentView.font = UIFont.systemFontOfSize(60)
+        newContentView.backgroundColor = .grayColor()
+        newContentView.numberOfLines = 0
+
+        let newViewModel = WidgetTemplateViewModel(title: "Some different title",
+                                                   subtitle: "This is a totally different subtitle",
+                                                   contentView: newContentView)
+        view.configureWithViewModel(newViewModel)
+
+        let newLayout = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 10, left: 60, bottom: 60, right: 60),
+                                                     displayContentUnderHeader: true)
+        view.configureLayoutSettings(newLayout)
         FBSnapshotVerifyView(view)
     }
 }
