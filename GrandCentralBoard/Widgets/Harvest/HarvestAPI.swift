@@ -20,18 +20,18 @@ final class HarvestAPI: HarvestAPIProviding {
     let refreshCredentials: TokenRefreshCredentials
     let downloader: NetworkRequestManager
     var accessToken: AccessToken
-    let numberOfDaysToFetch: Int
+    let datesToFetch: BillableDates
 
-    init(account: String, refreshCredentials: TokenRefreshCredentials, downloader: NetworkRequestManager, numberOfDaysToFetch: Int) {
+    init(account: String, refreshCredentials: TokenRefreshCredentials, downloader: NetworkRequestManager, datesToFetch: BillableDates) {
         self.account = account
         self.refreshCredentials = refreshCredentials
         self.downloader = downloader
-        self.numberOfDaysToFetch = numberOfDaysToFetch
+        self.datesToFetch = datesToFetch
         self.accessToken = AccessToken(token: "", expiresIn: 0)
     }
 
     func fetchBillingStats(completion: (Result<[DailyBillingStats]>) -> Void) {
-        let request = BillingStatsFetcher(account: account, accessToken: accessToken, downloader: downloader, numberOfDays: numberOfDaysToFetch)
+        let request = BillingStatsFetcher(account: account, accessToken: accessToken, downloader: downloader, dates: datesToFetch)
         request.fetchBillingStats(completion)
     }
 
