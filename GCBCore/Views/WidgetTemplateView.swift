@@ -125,7 +125,6 @@ public class WidgetTemplateView: UIView {
         guard let contentView = contentView else { return }
         contentView.frame = UIEdgeInsetsInsetRect(contentViewContainer.bounds, layoutSettings.contentMargin)
         contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        setNeedsLayout()
     }
 
     private func configureContentView(contentView: UIView) {
