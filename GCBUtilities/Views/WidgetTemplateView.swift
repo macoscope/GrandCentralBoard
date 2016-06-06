@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import GCBUtilities
 
 
 public protocol WidgetTemplateViewModelType {

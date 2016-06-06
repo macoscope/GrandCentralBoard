@@ -6,6 +6,7 @@
 //
 
 import GCBCore
+import GCBUtilities
 
 
 private let widgetTitle = "Blogposts".localized.uppercaseString
