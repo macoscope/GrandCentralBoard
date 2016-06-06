@@ -37,6 +37,7 @@ struct DigitalClockWidgetViewModel {
     }
 
     private static func zoneNameForTimeZone(timeZone: NSTimeZone) -> String {
-        return String(timeZone.name.characters.split("/")[1])
+        let string = timeZone.name.characters.split("/").map(String.init).last
+        return string!
     }
 }
