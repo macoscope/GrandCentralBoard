@@ -14,9 +14,7 @@ final class BillableDates {
     let dates: [NSDate]
 
     init(referenceDate: NSDate, numberOfPreviousDays: Int, includeWeekends: Bool?) {
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let sunday = 1
-        let saturday = 7
+        let calendar = NSCalendar.currentCalendar()
 
         var previousDays: [NSDate] = []
         var date = referenceDate
@@ -25,10 +23,7 @@ final class BillableDates {
             date = date.dateDaysAgo(1)
 
             if let includeWeekends = includeWeekends where includeWeekends == false {
-                let day = calendar.component(.Weekday, fromDate: date)
-                let isWeekend = (day == sunday || day == saturday)
-
-                if !isWeekend {
+                if !calendar.isDateInWeekend(date) {
                     previousDays.append(date)
                 }
 
