@@ -167,6 +167,7 @@
 		5D600DF61D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */; };
 		5D600DF71D05F2AA004C2852 /* AnalogClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */; };
 		5D600DF81D05F2AA004C2852 /* AnalogClockWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */; };
+		5D600DFB1D05F799004C2852 /* AnalogClockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DFA1D05F799004C2852 /* AnalogClockViewModelTests.swift */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -378,6 +379,7 @@
 		5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetViewModel.swift; sourceTree = "<group>"; };
 		5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetView.swift; sourceTree = "<group>"; };
 		5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalogClockWidgetView.xib; sourceTree = "<group>"; };
+		5D600DFA1D05F799004C2852 /* AnalogClockViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalogClockViewModelTests.swift; path = "Widgets/Analog Clock/AnalogClockViewModelTests.swift"; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				5D600DF91D05F767004C2852 /* Analog Clock */,
 				52B9C3D31CEF38C300EE6BD0 /* Image */,
 				520B7A6A1CE4A969005F53EC /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
@@ -1023,6 +1026,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5D600DF91D05F767004C2852 /* Analog Clock */ = {
+			isa = PBXGroup;
+			children = (
+				5D600DFA1D05F799004C2852 /* AnalogClockViewModelTests.swift */,
+			);
+			name = "Analog Clock";
+			sourceTree = "<group>";
+		};
 		C14EA2EA1CF061E500961DF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1521,6 +1532,7 @@
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
 				548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */,
 				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
+				5D600DFB1D05F799004C2852 /* AnalogClockViewModelTests.swift in Sources */,
 				C1719D571CF07A2B009B52BA /* GitHubDataProviderTests.swift in Sources */,
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				49175CD41CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift in Sources */,
