@@ -11,6 +11,25 @@
             <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO POSTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggN-O7-RY7" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                    <rect key="frame" x="26" y="59" width="588" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                            <real key="value" value="2.8999999999999999"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EB5-Qa-qMl" userLabel="Separator">
+                    <rect key="frame" x="27" y="89" width="587" height="2"/>
+                    <color key="backgroundColor" red="0.13725490870000001" green="0.8156862855" blue="0.64705884459999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="587" id="Y6K-th-XHU"/>
+                        <constraint firstAttribute="height" constant="2" id="hzi-fY-AAD"/>
+                    </constraints>
+                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="txC-I4-6zL" customClass="SlackAvatarView" customModule="GrandCentralBoard" customModuleProvider="target">
                     <rect key="frame" x="560" y="460" width="80" height="80"/>
                     <constraints>
@@ -19,17 +38,36 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8z-OV-m6u" customClass="MessageBubbleView" customModule="GrandCentralBoard" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="566" height="540"/>
+                    <rect key="frame" x="0.0" y="120" width="566" height="420"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SLACK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkr-Zm-Pna" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                    <rect key="frame" x="26" y="19" width="588" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.81568627449999997" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="L8z-OV-m6u" secondAttribute="bottom" id="5U2-iM-xt9"/>
+                <constraint firstItem="Hkr-Zm-Pna" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="EE5-rD-yWC"/>
                 <constraint firstItem="L8z-OV-m6u" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Rg3-yp-4Lm"/>
+                <constraint firstItem="EB5-Qa-qMl" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TN6-W7-6iV"/>
+                <constraint firstItem="L8z-OV-m6u" firstAttribute="top" secondItem="EB5-Qa-qMl" secondAttribute="bottom" constant="29" id="Wn0-lt-Xm7"/>
+                <constraint firstAttribute="trailing" secondItem="Hkr-Zm-Pna" secondAttribute="trailing" constant="26" id="c0F-Yk-ZQq"/>
+                <constraint firstItem="ggN-O7-RY7" firstAttribute="trailing" secondItem="Hkr-Zm-Pna" secondAttribute="trailing" id="dCZ-Ld-2BB"/>
                 <constraint firstAttribute="bottom" secondItem="txC-I4-6zL" secondAttribute="bottom" id="fzU-ZI-wRh"/>
+                <constraint firstItem="ggN-O7-RY7" firstAttribute="top" secondItem="Hkr-Zm-Pna" secondAttribute="bottom" constant="4" id="hBl-q1-w10"/>
+                <constraint firstItem="EB5-Qa-qMl" firstAttribute="top" secondItem="ggN-O7-RY7" secondAttribute="bottom" constant="6" id="hr6-eV-xsB"/>
                 <constraint firstAttribute="trailing" secondItem="txC-I4-6zL" secondAttribute="trailing" id="kCG-et-N0w"/>
-                <constraint firstItem="L8z-OV-m6u" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nfG-Lb-Y44"/>
+                <constraint firstItem="ggN-O7-RY7" firstAttribute="leading" secondItem="Hkr-Zm-Pna" secondAttribute="leading" id="o0f-Yj-moP"/>
+                <constraint firstItem="Hkr-Zm-Pna" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="uDk-Sg-UEI"/>
                 <constraint firstItem="txC-I4-6zL" firstAttribute="leading" secondItem="L8z-OV-m6u" secondAttribute="trailing" constant="-6" id="wnE-LM-T3v"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
