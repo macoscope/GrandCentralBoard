@@ -13,21 +13,20 @@ struct DigitalClockWidgetViewModel {
     let timeString: String
     let dateString: String
     let timeZoneCityName: String
-    
+
     private static let timeFormatter: NSDateFormatter = {
         let timeFormatter = NSDateFormatter()
-        timeFormatter.timeStyle = .MediumStyle
-        timeFormatter.dateStyle = .NoStyle
+        timeFormatter.dateFormat = "hh:mm:ss a"
         timeFormatter.locale = NSLocale.currentLocale()
-        
+
         return timeFormatter
     }()
-    
+
     private static let dateFormatter: NSDateFormatter = {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
         dateFormatter.locale = NSLocale.currentLocale()
-        
+
         return dateFormatter
     }()
 
