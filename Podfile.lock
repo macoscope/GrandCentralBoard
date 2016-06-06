@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.3.1)
+  - BEMAnalogClock (1.6)
   - Decodable (0.4.2)
   - FBSnapshotTestCase (2.1.0):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.0)
@@ -48,6 +49,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - BEMAnalogClock (~> 1.6)
   - Decodable (~> 0.4)
   - FBSnapshotTestCase (from `https://github.com/facebook/ios-snapshot-test-case`)
   - GCBCore (from `./`)
@@ -64,9 +66,9 @@ EXTERNAL SOURCES:
   FBSnapshotTestCase:
     :git: https://github.com/facebook/ios-snapshot-test-case
   GCBCore:
-    :path: ./
+    :path: "./"
   GCBUtilities:
-    :path: ./
+    :path: "./"
   SlackKit:
     :branch: add-tv-os-to-podspec
     :git: https://github.com/michallaskowski/SlackKit
@@ -81,6 +83,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  BEMAnalogClock: b654e7f507cc02895222a26c33ca8493172b39cd
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
   FBSnapshotTestCase: 92a836b804a9f49c66e7c39a3284eb7178778687
   GCBCore: ffca7aa4e680095a9f1c35d54c9630a018a75f25
@@ -95,6 +98,6 @@ SPEC CHECKSUMS:
   SlackKit: 10dfee029d482bf35eff8799a799acf70ee2f05a
   Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
 
-PODFILE CHECKSUM: 1d77fb2ba9669e3e64bf24f8f4d5ed9dfd90e680
+PODFILE CHECKSUM: 650ad078f10e9bc7418be9b4b9573251e8811403
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

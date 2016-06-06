@@ -29,7 +29,8 @@ final class MainViewController: UIViewController {
             ImageWidgetBuilder(dataDownloader: dataDownloader),
             BlogPostsPopularityWidgetBuilder(),
             SlackWidgetBuilder(),
-            GitHubWidgetBuilder()
+            GitHubWidgetBuilder(),
+            AnalogClockWidgetBuilder()
         ]
 
         if shouldLoadBundledConfig {

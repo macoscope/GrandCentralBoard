@@ -105,11 +105,11 @@
 		520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */; };
 		52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */; };
 		52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */; };
+		521B684D1CF4700600E112CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521B684C1CF4700600E112CC /* Assets.xcassets */; };
+		521B68511CF58D5400E112CC /* NoOpenPRPlaceholder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */; };
 		521B68541CF5BC5D00E112CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521B68531CF5BC5D00E112CC /* Assets.xcassets */; };
 		521B68561CF5BDCB00E112CC /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68551CF5BDCB00E112CC /* MessageBubbleView.swift */; };
 		521B68581CF5D6D700E112CC /* MessageBubbleViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68571CF5D6D700E112CC /* MessageBubbleViewSnapshotTests.swift */; };
-		521B684D1CF4700600E112CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521B684C1CF4700600E112CC /* Assets.xcassets */; };
-		521B68511CF58D5400E112CC /* NoOpenPRPlaceholder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */; };
 		521B68661CFC303A00E112CC /* GitHubWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */; };
 		521B68681CFC316300E112CC /* GitHubWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
@@ -161,6 +161,12 @@
 		543596961CF47501000592FE /* NSThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543596951CF47501000592FE /* NSThread.swift */; };
 		5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */; };
 		548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */; };
+		5D600DF31D05F2AA004C2852 /* AnalogClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DEC1D05F2AA004C2852 /* AnalogClockWidget.swift */; };
+		5D600DF41D05F2AA004C2852 /* AnalogClockSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DED1D05F2AA004C2852 /* AnalogClockSource.swift */; };
+		5D600DF51D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DEE1D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift */; };
+		5D600DF61D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */; };
+		5D600DF71D05F2AA004C2852 /* AnalogClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */; };
+		5D600DF81D05F2AA004C2852 /* AnalogClockWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -310,11 +316,11 @@
 		520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackSourceTests.swift; path = Widgets/Slack/SlackSourceTests.swift; sourceTree = "<group>"; };
 		52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewsSourceTests.swift; path = Widgets/WebsiteAnalytics/PageViewsSourceTests.swift; sourceTree = "<group>"; };
 		52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsDataProviderTests.swift; path = Widgets/WebsiteAnalytics/GoogleAnalyticsDataProviderTests.swift; sourceTree = "<group>"; };
+		521B684C1CF4700600E112CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GitHub/Assets.xcassets; sourceTree = "<group>"; };
+		521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoOpenPRPlaceholder.xib; path = GitHub/View/NoOpenPRPlaceholder.xib; sourceTree = "<group>"; };
 		521B68531CF5BC5D00E112CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Slack/Assets.xcassets; sourceTree = "<group>"; };
 		521B68551CF5BDCB00E112CC /* MessageBubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageBubbleView.swift; path = Slack/View/MessageBubbleView.swift; sourceTree = "<group>"; };
 		521B68571CF5D6D700E112CC /* MessageBubbleViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageBubbleViewSnapshotTests.swift; path = Widgets/Slack/MessageBubbleViewSnapshotTests.swift; sourceTree = "<group>"; };
-		521B684C1CF4700600E112CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GitHub/Assets.xcassets; sourceTree = "<group>"; };
-		521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoOpenPRPlaceholder.xib; path = GitHub/View/NoOpenPRPlaceholder.xib; sourceTree = "<group>"; };
 		521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetBuilder.swift; path = GitHub/GitHubWidgetBuilder.swift; sourceTree = "<group>"; };
 		521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetSettings.swift; path = GitHub/GitHubWidgetSettings.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
@@ -366,6 +372,12 @@
 		5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModelTests.swift; sourceTree = "<group>"; };
 		548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D600DEC1D05F2AA004C2852 /* AnalogClockWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidget.swift; sourceTree = "<group>"; };
+		5D600DED1D05F2AA004C2852 /* AnalogClockSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockSource.swift; sourceTree = "<group>"; };
+		5D600DEE1D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetBuilder.swift; sourceTree = "<group>"; };
+		5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetViewModel.swift; sourceTree = "<group>"; };
+		5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetView.swift; sourceTree = "<group>"; };
+		5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalogClockWidgetView.xib; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -560,6 +572,7 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				5D600DEB1D05F2AA004C2852 /* Analog Clock */,
 				520B7A591CE36ACC005F53EC /* Slack */,
 				526FC2411CD0ADCC00D7843A /* GitHub */,
 				067DA5411CBE5CE400048E6A /* WebsiteAnalytics */,
@@ -846,15 +859,6 @@
 				520B7A5A1CE36ADC005F53EC /* SlackSource.swift */,
 				520B7A681CE3912A005F53EC /* SlackWebAPI+RxSwift.swift */,
 				526D1C661CE4BA2000604174 /* String+SlackTimestampParsing.swift */,
-				);
-			name = Source;
-			sourceTree = "<group>";
-		};
-		521B68691CFC31FA00E112CC /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
-				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -867,7 +871,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-
+		521B68691CFC31FA00E112CC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
+				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		526FC2411CD0ADCC00D7843A /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
@@ -990,6 +1002,27 @@
 			name = WebsiteAnalytics;
 			sourceTree = "<group>";
 		};
+		5D600DEB1D05F2AA004C2852 /* Analog Clock */ = {
+			isa = PBXGroup;
+			children = (
+				5D600DEC1D05F2AA004C2852 /* AnalogClockWidget.swift */,
+				5D600DED1D05F2AA004C2852 /* AnalogClockSource.swift */,
+				5D600DEE1D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift */,
+				5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */,
+				5D600DF01D05F2AA004C2852 /* View */,
+			);
+			path = "Analog Clock";
+			sourceTree = "<group>";
+		};
+		5D600DF01D05F2AA004C2852 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */,
+				5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C14EA2EA1CF061E500961DF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1092,13 +1125,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A242D421C357C2700D5BEE5 /* Build configuration list for PBXNativeTarget "GrandCentralBoard" */;
 			buildPhases = (
-				1A21201C9483E9ABA85E4F8A /* 📦 Check Pods Manifest.lock */,
+				1A21201C9483E9ABA85E4F8A /* [CP] Check Pods Manifest.lock */,
 				C1237CFD1CBF009800B7AEEE /* SwiftLint */,
 				1A242D191C357C2700D5BEE5 /* Sources */,
 				1A242D1A1C357C2700D5BEE5 /* Frameworks */,
 				1A242D1B1C357C2700D5BEE5 /* Resources */,
-				9BC27B78F9C0F984C8D743B6 /* 📦 Embed Pods Frameworks */,
-				021777643657801B31B74E96 /* 📦 Copy Pods Resources */,
+				9BC27B78F9C0F984C8D743B6 /* [CP] Embed Pods Frameworks */,
+				021777643657801B31B74E96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1113,12 +1146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A242D451C357C2700D5BEE5 /* Build configuration list for PBXNativeTarget "GrandCentralBoardTests" */;
 			buildPhases = (
-				39AA4ECD77F041971011537F /* 📦 Check Pods Manifest.lock */,
+				39AA4ECD77F041971011537F /* [CP] Check Pods Manifest.lock */,
 				1A242D2A1C357C2700D5BEE5 /* Sources */,
 				1A242D2B1C357C2700D5BEE5 /* Frameworks */,
 				1A242D2C1C357C2700D5BEE5 /* Resources */,
-				D46F00082DA9DCFBBDF26DFA /* 📦 Embed Pods Frameworks */,
-				DD9A82BD3EAF14934E2FBA3B /* 📦 Copy Pods Resources */,
+				D46F00082DA9DCFBBDF26DFA /* [CP] Embed Pods Frameworks */,
+				DD9A82BD3EAF14934E2FBA3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1209,6 +1242,7 @@
 				1A6036771C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf in Resources */,
 				1A6036821C7F161D0034EFE9 /* SF-UI-Text-Light.otf in Resources */,
 				494B68CF1C92E89A00D460B0 /* BonusScene.sks in Resources */,
+				5D600DF81D05F2AA004C2852 /* AnalogClockWidgetView.xib in Resources */,
 				1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */,
 				067DA55A1CBF8B5000048E6A /* TableWidgetView.xib in Resources */,
 			);
@@ -1233,14 +1267,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		021777643657801B31B74E96 /* 📦 Copy Pods Resources */ = {
+		021777643657801B31B74E96 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1248,14 +1282,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1A21201C9483E9ABA85E4F8A /* 📦 Check Pods Manifest.lock */ = {
+		1A21201C9483E9ABA85E4F8A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1263,14 +1297,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		39AA4ECD77F041971011537F /* 📦 Check Pods Manifest.lock */ = {
+		39AA4ECD77F041971011537F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1278,14 +1312,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9BC27B78F9C0F984C8D743B6 /* 📦 Embed Pods Frameworks */ = {
+		9BC27B78F9C0F984C8D743B6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1307,14 +1341,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		D46F00082DA9DCFBBDF26DFA /* 📦 Embed Pods Frameworks */ = {
+		D46F00082DA9DCFBBDF26DFA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1322,14 +1356,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD9A82BD3EAF14934E2FBA3B /* 📦 Copy Pods Resources */ = {
+		DD9A82BD3EAF14934E2FBA3B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1377,11 +1411,14 @@
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
+				5D600DF51D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
 				C14EA2EE1CF072A500961DF6 /* GitHubCell.swift in Sources */,
 				1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
+				5D600DF31D05F2AA004C2852 /* AnalogClockWidget.swift in Sources */,
 				F9E920911CC54BF000BC7994 /* NSDate+StringWithFormat.swift in Sources */,
+				5D600DF41D05F2AA004C2852 /* AnalogClockSource.swift in Sources */,
 				065588D11CC5001300BF2DF9 /* Dictionary.swift in Sources */,
 				52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
@@ -1389,6 +1426,7 @@
 				527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */,
 				F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
+				5D600DF71D05F2AA004C2852 /* AnalogClockWidgetView.swift in Sources */,
 				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
 				520B7A671CE38B68005F53EC /* String.swift in Sources */,
 				C1719D5F1CF184C4009B52BA /* GitHubWidgetView.swift in Sources */,
@@ -1438,6 +1476,7 @@
 				F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */,
 				F9E9208F1CC54A9400BC7994 /* DailyUserBillingStatsFetcher.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
+				5D600DF61D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift in Sources */,
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				543596961CF47501000592FE /* NSThread.swift in Sources */,
 				C1719D5B1CF099E8009B52BA /* GitHubTableDataSource.swift in Sources */,
