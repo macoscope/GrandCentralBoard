@@ -24,12 +24,13 @@ struct AnalogClockWidgetViewModel {
         minute = dateComponents.minute
         second = dateComponents.second
 
-        timeZoneCityName = AnalogClockWidgetViewModel.cityNameForTimeZone(timeZone)
+        timeZoneCityName = AnalogClockWidgetViewModel.zoneNameForTimeZone(timeZone)
         dateString = AnalogClockWidgetViewModel.stringForDate(date)
     }
 
-    private static func cityNameForTimeZone(timeZone: NSTimeZone) -> String {
-        return String(timeZone.name.characters.split("/").last)
+    private static func zoneNameForTimeZone(timeZone: NSTimeZone) -> String {
+        let string = timeZone.name.characters.split("/").map(String.init).last
+        return string!
     }
 
     private static func componentsFromDate(date: NSDate, timeZone: NSTimeZone) -> NSDateComponents {
