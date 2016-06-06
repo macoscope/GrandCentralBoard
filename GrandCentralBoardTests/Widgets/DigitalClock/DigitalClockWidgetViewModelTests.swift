@@ -20,7 +20,7 @@ class DigitalClockWidgetViewModelTests: FBSnapshotTestCase {
         return formatter
     }()
 
-    let timeZone = NSTimeZone.defaultTimeZone()
+    let timeZone = NSTimeZone(forSecondsFromGMT: 0)
 
     func widgetRenderingViewModel(viewModel: DigitalClockWidgetViewModel) -> UIView {
         let view = DigitalClockWidgetView.fromNib()
