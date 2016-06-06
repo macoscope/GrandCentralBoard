@@ -29,7 +29,7 @@ struct AnalogClockWidgetViewModel {
     }
 
     private static func cityNameForTimeZone(timeZone: NSTimeZone) -> String {
-        return String(timeZone.name.characters.split("/")[1])
+        return String(timeZone.name.characters.split("/").last)
     }
 
     private static func componentsFromDate(date: NSDate, timeZone: NSTimeZone) -> NSDateComponents {
