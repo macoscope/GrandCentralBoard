@@ -1,6 +1,0 @@
-framework module GCBCore {
-  umbrella header "GCBCore-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -6,7 +6,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.0)
   - FBSnapshotTestCase/SwiftSupport (2.1.0):
     - FBSnapshotTestCase/Core
-  - GCBCore (1.0.0):
+  - GCBCore (1.0.1):
     - Alamofire (~> 3.0)
     - Decodable (~> 0.4)
   - GCBUtilities (0.0.1):
@@ -50,7 +50,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Decodable (~> 0.4)
   - FBSnapshotTestCase (from `https://github.com/facebook/ios-snapshot-test-case`)
-  - GCBCore (from `./`)
+  - GCBCore (~> 1.0)
   - GCBUtilities (from `./`)
   - MD5 (~> 0.1)
   - Moya/RxSwift (~> 6.4)
@@ -63,8 +63,6 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   FBSnapshotTestCase:
     :git: https://github.com/facebook/ios-snapshot-test-case
-  GCBCore:
-    :path: ./
   GCBUtilities:
     :path: ./
   SlackKit:
@@ -83,7 +81,7 @@ SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
   FBSnapshotTestCase: 92a836b804a9f49c66e7c39a3284eb7178778687
-  GCBCore: ffca7aa4e680095a9f1c35d54c9630a018a75f25
+  GCBCore: 6fb0dfdfa63c97f6572c4ab76246154b7d01a213
   GCBUtilities: 1e94bbae032e212846cab45a2aa7a7118baacad0
   MD5: 62e4416c91af0514c6aeeb6e6d80171f3bd48c3f
   Moya: 4d526954c8afd79820991393d40d7d8af756ceee
@@ -95,6 +93,6 @@ SPEC CHECKSUMS:
   SlackKit: 10dfee029d482bf35eff8799a799acf70ee2f05a
   Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
 
-PODFILE CHECKSUM: 1d77fb2ba9669e3e64bf24f8f4d5ed9dfd90e680
+PODFILE CHECKSUM: 95c60ade6bcca2563c9ce3a8989b920d11185618
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
