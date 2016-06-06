@@ -24,7 +24,7 @@ private final class TestHarvestProvider: HarvestAPIProviding {
         completion(.Success(AccessToken(token: "test_token", expiresIn: 3600)))
     }
 
-    private func fetchBillingStats(completion: (Result<[DailyBillingStats]>) -> Void) {
+    private func fetchBillingStatsForDates(dates: BillableDates, completion: (Result<[DailyBillingStats]>) -> Void) {
         if shouldFailRequest {
             completion(.Failure(ErrorWithMessage(message: "error_message")))
         } else {
@@ -41,7 +41,8 @@ final class HarvestWidgetSnapshotTests: FBSnapshotTestCase {
     }
 
     func testViewWithFailure() {
-        let harvestSource = HarvestSource(apiProvider: TestHarvestProvider(shouldFailRequest: true), refreshInterval: 60)
+        let api = TestHarvestProvider(shouldFailRequest: true)
+        let harvestSource = HarvestSource(apiProvider: api, refreshInterval: 60, numberOfPreviousDays: 5, includeWeekends: true)
         let widget = HarvestWidget(source: harvestSource, numberOfDays: 5)
         widget.update(harvestSource)
 
@@ -52,7 +53,8 @@ final class HarvestWidgetSnapshotTests: FBSnapshotTestCase {
     }
 
     func testViewWithNoStats() {
-        let harvestSource = HarvestSource(apiProvider: TestHarvestProvider(shouldFailRequest: false), refreshInterval: 60)
+        let api = TestHarvestProvider(shouldFailRequest: false)
+        let harvestSource = HarvestSource(apiProvider: api, refreshInterval: 60, numberOfPreviousDays: 5, includeWeekends: true)
         let widget = HarvestWidget(source: harvestSource, numberOfDays: 5)
         widget.update(harvestSource)
 

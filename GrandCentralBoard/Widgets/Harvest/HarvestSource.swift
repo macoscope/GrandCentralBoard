@@ -14,15 +14,25 @@ final class HarvestSource: Asynchronous {
     let interval: NSTimeInterval
     let sourceType: SourceType = .Momentary
     let harvestAPI: HarvestAPIProviding
+    let numberOfPreviousDays: Int
+    let includeWeekends: Bool
 
-    init(apiProvider: HarvestAPIProviding, refreshInterval: NSTimeInterval) {
+    init(apiProvider: HarvestAPIProviding, refreshInterval: NSTimeInterval, numberOfPreviousDays: Int, includeWeekends: Bool) {
         harvestAPI = apiProvider
         interval = refreshInterval
+        self.numberOfPreviousDays = numberOfPreviousDays
+        self.includeWeekends = includeWeekends
     }
 
     func read(callback: (ResultType) -> Void) {
-        harvestAPI.refreshTokenIfNeeded { _ in
-            self.harvestAPI.fetchBillingStats(callback)
+        harvestAPI.refreshTokenIfNeeded { [weak self] _ in
+            guard let instance = self else { return }
+
+            let today = NSDate()
+            let billableDates = BillableDates(
+                referenceDate: today, numberOfPreviousDays: instance.numberOfPreviousDays, includeWeekends: instance.includeWeekends
+            )
+            instance.harvestAPI.fetchBillingStatsForDates(billableDates, completion: callback)
         }
     }
 }
