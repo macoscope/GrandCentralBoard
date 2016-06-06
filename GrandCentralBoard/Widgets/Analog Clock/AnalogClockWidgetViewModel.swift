@@ -41,6 +41,8 @@ struct AnalogClockWidgetViewModel {
     private static func stringForDate(date: NSDate) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .LongStyle
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.locale = NSLocale.currentLocale()
 
         return dateFormatter.stringFromDate(date)
     }
