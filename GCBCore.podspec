@@ -11,11 +11,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.tvos.deployment_target = '9.0'
 
-  s.source_files = ['GCBCore/**/*.swift', 'GCBCore/**/*.xib']
-  s.resource_bundles = {
-    'GCBCore' => ['GCBCore/**/*.xib', 'GCBCore/*.png']
-  }
-
   s.dependency 'Alamofire', '~> 3.0'
   s.dependency 'Decodable', '~> 0.4'
 
