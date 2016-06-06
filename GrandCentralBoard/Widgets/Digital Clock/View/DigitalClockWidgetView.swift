@@ -12,6 +12,7 @@ import GCBCore
 final class DigitalClockWidgetView: UIView, ViewModelRendering {
     @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var timeZoneLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 
     typealias ViewModel = DigitalClockWidgetViewModel
 
@@ -43,6 +44,7 @@ final class DigitalClockWidgetView: UIView, ViewModelRendering {
     private func updateLabelsWithViewModel(viewModel: ViewModel) {
         clockLabel.text = viewModel.timeString
         timeZoneLabel.text = viewModel.timeZoneCityName
+        dateLabel.text = viewModel.dateString
     }
 
 

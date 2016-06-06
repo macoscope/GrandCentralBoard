@@ -11,23 +11,33 @@ import GCBCore
 
 struct DigitalClockWidgetViewModel {
     let timeString: String
+    let dateString: String
     let timeZoneCityName: String
+    
+    private static let timeFormatter: NSDateFormatter = {
+        let timeFormatter = NSDateFormatter()
+        timeFormatter.timeStyle = .MediumStyle
+        timeFormatter.dateStyle = .NoStyle
+        timeFormatter.locale = NSLocale.currentLocale()
+        
+        return timeFormatter
+    }()
+    
+    private static let dateFormatter: NSDateFormatter = {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
+        dateFormatter.locale = NSLocale.currentLocale()
+        
+        return dateFormatter
+    }()
 
     init(date: NSDate, timeZone: NSTimeZone) {
-        timeString = DigitalClockWidgetViewModel.stringForDate(date)
+        timeString = DigitalClockWidgetViewModel.timeFormatter.stringFromDate(date)
+        dateString = DigitalClockWidgetViewModel.dateFormatter.stringFromDate(date)
         timeZoneCityName = DigitalClockWidgetViewModel.zoneNameForTimeZone(timeZone)
     }
 
     private static func zoneNameForTimeZone(timeZone: NSTimeZone) -> String {
         return String(timeZone.name.characters.split("/")[1])
-    }
-    
-    private static func stringForDate(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = .MediumStyle
-        dateFormatter.dateStyle = .NoStyle
-        dateFormatter.locale = NSLocale.currentLocale()
-        
-        return dateFormatter.stringFromDate(date)
     }
 }

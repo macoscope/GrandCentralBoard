@@ -41,6 +41,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="clockLabel" destination="0ia-VP-Nnj" id="1Vr-OP-hdG"/>
+                <outlet property="dateLabel" destination="T4o-sM-RKa" id="u2Q-w1-wLu"/>
                 <outlet property="timeZoneLabel" destination="zwH-NG-EAd" id="XqN-C3-kE2"/>
             </connections>
             <point key="canvasLocation" x="589" y="552"/>
