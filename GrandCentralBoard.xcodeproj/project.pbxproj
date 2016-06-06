@@ -167,6 +167,7 @@
 		5D600E0C1D05FAF8004C2852 /* DigitalClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600E011D05FAF8004C2852 /* DigitalClockWidget.swift */; };
 		5D600E101D05FAF8004C2852 /* DigitalClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600E061D05FAF8004C2852 /* DigitalClockWidgetView.swift */; };
 		5D600E111D05FAF8004C2852 /* DigitalClockWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D600E071D05FAF8004C2852 /* DigitalClockWidgetView.xib */; };
+		5D600E141D060049004C2852 /* DigitalClockWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600E131D060049004C2852 /* DigitalClockWidgetViewModelTests.swift */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -378,6 +379,7 @@
 		5D600E011D05FAF8004C2852 /* DigitalClockWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalClockWidget.swift; sourceTree = "<group>"; };
 		5D600E061D05FAF8004C2852 /* DigitalClockWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalClockWidgetView.swift; sourceTree = "<group>"; };
 		5D600E071D05FAF8004C2852 /* DigitalClockWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DigitalClockWidgetView.xib; sourceTree = "<group>"; };
+		5D600E131D060049004C2852 /* DigitalClockWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DigitalClockWidgetViewModelTests.swift; path = Widgets/DigitalClock/DigitalClockWidgetViewModelTests.swift; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				5D600E121D060031004C2852 /* Digital Clock */,
 				52B9C3D31CEF38C300EE6BD0 /* Image */,
 				520B7A6A1CE4A969005F53EC /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
@@ -1023,6 +1026,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5D600E121D060031004C2852 /* Digital Clock */ = {
+			isa = PBXGroup;
+			children = (
+				5D600E131D060049004C2852 /* DigitalClockWidgetViewModelTests.swift */,
+			);
+			name = "Digital Clock";
+			sourceTree = "<group>";
+		};
 		C14EA2EA1CF061E500961DF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1499,6 +1510,7 @@
 				52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */,
 				52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */,
 				52B9C3D51CEF38D500EE6BD0 /* ImageWidgetSnapshotTests.swift in Sources */,
+				5D600E141D060049004C2852 /* DigitalClockWidgetViewModelTests.swift in Sources */,
 				5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */,
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
 				520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */,
