@@ -24,7 +24,7 @@ private final class TestHarvestProvider: HarvestAPIProviding {
         completion(.Success(AccessToken(token: "test_token", expiresIn: 3600)))
     }
 
-    private func fetchBillingStatsForDates(dates: BillableDates, completion: (Result<[DailyBillingStats]>) -> Void) {
+    private func fetchBillingStatsForDates(dates: [NSDate], completion: (Result<[DailyBillingStats]>) -> Void) {
         if shouldFailRequest {
             completion(.Failure(ErrorWithMessage(message: "error_message")))
         } else {

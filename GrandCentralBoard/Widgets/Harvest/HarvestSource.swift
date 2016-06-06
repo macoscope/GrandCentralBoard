@@ -29,10 +29,33 @@ final class HarvestSource: Asynchronous {
             guard let instance = self else { return }
 
             let today = NSDate()
-            let billableDates = BillableDates(
-                referenceDate: today, numberOfPreviousDays: instance.numberOfPreviousDays, includeWeekends: instance.includeWeekends
-            )
+            let calendar = NSCalendar.currentCalendar()
+            let billableDates = calendar.previousDays(instance.numberOfPreviousDays, beforeDate: today, ignoreWeekends: !instance.includeWeekends)
             instance.harvestAPI.fetchBillingStatsForDates(billableDates, completion: callback)
         }
+    }
+}
+
+
+extension NSCalendar {
+
+    public func previousDays(numberOfDays: Int, beforeDate referenceDate: NSDate, ignoreWeekends: Bool = false) -> [NSDate] {
+        var previousDays: [NSDate] = []
+        var date = referenceDate
+
+        while previousDays.count < numberOfDays {
+            date = date.dateDaysAgo(1)
+
+            if ignoreWeekends {
+                if !isDateInWeekend(date) {
+                    previousDays.append(date)
+                }
+
+            } else {
+                previousDays.append(date)
+            }
+        }
+
+        return previousDays
     }
 }

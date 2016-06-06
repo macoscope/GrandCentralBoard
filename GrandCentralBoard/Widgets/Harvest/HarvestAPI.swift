@@ -11,7 +11,7 @@ import GCBUtilities
 
 
 protocol HarvestAPIProviding {
-    func fetchBillingStatsForDates(dates: BillableDates, completion: (Result<[DailyBillingStats]>) -> Void)
+    func fetchBillingStatsForDates(dates: [NSDate], completion: (Result<[DailyBillingStats]>) -> Void)
     func refreshTokenIfNeeded(completion: (Result<AccessToken>) -> Void)
 }
 
@@ -28,7 +28,7 @@ final class HarvestAPI: HarvestAPIProviding {
         self.accessToken = AccessToken(token: "", expiresIn: 0)
     }
 
-    func fetchBillingStatsForDates(dates: BillableDates, completion: (Result<[DailyBillingStats]>) -> Void) {
+    func fetchBillingStatsForDates(dates: [NSDate], completion: (Result<[DailyBillingStats]>) -> Void) {
         let request = BillingStatsFetcher(account: account, accessToken: accessToken, downloader: downloader, dates: dates)
         request.fetchBillingStats(completion)
     }

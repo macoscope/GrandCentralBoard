@@ -18,11 +18,12 @@ class BillableDatesTests: XCTestCase {
         let sundayBeforeSomeMonday = dateFromDay(29, month: 5, year: 2016)
         let fridayBeforeSomeMonday = dateFromDay(27, month: 5, year: 2016)
 
-        let billableDatesIncludingWeekend = BillableDates(referenceDate: someMonday, numberOfPreviousDays: 1, includeWeekends: true)
-        let billableDatesExcludingWeekend = BillableDates(referenceDate: someMonday, numberOfPreviousDays: 1, includeWeekends: false)
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let billableDatesIncludingWeekend = calendar.previousDays(1, beforeDate: someMonday, ignoreWeekends: false)
+        let billableDatesExcludingWeekend = calendar.previousDays(1, beforeDate: someMonday, ignoreWeekends: true)
 
-        expect(billableDatesIncludingWeekend.dates) == [sundayBeforeSomeMonday]
-        expect(billableDatesExcludingWeekend.dates) == [fridayBeforeSomeMonday]
+        expect(billableDatesIncludingWeekend) == [sundayBeforeSomeMonday]
+        expect(billableDatesExcludingWeekend) == [fridayBeforeSomeMonday]
     }
 
     func testMultipleDaysSetting() {
@@ -30,11 +31,12 @@ class BillableDatesTests: XCTestCase {
         let sixDaysBeforeSomeWednesday = [31, 30, 29, 28, 27, 26].map { dateFromDay($0, month: 5, year: 2016) }
         let sixDaysBeforeSomeWednesdayExcludingWeekend = [31, 30, 27, 26, 25, 24].map { dateFromDay($0, month: 5, year: 2016) }
 
-        let billableDatesIncludingWeekend = BillableDates(referenceDate: someWednesday, numberOfPreviousDays: 6, includeWeekends: true)
-        expect(billableDatesIncludingWeekend.dates) == sixDaysBeforeSomeWednesday
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let billableDatesIncludingWeekend = calendar.previousDays(6, beforeDate: someWednesday, ignoreWeekends: false)
+        let billableDatesExcludingWeekend = calendar.previousDays(6, beforeDate: someWednesday, ignoreWeekends: true)
 
-        let billableDatesExcludingWeekend = BillableDates(referenceDate: someWednesday, numberOfPreviousDays: 6, includeWeekends: false)
-        expect(billableDatesExcludingWeekend.dates) == sixDaysBeforeSomeWednesdayExcludingWeekend
+        expect(billableDatesIncludingWeekend) == sixDaysBeforeSomeWednesday
+        expect(billableDatesExcludingWeekend) == sixDaysBeforeSomeWednesdayExcludingWeekend
     }
 
 }

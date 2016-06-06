@@ -17,8 +17,8 @@ final class BillingStatsFetcher {
     private let accessToken: AccessToken
     private let downloader: NetworkRequestManager
 
-    init(account: String, accessToken: AccessToken, downloader: NetworkRequestManager, dates: BillableDates) {
-        self.dates = dates.dates
+    init(account: String, accessToken: AccessToken, downloader: NetworkRequestManager, dates: [NSDate]) {
+        self.dates = dates
         self.account = account
         self.accessToken = accessToken
         self.downloader = downloader
