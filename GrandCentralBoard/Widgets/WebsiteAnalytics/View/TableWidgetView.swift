@@ -8,10 +8,8 @@
 import UIKit
 
 
-struct DoubleColumnHeaderViewModel: HeaderViewModel {
-    let firstColumnName: String
-    let secondColumnName: String
-    let height: CGFloat = 4
+struct EmptyHeaderViewModel: HeaderViewModel {
+    let height: CGFloat = 0
 }
 
 
@@ -22,10 +20,8 @@ struct DoubleColumnCellViewModel: CellViewModel {
 
 
 struct DoubleColumnTableViewModel: TableViewModel {
-    let firstColumnName: String
-    let secondColumnName: String
     let items: [DoubleColumnCellViewModel]
-    let headerViewModel: DoubleColumnHeaderViewModel
+    let headerViewModel: EmptyHeaderViewModel
 }
 
 
@@ -34,14 +30,13 @@ final class TableWidgetView: UIView {
 
     @IBOutlet weak var tableView: UITableView!
     private var dataSource: TableDataSource<
-    CellConfigurator<TableViewCell, DoubleColumnCellViewModel, TableViewHeaderView, DoubleColumnHeaderViewModel>,
+    CellConfigurator<TableViewCell, DoubleColumnCellViewModel, EmptyHeaderView, EmptyHeaderViewModel>,
     DoubleColumnTableViewModel>?
 
-    private let headerViewModel = DoubleColumnHeaderViewModel(firstColumnName: "Title", secondColumnName: "Visits")
+    private let headerViewModel = EmptyHeaderViewModel()
 
     func setRowViewModels(rowViewModels: [DoubleColumnCellViewModel]) {
-        dataSource?.viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits",
-                                                           items: rowViewModels, headerViewModel: headerViewModel)
+        dataSource?.viewModel = DoubleColumnTableViewModel(items: rowViewModels, headerViewModel: headerViewModel)
         tableView.reloadData()
     }
 
@@ -49,11 +44,11 @@ final class TableWidgetView: UIView {
         super.awakeFromNib()
 
         let viewReuseController = ViewReuseController(cellNib: TableViewCell.nib(), cellIdentifier: "TableViewCell",
-                                                      headerNib: TableViewHeaderView.nib(), headerIdentifier: "TableViewHeaderView",
+                                                      headerNib: nil, headerIdentifier: nil,
                                                       tableView: tableView)
-        let viewConfigurator = CellConfigurator<TableViewCell, DoubleColumnCellViewModel, TableViewHeaderView, DoubleColumnHeaderViewModel>()
+        let viewConfigurator = CellConfigurator<TableViewCell, DoubleColumnCellViewModel, EmptyHeaderView, EmptyHeaderViewModel>()
 
-        let viewModel = DoubleColumnTableViewModel(firstColumnName: "Title", secondColumnName: "Visits", items: [], headerViewModel: headerViewModel)
+        let viewModel = DoubleColumnTableViewModel(items: [], headerViewModel: headerViewModel)
 
         dataSource = TableDataSource(viewDequeuing: viewReuseController, viewConfiguring: viewConfigurator, viewModel: viewModel)
         tableView.dataSource = dataSource

@@ -7,25 +7,57 @@
 //
 
 import GCBCore
+import GCBUtilities
 
 
 final class HarvestWidget: WidgetControlling {
 
-    private let widgetView: AreaBarChartView
+    private let widgetView: HarvestWidgetView
+    private let widgetViewWrapper: WidgetTemplateView
+
+    private lazy var errorView: UIView = {
+        let errorViewModel = WidgetErrorTemplateViewModel(title: "HARVEST",
+                                                          subtitle: "Error".localized.uppercaseString)
+        return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
+    }()
+
+    var view: UIView {
+        return widgetViewWrapper
+    }
+    private let numberOfDays: Int
 
     let sources: [UpdatingSource]
 
-    var view: UIView {
-        return widgetView
+    init(source: HarvestSource, numberOfDays: Int) {
+        self.sources = [source]
+        self.numberOfDays = numberOfDays
+
+        let emptyCircleChartModel = CircleChartViewModel.emptyViewModel()
+        let emptyWidgetViewModel = HarvestWidgetViewModel(lastDayChartModel: emptyCircleChartModel,
+                                                          lastNDaysChartModel: emptyCircleChartModel,
+                                                          numberOfLastDays: numberOfDays)
+        widgetView = HarvestWidgetView.fromNib()
+        widgetView.configureWithViewModel(emptyWidgetViewModel)
+
+        let viewModel = WidgetTemplateViewModel(title: "HARVEST",
+                                                subtitle: "Users Billed Hours Report".localized.uppercaseString,
+                                                contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
+        widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
+
+        widgetView.startAnimatingActivityIndicator()
     }
 
-    init(view: AreaBarChartView, sources: [UpdatingSource]) {
-        self.widgetView = view
-        self.sources = sources
+    private func renderErrorView() {
+        guard !view.subviews.contains(errorView) else { return }
+        view.fillViewWithView(errorView, animated: false)
+    }
+
+    private func removeErrorView() {
+        errorView.removeFromSuperview()
     }
 
     func update(source: UpdatingSource) {
-
         guard let source = source as? HarvestSource else {
             fatalError("Expected `source` as instance of `HarvestSource`.")
         }
@@ -36,13 +68,16 @@ final class HarvestWidget: WidgetControlling {
     }
 
     func updateViewWithResult(result: HarvestSource.ResultType) {
+        widgetView.stopAnimatingActivityIndicator()
+
         switch result {
         case .Success(let billingStats):
-            let model = AreaBarChartViewModel.viewModelFromBillingStats(billingStats)
-            widgetView.render(model)
-
+            removeErrorView()
+            let model = HarvestWidgetViewModel.viewModelFromBillingStats(billingStats)
+            widgetView.configureWithViewModel(model)
         case .Failure:
-            widgetView.failure()
+            renderErrorView()
         }
+
     }
 }

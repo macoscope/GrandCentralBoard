@@ -17,7 +17,7 @@ final class MainViewController: UIViewController {
     private let dataDownloader = DataDownloader()
     private let configurationRefresher: ConfigurationRefresher
     private let configurationFetching: ConfigurationFetching
-    private let board: GrandCentralBoard
+    private let boardController: GrandCentralBoardController
 
     required init?(coder aDecoder: NSCoder) {
 
@@ -28,7 +28,8 @@ final class MainViewController: UIViewController {
             HarvestWidgetBuilder(),
             ImageWidgetBuilder(dataDownloader: dataDownloader),
             BlogPostsPopularityWidgetBuilder(),
-            SlackWidgetBuilder()
+            SlackWidgetBuilder(),
+            GitHubWidgetBuilder()
         ]
 
         if shouldLoadBundledConfig {
@@ -40,10 +41,10 @@ final class MainViewController: UIViewController {
                                                             builders: availableBuilders)
         }
 
-        board = GrandCentralBoard(scheduler: self.scheduler, stack: self.autoStack)
+        boardController = GrandCentralBoardController(scheduler: self.scheduler, stack: self.autoStack)
 
         configurationRefresher = ConfigurationRefresher(interval: configRefreshInterval,
-                                                        configuree: board,
+                                                        configuree: boardController,
                                                         fetcher: configurationFetching)
 
         super.init(coder: aDecoder)

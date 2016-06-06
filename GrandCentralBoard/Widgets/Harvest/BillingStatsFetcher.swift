@@ -8,6 +8,7 @@
 
 import Foundation
 import GCBCore
+import GCBUtilities
 
 
 final class BillingStatsFetcher {
@@ -16,8 +17,8 @@ final class BillingStatsFetcher {
     private let accessToken: AccessToken
     private let downloader: NetworkRequestManager
 
-    init(account: String, accessToken: AccessToken, downloader: NetworkRequestManager, numberOfDays: Int) {
-        self.dates = NSDate.arrayOfPreviousDays(numberOfDays)
+    init(account: String, accessToken: AccessToken, downloader: NetworkRequestManager, dates: [NSDate]) {
+        self.dates = dates
         self.account = account
         self.accessToken = accessToken
         self.downloader = downloader

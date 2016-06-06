@@ -1,56 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="SF-UI-Display-Bold.otf">
-            <string>SFUIDisplay-Bold</string>
-        </mutableArray>
-        <mutableArray key="SF-UI-Text-Bold.otf">
-            <string>SFUIText-Bold</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="103" id="qfl-Mx-Vm6" customClass="TableViewCell" customModule="GrandCentralBoard" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="693" height="103"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="qfl-Mx-Vm6" customClass="TableViewCell" customModule="GrandCentralBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="693" height="111"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qfl-Mx-Vm6" id="Ccn-ex-mTK">
-                <rect key="frame" x="0.0" y="0.0" width="677" height="103"/>
+                <rect key="frame" x="0.0" y="0.0" width="693" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" text="Text1 Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text2" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFp-G3-X4k" userLabel="Title">
-                        <rect key="frame" x="31" y="23" width="461" height="57"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-fc-TSl" userLabel="Score">
+                        <rect key="frame" x="26" y="4" width="641" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="CDp-XW-nch"/>
+                            <constraint firstAttribute="height" constant="34" id="HYx-fr-eth"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="32"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                        <color key="textColor" red="0.13725490196078433" green="0.81568627450980391" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-fc-TSl" userLabel="Score">
-                        <rect key="frame" x="522" y="23" width="140" height="39"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="JDr-BB-hCm"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="32"/>
-                        <color key="textColor" red="0.13333333333333333" green="0.8666666666666667" blue="0.85490196078431369" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" text="Text1 Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text2" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFp-G3-X4k" userLabel="Title">
+                        <rect key="frame" x="26" y="47" width="641" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="LXu-fc-TSl" firstAttribute="top" secondItem="mFp-G3-X4k" secondAttribute="top" id="Cqa-9T-FQO"/>
-                    <constraint firstAttribute="trailing" secondItem="LXu-fc-TSl" secondAttribute="trailing" constant="31" id="N0i-Q6-o2s"/>
-                    <constraint firstItem="mFp-G3-X4k" firstAttribute="leading" secondItem="Ccn-ex-mTK" secondAttribute="leading" constant="31" id="Nvc-u6-8VX"/>
-                    <constraint firstItem="LXu-fc-TSl" firstAttribute="leading" secondItem="mFp-G3-X4k" secondAttribute="trailing" constant="30" id="aPf-xu-dYu"/>
-                    <constraint firstAttribute="bottom" secondItem="mFp-G3-X4k" secondAttribute="bottom" constant="23" id="ani-Jf-J60"/>
-                    <constraint firstItem="mFp-G3-X4k" firstAttribute="centerY" secondItem="Ccn-ex-mTK" secondAttribute="centerY" id="qUX-1C-xfD"/>
-                    <constraint firstItem="mFp-G3-X4k" firstAttribute="top" secondItem="Ccn-ex-mTK" secondAttribute="top" constant="23" id="xF9-Ec-f1W"/>
+                    <constraint firstAttribute="trailing" secondItem="mFp-G3-X4k" secondAttribute="trailing" constant="26" id="BYj-to-IUH"/>
+                    <constraint firstAttribute="bottom" secondItem="mFp-G3-X4k" secondAttribute="bottom" constant="4" id="OvB-vm-1x8"/>
+                    <constraint firstItem="mFp-G3-X4k" firstAttribute="top" secondItem="LXu-fc-TSl" secondAttribute="bottom" constant="9" id="Yl8-a1-X87"/>
+                    <constraint firstItem="LXu-fc-TSl" firstAttribute="top" secondItem="Ccn-ex-mTK" secondAttribute="top" constant="4" id="Zub-k3-HE2"/>
+                    <constraint firstItem="LXu-fc-TSl" firstAttribute="leading" secondItem="Ccn-ex-mTK" secondAttribute="leading" constant="26" id="izV-Ja-hss"/>
+                    <constraint firstAttribute="trailing" secondItem="LXu-fc-TSl" secondAttribute="trailing" constant="26" id="nAa-C5-3sB"/>
+                    <constraint firstItem="mFp-G3-X4k" firstAttribute="leading" secondItem="Ccn-ex-mTK" secondAttribute="leading" constant="26" id="vps-Mz-1s4"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="1" green="0.56764310598373413" blue="0.70566725730895996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="titleLabel" destination="mFp-G3-X4k" id="H5N-Tm-WRq"/>
                 <outlet property="valueDescriptionLabel" destination="LXu-fc-TSl" id="YyL-ex-3dS"/>

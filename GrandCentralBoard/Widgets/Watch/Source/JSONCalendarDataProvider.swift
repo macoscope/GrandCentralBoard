@@ -5,6 +5,7 @@
 
 import Foundation
 import GCBCore
+import GCBUtilities
 
 enum EventsError: ErrorType, HavingMessage {
     case CannotConvertDate
@@ -30,32 +31,32 @@ final class JSONCalendarDataProvider: CalendarDataProviding {
         self.dataDownloader = dataDownloader
     }
 
-    func fetchEventsForCalendar(completion: (ResultType<[Event], APIDataError>.result) -> Void) {
+    func fetchEventsForCalendar(completion: (Result<[Event]>) -> Void) {
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
             case .Success(let data):
                 do {
                     try completion(.Success(Event.decodeArrayFromData(data)))
                 } catch (let error) {
-                    completion(.Failure(.ModelDecodeError(error)))
+                    completion(.Failure(APIDataError.ModelDecodeError(error)))
                 }
             case .Failure(let error):
-                completion(.Failure(.UnderlyingError(error as NSError)))
+                completion(.Failure(APIDataError.UnderlyingError(error as NSError)))
             }
         }
     }
 
-    func fetchCalendar(completion: (ResultType<Calendar, APIDataError>.result) -> Void) {
+    func fetchCalendar(completion: (Result<Calendar>) -> Void) {
         dataDownloader.downloadDataAtPath(path) { result in
             switch result {
             case .Success(let data):
                 do {
                     try completion(.Success(Calendar.decodeFromData(data)))
                 } catch (let error) {
-                    completion(.Failure(.ModelDecodeError(error)))
+                    completion(.Failure(APIDataError.ModelDecodeError(error)))
                 }
             case .Failure(let error):
-                completion(.Failure(.UnderlyingError(error as NSError)))
+                completion(.Failure(APIDataError.UnderlyingError(error as NSError)))
             }
         }
     }

@@ -11,11 +11,7 @@ import GCBCore
 
 final class SlackMessagesWidget: WidgetControlling {
 
-    private let widgetView: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.whiteColor()
-        return label
-    }()
+    private let widgetView = MessageBubbleView()
 
     let sources: [UpdatingSource]
     var view: UIView { return widgetView }
@@ -28,7 +24,7 @@ final class SlackMessagesWidget: WidgetControlling {
     }
 
     private func onNewMessage(message: SlackMessage) {
-        widgetView.text = message.text
+        widgetView.text = "\(message.text) - by \(message.author ?? "unknown") on \(message.channel ?? "unknown channel")"
     }
 
     func update(source: UpdatingSource) {}

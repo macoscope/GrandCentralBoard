@@ -5,26 +5,42 @@
 
 import UIKit
 import GCBCore
+import GCBUtilities
+
 
 private let secondsInAnHour: NSTimeInterval = 3600
 
 final class WatchWidget: WidgetControlling {
 
-    private let widgetView: WatchWidgetView
     let sources: [UpdatingSource]
 
-    init(view: WatchWidgetView, sources: [UpdatingSource]) {
-        self.widgetView = view
-        self.sources = sources
-    }
+    private let widgetView: WatchWidgetView
+    private let mainView: UIView
+
+    private lazy var errorView: UIView = {
+        let errorViewModel = WidgetErrorTemplateViewModel(title: "Clock & Calendar".localized.uppercaseString,
+                                                          subtitle: "Error".localized.uppercaseString)
+        return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
+    }()
 
     var view: UIView {
-        return widgetView
+        return mainView
+    }
+
+    init(view: WatchWidgetView, sources: [UpdatingSource]) {
+        self.sources = sources
+        widgetView = view
+
+        mainView = UIView(frame: widgetView.frame)
+        mainView.fillViewWithView(widgetView, animated: false)
     }
 
     private var calendarName: String?
     private var events: [Event]?
     private var lastFetch: NSDate?
+
+    private var hasCalendarNameFetchFailed = false
+    private var hasEventsFetchFailed = false
 
     func update(source: UpdatingSource) {
         switch source {
@@ -44,8 +60,9 @@ final class WatchWidget: WidgetControlling {
             switch result {
             case .Success(let calendar):
                 self?.calendarName = calendar.name
+                self?.hasCalendarNameFetchFailed = false
             case .Failure:
-                break
+                self?.hasCalendarNameFetchFailed = true
             }
         }
     }
@@ -67,13 +84,29 @@ final class WatchWidget: WidgetControlling {
             switch result {
                 case .Success(let events):
                     self?.events = events
+                    self?.hasEventsFetchFailed = false
                 case .Failure:
-                    break
+                    self?.hasEventsFetchFailed = true
             }
         }
     }
 
+    private func renderErrorView() {
+        guard !mainView.subviews.contains(errorView) else { return }
+        mainView.fillViewWithView(errorView, animated: false)
+    }
+
+    private func removeErrorView() {
+        errorView.removeFromSuperview()
+    }
+
     private func renderTime(time: Time) {
+        guard !hasCalendarNameFetchFailed && !hasEventsFetchFailed else {
+            renderErrorView()
+            return
+        }
+
+        removeErrorView()
 
         let relevantEvents = events?.filter {
             let secondsLeftToEvent = $0.time.timeIntervalSinceDate(NSDate())

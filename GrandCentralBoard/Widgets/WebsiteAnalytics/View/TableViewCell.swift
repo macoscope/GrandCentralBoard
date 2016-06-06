@@ -11,16 +11,30 @@ import UIKit
 
 class TableViewCell: UITableViewCell, CellConfigurableWithViewModel {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var valueDescriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var valueDescriptionLabel: UILabel!
+
+    private lazy var titleParagraphStyle: NSParagraphStyle = { [unowned self] in
+        let style = NSMutableParagraphStyle()
+        style.lineHeightMultiple = 34.0 / self.titleLabel.font.lineHeight
+        return style
+    }()
+
+    private lazy var valueParagraphStyle: NSParagraphStyle = { [unowned self] in
+        let style = NSMutableParagraphStyle()
+        style.lineHeightMultiple = 1
+        return style
+    }()
 
     static func nib() -> UINib {
         return UINib.init(nibName: "TableViewCell", bundle: nil)
     }
 
     func configureWithViewModel(viewModel: DoubleColumnCellViewModel) {
-        self.titleLabel.text = viewModel.title
-        self.valueDescriptionLabel.text = viewModel.valueDescription
+        self.titleLabel.attributedText = NSAttributedString(string: viewModel.title,
+                                                            attributes: [NSParagraphStyleAttributeName: titleParagraphStyle])
+        self.valueDescriptionLabel.attributedText = NSAttributedString(string: viewModel.valueDescription,
+                                                                       attributes: [NSParagraphStyleAttributeName: valueParagraphStyle])
     }
 
 }

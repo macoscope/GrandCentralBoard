@@ -5,21 +5,41 @@
 
 import UIKit
 import GCBCore
+import GCBUtilities
+
+
+private let widgetTitle = "Bonusly".localized.uppercaseString
 
 final class BonusWidget: WidgetControlling {
 
     private let widgetView: BonusWidgetView
+    private let widgetViewWrapper: UIView
+
+    private lazy var errorView: UIView = {
+        let viewModel = WidgetErrorTemplateViewModel(title: widgetTitle,
+                                                     subtitle: "Error".localized.uppercaseString)
+        return WidgetTemplateView.viewWithErrorViewModel(viewModel)
+    }()
+
     let sources: [UpdatingSource]
     let bubbleResizeDuration: NSTimeInterval
+    let numberOfBubbles: Int
 
-    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval) {
+    init(sources: [UpdatingSource], bubbleResizeDuration: NSTimeInterval, numberOfBubbles: Int) {
         self.widgetView = BonusWidgetView.fromNib()
         self.sources = sources
         self.bubbleResizeDuration = bubbleResizeDuration
+        self.numberOfBubbles = numberOfBubbles
+
+        let viewModel = WidgetTemplateViewModel(title: widgetTitle,
+                                                subtitle: String(format: "Last %d people".localized, numberOfBubbles).uppercaseString,
+                                                contentView: widgetView)
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsetsZero)
+        widgetViewWrapper = WidgetTemplateView.viewWithViewModel(viewModel, layoutSettings: layoutSettings)
     }
 
     var view: UIView {
-        return widgetView
+        return widgetViewWrapper
     }
 
     func update(source: UpdatingSource) {
@@ -32,15 +52,28 @@ final class BonusWidget: WidgetControlling {
     }
 
     private func updateBonusFromSource(source: BonusSource) {
-        source.read { result in
+        source.read { [weak self] result in
+            guard let strongSelf = self else { return }
+
             switch result {
                 case .Success(let people):
-                    let bonusViewModel = BonusWidgetViewModel(people: people, bubbleResizeDuration: self.bubbleResizeDuration)
-                    self.widgetView.render(bonusViewModel)
+                    strongSelf.hideErrorView()
+                    let bonusViewModel = BonusWidgetViewModel(people: people, bubbleResizeDuration: strongSelf.bubbleResizeDuration)
+                    strongSelf.widgetView.render(bonusViewModel)
                 case .Failure:
-                    self.widgetView.failure()
+                    strongSelf.displayErrorView()
+                    strongSelf.widgetView.failure()
             }
         }
+    }
+
+    private func displayErrorView() {
+        guard !view.subviews.contains(errorView) else { return }
+        view.fillViewWithView(errorView, animated: false)
+    }
+
+    private func hideErrorView() {
+        errorView.removeFromSuperview()
     }
 
 }

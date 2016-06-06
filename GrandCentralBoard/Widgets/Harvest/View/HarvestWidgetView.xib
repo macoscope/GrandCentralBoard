@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HarvestWidgetView" customModule="GrandCentralBoard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="540"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="60R-ec-tBk">
+                    <rect key="frame" x="46" y="0.0" width="548" height="491"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hj-Yw-D99">
+                            <rect key="frame" x="0.0" y="0.0" width="241" height="491"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IER-cD-0TG" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="125" width="241" height="241"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-lZ-jv7" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                            <rect key="frame" x="30" y="89" width="181" height="63"/>
+                                            <string key="text">LAST
+DAY</string>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="26"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                                                    <real key="value" value="6"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="nkF-lZ-jv7" firstAttribute="leading" secondItem="IER-cD-0TG" secondAttribute="leading" constant="30" id="1pL-3K-C6A"/>
+                                        <constraint firstAttribute="width" secondItem="IER-cD-0TG" secondAttribute="height" multiplier="1:1" id="2gl-q8-gfa"/>
+                                        <constraint firstAttribute="trailing" secondItem="nkF-lZ-jv7" secondAttribute="trailing" constant="30" id="M1p-AA-BAF"/>
+                                        <constraint firstItem="nkF-lZ-jv7" firstAttribute="centerY" secondItem="IER-cD-0TG" secondAttribute="centerY" id="gTj-u4-AN4"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
+                                            <real key="value" value="22"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                            <real key="value" value="2.0899999999999999"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="IER-cD-0TG" firstAttribute="centerY" secondItem="2Hj-Yw-D99" secondAttribute="centerY" id="CPW-5Z-RiM"/>
+                                <constraint firstItem="IER-cD-0TG" firstAttribute="leading" secondItem="2Hj-Yw-D99" secondAttribute="leading" id="VTr-g3-rCP"/>
+                                <constraint firstAttribute="trailing" secondItem="IER-cD-0TG" secondAttribute="trailing" id="WkQ-A8-eDc"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2M-fE-9UI">
+                            <rect key="frame" x="307" y="0.0" width="241" height="491"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fM-dt-Lxz" customClass="CircleChart" customModule="GrandCentralBoard" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="125" width="241" height="241"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="4fM-dt-Lxz" secondAttribute="height" multiplier="1:1" id="XMz-wX-fXb"/>
+                                        <constraint firstAttribute="width" secondItem="4fM-dt-Lxz" secondAttribute="height" multiplier="1:1" id="Zxb-sA-oZb"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="strokeWidth">
+                                            <real key="value" value="22"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                            <real key="value" value="2.0899999999999999"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="63" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kei-AC-k12" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                    <rect key="frame" x="66" y="214" width="110" height="63"/>
+                                    <string key="text">LAST
+N DAYS</string>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                                            <real key="value" value="6"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="kei-AC-k12" firstAttribute="centerY" secondItem="r2M-fE-9UI" secondAttribute="centerY" id="Cz0-65-4xA"/>
+                                <constraint firstItem="4fM-dt-Lxz" firstAttribute="leading" secondItem="r2M-fE-9UI" secondAttribute="leading" id="Yu0-d1-f3y"/>
+                                <constraint firstItem="4fM-dt-Lxz" firstAttribute="centerY" secondItem="r2M-fE-9UI" secondAttribute="centerY" id="aWu-dU-lJ6"/>
+                                <constraint firstItem="kei-AC-k12" firstAttribute="centerX" secondItem="r2M-fE-9UI" secondAttribute="centerX" id="bER-vU-IWK"/>
+                                <constraint firstAttribute="trailing" secondItem="4fM-dt-Lxz" secondAttribute="trailing" id="ndO-Wj-ONT"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rLH-wg-lHQ">
+                    <rect key="frame" x="33" y="491" width="574" height="20"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNk-FZ-WHJ">
+                            <rect key="frame" x="0.0" y="0.0" width="189" height="20"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BxW-nF-Nbt" customClass="CircleView" customModule="GrandCentralBoard">
+                                    <rect key="frame" x="0.0" y="3" width="14" height="14"/>
+                                    <color key="backgroundColor" red="0.13725490196078433" green="0.81568627450980391" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="BxW-nF-Nbt" secondAttribute="height" multiplier="1:1" id="A8b-dD-WI0"/>
+                                        <constraint firstAttribute="width" constant="14" id="gI2-z4-iD7"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCURATE 6.5 H" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUx-uJ-Ha7" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                    <rect key="frame" x="25" y="0.0" width="164" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="164" id="oCh-os-cbh"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="ZUx-uJ-Ha7" secondAttribute="trailing" id="Ee5-Rd-BuM"/>
+                                <constraint firstItem="BxW-nF-Nbt" firstAttribute="centerY" secondItem="BNk-FZ-WHJ" secondAttribute="centerY" id="RQv-gd-Imd"/>
+                                <constraint firstAttribute="bottom" secondItem="ZUx-uJ-Ha7" secondAttribute="bottom" id="UxV-Db-X0A"/>
+                                <constraint firstItem="BxW-nF-Nbt" firstAttribute="leading" secondItem="BNk-FZ-WHJ" secondAttribute="leading" id="aRF-Cf-Yr0"/>
+                                <constraint firstItem="ZUx-uJ-Ha7" firstAttribute="top" secondItem="BNk-FZ-WHJ" secondAttribute="top" id="jAQ-hj-Nr0"/>
+                                <constraint firstItem="ZUx-uJ-Ha7" firstAttribute="leading" secondItem="BxW-nF-Nbt" secondAttribute="trailing" constant="11" id="zp2-BL-q7B"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahX-lB-T46">
+                            <rect key="frame" x="237" y="0.0" width="137" height="20"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7U-cM-NKd" customClass="CircleView" customModule="GrandCentralBoard">
+                                    <rect key="frame" x="0.0" y="3" width="14" height="14"/>
+                                    <color key="backgroundColor" red="0.96470588235294119" green="0.61568627450980395" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="14" id="VU6-rQ-wVu"/>
+                                        <constraint firstAttribute="width" secondItem="p7U-cM-NKd" secondAttribute="height" multiplier="1:1" id="kev-lK-fgA"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OVER 6.5 H" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbM-UK-FQt" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                    <rect key="frame" x="25" y="0.0" width="112" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="112" id="j0V-NW-eRi"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="BbM-UK-FQt" firstAttribute="leading" secondItem="p7U-cM-NKd" secondAttribute="trailing" constant="11" id="a7X-OM-cBj"/>
+                                <constraint firstItem="p7U-cM-NKd" firstAttribute="centerY" secondItem="ahX-lB-T46" secondAttribute="centerY" id="bGN-PS-YsP"/>
+                                <constraint firstItem="p7U-cM-NKd" firstAttribute="leading" secondItem="ahX-lB-T46" secondAttribute="leading" id="c0m-1S-g37"/>
+                                <constraint firstAttribute="trailing" secondItem="BbM-UK-FQt" secondAttribute="trailing" id="fLs-KX-zgM"/>
+                                <constraint firstItem="BbM-UK-FQt" firstAttribute="top" secondItem="ahX-lB-T46" secondAttribute="top" id="gvJ-eN-itP"/>
+                                <constraint firstAttribute="bottom" secondItem="BbM-UK-FQt" secondAttribute="bottom" id="mXh-9z-JRo"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Amo-B7-mpH">
+                            <rect key="frame" x="422" y="0.0" width="152" height="20"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zs5-iJ-pK9" customClass="CircleView" customModule="GrandCentralBoard">
+                                    <rect key="frame" x="0.0" y="3" width="14" height="14"/>
+                                    <color key="backgroundColor" red="0.81568627450980391" green="0.086274509803921567" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="14" id="aJQ-w7-DXV"/>
+                                        <constraint firstAttribute="width" secondItem="zs5-iJ-pK9" secondAttribute="height" multiplier="1:1" id="lEi-Wz-N9X"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNDER 6.5 H" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egn-ns-VoY" customClass="LabelWithSpacing" customModule="GCBUtilities">
+                                    <rect key="frame" x="25" y="0.0" width="127" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="127" id="p3T-y6-b4n"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="kerning">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="zs5-iJ-pK9" firstAttribute="leading" secondItem="Amo-B7-mpH" secondAttribute="leading" id="989-nd-GyZ"/>
+                                <constraint firstItem="zs5-iJ-pK9" firstAttribute="centerY" secondItem="Amo-B7-mpH" secondAttribute="centerY" id="Maq-5a-C4o"/>
+                                <constraint firstAttribute="bottom" secondItem="egn-ns-VoY" secondAttribute="bottom" id="VrC-0u-icL"/>
+                                <constraint firstItem="egn-ns-VoY" firstAttribute="leading" secondItem="zs5-iJ-pK9" secondAttribute="trailing" constant="11" id="hca-Lp-o9E"/>
+                                <constraint firstAttribute="trailing" secondItem="egn-ns-VoY" secondAttribute="trailing" id="sEu-XK-p0Y"/>
+                                <constraint firstItem="egn-ns-VoY" firstAttribute="top" secondItem="Amo-B7-mpH" secondAttribute="top" id="uKE-tP-ZEc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="hMu-un-zmZ"/>
+                    </constraints>
+                </stackView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Sao-o5-SOF">
+                    <rect key="frame" x="300" y="250" width="40" height="40"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Sao-o5-SOF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SD5-iz-I7k"/>
+                <constraint firstItem="60R-ec-tBk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SVn-Nq-nD1"/>
+                <constraint firstItem="rLH-wg-lHQ" firstAttribute="top" secondItem="60R-ec-tBk" secondAttribute="bottom" id="Z8I-Qk-L78"/>
+                <constraint firstItem="rLH-wg-lHQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="33" id="a6q-xs-bD1"/>
+                <constraint firstAttribute="trailing" secondItem="rLH-wg-lHQ" secondAttribute="trailing" constant="33" id="aYu-VW-lnz"/>
+                <constraint firstAttribute="bottom" secondItem="rLH-wg-lHQ" secondAttribute="bottom" constant="29" id="e5g-wy-NJm"/>
+                <constraint firstItem="Sao-o5-SOF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hjc-DR-Wje"/>
+                <constraint firstAttribute="trailing" secondItem="60R-ec-tBk" secondAttribute="trailing" constant="46" id="mlc-RM-9ZE"/>
+                <constraint firstItem="60R-ec-tBk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="46" id="uHx-0T-Rev"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activityIndicator" destination="Sao-o5-SOF" id="ggl-Lw-OZb"/>
+                <outlet property="lastDayCircleChart" destination="IER-cD-0TG" id="9oK-ih-ztl"/>
+                <outlet property="lastNDaysCircleChart" destination="4fM-dt-Lxz" id="LhZ-yB-a8M"/>
+                <outlet property="lastNDaysLabel" destination="kei-AC-k12" id="eE8-Uu-e6E"/>
+            </connections>
+        </view>
+    </objects>
+</document>

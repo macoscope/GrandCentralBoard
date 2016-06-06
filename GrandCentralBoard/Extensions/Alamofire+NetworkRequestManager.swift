@@ -7,11 +7,13 @@
 //
 
 import Alamofire
+import GCBCore
+import GCBUtilities
 
 extension Manager : NetworkRequestManager {
 
-    func requestJSON(method: Method, url: NSURL, parameters: [String : AnyObject]?,
-                     headers: [String : String]?, encoding: ParameterEncoding, completion: (ResultType<AnyObject, NSError>.result) -> Void) {
+    public func requestJSON(method: GCBUtilities.Method, url: NSURL, parameters: [String : AnyObject]?,
+                     headers: [String : String]?, encoding: GCBUtilities.ParameterEncoding, completion: (GCBCore.Result<AnyObject>) -> Void) {
         let method = Alamofire.Method(fromMethod: method)
         let encoding = Alamofire.ParameterEncoding(fromEncoding: encoding)
         self.request(method, url, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
@@ -25,7 +27,7 @@ extension Manager : NetworkRequestManager {
     }}
 
 extension Alamofire.Method {
-    init(fromMethod method: Method) {
+    init(fromMethod method: GCBUtilities.Method) {
         switch method {
         case .CONNECT: self = .CONNECT
         case .DELETE: self = .DELETE
@@ -41,7 +43,7 @@ extension Alamofire.Method {
 }
 
 extension Alamofire.ParameterEncoding {
-    init(fromEncoding encoding: ParameterEncoding) {
+    init(fromEncoding encoding: GCBUtilities.ParameterEncoding) {
         switch encoding {
         case .URL:
             self = .URL

@@ -15,8 +15,11 @@ enum PeopleWithBonusesFetchControllerError: ErrorType {
     case Unknown
 }
 
+protocol PeopleWithBonusesProviding {
+    func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void)
+}
 
-final class PeopleWithBonusesFetchController {
+final class PeopleWithBonusesFetchController: PeopleWithBonusesProviding {
 
     private let requestSending: RequestSending
     private let pageSize: Int
@@ -28,6 +31,15 @@ final class PeopleWithBonusesFetchController {
         self.pageSize = pageSize
         self.preferredNumberOfPeople = preferredNumberOfPeople
         self.dataDownloading = dataDownloading
+    }
+
+    convenience init(bonuslyAccessToken: String, preferredNumberOfPeople: Int) {
+        let configuration = RequestSenderConfiguration(queryParameters: ["access_token": bonuslyAccessToken])
+        let requestSender = RequestSender(configuration: configuration)
+        self.init(requestSending:requestSender,
+                  dataDownloading: DataDownloader(),
+                  pageSize: 1,
+                  preferredNumberOfPeople: preferredNumberOfPeople)
     }
 
     func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void) {
@@ -64,14 +76,15 @@ final class PeopleWithBonusesFetchController {
 
             switch result {
             case .Success(let bonuses):
+                let sortedBonuses = bonuses.flatten().sortByDate(.OrderedDescending)
                 var allBonuses: [Bonus] = fetchedBonuses
-                allBonuses.appendContentsOf(bonuses)
+                allBonuses.appendContentsOf(sortedBonuses)
 
                 let people = allBonuses.uniqueReceivers(strongSelf.preferredNumberOfPeople)
 
                 if people.count >= strongSelf.preferredNumberOfPeople || bonuses.count < strongSelf.pageSize {
                     completionBlock(.Success(Array(people)))
-                } else if let lastBonus = bonuses.last {
+                } else if let lastBonus = sortedBonuses.last {
                     strongSelf.fetchPeopleWithBonuses(startingFromDate: lastBonus.date, fetchedBonuses: allBonuses, completionBlock: completionBlock)
                 }
 

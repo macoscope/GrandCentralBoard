@@ -14,9 +14,16 @@ final class HarvestWidgetBuilder: WidgetBuilding {
 
     func build(json: AnyObject) throws -> WidgetControlling {
         let settings = try HarvestWidgetSettings.decode(json)
-        let view = AreaBarChartView.fromNib()
-        let source = HarvestSource(settings: settings)
 
-        return HarvestWidget(view: view, sources: [source])
+        let harvestAPI = HarvestAPI(account: settings.account,
+                                    refreshCredentials: settings.refreshCredentials,
+                                    downloader: settings.downloader)
+
+        let source = HarvestSource(apiProvider: harvestAPI,
+                                   refreshInterval: settings.refreshInterval,
+                                   numberOfPreviousDays: settings.numberOfDays,
+                                   includeWeekends: settings.includeWeekends ?? false)
+
+        return HarvestWidget(source: source, numberOfDays: settings.numberOfDays)
     }
 }
