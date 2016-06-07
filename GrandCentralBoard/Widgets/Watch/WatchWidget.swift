@@ -5,6 +5,8 @@
 
 import UIKit
 import GCBCore
+import GCBUtilities
+
 
 private let secondsInAnHour: NSTimeInterval = 3600
 

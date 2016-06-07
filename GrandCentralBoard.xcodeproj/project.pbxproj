@@ -40,27 +40,6 @@
 		1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4616A91C904EAB00361B2E /* ConfigurationTests.swift */; };
 		1A4616AF1C904F9000361B2E /* configurationBroken.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616AE1C904F9000361B2E /* configurationBroken.json */; };
 		1A4616B31C90534500361B2E /* configurationBrokenJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A4616B21C90534500361B2E /* configurationBrokenJSON.json */; };
-		1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */; };
-		1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */; };
-		1A6036771C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036621C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf */; };
-		1A6036781C7F161D0034EFE9 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036631C7F161D0034EFE9 /* SF-UI-Display-Light.otf */; };
-		1A6036791C7F161D0034EFE9 /* SF-UI-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036641C7F161D0034EFE9 /* SF-UI-Display-Medium.otf */; };
-		1A60367A1C7F161D0034EFE9 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036651C7F161D0034EFE9 /* SF-UI-Display-Regular.otf */; };
-		1A60367B1C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036661C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf */; };
-		1A60367C1C7F161D0034EFE9 /* SF-UI-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036671C7F161D0034EFE9 /* SF-UI-Display-Thin.otf */; };
-		1A60367D1C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036681C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf */; };
-		1A60367E1C7F161D0034EFE9 /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036691C7F161D0034EFE9 /* SF-UI-Text-Bold.otf */; };
-		1A60367F1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A60366A1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf */; };
-		1A6036801C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A60366B1C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf */; };
-		1A6036811C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A60366C1C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf */; };
-		1A6036821C7F161D0034EFE9 /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A60366D1C7F161D0034EFE9 /* SF-UI-Text-Light.otf */; };
-		1A6036831C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A60366E1C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf */; };
-		1A6036841C7F161D0034EFE9 /* SF-UI-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A60366F1C7F161D0034EFE9 /* SF-UI-Text-Medium.otf */; };
-		1A6036851C7F161D0034EFE9 /* SF-UI-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036701C7F161D0034EFE9 /* SF-UI-Text-MediumItalic.otf */; };
-		1A6036861C7F161D0034EFE9 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036711C7F161D0034EFE9 /* SF-UI-Text-Regular.otf */; };
-		1A6036871C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036721C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf */; };
-		1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */; };
-		1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */; };
 		1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76DFAD1CBBEF8200A2DF49 /* NSBundle.swift */; };
 		1A87495E1C385264006E58C6 /* RemoteImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A87495D1C385264006E58C6 /* RemoteImageSource.swift */; };
 		1A96970A1CB5BA8900C6AC96 /* FlashingAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */; };
@@ -160,14 +139,15 @@
 		52FB50851CBFB5380053DE8B /* ImageWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */; };
 		543596961CF47501000592FE /* NSThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543596951CF47501000592FE /* NSThread.swift */; };
 		5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */; };
+		547A45831D018E07004E6504 /* BillableDatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A45821D018E07004E6504 /* BillableDatesTests.swift */; };
 		548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */; };
-		5D600DF31D05F2AA004C2852 /* AnalogClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DEC1D05F2AA004C2852 /* AnalogClockWidget.swift */; };
-		5D600DF41D05F2AA004C2852 /* AnalogClockSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DED1D05F2AA004C2852 /* AnalogClockSource.swift */; };
-		5D600DF51D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DEE1D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift */; };
-		5D600DF61D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */; };
-		5D600DF71D05F2AA004C2852 /* AnalogClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */; };
-		5D600DF81D05F2AA004C2852 /* AnalogClockWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */; };
-		5D600DFB1D05F799004C2852 /* AnalogClockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D600DFA1D05F799004C2852 /* AnalogClockViewModelTests.swift */; };
+		5DAA9C401D0709E800AAE153 /* AnalogClockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C3F1D0709E800AAE153 /* AnalogClockViewModelTests.swift */; };
+		5DAA9C491D0709ED00AAE153 /* AnalogClockSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C421D0709ED00AAE153 /* AnalogClockSource.swift */; };
+		5DAA9C4A1D0709ED00AAE153 /* AnalogClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C431D0709ED00AAE153 /* AnalogClockWidget.swift */; };
+		5DAA9C4B1D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C441D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift */; };
+		5DAA9C4C1D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C451D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift */; };
+		5DAA9C4D1D0709ED00AAE153 /* AnalogClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C471D0709ED00AAE153 /* AnalogClockWidgetView.swift */; };
+		5DAA9C4E1D0709ED00AAE153 /* AnalogClockWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA9C481D0709ED00AAE153 /* AnalogClockWidgetView.xib */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -248,27 +228,6 @@
 		1A4616AE1C904F9000361B2E /* configurationBroken.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configurationBroken.json; sourceTree = "<group>"; };
 		1A4616B01C904FC800361B2E /* configurationCorrect.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configurationCorrect.json; sourceTree = "<group>"; };
 		1A4616B21C90534500361B2E /* configurationBrokenJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configurationBrokenJSON.json; sourceTree = "<group>"; };
-		1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
-		1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
-		1A6036621C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
-		1A6036631C7F161D0034EFE9 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
-		1A6036641C7F161D0034EFE9 /* SF-UI-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Medium.otf"; sourceTree = "<group>"; };
-		1A6036651C7F161D0034EFE9 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
-		1A6036661C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Semibold.otf"; sourceTree = "<group>"; };
-		1A6036671C7F161D0034EFE9 /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
-		1A6036681C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Ultralight.otf"; sourceTree = "<group>"; };
-		1A6036691C7F161D0034EFE9 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
-		1A60366A1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-BoldItalic.otf"; sourceTree = "<group>"; };
-		1A60366B1C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Heavy.otf"; sourceTree = "<group>"; };
-		1A60366C1C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
-		1A60366D1C7F161D0034EFE9 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
-		1A60366E1C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
-		1A60366F1C7F161D0034EFE9 /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
-		1A6036701C7F161D0034EFE9 /* SF-UI-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-MediumItalic.otf"; sourceTree = "<group>"; };
-		1A6036711C7F161D0034EFE9 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
-		1A6036721C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
-		1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
-		1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		1A76DFAD1CBBEF8200A2DF49 /* NSBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundle.swift; sourceTree = "<group>"; };
 		1A87495D1C385264006E58C6 /* RemoteImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageSource.swift; sourceTree = "<group>"; };
 		1A9697091CB5BA8900C6AC96 /* FlashingAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashingAnimationController.swift; sourceTree = "<group>"; };
@@ -371,15 +330,16 @@
 		52FB50841CBFB5380053DE8B /* ImageWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageWidgetBuilder.swift; sourceTree = "<group>"; };
 		543596951CF47501000592FE /* NSThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSThread.swift; path = Extensions/NSThread.swift; sourceTree = "<group>"; };
 		5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchWidgetViewModelTests.swift; sourceTree = "<group>"; };
+		547A45821D018E07004E6504 /* BillableDatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillableDatesTests.swift; sourceTree = "<group>"; };
 		548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D600DEC1D05F2AA004C2852 /* AnalogClockWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidget.swift; sourceTree = "<group>"; };
-		5D600DED1D05F2AA004C2852 /* AnalogClockSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockSource.swift; sourceTree = "<group>"; };
-		5D600DEE1D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetBuilder.swift; sourceTree = "<group>"; };
-		5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetViewModel.swift; sourceTree = "<group>"; };
-		5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetView.swift; sourceTree = "<group>"; };
-		5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalogClockWidgetView.xib; sourceTree = "<group>"; };
-		5D600DFA1D05F799004C2852 /* AnalogClockViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalogClockViewModelTests.swift; path = "Widgets/Analog Clock/AnalogClockViewModelTests.swift"; sourceTree = "<group>"; };
+		5DAA9C3F1D0709E800AAE153 /* AnalogClockViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockViewModelTests.swift; sourceTree = "<group>"; };
+		5DAA9C421D0709ED00AAE153 /* AnalogClockSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockSource.swift; sourceTree = "<group>"; };
+		5DAA9C431D0709ED00AAE153 /* AnalogClockWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidget.swift; sourceTree = "<group>"; };
+		5DAA9C441D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetBuilder.swift; sourceTree = "<group>"; };
+		5DAA9C451D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetViewModel.swift; sourceTree = "<group>"; };
+		5DAA9C471D0709ED00AAE153 /* AnalogClockWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetView.swift; sourceTree = "<group>"; };
+		5DAA9C481D0709ED00AAE153 /* AnalogClockWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalogClockWidgetView.xib; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -495,7 +455,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				5D600DF91D05F767004C2852 /* Analog Clock */,
+				5DAA9C3E1D0709E800AAE153 /* Analog Clock */,
 				52B9C3D31CEF38C300EE6BD0 /* Image */,
 				520B7A6A1CE4A969005F53EC /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
@@ -575,7 +535,7 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				5D600DEB1D05F2AA004C2852 /* Analog Clock */,
+				5DAA9C411D0709ED00AAE153 /* Analog Clock */,
 				520B7A591CE36ACC005F53EC /* Slack */,
 				526FC2411CD0ADCC00D7843A /* GitHub */,
 				067DA5411CBE5CE400048E6A /* WebsiteAnalytics */,
@@ -611,34 +571,6 @@
 			path = Files;
 			sourceTree = "<group>";
 		};
-		1A60365F1C7F161D0034EFE9 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				1A6036601C7F161D0034EFE9 /* SF-UI-Display-Black.otf */,
-				1A6036611C7F161D0034EFE9 /* SF-UI-Display-Bold.otf */,
-				1A6036621C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf */,
-				1A6036631C7F161D0034EFE9 /* SF-UI-Display-Light.otf */,
-				1A6036641C7F161D0034EFE9 /* SF-UI-Display-Medium.otf */,
-				1A6036651C7F161D0034EFE9 /* SF-UI-Display-Regular.otf */,
-				1A6036661C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf */,
-				1A6036671C7F161D0034EFE9 /* SF-UI-Display-Thin.otf */,
-				1A6036681C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf */,
-				1A6036691C7F161D0034EFE9 /* SF-UI-Text-Bold.otf */,
-				1A60366A1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf */,
-				1A60366B1C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf */,
-				1A60366C1C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf */,
-				1A60366D1C7F161D0034EFE9 /* SF-UI-Text-Light.otf */,
-				1A60366E1C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf */,
-				1A60366F1C7F161D0034EFE9 /* SF-UI-Text-Medium.otf */,
-				1A6036701C7F161D0034EFE9 /* SF-UI-Text-MediumItalic.otf */,
-				1A6036711C7F161D0034EFE9 /* SF-UI-Text-Regular.otf */,
-				1A6036721C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf */,
-				1A6036731C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf */,
-				1A6036741C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		1A9A3D7E1C87197A0070DB17 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,7 +588,6 @@
 			isa = PBXGroup;
 			children = (
 				1AA97DE41CA2DE720058DBCE /* configuration.json */,
-				1A60365F1C7F161D0034EFE9 /* Fonts */,
 				1AD5EA9C1C7B8FED00210BB9 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -1005,33 +936,34 @@
 			name = WebsiteAnalytics;
 			sourceTree = "<group>";
 		};
-		5D600DEB1D05F2AA004C2852 /* Analog Clock */ = {
+		5DAA9C3E1D0709E800AAE153 /* Analog Clock */ = {
 			isa = PBXGroup;
 			children = (
-				5D600DEC1D05F2AA004C2852 /* AnalogClockWidget.swift */,
-				5D600DED1D05F2AA004C2852 /* AnalogClockSource.swift */,
-				5D600DEE1D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift */,
-				5D600DEF1D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift */,
-				5D600DF01D05F2AA004C2852 /* View */,
+				5DAA9C3F1D0709E800AAE153 /* AnalogClockViewModelTests.swift */,
+			);
+			name = "Analog Clock";
+			path = "Widgets/Analog Clock";
+			sourceTree = "<group>";
+		};
+		5DAA9C411D0709ED00AAE153 /* Analog Clock */ = {
+			isa = PBXGroup;
+			children = (
+				5DAA9C421D0709ED00AAE153 /* AnalogClockSource.swift */,
+				5DAA9C431D0709ED00AAE153 /* AnalogClockWidget.swift */,
+				5DAA9C441D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift */,
+				5DAA9C451D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift */,
+				5DAA9C461D0709ED00AAE153 /* View */,
 			);
 			path = "Analog Clock";
 			sourceTree = "<group>";
 		};
-		5D600DF01D05F2AA004C2852 /* View */ = {
+		5DAA9C461D0709ED00AAE153 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5D600DF11D05F2AA004C2852 /* AnalogClockWidgetView.swift */,
-				5D600DF21D05F2AA004C2852 /* AnalogClockWidgetView.xib */,
+				5DAA9C471D0709ED00AAE153 /* AnalogClockWidgetView.swift */,
+				5DAA9C481D0709ED00AAE153 /* AnalogClockWidgetView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		5D600DF91D05F767004C2852 /* Analog Clock */ = {
-			isa = PBXGroup;
-			children = (
-				5D600DFA1D05F799004C2852 /* AnalogClockViewModelTests.swift */,
-			);
-			name = "Analog Clock";
 			sourceTree = "<group>";
 		};
 		C14EA2EA1CF061E500961DF6 /* View */ = {
@@ -1091,6 +1023,7 @@
 				528AFBC41CEB773E001263C8 /* CircleChartViewTests.swift */,
 				52B9C3CF1CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift */,
 				52B9C3D11CEF301200EE6BD0 /* HarvestWidgetSnapshotTests.swift */,
+				547A45821D018E07004E6504 /* BillableDatesTests.swift */,
 				F91C41C51CC5963F00F834B3 /* Fixtures */,
 			);
 			name = Harvest;
@@ -1219,42 +1152,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				521B68511CF58D5400E112CC /* NoOpenPRPlaceholder.xib in Resources */,
-				1A60367E1C7F161D0034EFE9 /* SF-UI-Text-Bold.otf in Resources */,
-				1A6036761C7F161D0034EFE9 /* SF-UI-Display-Bold.otf in Resources */,
-				1A6036831C7F161D0034EFE9 /* SF-UI-Text-LightItalic.otf in Resources */,
-				1A6036801C7F161D0034EFE9 /* SF-UI-Text-Heavy.otf in Resources */,
 				521B684D1CF4700600E112CC /* Assets.xcassets in Resources */,
 				494B68CD1C92E89A00D460B0 /* BonusWidgetView.xib in Resources */,
 				529CEF0A1CEC6A2200636A4A /* HarvestWidgetView.xib in Resources */,
 				521B68541CF5BC5D00E112CC /* Assets.xcassets in Resources */,
 				067DA55F1CBFA98F00048E6A /* TableViewCell.xib in Resources */,
-				1A6036811C7F161D0034EFE9 /* SF-UI-Text-HeavyItalic.otf in Resources */,
 				C14EA2EC1CF0728000961DF6 /* GitHubCell.xib in Resources */,
-				1A6036871C7F161D0034EFE9 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */,
-				1A6036791C7F161D0034EFE9 /* SF-UI-Display-Medium.otf in Resources */,
+				5DAA9C4E1D0709ED00AAE153 /* AnalogClockWidgetView.xib in Resources */,
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
 				1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */,
-				1A6036751C7F161D0034EFE9 /* SF-UI-Display-Black.otf in Resources */,
-				1A6036851C7F161D0034EFE9 /* SF-UI-Text-MediumItalic.otf in Resources */,
 				1AA97DE91CA2E0C80058DBCE /* calendar.json in Resources */,
-				1A6036891C7F161D0034EFE9 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
-				1A6036861C7F161D0034EFE9 /* SF-UI-Text-Regular.otf in Resources */,
-				1A6036781C7F161D0034EFE9 /* SF-UI-Display-Light.otf in Resources */,
 				1AD5EA961C7B819D00210BB9 /* ImageWidgetView.xib in Resources */,
-				1A6036841C7F161D0034EFE9 /* SF-UI-Text-Medium.otf in Resources */,
-				1A60367C1C7F161D0034EFE9 /* SF-UI-Display-Thin.otf in Resources */,
-				1A60367F1C7F161D0034EFE9 /* SF-UI-Text-BoldItalic.otf in Resources */,
-				1A60367B1C7F161D0034EFE9 /* SF-UI-Display-Semibold.otf in Resources */,
-				1A60367A1C7F161D0034EFE9 /* SF-UI-Display-Regular.otf in Resources */,
-				1A60367D1C7F161D0034EFE9 /* SF-UI-Display-Ultralight.otf in Resources */,
 				1AD5EA9B1C7B828200210BB9 /* WatchWidgetView.xib in Resources */,
-				1A6036771C7F161D0034EFE9 /* SF-UI-Display-Heavy.otf in Resources */,
-				1A6036821C7F161D0034EFE9 /* SF-UI-Text-Light.otf in Resources */,
 				494B68CF1C92E89A00D460B0 /* BonusScene.sks in Resources */,
-				5D600DF81D05F2AA004C2852 /* AnalogClockWidgetView.xib in Resources */,
-				1A6036881C7F161D0034EFE9 /* SF-UI-Text-Semibold.otf in Resources */,
 				067DA55A1CBF8B5000048E6A /* TableWidgetView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1421,15 +1333,14 @@
 				526FC2431CD0ADF300D7843A /* GitHubDataProvider.swift in Sources */,
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
+				5DAA9C4B1D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
-				5D600DF51D05F2AA004C2852 /* AnalogClockWidgetBuilder.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
 				C14EA2EE1CF072A500961DF6 /* GitHubCell.swift in Sources */,
 				1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
-				5D600DF31D05F2AA004C2852 /* AnalogClockWidget.swift in Sources */,
 				F9E920911CC54BF000BC7994 /* NSDate+StringWithFormat.swift in Sources */,
-				5D600DF41D05F2AA004C2852 /* AnalogClockSource.swift in Sources */,
+				5DAA9C491D0709ED00AAE153 /* AnalogClockSource.swift in Sources */,
 				065588D11CC5001300BF2DF9 /* Dictionary.swift in Sources */,
 				52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
@@ -1437,8 +1348,8 @@
 				527FA0611CC4D619004614B8 /* PageViewsSource.swift in Sources */,
 				F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
-				5D600DF71D05F2AA004C2852 /* AnalogClockWidgetView.swift in Sources */,
 				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
+				5DAA9C4D1D0709ED00AAE153 /* AnalogClockWidgetView.swift in Sources */,
 				520B7A671CE38B68005F53EC /* String.swift in Sources */,
 				C1719D5F1CF184C4009B52BA /* GitHubWidgetView.swift in Sources */,
 				520B7A631CE37B56005F53EC /* SlackWidgetBuilder.swift in Sources */,
@@ -1469,11 +1380,13 @@
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				067DA55D1CBFA8F900048E6A /* TableViewCell.swift in Sources */,
+				5DAA9C4C1D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				526D1C671CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
 				529CEF191CECC35600636A4A /* UIColor+BillingColor.swift in Sources */,
+				5DAA9C4A1D0709ED00AAE153 /* AnalogClockWidget.swift in Sources */,
 				529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
@@ -1487,7 +1400,6 @@
 				F91F006C1CBBD02600DAAA77 /* HarvestWidget.swift in Sources */,
 				F9E9208F1CC54A9400BC7994 /* DailyUserBillingStatsFetcher.swift in Sources */,
 				1AD5EA951C7B819D00210BB9 /* ImageWidgetView.swift in Sources */,
-				5D600DF61D05F2AA004C2852 /* AnalogClockWidgetViewModel.swift in Sources */,
 				52FB50501CBC051B0053DE8B /* JSONCalendarDataProvider.swift in Sources */,
 				543596961CF47501000592FE /* NSThread.swift in Sources */,
 				C1719D5B1CF099E8009B52BA /* GitHubTableDataSource.swift in Sources */,
@@ -1514,11 +1426,13 @@
 				1A4616A81C904A1400361B2E /* AutoStackTests.swift in Sources */,
 				520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */,
 				525027761CDCE91C00DFE32A /* NSBundle+LoadJSON.swift in Sources */,
+				547A45831D018E07004E6504 /* BillableDatesTests.swift in Sources */,
 				526FC2601CD365E300D7843A /* UpdateTests.swift in Sources */,
 				1A242D331C357C2700D5BEE5 /* GrandCentralBoardTests.swift in Sources */,
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1AB810F31CCA5DD800E3A430 /* ConfigurationRefresherTests.swift in Sources */,
 				5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */,
+				5DAA9C401D0709E800AAE153 /* AnalogClockViewModelTests.swift in Sources */,
 				491ADF261CF352FB00A13978 /* BonusWidgetSnapshotTests.swift in Sources */,
 				C1719D551CF07A0C009B52BA /* GitHubCellSnapshotTests.swift in Sources */,
 				52B9C3D01CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift in Sources */,
@@ -1532,7 +1446,6 @@
 				525027801CDCE92E00DFE32A /* DailyBillingStatsTests.swift in Sources */,
 				548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */,
 				526D1C651CE4B99700604174 /* SlackTimestampParseTests.swift in Sources */,
-				5D600DFB1D05F799004C2852 /* AnalogClockViewModelTests.swift in Sources */,
 				C1719D571CF07A2B009B52BA /* GitHubDataProviderTests.swift in Sources */,
 				526D1C681CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				49175CD41CEC5AFC004A9D19 /* WidgetTemplateViewTests.swift in Sources */,

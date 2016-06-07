@@ -5,6 +5,8 @@
 
 import UIKit
 import GCBCore
+import GCBUtilities
+
 
 private let widgetTitle = "Bonusly".localized.uppercaseString
 

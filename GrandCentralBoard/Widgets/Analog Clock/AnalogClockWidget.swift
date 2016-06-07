@@ -13,12 +13,6 @@ final class AnalogClockWidget: WidgetControlling {
     private let widgetView: AnalogClockWidgetView
     private let mainView: UIView
 
-    private lazy var errorView: UIView = {
-        let errorViewModel = WidgetErrorTemplateViewModel(title: "Clock".localized.uppercaseString,
-                                                          subtitle: "Error".localized.uppercaseString)
-        return WidgetTemplateView.viewWithErrorViewModel(errorViewModel)
-    }()
-
     let sources: [UpdatingSource]
 
     init(view: AnalogClockWidgetView, sources: [UpdatingSource]) {
