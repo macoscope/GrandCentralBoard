@@ -64,7 +64,7 @@ EXTERNAL SOURCES:
   FBSnapshotTestCase:
     :git: https://github.com/facebook/ios-snapshot-test-case
   GCBUtilities:
-    :path: ./
+    :path: "./"
   SlackKit:
     :branch: add-tv-os-to-podspec
     :git: https://github.com/michallaskowski/SlackKit
@@ -82,7 +82,7 @@ SPEC CHECKSUMS:
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
   FBSnapshotTestCase: 432afd8d059ccef7f207225894840a03fbcf7474
   GCBCore: ae1b62bf7576994c88579f2140c2b7d5e5bcb268
-  GCBUtilities: 1e94bbae032e212846cab45a2aa7a7118baacad0
+  GCBUtilities: 99cad751c3f7c557bb2c32f3034b98f77fe2401c
   MD5: 62e4416c91af0514c6aeeb6e6d80171f3bd48c3f
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
   Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
