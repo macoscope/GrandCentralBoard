@@ -26,7 +26,8 @@ final class SlackMessagesWidget: WidgetControlling {
         let widgetTemplateViewModel = WidgetTemplateViewModel(title: "Slack".uppercaseString,
                                                               subtitle: "",
                                                               contentView: widgetView)
-        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 26, left: 27, bottom: 27, right: 26))
+
+        let layoutSettings = WidgetTemplateLayoutSettings(contentMargin: UIEdgeInsets(top: 26, left: 26, bottom: 26, right: 26))
         view = WidgetTemplateView.viewWithViewModel(widgetTemplateViewModel, layoutSettings: layoutSettings)
 
         widgetView.hidden = true

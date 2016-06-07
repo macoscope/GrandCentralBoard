@@ -23,8 +23,6 @@ final class SlackAvatarView: UIImageView {
     }
 
     private func setUp() {
-        super.layoutSubviews()
-
         layer.cornerRadius = min(bounds.width / 2, bounds.height / 2)
         layer.masksToBounds = true
         layer.borderWidth = 2
