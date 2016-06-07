@@ -12,8 +12,8 @@ import Foundation
 internal extension NSBundle {
 
     class func resourcesBundle() -> NSBundle {
-        let mainBundle = NSBundle(forClass: GrandCentralBoardController.self)
-        let resourcesBundleURL = mainBundle.URLForResource("GCBCore", withExtension: "bundle")!
+        let mainBundle = NSBundle(forClass: WidgetTemplateView.self)
+        let resourcesBundleURL = mainBundle.URLForResource("GCBUtilities", withExtension: "bundle")!
         return NSBundle(URL: resourcesBundleURL)!
 
     }

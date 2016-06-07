@@ -5,7 +5,6 @@
 
 import UIKit
 
-
 public protocol WidgetTemplateViewModelType {
     var title: String { get }
     var subtitle: String { get }
@@ -153,6 +152,6 @@ public class WidgetTemplateView: UIView {
     }
 
     public class func fromNib() -> WidgetTemplateView {
-        return NSBundle(forClass: WidgetTemplateView.self).loadNibNamed("WidgetTemplateView", owner: nil, options: nil)[0] as! WidgetTemplateView
+        return NSBundle.resourcesBundle().loadNibNamed("WidgetTemplateView", owner: nil, options: nil)[0] as! WidgetTemplateView
     }
 }

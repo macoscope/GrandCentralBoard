@@ -6,6 +6,8 @@
 
 import FBSnapshotTestCase
 import GCBCore
+import GCBUtilities
+
 
 final class WidgetTemplateViewTests: FBSnapshotTestCase {
 
