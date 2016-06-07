@@ -105,11 +105,11 @@
 		520B7A6C1CE4A990005F53EC /* SlackSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */; };
 		52133AF41CE9EE370025BE8A /* PageViewsSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */; };
 		52133AF61CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */; };
+		521B684D1CF4700600E112CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521B684C1CF4700600E112CC /* Assets.xcassets */; };
+		521B68511CF58D5400E112CC /* NoOpenPRPlaceholder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */; };
 		521B68541CF5BC5D00E112CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521B68531CF5BC5D00E112CC /* Assets.xcassets */; };
 		521B68561CF5BDCB00E112CC /* MessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68551CF5BDCB00E112CC /* MessageBubbleView.swift */; };
 		521B68581CF5D6D700E112CC /* MessageBubbleViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68571CF5D6D700E112CC /* MessageBubbleViewSnapshotTests.swift */; };
-		521B684D1CF4700600E112CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521B684C1CF4700600E112CC /* Assets.xcassets */; };
-		521B68511CF58D5400E112CC /* NoOpenPRPlaceholder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */; };
 		521B68661CFC303A00E112CC /* GitHubWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */; };
 		521B68681CFC316300E112CC /* GitHubWidgetSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */; };
 		525027741CDCE91C00DFE32A /* BillingProjectList.json in Resources */ = {isa = PBXBuildFile; fileRef = 525027711CDCE91C00DFE32A /* BillingProjectList.json */; };
@@ -311,11 +311,11 @@
 		520B7A6B1CE4A990005F53EC /* SlackSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlackSourceTests.swift; path = Widgets/Slack/SlackSourceTests.swift; sourceTree = "<group>"; };
 		52133AF31CE9EE370025BE8A /* PageViewsSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewsSourceTests.swift; path = Widgets/WebsiteAnalytics/PageViewsSourceTests.swift; sourceTree = "<group>"; };
 		52133AF51CE9EE520025BE8A /* GoogleAnalyticsDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsDataProviderTests.swift; path = Widgets/WebsiteAnalytics/GoogleAnalyticsDataProviderTests.swift; sourceTree = "<group>"; };
+		521B684C1CF4700600E112CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GitHub/Assets.xcassets; sourceTree = "<group>"; };
+		521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoOpenPRPlaceholder.xib; path = GitHub/View/NoOpenPRPlaceholder.xib; sourceTree = "<group>"; };
 		521B68531CF5BC5D00E112CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Slack/Assets.xcassets; sourceTree = "<group>"; };
 		521B68551CF5BDCB00E112CC /* MessageBubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageBubbleView.swift; path = Slack/View/MessageBubbleView.swift; sourceTree = "<group>"; };
 		521B68571CF5D6D700E112CC /* MessageBubbleViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageBubbleViewSnapshotTests.swift; path = Widgets/Slack/MessageBubbleViewSnapshotTests.swift; sourceTree = "<group>"; };
-		521B684C1CF4700600E112CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = GitHub/Assets.xcassets; sourceTree = "<group>"; };
-		521B68501CF58D5400E112CC /* NoOpenPRPlaceholder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoOpenPRPlaceholder.xib; path = GitHub/View/NoOpenPRPlaceholder.xib; sourceTree = "<group>"; };
 		521B68651CFC303A00E112CC /* GitHubWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetBuilder.swift; path = GitHub/GitHubWidgetBuilder.swift; sourceTree = "<group>"; };
 		521B68671CFC316300E112CC /* GitHubWidgetSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubWidgetSettings.swift; path = GitHub/GitHubWidgetSettings.swift; sourceTree = "<group>"; };
 		525027711CDCE91C00DFE32A /* BillingProjectList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BillingProjectList.json; path = Widgets/Harvest/Fixtures/BillingProjectList.json; sourceTree = "<group>"; };
@@ -848,15 +848,6 @@
 				520B7A5A1CE36ADC005F53EC /* SlackSource.swift */,
 				520B7A681CE3912A005F53EC /* SlackWebAPI+RxSwift.swift */,
 				526D1C661CE4BA2000604174 /* String+SlackTimestampParsing.swift */,
-				);
-			name = Source;
-			sourceTree = "<group>";
-		};
-		521B68691CFC31FA00E112CC /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
-				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -869,7 +860,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-
+		521B68691CFC31FA00E112CC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				526FC2421CD0ADF300D7843A /* GitHubDataProvider.swift */,
+				C1719D5C1CF16B80009B52BA /* GitHubSource.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		526FC2411CD0ADCC00D7843A /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,13 +1094,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A242D421C357C2700D5BEE5 /* Build configuration list for PBXNativeTarget "GrandCentralBoard" */;
 			buildPhases = (
-				1A21201C9483E9ABA85E4F8A /* 📦 Check Pods Manifest.lock */,
+				1A21201C9483E9ABA85E4F8A /* [CP] Check Pods Manifest.lock */,
 				C1237CFD1CBF009800B7AEEE /* SwiftLint */,
 				1A242D191C357C2700D5BEE5 /* Sources */,
 				1A242D1A1C357C2700D5BEE5 /* Frameworks */,
 				1A242D1B1C357C2700D5BEE5 /* Resources */,
-				9BC27B78F9C0F984C8D743B6 /* 📦 Embed Pods Frameworks */,
-				021777643657801B31B74E96 /* 📦 Copy Pods Resources */,
+				9BC27B78F9C0F984C8D743B6 /* [CP] Embed Pods Frameworks */,
+				021777643657801B31B74E96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1116,12 +1115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A242D451C357C2700D5BEE5 /* Build configuration list for PBXNativeTarget "GrandCentralBoardTests" */;
 			buildPhases = (
-				39AA4ECD77F041971011537F /* 📦 Check Pods Manifest.lock */,
+				39AA4ECD77F041971011537F /* [CP] Check Pods Manifest.lock */,
 				1A242D2A1C357C2700D5BEE5 /* Sources */,
 				1A242D2B1C357C2700D5BEE5 /* Frameworks */,
 				1A242D2C1C357C2700D5BEE5 /* Resources */,
-				D46F00082DA9DCFBBDF26DFA /* 📦 Embed Pods Frameworks */,
-				DD9A82BD3EAF14934E2FBA3B /* 📦 Copy Pods Resources */,
+				D46F00082DA9DCFBBDF26DFA /* [CP] Embed Pods Frameworks */,
+				DD9A82BD3EAF14934E2FBA3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1236,14 +1235,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		021777643657801B31B74E96 /* 📦 Copy Pods Resources */ = {
+		021777643657801B31B74E96 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1251,14 +1250,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1A21201C9483E9ABA85E4F8A /* 📦 Check Pods Manifest.lock */ = {
+		1A21201C9483E9ABA85E4F8A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1266,14 +1265,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		39AA4ECD77F041971011537F /* 📦 Check Pods Manifest.lock */ = {
+		39AA4ECD77F041971011537F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1281,14 +1280,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9BC27B78F9C0F984C8D743B6 /* 📦 Embed Pods Frameworks */ = {
+		9BC27B78F9C0F984C8D743B6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1310,14 +1309,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		D46F00082DA9DCFBBDF26DFA /* 📦 Embed Pods Frameworks */ = {
+		D46F00082DA9DCFBBDF26DFA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1325,14 +1324,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD9A82BD3EAF14934E2FBA3B /* 📦 Copy Pods Resources */ = {
+		DD9A82BD3EAF14934E2FBA3B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
