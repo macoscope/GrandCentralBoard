@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GCBCore/GCBCore.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GCBUtilities/GCBUtilities.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MD5/MD5.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Moya/Moya.framework"
@@ -98,6 +99,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GCBCore/GCBCore.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GCBUtilities/GCBUtilities.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MD5/MD5.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Moya/Moya.framework"

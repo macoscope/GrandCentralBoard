@@ -15,7 +15,7 @@ A Swift framework inspired by WWDC 2015 Advanced NSOperations session.
 Resource | Where to find it
 ---------|-----------------
 Session video | [developer.apple.com](https://developer.apple.com/videos/wwdc/2015/?id=226)
-Reference documentation | [docs.danthorpe.me/operations](http://docs.danthorpe.me/operations/2.8.0/index.html)
+Reference documentation | [docs.danthorpe.me/operations](http://docs.danthorpe.me/operations/2.9.0/index.html)
 Programming guide | [operations.readme.io](https://operations.readme.io)
 Example projects | [danthorpe/Examples](https://github.com/danthorpe/Examples)
 
@@ -35,6 +35,10 @@ class MyFirstOperation: Operation {
         finish()
     }
 }
+
+let queue = OperationQueue()
+let myOperation = MyFirstOperation()
+queue.addOperation(myOperation)
 ```
 
 the key points here are:
@@ -43,6 +47,7 @@ the key points here are:
 2. Override `execute` but do not call `super.execute()`
 3. Check the `cancelled` property before starting any *work*.
 4. If not cancelled, always call `finish()` after the *work* is done. This could be done asynchronously.
+5. Add operations to instances of `OperationQueue`.
 
 ## Observers
 

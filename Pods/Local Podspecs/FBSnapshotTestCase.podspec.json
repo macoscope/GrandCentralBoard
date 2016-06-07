@@ -1,6 +1,6 @@
 {
   "name": "FBSnapshotTestCase",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "summary": "Snapshot view unit tests for iOS",
   "description": "A \"snapshot test case\" takes a configured UIView or CALayer\nand uses the renderInContext: method to get an image snapshot\nof its contents. It compares this snapshot to a \"reference image\"\nstored in your source code repository and fails the test if the\ntwo images don't match.",
   "homepage": "https://github.com/facebook/ios-snapshot-test-case",
@@ -8,7 +8,7 @@
   "authors": "Facebook",
   "source": {
     "git": "https://github.com/facebook/ios-snapshot-test-case.git",
-    "tag": "2.1.0"
+    "tag": "2.1.1"
   },
   "platforms": {
     "ios": "7.0",
@@ -23,6 +23,9 @@
   ],
   "pod_target_xcconfig": {
     "ENABLE_BITCODE": "NO"
+  },
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "$(PLATFORM_DIR)/Developer/Library/Frameworks"
   },
   "default_subspecs": "SwiftSupport",
   "subspecs": [
