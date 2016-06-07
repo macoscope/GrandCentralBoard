@@ -6,6 +6,8 @@
 //
 
 import GCBCore
+import GCBUtilities
+
 
 private let widgetTitle = "GitHub".uppercaseString
 private let widgetSubtitle = "Pull Requests".uppercaseString

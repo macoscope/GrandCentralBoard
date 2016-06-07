@@ -12,6 +12,9 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.source_files = 'GCBUtilities/**/*.swift'
+  s.resource_bundles = {    
+    'GCBUtilities' => ['GCBUtilities/**/*.xib', 'GCBUtilities/**/*.png']
+  }
 
   s.dependency 'Alamofire', '~> 3.0'
   s.dependency 'Decodable', '~> 0.4'

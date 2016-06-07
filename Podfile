@@ -5,7 +5,7 @@ target "GrandCentralBoard" do
  pod 'Alamofire', '~> 3.0'
  pod 'Decodable', '~> 0.4'
  pod 'MD5', '~> 0.1'
- pod 'GCBCore', :path => './'
+ pod 'GCBCore', '~> 1.0'
  pod 'GCBUtilities', :path => './'
  pod 'Operations', '~> 2.9'
  pod 'Moya/RxSwift', '~> 6.4'

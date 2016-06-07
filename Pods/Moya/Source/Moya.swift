@@ -103,8 +103,8 @@ public class MoyaProvider<Target: TargetType> {
         return endpointClosure(token)
     }
     
-    /// Designated request-making method. Returns a Cancellable token to cancel the request later.
-    public func request(target: Target, completion: Moya.Completion) -> Cancellable {
+    /// Designated request-making method with queue option. Returns a Cancellable token to cancel the request later.
+    public func request(target: Target, queue:dispatch_queue_t?, completion: Moya.Completion) -> Cancellable {
         let endpoint = self.endpoint(target)
         let stubBehavior = self.stubClosure(target)
         var cancellableToken = CancellableWrapper()
@@ -114,7 +114,7 @@ public class MoyaProvider<Target: TargetType> {
             
             switch stubBehavior {
             case .Never:
-                cancellableToken.innerCancellable = self.sendRequest(target, request: request, completion: completion)
+                cancellableToken.innerCancellable = self.sendRequest(target, request: request, queue: queue, completion: completion)
             default:
                 cancellableToken.innerCancellable = self.stubRequest(target, request: request, completion: completion, endpoint: endpoint, stubBehavior: stubBehavior)
             }
@@ -123,6 +123,11 @@ public class MoyaProvider<Target: TargetType> {
         requestClosure(endpoint, performNetworking)
         
         return cancellableToken
+    }
+    
+    /// Designated request-making method. Returns a Cancellable token to cancel the request later.
+    public func request(target: Target, completion: Moya.Completion) -> Cancellable {
+        return self.request(target, queue:nil, completion:completion)
     }
     
     /// When overriding this method, take care to `notifyPluginsOfImpendingStub` and to perform the stub using the `createStubFunction` method.
@@ -196,7 +201,7 @@ public extension MoyaProvider {
 
 internal extension MoyaProvider {
     
-    func sendRequest(target: Target, request: NSURLRequest, completion: Moya.Completion) -> CancellableToken {
+    func sendRequest(target: Target, request: NSURLRequest, queue: dispatch_queue_t?, completion: Moya.Completion) -> CancellableToken {
         let alamoRequest = manager.request(request)
         let plugins = self.plugins
         
@@ -204,7 +209,7 @@ internal extension MoyaProvider {
         plugins.forEach { $0.willSendRequest(alamoRequest, target: target) }
         
         // Perform the actual request
-        alamoRequest.response { (_, response: NSHTTPURLResponse?, data: NSData?, error: NSError?) -> () in
+        alamoRequest.response(queue: queue) { (_, response: NSHTTPURLResponse?, data: NSData?, error: NSError?) -> () in
             let result = convertResponseToResult(response, data: data, error: error)
             // Inform all plugins about the response
             plugins.forEach { $0.didReceiveResponse(result, target: target) }

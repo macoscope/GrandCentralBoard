@@ -7,6 +7,7 @@
 //
 
 import GCBCore
+import GCBUtilities
 
 
 final class HarvestWidget: WidgetControlling {

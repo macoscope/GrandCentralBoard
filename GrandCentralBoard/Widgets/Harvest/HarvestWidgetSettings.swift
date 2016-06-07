@@ -16,6 +16,7 @@ struct HarvestWidgetSettings: Decodable {
     let clientID: String
     let clientSecret: String
     let numberOfDays: Int
+    let includeWeekends: Bool?
     let refreshInterval: NSTimeInterval
     let downloader: NetworkRequestManager = Alamofire.Manager.sharedInstance
 
@@ -25,6 +26,7 @@ struct HarvestWidgetSettings: Decodable {
                                          clientID:        json => "clientID",
                                          clientSecret:    json => "clientSecret",
                                          numberOfDays:    json => "numberOfDays",
+                                         includeWeekends: json =>? "includeWeekends",
                                          refreshInterval: json => "refreshInterval")
     }
 
