@@ -4,8 +4,6 @@
 //
 
 import UIKit
-import GCBUtilities
-
 
 public protocol WidgetTemplateViewModelType {
     var title: String { get }
