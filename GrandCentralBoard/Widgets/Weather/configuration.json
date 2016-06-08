@@ -1,0 +1,10 @@
+{
+    "widgets": [
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"weather", "settings":  {"apiKey": "Your actual Forecast.io API key", "units": "i", "latlon": ["42.4724464", "-83.1253623"]} },
+                {"name":"weather", "settings":  {"apiKey": "Your actual Forecast.io API key", "units": "m", "latlon": ["42.4724464", "-83.1253623"]} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                {"name":"watch", "settings":  {"timeZone":"Europe/Warsaw", "calendar": "http://localhost:8000/calendar.json"} },
+                ]
+}

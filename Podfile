@@ -3,6 +3,7 @@ use_frameworks!
 
 target "GrandCentralBoard" do
  pod 'Alamofire', '~> 3.0'
+ pod 'CZWeatherKit', '~> 2.2'
  pod 'Decodable', '~> 0.4'
  pod 'MD5', '~> 0.1'
  pod 'GCBCore', '~> 1.0'
