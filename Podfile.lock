@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.4.0)
+  - BEMAnalogClock (1.6)
   - Decodable (0.4.2)
   - FBSnapshotTestCase (2.1.1):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.1)
@@ -48,6 +49,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - BEMAnalogClock (~> 1.6)
   - Decodable (~> 0.4)
   - FBSnapshotTestCase (from `https://github.com/facebook/ios-snapshot-test-case`)
   - GCBCore (~> 1.0)
@@ -79,6 +81,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  BEMAnalogClock: b654e7f507cc02895222a26c33ca8493172b39cd
   Decodable: b1cd96ad9f722721bc98b0310952214a47f71d6a
   FBSnapshotTestCase: 432afd8d059ccef7f207225894840a03fbcf7474
   GCBCore: ae1b62bf7576994c88579f2140c2b7d5e5bcb268
@@ -93,6 +96,6 @@ SPEC CHECKSUMS:
   SlackKit: 10dfee029d482bf35eff8799a799acf70ee2f05a
   Starscream: d662732354b40dd19ed1ece3e3c44c80b536b83c
 
-PODFILE CHECKSUM: 95c60ade6bcca2563c9ce3a8989b920d11185618
+PODFILE CHECKSUM: 6780b205cca436965d4470cb1b8d82e144a74e8f
 
 COCOAPODS: 1.0.1

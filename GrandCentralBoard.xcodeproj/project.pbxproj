@@ -147,6 +147,13 @@
 		5435EFF31CEBDD67002A9869 /* WatchWidgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435EFF21CEBDD67002A9869 /* WatchWidgetViewModelTests.swift */; };
 		547A45831D018E07004E6504 /* BillableDatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A45821D018E07004E6504 /* BillableDatesTests.swift */; };
 		548AB84A1CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */; };
+		5DAA9C401D0709E800AAE153 /* AnalogClockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C3F1D0709E800AAE153 /* AnalogClockViewModelTests.swift */; };
+		5DAA9C491D0709ED00AAE153 /* AnalogClockSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C421D0709ED00AAE153 /* AnalogClockSource.swift */; };
+		5DAA9C4A1D0709ED00AAE153 /* AnalogClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C431D0709ED00AAE153 /* AnalogClockWidget.swift */; };
+		5DAA9C4B1D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C441D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift */; };
+		5DAA9C4C1D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C451D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift */; };
+		5DAA9C4D1D0709ED00AAE153 /* AnalogClockWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA9C471D0709ED00AAE153 /* AnalogClockWidgetView.swift */; };
+		5DAA9C4E1D0709ED00AAE153 /* AnalogClockWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA9C481D0709ED00AAE153 /* AnalogClockWidgetView.xib */; };
 		73446E280D300467806A41C0 /* Pods_GrandCentralBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE02EF1A91C166A60B79697 /* Pods_GrandCentralBoardTests.framework */; };
 		89EA2514DC4CC9CE2261B3D9 /* Pods_GrandCentralBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */; };
 		C110E0D31CD778CB00B19DC6 /* pull_requests.json in Resources */ = {isa = PBXBuildFile; fileRef = C110E0D21CD778CB00B19DC6 /* pull_requests.json */; };
@@ -338,6 +345,13 @@
 		547A45821D018E07004E6504 /* BillableDatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillableDatesTests.swift; sourceTree = "<group>"; };
 		548AB8491CEF39170086A1EC /* WebsiteAnalyticsWidgetSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteAnalyticsWidgetSnapshotTests.swift; sourceTree = "<group>"; };
 		54A9A8A20231B63CE5AC43BA /* Pods_GrandCentralBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandCentralBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DAA9C3F1D0709E800AAE153 /* AnalogClockViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockViewModelTests.swift; sourceTree = "<group>"; };
+		5DAA9C421D0709ED00AAE153 /* AnalogClockSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockSource.swift; sourceTree = "<group>"; };
+		5DAA9C431D0709ED00AAE153 /* AnalogClockWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidget.swift; sourceTree = "<group>"; };
+		5DAA9C441D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetBuilder.swift; sourceTree = "<group>"; };
+		5DAA9C451D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetViewModel.swift; sourceTree = "<group>"; };
+		5DAA9C471D0709ED00AAE153 /* AnalogClockWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogClockWidgetView.swift; sourceTree = "<group>"; };
+		5DAA9C481D0709ED00AAE153 /* AnalogClockWidgetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalogClockWidgetView.xib; sourceTree = "<group>"; };
 		7D608D9A9B4291AEBF9C7FD7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		909F842DBEAB5F13BDC41BB8 /* Pods-GrandCentralBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoardTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoardTests/Pods-GrandCentralBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF37772EDE6EC78426FE7E75 /* Pods-GrandCentralBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandCentralBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GrandCentralBoard/Pods-GrandCentralBoard.debug.xcconfig"; sourceTree = "<group>"; };
@@ -453,6 +467,7 @@
 		0D2863071CB515B000C62700 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				5DAA9C3E1D0709E800AAE153 /* Analog Clock */,
 				52B9C3D31CEF38C300EE6BD0 /* Image */,
 				520B7A6A1CE4A969005F53EC /* Slack */,
 				526FC24B1CD0E74700D7843A /* GitHub */,
@@ -533,6 +548,7 @@
 		1A242D561C357DFD00D5BEE5 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				5DAA9C411D0709ED00AAE153 /* Analog Clock */,
 				520B7A591CE36ACC005F53EC /* Slack */,
 				526FC2411CD0ADCC00D7843A /* GitHub */,
 				067DA5411CBE5CE400048E6A /* WebsiteAnalytics */,
@@ -938,6 +954,36 @@
 			name = WebsiteAnalytics;
 			sourceTree = "<group>";
 		};
+		5DAA9C3E1D0709E800AAE153 /* Analog Clock */ = {
+			isa = PBXGroup;
+			children = (
+				5DAA9C3F1D0709E800AAE153 /* AnalogClockViewModelTests.swift */,
+			);
+			name = "Analog Clock";
+			path = "Widgets/Analog Clock";
+			sourceTree = "<group>";
+		};
+		5DAA9C411D0709ED00AAE153 /* Analog Clock */ = {
+			isa = PBXGroup;
+			children = (
+				5DAA9C421D0709ED00AAE153 /* AnalogClockSource.swift */,
+				5DAA9C431D0709ED00AAE153 /* AnalogClockWidget.swift */,
+				5DAA9C441D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift */,
+				5DAA9C451D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift */,
+				5DAA9C461D0709ED00AAE153 /* View */,
+			);
+			path = "Analog Clock";
+			sourceTree = "<group>";
+		};
+		5DAA9C461D0709ED00AAE153 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DAA9C471D0709ED00AAE153 /* AnalogClockWidgetView.swift */,
+				5DAA9C481D0709ED00AAE153 /* AnalogClockWidgetView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C14EA2EA1CF061E500961DF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1132,6 +1178,7 @@
 				067DA55F1CBFA98F00048E6A /* TableViewCell.xib in Resources */,
 				C14EA2EC1CF0728000961DF6 /* GitHubCell.xib in Resources */,
 				1A4616A61C9048F700361B2E /* Assets.xcassets in Resources */,
+				5DAA9C4E1D0709ED00AAE153 /* AnalogClockWidgetView.xib in Resources */,
 				1AD5EA9D1C7B8FED00210BB9 /* Assets.xcassets in Resources */,
 				1A242D261C357C2700D5BEE5 /* Main.storyboard in Resources */,
 				1AA97DE51CA2DE720058DBCE /* configuration.json in Resources */,
@@ -1307,12 +1354,14 @@
 				526FC2431CD0ADF300D7843A /* GitHubDataProvider.swift in Sources */,
 				1A76DFAE1CBBEF8200A2DF49 /* NSBundle.swift in Sources */,
 				F91F006E1CBBD08500DAAA77 /* HarvestWidgetBuilder.swift in Sources */,
+				5DAA9C4B1D0709ED00AAE153 /* AnalogClockWidgetBuilder.swift in Sources */,
 				1AE1981E1CBE8323003B6AB3 /* UIColor.swift in Sources */,
 				52FB50581CBD350E0053DE8B /* GoogleCalendarWatchWidgetBuilder.swift in Sources */,
 				C14EA2EE1CF072A500961DF6 /* GitHubCell.swift in Sources */,
 				1AEE4C0A1CC52E41000CC88D /* NSProcessInfo.swift in Sources */,
 				494B68D01C92E89A00D460B0 /* BonusScene.swift in Sources */,
 				F9E920911CC54BF000BC7994 /* NSDate+StringWithFormat.swift in Sources */,
+				5DAA9C491D0709ED00AAE153 /* AnalogClockSource.swift in Sources */,
 				065588D11CC5001300BF2DF9 /* Dictionary.swift in Sources */,
 				52FB50631CBE862F0053DE8B /* CalendarNameSource.swift in Sources */,
 				1AD5EA991C7B827300210BB9 /* WatchWidgetView.swift in Sources */,
@@ -1321,6 +1370,7 @@
 				F9C88F3A1CBFC36900E81A14 /* BillingStatsFetcher.swift in Sources */,
 				06684F321CB7896800B93D90 /* TimestampableRequestTemplate.swift in Sources */,
 				F9C88F2F1CBE991C00E81A14 /* BillingStatsGroup.swift in Sources */,
+				5DAA9C4D1D0709ED00AAE153 /* AnalogClockWidgetView.swift in Sources */,
 				520B7A671CE38B68005F53EC /* String.swift in Sources */,
 				521B686D1CFC556900E112CC /* Slack+DataProviding.swift in Sources */,
 				C1719D5F1CF184C4009B52BA /* GitHubWidgetView.swift in Sources */,
@@ -1351,11 +1401,13 @@
 				0D7970C51CB6B01F00401A65 /* BubbleScalingAnimator.swift in Sources */,
 				1AD6E8031C7DDC000003121C /* WatchWidgetBuilder.swift in Sources */,
 				067DA55D1CBFA8F900048E6A /* TableViewCell.swift in Sources */,
+				5DAA9C4C1D0709ED00AAE153 /* AnalogClockWidgetViewModel.swift in Sources */,
 				1AD5EAA41C7D125A00210BB9 /* WatchWidget.swift in Sources */,
 				526D1C671CE4BA2000604174 /* String+SlackTimestampParsing.swift in Sources */,
 				F9E920891CC5421200BC7994 /* BillingProjectListFetcher.swift in Sources */,
 				06684F231CB69EB100B93D90 /* PeopleWithBonusesFetchController.swift in Sources */,
 				529CEF191CECC35600636A4A /* UIColor+BillingColor.swift in Sources */,
+				5DAA9C4A1D0709ED00AAE153 /* AnalogClockWidget.swift in Sources */,
 				529CEF041CEC580800636A4A /* CircleChartViewModel.swift in Sources */,
 				0692DB911CBD39DC006F46C9 /* Array.swift in Sources */,
 				1A242D211C357C2700D5BEE5 /* AppDelegate.swift in Sources */,
@@ -1403,6 +1455,7 @@
 				1A4616AA1C904EAB00361B2E /* ConfigurationTests.swift in Sources */,
 				1AB810F31CCA5DD800E3A430 /* ConfigurationRefresherTests.swift in Sources */,
 				5250277F1CDCE92E00DFE32A /* BillingProjectListTests.swift in Sources */,
+				5DAA9C401D0709E800AAE153 /* AnalogClockViewModelTests.swift in Sources */,
 				491ADF261CF352FB00A13978 /* BonusWidgetSnapshotTests.swift in Sources */,
 				C1719D551CF07A0C009B52BA /* GitHubCellSnapshotTests.swift in Sources */,
 				52B9C3D01CEF258B00EE6BD0 /* HarvestWidgetViewSnapshotTests.swift in Sources */,

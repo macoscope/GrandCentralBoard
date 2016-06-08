@@ -1,0 +1,6 @@
+framework module BEMAnalogClock {
+  umbrella header "BEMAnalogClock-umbrella.h"
+
+  export *
+  module * { export * }
+}
