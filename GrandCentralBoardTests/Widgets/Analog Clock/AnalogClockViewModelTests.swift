@@ -16,6 +16,7 @@ class AnalogClockViewModelTests: FBSnapshotTestCase {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.locale = NSLocale(localeIdentifier: "en_US")
+        formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
 
         return formatter
     }()
