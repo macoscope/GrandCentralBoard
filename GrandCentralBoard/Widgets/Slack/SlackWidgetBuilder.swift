@@ -7,6 +7,7 @@
 //
 
 import GCBCore
+import SlackKit
 
 
 final class SlackWidgetBuilder: WidgetBuilding {
@@ -15,7 +16,11 @@ final class SlackWidgetBuilder: WidgetBuilding {
 
     func build(settings: AnyObject) throws -> WidgetControlling {
         let slackSettings = try SlackWidgetSettings.decode(settings)
-        let source = SlackSource(apiToken: slackSettings.apiToken)
+        let slackClient = Client(apiToken: slackSettings.apiToken)
+        let source = SlackSource(slackClient: slackClient)
+
+        slackClient.messageEventsDelegate = source
+        slackClient.connect(noUnreads: true, pingInterval: 10, timeout: 20, reconnect: true)
 
         return SlackMessagesWidget(source: source)
     }

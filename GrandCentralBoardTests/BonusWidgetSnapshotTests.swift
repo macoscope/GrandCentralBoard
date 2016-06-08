@@ -20,7 +20,7 @@ private final class PeopleWithBonusesProvider: PeopleWithBonusesProviding {
 
     private func fetchPeopleWithBonuses(completionBlock: (Result<[Person]>) -> Void) {
         if shouldFailRequest {
-            return completionBlock(Result.Failure(ErrorWithMessage(message: "error_message")))
+            return completionBlock(Result.Failure(TestError()))
         } else {
             let people: [Person] = []
             return completionBlock(Result.Success(people))
