@@ -1,6 +1,0 @@
-framework module Pods_GrandCentralBoardTests {
-  umbrella header "Pods-GrandCentralBoardTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

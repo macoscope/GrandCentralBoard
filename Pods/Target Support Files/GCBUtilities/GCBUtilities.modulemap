@@ -1,6 +1,0 @@
-framework module GCBUtilities {
-  umbrella header "GCBUtilities-umbrella.h"
-
-  export *
-  module * { export * }
-}

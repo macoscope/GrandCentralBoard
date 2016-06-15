@@ -1,6 +1,0 @@
-framework module MD5 {
-  umbrella header "MD5-umbrella.h"
-
-  export *
-  module * { export * }
-}
